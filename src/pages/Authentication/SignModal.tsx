@@ -101,7 +101,7 @@ const SignModal:React.FC<State> = ({showModal, setShowModal}) => {
                   
                 </div>
                 <div className="relative p-6 flex-auto">
-                  <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
+                  <div className="my-4 text-blueGray-500 text-lg leading-relaxed">
                   <form onSubmit={handleSubmit}>
                     <div className="">
                       <label className="mb-2.5 block font-medium text-black dark:text-white">
@@ -186,7 +186,7 @@ const SignModal:React.FC<State> = ({showModal, setShowModal}) => {
     
                  
                   </form>
-                  </p>
+                  </div>
                 </div>
               
               </div>

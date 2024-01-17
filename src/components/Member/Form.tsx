@@ -1,32 +1,28 @@
 import React, { useState } from 'react';
-import {
-  useFetchMemberTypeQuery,
-  usePostMemberMutation,
-} from '../../features/members/apiSlice';
+import { useFetchMemberTypeQuery, usePostMemberMutation,} from '../../features/members/apiSlice';
 import { useNavigate } from 'react-router-dom';
 import addImg from '../../images/icon/addImg.png';
-type Data = {
+type TinitialState = {
   fullname: string;
-
   membertypes: string;
   position: string;
   images: any;
 };
-export type data = {
-  id: number;
-  name: string;
-};
-
-const initialState = {
+const initialState: TinitialState = {
   fullname: '',
   membertypes: '',
   position: '',
   images: '',
 };
 
+export type Titem = {
+  id: number;
+  name: string;
+};
+
 const Form = () => {
   const [showimg, setShowimg] = useState<string>();
-  const [formValue, setFormValue] = useState<Data>(initialState);
+  const [formValue, setFormValue] = useState(initialState);
   const { fullname, position, membertypes, images } = formValue;
   const [load, setLoad] = useState<boolean>(false);
   const postData = new FormData();
@@ -37,7 +33,7 @@ const Form = () => {
 
   let content;
   if (isSuccess) {
-    content = data?.map((item: data, index: number) => {
+    content = data?.map((item: Titem, index: number) => {
       return (
         <option key={index} value={item.id}>
           {item.name}
@@ -47,15 +43,16 @@ const Form = () => {
   } else if (isError) {
     console.error('Error fetching data', 'Member Types');
   }
-  const handleMember = (e: React.ChangeEvent<HTMLSelectElement>) => {
+
+  const handleMember = (e: React.ChangeEvent<HTMLSelectElement>):void => {
     setFormValue({ ...formValue, membertypes: e.target.value });
   };
-  const handleFullname = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFullname = (e: React.ChangeEvent<HTMLInputElement>):void => {
     setFormValue({ ...formValue, fullname: e.target.value });
   };
 
-  const handleImg = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let files = e.target.files;
+  const handleImg = (e: React.ChangeEvent<HTMLInputElement>):void => {
+    let files:FileList | null = e.target.files;
 
     if (files) {
       setFormValue({ ...formValue, images: files[0] });
@@ -63,7 +60,7 @@ const Form = () => {
     }
   };
 
-  const handlePosition = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePosition = (e: React.ChangeEvent<HTMLInputElement>):void => {
     setFormValue({ ...formValue, position: e.target.value });
   };
   const postSubmit = async (e: React.FormEvent<HTMLButtonElement>) => {
@@ -95,22 +92,22 @@ const Form = () => {
     }
   };
 
-  const btnDisabled = !fullname || !position || !membertypes || !images;
+  const btnDisabled:boolean = !fullname || !position || !membertypes || !images;
   return (
     <>
       <form>
         <div className="space-y-12">
           <div className=" pb-12">
-            <h2 className="text-base font-semibold leading-7 text-gray-900">
+            <h2 className="text-base font-semibold leading-7 ">
               Personal Information
             </h2>
-            <p className="mt-1 text-sm leading-6 text-gray-600">
+            <p className="mt-1 text-sm leading-6 ">
               Use a permanent address where you can receive mail.
             </p>
             <div className=" col-span-full">
               <label
                 htmlFor="photo"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-sm font-medium leading-6"
               >
                 Photo
               </label>
@@ -140,7 +137,7 @@ const Form = () => {
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="sm:col-span-3">
                 <label
-                  htmlFor="first-name"
+                  htmlFor="fullname"
                   className="block text-sm font-medium leading-6"
                 >
                   Full name
@@ -158,55 +155,52 @@ const Form = () => {
                   />
                 </div>
               </div>
-            
             </div>
             <div className="mt-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-            <div className="sm:col-span-3">
-              <label
-                htmlFor="last-name"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Position
-              </label>
-              <div className="mt-2">
-                <input
-                  value={position}
-                  onChange={handlePosition}
-                  type="text"
-                  name="position"
-                  id="last-name"
-                  autoComplete="family-name"
-                  className="block w-full px-2 rounded-md border-0 py-1.5  shadow-sm ring-1 ring-inset  sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-            </div>
-            <div className="mt-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-         
-
-            <div className="sm:col-span-3">
-              <label
-                htmlFor="country"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                MemberType*
-              </label>
-              <div className="mt-2">
-                <select
-                  onChange={handleMember}
-                  id="memberType"
-                  name="memberType"
-                  defaultValue="default"
-                  autoComplete="partner-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+              <div className="sm:col-span-3">
+                <label
+                  htmlFor="position"
+                  className="block text-sm font-medium leading-6 text-gray-900"
                 >
-                  <option disabled value="default">
-                    Partner Secin
-                  </option>
-                  {content}
-                </select>
+                  Position
+                </label>
+                <div className="mt-2">
+                  <input
+                    value={position}
+                    onChange={handlePosition}
+                    type="text"
+                    name="position"
+                    id="fullname"
+                    autoComplete="fullname"
+                    className="block w-full px-2 rounded-md border-0 py-1.5  shadow-sm ring-1 ring-inset  sm:text-sm sm:leading-6"
+                  />
+                </div>
               </div>
             </div>
+            <div className="mt-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+              <div className="sm:col-span-3">
+                <label
+                  htmlFor="MemberType"
+                  className="block text-sm font-medium leading-6 "
+                >
+                  MemberType*
+                </label>
+                <div className="mt-2">
+                  <select
+                    onChange={handleMember}
+                    id="memberType"
+                    name="memberType"
+                    defaultValue="default"
+                    autoComplete="partner-name"
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                  >
+                    <option disabled value="default">
+                      Partner Secin
+                    </option>
+                    {content}
+                  </select>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -215,7 +209,7 @@ const Form = () => {
           <button
             onClick={() => history.back()}
             type="button"
-            className="text-sm font-semibold leading-6 text-gray-900"
+            className="text-sm font-semibold leading-6 "
           >
             Cancel
           </button>

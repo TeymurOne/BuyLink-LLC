@@ -4,14 +4,14 @@ import {
   useUpdateMemberMutation,
 } from '../../features/members/apiSlice';
 import { useLocation, useNavigate } from 'react-router-dom';
-type Data = {
+type IDataApi = {
   fullname: string;
 
   membertypes: string;
   posotion_formvalue: string;
   images: any;
 };
-type data = {
+type item = {
   id: number;
   name: string;
 };
@@ -22,24 +22,24 @@ const EditForm = () => {
   const { isSuccess, data, isError } = useFetchMemberTypeQuery();
   const [dataEdit] = useUpdateMemberMutation();
   const [showimg, setShowimg] = useState<string>();
-  const location = useLocation();
+  const location  = useLocation();
   const postData = new FormData();
   const { full_name, position, image, member_type } = location.state?.data.data;
 
   const idUrl: number = location.state.id;
 
-  const initialState = {
+  const initialState:IDataApi = {
     fullname: full_name,
     membertypes: member_type?.id,
     posotion_formvalue: position,
     images: '',
   };
 
-  const [formValue, setFormValue] = useState<Data>(initialState);
+  const [formValue, setFormValue] = useState(initialState);
   const { fullname, posotion_formvalue, membertypes } = formValue;
 
   if (isSuccess) {
-    (content = data?.map((item: data, index: number) => {
+    (content = data?.map((item: item, index: number) => {
       return (
         <option key={index} value={item.id} selected={item.id===member_type.id}>
           {item.name}
@@ -61,7 +61,7 @@ const EditForm = () => {
     setFormValue({ ...formValue, membertypes: e.target.value });
   };
   const handleImg = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let files = e.target.files;
+    let files:FileList | null = e.target.files;
 
     if (files) {
       setFormValue({ ...formValue, images: files[0] });
@@ -87,7 +87,7 @@ const EditForm = () => {
     <>
       <form>
         <div className="space-y-5">
-          <h2 className="text-base font-semibold leading-7 text-gray-900">
+          <h2 className="text-base font-semibold leading-7 ">
             Personal Information
           </h2>
           <p className="mt-1 text-sm leading-6 text-gray-600">
@@ -98,7 +98,7 @@ const EditForm = () => {
             <div className="sm:col-span-3">
               <label
                 htmlFor="first-name"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-sm font-medium leading-6 "
               >
                 Full name
               </label>
@@ -119,7 +119,7 @@ const EditForm = () => {
             <div className="sm:col-span-3">
               <label
                 htmlFor="last-name"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-sm font-medium leading-6 "
               >
                 Position
               </label>
@@ -139,7 +139,7 @@ const EditForm = () => {
             <div className="sm:col-span-12">
               <label
                 htmlFor="country"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-sm font-medium leading-6 "
               >
                 MemberType*
               </label>
@@ -162,7 +162,7 @@ const EditForm = () => {
           <div className=" col-span-full">
             <label
               htmlFor="photo"
-              className="block text-sm font-medium leading-6 text-gray-900"
+              className="block text-sm font-medium leading-6 "
             >
               Photo
             </label>

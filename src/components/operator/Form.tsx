@@ -1,9 +1,9 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
-import { data } from '../Member/Form';
 import { usePostOperatorMutation } from '../../features/operator/apiSlice';
 import { useFetchBranchAllQuery } from '../../features/branch/apiSlice';
+import { IitemBranch } from './CreateForm';
 
 const Form = () => {
   interface Initial {
@@ -12,6 +12,7 @@ const Form = () => {
     email: string;
     branchID: number | null;
   }
+
   const InitialData: Initial = {
     name: '',
     pwd: '',
@@ -38,7 +39,9 @@ const Form = () => {
   let content;
 
   if (isSuccess) {
-    content = data.data?.map((item: data, index: number) => {
+    content = data.data?.map((item: IitemBranch, index: number) => {
+      console.log(item, 'asknkn');
+
       return (
         <option key={index} value={item.id}>
           {item.name}

@@ -4,7 +4,6 @@ import { data } from "../../core/Type/data";
 const Details = () => {
   const details=useLocation()
   const {id, full_name, position, image, member_type:{name} }:data=details.state?.itemAll
-  console.log(details.state?.itemAll);
   
 
   

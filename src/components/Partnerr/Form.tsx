@@ -6,7 +6,7 @@ import addImg from '../../images/icon/addImg.png';
 import { useFetchPartnerrAllQuery, usePostPartnerrAllMutation } from '../../features/partner/apiSlice';
 import { useNavigate } from 'react-router-dom';
 interface Initial {
-  title_: any;
+  title_: any ;
   about_: string;
   description_: any;
   phone_: any;
@@ -26,7 +26,7 @@ const Form = () => {
   const navigate=useNavigate()
   const InitialData = (data?: any): Initial => {
     return {
-      title_: data?.title,
+      title_: data?.title ,
       about_: data?.about,
       description_: data?.description,
       phone_: data?.phone,
@@ -45,38 +45,18 @@ const Form = () => {
   };
   const { data } = useFetchPartnerrAllQuery('');
 
-  const [formValue, setFormValue] = useState<Initial>({
-    ...InitialData(data?.data),
-  });
+  const [formValue, setFormValue] = useState<Initial>({ ...InitialData(data?.data)});
 
   useEffect(() => {
     setFormValue((prevFormValue) => ({
       ...prevFormValue,
       ...InitialData(data?.data),
-    }));
-  }, [data]);
+    }))
+  }, [data])
 
-  const {
-    title_,
-    description_,
-    phone_,
-    address_,
-    website_,
-    facebook_,
-    linkedln_,
-    whatsapp_,
-    twitter_,
-    youtube_,
-    instagram_,
-    cover_,
-    img_,
-    email_,
-    about_,
-  } = formValue;
-  const [imglogo, setLogo] = useState<string>();
-  const [imgcover, setCover] = useState<string>();
-  console.log(formValue, 'initaildata');
-
+  const { title_, description_,  phone_, address_, website_, facebook_,linkedln_, whatsapp_, twitter_, youtube_, instagram_, cover_, img_, email_, about_,} = formValue;
+  const [imglogo, setLogo] = useState<string>('');
+  const [imgcover, setCover] = useState<string>('');
   const [load, setLoad] = useState<boolean>(false);
   const postData = new FormData();
 
@@ -151,7 +131,7 @@ const Form = () => {
     if (img_.length > 0 && img_ !== 'null') {
       postData.append('image', img_);
     }
-    if (cover_.length > 0 && cover_ !== 'null') {
+    if ( cover_.length > 0 && cover_ !== 'null') {
       postData.append('cover', cover_);
     }
     postData.append('facebook', facebook_);
@@ -197,7 +177,7 @@ const Form = () => {
             </p>
             <div className=" col-span-full">
               <label
-                htmlFor="photo"
+                htmlFor="logo"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
                 Logo
@@ -226,7 +206,7 @@ const Form = () => {
             </div>
             <div className=" col-span-full">
               <label
-                htmlFor="photo"
+                htmlFor="cover-photo"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
                 Cover Photo
@@ -404,7 +384,7 @@ const Form = () => {
               </div>
               <div className="lg:col-span-3 col-span-6 ">
                 <label
-                  htmlFor="title"
+                  htmlFor="Twitter"
                   className="block text-sm font-medium leading-6 "
                 >
                   Twitter

@@ -7,6 +7,7 @@ export interface IfetchMemberType {
 export interface IMemberApiResponse {
   id: number;
   full_name: string;
+  member_type:any
   position: string;
   image: string;
 }

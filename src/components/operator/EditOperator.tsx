@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 import { useLocation, useNavigate } from 'react-router-dom';
-import { data } from '../Member/Form';
 import {  useUpdateOperatorMutation } from '../../features/operator/apiSlice';
 import { useFetchBranchAllQuery } from '../../features/branch/apiSlice';
 import { FaArrowLeft } from 'react-icons/fa6';
+import { IitemBranch } from './CreateForm';
 
 const Form = () => {
   const [postOperator] = useUpdateOperatorMutation();
@@ -23,7 +23,7 @@ const Form = () => {
     branchID_: branch?.id,
   };
 
-  const [formValue, setFormValue] = useState<Initial>(InitialData);
+  const [formValue, setFormValue] = useState(InitialData);
   const { name_, email_, branchID_ } = formValue;
   const { isSuccess, data, isError } = useFetchBranchAllQuery('');
   
@@ -32,15 +32,15 @@ const Form = () => {
   const postData = new FormData();
   const navigate = useNavigate();
 
-  const btnDisabled = !name_ || !email_ || !branchID_;
+  const btnDisabled:boolean = !name_ || !email_ || !branchID_;
 
 
   let content;
-  let defaultBranch;
 
   if (isSuccess) {
 
-    content = data?.data.map((item: data, index: number) => {
+    content = data?.data.map((item: IitemBranch, index: number) => {
+      
       return (
         <option key={index} selected={item.id === branch?.id} value={item.id}>
           {item.name}
@@ -48,7 +48,6 @@ const Form = () => {
       );
     });
 
-    defaultBranch = data?.data.find((item: any) => item.id === branch?.id);
   } else if (isError) {
     console.error('Error fetching data', 'Products Types');
   }

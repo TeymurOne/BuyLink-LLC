@@ -1,17 +1,17 @@
 import { IoIosAddCircleOutline } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid';
-import {  useState } from 'react';
-import { IMemberApiResponse, useFetchMemberDataQuery,
+import { useState } from 'react';
+import {
+  IMemberApiResponse,
+  useFetchMemberDataQuery,
 } from '../../features/members/apiSlice';
 import Tbody from './Tbody';
-import Loader from '../../common/Loader';import { useDispatch } from 'react-redux';
+import Loader from '../../common/Loader';
 const CreateForm: React.FC = () => {
   const [page, setPage] = useState<any>(1);
-  const dispatch = useDispatch();
-
-  const [btnDisabl, setbtndisabl] = useState(false);
-  const { data, isSuccess, isLoading } =useFetchMemberDataQuery(page);
+   const { data, isSuccess, isLoading } = useFetchMemberDataQuery(page);
+console.log(data, 'api');
 
   let currentPages: any;
 
@@ -29,27 +29,20 @@ const CreateForm: React.FC = () => {
   const pageIncrement = () => {
     if (page < currentPages.length) {
       setPage(page + 1);
-      setbtndisabl(true);
     } else {
-      setbtndisabl(false);
     }
   };
 
-
-
-
   if (isSuccess && data) {
-    console.log(data?.data, 'data');
-    
-    
-    
+
     content = data.data?.map((item: IMemberApiResponse, index: number) => (
       <Tbody key={index} item={item} />
     ));
 
     const pageLength = Math.ceil(data?.meta?.total / data?.meta?.per_page);
 
-    currentPages = Array.from({ length: pageLength }).map((_, index: number) => (
+    currentPages = Array.from({ length: pageLength }).map(
+      (_, index: number) => (
         <button
           onClick={() => handlePagination(index + 1)}
           key={index}
@@ -87,35 +80,33 @@ const CreateForm: React.FC = () => {
         <Loader />
       ) : (
         <div className="rounded-sm   shadow-default dark:border-strokedark dark:bg-boxdark ">
-            <div className="max-w-full  overflow-x-auto">
-              <table className="w-full table-auto">
-                <thead>
-                  <tr className="bg-gray-2 text-[14px] text-left dark:bg-meta-4">
-                    <th className="min-w-[50px] py-4 px-4  font-medium ">
-                      ID
-                    </th>
-                    <th className="min-w-[120px] py-4 px-4  lg:pl-10  md:pl-4  sm:pl-0 font-medium  ">
-                      IMAGE
-                    </th>
-                    <th className="min-w-[120px] py-4 px-4 font-medium ">
-                      MEMBERTYPE
-                    </th>
-                    <th className="min-w-[120px] py-4 px-4 font-medium ">
-                      FULL NAME
-                    </th>
-                    <th className="min-w-[120px] py-4 px-4 font-medium ">
-                      POSITION
-                    </th>
+          <div className="max-w-full  overflow-x-auto">
+            <table className="w-full table-auto">
+              <thead>
+                <tr className="bg-gray-2 text-[14px] text-left dark:bg-meta-4">
+                  <th className="min-w-[50px] py-4 px-4  font-medium ">ID</th>
+                  <th className="min-w-[120px] py-4 px-4  lg:pl-10  md:pl-4  sm:pl-0 font-medium  ">
+                    IMAGE
+                  </th>
+                  <th className="min-w-[120px] py-4 px-4 font-medium ">
+                    MEMBERTYPE
+                  </th>
+                  <th className="min-w-[120px] py-4 px-4 font-medium ">
+                    FULL NAME
+                  </th>
+                  <th className="min-w-[120px] py-4 px-4 font-medium ">
+                    POSITION
+                  </th>
 
-                    <th className=" min-w-[120px] py-4 px-4  font-medium ">
-                      Actions
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>{content}</tbody>
-              </table>
-            </div>
-      </div>
+                  <th className=" min-w-[120px] py-4 px-4  font-medium ">
+                    Actions
+                  </th>
+                </tr>
+              </thead>
+              <tbody>{content}</tbody>
+            </table>
+          </div>
+        </div>
       )}
       <div className="flex items-center justify-between my-4  border-gray-200  px-4 py-3 sm:px-6">
         <div className="flex flex-1 justify-between sm:hidden">
@@ -135,7 +126,7 @@ const CreateForm: React.FC = () => {
         {currentPages?.length > 1 && (
           <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
             <div>
-              <p className="text-sm text-gray-700">
+              <p className="text-sm ">
                 Showing <span className="font-medium">1</span> to
                 <span className="font-medium">10</span> of
                 <span className="font-medium">97</span> results

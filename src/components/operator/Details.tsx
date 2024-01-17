@@ -3,8 +3,10 @@ import { useLocation } from 'react-router-dom';
 
 const Details = () => {
   const details = useLocation();
-  const { id, name,email,  } = details.state?.itemAll;
-  console.log(details.state);
+  const destruct=details.state?.itemAll
+  const { id, name,email,  } = destruct
+
+  
 
   return (
     <>
@@ -23,7 +25,7 @@ const Details = () => {
             Branch
           </span>
           <p className=" font-medium text-black dark:text-white ">
-            {details?.state.itemAll.branch.name}
+            {destruct?.branch.name}
           </p>
         </div>
         <p className="border-b border-stroke  dark:border-strokedark  py-1"></p>

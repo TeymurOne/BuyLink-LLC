@@ -7,14 +7,13 @@ import {
   useDeleteOperatorMutation,
   useLazyUpdateOperatorGetQuery,
 } from '../../features/operator/apiSlice';
+import { IitemApiOperator } from './CreateForm';
 
 export interface TbodyProps {
-  item: any;
+  item: IitemApiOperator;
 }
 
 const Tbody: React.FC<TbodyProps> = ({ item }) => {
-
-  
   const [deletePost] = useDeleteOperatorMutation();
   const [updateGet] = useLazyUpdateOperatorGetQuery();
 
@@ -24,8 +23,7 @@ const Tbody: React.FC<TbodyProps> = ({ item }) => {
     const itemAll = item;
     navigate('/admin/operatorDetails', { state: { itemAll } });
   };
- 
-  
+
   const handleRemove = async (id: number) => {
     const result = await Swal.fire({
       title: 'Are you sure?',
@@ -57,12 +55,10 @@ const Tbody: React.FC<TbodyProps> = ({ item }) => {
   const handleEdit = async (id: number) => {
     const resUpdate = await updateGet(id);
     console.log(resUpdate);
-    if (resUpdate.status==='fulfilled') {
-      const  editData=resUpdate?.data
-      navigate('/admin/operatorEdit', { state: { data:editData, id } });
+    if (resUpdate.status === 'fulfilled') {
+      const editData = resUpdate?.data;
+      navigate('/admin/operatorEdit', { state: { data: editData, id } });
     }
-
-
   };
 
   return (

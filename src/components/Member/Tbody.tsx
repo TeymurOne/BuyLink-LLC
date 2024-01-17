@@ -14,7 +14,6 @@ interface TbodyProps {
 }
 
 const Tbody: React.FC<TbodyProps> = ({ item }) => {
-console.log(item, 'ite j');
 
   
   const [deletePost] = useDeleteMemberMutation();
@@ -76,7 +75,7 @@ console.log(item, 'ite j');
         </td>
         <td className="border-b border-[#eee] py-5 px-4  dark:border-strokedark xl:pl-11">
           <div className="font-medium w-11 h-10  dark:text-white">
-            <img src={item.image} className="w-full h-full rounded-full" alt="" />
+            <img src={item?.image} className="w-full h-full rounded-full" alt="" />
           </div>
         </td>
         <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
@@ -84,11 +83,11 @@ console.log(item, 'ite j');
         </td>
         <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
           <p className="inline-flex rounded-full bg-opacity-10 py-1 px-3 text-sm font-medium ">
-            {item.full_name}
+            {item?.full_name}
           </p>
         </td>
         <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-          <p className="inline-flex rounded-full bg-opacity-10 py-1 px-3 text-sm font-medium ">{item.position}</p>
+          <p className="inline-flex rounded-full bg-opacity-10 py-1 px-3 text-sm font-medium ">{item?.position}</p>
         </td>
 
         <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
