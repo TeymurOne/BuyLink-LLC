@@ -71,6 +71,8 @@ const Tbody: React.FC<TbodyProps> = ({ item }) => {
 
   }, [handleRemove])
 
+
+
   return (
     <>
       <tr>

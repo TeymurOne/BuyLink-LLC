@@ -7,6 +7,10 @@ module.exports = {
   theme: {
     fontFamily: {
       satoshi: ['Satoshi', 'sans-serif'],
+      poppins: ['Poppins', 'sans-serif'],
+      manrope:['Manrope', "sans-serif"],
+      roboto:['Roboto', "sans-serif"],
+      grotesk:['Space Grotesk', 'sans-serif']
     },
     colors: {
       current: 'currentColor',
@@ -54,6 +58,7 @@ module.exports = {
       '2xsm': '375px',
       '2xl':"1200px",
       xsm: '425px',
+      "2md":"700px",
       '3xl': '2000px',
       ...defaultTheme.screens,
     },

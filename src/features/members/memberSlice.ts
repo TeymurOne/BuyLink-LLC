@@ -16,6 +16,7 @@ export const commonSlice=createSlice({
               lat: action.payload.lat,
               lng: action.payload.lng
             };
+            
           }
 
     }

@@ -113,7 +113,7 @@ const coreRoutes = [
     component: CreateForm,
   },
   {
-    path: '/admin/editMember',
+    path: '/admin/editMember/:id',
     title: 'editMember',
     component: editMember,
   },
@@ -123,7 +123,7 @@ const coreRoutes = [
     component: editProduct,
   },
   {
-    path: '/admin/details',
+    path: '/admin/member/details/:id',
     title: 'details',
     component: details,
   },

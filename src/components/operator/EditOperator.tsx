@@ -5,6 +5,7 @@ import {  useUpdateOperatorMutation } from '../../features/operator/apiSlice';
 import { useFetchBranchAllQuery } from '../../features/branch/apiSlice';
 import { FaArrowLeft } from 'react-icons/fa6';
 import { IitemBranch } from './CreateForm';
+import { useTranslation } from 'react-i18next';
 
 const Form = () => {
   const [postOperator] = useUpdateOperatorMutation();
@@ -17,6 +18,8 @@ const Form = () => {
     email_: string;
     branchID_: number | string;
   }
+  const { t } = useTranslation();
+
   const InitialData: Initial = {
     name_: name,
     email_: email,
@@ -95,7 +98,7 @@ const Form = () => {
         <div className="space-y-12">
           <div className=" pb-12">
           <h2 className="mb-2 flex items-center space-x-4 font-semibold italic">
-        Operator Edit: <span>{id}</span> <FaArrowLeft onClick={()=>window.history.back()} />
+        {t("operator.0")}  {t("operator.8")} : <span>{id}</span> <FaArrowLeft onClick={()=>window.history.back()} />
       </h2>
 
             <div className="mt-10 grid grid-cols-6 gap-x-6 gap-y-8 sm:grid-cols-6">

@@ -1,0 +1,76 @@
+{
+  "member": {
+    "0": "Üzvlər",
+    "1": "Üzv yarat",
+    "2": "Şəkil",
+    "3": "Üzv tipləri",
+    "4": "Ad",
+    "5": "Vəzifə ",
+    "6": "Hərəkətlər ",
+    "7": "Dəyiş ",
+    "8": "Ləğv et ",
+    "9": "Saxla ",
+    "10": "Dəyiş"
+  },
+  "branch": {
+    "0": "Filial",
+    "1": "Yarat Filial",
+    "2": "Ad",
+    "3": "Lat",
+    "4": "Lng",
+    "5": "Ünvan ",
+    "6": "Hərəkətlər ",
+    "7": "Dəyiş ",
+    "8": "Ləğv et ",
+    "9": "Saxla ",
+    "10": "Dəyiş"
+  },
+  "product": {
+    "0": "Məhsul ",
+    "1": "Yarat Mıhsul",
+    "2": "Şəkil",
+    "3": "Başlıq",
+    "4": "Məzmun",
+    "5": "Qiymət ",
+    "6": "Endirilmiş Price ",
+    "7": "Kateqoriya ",
+    "8": "Hərəkətlət ",
+    "9": "Ləgv et ",
+    "10": "Saxla",
+    "11": "Dəyış"
+  },
+  "operator": {
+    "0": "İşçi ",
+    "1": "Yarat İşçi",
+    "2": "Filiali",
+    "3": "Ad",
+    "4": "Email",
+
+    "5": "Hərəkətlər ",
+    "6": "Ləğv et ",
+    "7": "Saxla",
+    "8": "Dəyiş"
+  },
+  "partnerinfo": {
+    "0": "Parner Məlumat ",
+    "1": "Logo",
+    "3": "Cover Şəkil",
+    "4": "Ad",
+
+    "5": "Haqqında ",
+    "6": "Ünvan ",
+    "7": "Məzmun",
+    "8": "Email",
+    "9": "Telefon ",
+    "10": "Facebook ",
+    "11": "Whatsapp",
+    "12": "Twitter",
+    "13": "Linkedln ",
+    "14": "YouTube ",
+    "15": "Instagram",
+    "16": "Ləgv et",
+    "17": "Saxla"
+  }
+}
+
+

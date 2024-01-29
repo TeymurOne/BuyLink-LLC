@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useEffect, useState } from 'react';
+import  { Suspense, lazy, useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,6 +13,7 @@ import ProtectedRoutes from './private/ProtectedRoutes';
 import ErrorPage from './components/ErrorPage';
 import Index from './components/PageIndex/Index';
 import routes from './routes';
+
 
 const DefaultLayout = lazy(() => import('./layout/DefaultLayout'));
 

@@ -6,6 +6,7 @@ import Tbody from './Tbody';
 import { IpostData } from './Form';
 import Loader from '../../common/Loader';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
+import { useTranslation } from 'react-i18next';
 
 const CreateForm = () => {
   function pageDecrement() {
@@ -58,14 +59,16 @@ const CreateForm = () => {
         </button>
       );
     });
-  }
+  } 
+   const { t } = useTranslation();
+
 
   return (
     <>
       <div className="flex justify-between">
         <div className="flex flex-col">
           <h4 className="mb-6 text-xl font-semibold text-black dark:text-white">
-            Branch
+          {t("branch.0")}
           </h4>
           <input
             type="text"
@@ -78,7 +81,7 @@ const CreateForm = () => {
           className="bg-successOpacity py-4 space-x-2 text-[16px] rounded-sm dark:bg-[#0ab39c26] justify-center flex items-center h-[40px] w-auto px-2 hover:text-white hover:bg-success"
         >
           <IoIosAddCircleOutline />
-          Create Branch
+        {t("branch.1")}
         </Link>
       </div>
       {isLoading ? (
@@ -94,7 +97,7 @@ const CreateForm = () => {
                       ID
                     </th>
                     <th className="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">
-                      Name
+                    {t("branch.2")}
                     </th>
                     <th className="min-w-[120px] py-4 px-8 font-medium text-black dark:text-white">
                       LAT
@@ -103,11 +106,13 @@ const CreateForm = () => {
                       LNG
                     </th>
                     <th className="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">
-                      ADDRESS
+                                     {t("branch.5")}
+
                     </th>
 
                     <th className="py-4   px-4 font-medium text-black dark:text-white">
-                      Actions
+                    {t("branch.6")}
+
                     </th>
                   </tr>
                 </thead>

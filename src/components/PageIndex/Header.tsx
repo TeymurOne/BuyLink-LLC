@@ -13,14 +13,14 @@ export default function Header() {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <header>
+    <header className='bg-[#F3F4F6] font-roboto'>
       <nav
-        className="mx-auto px-4 flex max-w-[1370px] items-center justify-between py-4 lg:px-2"
+        className="mx-auto px-4 flex max-w-[1480px] items-center justify-between py-3 lg:px-2"
         aria-label="Global"
       >
-        <div className="flex lg:flex-1">
+        <div className="flex lg:flex-1 mr-[-180px]">
           <a href="#" className="-m-1.5 p-1.5 w-[67px] h-[75px]">
-            <img className='w-full h-full'  src={logo} alt="Logo" />
+            <img className="w-full h-full" src={logo} alt="Logo" />
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -33,29 +33,29 @@ export default function Header() {
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
-        <div className="hidden lg:flex text-[#00000099] font-roboto lg:gap-x-4 font-semibold text-[16px]">
-          <a href='#about'>About</a>
+        <div className="hidden lg:flex text-[#00000099] font-roboto lg:gap-x-4 font-medium text-[14px]">
+          <a href="#about">About</a>
 
-          <a href='#features'>Features</a>
+          <a href="#features">Features</a>
           <a href="#how-use">How to use</a>
           <a href="#faq">FAQ</a>
           <a href="#footer">Contact us</a>
         </div>
-        <div className="hidden lg:flex text-[#000000de] lg:flex-1 text-[16px] lg:justify-end">
-          <div className="flex space-x-1 items-center">
-            <img src={search} alt="" className='w-[20px] h-[20px]' />
-            <img src={globe} alt=""  className='w-[20px] h-[20px]'/>
-            <select className='bg-transparent' name="" id="">
-            <option value="ENG">ENG</option>
+        <div className="hidden font-normal lg:flex text-[#000000de] lg:flex-1 text-[14px] lg:justify-end">
+          <div className="flex space-x-1 mr-[-50px] items-center">
+            <img src={search} alt="" className="w-[15px] h-[16px]" />
+            <label htmlFor="Search">Search</label>
+            <img src={globe} alt="" className="w-[16px] h-[16px]" />
+            <select className="bg-transparent" name="" id="">
+              <option value="ENG">ENG</option>
 
               <option value="AZE">AZE</option>
-
             </select>
           </div>
           <Link
             to=""
             onClick={() => setShowModal(true)}
-            className="text-sm  text-[#000000de] w-[161px] h-[44px]    flex items-center justify-center rounded-sm     "
+            className="text-[14px]  text-[#000000de] w-[161px] h-[44px]    flex items-center justify-center rounded-sm     "
           >
             Login
           </Link>
@@ -78,7 +78,7 @@ export default function Header() {
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5 w-[67px] h-[75px]">
               <span className="sr-only">Your Company</span>
-              <img  src={logo} className='w-full h-full' alt="Logo" />
+              <img src={logo} className="w-full h-full" alt="Logo" />
             </a>
             <button
               type="button"
@@ -92,7 +92,7 @@ export default function Header() {
           <div className="mt-6 ">
             <div className="-my-6 divide-y">
               <div className="space-y-2 py-6">
-              <a
+                <a
                   href="#about"
                   onClick={() => setMobileMenuOpen(false)}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 "
@@ -130,17 +130,18 @@ export default function Header() {
               </div>
               <div className="py-6">
                 <Link
-                 to=""   onClick={() => setShowModal(true)}
+                  to=""
+                  onClick={() => setShowModal(true)}
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Log in
                 </Link>
                 <Link
-            to=""
-            className="text-sm text-white w-[161px] h-[44px]    flex items-center justify-center rounded-sm  bg-[#000000de]    "
-          >
-            Become a partner
-          </Link>
+                  to=""
+                  className="text-sm text-white w-[161px] h-[44px]    flex items-center justify-center rounded-sm  bg-[#000000de]    "
+                >
+                  Become a partner
+                </Link>
               </div>
             </div>
           </div>
@@ -150,5 +151,3 @@ export default function Header() {
     </header>
   );
 }
-
-

@@ -2,16 +2,18 @@ import { IoIosAddCircleOutline } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid';
 import { useState } from 'react';
-import {
-  IMemberApiResponse,
-  useFetchMemberDataQuery,
-} from '../../features/members/apiSlice';
+import { IMemberApiResponse, useFetchMemberDataQuery} from '../../features/members/apiSlice';
 import Tbody from './Tbody';
 import Loader from '../../common/Loader';
+import { useTranslation } from 'react-i18next';
 const CreateForm: React.FC = () => {
+  const { t } = useTranslation();
+ 
+
+
+
   const [page, setPage] = useState<any>(1);
-   const { data, isSuccess, isLoading } = useFetchMemberDataQuery(page);
-console.log(data, 'api');
+  const { data, isSuccess, isLoading } = useFetchMemberDataQuery(page);
 
   let currentPages: any;
 
@@ -33,8 +35,8 @@ console.log(data, 'api');
     }
   };
 
-  if (isSuccess && data) {
 
+  if (isSuccess && data) {
     content = data.data?.map((item: IMemberApiResponse, index: number) => (
       <Tbody key={index} item={item} />
     ));
@@ -60,7 +62,7 @@ console.log(data, 'api');
       <div className="flex justify-between">
         <div className="flex flex-col">
           <h4 className="mb-6 text-xl font-semibold text-black dark:text-white">
-            Members
+          {t('member.0')}
           </h4>
           <input
             type="text"
@@ -73,7 +75,7 @@ console.log(data, 'api');
           className="bg-successOpacity py-3 space-x-2 text-[16px] rounded-md dark:bg-[#0ab39c26] justify-center flex items-center h-[40px] w-[163px] hover:text-white hover:bg-success"
         >
           <IoIosAddCircleOutline />
-          Create Member
+         {t("member.1")}
         </Link>
       </div>
       {isLoading ? (
@@ -86,20 +88,20 @@ console.log(data, 'api');
                 <tr className="bg-gray-2 text-[14px] text-left dark:bg-meta-4">
                   <th className="min-w-[50px] py-4 px-4  font-medium ">ID</th>
                   <th className="min-w-[120px] py-4 px-4  lg:pl-10  md:pl-4  sm:pl-0 font-medium  ">
-                    IMAGE
+                    {t("member.2")}
                   </th>
                   <th className="min-w-[120px] py-4 px-4 font-medium ">
-                    MEMBERTYPE
+                  {t("member.3")}
                   </th>
                   <th className="min-w-[120px] py-4 px-4 font-medium ">
-                    FULL NAME
+                  {t("member.4")}
                   </th>
                   <th className="min-w-[120px] py-4 px-4 font-medium ">
-                    POSITION
+                  {t("member.5")}
                   </th>
 
                   <th className=" min-w-[120px] py-4 px-4  font-medium ">
-                    Actions
+                  {t("member.6")}
                   </th>
                 </tr>
               </thead>

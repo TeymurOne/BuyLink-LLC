@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import us from '../images/flagTranslate/us.svg';
+import { useTranslation } from 'react-i18next';
+import i18n from '../i18n/İ18n';
 
 const Translate = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -32,13 +34,21 @@ const Translate = () => {
     document.addEventListener('keydown', keyHandler);
     return () => document.removeEventListener('keydown', keyHandler);
   });
+  const { t } = useTranslation();
+  const handleClick = (lang:string) => {
+
+  
+    
+    i18n.changeLanguage(lang);
+    localStorage.setItem("lng", lang)
+  };
 
   return (
     <li className="relative">
-      <Link
+      <button
         ref={trigger}
         onClick={() => setDropdownOpen(!dropdownOpen)}
-        to="#"
+       
         className="relative flex h-8.5 w-8.5 items-center justify-center rounded-full border-[0.5px] border-stroke bg-gray hover:text-primary dark:border-strokedark dark:bg-meta-4 dark:text-white"
       >
         <span className="relative  right-0 z-1 h-2 w-4 rounded-full top-[-5px]">
@@ -48,7 +58,7 @@ const Translate = () => {
             alt="Usa Flag"
           />
         </span>
-      </Link>
+      </button>
 
       <div
         ref={dropdown}
@@ -62,77 +72,30 @@ const Translate = () => {
 
         <ul className="flex h-auto flex-col overflow-y-auto">
           <li>
-            <Link
+            <Link onClick={()=>handleClick("en")}
               className="flex flex-col gap-2.5 border-t border-stroke px-4.5 py-3 hover:bg-gray-2 dark:border-strokedark dark:hover:bg-meta-4"
               to="#"
             >
               <p className="text-sm flex space-x-2">
               <img  className=' w-[24px] rounded-md' src={us} alt="Usa Flag" />
-                <span className="text-black dark:text-white">English</span>
+                <span className="text-black dark:text-white">EN</span>
                 
               </p>
             </Link>
           </li>
           <li>
-            <Link
+          <Link onClick={()=>handleClick("az")}
               className="flex flex-col gap-2.5 border-t border-stroke px-4.5 py-3 hover:bg-gray-2 dark:border-strokedark dark:hover:bg-meta-4"
               to="#"
             >
               <p className="text-sm flex space-x-2">
               <img  className=' w-[24px] rounded-md' src={us} alt="Usa Flag" />
-                <span className="text-black dark:text-white">English</span>
+                <span className="text-black dark:text-white">AZE </span>
                 
               </p>
             </Link>
           </li>
-          <li>
-            <Link
-              className="flex flex-col gap-2.5 border-t border-stroke px-4.5 py-3 hover:bg-gray-2 dark:border-strokedark dark:hover:bg-meta-4"
-              to="#"
-            >
-              <p className="text-sm flex space-x-2">
-              <img  className=' w-[24px] rounded-md' src={us} alt="Usa Flag" />
-                <span className="text-black dark:text-white">English</span>
-                
-              </p>
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="flex flex-col gap-2.5 border-t border-stroke px-4.5 py-3 hover:bg-gray-2 dark:border-strokedark dark:hover:bg-meta-4"
-              to="#"
-            >
-              <p className="text-sm flex space-x-2">
-              <img  className=' w-[24px] rounded-md' src={us} alt="Usa Flag" />
-                <span className="text-black dark:text-white">English</span>
-                
-              </p>
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="flex flex-col gap-2.5 border-t border-stroke px-4.5 py-3 hover:bg-gray-2 dark:border-strokedark dark:hover:bg-meta-4"
-              to="#"
-            >
-              <p className="text-sm flex space-x-2">
-              <img  className=' w-[24px] rounded-md' src={us} alt="Usa Flag" />
-                <span className="text-black dark:text-white">English</span>
-                
-              </p>
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="flex flex-col gap-2.5 border-t border-stroke px-4.5 py-3 hover:bg-gray-2 dark:border-strokedark dark:hover:bg-meta-4"
-              to="#"
-            >
-              <p className="text-sm flex space-x-2">
-              <img  className=' w-[24px] rounded-md' src={us} alt="Usa Flag" />
-                <span className="text-black dark:text-white">English</span>
-                
-              </p>
-            </Link>
-          </li>
+      
         </ul>
       </div>
     </li>

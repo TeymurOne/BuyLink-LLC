@@ -1,0 +1,81 @@
+{
+  "translation":{
+    "member": {
+      "0": "Members",
+      "1": "Create Member",
+      "2": "Image",
+      "3": "Membertype",
+      "4": "Full Name",
+      "5": "Position ",
+      "6": "Actions ",
+      "7": "Change ",
+      "8": "Cancal ",
+      "9": "Save ",
+      "10": "Update"
+    },
+    "branch": {
+      "0": "Branch ",
+      "1": "Create Branch",
+      "2": "Name",
+      "3": "Lat",
+      "4": "Lng",
+      "5": "ADDRESS ",
+      "6": "Actions ",
+      "7": "Change ",
+      "8": "Cancal ",
+      "9": "Save ",
+      "10": "Update"
+    },
+    "product": {
+      "0": "Products ",
+      "1": "Create Products",
+      "2": "Image",
+      "3": "Title",
+      "4": "Description",
+      "5": "Price ",
+      "6": "Discount Price ",
+      "7": "Category ",
+      "8": "Actions ",
+      "9": "Cancel ",
+      "10": "Save",
+      "11": "Update"
+    },
+    "operator": {
+      "0": "Operator ",
+      "1": "Create Operator",
+      "2": "Branch",
+      "3": "Name",
+      "4": "Email",
+  
+      "5": "Actions ",
+      "6": "Cancel ",
+      "7": "Save",
+      "8": "Update"
+    },
+    "partnerinfo": {
+      "0": "Parner Info ",
+      "1": "Logo",
+      "3": "Cover Photo",
+      "4": "Title",
+  
+      "5": "About ",
+      "6": "Address ",
+      "7": "Description",
+      "8": "Email",
+      "9": "Phone ",
+      "10": "Facebook ",
+      "11": "Whatsapp",
+      "12": "Twitter",
+      "13": "Linkedln ",
+      "14": "YouTube ",
+      "15": "Instagram",
+      "16": "Cancel",
+      "17": "Save"
+  
+    }
+  
+
+  }
+ 
+}
+

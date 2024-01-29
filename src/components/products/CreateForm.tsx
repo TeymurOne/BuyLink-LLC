@@ -6,6 +6,7 @@ import {  useFetchProducPaginationQuery } from '../../features/product/apiSlice'
 import Loader from '../../common/Loader';
 import { useState } from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
+import { useTranslation } from 'react-i18next';
 
 const CreateForm = () => {
   let content;
@@ -34,6 +35,8 @@ const CreateForm = () => {
     } else {
     }
   };
+  const { t } = useTranslation();
+
 
 
 
@@ -64,14 +67,14 @@ const CreateForm = () => {
       <div className="flex ">
         <div className="flex  2xsm:flex-row flex-col  justify-between w-full    ">
           <h4 className="mb-6 text-xl font-semibold text-black dark:text-white">
-            Products:
+          {t("product.0")}
           </h4>
           <Link
             to="/admin/productform"
             className="bg-successOpacity py-5 w-9/12  space-x-2 text-[16px] px-2 rounded-sm dark:bg-[#0ab39c26] justify-center flex items-center h-[40px] max-w-[153px] hover:text-white hover:bg-success"
           >
             <IoIosAddCircleOutline />
-            Create Product
+          {t("product.1")}
           </Link>
         </div>
       </div>
@@ -93,26 +96,27 @@ const CreateForm = () => {
                   ID
                 </th>
                 <th className="min-w-[120px] py-4 px-4  font-medium text-black dark:text-white xl:pl-11">
-                  IMAGE
+                {t("product.2")}
+
                 </th>
                 <th className="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">
-                  Title
+                {t("product.3")}
                 </th>
                 <th className="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">
-                  Description
+                {t("product.4")}
                 </th>
                 <th className="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">
-                  Price
+                {t("product.5")}
                 </th>
                 <th className="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">
-                  Discount Price
+                {t("product.6")}
                 </th>
                 <th className="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">
-                  Category
+                {t("product.7")}
                 </th>
 
                 <th className="py-4 px-4  font-medium text-black dark:text-white">
-                  Actions
+                {t("product.8")}
                 </th>
               </tr>
             </thead>

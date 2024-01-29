@@ -15,52 +15,52 @@ const Slider = () => {
    
     <>
      
-        <div  className='flex items-center xl:py-20 md:py-16 py-10 justify-between mx-auto max-w-[1240px]'>
-          <div className="item">
+        <div  className='flex items-center py-14 justify-between mx-auto max-w-[140px]'>
+          <div className="item w-[137px] h-[17px]">
             <img
-              className="hover:contrast-100 px-2 contrast-0"
+              className="hover:contrast-100 w-full h-full px-2 contrast-0"
               src={slide1}
               alt="OpenZeppelin "
             />
           </div>
-          <div className="item">
+          <div className="item w-[137px] h-[17px]">
           <img
-              className="hover:contrast-100 px-2 contrast-0"
+              className="hover:contrast-100 w-full h-full px-2 contrast-0"
               src={slide2}
               alt="OpenZeppelin "
             />
           </div>
-          <div className="item">
+          <div className="item w-[137px] h-[17px]">
           <img
-              className="hover:contrast-100 px-2 contrast-0"
+              className="hover:contrast-100 w-full h-full px-2 contrast-0"
               src={slide3}
               alt="OpenZeppelin "
             />
           </div>
-          <div className="item">
+          <div className="item w-[137px] h-[17px]">
           <img
-              className="hover:contrast-100 px-2 contrast-0"
+              className="hover:contrast-100 w-full h-full px-2 contrast-0"
               src={slide4}
               alt="OpenZeppelin "
             />
           </div>
-          <div className="item">
+          <div className="item w-[137px] h-[17px]">
           <img
-              className="hover:contrast-100 px-2 contrast-0"
+              className="hover:contrast-100 w-full h-full px-2 contrast-0"
               src={slide5}
               alt="OpenZeppelin "
             />
           </div>
-          <div className="item">
+          <div className="item w-[137px] h-[17px]">
           <img
-              className="hover:contrast-100 px-2 contrast-0"
+              className="hover:contrast-100 w-full h-full px-2 contrast-0"
               src={slide6}
               alt="OpenZeppelin "
             />
           </div>
-          <div className="item">
+          <div className="item w-[137px] h-[17px]">
           <img
-              className="hover:contrast-100 px-2 contrast-0"
+              className="hover:contrast-100 w-full h-ful px-2 contrast-0"
               src={slide7}
               alt="OpenZeppelin "
             />

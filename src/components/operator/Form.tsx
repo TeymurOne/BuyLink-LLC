@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { usePostOperatorMutation } from '../../features/operator/apiSlice';
 import { useFetchBranchAllQuery } from '../../features/branch/apiSlice';
 import { IitemBranch } from './CreateForm';
+import { useTranslation } from 'react-i18next';
 
 const Form = () => {
   interface Initial {
@@ -80,6 +81,8 @@ const Form = () => {
       setLoad(false);
     }
   };
+  const { t } = useTranslation();
+
   return (
     <>
       <form>
@@ -98,7 +101,7 @@ const Form = () => {
                   htmlFor="name"
                   className="block text-sm font-medium leading-6 "
                 >
-                  Name
+                {t("operator.3")} 
                 </label>
                 <div className="mt-2">
                   <input
@@ -140,7 +143,7 @@ const Form = () => {
                   htmlFor="address"
                   className="block text-sm font-medium leading-6 "
                 >
-                  Password
+                  {t("operator.9")}
                 </label>
                 <div className="mt-2">
                   <input
@@ -162,7 +165,7 @@ const Form = () => {
                   htmlFor="branch"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
-                  Branch
+                        {t("operator.2")}
                 </label>
                 <div className="mt-2">
                   <select
@@ -174,7 +177,7 @@ const Form = () => {
                     className="block w-full rounded-md border-0 py-[11px]  shadow-sm ring-1 ring-inset    sm:max-w-xs sm:text-sm sm:leading-6"
                   >
                     <option disabled value="default">
-                      Branch Secin
+                    {t("operator.2")}     {t("operator.10")}
                     </option>
                     {content}
                   </select>
@@ -190,7 +193,7 @@ const Form = () => {
             type="button"
             className="text-sm font-semibold leading-6 text-gray-900"
           >
-            Cancel
+              {t("operator.6")}
           </button>
           {load ? (
             <div
@@ -213,7 +216,7 @@ const Form = () => {
                  shadow-sm hover:bg-indigo-500 focus-visible:outline 
                  focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
               >
-                Save
+                   {t("operator.8")}
               </button>
             </>
           )}

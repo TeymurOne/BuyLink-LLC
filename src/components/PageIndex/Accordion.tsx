@@ -1,78 +1,58 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { HiMinus } from 'react-icons/hi2';
 import { AiOutlinePlus } from 'react-icons/ai';
+import Title from './ui/Title';
 
 const Accordion = () => {
-  const faqItems = [
+  interface Ifaqitems{
+    id:number,
+    question: string,
+    answer:string    
+  }
+  const faqItems:Ifaqitems[] = [
     {
+      id: 1,
       question: 'What is the BUYLINK?',
       answer:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elm, quis nostrud exercitation ullamco laboris nisi',
     },
     {
+      id: 2,
       question: 'Why do we use it??',
       answer:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elm, quis nostrud exercitation ullamco laboris nisi',
     },
     {
+      id: 3,
       question: 'How it works??',
       answer:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elm, quis nostrud exercitation ullamco laboris nisi',
     },
     {
+      id: 4,
       question: 'How to get cash??',
       answer:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elm, quis nostrud exercitation ullamco laboris nisi',
     },
   ];
-  const [showItems, setShowItems] = useState<boolean[]>(faqItems.map(()=>true));
-  const handleShow = (index:number) => {
-    const updatedShowItems = [...showItems];
-    updatedShowItems[index] = !updatedShowItems[index];
-    setShowItems(updatedShowItems);
-    
-    
-
-  
-  };
+  const [curOpen, setCurOpen] = useState<any>(null)
 
   return (
-    <section className="h-auto py-20 mx-auto max-w-[1370px]" id='faq'>
+    <section className="h-auto  mx-auto max-w-[1370px]" >
+      <h2 className='text-center  font-manrope  lg:text-[40px] text-[30px]      leading-8  text-black font-bold' >Frequently Asked Questions</h2>
       <div className="flex justify-between flex-wrap">
-        <div className="w-[30%]  pr-4">
-          <h2 className="text-[60px] leading-[80px] font-bold text-[#000000DE]">
-            Frequently Asked Questions
-          </h2>
-        </div>
-        <div className=' max-w-[764px] w-full px-4 '>
-          {faqItems.map((item, index: number) => {
+        <div className=" w-full mt-10 px-4 ">
+          {faqItems.map((item, index) => {
             return (
-              <div
+              <AccordionItem
+                num={item.id}
                 key={index}
-                className="py-2  border-b-[1px] flex justify-between items-center border-[#C4C4C4 ] w-full pb-2   "
-              >
-                <div className="w-[618px]">
-                  <h2 className="lg:text-[40px] sm:text-[25px] md:text-[32px] text-[#000000de] font-bold">
-                    {item.question}
-                  </h2>
-                  <p
-                    className={`text-[24px] ${
-                      showItems[index]
-                        ? 'overflow-hidden   opacity-0 h-0 transition-all duration-900   pt-0 pb-0 '
-                        : 'pt-8  pb-6 h-auto opacity-100 '
-                    } transition-all duration-500  font-normal normal`}
-                  >
-                    {item.answer}
-                  </p>
-                </div>
-                <button onClick={() => handleShow(index)}>
-                  {showItems[index] ? (
-                    <AiOutlinePlus style={{ height: '100px', width: '40px' }} />
-                  ) : (
-                    <HiMinus style={{ height: '100px', width: '40px' }} />
-                  )}
-                </button>
-              </div>
+                question={item.question}
+                ansver={item.answer}
+                curOpen={curOpen}
+                setCurOpen={setCurOpen}
+
+              />
             );
           })}
         </div>
@@ -82,3 +62,41 @@ const Accordion = () => {
 };
 
 export default Accordion;
+
+function AccordionItem({ num, question, ansver, curOpen, setCurOpen }:any) {
+  const isOpen = num === curOpen
+  function handleToggle() {
+
+    setCurOpen(isOpen? null:num)
+  }
+
+  return (
+    <>
+      <div
+        onClick={handleToggle}
+        className=" cursor-pointer h-auto  border-b-[1px] flex justify-between items-center opacity-90 border-[#C4C4C4 ] w-full pb-2   "
+      >
+        <div className="w-[618px]">
+          <h2 className="lg:text-[36px] py-3 font-manrope text-[20px]  normmal text-[#4C5DF5] font-semibold">
+            {question}
+          </h2>
+          {isOpen && (
+            <p
+              className="text-[20px]  overflow-hidden font-poppins    transition-all duration-900   '
+                    py-6   h-auto opacity-100 "
+            >
+              {ansver}
+            </p>
+          )}
+        </div>
+        <button onClick={handleToggle}>
+          {isOpen ? ( <HiMinus    style={{ height: '50px', width: '30px' }} />
+          ) : (
+            <AiOutlinePlus  onClick={handleToggle} style={{ height: '100px', width: '30px' }} />
+
+          )}
+        </button>
+      </div>
+    </>
+  );
+}

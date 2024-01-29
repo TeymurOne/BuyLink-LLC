@@ -1,12 +1,13 @@
-import {  useState } from 'react';
+import { useState } from 'react';
 import { Map } from './Map';
 import { usePostBranchMutation } from '../../features/branch/apiSlice';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 export interface IpostData {
-  id?:any
+  id?: any;
   name: string;
   address: string;
-  lat: number ;
+  lat: number;
   lng: number;
 }
 const Form = () => {
@@ -30,13 +31,12 @@ const Form = () => {
     setSelectedLng(lng);
   };
   const postData: IpostData = {
-    
-
     name: name,
     address: addres,
     lat: selectedLat,
     lng: selectedLng,
   };
+  const { t } = useTranslation();
 
   const postSubmit = async () => {
     try {
@@ -51,7 +51,7 @@ const Form = () => {
       setLoad(false);
     }
   };
-  const btnDisabled =  !selectedLat || !selectedLng || !addres || !name;
+  const btnDisabled = !selectedLat || !selectedLng || !addres || !name;
 
   return (
     <>
@@ -71,7 +71,7 @@ const Form = () => {
                   htmlFor="Address"
                   className="block text-sm font-medium leading-6"
                 >
-                  Address
+                  {t('branch.5')}
                 </label>
                 <div className="mt-2">
                   <input
@@ -90,7 +90,7 @@ const Form = () => {
                   htmlFor="first-name"
                   className="block text-sm font-medium leading-6 "
                 >
-                  Name
+                  {t('branch.2')}
                 </label>
                 <div className="mt-2">
                   <input
@@ -110,7 +110,8 @@ const Form = () => {
                   htmlFor="map"
                   className="block text-sm font-medium leading-6 "
                 >
-                  Map
+                                    {t("branch.12")}
+
                   <Map
                     selectedLat={selectedLat}
                     selectedLng={selectedLng}
@@ -163,10 +164,7 @@ const Form = () => {
         </div>
 
         <div className="mt-6 flex items-center justify-end gap-x-6">
-          <button
-            type="button"
-            className="text-sm font-semibold leading-6 "
-          >
+          <button type="button" className="text-sm font-semibold leading-6 ">
             Cancel
           </button>
           {load ? (
@@ -180,7 +178,7 @@ const Form = () => {
             </div>
           ) : (
             <>
-             <button
+              <button
                 disabled={btnDisabled}
                 onClick={postSubmit}
                 type="submit"

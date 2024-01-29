@@ -1,17 +1,20 @@
 import { useLocation } from "react-router-dom";
 import { IpostData } from "./Form";
 import { FaArrowLeft } from "react-icons/fa6";
+import { useTranslation } from "react-i18next";
 
 const Details = () => {
   const details=useLocation()
   const {id, name, lat, lng, address}:IpostData=details.state?.itemAll
+  const { t } = useTranslation();
+
  
 
   
   return (
     <>
       <h2 className="mb-2 flex items-center space-x-4 font-semibold italic">
-        Branch Details: <span>{id}</span> <FaArrowLeft onClick={()=>window.history.back()} />
+        {t("branch.0")}  {t("branch.11")}: <span>{id}</span> <FaArrowLeft onClick={()=>window.history.back()} />
       </h2>
       <div className="max-w-[1200px]  font-medium text-[17px] rounded-md w-full  dark:bg-strokedark bg-white h-auto p-1">
         <div className="flex justify-between lg:w-1/3 md:w-1/2 py-4 px-3  ">
@@ -22,21 +25,21 @@ const Details = () => {
        
         <p className="border-b border-stroke  dark:border-strokedark  py-1"></p>
         <div className="flex justify-between lg:w-1/3 md:w-1/2 py-4 px-3  ">
-          <span className=" font-medium text-black dark:text-white ">Address</span>
+          <span className=" font-medium text-black dark:text-white ">  {t("branch.5")}</span>
           <p className=" font-medium text-black dark:text-white">{address}</p>
         </div>
         <p className="border-b border-stroke  dark:border-strokedark  py-1"></p>
         <div className="flex justify-between lg:w-1/3 md:w-1/2 py-4 px-3  ">
-          <span className=" font-medium text-black dark:text-white ">Name</span>
+          <span className=" font-medium text-black dark:text-white ">  {t("branch.2")}</span>
           <p className=" font-medium text-black dark:text-white ">{name}</p>
         </div>
         <p className="border-b border-stroke  dark:border-strokedark  py-1"></p>
         <div className="flex justify-between lg:w-1/3 md:w-1/2 py-4 px-3  ">
-          <span className=" font-medium text-black dark:text-white ">Lat</span>
+          <span className=" font-medium text-black dark:text-white ">  {t("branch.3")}</span>
           <p className=" font-medium text-black dark:text-white ">{lat}</p>
         </div>
         <div className="flex justify-between lg:w-1/3 md:w-1/2 py-4 px-3  ">
-          <span className=" font-medium text-black dark:text-white ">Long</span>
+          <span className=" font-medium text-black dark:text-white ">  {t("branch.4")}</span>
           <p className=" font-medium text-black dark:text-white ">{lng}</p>
         </div>
         

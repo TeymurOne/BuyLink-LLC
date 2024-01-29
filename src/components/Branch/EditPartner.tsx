@@ -3,6 +3,7 @@ import { Map } from './Map';
 import {  usePostUpdateMutation } from '../../features/branch/apiSlice';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa6';
+import { useTranslation } from 'react-i18next';
 export interface IpostData {
   id?: number;
   name: string;
@@ -64,6 +65,7 @@ const Form = () => {
     }
   };
   const btnDisabled = !selectedLat || !selectedLng || !addres_;
+  const { t } = useTranslation();
 
   return (
     <>
@@ -71,7 +73,7 @@ const Form = () => {
         <div className="space-y-12">
           <div className=" pb-12">
           <h2 className="mb-2 flex items-center space-x-4 font-semibold italic">
-        Branch Edit: <span>{id}</span> <FaArrowLeft onClick={()=>window.history.back()} />
+        {t("branch.0")}   {t("branch.7")}: <span>{id}</span> <FaArrowLeft onClick={()=>window.history.back()} />
       </h2>
           
 
@@ -81,7 +83,7 @@ const Form = () => {
                   htmlFor="first-name"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
-                  Address
+                {t("branch.5")}
                 </label>
                 <div className="mt-2">
                   <input
@@ -100,7 +102,7 @@ const Form = () => {
                   htmlFor="first-name"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
-                  Name
+                  {t("branch.2")}
                 </label>
                 <div className="mt-2">
                   <input
@@ -120,7 +122,7 @@ const Form = () => {
                   htmlFor="last-name"
                   className="block text-sm font-medium leading-6 "
                 >
-                  Map
+                  {t("branch.12")}
                   <Map
                     selectedLat={selectedLat}
                     selectedLng={selectedLng}
@@ -177,7 +179,7 @@ const Form = () => {
             type="button"
             className="text-sm font-semibold leading-6"
           >
-            Cancel
+          {t("branch.8")}
           </button>
           {load ? (
             <div
@@ -199,7 +201,7 @@ const Form = () => {
             shadow-sm  rounded-md 
           "
               >
-                Update
+                  {t("branch.7")}
               </button>
             </>
           )}

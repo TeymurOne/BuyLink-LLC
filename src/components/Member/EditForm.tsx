@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   useFetchMemberTypeQuery,
+  useLazyUpdateGetMemberQuery,
   useUpdateMemberMutation,
 } from '../../features/members/apiSlice';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { FaArrowLeft } from 'react-icons/fa6';
 type IDataApi = {
-  fullname: string;
+  fullname: any;
 
-  membertypes: string;
-  posotion_formvalue: string;
+  membertypes: any;
+  posotion_formvalue: any;
   images: any;
 };
 type item = {
@@ -17,65 +20,96 @@ type item = {
 };
 
 const EditForm = () => {
-  const navigate = useNavigate();
+  const [updatePost] = useLazyUpdateGetMemberQuery();
+  const { id } = useParams();
+  const [res, setRes] = useState({
+    id: id,
+    fullname: '',
+    membertype: '',
+    posotion_formvalue: '',
+    images: '',
+  });
+  console.log(res.membertype, 'member tyoe');
+  
+
+  const handleEdit = async (id: number) => {
+    try {
+      const response = await updatePost(id);
+
+      if (response) {
+        const data = response.data?.data;
+        setRes({
+          ...res,
+          fullname: data.full_name,
+          membertype: data.member_type?.id,
+          posotion_formvalue: data?.position,
+          images:data?.image
+        });
+      }
+    } catch (error) {}
+  };
+
+  
+  useEffect(() => {
+    handleEdit(id);
+  }, [id]);
+
+  const { t } = useTranslation();
+
   let content;
   const { isSuccess, data, isError } = useFetchMemberTypeQuery();
   const [dataEdit] = useUpdateMemberMutation();
   const [showimg, setShowimg] = useState<string>();
-  const location  = useLocation();
   const postData = new FormData();
-  const { full_name, position, image, member_type } = location.state?.data.data;
-
-  const idUrl: number = location.state.id;
-
-  const initialState:IDataApi = {
-    fullname: full_name,
-    membertypes: member_type?.id,
-    posotion_formvalue: position,
-    images: '',
-  };
-
-  const [formValue, setFormValue] = useState(initialState);
-  const { fullname, posotion_formvalue, membertypes } = formValue;
+  const navigate=useNavigate()
+  
 
   if (isSuccess) {
-    (content = data?.map((item: item, index: number) => {
+    content = data?.map((item: item, index: number) => {
+      
+    
+      
       return (
-        <option key={index} value={item.id} selected={item.id===member_type.id}>
+        <option
+          key={index}
+          value={item.id}
+          selected={item.id===Number(res?.membertype)}
+        >
           {item.name}
         </option>
       );
-    }))
-    
-  }
-   else if (isError) {
+    });
+  } else if (isError) {
     console.error('Error fetching data', 'Member Types');
   }
   const handleFullname = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormValue({ ...formValue, fullname: e.target.value });
+    setRes({ ...res, fullname: e.target.value });
   };
   const handlePosition = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormValue({ ...formValue, posotion_formvalue: e.target.value });
+    setRes({ ...res, posotion_formvalue: e.target.value });
   };
   const handleMember = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setFormValue({ ...formValue, membertypes: e.target.value });
+    setRes({ ...res, membertype: e.target.value });
   };
   const handleImg = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let files:FileList | null = e.target.files;
+    let files: FileList | null = e.target.files;
 
-    if (files) {
-      setFormValue({ ...formValue, images: files[0] });
+    if (files && files.length > 0) {
+      setRes({ ...res, images: files[0] });
       setShowimg(URL.createObjectURL(files[0]));
     }
   };
+  const idUrl=res?.id  
   const handleUpdate = async (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
-    postData.append('member_type_id', membertypes);
-    postData.append('full_name', fullname);
-    postData.append('position', posotion_formvalue);
+    postData.append('member_type_id', res?.membertype);
+    postData.append('full_name', res?.fullname);
+    postData.append('position', res?.posotion_formvalue);
 
-    postData.append('image', formValue.images);
+    if (res?.images instanceof File) {
+      postData.append('image', res?.images);
+    }
     try {
       if (postData) {
         await dataEdit({ postData, idUrl });
@@ -87,12 +121,10 @@ const EditForm = () => {
     <>
       <form>
         <div className="space-y-5">
-          <h2 className="text-base font-semibold leading-7 ">
-            Personal Information
+          <h2 className="mb-2 flex items-center space-x-4 font-semibold italic">
+            {t('member.0')} {t('member.7')}{' '}
+            <FaArrowLeft onClick={() => window.history.back()} />
           </h2>
-          <p className="mt-1 text-sm leading-6 text-gray-600">
-            Use a permanent address where you can receive mail.
-          </p>
 
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
             <div className="sm:col-span-3">
@@ -100,11 +132,11 @@ const EditForm = () => {
                 htmlFor="first-name"
                 className="block text-sm font-medium leading-6 "
               >
-                Full name
+                {t('member.4')}
               </label>
               <div className="mt-2">
                 <input
-                  value={fullname}
+                  value={res.fullname}
                   onChange={handleFullname}
                   type="text"
                   name="fullname"
@@ -121,12 +153,12 @@ const EditForm = () => {
                 htmlFor="last-name"
                 className="block text-sm font-medium leading-6 "
               >
-                Position
+                {t('member.5')}
               </label>
               <div className="mt-2">
                 <input
                   onChange={handlePosition}
-                  value={posotion_formvalue}
+                  value={res.posotion_formvalue}
                   type="text"
                   name="position"
                   id="last-name"
@@ -141,18 +173,16 @@ const EditForm = () => {
                 htmlFor="country"
                 className="block text-sm font-medium leading-6 "
               >
-                MemberType*
+                {t('member.11')}
               </label>
               <div className="mt-2">
                 <select
                   onChange={handleMember}
                   id="memberType"
                   name="memberType"
-                
                   autoComplete="partner-name"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                 >
-                 
                   {content}
                 </select>
               </div>
@@ -164,12 +194,12 @@ const EditForm = () => {
               htmlFor="photo"
               className="block text-sm font-medium leading-6 "
             >
-              Photo
+              {t('member.2')}
             </label>
             <div className="mt-2 flex h-20 items-center gap-x-3">
               <img
                 className="h-12 mb-4 rounded-full  w-12 "
-                src={showimg || image}
+                src={showimg || res.images}
                 alt="asas"
               />
               <input
@@ -184,7 +214,7 @@ const EditForm = () => {
                 className="rounded-md cursor-pointer bg-white  px-2.5 py-1.5 text-sm
                font-semibold  shadow-sm ring-1 ring-inset mb-4  hover:bg-gray-3"
               >
-                Change
+                {t('member.7')}
               </label>
             </div>
           </div>
@@ -196,18 +226,18 @@ const EditForm = () => {
             type="button"
             className="text-sm font-semibold leading-6 "
           >
-            Cancel
+            {t('member.8')}
           </button>
 
           <button
-            onClick={handleUpdate}
             type="submit"
+            onClick={handleUpdate}
             className=" 
                 bg-[#4f46e5] px-3 py-2 text-sm font-semibold text-white
             shadow-sm hover:bg-opacity-90 rounded-md 
            "
           >
-            Update
+            {t('member.10')}
           </button>
         </div>
       </form>
