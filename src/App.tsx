@@ -13,6 +13,7 @@ import ProtectedRoutes from './private/ProtectedRoutes';
 import ErrorPage from './components/ErrorPage';
 import Index from './components/PageIndex/Index';
 import routes from './routes';
+import PrivacyPolicy from './components/PageIndex/PrivacyPoilcy';
 
 
 const DefaultLayout = lazy(() => import('./layout/DefaultLayout'));
@@ -54,6 +55,8 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Index />} />
+        <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+
         <Route path="/*" element={<ErrorPage />} />
      
      

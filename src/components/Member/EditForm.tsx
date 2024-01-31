@@ -4,16 +4,10 @@ import {
   useLazyUpdateGetMemberQuery,
   useUpdateMemberMutation,
 } from '../../features/members/apiSlice';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import {  useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { FaArrowLeft } from 'react-icons/fa6';
-type IDataApi = {
-  fullname: any;
 
-  membertypes: any;
-  posotion_formvalue: any;
-  images: any;
-};
 type item = {
   id: number;
   name: string;
@@ -22,17 +16,16 @@ type item = {
 const EditForm = () => {
   const [updatePost] = useLazyUpdateGetMemberQuery();
   const { id } = useParams();
-  const [res, setRes] = useState({
+  const [res, setRes] = useState<any>({
     id: id,
     fullname: '',
     membertype: '',
     posotion_formvalue: '',
     images: '',
   });
-  console.log(res.membertype, 'member tyoe');
   
 
-  const handleEdit = async (id: number) => {
+  const handleEdit = async (id: string | undefined) => {
     try {
       const response = await updatePost(id);
 

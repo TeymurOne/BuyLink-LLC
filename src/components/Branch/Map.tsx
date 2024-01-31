@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import GoogleMapReact from 'google-map-react';
 import { useDispatch, useSelector } from 'react-redux';
-import { branchMaps } from '../../features/members/memberSlice';
 
 export const Map = (props: any) => {
   const { selectedLat, selectedLng, onLatChange, onLngChange } = props;
@@ -26,10 +25,12 @@ export const Map = (props: any) => {
 
   function handleLat(latKordinat) {
 
+    
     onLatChange(latKordinat);
   }
 
   function handleLng(lngKordinat) {
+
 
     onLngChange(lngKordinat);
   }

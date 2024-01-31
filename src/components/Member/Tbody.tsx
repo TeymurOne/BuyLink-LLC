@@ -46,16 +46,7 @@ const Tbody: React.FC<TbodyProps> = ({ item }) => {
     }
   };
 
-  const handleEdit = async (id: number) => {
-    try {
-      const response = await updatePost(id);
 
-      if (response) {
-        const dataToPass = response.data;
-        navigate('/admin/editMember', { state: { data: dataToPass, id } });
-      }
-    } catch (error) {}
-  };
 
   return (
     <>

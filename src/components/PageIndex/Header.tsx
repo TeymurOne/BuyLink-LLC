@@ -1,19 +1,24 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 import search from '../../images//pageLand/search.svg';
 import logo from '../../images//pageLand/logo.svg';
 import globe from '../../images//pageLand/globe.svg';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import SignModal from '../../pages/Authentication/SignModal';
+import getState from '../../core/helpers/cookie';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const navigaet=useNavigate()
+  
+  const cookie = getState();
+
 
   return (
-    <header className='bg-[#F3F4F6] font-roboto'>
+    <header className="bg-[#F3F4F6] font-roboto">
       <nav
         className="mx-auto px-4 flex max-w-[1480px] items-center justify-between py-3 lg:px-2"
         aria-label="Global"
@@ -52,13 +57,28 @@ export default function Header() {
               <option value="AZE">AZE</option>
             </select>
           </div>
-          <Link
-            to=""
-            onClick={() => setShowModal(true)}
-            className="text-[14px]  text-[#000000de] w-[161px] h-[44px]    flex items-center justify-center rounded-sm     "
-          >
-            Login
-          </Link>
+          {cookie ? (
+            <Link 
+              to="/admin"
+              onClick={() => {
+                setTimeout(() => {
+                  window.location.reload();
+                }, 100); 
+              }}
+              className="text-[16px] space-x-2 text-black w-[151px] h-[44px]    flex items-center justify-center rounded-sm      "
+            >
+              Admin
+            </Link>
+          ) : (
+            <Link
+              to=""
+              onClick={() => setShowModal(true)}
+              className="text-[14px]  text-[#000000de] w-[161px] h-[44px]    flex items-center justify-center rounded-sm     "
+            >
+              Login
+            </Link>
+          )}
+
           <Link
             to=""
             className="text-[16px] text-white w-[161px] h-[44px]    flex items-center justify-center rounded-sm  bg-[#000000de]    "

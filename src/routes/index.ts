@@ -10,6 +10,8 @@ const Settings = lazy(() => import('../pages/Settings'));
 const Tables = lazy(() => import('../pages/Tables'));
 const Alerts = lazy(() => import('../pages/UiElements/Alerts'));
 const Buttons = lazy(() => import('../pages/UiElements/Buttons'));
+const privacypolicy = lazy(() => import('../components/PageIndex/PrivacyPoilcy.tsx'));
+
 
 
 const branchcreate = lazy(() => import('../components/Branch/CreateForm'));
@@ -33,7 +35,7 @@ const detailsProduct = lazy(() => import('../components/products/Details'));
 // branches 
 
 const branchDetails = lazy(() => import('../components/Branch/Details'));
-const branchEdit = lazy(() => import('../components/Branch/EditPartner'));
+const branchEdit = lazy(() => import('../components/Branch/EditPartner.tsx'));
 const branchform = lazy(() => import('../components/Branch/Form.tsx'));
 
 //  operatore
@@ -187,8 +189,7 @@ const coreRoutes = [
     path: '/admin/partnerform',
     title: 'partnerform',
     component: partnerform,
-  },
-
+  }
   
 ];
 

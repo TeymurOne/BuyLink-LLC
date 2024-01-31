@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FiEdit2, FiEye } from 'react-icons/fi';
 import { AiOutlineDelete } from 'react-icons/ai';
 import { IpostData } from './Form';
@@ -76,7 +76,7 @@ const Tbody: React.FC<TbodyProps> = ({ item }) => {
   return (
     <>
       <tr>
-        <td className="border-b border-[#0c0909] py-5 px-4 pl-9 dark:border-strokedark xl:pl-11">
+        <td className="y py-5 px-4 pl-9 dark:border-strokedark xl:pl-11">
           <div className="font-medium w-10 dark:text-white">{item.id}</div>
         </td>
         <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
@@ -105,9 +105,8 @@ const Tbody: React.FC<TbodyProps> = ({ item }) => {
             >
               <AiOutlineDelete />
             </button>
-            <button
+            <button onClick={()=>handleEdit(item.id)}
               className="hover:text-primary"
-              onClick={() => handleEdit(item.id)}
             >
               <FiEdit2 />
             </button>

@@ -53,7 +53,7 @@ const Form = () => {
       if (postData.address  && postData.lng && postData.lat && postData.name) {
         const res=await postBranches({postData, id}).unwrap()
         if (res.success) {
-          navigate("/admin/partnerCreate")
+          navigate("/admin/branchcreate")
           
         }
       
