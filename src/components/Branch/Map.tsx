@@ -1,13 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import GoogleMapReact from 'google-map-react';
-import { useDispatch, useSelector } from 'react-redux';
 
 export const Map = (props: any) => {
   const { selectedLat, selectedLng, onLatChange, onLngChange } = props;
-  const latData = useSelector((state: any) => state.commonSlice.lat);
-  const longData = useSelector((state: any) => state.commonSlice.lng);
-
-  const dispatch = useDispatch();
 
   const [lat, setLat] = useState(40.405999043422824);
   const [lng, setLng] = useState(49.91863556236839);
@@ -16,22 +11,15 @@ export const Map = (props: any) => {
     setLat(selectedLat);
     setLng(selectedLng);
   }, [selectedLat, selectedLng]);
-  
- 
 
-  // 440.43488087315876
-  // 49.76774521202658
+
   const [marker, setMarker] = useState(null);
 
-  function handleLat(latKordinat) {
-
-    
+  function handleLat(latKordinat: any) {
     onLatChange(latKordinat);
   }
 
-  function handleLng(lngKordinat) {
-
-
+  function handleLng(lngKordinat: any) {
     onLngChange(lngKordinat);
   }
 
