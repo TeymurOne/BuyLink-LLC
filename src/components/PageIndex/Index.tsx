@@ -3,10 +3,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
-import cube from '../../images/pageLand/cube.svg'
+import cube from '../../images/pageLand/cube.svg';
 
 import { Pagination } from 'swiper/modules';
-import screen from '../../images/pageLand/qrscreen.svg';
 
 import dollar from '../../images/pageLand/dollar.svg';
 import money from '../../images/pageLand/money.svg';
@@ -32,8 +31,7 @@ import black from '../../images/pageLand/black.png';
 import partnerLogo from '../../images/pageLand/mask.svg';
 import Accordion from './Accordion';
 import Footer from './Footer';
- export const isMobile = window.innerWidth <= 455;
-
+export const isMobile = window.innerWidth <= 455;
 
 const Index = () => {
   return (
@@ -44,17 +42,15 @@ const Index = () => {
         <BuyLinkPartner />
       </div>
 
-      <div className=" bg-[]  w-full px-4  ">
+      <div className=" bg-white  w-full px-4  ">
         <div className=" py-10 max-w-[1480px] mx-auto  ">
           <BuyLinkPartner2 />
         </div>
       </div>
       <div className=" bg-[#F3F4F6] py-10 ">
-        <div className='max-w-[1480px] px-4 mx-auto'>
-        <BuyLinkPartner3 />
-
+        <div className="max-w-[1480px] px-4 mx-auto">
+          <BuyLinkPartner3 />
         </div>
-
       </div>
       <div className=" bg-[#4C5DF5]  ">
         <Partner />
@@ -68,7 +64,7 @@ const Index = () => {
       <Footer />
     </>
   );
-}
+};
 
 export default Index;
 
@@ -79,9 +75,8 @@ function HeadMainVideo() {
         <Header />
         <div className="flex justify-between  " id="about">
           <div className="lg:w-[42%]  2xl:p-0  sm:w-full text-[#000000de]">
-            <p className="xl:text-[46px]  lg:text-4xl md:text-3xl sm:text-2xl xsm:text-xl  font-bold  font-Manrope">
-              BuyLink - it’s kind of marketplace that helps sellers and
-              potential buyers find each other online and interact each other
+            <p className="xl:text-[40px]  lg:text-4xl md:text-3xl sm:text-2xl xsm:text-xl  font-bold  font-manrope">
+              Buylink is the world first digital referral network
             </p>
             <p className="xl:text-[24px]  lg:text-[18px] md:text-[14px] xsm:text-[10px] py-4  tracking-wider ">
               Our mission is to connect people in one referral social network
@@ -110,9 +105,9 @@ function HeadMainVideo() {
                   </span>
                 </Link>
               </div>
-              <div>
+              {/* <div>
                 <img className="w-[144px] h-[146px]" src={screen} alt="" />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -136,16 +131,15 @@ function WalletBuylink() {
             />
           </div>
 
-          <div className="   max-w-[780px] w-full         text-black  ">
+          <div className="   max-w-[580px] w-full         text-black  ">
             <div className="lg:text-start text-center">
               <h2 className="font-manrope   text-2xl      text-black font-bold">
-                Buynet Wallet - The easiest way to manage
-                <span className="text-[#4C5DF5]"> your payments</span>
+                BuyLink Wallet - serves as a savings for you
+                <span className="text-[#4C5DF5]"> bonuses and rewards</span>
               </h2>
 
               <p className="lg:text-[20px] text-[14px] lg:leading-6 leading-4  font-medium py-4 normal font-poppins">
-                End-to-end payments and financial management in a single
-                solution. Meet the right platform to help realize.
+                This is the easisest way to manege your payments
               </p>
             </div>
             <div
@@ -158,7 +152,7 @@ function WalletBuylink() {
                   src={dollar}
                   alt="Group 155"
                 />
-                <p>Cash out at any time</p>
+                <p>Cash withdrawals</p>
               </div>
               <div className="flex items-center space-x-4">
                 <img
@@ -166,11 +160,11 @@ function WalletBuylink() {
                   src={money}
                   alt="Group 155"
                 />
-                <p>Manage your own wallet</p>
+                <p>Saving of rewerads</p>
               </div>
               <div className="flex items-center space-x-4">
                 <img className="w-[37px] h-[37px]" src={info} alt="Group 155" />
-                <p>Get live support</p>
+                <p>Payment via wallet at our partner </p>
               </div>
               <div className="flex items-center space-x-4">
                 <img
@@ -178,7 +172,7 @@ function WalletBuylink() {
                   src={dollar}
                   alt="Group 155"
                 />
-                <p>Get live support</p>
+                <p>New feature is in progress</p>
               </div>
             </div>
           </div>
@@ -197,11 +191,11 @@ function BuyLinkPartner() {
           id="buylinkpartner"
         >
           <div className="space-y-4 ">
-            <h2  className="font-manrope  lg:text-[40px] text-[30px]      leading-8  text-black font-bold">
+            <h2 className="font-manrope  lg:text-[40px] text-[30px]      leading-10  text-black font-bold">
               Explore new
               <span className="text-[#4C5DF5]"> users and partners</span>
             </h2>
-            <p className='lg:text-[20px] text-[14px] leading-4'>
+            <p className="lg:text-[20px] text-[14px] leading-5">
               End-to-end payments and financial management in a single solution.
               Meet the right <br /> platform to help realize.
             </p>
@@ -209,117 +203,114 @@ function BuyLinkPartner() {
           <div className="flex lg:flex-row flex-col     max-w-full lg:w-[80%]">
             <div className="pt-4  ">
               <div className="flex items-center ">
-            <img src={cube} alt="w-[36px] h-[36px]" />
-                <h2  className="font-manrope  lg:text-[14px] text-[22px]       text-black font-bold">
-                Oznajomtes s nashimi partnerami
-               </h2>
+                <img src={cube} alt="w-[30px] h-[30px]" />
+                <h2 className="font-manrope  lg:text-[16px] text-[22px]       text-black font-bold">
+                  Explore our partners
+                </h2>
               </div>
 
-              <p className='font-poppins leading-[2] lg:text-[12px] text-[14px] md:text-start  text-center  text-[#000000ad] font-normal'>
+              <p className="font-poppins leading-[2] lg:text-[12px] text-[14px] md:text-start  text-center  text-[#000000ad] font-normal">
                 Cum et convallis risus placerat aliquam, nunc. Scelerisque
-                aliquet  faucibus tincidunt eu adipiscing sociis arcu
-                lorem porttitor.
+                aliquet faucibus tincidunt eu adipiscing sociis arcu lorem
+                porttitor.
               </p>
             </div>
             <div className="pt-4">
               <div className="flex items-center ">
-              <img src={cube} alt="w-[36px] h-[36px]" />
+                <img src={cube} alt="w-[30px] h-[30px]" />
 
-                <h2  className="font-manrope  lg:text-[14px] text-[22px]       text-black font-bold">
-                Oznajomtes s nashimi partnerami
-            </h2>
+                <h2 className="font-manrope  lg:text-[16px] text-[22px]       text-black font-bold">
+                  Add people to your network
+                </h2>
               </div>
 
-              <p className='font-poppins  md:text-start  text-center leading-[2] lg:text-[12px] text-[14px]   text-[#000000ad] font-normal'>
+              <p className="font-poppins  md:text-start  text-center leading-[2] lg:text-[12px] text-[14px]   text-[#000000ad] font-normal">
                 Cum et convallis risus placerat aliquam, nunc. Scelerisque
-                aliquet  faucibus tincidunt eu adipiscing sociis arcu
-                lorem porttitor.
+                aliquet faucibus tincidunt eu adipiscing sociis arcu lorem
+                porttitor.
               </p>
             </div>
             <div className="pt-4">
               <div className="flex items-center ">
-              <img src={cube} alt="w-[36px] h-[36px]" />
+                <img src={cube} alt="w-[30px] h-[30px]" />
 
-                <h2  className="font-manrope  lg:text-[14px] text-[22px]       text-black font-bold">
-                Oznajomtes s nashimi partnerami
-            </h2>
+                <h2 className="font-manrope  lg:text-[16px] text-[22px]       text-black font-bold">
+                  Explore different categories
+                </h2>
               </div>
 
-              <p className='font-poppins  md:text-start  text-center leading-[2] lg:text-[12px] text-[14px]    text-[#000000ad] font-normal'>
+              <p className="font-poppins  md:text-start  text-center leading-[2] lg:text-[12px] text-[14px]    text-[#000000ad] font-normal">
                 Cum et convallis risus placerat aliquam, nunc. Scelerisque
-                aliquet  faucibus tincidunt eu adipiscing sociis arcu
-                lorem porttitor.
+                aliquet faucibus tincidunt eu adipiscing sociis arcu lorem
+                porttitor.
               </p>
             </div>
           </div>
-       
         </div>
-        {isMobile ?(
-           <Swiper
-           pagination={{
-             dynamicBullets: true,
-             clickable: true,
-           }}
-           modules={[Pagination]}
-           className="mySwiper"
-         >
-           <div className="flex items-center  space-x-4 justify-center pt-20">
-             <SwiperSlide>
-               <div className="max-w-[225px] w-full ">
-                 <img
-                   className="w-full h-full object-contain"
-                   src={gosupport}
-                   alt="Iphone2"
-                 />
-               </div>
-             </SwiperSlide>
-             <SwiperSlide>
-               <div className="max-w-[225px] w-full  ">
-                 <img
-                   className="w-full h-full object-contain"
-                   src={user}
-                   alt="Iphone4"
-                 />
-               </div>
-             </SwiperSlide>
-             <SwiperSlide>
-               <div className="max-w-[225px] w-full  ">
-                 <img
-                   className="w-full h-full object-contain"
-                   src={wallet2}
-                   alt="Iphone2"
-                 />
-               </div>
-             </SwiperSlide>
-           </div>
-         </Swiper>
-
-        ):(
+        {isMobile ? (
+          <Swiper
+            pagination={{
+              dynamicBullets: true,
+              clickable: true,
+            }}
+            modules={[Pagination]}
+            className="mySwiper"
+          >
+            <div className="flex items-center  space-x-4 justify-center pt-20">
+              <SwiperSlide>
+                <div className="max-w-[225px] w-full ">
+                  <img
+                    className="w-full h-full object-contain"
+                    src={gosupport}
+                    alt="Iphone2"
+                  />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="max-w-[225px] w-full  ">
+                  <img
+                    className="w-full h-full object-contain"
+                    src={user}
+                    alt="Iphone4"
+                  />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="max-w-[225px] w-full  ">
+                  <img
+                    className="w-full h-full object-contain"
+                    src={wallet2}
+                    alt="Iphone2"
+                  />
+                </div>
+              </SwiperSlide>
+            </div>
+          </Swiper>
+        ) : (
           <div className="flex items-center  space-x-4 justify-center pt-20">
-          <div className="w-[300px] h-[490px]">
-            <img
-              className="w-full h-full object-contain"
-              src={iphone4}
-              alt="Iphone2"
-            />
+            <div className="w-[300px] h-[490px]">
+              <img
+                className="w-full h-full object-contain"
+                src={iphone4}
+                alt="Iphone2"
+              />
+            </div>
+            <div className="w-[280px] h-[490px]">
+              <img
+                className="w-full h-full object-contain"
+                src={iphone5}
+                alt="Iphone4"
+              />
+            </div>
+            <div className="w-[280px] h-[490px]">
+              <img
+                className="w-full h-full object-contain"
+                src={iphone6}
+                alt="Iphone2"
+              />
+            </div>
           </div>
-          <div className="w-[280px] h-[490px]">
-            <img
-              className="w-full h-full object-contain"
-              src={iphone5}
-              alt="Iphone4"
-            />
-          </div>
-          <div className="w-[280px] h-[490px]">
-            <img
-              className="w-full h-full object-contain"
-              src={iphone6}
-              alt="Iphone2"
-            />
-          </div>
-        </div>
         )}
-     
       </section>
     </>
   );
@@ -333,11 +324,11 @@ function BuyLinkPartner2() {
           id="buylinkpartner"
         >
           <div className="space-y-4">
-            <h2  className="font-manrope  lg:text-[40px] text-[30px]      leading-8  text-black font-bold">
-            Get cash 
+            <h2 className="font-manrope  lg:text-[40px] text-[30px]      leading-8  text-black font-bold">
+              Get cash
               <span className="text-[#4C5DF5]"> in 3 steps</span>
             </h2>
-            <p className='text-[17px]'>
+            <p className="text-[17px]">
               End-to-end payments and financial management in a single solution.
               Meet the right <br /> platform to help realize.
             </p>
@@ -345,118 +336,115 @@ function BuyLinkPartner2() {
           <div className="flex lg:flex-row flex-col     max-w-full lg:w-[80%]">
             <div className="pt-4  ">
               <div className="flex items-center ">
-              <img src={cube} alt="w-[36px] h-[36px]" />
+                <img src={cube} alt="w-[36px] h-[36px]" />
 
-                <h2  className="font-manrope  lg:text-[14px] text-[22px]       text-black font-bold">
-                Oznajomtes s nashimi partnerami
-               </h2>
+                <h2 className="font-manrope  lg:text-[14px] text-[22px]       text-black font-bold">
+                  Enter to partner page
+                </h2>
               </div>
 
-              <p className='font-poppins leading-[2] lg:text-[12px] text-[14px] md:text-start  text-center  text-[#000000ad] font-normal'>
+              <p className="font-poppins leading-[2] lg:text-[12px] text-[14px] md:text-start  text-center  text-[#000000ad] font-normal">
                 Cum et convallis risus placerat aliquam, nunc. Scelerisque
-                aliquet  faucibus tincidunt eu adipiscing sociis arcu
-                lorem porttitor.
+                aliquet faucibus tincidunt eu adipiscing sociis arcu lorem
+                porttitor.
               </p>
             </div>
             <div className="pt-4">
               <div className="flex items-center ">
-              <img src={cube} alt="w-[36px] h-[36px]" />
+                <img src={cube} alt="w-[36px] h-[36px]" />
 
-                <h2  className="font-manrope  lg:text-[14px] text-[22px]       text-black font-bold">
-                Oznajomtes s nashimi partnerami
-            </h2>
+                <h2 className="font-manrope  lg:text-[14px] text-[22px]       text-black font-bold">
+                  Share referral link to your  network
+                </h2>
               </div>
 
-              <p className='font-poppins  md:text-start  text-center leading-[2] lg:text-[12px] text-[14px]   text-[#000000ad] font-normal'>
+              <p className="font-poppins  md:text-start  text-center leading-[2] lg:text-[12px] text-[14px]   text-[#000000ad] font-normal">
                 Cum et convallis risus placerat aliquam, nunc. Scelerisque
-                aliquet  faucibus tincidunt eu adipiscing sociis arcu
-                lorem porttitor.
+                aliquet faucibus tincidunt eu adipiscing sociis arcu lorem
+                porttitor.
               </p>
             </div>
             <div className="pt-4">
               <div className="flex items-center ">
-              <img src={cube} alt="w-[36px] h-[36px]" />
+                <img src={cube} alt="w-[36px] h-[36px]" />
 
-                <h2  className="font-manrope  lg:text-[14px] text-[22px]       text-black font-bold">
-                Oznajomtes s nashimi partnerami
-            </h2>
+                <h2 className="font-manrope  lg:text-[14px] text-[22px]       text-black font-bold">
+                  Go to wallet  and check your balance 
+                </h2>
               </div>
 
-              <p className='font-poppins  md:text-start  text-center leading-[2] lg:text-[12px] text-[14px]    text-[#000000ad] font-normal'>
+              <p className="font-poppins  md:text-start  text-center leading-[2] lg:text-[12px] text-[14px]    text-[#000000ad] font-normal">
                 Cum et convallis risus placerat aliquam, nunc. Scelerisque
-                aliquet  faucibus tincidunt eu adipiscing sociis arcu
-                lorem porttitor.
+                aliquet faucibus tincidunt eu adipiscing sociis arcu lorem
+                porttitor.
               </p>
             </div>
           </div>
-       
         </div>
-        {isMobile ?(
-           <Swiper
-           pagination={{
-             dynamicBullets: true,
-             clickable: true,
-           }}
-           modules={[Pagination]}
-           className="mySwiper"
-         >
-           <div className="flex items-center  space-x-4 justify-center pt-20">
-             <SwiperSlide>
-               <div className="max-w-[225px] w-full ">
-                 <img
-                   className="w-full h-full object-contain"
-                   src={gosupport}
-                   alt="Iphone2"
-                 />
-               </div>
-             </SwiperSlide>
-             <SwiperSlide>
-               <div className="max-w-[225px] w-full  ">
-                 <img
-                   className="w-full h-full object-contain"
-                   src={user}
-                   alt="Iphone4"
-                 />
-               </div>
-             </SwiperSlide>
-             <SwiperSlide>
-               <div className="max-w-[225px] w-full  ">
-                 <img
-                   className="w-full h-full object-contain"
-                   src={wallet2}
-                   alt="Iphone2"
-                 />
-               </div>
-             </SwiperSlide>
-           </div>
-         </Swiper>
-
-        ):(
+        {isMobile ? (
+          <Swiper
+            pagination={{
+              dynamicBullets: true,
+              clickable: true,
+            }}
+            modules={[Pagination]}
+            className="mySwiper"
+          >
+            <div className="flex items-center  space-x-4 justify-center pt-20">
+              <SwiperSlide>
+                <div className="max-w-[225px] w-full ">
+                  <img
+                    className="w-full h-full object-contain"
+                    src={gosupport}
+                    alt="Iphone2"
+                  />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="max-w-[225px] w-full  ">
+                  <img
+                    className="w-full h-full object-contain"
+                    src={user}
+                    alt="Iphone4"
+                  />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="max-w-[225px] w-full  ">
+                  <img
+                    className="w-full h-full object-contain"
+                    src={wallet2}
+                    alt="Iphone2"
+                  />
+                </div>
+              </SwiperSlide>
+            </div>
+          </Swiper>
+        ) : (
           <div className="flex items-center  space-x-4 justify-center pt-20">
-          <div className="w-[300px] h-[490px]">
-            <img
-              className="w-full h-full object-contain"
-              src={gosupport}
-              alt="Iphone2"
-            />
+            <div className="w-[300px] h-[490px]">
+              <img
+                className="w-full h-full object-contain"
+                src={gosupport}
+                alt="Iphone2"
+              />
+            </div>
+            <div className="w-[280px] h-[490px]">
+              <img
+                className="w-full h-full object-contain"
+                src={user}
+                alt="Iphone4"
+              />
+            </div>
+            <div className="w-[280px] h-[490px]">
+              <img
+                className="w-full h-full object-contain"
+                src={wallet2}
+                alt="Iphone2"
+              />
+            </div>
           </div>
-          <div className="w-[280px] h-[490px]">
-            <img
-              className="w-full h-full object-contain"
-              src={user}
-              alt="Iphone4"
-            />
-          </div>
-          <div className="w-[280px] h-[490px]">
-            <img
-              className="w-full h-full object-contain"
-              src={wallet2}
-              alt="Iphone2"
-            />
-          </div>
-        </div>
         )}
-     
       </section>
     </>
   );
@@ -470,11 +458,11 @@ function BuyLinkPartner3() {
           id="buylinkpartner"
         >
           <div className="space-y-4">
-            <h2  className="font-manrope  lg:text-[40px] text-[30px]      leading-8  text-black font-bold">
-            How to 
+            <h2 className="font-manrope  lg:text-[40px] text-[30px]      leading-8  text-black font-bold">
+              How to
               <span className="text-[#4C5DF5]"> get discount? </span>
             </h2>
-            <p className='text-[17px]'>
+            <p className="text-[17px]">
               End-to-end payments and financial management in a single solution.
               Meet the right <br /> platform to help realize.
             </p>
@@ -482,123 +470,111 @@ function BuyLinkPartner3() {
           <div className="flex lg:flex-row flex-col     max-w-full lg:w-[80%]">
             <div className="pt-4  ">
               <div className="flex items-center ">
-              <img src={cube} alt="w-[36px] h-[36px]" />
+                <img src={cube} alt="w-[36px] h-[36px]" />
 
-                <h2  className="font-manrope  lg:text-[14px] text-[22px]       text-black font-bold">
-                Oznajomtes s nashimi partnerami
-               </h2>
+                <h2 className="font-manrope  lg:text-[14px] text-[22px]       text-black font-bold">
+                See your network recommendations in referral page 
+                </h2>
               </div>
 
-              <p className='font-poppins leading-[2] lg:text-[12px] text-[14px] md:text-start  text-center  text-[#000000ad] font-normal'>
+              <p className="font-poppins leading-[2] lg:text-[12px] text-[14px] md:text-start  text-center  text-[#000000ad] font-normal">
                 Cum et convallis risus placerat aliquam, nunc. Scelerisque
-                aliquet  faucibus tincidunt eu adipiscing sociis arcu
-                lorem porttitor.
+                aliquet faucibus tincidunt eu adipiscing sociis arcu lorem
+                porttitor.
               </p>
             </div>
             <div className="pt-4">
               <div className="flex items-center ">
-              <img src={cube} alt="w-[36px] h-[36px]" />
+                <img src={cube} alt="w-[36px] h-[36px]" />
 
-                <h2  className="font-manrope  lg:text-[14px] text-[22px]       text-black font-bold">
-                Oznajomtes s nashimi partnerami
-            </h2>
+                <h2 className="font-manrope  lg:text-[14px] text-[22px]       text-black font-bold">
+                  Use referral link 
+                </h2>
               </div>
 
-              <p className='font-poppins  md:text-start  text-center leading-[2] lg:text-[12px] text-[14px]   text-[#000000ad] font-normal'>
+              <p className="font-poppins  md:text-start  text-center leading-[2] lg:text-[12px] text-[14px]   text-[#000000ad] font-normal">
                 Cum et convallis risus placerat aliquam, nunc. Scelerisque
-                aliquet  faucibus tincidunt eu adipiscing sociis arcu
-                lorem porttitor.
+                aliquet faucibus tincidunt eu adipiscing sociis arcu lorem
+                porttitor.
               </p>
             </div>
             <div className="pt-4">
               <div className="flex items-center ">
-              <img src={cube} alt="w-[36px] h-[36px]" />
+                <img src={cube} alt="w-[36px] h-[36px]" />
 
-                <h2  className="font-manrope  lg:text-[14px] text-[22px]       text-black font-bold">
-                Oznajomtes s nashimi partnerami
-            </h2>
+                <h2 className="font-manrope  lg:text-[14px] text-[22px]       text-black font-bold">
+                  Show qr code and get discount  
+                </h2>
               </div>
 
-              <p className='font-poppins  md:text-start  text-center leading-[2] lg:text-[12px] text-[14px]    text-[#000000ad] font-normal'>
+              <p className="font-poppins  md:text-start  text-center leading-[2] lg:text-[12px] text-[14px]    text-[#000000ad] font-normal">
                 Cum et convallis risus placerat aliquam, nunc. Scelerisque
-                aliquet  faucibus tincidunt eu adipiscing sociis arcu
-                lorem porttitor.
+                aliquet faucibus tincidunt eu adipiscing sociis arcu lorem
+                porttitor.
               </p>
             </div>
           </div>
-       
         </div>
-        {isMobile ?(
-           <Swiper
-           pagination={{
-             dynamicBullets: true,
-             clickable: true,
-           }}
-           modules={[Pagination]}
-           className="mySwiper"
-         >
-           <div className="flex items-center  space-x-4 justify-center pt-20">
-             <SwiperSlide>
-               <div className="max-w-[225px] w-full ">
-                 <img
-                   className="w-full h-full object-contain"
-                   src={iphone15plus}
-                   alt="Iphone2"
-                 />
-               </div>
-             </SwiperSlide>
-             <SwiperSlide>
-               <div className="max-w-[225px] w-full  ">
-                 <img
-                   className="w-full h-full object-contain"
-                   src={black}
-                   alt="Iphone4"
-                 />
-               </div>
-             </SwiperSlide>
-             <SwiperSlide>
-               <div className="max-w-[225px] w-full  ">
-                 <img
-                   className="w-full h-full object-contain"
-                   src={mock}
-                   alt="Iphone2"
-                 />
-               </div>
-             </SwiperSlide>
-           </div>
-         </Swiper>
-
-        ):(
+        {isMobile ? (
+          <Swiper
+            pagination={{
+              dynamicBullets: true,
+              clickable: true,
+            }}
+            modules={[Pagination]}
+            className="mySwiper"
+          >
+            <div className="flex items-center  space-x-4 justify-center pt-20">
+              <SwiperSlide>
+                <div className="max-w-[225px] w-full ">
+                  <img
+                    className="w-full h-full object-contain"
+                    src={iphone15plus}
+                    alt="Iphone2"
+                  />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="max-w-[225px] w-full  ">
+                  <img
+                    className="w-full h-full object-contain"
+                    src={black}
+                    alt="Iphone4"
+                  />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="max-w-[225px] w-full  ">
+                  <img
+                    className="w-full h-full object-contain"
+                    src={mock}
+                    alt="Iphone2"
+                  />
+                </div>
+              </SwiperSlide>
+            </div>
+          </Swiper>
+        ) : (
           <div className="flex items-center  space-x-4 justify-center pt-20">
-          <div className="w-[270px] h-[490px]">
-            <img
-              className="w-full h-full "
-              src={iphone15plus}
-              alt="Iphone2"
-            />
+            <div className="w-[270px] h-[490px]">
+              <img
+                className="w-full h-full "
+                src={iphone15plus}
+                alt="Iphone2"
+              />
+            </div>
+            <div className="w-[280px] h-[490px]">
+              <img className="w-full h-full " src={black} alt="Iphone4" />
+            </div>
+            <div className="w-[280px] h-[490px]">
+              <img className="w-full h-full " src={mock} alt="Iphone2" />
+            </div>
           </div>
-          <div className="w-[280px] h-[490px]">
-            <img
-              className="w-full h-full "
-              src={black}
-              alt="Iphone4"
-            />
-          </div>
-          <div className="w-[280px] h-[490px]">
-            <img
-              className="w-full h-full "
-              src={mock}
-              alt="Iphone2"
-            />
-          </div>
-        </div>
         )}
-     
       </section>
     </>
   );
 }
-
 
 function Partner() {
   return (
@@ -615,7 +591,7 @@ function Partner() {
             Join now
           </button>
         </div>
-        <div className='hidden lg:block '>
+        <div className="hidden lg:block ">
           <img src={partnerLogo} className="object-contain" alt="" />
         </div>
       </div>
@@ -626,10 +602,10 @@ function Partner() {
 function NewsLetter() {
   return (
     <section className="py-10 text-center">
-    <h2 className="font-manrope  lg:text-[40px] text-[27px]      leading-8  text-black font-bold">
-            Join our <span className='text-[#4C5DF5]'>newsletter</span>
-          </h2>
-      <p className='lg:text-2xl text-sm font-light font-grotesk text-[#1C1C1C]'>
+      <h2 className="font-manrope  lg:text-[40px] text-[27px]      leading-8  text-black font-bold">
+        Join our <span className="text-[#4C5DF5]">newsletter</span>
+      </h2>
+      <p className="lg:text-2xl text-sm font-light font-grotesk text-[#1C1C1C]">
         Will send you weekly updates for your better finance management.
       </p>
 
@@ -639,9 +615,9 @@ function NewsLetter() {
           type="text"
           placeholder="Your email adress"
         />
-       <button className="bg-[#4C5DF5]  rounded-2xl text-white text-[16px] max-w-[500px] w-full  lg:w-[152px]     h-[60px]">
-              Join now
-            </button>
+        <button className="bg-[#4C5DF5]  rounded-2xl text-white text-[16px] max-w-[500px] w-full  lg:w-[152px]     h-[60px]">
+          Join now
+        </button>
       </div>
     </section>
   );

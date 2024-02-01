@@ -104,7 +104,7 @@ const coreRoutes = [
     component: branchform,
   },
   {
-    path: '/admin/branchEdit',
+    path: '/admin/branchEdit/:id',
     title: 'branchEdit',
     component: branchEdit,
   },

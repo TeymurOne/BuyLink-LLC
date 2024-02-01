@@ -105,11 +105,11 @@ const Tbody: React.FC<TbodyProps> = ({ item }) => {
             >
               <AiOutlineDelete />
             </button>
-            <button onClick={()=>handleEdit(item.id)}
+            <Link to={`/admin/branchEdit/${item.id}`}
               className="hover:text-primary"
             >
               <FiEdit2 />
-            </button>
+            </Link>
           </div>
         </td>
       </tr>

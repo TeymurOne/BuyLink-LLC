@@ -1,70 +1,150 @@
-import { useState } from 'react';
-import { Map } from './Map';
-import {  usePostUpdateMutation } from '../../features/branch/apiSlice';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+
+import {
+  useLazyGetUpdateQuery,
+  usePostUpdateMutation,
+} from '../../features/branch/apiSlice';
+import { useNavigate, useParams } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa6';
 import { useTranslation } from 'react-i18next';
+import { Map } from './Map';
 export interface IpostData {
   id?: number;
   name: string;
   address: string;
-  lat: number ;
+  lat: number;
   lng: number;
 }
 const Form = () => {
-  const location=useLocation()
-  const {address,lat , lng, id, name}=location.state?.data?.data
+  const { id } = useParams();
+  const [res, setRes] = useState<any>({
+    id: id,
+    name_: '',
+    lat_: 40.405999043422824  ,
+    lng_: 49.91863556236839,
+    addres_: '',
+  });
+  const { name_, addres_, lat_, lng_ } = res;
+  const [selectedLat, setSelectedLat] = useState<number>(lat_);
+  const [selectedLng, setSelectedLng] = useState<number>(lng_);
+ 
+  const [updatePost] = useLazyGetUpdateQuery();
 
-  const [addres_, setAddress] = useState<string>(address);
-  const [name_, setName] = useState<string>(name);
+
+
+  
+
+  const handleEdit = async (id: number) => {
+    try {
+      const response = await updatePost(id);
+
+      if (response) {
+        const dataToPass = response.data;
+
+        setRes({
+          ...res,
+          name_: dataToPass?.data?.name,
+          addres_: dataToPass?.data.address,
+        });
+        setSelectedLat(dataToPass?.data.lat )
+        setSelectedLng(dataToPass?.data.lng )
+      }
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    handleEdit(id);
+  }, [id]);
+  
+
   const navigate = useNavigate();
-  
-  
 
-
-  const [selectedLat, setSelectedLat] = useState<number>(Number(lat) || 40.405999043422824 );
-  const [selectedLng, setSelectedLng] = useState<number>( Number(lng) || 49.91863556236839 );
   const [load, setLoad] = useState<boolean>(false);
   const [postBranches] = usePostUpdateMutation();
-  
+
+  const [lat, setLat] = useState(40.405999043422824);
+  const [lng, setLng] = useState(49.91863556236839);
+
+  useEffect(() => {
+    setLat(selectedLat);
+    setLng(selectedLng);
+  }, [selectedLat, selectedLng]);
+
+
+
+  const [marker, setMarker] = useState(null);
 
   const handleLatChange = (lat: number) => {
+    console.log(lat, 'lat');
     setSelectedLat(lat);
   };
 
   const handleLngChange = (lng: number) => {
+    console.log(lng, 'lng');
 
     setSelectedLng(lng);
   };
-  const postData: IpostData = {
+  const defaultProps = {
+    center: {
+      lat: lat,
+      lng: lng,
+    },
+    zoom: 13,
+    draggable: true,
+  };
+  useEffect(() => {
+    if (marker) {
+      marker.setPosition({ lat, lng });
+    }
+  }, [lat, lat_,  lng, marker, selectedLat, selectedLng]);
 
-
-    name: name_,
-    address: addres_,
-    lat: selectedLat,
-    lng: selectedLng,
+  const loadMap = (map, maps) => {
+    if (!marker) {
+      const newMarker = new maps.Marker({
+        position: {
+          lat: defaultProps.center.lat,
+          lng: defaultProps.center.lng,
+        },
+        map,
+        draggable: true,
+      });
+      newMarker.addListener('dragend', handleDragEnd);
+      setMarker(newMarker);
+    }
   };
 
+  const handleDragEnd = (e) => {
+    handleLatChange(e.latLng.lat());
+    handleLngChange(e.latLng.lng());
+  };
+
+
+  const postData = {
+    name: name_,
+    address: addres_,
+    lat:String(selectedLat),
+    lng:String(selectedLng),
+  };
+
+
+  
   const postSubmit = async (e: React.FormEvent<HTMLButtonElement>) => {
-    e.preventDefault()
-    
+    e.preventDefault();
+
     try {
       setLoad(true);
-      if (postData.address  && postData.lng && postData.lat && postData.name) {
-        const res=await postBranches({postData, id}).unwrap()
+      if (postData.address && postData.lng && postData.lat && postData.name) {
+        const res = await postBranches({ postData, id }).unwrap();
         if (res.success) {
-          navigate("/admin/branchcreate")
-          
+          navigate('/admin/branchcreate');
         }
-      
-      
       }
     } catch (error) {
     } finally {
       setLoad(false);
     }
   };
-  const btnDisabled = !selectedLat || !selectedLng || !addres_;
+  const btnDisabled = !selectedLat || !selectedLng || !addres_ || !name_;
   const { t } = useTranslation();
 
   return (
@@ -72,10 +152,10 @@ const Form = () => {
       <form>
         <div className="space-y-12">
           <div className=" pb-12">
-          <h2 className="mb-2 flex items-center space-x-4 font-semibold italic">
-        {t("branch.0")}   {t("branch.7")}: <span>{id}</span> <FaArrowLeft onClick={()=>window.history.back()} />
-      </h2>
-          
+            <h2 className="mb-2 flex items-center space-x-4 font-semibold italic">
+              {t('branch.0')} {t('branch.7')}: <span>{id}</span>{' '}
+              <FaArrowLeft onClick={() => window.history.back()} />
+            </h2>
 
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="sm:col-span-3">
@@ -83,12 +163,14 @@ const Form = () => {
                   htmlFor="first-name"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
-                {t("branch.5")}
+                  {t('branch.5')}
                 </label>
                 <div className="mt-2">
                   <input
                     value={addres_}
-                    onChange={(e) => setAddress(e.target.value)}
+                    onChange={(e) =>
+                      setRes({ ...res, addres_: e.target.value })
+                    }
                     type="text"
                     name="Addess"
                     id="Address"
@@ -102,12 +184,12 @@ const Form = () => {
                   htmlFor="first-name"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
-                  {t("branch.2")}
+                  {t('branch.2')}
                 </label>
                 <div className="mt-2">
                   <input
                     value={name_}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={(e) => setRes({ ...res, name_: e.target.value })}
                     type="text"
                     name="name"
                     id="name"
@@ -122,13 +204,15 @@ const Form = () => {
                   htmlFor="last-name"
                   className="block text-sm font-medium leading-6 "
                 >
-                  {t("branch.12")}
-                  <Map
-                    selectedLat={selectedLat}
+                  {t('branch.12')}
+                  <div className="w-full h-[400px]">
+                    <Map  selectedLat={selectedLat}
                     selectedLng={selectedLng}
                     onLatChange={handleLatChange}
-                    onLngChange={handleLngChange}
-                  />
+                    onLngChange={handleLngChange}/>
+                
+                      
+                  </div>
                 </label>
               </div>
 
@@ -142,8 +226,8 @@ const Form = () => {
                   </label>
                   <div className="mt-2">
                     <input
-                      value={selectedLat || lat}
-                      onChange={(e) => setSelectedLat(Number(e.target.value))}
+                      value={ selectedLat }
+                      onChange={(e) => setSelectedLat(Number( e.target.value))}
                       id="lat"
                       name="lat"
                       type="number"
@@ -160,8 +244,9 @@ const Form = () => {
                   </label>
                   <div className="mt-2">
                     <input
-                      value={selectedLng || lng}
-                      onChange={(e) => setSelectedLng(Number(e.target.value))}
+                      value={selectedLng }
+                      onChange={(e) => setSelectedLng(Number( e.target.value))}
+
                       id="text"
                       name="text"
                       type="number"
@@ -175,11 +260,12 @@ const Form = () => {
         </div>
 
         <div className="mt-6 flex items-center justify-end gap-x-6">
-          <button onClick={()=>window.history.back()}
+          <button
+            onClick={() => window.history.back()}
             type="button"
             className="text-sm font-semibold leading-6"
           >
-          {t("branch.8")}
+            {t('branch.8')}
           </button>
           {load ? (
             <div
@@ -193,15 +279,15 @@ const Form = () => {
           ) : (
             <>
               <button
-                disabled={btnDisabled}
-                onClick={(e)=>postSubmit(e)}
+                // disabled={btnDisabled}
+                onClick={(e) => postSubmit(e)}
                 type="submit"
                 className=" opacity-100
                 bg-[#4f46e5] px-3 py-2 text-sm font-semibold text-white
             shadow-sm  rounded-md 
           "
               >
-                  {t("branch.7")}
+                {t('branch.7')}
               </button>
             </>
           )}

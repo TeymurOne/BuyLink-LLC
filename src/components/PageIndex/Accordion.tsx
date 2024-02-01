@@ -77,7 +77,7 @@ function AccordionItem({ num, question, ansver, curOpen, setCurOpen }:any) {
         className=" cursor-pointer h-auto  border-b-[1px] flex justify-between items-center opacity-90 border-[#C4C4C4 ] w-full pb-2   "
       >
         <div className="w-[618px]">
-          <h2 className="lg:text-[36px] py-3 font-manrope text-[20px]  normmal text-[#4C5DF5] font-semibold">
+          <h2 className="lg:text-[28px] py-2 font-manrope text-[20px]  normmal text-[#4C5DF5] font-semibold">
             {question}
           </h2>
           {isOpen && (
@@ -92,7 +92,7 @@ function AccordionItem({ num, question, ansver, curOpen, setCurOpen }:any) {
         <button onClick={handleToggle}>
           {isOpen ? ( <HiMinus    style={{ height: '50px', width: '30px' }} />
           ) : (
-            <AiOutlinePlus  onClick={handleToggle} style={{ height: '100px', width: '30px' }} />
+            <AiOutlinePlus  onClick={handleToggle} style={{ height: '80px', width: '30px' }} />
 
           )}
         </button>

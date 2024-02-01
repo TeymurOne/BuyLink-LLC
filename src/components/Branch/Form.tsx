@@ -7,8 +7,8 @@ export interface IpostData {
   id?: any;
   name: string;
   address: string;
-  lat: number;
-  lng: number;
+  lat: number | string;
+  lng: number | string;
 }
 const Form = () => {
   const [addres, setAddress] = useState<string>('');
@@ -33,8 +33,8 @@ const Form = () => {
   const postData: IpostData = {
     name: name,
     address: addres,
-    lat: selectedLat,
-    lng: selectedLng,
+    lat:String(selectedLat),
+    lng:String(selectedLng),
   };
   const { t } = useTranslation();
 
