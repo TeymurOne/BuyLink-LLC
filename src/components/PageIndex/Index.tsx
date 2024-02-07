@@ -28,6 +28,8 @@ import iphone15plus from '../../images/pageLand/15plus.png';
 import mock from '../../images/pageLand/iphonemock.png';
 import black from '../../images/pageLand/black.png';
 
+import main from '../../images/pageLand/main.svg';
+
 import partnerLogo from '../../images/pageLand/mask.svg';
 import Accordion from './Accordion';
 import Footer from './Footer';
@@ -36,19 +38,19 @@ export const isMobile = window.innerWidth <= 455;
 const Index = () => {
   return (
     <>
-      <div className="w-full h-auto px-4 max-w-[1480px] mx-auto    cursor-pointer">
+      <div className="w-full h-auto px-4 max-w-[97%] mx-auto    cursor-pointer">
         <HeadMainVideo />
         <WalletBuylink />
         <BuyLinkPartner />
       </div>
 
       <div className=" bg-white  w-full px-4  ">
-        <div className=" py-10 max-w-[1480px] mx-auto  ">
+        <div className=" py-10 max-w-[97%] mx-auto  ">
           <BuyLinkPartner2 />
         </div>
       </div>
       <div className=" bg-[#F3F4F6] py-10 ">
-        <div className="max-w-[1480px] px-4 mx-auto">
+        <div className="max-w-[97%] px-4 mx-auto">
           <BuyLinkPartner3 />
         </div>
       </div>
@@ -57,7 +59,7 @@ const Index = () => {
       </div>
       <NewsLetter />
       <div className=" bg-[#F3F4F6] py-10 ">
-        <div className="max-w-[1480px] py-20 mx-auto">
+        <div className="max-w-[97%] py-20 mx-auto">
           <Accordion />
         </div>
       </div>
@@ -73,44 +75,11 @@ function HeadMainVideo() {
     <>
       <div className="w-full bg-[#F3F4F6] h-auto      cursor-pointer">
         <Header />
-        <div className="flex justify-between  " id="about">
-          <div className="lg:w-[42%]  2xl:p-0  sm:w-full text-[#000000de]">
-            <p className="xl:text-[40px]  lg:text-4xl md:text-3xl sm:text-2xl xsm:text-xl  font-bold  font-manrope">
-              Buylink is the world first digital referral network
-            </p>
-            <p className="xl:text-[24px]  lg:text-[18px] md:text-[14px] xsm:text-[10px] py-4  tracking-wider ">
-              Our mission is to connect people in one referral social network
-              where they are able to get actual benefits from recommendations.
-            </p>
-            <div className="flex items-center  space-x-4">
-              <div className="flex flex-col space-y-5">
-                <Link
-                  to=""
-                  className="text-sm text-white w-[188px] h-[60px]  flex items-center justify-center  rounded-sm  bg-black-2"
-                >
-                  <img className="mr-2" alt="" />
-                  <span className="grid place-items-start  h-full">
-                    <p className="text-[10px] mt-2 mb-[-20px]"> Get it on</p>
-                    <p className="font-medium"> Google Play</p>
-                  </span>
-                </Link>
-                <Link
-                  to=""
-                  className="text-sm text-white w-[188px] h-[60px]  flex items-center justify-center  rounded-sm  bg-black-2"
-                >
-                  <img className="mr-2" alt="" />
-                  <span className="grid place-items-start  h-full">
-                    <p className="text-[10px] mt-2 mb-[-20px]"> Get it on</p>
-                    <p className="font-medium"> Google Play</p>
-                  </span>
-                </Link>
-              </div>
-              {/* <div>
-                <img className="w-[144px] h-[146px]" src={screen} alt="" />
-              </div> */}
-            </div>
-          </div>
+        <div className="py-2 ">
+          <img src={main} className='h-full w-full' alt="Main" />
         </div>
+       
+
         <Slider />
         <VideoSection />
       </div>
@@ -354,7 +323,7 @@ function BuyLinkPartner2() {
                 <img src={cube} alt="w-[36px] h-[36px]" />
 
                 <h2 className="font-manrope  lg:text-[14px] text-[22px]       text-black font-bold">
-                  Share referral link to your  network
+                  Share referral link to your network
                 </h2>
               </div>
 
@@ -369,7 +338,7 @@ function BuyLinkPartner2() {
                 <img src={cube} alt="w-[36px] h-[36px]" />
 
                 <h2 className="font-manrope  lg:text-[14px] text-[22px]       text-black font-bold">
-                  Go to wallet  and check your balance 
+                  Go to wallet and check your balance
                 </h2>
               </div>
 
@@ -473,7 +442,7 @@ function BuyLinkPartner3() {
                 <img src={cube} alt="w-[36px] h-[36px]" />
 
                 <h2 className="font-manrope  lg:text-[14px] text-[22px]       text-black font-bold">
-                See your network recommendations in referral page 
+                  See your network recommendations in referral page
                 </h2>
               </div>
 
@@ -488,7 +457,7 @@ function BuyLinkPartner3() {
                 <img src={cube} alt="w-[36px] h-[36px]" />
 
                 <h2 className="font-manrope  lg:text-[14px] text-[22px]       text-black font-bold">
-                  Use referral link 
+                  Use referral link
                 </h2>
               </div>
 
@@ -503,7 +472,7 @@ function BuyLinkPartner3() {
                 <img src={cube} alt="w-[36px] h-[36px]" />
 
                 <h2 className="font-manrope  lg:text-[14px] text-[22px]       text-black font-bold">
-                  Show qr code and get discount  
+                  Show qr code and get discount
                 </h2>
               </div>
 
@@ -579,7 +548,7 @@ function BuyLinkPartner3() {
 function Partner() {
   return (
     <>
-      <div className=" max-w-[1480px] mx-auto w-full flex items-center justify-between     h-[460px]">
+      <div className="max-w-[97%] mx-auto w-full flex items-center justify-between     h-[460px]">
         <div className="flex flex-col items-center lg:items-start w-[70%]      justify-between lg:w-[40%]   ml-14 h-[240px]">
           <h2 className="font-manrope text-center lg:text-start lg:text-5xl text-3xl normal font-bold text-[#F3F2F2]">
             Become a parthner

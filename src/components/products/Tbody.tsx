@@ -1,8 +1,11 @@
 import { AiOutlineDelete } from 'react-icons/ai';
 import { FiEdit2, FiEye } from 'react-icons/fi';
 import Swal from 'sweetalert2';
-import {  useLazyEditProductQuery, useRemoveProductMutation } from '../../features/product/apiSlice';
-import { useNavigate } from 'react-router-dom';
+import {
+  
+  useRemoveProductMutation,
+} from '../../features/product/apiSlice';
+import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
 interface IproductResponse {
@@ -12,8 +15,8 @@ interface IproductResponse {
   image: string;
   discount_price: number;
   price: number;
-  category:{
-    name:string
+  category: {
+    name: string;
   };
 }
 
@@ -21,13 +24,7 @@ interface itemAllData {
   item: IproductResponse;
 }
 const Tbody: React.FC<itemAllData> = ({ item }) => {
-  const navigate = useNavigate();
   const [deletePost] = useRemoveProductMutation();
-  const [editProduct]=useLazyEditProductQuery()
-
-
-  
-
 
   const handleDelete = async (id: number) => {
     const result = await Swal.fire({
@@ -57,34 +54,14 @@ const Tbody: React.FC<itemAllData> = ({ item }) => {
       }
     }
   };
-  const handleDetails = () => {
-    const itemAll = item;
-    navigate('/admin/detailsProduct', { state: { itemAll } });
-  };
-  const handleEdit = async(id:number) => {
-    if (id && item) {
-    const editResponse= await editProduct(id)
-    if (editResponse.status=='fulfilled') {
-      const editAllData=editResponse.data
-    navigate('/admin/editProduct', {state:{data:editAllData, id}})
-      
-      
-    }
-      
-    }
 
-  };
-  useEffect(()=>{
-    
-  }, [handleDelete])
+  useEffect(() => {}, [handleDelete]);
 
   const { image, discount_price, price, title, id, description } = item;
-  
 
-  
   return (
     <>
-      <tr className='text-sm'>
+      <tr className="text-sm">
         <td className="border-b border-[#eee] text-[16px] py-5 px-4 dark:border-strokedark">
           {id}
         </td>
@@ -100,7 +77,9 @@ const Tbody: React.FC<itemAllData> = ({ item }) => {
         </td>
 
         <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-          <p className="text-black dark:text-white">{description}</p>
+          <p className="text-black dark:text-white">
+            {description.slice(0, 4)}.....
+          </p>
         </td>
         <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
           <p className="text-black dark:text-white">{price}</p>
@@ -114,21 +93,22 @@ const Tbody: React.FC<itemAllData> = ({ item }) => {
 
         <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
           <div className="flex items-center space-x-3.5 ">
-            <button className="hover:text-primary" onClick={handleDetails}>
+          <Link to={`/admin/detailsproduct/${id}`}>
+          <button className="hover:text-primary" >
               <FiEye />
             </button>
+          </Link>
             <button
               onClick={() => handleDelete(id)}
               className="hover:text-primary"
             >
               <AiOutlineDelete />
             </button>
-            <button
-              onClick={() => handleEdit(id)}
-              className="hover:text-primary"
-            >
-              <FiEdit2 />
-            </button>
+            <Link to={`/admin/editproduct/${id}`}>
+              <button className="hover:text-primary">
+                <FiEdit2 />
+              </button>
+            </Link>
           </div>
         </td>
       </tr>

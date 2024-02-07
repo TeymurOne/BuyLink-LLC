@@ -35,7 +35,7 @@ const detailsProduct = lazy(() => import('../components/products/Details'));
 // branches 
 
 const branchDetails = lazy(() => import('../components/Branch/Details'));
-const branchEdit = lazy(() => import('../components/Branch/EditPartner.tsx'));
+const branchEdit = lazy(() => import('../components/Branch/EditBranches.tsx'));
 const branchform = lazy(() => import('../components/Branch/Form.tsx'));
 
 //  operatore
@@ -94,7 +94,7 @@ const coreRoutes = [
     component: Buttons,
   },
   {
-    path: '/admin/branchDetails',
+    path: '/admin/branchdetails/:id',
     title: 'branchDetails',
     component: branchDetails,
   },
@@ -120,7 +120,7 @@ const coreRoutes = [
     component: editMember,
   },
   {
-    path: '/admin/editProduct',
+    path: '/admin/editproduct/:id',
     title: 'editProduct',
     component: editProduct,
   },
@@ -146,7 +146,7 @@ const coreRoutes = [
     component: productForm,
   },
   {
-    path: '/admin/detailsProduct',
+    path: '/admin/detailsproduct/:id',
     title: 'detailsProduct',
     component: detailsProduct,
   },
@@ -176,12 +176,12 @@ const coreRoutes = [
     component: servicesForm,
   },
   {
-    path: '/admin/operatorEdit',
+    path: '/admin/operatoredit/:id',
     title: 'operatorEdit',
     component: operatorEdit,
   },
   {
-    path: '/admin/operatorDetails',
+    path: '/admin/operatordetails/:id',
     title: 'operatorDetails',
     component: operatorDetails,
   },

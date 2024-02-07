@@ -35,7 +35,6 @@ const CreateForm = () => {
 
 
   if (isSuccess) {
-    console.log(data?.meta);
     
      const {  last_page,to, from,current_page,   total, per_page } = data?.meta;
      totalData=total 
@@ -65,20 +64,20 @@ const CreateForm = () => {
 
   return (
     <>
-      <div className="flex justify-between">
-        <div className="flex flex-col">
+      <div className="flex  justify-between flex-wrap">
+        <div className="flex flex-col w-60">
           <h4 className="mb-6 text-xl font-semibold text-black dark:text-white">
           {t("branch.0")}
           </h4>
           <input
             type="text"
             placeholder=" search..."
-            className="w-60 py-2 my-4  pr-4 pl-9 focus:outline-none rounded-md   "
+            className="w-full py-2 my-4   pr-4 pl-9 focus:outline-none rounded-md   "
           />
         </div>
         <Link
           to="/admin/branchform"
-          className="bg-successOpacity py-4 space-x-2 text-[16px] rounded-sm dark:bg-[#0ab39c26] justify-center flex items-center h-[40px] w-auto px-2 hover:text-white hover:bg-success"
+          className="bg-successOpacity py-4 mb-4 lg:mb-0 md:mb-0 sm:mb-0 space-x-2 text-[16px] rounded-sm dark:bg-[#0ab39c26] justify-center flex items-center h-[40px] w-auto px-2 hover:text-white hover:bg-success"
         >
           <IoIosAddCircleOutline />
         {t("branch.1")}
@@ -179,6 +178,8 @@ const CreateForm = () => {
        )}
         </>
       )}
+
+      
     </>
   );
 };

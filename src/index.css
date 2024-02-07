@@ -273,6 +273,11 @@ place-items: center;
 }
 
 
+#transition{
+
+  transition: all 400ms;
+}
+
 
 
 

@@ -32,20 +32,20 @@ const CreateForm = () => {
 
   return (
     <>
-      <div className="flex justify-between">
-        <div className="flex flex-col">
+      <div className="flex justify-between  flex-wrap">
+        <div className="flex flex-col w-60">
           <h4 className="mb-6 text-xl font-semibold text-black dark:text-white">
             Operator
           </h4>
           <input
             type="text"
             placeholder=" search..."
-            className="w-60 py-2 my-4  pr-4 pl-9 focus:outline-none rounded-md   "
+            className="w-full py-2 my-4  pr-4 pl-9 focus:outline-none rounded-md   "
           />
         </div>
         <Link
           to="/admin/servicesForm"
-          className="bg-successOpacity py-5 space-x-2 text-[16px] rounded-sm dark:bg-[#0ab39c26] justify-center flex items-center h-[40px] w-[163px] hover:text-white hover:bg-success"
+          className="bg-successOpacity py-5 space-x-2 mb-4 lg:mb-0 md:mb-0 sm:mb-0 text-[16px] rounded-sm dark:bg-[#0ab39c26] justify-center flex items-center h-[40px] w-[163px] hover:text-white hover:bg-success"
         >
           <IoIosAddCircleOutline />
           Create operator

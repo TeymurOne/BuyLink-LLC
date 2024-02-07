@@ -5,14 +5,13 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import search from '../../images//pageLand/search.svg';
 import logo from '../../images//pageLand/logo.svg';
 import globe from '../../images//pageLand/globe.svg';
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import SignModal from '../../pages/Authentication/SignModal';
 import getState from '../../core/helpers/cookie';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const navigaet=useNavigate()
   
   const cookie = getState();
 
@@ -20,7 +19,7 @@ export default function Header() {
   return (
     <header className="bg-[#F3F4F6] font-roboto">
       <nav
-        className="mx-auto px-4 flex max-w-[1480px] items-center justify-between py-3 lg:px-2"
+        className="mx-auto px-4 flex  w-full items-center justify-between py-3 lg:px-2"
         aria-label="Global"
       >
         <div className="flex lg:flex-1 mr-[-180px]">

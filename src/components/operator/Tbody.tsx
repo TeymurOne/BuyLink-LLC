@@ -1,11 +1,11 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AiOutlineDelete } from 'react-icons/ai';
 import { FiEdit2, FiEye } from 'react-icons/fi';
 import Swal from 'sweetalert2';
 import {
   useDeleteOperatorMutation,
-  useLazyUpdateOperatorGetQuery,
+  
 } from '../../features/operator/apiSlice';
 import { IitemApiOperator } from './CreateForm';
 
@@ -15,14 +15,10 @@ export interface TbodyProps {
 
 const Tbody: React.FC<TbodyProps> = ({ item }) => {
   const [deletePost] = useDeleteOperatorMutation();
-  const [updateGet] = useLazyUpdateOperatorGetQuery();
 
   const navigate = useNavigate();
 
-  const handleDetails = () => {
-    const itemAll = item;
-    navigate('/admin/operatorDetails', { state: { itemAll } });
-  };
+ 
 
   const handleRemove = async (id: number) => {
     const result = await Swal.fire({
@@ -52,14 +48,7 @@ const Tbody: React.FC<TbodyProps> = ({ item }) => {
       }
     }
   };
-  const handleEdit = async (id: number) => {
-    const resUpdate = await updateGet(id);
-    console.log(resUpdate);
-    if (resUpdate.status === 'fulfilled') {
-      const editData = resUpdate?.data;
-      navigate('/admin/operatorEdit', { state: { data: editData, id } });
-    }
-  };
+
 
   return (
     <>
@@ -78,21 +67,23 @@ const Tbody: React.FC<TbodyProps> = ({ item }) => {
         </td>
         <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
           <div className="flex items-center space-x-3.5">
-            <button className="hover:text-primary" onClick={handleDetails}>
+            <Link to={`/admin/operatordetails/${item.id}`}>
+            <button className="hover:text-primary" >
               <FiEye />
             </button>
+            </Link>
+          
             <button
               className="hover:text-primary"
               onClick={() => handleRemove(item.id)}
             >
               <AiOutlineDelete />
             </button>
-            <button
+            <Link to={`/admin/operatoredit/${item.id}`}
               className="hover:text-primary"
-              onClick={() => handleEdit(item.id)}
             >
               <FiEdit2 />
-            </button>
+            </Link>
           </div>
         </td>
       </tr>

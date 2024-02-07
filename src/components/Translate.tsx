@@ -1,6 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
+import {  useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import us from '../images/flagTranslate/us.svg';
+import aze from '../images/flagTranslate/aze.png';
+
 import { useTranslation } from 'react-i18next';
 import i18n from '../i18n/İ18n';
 
@@ -10,30 +12,9 @@ const Translate = () => {
   const trigger = useRef<any>(null);
   const dropdown = useRef<any>(null);
 
-  useEffect(() => {
-    const clickHandler = ({ target }: MouseEvent) => {
-      if (!dropdown.current) return;
-      if (
-        !dropdownOpen ||
-        dropdown.current.contains(target) ||
-        trigger.current.contains(target)
-      )
-        return;
-      setDropdownOpen(false);
-    };
-    document.addEventListener('click', clickHandler);
-    return () => document.removeEventListener('click', clickHandler);
-  });
 
-  // close if the esc key is pressed
-  useEffect(() => {
-    const keyHandler = ({ keyCode }: KeyboardEvent) => {
-      if (!dropdownOpen || keyCode !== 27) return;
-      setDropdownOpen(false);
-    };
-    document.addEventListener('keydown', keyHandler);
-    return () => document.removeEventListener('keydown', keyHandler);
-  });
+
+
   const { t } = useTranslation();
   const handleClick = (lang:string) => {
 
@@ -89,7 +70,7 @@ const Translate = () => {
               to="#"
             >
               <p className="text-sm flex space-x-2">
-              <img  className=' w-[24px] rounded-md' src={us} alt="Usa Flag" />
+              <img  className=' w-[24px] rounded-md' src={aze} alt="AZE Flag" />
                 <span className="text-black dark:text-white">AZE </span>
                 
               </p>

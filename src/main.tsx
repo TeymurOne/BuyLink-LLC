@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {
   BrowserRouter,
@@ -11,7 +10,6 @@ import App from './App';
 import store from './app/api/store';
 import './index.css';
 import './satoshi.css';
-import i18n from '../src/i18n/İ18n'
 
 import { Provider } from 'react-redux';
 

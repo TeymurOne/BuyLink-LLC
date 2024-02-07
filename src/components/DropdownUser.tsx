@@ -1,19 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import UserOne from '../images/user/user-01.png';
 import { useDispatch, useSelector } from 'react-redux';
-import { logOut, selectCurrentUser } from '../features/auth/authSlice';
+import { logOut, selectCurrentImage, selectCurrentUser } from '../features/auth/authSlice';
 
-
-//  interface Iuser {
-//   name: string;
-//   phone:string;
-//   id:number
-// } 
-//  interface IRootState {
-//   user: Iuser;
-// } 
 
 
 
@@ -34,8 +24,10 @@ const DropdownUser = () => {
  
     navigate('/');
   };
+const userimage=useSelector(selectCurrentImage)
+console.log(userimage);
 
-  // close on click outside
+
   useEffect(() => {
     const clickHandler = ({ target }: MouseEvent) => {
       if (!dropdown.current) return;
@@ -77,7 +69,7 @@ const DropdownUser = () => {
         </span>
 
         <span className="h-12 w-12 rounded-full">
-          <img src={UserOne} alt="User" />
+          <img src={userimage} alt="User" />
         </span>
 
         <svg

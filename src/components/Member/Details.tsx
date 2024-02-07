@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useFetchMemberDataQuery } from '../../features/members/apiSlice';
 import Loader from '../../common/Loader';
+import { FaArrowLeft } from 'react-icons/fa6';
 
 const Details = () => {
   const { id } = useParams();
@@ -12,12 +13,14 @@ const Details = () => {
 
   if (isSuccess && id) {
     member = data?.data.find((item: any) => item.id == id);
-    console.log(member, 'member');
   }
 
   return (
     <>
-      <h2 className="mb-2">{/* : <span>{id}</span> */}</h2>
+      <h2 className="mb-2 flex items-center space-x-4 font-semibold italic">
+             Member:    <span>{member?.id}</span>{' '}
+            <FaArrowLeft onClick={() => window.history.back()} />
+          </h2>
   {member? (
       <div className="max-w-[1200px] font-medium text-[17px] rounded-md w-full border-stroke dark:text-white dark:bg-strokedark bg-white h-auto p-1">
       <div className="flex justify-between lg:w-1/3 md:w-1/2 py-4 px-3">

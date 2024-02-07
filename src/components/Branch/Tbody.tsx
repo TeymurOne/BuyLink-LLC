@@ -33,7 +33,7 @@ const Tbody: React.FC<TbodyProps> = ({ item }) => {
 
   const handleDetails = () => {
     const itemAll = item;
-    navigate('/admin/branchDetails', { state: { itemAll } });
+    navigate('/admin/branchdetails', { state: { itemAll } });
   };
  
   const handleRemove = async (id: number) => {
@@ -96,9 +96,11 @@ const Tbody: React.FC<TbodyProps> = ({ item }) => {
 
         <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
           <div className="flex items-center space-x-3.5">
-            <button className="hover:text-primary" onClick={handleDetails}>
+          <Link to={`/admin/branchdetails/${item.id}`} >
+          <button className="hover:text-primary" >
               <FiEye />
             </button>
+          </Link>
             <button
               className="hover:text-primary"
               onClick={() => handleRemove(item.id)}

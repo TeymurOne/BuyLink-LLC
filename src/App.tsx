@@ -8,7 +8,7 @@ import SignIn from './pages/Authentication/SignIn';
 
 import Loader from './common/Loader';
 import axiosInstance from './core/lib/axios.config';
-import { selectCurrentUser, setCredentials } from './features/auth/authSlice';
+import { selectCurrentUser, setCredentials, setImage } from './features/auth/authSlice';
 import ProtectedRoutes from './private/ProtectedRoutes';
 import ErrorPage from './components/ErrorPage';
 import Index from './components/PageIndex/Index';
@@ -30,7 +30,10 @@ function App() {
         try {
           const userData = await axiosInstance.get('/auth/user');
           
+          
+          
           dispatch(setCredentials(userData.data));
+          dispatch(setImage(userData?.data?.data.image))
         } catch (error) {
           console.error('Error fetching user data:', error);
         }
@@ -66,7 +69,7 @@ function App() {
           <Route path="/admin" element={<DefaultLayout />}>
        
           
-            {/* <Route index element={<ECommerce />} /> */}
+            <Route index element={<ECommerce />} />
 
              {routes.map((route, index) => (
               <Route

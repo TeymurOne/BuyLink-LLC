@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Map } from './Map';
 import { usePostBranchMutation } from '../../features/branch/apiSlice';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Map } from './Map';
+
 export interface IpostData {
   id?: any;
   name: string;
@@ -112,7 +113,7 @@ const Form = () => {
                 >
                                     {t("branch.12")}
 
-                  <Map
+                   <Map
                     selectedLat={selectedLat}
                     selectedLng={selectedLng}
                     onLatChange={handleLatChange}

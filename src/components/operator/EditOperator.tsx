@@ -1,18 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { useLocation, useNavigate } from 'react-router-dom';
-import {  useUpdateOperatorMutation } from '../../features/operator/apiSlice';
+import { useNavigate, useParams } from 'react-router-dom';
+import {
+  useLazyUpdateOperatorGetQuery,
+  useUpdateOperatorMutation,
+} from '../../features/operator/apiSlice';
 import { useFetchBranchAllQuery } from '../../features/branch/apiSlice';
 import { FaArrowLeft } from 'react-icons/fa6';
 import { IitemBranch } from './CreateForm';
 import { useTranslation } from 'react-i18next';
 
 const Form = () => {
+  const { id }: any = useParams();
+
+  const [updateGet] = useLazyUpdateOperatorGetQuery();
   const [postOperator] = useUpdateOperatorMutation();
-  const location = useLocation();
-  const { email, name, branch, id } = location.state.data?.data;
-  
-  
+  const [res, setRes] = useState<Initial>({
+    name_: '',
+    email_: '',
+    branchID_: '',
+  });
+  const { email_, name_, branchID_ } = res;
+
   interface Initial {
     name_: string;
     email_: string;
@@ -20,68 +29,71 @@ const Form = () => {
   }
   const { t } = useTranslation();
 
-  const InitialData: Initial = {
-    name_: name,
-    email_: email,
-    branchID_: branch?.id,
+  const handleEdit = async (id: number) => {
+    try {
+      const resUpdate = await updateGet(id);
+
+      if (resUpdate) {
+        const data = resUpdate.data?.data;
+        console.log(data);
+
+        setRes({
+          ...res,
+          name_: data.name,
+          email_: data.email,
+          branchID_: data?.branch.id,
+        });
+      }
+    } catch (error) {}
   };
 
-  const [formValue, setFormValue] = useState(InitialData);
-  const { name_, email_, branchID_ } = formValue;
+  useEffect(() => {
+    handleEdit(id);
+  }, [id]);
   const { isSuccess, data, isError } = useFetchBranchAllQuery('');
-  
 
   const [load, setLoad] = useState<boolean>(false);
   const postData = new FormData();
   const navigate = useNavigate();
 
-  const btnDisabled:boolean = !name_ || !email_ || !branchID_;
-
+  const btnDisabled: boolean = !name_ || !email_ || !branchID_;
 
   let content;
 
   if (isSuccess) {
-
     content = data?.data.map((item: IitemBranch, index: number) => {
-      
+      const isSelected = item.id === branchID_;
+
       return (
-        <option key={index} selected={item.id === branch?.id} value={item.id}>
+        <option key={index} selected={isSelected} value={item.id}>
           {item.name}
         </option>
       );
     });
-
   } else if (isError) {
     console.error('Error fetching data', 'Products Types');
   }
-  
 
   const handleBranch = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const branchNum = Number(e.target.value);
 
-    setFormValue({ ...formValue, branchID_: branchNum });
+    setRes({ ...res, branchID_: branchNum });
   };
 
   const postSubmit = async (e: React.FormEvent<HTMLButtonElement>) => {
-
-    
     setLoad(true);
     e.preventDefault();
-    console.log(InitialData, 'inintual');
-    
 
     postData.append('branch_id', branchID_!.toString());
     postData.append('name', name_);
     postData.append('email', email_);
 
-
     try {
       if (postData) {
-     
-        
-        await postOperator({postData, id}).unwrap().then((response) => {
+        await postOperator({ postData, id })
+          .unwrap()
+          .then((response) => {
             if (response) {
-
               navigate('/admin/servicesCreate');
             }
           });
@@ -97,9 +109,10 @@ const Form = () => {
       <form>
         <div className="space-y-12">
           <div className=" pb-12">
-          <h2 className="mb-2 flex items-center space-x-4 font-semibold italic">
-        {t("operator.0")}  {t("operator.8")} : <span>{id}</span> <FaArrowLeft onClick={()=>window.history.back()} />
-      </h2>
+            <h2 className="mb-2 flex items-center space-x-4 font-semibold italic">
+              {t('operator.0')} {t('operator.8')} : <span>{id}</span>{' '}
+              <FaArrowLeft onClick={() => window.history.back()} />
+            </h2>
 
             <div className="mt-10 grid grid-cols-6 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="lg:col-span-3 col-span-6 ">
@@ -111,9 +124,7 @@ const Form = () => {
                 </label>
                 <div className="mt-2">
                   <input
-                    onChange={(e) =>
-                      setFormValue({ ...formValue, name_: e.target.value })
-                    }
+                    onChange={(e) => setRes({ ...res, name_: e.target.value })}
                     value={name_}
                     placeholder="Name"
                     id="text"
@@ -132,9 +143,7 @@ const Form = () => {
                 </label>
                 <div className="mt-2">
                   <input
-                    onChange={(e) =>
-                      setFormValue({ ...formValue, email_: e.target.value })
-                    }
+                    onChange={(e) => setRes({ ...res, email_: e.target.value })}
                     value={email_}
                     placeholder="Email"
                     id="email"
@@ -156,11 +165,11 @@ const Form = () => {
                   <select
                     id="branch"
                     onChange={handleBranch}
+                    defaultValue={42}
                     name="branch"
                     autoComplete="branch"
                     className="block w-full rounded-md border-0 py-[11px]  shadow-sm ring-1 ring-inset    sm:max-w-xs sm:text-sm sm:leading-6"
                   >
-                   
                     {content}
                   </select>
                 </div>
