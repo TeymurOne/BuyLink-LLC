@@ -57,12 +57,15 @@ module.exports = {
     screens: {
       '2xsm': '375px',
       '2xl':"1200px",
-      xsm: '425px',
+      "xsm": '425px',
+      "500px":"500px",
+      "992px":"992px",
       "2md":"700px",
       '3xl': '2000px',
       ...defaultTheme.screens,
     },
     extend: {
+      borderOpacity: ['active'],
       fontSize: {
         'title-xxl': ['44px', '55px'],
         'title-xl': ['36px', '45px'],

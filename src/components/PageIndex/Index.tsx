@@ -10,10 +10,8 @@ import { Pagination } from 'swiper/modules';
 import dollar from '../../images/pageLand/dollar.svg';
 import money from '../../images/pageLand/money.svg';
 import info from '../../images/pageLand/info.svg';
-import card1 from '../../images/pageLand/card1.png';
 
 import Slider from './Slider';
-import { Link } from 'react-router-dom';
 import VideoSection from './VideoSection';
 
 import iphone4 from '../../images/pageLand/iphone4.png';
@@ -28,7 +26,9 @@ import iphone15plus from '../../images/pageLand/15plus.png';
 import mock from '../../images/pageLand/iphonemock.png';
 import black from '../../images/pageLand/black.png';
 
-import main from '../../images/pageLand/main.svg';
+import main from '../../images/pageLand/main.png';
+import card1 from '../../images/pageLand/card1.png';
+
 
 import partnerLogo from '../../images/pageLand/mask.svg';
 import Accordion from './Accordion';
@@ -37,20 +37,22 @@ export const isMobile = window.innerWidth <= 455;
 
 const Index = () => {
   return (
-    <>
-      <div className="w-full h-auto px-4 max-w-[97%] mx-auto    cursor-pointer">
-        <HeadMainVideo />
+    <div  className='w-full'>
+      <div className="w-full h-auto px-4 max-w-[1500px] mx-auto    cursor-pointer">
+    
+         <HeadMainVideo />
         <WalletBuylink />
         <BuyLinkPartner />
+    
       </div>
 
       <div className=" bg-white  w-full px-4  ">
-        <div className=" py-10 max-w-[97%] mx-auto  ">
+        <div className=" py-10 max-w-[1500px] mx-auto  ">
           <BuyLinkPartner2 />
         </div>
       </div>
       <div className=" bg-[#F3F4F6] py-10 ">
-        <div className="max-w-[97%] px-4 mx-auto">
+        <div className="max-w-[1400px] px-4 mx-auto">
           <BuyLinkPartner3 />
         </div>
       </div>
@@ -59,12 +61,12 @@ const Index = () => {
       </div>
       <NewsLetter />
       <div className=" bg-[#F3F4F6] py-10 ">
-        <div className="max-w-[97%] py-20 mx-auto">
+        <div className="max-w-[1500px] py-20 mx-auto">
           <Accordion />
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 
@@ -76,9 +78,8 @@ function HeadMainVideo() {
       <div className="w-full bg-[#F3F4F6] h-auto      cursor-pointer">
         <Header />
         <div className="py-2 ">
-          <img src={main} className='h-full w-full' alt="Main" />
+          <img src={main} className="h-full w-full" alt="Main" />
         </div>
-       
 
         <Slider />
         <VideoSection />
@@ -90,19 +91,19 @@ function HeadMainVideo() {
 function WalletBuylink() {
   return (
     <>
-      <section>
-        <div className=" flex justify-between lg:space-x-4 md:space-x-4 space-x-0 py-14 xl:px-0 flex-col md:flex-col lg:flex-row">
-          <div className="  w-full   max-w-[507px] " id="walletBuylink">
+      <section >
+        <div className=" flex  justify-between lg:space-x-4 md:space-x-4 space-x-0 py-14 xl:px-0 flex-col md:flex-col lg:flex-row">
+          <div className="  w-full   max-w-[610px] " id="walletBuylink">
             <img
-              className=" w-full h-full object-contain  rounded-xl "
+              className=" w-full h-[300px] object-contain   rounded-xl "
               src={card1}
               alt="Buynet wallet img"
             />
           </div>
 
-          <div className="   max-w-[580px] w-full         text-black  ">
+          <div className="    max-w-[778px] w-full         text-black  ">
             <div className="lg:text-start text-center">
-              <h2 className="font-manrope   text-2xl      text-black font-bold">
+              <h2 className="font-manrope    lg:text-[2.65em] xl:text-[2.65em] text-[1.75em]   leading-10    text-black font-bold">
                 BuyLink Wallet - serves as a savings for you
                 <span className="text-[#4C5DF5]"> bonuses and rewards</span>
               </h2>
@@ -160,58 +161,55 @@ function BuyLinkPartner() {
           id="buylinkpartner"
         >
           <div className="space-y-4 ">
-            <h2 className="font-manrope  lg:text-[40px] text-[30px]      leading-10  text-black font-bold">
+            <h2 className="font-manrope  lg:text-[40px] text-[30px]   leading-0    sm:leading-8  text-black font-bold">
               Explore new
               <span className="text-[#4C5DF5]"> users and partners</span>
             </h2>
-            <p className="lg:text-[20px] text-[14px] leading-5">
+            <p className="lg:text-[20px] text-[15px] pb-[2em] leading-[1.7]">
               End-to-end payments and financial management in a single solution.
-              Meet the right <br /> platform to help realize.
+              Meet the right platform to <br /> help realize.
             </p>
           </div>
-          <div className="flex lg:flex-row flex-col     max-w-full lg:w-[80%]">
-            <div className="pt-4  ">
-              <div className="flex items-center ">
-                <img src={cube} alt="w-[30px] h-[30px]" />
-                <h2 className="font-manrope  lg:text-[16px] text-[22px]       text-black font-bold">
-                  Explore our partners
+          <div className="w-[90%] grid lg:grid-cols-3 500px:grid-cols-2 md:grid-cols-2 grid-cols-1">
+            <div className="pt-4 w-full max-w-[280px]">
+              <div className="flex items-center  space-x-6 lg:space-x-2 ">
+                <img src={cube} alt="w-[20px] h-[28px]" />
+
+                <h2 className="font-manrope   lg:text-[17px]  500px:text-[11px]   md:text-[14px]  992px:text-[16px]  text-[20px]       text-black font-bold">
+                  Explore Our partners
                 </h2>
               </div>
 
-              <p className="font-poppins leading-[2] lg:text-[12px] text-[14px] md:text-start  text-center  text-[#000000ad] font-normal">
-                Cum et convallis risus placerat aliquam, nunc. Scelerisque
-                aliquet faucibus tincidunt eu adipiscing sociis arcu lorem
-                porttitor.
+              <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
+                Meet our list of partnes at our homepage
               </p>
             </div>
-            <div className="pt-4">
-              <div className="flex items-center ">
-                <img src={cube} alt="w-[30px] h-[30px]" />
+            <div className="pt-4  w-full max-w-[280px]">
+              <div className="flex items-center   space-x-2 ">
+                <img src={cube} alt="w-[20px] h-[28px]" />
 
-                <h2 className="font-manrope  lg:text-[16px] text-[22px]       text-black font-bold">
-                  Add people to your network
+                <h2 className="font-manrope text-[20px]   lg:text-[17px] 500px:text-[11px]    md:text-[14px]  992px:text-[16px]        text-black font-bold">
+                  Add People to your Network
                 </h2>
               </div>
 
-              <p className="font-poppins  md:text-start  text-center leading-[2] lg:text-[12px] text-[14px]   text-[#000000ad] font-normal">
-                Cum et convallis risus placerat aliquam, nunc. Scelerisque
-                aliquet faucibus tincidunt eu adipiscing sociis arcu lorem
-                porttitor.
+              <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
+                Use search to find your friends and new users. Add them, and
+                start to recommend each other
               </p>
             </div>
-            <div className="pt-4">
-              <div className="flex items-center ">
-                <img src={cube} alt="w-[30px] h-[30px]" />
+            <div className="pt-4  w-full max-w-[280px]">
+              <div className="flex items-center   space-x-2 ">
+                <img src={cube} alt="w-[20px] h-[28px]" />
 
-                <h2 className="font-manrope  lg:text-[16px] text-[22px]       text-black font-bold">
+                <h2 className="font-manrope  text-[20px]  500px:text-[11px]   lg:text-[17px]  md:text-[14px]  992px:text-[16px]      text-black font-bold">
                   Explore different categories
                 </h2>
               </div>
 
-              <p className="font-poppins  md:text-start  text-center leading-[2] lg:text-[12px] text-[14px]    text-[#000000ad] font-normal">
-                Cum et convallis risus placerat aliquam, nunc. Scelerisque
-                aliquet faucibus tincidunt eu adipiscing sociis arcu lorem
-                porttitor.
+              <p className="font-poppins pt-4 pb-6  lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
+                Here you can find different industries,choose any that you
+                areasasa interested in
               </p>
             </div>
           </div>
@@ -227,7 +225,7 @@ function BuyLinkPartner() {
           >
             <div className="flex items-center  space-x-4 justify-center pt-20">
               <SwiperSlide>
-                <div className="max-w-[225px] w-full ">
+                <div className="max-w-[225px] pb-2 h-[390px] w-full ">
                   <img
                     className="w-full h-full object-contain"
                     src={gosupport}
@@ -236,7 +234,7 @@ function BuyLinkPartner() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="max-w-[225px] w-full  ">
+                <div className="max-w-[225px] pb-2 h-[390px] w-full  ">
                   <img
                     className="w-full h-full object-contain"
                     src={user}
@@ -245,7 +243,7 @@ function BuyLinkPartner() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="max-w-[225px] w-full  ">
+                <div className="max-w-[225px] pb-2 h-[390px] w-full  ">
                   <img
                     className="w-full h-full object-contain"
                     src={wallet2}
@@ -292,60 +290,57 @@ function BuyLinkPartner2() {
           className="flex flex-col lg:items-center  items-stretch text-center"
           id="buylinkpartner"
         >
-          <div className="space-y-4">
-            <h2 className="font-manrope  lg:text-[40px] text-[30px]      leading-8  text-black font-bold">
+          <div className="space-y-4 ">
+            <h2 className="font-manrope  lg:text-[40px] text-[30px]   leading-0    sm:leading-8  text-black font-bold">
               Get cash
               <span className="text-[#4C5DF5]"> in 3 steps</span>
             </h2>
-            <p className="text-[17px]">
+            <p className="lg:text-[20px] text-[15px] pb-[2em] leading-[1.7]">
               End-to-end payments and financial management in a single solution.
-              Meet the right <br /> platform to help realize.
+              Meet the right platform to <br /> help realize.
             </p>
           </div>
-          <div className="flex lg:flex-row flex-col     max-w-full lg:w-[80%]">
-            <div className="pt-4  ">
-              <div className="flex items-center ">
-                <img src={cube} alt="w-[36px] h-[36px]" />
+          <div className="w-[90%] grid lg:grid-cols-3 500px:grid-cols-2 md:grid-cols-2 grid-cols-1">
+            <div className="pt-4 w-full max-w-[280px]">
+              <div className="flex items-center  space-x-6 lg:space-x-2 ">
+                <img src={cube} alt="w-[20px] h-[28px]" />
 
-                <h2 className="font-manrope  lg:text-[14px] text-[22px]       text-black font-bold">
+                <h2 className="font-manrope   lg:text-[17px]  500px:text-[11px]   md:text-[14px]  992px:text-[16px]  text-[20px]       text-black font-bold">
                   Enter to partner page
                 </h2>
               </div>
 
-              <p className="font-poppins leading-[2] lg:text-[12px] text-[14px] md:text-start  text-center  text-[#000000ad] font-normal">
-                Cum et convallis risus placerat aliquam, nunc. Scelerisque
-                aliquet faucibus tincidunt eu adipiscing sociis arcu lorem
-                porttitor.
+              <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
+                Explore menu / catalogue of partner. With list of products of
+                services, prices, discounts, and referral cashbacks
               </p>
             </div>
-            <div className="pt-4">
-              <div className="flex items-center ">
-                <img src={cube} alt="w-[36px] h-[36px]" />
+            <div className="pt-4  w-full max-w-[340px]">
+              <div className="flex items-center   space-x-2 ">
+                <img src={cube} alt="w-[20px] h-[28px]" />
 
-                <h2 className="font-manrope  lg:text-[14px] text-[22px]       text-black font-bold">
+                <h2 className="font-manrope text-[20px]   lg:text-[17px] 500px:text-[11px]    md:text-[14px]  992px:text-[16px]        text-black font-bold">
                   Share referral link to your network
                 </h2>
               </div>
 
-              <p className="font-poppins  md:text-start  text-center leading-[2] lg:text-[12px] text-[14px]   text-[#000000ad] font-normal">
-                Cum et convallis risus placerat aliquam, nunc. Scelerisque
-                aliquet faucibus tincidunt eu adipiscing sociis arcu lorem
-                porttitor.
+              <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
+                In partner page you can recommend this business to your network
+                via chat on share on post
               </p>
             </div>
-            <div className="pt-4">
-              <div className="flex items-center ">
-                <img src={cube} alt="w-[36px] h-[36px]" />
+            <div className="pt-4  w-full max-w-[340px]">
+              <div className="flex items-center   space-x-2 ">
+                <img src={cube} alt="w-[20px] h-[28px]" />
 
-                <h2 className="font-manrope  lg:text-[14px] text-[22px]       text-black font-bold">
-                  Go to wallet and check your balance
+                <h2 className="font-manrope  text-[20px]  500px:text-[11px]   lg:text-[17px]  md:text-[14px]  992px:text-[16px]      text-black font-bold">
+                  Go to wallet and check you balance
                 </h2>
               </div>
 
-              <p className="font-poppins  md:text-start  text-center leading-[2] lg:text-[12px] text-[14px]    text-[#000000ad] font-normal">
-                Cum et convallis risus placerat aliquam, nunc. Scelerisque
-                aliquet faucibus tincidunt eu adipiscing sociis arcu lorem
-                porttitor.
+              <p className="font-poppins pt-4 pb-6  lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
+                After your network use your referral link , you again rewards ,
+                and can check your balance in wallet page
               </p>
             </div>
           </div>
@@ -359,9 +354,9 @@ function BuyLinkPartner2() {
             modules={[Pagination]}
             className="mySwiper"
           >
-            <div className="flex items-center  space-x-4 justify-center pt-20">
+            <div className="flex items-center  space-x-4 justify-center ">
               <SwiperSlide>
-                <div className="max-w-[225px] w-full ">
+                <div className="max-w-[225px] h-[390px] w-full ">
                   <img
                     className="w-full h-full object-contain"
                     src={gosupport}
@@ -370,7 +365,7 @@ function BuyLinkPartner2() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="max-w-[225px] w-full  ">
+                <div className="max-w-[225px] h-[390px] w-full  ">
                   <img
                     className="w-full h-full object-contain"
                     src={user}
@@ -379,7 +374,7 @@ function BuyLinkPartner2() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="max-w-[225px] w-full  ">
+                <div className="max-w-[225px] h-[390px] w-full  ">
                   <img
                     className="w-full h-full object-contain"
                     src={wallet2}
@@ -390,7 +385,7 @@ function BuyLinkPartner2() {
             </div>
           </Swiper>
         ) : (
-          <div className="flex items-center  space-x-4 justify-center pt-20">
+          <div className="flex items-center  space-x-4 justify-center ">
             <div className="w-[300px] h-[490px]">
               <img
                 className="w-full h-full object-contain"
@@ -426,60 +421,54 @@ function BuyLinkPartner3() {
           className="flex flex-col lg:items-center  items-stretch text-center"
           id="buylinkpartner"
         >
-          <div className="space-y-4">
-            <h2 className="font-manrope  lg:text-[40px] text-[30px]      leading-8  text-black font-bold">
-              How to
-              <span className="text-[#4C5DF5]"> get discount? </span>
+          <div className="space-y-4 ">
+            <h2 className="font-manrope  lg:text-[40px] text-[30px]   leading-0    sm:leading-8  text-black font-bold">
+              How to get
+              <span className="text-[#4C5DF5]"> discount</span>
             </h2>
-            <p className="text-[17px]">
+            <p className="lg:text-[20px] text-[15px] pb-[2em] leading-[1.7]">
               End-to-end payments and financial management in a single solution.
-              Meet the right <br /> platform to help realize.
+              Meet the right platform to <br /> help realize.
             </p>
           </div>
-          <div className="flex lg:flex-row flex-col     max-w-full lg:w-[80%]">
-            <div className="pt-4  ">
-              <div className="flex items-center ">
-                <img src={cube} alt="w-[36px] h-[36px]" />
+          <div className="w-[90%] grid lg:grid-cols-3 500px:grid-cols-2 md:grid-cols-2 grid-cols-1">
+            <div className="pt-4 w-full max-w-[340px]">
+              <div className="flex items-center  space-x-6 lg:space-x-2 ">
+                <img src={cube} alt="w-[20px] h-[28px]" />
 
-                <h2 className="font-manrope  lg:text-[14px] text-[22px]       text-black font-bold">
-                  See your network recommendations in referral page
+                <h2 className="font-manrope   lg:text-[17px] lg:text-start text-center md:text-start  500px:text-[11px]   md:text-[14px]  992px:text-[16px]  text-[20px]       text-black font-bold">
+                  See you  network recommendations in referral  page
                 </h2>
               </div>
 
-              <p className="font-poppins leading-[2] lg:text-[12px] text-[14px] md:text-start  text-center  text-[#000000ad] font-normal">
-                Cum et convallis risus placerat aliquam, nunc. Scelerisque
-                aliquet faucibus tincidunt eu adipiscing sociis arcu lorem
-                porttitor.
+              <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
+                See all posts that you network share, and chooseone that interests you
               </p>
             </div>
-            <div className="pt-4">
-              <div className="flex items-center ">
-                <img src={cube} alt="w-[36px] h-[36px]" />
+            <div className="pt-4  w-full max-w-[280px]">
+              <div className="flex items-center   space-x-2 ">
+                <img src={cube} alt="w-[20px] h-[28px]" />
 
-                <h2 className="font-manrope  lg:text-[14px] text-[22px]       text-black font-bold">
-                  Use referral link
+                <h2 className="font-manrope text-[20px]   lg:text-[17px] 500px:text-[11px]    md:text-[14px]  992px:text-[16px]        text-black font-bold">
+                  Add referral link to Qr Basket
                 </h2>
               </div>
 
-              <p className="font-poppins  md:text-start  text-center leading-[2] lg:text-[12px] text-[14px]   text-[#000000ad] font-normal">
-                Cum et convallis risus placerat aliquam, nunc. Scelerisque
-                aliquet faucibus tincidunt eu adipiscing sociis arcu lorem
-                porttitor.
+              <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
+                Here you can see all rederral links from different users for different partners
               </p>
             </div>
-            <div className="pt-4">
-              <div className="flex items-center ">
-                <img src={cube} alt="w-[36px] h-[36px]" />
+            <div className="pt-4  w-full max-w-[320px]">
+              <div className="flex items-center   space-x-2 ">
+                <img src={cube} alt="w-[20px] h-[28px]" />
 
-                <h2 className="font-manrope  lg:text-[14px] text-[22px]       text-black font-bold">
+                <h2 className="font-manrope  text-[20px]  500px:text-[11px]   lg:text-[17px]  md:text-[14px]  992px:text-[16px]      text-black font-bold">
                   Show qr code and get discount
                 </h2>
               </div>
 
-              <p className="font-poppins  md:text-start  text-center leading-[2] lg:text-[12px] text-[14px]    text-[#000000ad] font-normal">
-                Cum et convallis risus placerat aliquam, nunc. Scelerisque
-                aliquet faucibus tincidunt eu adipiscing sociis arcu lorem
-                porttitor.
+              <p className="font-poppins pt-4 pb-6  lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
+               When you show you Qr code you get discount  for you purchases
               </p>
             </div>
           </div>
@@ -493,9 +482,9 @@ function BuyLinkPartner3() {
             modules={[Pagination]}
             className="mySwiper"
           >
-            <div className="flex items-center  space-x-4 justify-center pt-20">
+            <div className="flex items-center  space-x-4 justify-center ">
               <SwiperSlide>
-                <div className="max-w-[225px] w-full ">
+                <div className="max-w-[225px] h-[390px] w-full ">
                   <img
                     className="w-full h-full object-contain"
                     src={iphone15plus}
@@ -504,7 +493,7 @@ function BuyLinkPartner3() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="max-w-[225px] w-full  ">
+                <div className="max-w-[225px] h-[390px] w-full  ">
                   <img
                     className="w-full h-full object-contain"
                     src={black}
@@ -513,7 +502,7 @@ function BuyLinkPartner3() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="max-w-[225px] w-full  ">
+                <div className="max-w-[225px] h-[390px] w-full  ">
                   <img
                     className="w-full h-full object-contain"
                     src={mock}
@@ -524,7 +513,7 @@ function BuyLinkPartner3() {
             </div>
           </Swiper>
         ) : (
-          <div className="flex items-center  space-x-4 justify-center pt-20">
+          <div className="flex items-center  space-x-4 justify-center ">
             <div className="w-[270px] h-[490px]">
               <img
                 className="w-full h-full "
@@ -548,8 +537,8 @@ function BuyLinkPartner3() {
 function Partner() {
   return (
     <>
-      <div className="max-w-[97%] mx-auto w-full flex items-center justify-between     h-[460px]">
-        <div className="flex flex-col items-center lg:items-start w-[70%]      justify-between lg:w-[40%]   ml-14 h-[240px]">
+      <div className="max-w-[1400px] mx-auto w-full flex items-center justify-between     h-[460px]">
+        <div className="flex flex-col items-center lg:items-start w-[70%]      justify-between lg:w-[40%]  h-[180px] 2xl:h-[220px]   ml-14 lg:h-[220px]">
           <h2 className="font-manrope text-center lg:text-start lg:text-5xl text-3xl normal font-bold text-[#F3F2F2]">
             Become a parthner
           </h2>

@@ -10,7 +10,7 @@ const Footer = () => {
       <footer className="bg-[#000000DE] w-full py-12 " id="footer">
         <div className=" mx-auto  max-w-[1430px] h-full">
           <div className="grid lg:grid-cols-4 gap-10   grid-cols-1  w-[70%] pb-20 xsm:px-4   ">
-            <div className="w-[20%] flex flex-col px-2     ">
+            <div className="w-[100px] flex flex-col px-2 lg:h-[190px]  h-auto   ">
               <img className="w-[67px] h-[75px]" src={logo} alt="Logo-footer" />
               <p className="text-white text-[16px] normal font-light">
                 Finance helps companies manage payments easily.

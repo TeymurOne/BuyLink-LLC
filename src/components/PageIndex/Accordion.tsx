@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { HiMinus } from 'react-icons/hi2';
 import { AiOutlinePlus } from 'react-icons/ai';
-import Title from './ui/Title';
 
 const Accordion = () => {
   interface Ifaqitems {
@@ -74,10 +73,10 @@ function AccordionItem({ num, question, ansver, curOpen, setCurOpen }: any) {
     <>
       <div
         onClick={handleToggle}
-        className=" cursor-pointer h-auto  border-b-[1px] flex justify-between items-center opacity-90 border-[#C4C4C4 ] w-full pb-2   "
+        className=" cursor-pointer h-auto  border-b-[1px]  border-[#C4C4C4 ] border-opacity-[20%]   flex justify-between items-center  w-full pb-2   "
       >
-        <div className="w-full">
-          <div className="flex items-center justify-between">
+        <div className="w-full  ">
+          <div className="flex items-center justify-between h-[80px]">
             <h2 className="lg:text-[28px] py-3 font-manrope text-[20px]  normmal text-[#4C5DF5] font-semibold">
               {question}
             </h2>
@@ -96,11 +95,12 @@ function AccordionItem({ num, question, ansver, curOpen, setCurOpen }: any) {
           <p
             id="transition"
             className={`text-[20px] h-0      overflow-hidden font-poppins    '
-               ${isOpen && 'pb-10  ' }`}
+               ${isOpen && 'lg:pb-10 pb-30 md:pb-16   ' }`}
           >
             {ansver}
           </p>
         </div>
+        
       </div>
     </>
   );

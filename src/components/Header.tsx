@@ -13,7 +13,6 @@ const Header = (props: {
     <header className="sticky top-0 z-999 flex w-full  bg-white drop-shadow-1 dark:bg-boxdark dark:drop-shadow-none">
       <div className="flex flex-grow items-center justify-between py-4 px-4 shadow-2 md:px-6 2xl:px-11">
         <div className="flex items-center gap-2 sm:gap-4 lg:hidden">
-          {/* <!-- Hamburger Toggle BTN --> */}
           <button
             aria-controls="sidebar"
             onClick={(e) => {
@@ -64,7 +63,7 @@ const Header = (props: {
         <div className="hidden sm:block">
           <form action="https://formbold.com/s/unique_form_id" method="POST">
             <div className="relative">
-              <button className="absolute top-1/2 left-0 -translate-y-1/2">
+              <p className="absolute top-1/2 left-0 -translate-y-1/2">
                 <svg
                   className="fill-body pl-2  hover:fill-primary text-[10px] dark:fill-bodydark dark:hover:fill-primary"
                   width="25"
@@ -86,7 +85,7 @@ const Header = (props: {
                     fill=""
                   />
                 </svg>
-              </button>
+              </p>
 
               <input
                 type="text"
@@ -105,11 +104,7 @@ const Header = (props: {
 
             {/* <!-- Notification Menu Area --> */}
             <Translate />
-            {/* <!-- Notification Menu Area --> */}
-
-            {/* <!-- Chat Notification Area --> */}
-
-            {/* <!-- Chat Notification Area --> */}
+      
           </ul>
 
           {/* <!-- User Area --> */}

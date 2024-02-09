@@ -12,9 +12,8 @@ import getState from '../../core/helpers/cookie';
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  
-  const cookie = getState();
 
+  const cookie = getState();
 
   return (
     <header className="bg-[#F3F4F6] font-roboto">
@@ -37,7 +36,7 @@ export default function Header() {
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
-        <div className="hidden lg:flex text-[#00000099] font-roboto lg:gap-x-4 font-medium text-[14px]">
+        <div className="hidden lg:flex text-[#00000099] font-roboto lg:gap-x-4 font-medium text-[16px]">
           <a href="#about">About</a>
 
           <a href="#features">Features</a>
@@ -46,23 +45,27 @@ export default function Header() {
           <a href="#footer">Contact us</a>
         </div>
         <div className="hidden font-normal lg:flex text-[#000000de] lg:flex-1 text-[14px] lg:justify-end">
-          <div className="flex space-x-1 mr-[-50px] items-center">
-            <img src={search} alt="" className="w-[15px] h-[16px]" />
-            <label htmlFor="Search">Search</label>
-            <img src={globe} alt="" className="w-[16px] h-[16px]" />
+          <div className="flex space-x-2 mr-[-50px] items-center ">
+            <label htmlFor="Search" className='flex items-center space-x-1'>
+              <img src={search} alt="" className="w-[15px] h-[16px]" />
+              <p>Search</p>
+            </label>
+           <label htmlFor="Select language" className='flex items-center space-x-1'>
+           <img src={globe} alt="" className="w-[16px] h-[16px]" />
             <select className="bg-transparent" name="" id="">
-              <option value="ENG">ENG</option>
+              <option value="ENG">Eng</option>
 
-              <option value="AZE">AZE</option>
+              <option value="AZE">Aze</option>
             </select>
+           </label>
           </div>
           {cookie ? (
-            <Link 
+            <Link
               to="/admin"
               onClick={() => {
                 setTimeout(() => {
                   window.location.reload();
-                }, 100); 
+                }, 100);
               }}
               className="text-[16px] space-x-2 text-black w-[151px] h-[44px]    flex items-center justify-center rounded-sm      "
             >
@@ -80,7 +83,7 @@ export default function Header() {
 
           <Link
             to=""
-            className="text-[16px] text-white w-[161px] h-[44px]    flex items-center justify-center rounded-sm  bg-[#000000de]    "
+            className="text-[16px] text-white w-[161px] h-[44px]    flex items-center justify-center rounded-sm  bg-primary    "
           >
             Become a partner
           </Link>
