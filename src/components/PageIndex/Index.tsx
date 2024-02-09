@@ -29,7 +29,6 @@ import black from '../../images/pageLand/black.png';
 import main from '../../images/pageLand/main.png';
 import card1 from '../../images/pageLand/card1.png';
 
-
 import partnerLogo from '../../images/pageLand/mask.svg';
 import Accordion from './Accordion';
 import Footer from './Footer';
@@ -37,27 +36,45 @@ export const isMobile = window.innerWidth <= 455;
 
 const Index = () => {
   return (
-    <div  className='w-full'>
-      <div className="w-full h-auto px-4 max-w-[1500px] mx-auto    cursor-pointer">
+    <>
     
-         <HeadMainVideo />
-        <WalletBuylink />
-        <BuyLinkPartner />
-    
+
+      <div className="bg-white ">
+        <div className="bg-white max-w-6xl mx-auto h-auto px-4 cursor-pointer">
+          <Header />
+          <div className="py-2 ">
+            <img src={main} className="h-full w-full" alt="Main" />
+          </div>
+        </div>
       </div>
 
-      <div className=" bg-white  w-full px-4  ">
-        <div className=" py-10 max-w-[1500px] mx-auto  ">
+      <div className="bg-[#F3F4F6] px-4">
+        <div className="max-w-6xl mx-auto">
+          <Slider />
+
+          <VideoSection />
+
+          <WalletBuylink />
+          <BuyLinkPartner />
+        </div>
+      </div>
+
+      <div className="bg-white  py-20">
+        <div className="max-w-6xl mx-auto">
           <BuyLinkPartner2 />
         </div>
       </div>
-      <div className=" bg-[#F3F4F6] py-10 ">
-        <div className="max-w-[1400px] px-4 mx-auto">
+      <div className="bg-[#F3F4F6] py-20 ">
+        <div className="max-w-6xl mx-auto">
           <BuyLinkPartner3 />
         </div>
       </div>
-      <div className=" bg-[#4C5DF5]  ">
+
+      <div className=" bg-[#4C5DF5]   ">
+        <div className='max-w-6xl mx-auto'>
         <Partner />
+
+        </div>
       </div>
       <NewsLetter />
       <div className=" bg-[#F3F4F6] py-10 ">
@@ -65,33 +82,19 @@ const Index = () => {
           <Accordion />
         </div>
       </div>
-      <Footer />
-    </div>
+      <Footer/>
+    </>
   );
 };
 
 export default Index;
 
-function HeadMainVideo() {
-  return (
-    <>
-      <div className="w-full bg-[#F3F4F6] h-auto      cursor-pointer">
-        <Header />
-        <div className="py-2 ">
-          <img src={main} className="h-full w-full" alt="Main" />
-        </div>
 
-        <Slider />
-        <VideoSection />
-      </div>
-    </>
-  );
-}
 
 function WalletBuylink() {
   return (
     <>
-      <section >
+      <section>
         <div className=" flex  justify-between lg:space-x-4 md:space-x-4 space-x-0 py-14 xl:px-0 flex-col md:flex-col lg:flex-row">
           <div className="  w-full   max-w-[610px] " id="walletBuylink">
             <img
@@ -437,12 +440,13 @@ function BuyLinkPartner3() {
                 <img src={cube} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope   lg:text-[17px] lg:text-start text-center md:text-start  500px:text-[11px]   md:text-[14px]  992px:text-[16px]  text-[20px]       text-black font-bold">
-                  See you  network recommendations in referral  page
+                  See you network recommendations in referral page
                 </h2>
               </div>
 
               <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-                See all posts that you network share, and chooseone that interests you
+                See all posts that you network share, and chooseone that
+                interests you
               </p>
             </div>
             <div className="pt-4  w-full max-w-[280px]">
@@ -455,7 +459,8 @@ function BuyLinkPartner3() {
               </div>
 
               <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-                Here you can see all rederral links from different users for different partners
+                Here you can see all rederral links from different users for
+                different partners
               </p>
             </div>
             <div className="pt-4  w-full max-w-[320px]">
@@ -468,7 +473,7 @@ function BuyLinkPartner3() {
               </div>
 
               <p className="font-poppins pt-4 pb-6  lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-               When you show you Qr code you get discount  for you purchases
+                When you show you Qr code you get discount for you purchases
               </p>
             </div>
           </div>
@@ -484,7 +489,7 @@ function BuyLinkPartner3() {
           >
             <div className="flex items-center  space-x-4 justify-center ">
               <SwiperSlide>
-                <div className="max-w-[225px] h-[390px] w-full ">
+                <div className="max-w-[225px] h-[590px] w-full ">
                   <img
                     className="w-full h-full object-contain"
                     src={iphone15plus}
@@ -493,7 +498,7 @@ function BuyLinkPartner3() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="max-w-[225px] h-[390px] w-full  ">
+                <div className="max-w-[225px] h-[590px] w-full  ">
                   <img
                     className="w-full h-full object-contain"
                     src={black}
@@ -502,7 +507,7 @@ function BuyLinkPartner3() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="max-w-[225px] h-[390px] w-full  ">
+                <div className="max-w-[225px] h-[590px] w-full  ">
                   <img
                     className="w-full h-full object-contain"
                     src={mock}
@@ -514,17 +519,17 @@ function BuyLinkPartner3() {
           </Swiper>
         ) : (
           <div className="flex items-center  space-x-4 justify-center ">
-            <div className="w-[270px] h-[490px]">
+            <div className="w-[300px] h-[590px]">
               <img
                 className="w-full h-full "
                 src={iphone15plus}
                 alt="Iphone2"
               />
             </div>
-            <div className="w-[280px] h-[490px]">
-              <img className="w-full h-full " src={black} alt="Iphone4" />
+            <div className="w-[280px] h-[590px]">
+              <img className="w-full h-full object-cover" src={black} alt="Iphone4" />
             </div>
-            <div className="w-[280px] h-[490px]">
+            <div className="w-[280px] h-[590px]">
               <img className="w-full h-full " src={mock} alt="Iphone2" />
             </div>
           </div>
@@ -537,8 +542,8 @@ function BuyLinkPartner3() {
 function Partner() {
   return (
     <>
-      <div className="max-w-[1400px] mx-auto w-full flex items-center justify-between     h-[460px]">
-        <div className="flex flex-col items-center lg:items-start w-[70%]      justify-between lg:w-[40%]  h-[180px] 2xl:h-[220px]   ml-14 lg:h-[220px]">
+      <div className=" w-full flex items-center justify-between    ">
+        <div className="flex flex-col items-center lg:items-start w-[70%]      justify-between lg:w-[40%]  h-[180px] 2xl:h-[220px]   ml-14 lg:h-[120px]">
           <h2 className="font-manrope text-center lg:text-start lg:text-5xl text-3xl normal font-bold text-[#F3F2F2]">
             Become a parthner
           </h2>
@@ -550,7 +555,7 @@ function Partner() {
           </button>
         </div>
         <div className="hidden lg:block ">
-          <img src={partnerLogo} className="object-contain" alt="" />
+          <img src={partnerLogo} className="object-contain h-[400px]" alt="" />
         </div>
       </div>
     </>

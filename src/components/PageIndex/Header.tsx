@@ -16,7 +16,7 @@ export default function Header() {
   const cookie = getState();
 
   return (
-    <header className="bg-[#F3F4F6] font-roboto">
+    <header className="bg-white font-roboto">
       <nav
         className="mx-auto px-4 flex  w-full items-center justify-between py-3 lg:px-2"
         aria-label="Global"

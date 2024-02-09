@@ -10,30 +10,30 @@ const Footer = () => {
       <footer className="bg-[#000000DE] w-full py-12 " id="footer">
         <div className=" mx-auto  max-w-[1430px] h-full">
           <div className="grid lg:grid-cols-4 gap-10   grid-cols-1  w-[70%] pb-20 xsm:px-4   ">
-            <div className="w-[100px] flex flex-col px-2 lg:h-[190px]  h-auto   ">
+            <div className=" flex flex-col justify-between px-2 lg:h-[190px]  h-auto   ">
               <img className="w-[67px] h-[75px]" src={logo} alt="Logo-footer" />
               <p className="text-white text-[16px] normal font-light">
                 Finance helps companies manage payments easily.
               </p>
               <div className="flex space-x-3 items-center  max-w-[100px]">
                 <img
-                  className="w-[20px] h-[20px]"
+                  className="w-[32px] h-[32px]"
                   alt="facebook"
                   src={facebook}
                 />
                 <img
-                  className="w-[20px] h-[20px]"
+                  className="w-[32px] h-[32px]"
                   alt="messenger"
                   src={envolede}
                 />
                 <img
-                  className="w-[20px] h-[20px]"
+                  className="w-[32px] h-[32px]"
                   src={instagram}
                   alt="instagram"
                 />
 
                 <img
-                  className="w-[20px] h-[20px]"
+                  className="w-[32px] h-[32px]"
                   alt="Logo-linkedln"
                   src={linkedln}
                 />
