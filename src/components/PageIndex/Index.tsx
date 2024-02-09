@@ -170,7 +170,7 @@ function BuyLinkPartner() {
               Meet the right platform to <br /> help realize.
             </p>
           </div>
-          <div className="w-[90%] grid lg:grid-cols-3 500px:grid-cols-2 md:grid-cols-2 grid-cols-1">
+          <div className="w-[83%] grid lg:grid-cols-3 500px:grid-cols-2 md:grid-cols-2 grid-cols-1">
             <div className="pt-4 w-full max-w-[280px]">
               <div className="flex items-center  space-x-6 lg:space-x-2 ">
                 <img src={cube} alt="w-[20px] h-[28px]" />
@@ -300,7 +300,7 @@ function BuyLinkPartner2() {
               Meet the right platform to <br /> help realize.
             </p>
           </div>
-          <div className="w-[90%] grid lg:grid-cols-3 500px:grid-cols-2 md:grid-cols-2 grid-cols-1">
+          <div className="w-[83%] grid lg:grid-cols-3 500px:grid-cols-2 md:grid-cols-2 grid-cols-1">
             <div className="pt-4 w-full max-w-[280px]">
               <div className="flex items-center  space-x-6 lg:space-x-2 ">
                 <img src={cube} alt="w-[20px] h-[28px]" />
@@ -433,7 +433,7 @@ function BuyLinkPartner3() {
           </div>
           <div className="w-[90%] grid lg:grid-cols-3 500px:grid-cols-2 md:grid-cols-2 grid-cols-1">
             <div className="pt-4 w-full max-w-[340px]">
-              <div className="flex items-center  space-x-6 lg:space-x-2 ">
+              <div className="flex items-center   lg:space-x-2 ">
                 <img src={cube} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope   lg:text-[17px] lg:text-start text-center md:text-start  500px:text-[11px]   md:text-[14px]  992px:text-[16px]  text-[20px]       text-black font-bold">
