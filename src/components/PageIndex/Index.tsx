@@ -91,7 +91,7 @@ export default Index;
 function Main() {
   return (
     <>
-      <div className="  py-5 px-2  flex md:flex-row flex-col items-center ">
+      <div className="  py-5 lg:px-2 md:pl-6 px-2   flex md:flex-row flex-col items-center ">
         <div className="max-w-[600px] md:text-justify text-center  w-full flex flex-col justify-between">
           <h2 className=" font-manrope  xl:text-[2.875em] lg:text-[2.875em] text-[32px] 992px:text-[40px]   leading-10 font-bold text-black-2">
             <span className="text-[#4C5DF5]">BuyLink</span> is the world first
@@ -102,7 +102,7 @@ function Main() {
             where they are able to get actual benefits from recommendations.
           </p>
 
-          <div className="flex lg:flex-row flex-col items-center space-y-4 lg:space-y-0 lg:space-x-8 ">
+          <div className="flex md:flex-row flex-col items-center space-y-4 md:space-y-0 md:space-x-8 ">
             <Link
               to=""
               className="bg-black-2 h-[61px] grid place-items-center   w-[188px]"
@@ -158,18 +158,18 @@ function WalletBuylink() {
     <>
       <section>
         <div className=" flex  justify-between lg:space-x-4 md:space-x-4 space-x-0 py-14 xl:px-0 flex-col md:flex-col lg:flex-row">
-          <div className="  w-full   max-w-[610px] " id="walletBuylink">
+          <div className=" lg:pl-10 pl-0   max-w-[518px]   " id="walletBuylink">
             <img
-              className=" w-full h-[300px] object-contain   rounded-xl "
+              className=" w-full h-[307px] object-contain    rounded-xl "
               src={card1}
               alt="Buynet wallet img"
             />
           </div>
 
-          <div className="    max-w-[778px] w-full         text-black  ">
+          <div className="    max-w-[798px] w-full         text-black  ">
             <div className="lg:text-start text-center">
-              <h2 className="font-manrope    lg:text-[2.65em] xl:text-[2.65em] text-[1.75em]   leading-10    text-black font-bold">
-                BuyLink Wallet - serves as a savings for you
+              <h2 className="font-manrope    xl:text-[2.875em] lg:text-[2.875em] text-[32px] 992px:text-[40px] lg:leading-10   leading-8    text-black font-semibold">
+                BuyLink Wallet - serves as a savings for your
                 <span className="text-[#4C5DF5]"> bonuses and rewards</span>
               </h2>
 
