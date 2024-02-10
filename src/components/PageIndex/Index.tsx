@@ -28,23 +28,23 @@ import black from '../../images/pageLand/black.png';
 
 import main from '../../images/pageLand/main.png';
 import card1 from '../../images/pageLand/card1.png';
+import apple from '../../images/pageLand/apple.svg';
+
+import play from '../../images/pageLand/play.cvg.svg';
 
 import partnerLogo from '../../images/pageLand/mask.svg';
 import Accordion from './Accordion';
 import Footer from './Footer';
+import { Link } from 'react-router-dom';
 export const isMobile = window.innerWidth <= 455;
 
 const Index = () => {
   return (
     <>
-    
-
       <div className="bg-white ">
-        <div className="bg-white max-w-6xl mx-auto h-auto px-4 cursor-pointer">
+        <div className="bg-white max-w-6xl  mx-auto h-auto  cursor-pointer">
           <Header />
-          <div className="py-2 ">
-            <img src={main} className="h-full w-full" alt="Main" />
-          </div>
+          <Main />
         </div>
       </div>
 
@@ -71,9 +71,8 @@ const Index = () => {
       </div>
 
       <div className=" bg-[#4C5DF5]   ">
-        <div className='max-w-6xl mx-auto'>
-        <Partner />
-
+        <div className="max-w-6xl mx-auto">
+          <Partner />
         </div>
       </div>
       <NewsLetter />
@@ -82,14 +81,77 @@ const Index = () => {
           <Accordion />
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 };
 
 export default Index;
 
+function Main() {
+  return (
+    <>
+      <div className="  py-5 px-2  flex md:flex-row flex-col items-center ">
+        <div className="max-w-[600px] md:text-justify text-center  w-full flex flex-col justify-between">
+          <h2 className=" font-manrope  xl:text-[2.875em] lg:text-[2.875em] text-[32px] 992px:text-[40px]   leading-10 font-bold text-black-2">
+            <span className="text-[#4C5DF5]">BuyLink</span> is the world first
+            digital referral network{' '}
+          </h2>
+          <p className="lg:text-[24px] text-[20px] py-4">
+            Our mission is to connect people in one referral social network
+            where they are able to get actual benefits from recommendations.
+          </p>
 
+          <div className="flex lg:flex-row flex-col items-center space-y-4 lg:space-y-0 lg:space-x-8 ">
+            <Link
+              to=""
+              className="bg-black-2 h-[61px] grid place-items-center   w-[188px]"
+            >
+              <div className="h-[60px] flex items-center space-x-1  ">
+                <img
+                  src={apple}
+                  alt="Apple icon"
+                  className="w-[21px] h-[25px]"
+                />
+                <span className="flex flex-col mb-[10px]  text-white">
+                  <p className="text-[10px]">Download on the</p>
+                  <p className="text-[19px] mt-[-12px] font-medium">
+                    App Store
+                  </p>
+                </span>
+              </div>
+            </Link>
+            <Link
+              to=""
+              className="bg-black-2 h-[61px] grid place-items-center   w-[188px]"
+            >
+              <div className="h-[60px] flex items-center space-x-1  ">
+                <img
+                  src={play}
+                  alt="Apple icon"
+                  className="w-[23px] h-[32px]"
+                />
+                <span className="flex flex-col mb-[13px]   text-white">
+                  <p className="text-[10px]  font-thin">Get it on</p>
+                  <p className="text-[19px]  mt-[-13px] font-medium">
+                    Google Play
+                  </p>
+                </span>
+              </div>
+            </Link>
+          </div>
+        </div>
+        <div>
+          <img
+            src={main}
+            className=" h-[300px] lg:h-[500px] object-contain w-[800px]"
+            alt="Main"
+          />
+        </div>
+      </div>
+    </>
+  );
+}
 
 function WalletBuylink() {
   return (
@@ -527,7 +589,11 @@ function BuyLinkPartner3() {
               />
             </div>
             <div className="w-[280px] h-[590px]">
-              <img className="w-full h-full object-cover" src={black} alt="Iphone4" />
+              <img
+                className="w-full h-full object-cover"
+                src={black}
+                alt="Iphone4"
+              />
             </div>
             <div className="w-[280px] h-[590px]">
               <img className="w-full h-full " src={mock} alt="Iphone2" />
