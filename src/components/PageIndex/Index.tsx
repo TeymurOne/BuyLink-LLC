@@ -168,7 +168,7 @@ function WalletBuylink() {
 
           <div className="    max-w-[798px] w-full         text-black  ">
             <div className="lg:text-start text-center">
-              <h2 className="font-manrope    xl:text-[2.875em] lg:text-[2.875em] text-[32px] 992px:text-[40px] lg:leading-10   leading-8    text-black font-semibold">
+              <h2 className="font-manrope    xl:text-[2.875em] lg:text-[2.875em] text-[22px] md:text-[30px] 992px:text-[40px] lg:leading-10   leading-6    text-black font-semibold">
                 BuyLink Wallet - serves as a savings for your
                 <span className="text-[#4C5DF5]"> bonuses and rewards</span>
               </h2>
