@@ -608,8 +608,8 @@ function BuyLinkPartner3() {
 function Partner() {
   return (
     <>
-      <div className=" w-full flex pl-2 items-center justify-between    ">
-        <div className="flex flex-col md:items-start  items-center md:space-y-4  space-y-2 w-[636px] h-[267px] ">
+      <div className=" w-full flex pl-2  items-center justify-between    ">
+        <div className="flex flex-col md:items-start justify-center md:justify-normal  items-center md:space-y-4  space-y-2 w-[636px] h-[267px] ">
           <h2 className="font-manrope text-center lg:text-start lg:text-4xl text-3xl normal font-bold text-[#F3F2F2]">
             Become a partner
           </h2>
