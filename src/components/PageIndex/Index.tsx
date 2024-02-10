@@ -60,18 +60,18 @@ const Index = () => {
       </div>
 
       <div className="bg-white  py-20">
-        <div className="max-w-[1450px] mx-auto">
+        <div className="max-w-[1450px] px-4 mx-auto">
           <BuyLinkPartner2 />
         </div>
       </div>
       <div className="bg-[#F3F4F6] py-20 ">
-        <div className="max-w-[1450px] mx-auto">
+        <div className="max-w-[1450px] px-4 mx-auto">
           <BuyLinkPartner3 />
         </div>
       </div>
 
       <div className=" bg-[#4C5DF5]   ">
-        <div className="max-w-[1450px] mx-auto">
+        <div className="max-w-[1450px]  mx-auto">
           <Partner />
         </div>
       </div>
@@ -157,7 +157,7 @@ function WalletBuylink() {
   return (
     <>
       <section>
-        <div className=" flex  justify-between lg:space-x-4 md:space-x-4 space-x-0 py-14 xl:px-0 flex-col md:flex-col lg:flex-row">
+        <div className=" flex  justify-between lg:space-x-4 md:space-x-4 space-x-0 lg:py-14 py-6 xl:px-0 flex-col md:flex-col lg:flex-row">
           <div className=" lg:pl-10 pl-0   max-w-[518px]   " id="walletBuylink">
             <img
               className=" w-full h-[307px] object-contain    rounded-xl "
@@ -608,12 +608,12 @@ function BuyLinkPartner3() {
 function Partner() {
   return (
     <>
-      <div className=" w-full flex items-center justify-between    ">
-        <div className="flex flex-col items-center lg:items-start w-[70%]      justify-between lg:w-[40%]  h-[180px] 2xl:h-[220px]   ml-14 lg:h-[120px]">
-          <h2 className="font-manrope text-center lg:text-start lg:text-5xl text-3xl normal font-bold text-[#F3F2F2]">
-            Become a parthner
+      <div className=" w-full flex pl-2 items-center justify-between    ">
+        <div className="flex flex-col md:items-start  items-center md:space-y-4  space-y-2 w-[636px] h-[267px] ">
+          <h2 className="font-manrope text-center lg:text-start lg:text-4xl text-3xl normal font-bold text-[#F3F2F2]">
+            Become a partner
           </h2>
-          <p className="text-[#F3F2F2] text-center lg:text-start  lg:text-[23px] text-[10px] font-poppins font-normal">
+          <p className="text-[#F3F2F2] text-center lg:text-start md:leading-6 leading-4  lg:text-[20px] text-[10px] font-poppins font-normal">
             Risus habitant leo egestas mauris diam eget morbi tempus vulputate.
           </p>
           <button className="rounded-md text-[#4C5DF5] font-semibold bg-[#ffffffd9] w-[154px] h-[68px]">
