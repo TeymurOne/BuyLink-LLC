@@ -41,8 +41,8 @@ export const isMobile = window.innerWidth <= 455;
 const Index = () => {
   return (
     <>
-      <div className="bg-white  ">
-        <div className="bg-white container mx-auto  h-auto  cursor-pointer">
+      <div className="bg-white   ">
+        <div className="bg-white container mx-auto  px-10  h-auto  cursor-pointer">
           <Header />
           <Main />
         </div>
@@ -91,7 +91,7 @@ export default Index;
 function Main() {
   return (
     <>
-      <div className="  py-5 lg:px-2 md:pl-6 px-2   flex md:flex-row flex-col items-center ">
+      <div className=" container mx-auto  py-5 lg:px-2 md:pl-6 px-2   flex md:flex-row flex-col items-center ">
         <div className="max-w-[600px] md:text-justify text-center  w-full flex flex-col justify-between">
           <h2 className=" font-manrope  xl:text-[2.875em] lg:text-[2.875em] text-[32px] 992px:text-[40px]   leading-10 font-bold text-black-2">
             <span className="text-[#4C5DF5]">BuyLink</span> is the world first

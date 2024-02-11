@@ -1,4 +1,4 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -8,9 +8,9 @@ module.exports = {
     fontFamily: {
       satoshi: ['Satoshi', 'sans-serif'],
       poppins: ['Poppins', 'sans-serif'],
-      manrope:['Manrope', "sans-serif"],
-      roboto:['Roboto', "sans-serif"],
-      grotesk:['Space Grotesk', 'sans-serif']
+      manrope: ['Manrope', 'sans-serif'],
+      roboto: ['Roboto', 'sans-serif'],
+      grotesk: ['Space Grotesk', 'sans-serif'],
     },
     colors: {
       current: 'currentColor',
@@ -48,21 +48,27 @@ module.exports = {
       success: '#219653',
       danger: '#D34053',
       warning: '#FFA70B',
-      menuBorder:"#405189",
-      searchTopBar:"#f3f3f9",
-      titleColor:'#838fb9',
-      success:'#0ab39c',
-      successOpacity:"#daf4f0"
+      menuBorder: '#405189',
+      searchTopBar: '#f3f3f9',
+      titleColor: '#838fb9',
+      success: '#0ab39c',
+      successOpacity: '#daf4f0',
     },
     screens: {
       '2xsm': '375px',
-      '2xl':"1200px",
-      "xsm": '425px',
-      "500px":"500px",
-      "992px":"992px",
-      "2md":"700px",
-      '3xl': '2000px',
+        xsm: '425px',
+
+      '500px': '500px',
+      '2md': '700px',
+      '992px': '992px',
+
+      '2xl': '1536px',
+
+      '3xl': '1536px',
       ...defaultTheme.screens,
+    },
+    container: {
+      center: true,
     },
     extend: {
       borderOpacity: ['active'],
@@ -221,9 +227,8 @@ module.exports = {
       },
       backgroundImage: {
         video: "url('../images/video/video.png')",
-        'green': "url('../images/pageLand/ellips1.svg')",
-        'blue': "url('../images/pageLand/ellips2.svg')",
-
+        green: "url('../images/pageLand/ellips1.svg')",
+        blue: "url('../images/pageLand/ellips2.svg')",
       },
       content: {
         'icon-copy': 'url("../images/icon/icon-copy-alt.svg")',
@@ -266,15 +271,6 @@ module.exports = {
         'spin-3': 'spin 3s linear infinite',
       },
     },
-    container: {
-      padding: {
-        DEFAULT: '1rem',
-        sm: '1rem',
-        lg: '2rem',
-        xl: '3rem',
-        '2xl': '3rem',
-      },
-    },
   },
   plugins: [],
-}
+};
