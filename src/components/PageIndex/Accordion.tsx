@@ -37,7 +37,7 @@ const Accordion = () => {
   const [curOpen, setCurOpen] = useState<any>(null);
 
   return (
-    <section className="h-auto  mx-auto max-w-[1370px]">
+    <section className="h-auto  mx-auto max-w-[1400px]">
       <h2 className="text-center  font-manrope  lg:text-[40px] text-[30px]      leading-8  text-black font-bold">
         Frequently Asked Questions
       </h2>
