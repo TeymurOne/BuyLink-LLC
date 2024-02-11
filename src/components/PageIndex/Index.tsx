@@ -49,7 +49,7 @@ const Index = () => {
       </div>
 
       <div className="bg-[#F3F4F6] ">
-        <div className=" container mx-auto ">
+        <div className=" container mx-auto px-10 ">
           <Slider />
 
           <VideoSection />
@@ -60,24 +60,24 @@ const Index = () => {
       </div>
 
       <div className="bg-white  py-20">
-        <div className="container mx-auto">
+        <div className="container mx-auto px-10">
           <BuyLinkPartner2 />
         </div>
       </div>
       <div className="bg-[#F3F4F6] py-20 ">
-        <div className="container mx-auto">
+        <div className="container mx-auto px-10">
           <BuyLinkPartner3 />
         </div>
       </div>
 
       <div className=" bg-[#4C5DF5]    ">
-        <div className="container  mx-auto">
+        <div className="container  mx-auto px-10">
           <Partner />
         </div>
       </div>
       <NewsLetter />
       <div className=" bg-[#F3F4F6] py-10 ">
-        <div className=" py-20 ">
+        <div className=" py-20 container mx-auto px-10 ">
           <Accordion />
         </div>
       </div>
