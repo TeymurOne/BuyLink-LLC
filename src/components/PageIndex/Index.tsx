@@ -41,15 +41,15 @@ export const isMobile = window.innerWidth <= 455;
 const Index = () => {
   return (
     <>
-      <div className="bg-white px-4 ">
-        <div className="bg-white max-w-[1450px]  mx-auto h-auto  cursor-pointer">
+      <div className="bg-white  ">
+        <div className="bg-white max-w-[1400px] mx-auto   h-auto  cursor-pointer">
           <Header />
           <Main />
         </div>
       </div>
 
-      <div className="bg-[#F3F4F6] px-4">
-        <div className="max-w-[1450px] mx-auto">
+      <div className="bg-[#F3F4F6] ">
+        <div className=" max-w-[1400px] mx-auto ">
           <Slider />
 
           <VideoSection />
@@ -70,7 +70,7 @@ const Index = () => {
         </div>
       </div>
 
-      <div className=" bg-[#4C5DF5]   ">
+      <div className=" bg-[#4C5DF5]    ">
         <div className="max-w-[1450px]  mx-auto">
           <Partner />
         </div>
@@ -156,9 +156,9 @@ function Main() {
 function WalletBuylink() {
   return (
     <>
-      <section>
+      <section className=' lg:px-0 md:px-0 px-2'>
         <div className=" flex  justify-between lg:space-x-4 md:space-x-4 space-x-0 lg:py-14 py-6 xl:px-0 flex-col md:flex-col lg:flex-row">
-          <div className=" lg:pl-10 pl-0   max-w-[518px]   " id="walletBuylink">
+          <div className="  pl-0   max-w-[518px]   " id="walletBuylink">
             <img
               className=" w-full h-[307px] object-contain    rounded-xl "
               src={card1}
@@ -220,7 +220,7 @@ function WalletBuylink() {
 function BuyLinkPartner() {
   return (
     <>
-      <section>
+      <section  className=' lg:px-0 px-1'>
         <div
           className="flex flex-col lg:items-center  items-stretch text-center"
           id="buylinkpartner"
@@ -630,7 +630,7 @@ function Partner() {
 
 function NewsLetter() {
   return (
-    <section className="py-10 text-center">
+    <section className="py-10 text-center lg:px-0 px-2">
       <h2 className="font-manrope  lg:text-[40px] text-[27px]      leading-8  text-black font-bold">
         Join our <span className="text-[#4C5DF5]">newsletter</span>
       </h2>
