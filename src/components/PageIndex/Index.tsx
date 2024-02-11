@@ -77,7 +77,7 @@ const Index = () => {
       </div>
       <NewsLetter />
       <div className=" bg-[#F3F4F6] py-10 ">
-        <div className="container py-20 mx-auto">
+        <div className=" py-20 ">
           <Accordion />
         </div>
       </div>
