@@ -22,7 +22,7 @@ function VideoSection() {
               </button>
             </div>
           </div>
-          <div className="max-w-[100%] lg:max-w-[65%] w-full   mt-10     bg-black-2  ">
+          <div className="max-w-[100%] lg:max-w-[65%] w-full   mt-10   rounded-lg     bg-black-2  ">
             <video
               id="myVideo"
               width="100%"

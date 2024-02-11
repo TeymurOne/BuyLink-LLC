@@ -12,7 +12,7 @@
   }
 }
 
-body{
+body {
   font-size: 16px !important;
 }
 @layer components {
@@ -175,90 +175,59 @@ span.flatpickr-weekday,
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
- 
 }
-html{
+html {
   scroll-behavior: smooth;
 }
 .ellips-coder {
   background-image: url(./images/pageLand/ellips178.svg);
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: right -70px ;
+  background-position: right -70px;
   height: auto;
-
-  
-
- 
-
 }
-@media screen  and (max-width:769px) {
-  #walletBuylink{
+@media screen and (max-width: 769px) {
+  #walletBuylink {
     order: 1;
     margin-top: 40px;
-    
-    }
-  
+  }
 }
-.swiper-slide{
+.swiper-slide {
   width: 100% !important;
   height: 100%;
 }
-.swiper-slide-active{
-margin-bottom: 40px;
-display: grid;
-place-items: center;
+.swiper-slide-active {
+  margin-bottom: 40px;
+  display: grid;
+  place-items: center;
 }
-.sviper-pagination-clikable{
+.sviper-pagination-clikable {
   position: absolute;
   top: 95% !important;
 }
-@media screen  and (max-width:769px) {
-  #payments{
-  width: 100%;
-  padding: 10px 0px 10px 20px ;
-  display: grid;
-    
-    }
-  
+@media screen and (max-width: 769px) {
+  #payments {
+    width: 100%;
+    padding: 10px 0px 10px 20px;
+    display: grid;
+  }
 }
-@media screen  and (max-width:1022px) {
-  #walletBuylink{
-  margin: 20px auto;
-    
-    }
-  
+@media screen and (max-width: 1022px) {
+  #walletBuylink {
+    margin: 20px auto;
+  }
 }
 
-@media screen  and (max-width:769px) {
-  #buylinkpartner{
+@media screen and (max-width: 769px) {
+  #buylinkpartner {
     display: grid;
     place-items: center;
-    
-    }
-  
+  }
 }
-
-body{
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @layer base {
-  input[type="number"]::-webkit-inner-spin-button,
-  input[type="number"]::-webkit-outer-spin-button {
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
@@ -266,22 +235,24 @@ body{
 
 /* // videoSection responseiv */
 
+@media screen and (max-width: 768px) {
+  #videoSection {
+    flex-direction: column;
+  }
+}
 
-@media screen and (max-width:768px) {
-  #videoSection{
- flex-direction: column;
+#transition {
+  transition: all 400ms;
+}
 
+@media screen and (max-width:300px) {
+  .owl-item {
+   
+  width: 130px !important;
   }
   
 }
 
-
-#transition{
-
-  transition: all 400ms;
+.owl-dots{
+  display: none !important;
 }
-
-
-
-
-

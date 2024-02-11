@@ -6,16 +6,43 @@ import slide4 from '../../images/pageLand/slide4.svg';
 import slide5 from '../../images/pageLand/slide5.svg';
 import slide6 from '../../images/pageLand/slide6.svg';
 import slide7 from '../../images/pageLand/slide7.svg';
+import OwlCarousel from 'react-owl-carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 
 const Slider = () => {
+ const options={
+    loop: true,
+    margin:20,
+    nav:false,
+    autoplay:true,
+    autoplayTimeout:2000,
+    responsive:{
+        100:{
+            items:1
+        },
+        
+        300:{
+          items:2
+        },
+        600:{
+            items:4
+        },
+        1000:{
+            items:6
+        }
+    }
+}
+  
   
     
   return (
    
     <>
-     
+ 
         <div  className='flex  items-center  py-14 justify-between mx-auto max-w-[93%]'>
+        <OwlCarousel  className='owl-theme text-center grid place-items-center' {...options} loop margin={10}  >
           <div className="item w-[137px] h-[17px]">
             <img
               className="hover:contrast-100 w-full h-full px-2 contrast-0"
@@ -65,6 +92,9 @@ const Slider = () => {
               alt="OpenZeppelin "
             />
           </div>
+          
+          </OwlCarousel>
+
          
         </div>
   
