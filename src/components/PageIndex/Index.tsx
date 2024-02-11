@@ -41,7 +41,7 @@ export const isMobile = window.innerWidth <= 455;
 const Index = () => {
   return (
     <>
-      <div className="bg-white ">
+      <div className="bg-white px-4 ">
         <div className="bg-white max-w-[1450px]  mx-auto h-auto  cursor-pointer">
           <Header />
           <Main />
