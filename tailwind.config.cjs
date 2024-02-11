@@ -70,7 +70,6 @@ module.exports = {
 
       '2xl': '1536px',
 
-      '3xl': '1536px',
       ...defaultTheme.screens,
     },
     container: {

@@ -42,14 +42,14 @@ const Index = () => {
   return (
     <>
       <div className="bg-white   ">
-        <div className="bg-white container mx-auto px-10    h-auto  cursor-pointer">
+        <div className="bg-white container mx-auto lg:px-10 1536px:px-0 md:px-0 px-0    h-auto  cursor-pointer">
           <Header />
           <Main />
         </div>
       </div>
 
       <div className="bg-[#F3F4F6] ">
-        <div className=" container mx-auto px-10 ">
+        <div className=" container mx-auto lg:px-10 1536px:px-0 md:px-0 px-0   ">
           <Slider />
 
           <VideoSection />
@@ -60,24 +60,24 @@ const Index = () => {
       </div>
 
       <div className="bg-white  py-20">
-        <div className="container mx-auto px-10">
+        <div className="container mx-auto lg:px-10 1536px:px-0 md:px-0 px-0  ">
           <BuyLinkPartner2 />
         </div>
       </div>
       <div className="bg-[#F3F4F6] py-20 ">
-        <div className="container mx-auto px-10">
+        <div className="container mx-auto lg:px-10 1536px:px-0 md:px-0 px-0  ">
           <BuyLinkPartner3 />
         </div>
       </div>
 
       <div className=" bg-[#4C5DF5]    ">
-        <div className="container  mx-auto px-10">
+        <div className="container  mx-auto lg:px-10 1536px:px-0 md:px-0 px-0  ">
           <Partner />
         </div>
       </div>
       <NewsLetter />
       <div className=" bg-[#F3F4F6] py-10 ">
-        <div className=" py-20 container mx-auto px-10 ">
+        <div className=" py-20 container mx-auto lg:px-10 1536px:px-0 md:px-0 px-0   ">
           <Accordion />
         </div>
       </div>
