@@ -42,7 +42,7 @@ const Index = () => {
   return (
     <>
       <div className="bg-white   ">
-        <div className="bg-white container mx-auto    h-auto  cursor-pointer">
+        <div className="bg-white container mx-auto px-10    h-auto  cursor-pointer">
           <Header />
           <Main />
         </div>
