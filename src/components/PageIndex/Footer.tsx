@@ -7,8 +7,8 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <>
-      <footer className="bg-[#000000DE] w-full py-12 lg:px-0 xl:px-0 md:px-0 px-2 " id="footer">
-        <div className=" mx-auto  max-w-[1430px] h-full">
+      <footer className="bg-[#000000DE] w-full py-12  " id="footer">
+        <div className=" mx-auto  container h-full">
           <div className="grid lg:grid-cols-4 gap-10   grid-cols-1  w-[70%] pb-20 xsm:px-4   ">
             <div className=" flex flex-col justify-between px-2 lg:h-[190px]  h-auto   ">
               <img className="w-[67px] h-[75px]" src={logo} alt="Logo-footer" />

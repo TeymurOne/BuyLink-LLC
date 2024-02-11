@@ -266,6 +266,15 @@ module.exports = {
         'spin-3': 'spin 3s linear infinite',
       },
     },
+    container: {
+      padding: {
+        DEFAULT: '1rem',
+        sm: '1rem',
+        lg: '2rem',
+        xl: '3rem',
+        '2xl': '3rem',
+      },
+    },
   },
   plugins: [],
 }

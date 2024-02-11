@@ -42,14 +42,14 @@ const Index = () => {
   return (
     <>
       <div className="bg-white  ">
-        <div className="bg-white max-w-[1400px] mx-auto   h-auto  cursor-pointer">
+        <div className="bg-white container mx-auto  h-auto  cursor-pointer">
           <Header />
           <Main />
         </div>
       </div>
 
       <div className="bg-[#F3F4F6] ">
-        <div className=" max-w-[1400px] mx-auto ">
+        <div className=" container mx-auto ">
           <Slider />
 
           <VideoSection />
@@ -60,24 +60,24 @@ const Index = () => {
       </div>
 
       <div className="bg-white  py-20">
-        <div className="max-w-[1450px] px-4 mx-auto">
+        <div className="container mx-auto">
           <BuyLinkPartner2 />
         </div>
       </div>
       <div className="bg-[#F3F4F6] py-20 ">
-        <div className="max-w-[1450px] px-4 mx-auto">
+        <div className="container mx-auto">
           <BuyLinkPartner3 />
         </div>
       </div>
 
       <div className=" bg-[#4C5DF5]    ">
-        <div className="max-w-[1450px]  mx-auto">
+        <div className="container  mx-auto">
           <Partner />
         </div>
       </div>
       <NewsLetter />
       <div className=" bg-[#F3F4F6] py-10 ">
-        <div className="max-w-[1450px] py-20 mx-auto">
+        <div className="container py-20 mx-auto">
           <Accordion />
         </div>
       </div>
@@ -608,7 +608,7 @@ function BuyLinkPartner3() {
 function Partner() {
   return (
     <>
-      <div className=" w-full flex lg:pl-12 md:pl-10 pl-0    items-center justify-between    ">
+      <div className=" w-full flex    items-center justify-between    ">
         <div className="flex flex-col md:items-start justify-center md:justify-normal  items-center md:space-y-4  space-y-2 w-[636px] h-[267px] ">
           <h2 className="font-manrope text-center lg:text-start lg:text-4xl text-3xl normal font-bold text-[#F3F2F2]">
             Become a partner
