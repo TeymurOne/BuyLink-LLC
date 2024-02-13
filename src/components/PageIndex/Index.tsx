@@ -38,10 +38,7 @@ import Footer from './Footer';
 import { Link } from 'react-router-dom';
 export const isMobile = window.innerWidth <= 455;
 
-
 const Index = () => {
- 
-
   return (
     <>
       <div className="bg-white   ">
@@ -96,8 +93,8 @@ export default Index;
 function Main() {
   return (
     <>
-      <div className=" container mx-auto  py-5 lg:px-2 md:pl-6 px-2   flex md:flex-row flex-col items-center ">
-        <div className="max-w-[600px] md:text-justify text-center  w-full flex flex-col justify-between">
+      <div className=" container mx-auto space-x-4  py-5 lg:px-2 md:pl-6 px-2   flex md:flex-row flex-col items-center ">
+        <div className="max-w-[600px] md:text-justify text-center  w-full flex flex-col  justify-between">
           <h2 className=" font-manrope  xl:text-[2.875em] lg:text-[2.875em] text-[32px] 992px:text-[40px]   leading-10 font-bold text-black-2">
             <span className="text-[#4C5DF5]">BuyLink</span> is the world first
             digital referral network{' '}
@@ -161,8 +158,8 @@ function Main() {
 function WalletBuylink() {
   return (
     <>
-      <section className=" lg:px-0 md:px-0 px-2">
-        <div className=" flex max-w-full w-full  justify-between lg:space-x-4 md:space-x-4 space-x-0 lg:py-14 py-6 xl:px-0 flex-col md:flex-col lg:flex-row">
+       <section className="  py-10">
+        <div className=" grid  lg:grid-cols-2 gap-8 lg:px-0 md:px-0 px-2  md:grid-cols-1    ">
           <div className="  pl-0   max-w-[518px]   " id="walletBuylink">
             <img
               className=" w-full h-[307px] object-contain    rounded-xl "
@@ -171,9 +168,9 @@ function WalletBuylink() {
             />
           </div>
 
-          <div className="  max-w-[798px] w-full   text-black  ">
-            <div className="lg:text-start text-center">
-              <h2 className="font-manrope   lg:text-[40px] md:text-[30px] text-[20px] leading-6    lg:leading-8    text-black font-semibold">
+          <div className="  max-w-[698px] mx-auto  w-full   text-black  ">
+            <div className="lg:text-start  text-center">
+              <h2 className="font-manrope xl:text-[35px] 2xl:text-[40px]   lg:text-[32px] text-[24px]  leading-6    lg:leading-8    text-black font-semibold">
                 BuyLink Wallet - serves as a savings for your
                 <span className="text-[#4C5DF5]"> bonuses and rewards</span>
               </h2>
@@ -217,7 +214,9 @@ function WalletBuylink() {
             </div>
           </div>
         </div>
-      </section>
+      </section> 
+
+  
     </>
   );
 }
