@@ -38,7 +38,10 @@ import Footer from './Footer';
 import { Link } from 'react-router-dom';
 export const isMobile = window.innerWidth <= 455;
 
+
 const Index = () => {
+ 
+
   return (
     <>
       <div className="bg-white   ">
@@ -81,9 +84,8 @@ const Index = () => {
           <Accordion />
         </div>
       </div>
-      <div className='bg-[#000000DE] w-full  py-12'>
-      <Footer />
-
+      <div className="bg-[#000000DE] w-full  py-12">
+        <Footer />
       </div>
     </>
   );
@@ -159,8 +161,8 @@ function Main() {
 function WalletBuylink() {
   return (
     <>
-      <section className=' lg:px-0 md:px-0 px-2'>
-        <div className=" flex  justify-between lg:space-x-4 md:space-x-4 space-x-0 lg:py-14 py-6 xl:px-0 flex-col md:flex-col lg:flex-row">
+      <section className=" lg:px-0 md:px-0 px-2">
+        <div className=" flex max-w-full w-full  justify-between lg:space-x-4 md:space-x-4 space-x-0 lg:py-14 py-6 xl:px-0 flex-col md:flex-col lg:flex-row">
           <div className="  pl-0   max-w-[518px]   " id="walletBuylink">
             <img
               className=" w-full h-[307px] object-contain    rounded-xl "
@@ -169,7 +171,7 @@ function WalletBuylink() {
             />
           </div>
 
-          <div className="     max-w-[798px] w-full         text-black  ">
+          <div className="  max-w-[798px] w-full   text-black  ">
             <div className="lg:text-start text-center">
               <h2 className="font-manrope   lg:text-[40px] md:text-[30px] text-[20px] leading-6    lg:leading-8    text-black font-semibold">
                 BuyLink Wallet - serves as a savings for your
@@ -223,7 +225,7 @@ function WalletBuylink() {
 function BuyLinkPartner() {
   return (
     <>
-      <section  className=' lg:px-0 px-1'>
+      <section className=" lg:px-0 px-1">
         <div
           className="flex flex-col lg:items-center  items-stretch text-center"
           id="buylinkpartner"

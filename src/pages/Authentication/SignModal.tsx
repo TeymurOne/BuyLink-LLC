@@ -1,12 +1,12 @@
 import React, { startTransition } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 
 import { useDispatch } from 'react-redux';
 import { setCredentials, setToken } from '../../features/auth/authSlice';
 import axiosInstance from '../../core/lib/axios.config';
 
-import { IoCloseCircleOutline, IoCloseOutline } from 'react-icons/io5';
+import { IoCloseOutline } from 'react-icons/io5';
 
 type State = {
   showModal: boolean;
@@ -72,10 +72,10 @@ const SignModal: React.FC<State> = ({ showModal, setShowModal }) => {
       {showModal ? (
         <>
           <div className="justify-center  items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-            <div className="relative max-w-[600px] grid place-items-center bg-[#F3F4F6]  max-h-[640px] h-full px-4  w-full my-6 mx-auto ">
-          <button className='absolute top-4 right-4'>  <IoCloseOutline onClick={() => setShowModal(false)} style={{width:"20px"}} /></button>
+            <div className="relative min-w-[200px] min-h-[300px] py-20  w-full mx-4 max-w-[600px] grid place-items-center bg-[#F3F4F6]   px-4  my-6  ">
+               <button className='absolute top-4 right-4'>  <IoCloseOutline onClick={() => setShowModal(false)} style={{width:"20px"}} /></button>
               <div>
-                <h3 className="text-[36px] pb-8 text-[#0C1421] font-semibold">Log in</h3>
+                <h3 className="text-[36px] w-full pb-8 text-[#0C1421] font-semibold">Log in</h3>
                 
                 <form onSubmit={handleSubmit}>
                   <div >
