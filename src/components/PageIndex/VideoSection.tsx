@@ -1,7 +1,10 @@
+import { useTranslation } from "react-i18next";
+
 function VideoSection() {
+  const {t}=useTranslation()
   return (
     <>
-      <section className="px-4">
+      <section className="px-4" id="about">
         <div
           className="flex  space-x-4 min-h-[480px]     items-center justify-between "
           id="videoSection"
@@ -10,15 +13,14 @@ function VideoSection() {
             <div className="max-w-[384px]   text-center lg:text-start w-full lg:space-y-10 space-y-6">
               <div>
                 <h2 className="   text-2xl  text-[#4C5DF5] font-bold">
-                  Explainer Video
+                  {t("index-main.3")}
                 </h2>
                 <p className="lg:text-[16px] mt-2  text-[14px] leading-5 lg:leading-6   font-poppins  text-[#000000ad] font-medium">
-                  The video shows in basic how the applications works . We cover
-                  different industries in one platform
+                {t("index-main.4")}
                 </p>
               </div>
               <button className="bg-[#4C5DF5]  rounded text-white font-thin text-[16px] max-w-[379px] w-full lg:w-[200px]   h-[60px]">
-                Try it now
+              {t("index-main.5")}
               </button>
             </div>
           </div>

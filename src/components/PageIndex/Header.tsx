@@ -1,19 +1,28 @@
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
-import search from '../../images//pageLand/search.svg';
 import logo from '../../images//pageLand/logo.svg';
 import globe from '../../images//pageLand/globe.svg';
 import { Link } from 'react-router-dom';
 import SignModal from '../../pages/Authentication/SignModal';
 import getState from '../../core/helpers/cookie';
+import i18n from '../../i18n/İ18n';
+import { useTranslation } from 'react-i18next';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
   const cookie = getState();
+  const { t } = useTranslation();
+
+
+  const handleTranslate=(e:any)=>{
+  i18n.changeLanguage(e.target.value)
+  localStorage.setItem("lng", e.target.value)
+    
+  }
 
   return (
     <header className="bg-white font-roboto       ">
@@ -37,28 +46,28 @@ export default function Header() {
           </button>
         </div>
         <div className="hidden lg:flex text-[#00000099] font-roboto lg:gap-x-4 font-medium text-[16px]">
-          <a href="#about">About</a>
+          <a href="#about">{t("index-header.0")}</a>
 
-          <a href="#features">Features</a>
-          <a href="#how-use">How to use</a>
-          <a href="#faq">FAQ</a>
-          <a href="#footer">Contact us</a>
+          <a href="#features">{t("index-header.1")}</a>
+          <a href="#how-use">{t("index-header.2")}</a>
+          <a href="#faq">{t("index-header.3")}</a>
+          <a href="#footer">{t("index-header.4")}</a>
         </div>
         <div className="hidden font-normal lg:flex text-[#000000de] lg:flex-1 text-[14px] lg:justify-end">
-          <div className="flex space-x-2 mr-[-50px] items-center ">
-            <label htmlFor="Search" className='flex items-center space-x-1'>
-              <img src={search} alt="" className="w-[15px] h-[16px]" />
-              <p>Search</p>
-            </label>
+          <div className="flex  z-9999 space-x-2 mr-[-50px] items-center ">
+          
            <label htmlFor="Select language" className='flex items-center space-x-1'>
            <img src={globe} alt="" className="w-[16px] h-[16px]" />
-            <select className="bg-transparent" name="" id="">
-              <option value="ENG">Eng</option>
+            <select onChange={handleTranslate} className="bg-transparent outline-none" name="" id="">
+              <option value="en">Eng</option>
 
-              <option value="AZE">Aze</option>
+              <option value="az">Aze</option>
             </select>
            </label>
           </div>
+
+
+          
           {cookie ? (
             <Link
               to="/admin"
@@ -77,7 +86,7 @@ export default function Header() {
               onClick={() => setShowModal(true)}
               className="text-[14px]  text-[#000000de] w-[161px] h-[44px]    flex items-center justify-center rounded-sm     "
             >
-              Login
+              {t("index-header.5")}
             </Link>
           )}
 
@@ -85,7 +94,7 @@ export default function Header() {
             to=""
             className="text-[16px] text-white w-[161px] h-[44px]    flex items-center justify-center rounded-sm  bg-primary    "
           >
-            Become a partner
+            {t("index-header.6")}
           </Link>
         </div>
       </nav>

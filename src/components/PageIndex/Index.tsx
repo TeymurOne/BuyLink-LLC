@@ -14,17 +14,24 @@ import info from '../../images/pageLand/info.svg';
 import Slider from './Slider';
 import VideoSection from './VideoSection';
 
-import iphone4 from '../../images/pageLand/iphone4.png';
-import iphone5 from '../../images/pageLand/iphone5.png';
-import iphone6 from '../../images/pageLand/iphone6.png';
+import partnerA from '../../images/pageLand/partnerA.svg';
+import partnerB from '../../images/pageLand/partnerB.svg';
+import partnerC from '../../images/pageLand/partnerC.svg';
 
-import gosupport from '../../images/pageLand/gosport.png';
-import user from '../../images/pageLand/user.png';
-import wallet2 from '../../images/pageLand/wallet2.png';
+import partner2A from '../../images/pageLand/partner2A.svg';
+import partner2B from '../../images/pageLand/partner2B.svg';
+import partner2C from '../../images/pageLand/partner2C.svg';
+
+import partner3A from '../../images/pageLand/partner3A.svg';
+import partner3B from '../../images/pageLand/partner3B.svg';
+import partner3C from '../../images/pageLand/partner3C.svg';
+
+
 
 import iphone15plus from '../../images/pageLand/15plus.png';
 import mock from '../../images/pageLand/iphonemock.png';
 import black from '../../images/pageLand/black.png';
+
 
 import main from '../../images/pageLand/main.png';
 import card1 from '../../images/pageLand/card1.png';
@@ -36,6 +43,7 @@ import partnerLogo from '../../images/pageLand/mask.svg';
 import Accordion from './Accordion';
 import Footer from './Footer';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 export const isMobile = window.innerWidth <= 455;
 
 const Index = () => {
@@ -76,7 +84,7 @@ const Index = () => {
         </div>
       </div>
       <NewsLetter />
-      <div className=" bg-[#F3F4F6] py-10 ">
+      <div className=" bg-[#F3F4F6] py-10 " id='faq'>
         <div className=" py-20 container mx-auto lg:px-10 1536px:px-0 md:px-0 px-0   ">
           <Accordion />
         </div>
@@ -91,17 +99,17 @@ const Index = () => {
 export default Index;
 
 function Main() {
+  const { t } = useTranslation();
+
   return (
     <>
-      <div className=" container mx-auto space-x-4  py-5 lg:px-2 md:pl-6 px-2   flex md:flex-row flex-col items-center ">
-        <div className="max-w-[600px] md:text-justify text-center  w-full flex flex-col  justify-between">
-          <h2 className=" font-manrope  xl:text-[2.875em] lg:text-[2.875em] text-[32px] 992px:text-[40px]   leading-10 font-bold text-black-2">
-            <span className="text-[#4C5DF5]">BuyLink</span> is the world first
-            digital referral network{' '}
+      <div className=" container mx-auto gap-10 space-x-4  py-5 lg:px-2 md:pl-6 px-2   flex md:flex-row flex-col items-center ">
+        <div className="max-w-[650px] md:text-justify text-center  w-full flex flex-col  justify-between">
+          <h2 className=" font-manrope  xl:text-[2.40em] lg:text-[1.775em] text-[32px] 992px:text-[40px]  whitespace-wrap  leading-10 font-bold text-black-2">
+            <span className="text-[#4C5DF5]">{t("index-main.0")}</span> {t("index-main.1")}
           </h2>
           <p className="lg:text-[24px] text-[20px] py-4">
-            Our mission is to connect people in one referral social network
-            where they are able to get actual benefits from recommendations.
+          {t("index-main.2")}
           </p>
 
           <div className="flex md:flex-row flex-col items-center space-y-4 md:space-y-0 md:space-x-8 ">
@@ -146,7 +154,7 @@ function Main() {
         <div>
           <img
             src={main}
-            className=" h-[300px] lg:h-[500px] object-contain w-[800px]"
+            className=" border rounded-xl border-[#979797] border-opacity-60  object-contain"
             alt="Main"
           />
         </div>
@@ -156,27 +164,28 @@ function Main() {
 }
 
 function WalletBuylink() {
+  const {t}=useTranslation()
   return (
     <>
        <section className="  py-10">
         <div className=" grid  lg:grid-cols-2 gap-8 lg:px-0 md:px-0 px-2  md:grid-cols-1    ">
-          <div className="  pl-0   max-w-[518px]   " id="walletBuylink">
+          <div className="    mx-auto  ">
             <img
-              className=" w-full h-[307px] object-contain    rounded-xl "
+              className="     rounded-xl "
               src={card1}
               alt="Buynet wallet img"
             />
           </div>
 
-          <div className="  max-w-[698px] mx-auto  w-full   text-black  ">
+          <div className="   max-w-[698px] mx-auto  w-full   text-black  ">
             <div className="lg:text-start  text-center">
-              <h2 className="font-manrope xl:text-[35px] 2xl:text-[40px]   lg:text-[32px] text-[24px]  leading-6    lg:leading-8    text-black font-semibold">
-                BuyLink Wallet - serves as a savings for your
-                <span className="text-[#4C5DF5]"> bonuses and rewards</span>
+              <h2 className="font-manrope  xl:text-[2.20em] lg:text-[1.775em] text-[32px] 992px:text-[40px]  whitespace-wrap  leading-10 font-bold text-black-2">
+                {t("index-wallet.0")} {t("index-wallet.1")}
+                <span className="text-[#4C5DF5]">  {t("index-wallet.2")}</span>
               </h2>
 
               <p className="lg:text-[20px] text-[14px] lg:leading-6 leading-4  font-medium py-4 normal font-poppins">
-                This is the easisest way to manege your payments
+              {t("index-wallet.3")}
               </p>
             </div>
             <div
@@ -189,7 +198,7 @@ function WalletBuylink() {
                   src={dollar}
                   alt="Group 155"
                 />
-                <p>Cash withdrawals</p>
+                <p>{t("index-wallet.4")}</p>
               </div>
               <div className="flex items-center space-x-4">
                 <img
@@ -197,11 +206,11 @@ function WalletBuylink() {
                   src={money}
                   alt="Group 155"
                 />
-                <p>Saving of rewerads</p>
+                <p>{t("index-wallet.5")}</p>
               </div>
               <div className="flex items-center space-x-4">
                 <img className="w-[37px] h-[37px]" src={info} alt="Group 155" />
-                <p>Payment via wallet at our partner </p>
+                <p>{t("index-wallet.6")} </p>
               </div>
               <div className="flex items-center space-x-4">
                 <img
@@ -209,7 +218,7 @@ function WalletBuylink() {
                   src={dollar}
                   alt="Group 155"
                 />
-                <p>New feature is in progress</p>
+                <p>{t("index-wallet.7")}</p>
               </div>
             </div>
           </div>
@@ -222,35 +231,35 @@ function WalletBuylink() {
 }
 
 function BuyLinkPartner() {
+  const {t}=useTranslation()
   return (
     <>
-      <section className=" lg:px-0 px-1">
+      <section className=" lg:px-0 px-1" id='features'>
         <div
           className="flex flex-col lg:items-center  items-stretch text-center"
           id="buylinkpartner"
         >
           <div className="space-y-4 ">
             <h2 className="font-manrope  lg:text-[40px] text-[30px]   leading-0    sm:leading-8  text-black font-bold">
-              Explore new
-              <span className="text-[#4C5DF5]"> users and partners</span>
+            {t("index-partnyor.0")}
+              <span className="text-[#4C5DF5]"> {t("index-partnyor.1")} {t("index-partnyor.2")}</span>
             </h2>
             <p className="lg:text-[20px] text-[15px] pb-[2em] leading-[1.7]">
-              End-to-end payments and financial management in a single solution.
-              Meet the right platform to <br /> help realize.
+            {t("index-partnyor.3")}
             </p>
           </div>
-          <div className="w-[83%] grid lg:grid-cols-3 500px:grid-cols-2 md:grid-cols-2 grid-cols-1">
+          <div className="w-[83%] md:place-items-start   place-items-center place-content-start grid lg:grid-cols-3 500px:grid-cols-2 md:grid-cols-2 grid-cols-1">
             <div className="pt-4 w-full max-w-[280px]">
               <div className="flex items-center  space-x-6 lg:space-x-2 ">
                 <img src={cube} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope   lg:text-[17px]  500px:text-[11px]   md:text-[14px]  992px:text-[16px]  text-[20px]       text-black font-bold">
-                  Explore Our partners
+                {t("index-partnyor.4")}
                 </h2>
               </div>
 
               <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-                Meet our list of partnes at our homepage
+              {t("index-partnyor.5")}
               </p>
             </div>
             <div className="pt-4  w-full max-w-[280px]">
@@ -258,13 +267,12 @@ function BuyLinkPartner() {
                 <img src={cube} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope text-[20px]   lg:text-[17px] 500px:text-[11px]    md:text-[14px]  992px:text-[16px]        text-black font-bold">
-                  Add People to your Network
+                {t("index-partnyor.6")}
                 </h2>
               </div>
 
               <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-                Use search to find your friends and new users. Add them, and
-                start to recommend each other
+              {t("index-partnyor.7")}
               </p>
             </div>
             <div className="pt-4  w-full max-w-[280px]">
@@ -272,13 +280,12 @@ function BuyLinkPartner() {
                 <img src={cube} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope  text-[20px]  500px:text-[11px]   lg:text-[17px]  md:text-[14px]  992px:text-[16px]      text-black font-bold">
-                  Explore different categories
+                {t("index-partnyor.8")}
                 </h2>
               </div>
 
               <p className="font-poppins pt-4 pb-6  lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-                Here you can find different industries,choose any that you
-                areasasa interested in
+              {t("index-partnyor.9")}
               </p>
             </div>
           </div>
@@ -292,30 +299,30 @@ function BuyLinkPartner() {
             modules={[Pagination]}
             className="mySwiper"
           >
-            <div className="flex items-center  space-x-4 justify-center pt-20">
+            <div className="flex items-center   space-x-4 justify-center ">
               <SwiperSlide>
-                <div className="max-w-[225px] pb-2 h-[390px] w-full ">
+                <div className=" max-w-[225px] w-full pb-2  ">
                   <img
                     className="w-full h-full object-contain"
-                    src={gosupport}
+                    src={partnerA}
                     alt="Iphone2"
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="max-w-[225px] pb-2 h-[390px] w-full  ">
+                <div className=" pb-2   max-w-[225px] w-full ">
                   <img
                     className="w-full h-full object-contain"
-                    src={user}
+                    src={partnerB}
                     alt="Iphone4"
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="max-w-[225px] pb-2 h-[390px] w-full  ">
+                <div className=" pb-2  max-w-[225px] w-full  ">
                   <img
                     className="w-full h-full object-contain"
-                    src={wallet2}
+                    src={partnerC}
                     alt="Iphone2"
                   />
                 </div>
@@ -323,25 +330,25 @@ function BuyLinkPartner() {
             </div>
           </Swiper>
         ) : (
-          <div className="flex items-center  space-x-4 justify-center pt-20">
+          <div className="flex items-center pt-10   space-x-4 justify-center ">
             <div className="w-[300px] h-[490px]">
               <img
                 className="w-full h-full object-contain"
-                src={iphone4}
+                src={partnerA}
                 alt="Iphone2"
               />
             </div>
             <div className="w-[280px] h-[490px]">
               <img
                 className="w-full h-full object-contain"
-                src={iphone5}
+                src={partnerB}
                 alt="Iphone4"
               />
             </div>
             <div className="w-[280px] h-[490px]">
               <img
                 className="w-full h-full object-contain"
-                src={iphone6}
+                src={partnerC}
                 alt="Iphone2"
               />
             </div>
@@ -352,6 +359,7 @@ function BuyLinkPartner() {
   );
 }
 function BuyLinkPartner2() {
+  const {t}=useTranslation()
   return (
     <>
       <section>
@@ -361,27 +369,25 @@ function BuyLinkPartner2() {
         >
           <div className="space-y-4 ">
             <h2 className="font-manrope  lg:text-[40px] text-[30px]   leading-0    sm:leading-8  text-black font-bold">
-              Get cash
-              <span className="text-[#4C5DF5]"> in 3 steps</span>
+            {t("index-partnyor2.0")}
+              <span className="text-[#4C5DF5]"> {t("index-partnyor2.1")}</span>
             </h2>
             <p className="lg:text-[20px] text-[15px] pb-[2em] leading-[1.7]">
-              End-to-end payments and financial management in a single solution.
-              Meet the right platform to <br /> help realize.
+            {t("index-partnyor2.2")}
             </p>
           </div>
-          <div className="w-[83%] grid lg:grid-cols-3 500px:grid-cols-2 md:grid-cols-2 grid-cols-1">
+          <div className="w-[83%] grid lg:grid-cols-3 500px:grid-cols-2 md:place-items-start   place-items-center    md:grid-cols-2 grid-cols-1">
             <div className="pt-4 w-full max-w-[280px]">
               <div className="flex items-center  space-x-6 lg:space-x-2 ">
                 <img src={cube} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope   lg:text-[17px]  500px:text-[11px]   md:text-[14px]  992px:text-[16px]  text-[20px]       text-black font-bold">
-                  Enter to partner page
+                {t("index-partnyor2.3")}
                 </h2>
               </div>
 
               <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-                Explore menu / catalogue of partner. With list of products of
-                services, prices, discounts, and referral cashbacks
+              {t("index-partnyor2.4")}
               </p>
             </div>
             <div className="pt-4  w-full max-w-[340px]">
@@ -389,13 +395,12 @@ function BuyLinkPartner2() {
                 <img src={cube} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope text-[20px]   lg:text-[17px] 500px:text-[11px]    md:text-[14px]  992px:text-[16px]        text-black font-bold">
-                  Share referral link to your network
+                {t("index-partnyor2.5")}
                 </h2>
               </div>
 
               <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-                In partner page you can recommend this business to your network
-                via chat on share on post
+              {t("index-partnyor2.6")}
               </p>
             </div>
             <div className="pt-4  w-full max-w-[340px]">
@@ -403,13 +408,12 @@ function BuyLinkPartner2() {
                 <img src={cube} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope  text-[20px]  500px:text-[11px]   lg:text-[17px]  md:text-[14px]  992px:text-[16px]      text-black font-bold">
-                  Go to wallet and check you balance
+                  {t("index-partnyor2.7")}
                 </h2>
               </div>
 
               <p className="font-poppins pt-4 pb-6  lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-                After your network use your referral link , you again rewards ,
-                and can check your balance in wallet page
+              {t("index-partnyor2.8")}
               </p>
             </div>
           </div>
@@ -428,7 +432,7 @@ function BuyLinkPartner2() {
                 <div className="max-w-[225px] h-[390px] w-full ">
                   <img
                     className="w-full h-full object-contain"
-                    src={gosupport}
+                    src={partner2A}
                     alt="Iphone2"
                   />
                 </div>
@@ -437,7 +441,7 @@ function BuyLinkPartner2() {
                 <div className="max-w-[225px] h-[390px] w-full  ">
                   <img
                     className="w-full h-full object-contain"
-                    src={user}
+                    src={partner2B}
                     alt="Iphone4"
                   />
                 </div>
@@ -446,7 +450,7 @@ function BuyLinkPartner2() {
                 <div className="max-w-[225px] h-[390px] w-full  ">
                   <img
                     className="w-full h-full object-contain"
-                    src={wallet2}
+                    src={partner2C}
                     alt="Iphone2"
                   />
                 </div>
@@ -454,25 +458,25 @@ function BuyLinkPartner2() {
             </div>
           </Swiper>
         ) : (
-          <div className="flex items-center  space-x-4 justify-center ">
+          <div className="flex items-center pt-10  space-x-4 justify-center ">
             <div className="w-[300px] h-[490px]">
               <img
-                className="w-full h-full object-contain"
-                src={gosupport}
+                className="w-full h-full "
+                src={partner2A}
                 alt="Iphone2"
               />
             </div>
-            <div className="w-[280px] h-[490px]">
+            <div className="w-[300px] h-[490px]">
               <img
-                className="w-full h-full object-contain"
-                src={user}
+                className="w-full h-full "
+                src={partner2B}
                 alt="Iphone4"
               />
             </div>
-            <div className="w-[280px] h-[490px]">
+            <div className="w-[300px] h-[490px]">
               <img
-                className="w-full h-full object-contain"
-                src={wallet2}
+                className="w-full h-full"
+                src={partner2C}
                 alt="Iphone2"
               />
             </div>
@@ -483,36 +487,35 @@ function BuyLinkPartner2() {
   );
 }
 function BuyLinkPartner3() {
+  const {t}=useTranslation()
   return (
     <>
-      <section>
+      <section id='how-use'>
         <div
           className="flex flex-col lg:items-center  items-stretch text-center"
           id="buylinkpartner"
         >
           <div className="space-y-4 ">
             <h2 className="font-manrope  lg:text-[40px] text-[30px]   leading-0    sm:leading-8  text-black font-bold">
-              How to get
-              <span className="text-[#4C5DF5]"> discount</span>
+            {t("index-partnyor3.0")}
+              <span className="text-[#4C5DF5]"> {t("index-partnyor3.1")}</span>
             </h2>
             <p className="lg:text-[20px] text-[15px] pb-[2em] leading-[1.7]">
-              End-to-end payments and financial management in a single solution.
-              Meet the right platform to <br /> help realize.
+            {t("index-partnyor3.2")}
             </p>
           </div>
-          <div className="w-[90%] grid lg:grid-cols-3 500px:grid-cols-2 md:grid-cols-2 grid-cols-1">
+          <div className="w-[90%]  md:place-items-start   place-items-center grid lg:grid-cols-3 500px:grid-cols-2 md:grid-cols-2 grid-cols-1">
             <div className="pt-4 w-full max-w-[340px]">
               <div className="flex items-center   lg:space-x-2 ">
                 <img src={cube} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope   lg:text-[17px] lg:text-start text-center md:text-start  500px:text-[11px]   md:text-[14px]  992px:text-[16px]  text-[20px]       text-black font-bold">
-                  See you network recommendations in referral page
+                {t("index-partnyor3.3")}
                 </h2>
               </div>
 
               <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-                See all posts that you network share, and chooseone that
-                interests you
+              {t("index-partnyor3.4")}
               </p>
             </div>
             <div className="pt-4  w-full max-w-[280px]">
@@ -520,13 +523,12 @@ function BuyLinkPartner3() {
                 <img src={cube} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope text-[20px]   lg:text-[17px] 500px:text-[11px]    md:text-[14px]  992px:text-[16px]        text-black font-bold">
-                  Add referral link to Qr Basket
+                {t("index-partnyor3.5")}
                 </h2>
               </div>
 
               <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-                Here you can see all rederral links from different users for
-                different partners
+              {t("index-partnyor3.6")}
               </p>
             </div>
             <div className="pt-4  w-full max-w-[320px]">
@@ -534,12 +536,12 @@ function BuyLinkPartner3() {
                 <img src={cube} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope  text-[20px]  500px:text-[11px]   lg:text-[17px]  md:text-[14px]  992px:text-[16px]      text-black font-bold">
-                  Show qr code and get discount
+                {t("index-partnyor3.7")}
                 </h2>
               </div>
 
               <p className="font-poppins pt-4 pb-6  lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-                When you show you Qr code you get discount for you purchases
+              {t("index-partnyor3.8")}
               </p>
             </div>
           </div>
@@ -558,7 +560,7 @@ function BuyLinkPartner3() {
                 <div className="max-w-[225px] h-[590px] w-full ">
                   <img
                     className="w-full h-full object-contain"
-                    src={iphone15plus}
+                    src={partner3A}
                     alt="Iphone2"
                   />
                 </div>
@@ -567,7 +569,7 @@ function BuyLinkPartner3() {
                 <div className="max-w-[225px] h-[590px] w-full  ">
                   <img
                     className="w-full h-full object-contain"
-                    src={black}
+                    src={partner3B}
                     alt="Iphone4"
                   />
                 </div>
@@ -576,7 +578,7 @@ function BuyLinkPartner3() {
                 <div className="max-w-[225px] h-[590px] w-full  ">
                   <img
                     className="w-full h-full object-contain"
-                    src={mock}
+                    src={partner3C}
                     alt="Iphone2"
                   />
                 </div>
@@ -584,23 +586,23 @@ function BuyLinkPartner3() {
             </div>
           </Swiper>
         ) : (
-          <div className="flex items-center  space-x-4 justify-center ">
-            <div className="w-[300px] h-[590px]">
+          <div className="flex items-center pt-10  space-x-4 justify-center ">
+            <div className="w-[290px] h-[550px]">
               <img
                 className="w-full h-full "
-                src={iphone15plus}
+                src={partner3A}
                 alt="Iphone2"
               />
             </div>
-            <div className="w-[280px] h-[590px]">
+            <div className="w-[290px] h-[550px]">
               <img
-                className="w-full h-full object-cover"
-                src={black}
+                className="w-full h-full "
+                src={partner3B}
                 alt="Iphone4"
               />
             </div>
-            <div className="w-[280px] h-[590px]">
-              <img className="w-full h-full " src={mock} alt="Iphone2" />
+            <div className="w-[290px] h-[550px]">
+              <img className="w-full h-full " src={partner3C} alt="Iphone2" />
             </div>
           </div>
         )}
@@ -610,18 +612,19 @@ function BuyLinkPartner3() {
 }
 
 function Partner() {
+  const {t}=useTranslation()
   return (
     <>
-      <div className=" w-full flex    items-center justify-between    ">
+      <div className=" w-full flex  ml-2   items-center justify-between    ">
         <div className="flex flex-col md:items-start justify-center md:justify-normal  items-center md:space-y-4  space-y-2 w-[636px] h-[267px] ">
           <h2 className="font-manrope text-center lg:text-start lg:text-4xl text-3xl normal font-bold text-[#F3F2F2]">
-            Become a partner
+          {t("partner.0")}
           </h2>
           <p className="text-[#F3F2F2] text-center lg:text-start md:leading-6 leading-4  lg:text-[20px] text-[10px] font-poppins font-normal">
-            Risus habitant leo egestas mauris diam eget morbi tempus vulputate.
+          {t("partner.1")}
           </p>
           <button className="rounded-md text-[#4C5DF5] font-semibold bg-[#ffffffd9] w-[154px] h-[68px]">
-            Join now
+          {t("partner.2")}
           </button>
         </div>
         <div className="hidden lg:block ">
@@ -633,13 +636,14 @@ function Partner() {
 }
 
 function NewsLetter() {
+  const {t}=useTranslation()
   return (
     <section className="py-10 text-center lg:px-0 px-2">
       <h2 className="font-manrope  lg:text-[40px] text-[27px]      leading-8  text-black font-bold">
-        Join our <span className="text-[#4C5DF5]">newsletter</span>
+      {t("letters.0")} <span className="text-[#4C5DF5]">{t("letters.1")}</span>
       </h2>
       <p className="lg:text-2xl text-sm font-light font-grotesk text-[#1C1C1C]">
-        Will send you weekly updates for your better finance management.
+      {t("letters.2")}
       </p>
 
       <div className=" mt-10 space-y-4 lg:space-x-4  space-x-0  px-4">
@@ -649,7 +653,7 @@ function NewsLetter() {
           placeholder="Your email adress"
         />
         <button className="bg-[#4C5DF5]  rounded-2xl text-white text-[16px] max-w-[500px] w-full  lg:w-[152px]     h-[60px]">
-          Join now
+        {t("letters.3")}
         </button>
       </div>
     </section>

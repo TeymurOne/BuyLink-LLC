@@ -16,7 +16,8 @@ const Main = () => {
       <main className="w-full py-10    mx-auto max-w-[1370px]      ">
         <div className="flex justify-between  " id='about'>
           <div className="lg:w-[42%] px-[20px] 2xl:p-0  sm:w-full text-[#000000de]">
-            <p className="xl:text-[46px]  lg:text-4xl md:text-3xl sm:text-2xl xsm:text-xl  font-bold  font-Manrope">
+            <div className='w-[20%]'>
+            <p className="xl:text-[46px]  lg:text-4xl md:text-3xl sm:text-2xl xsm:text-xl   font-bold  font-Manrope">
               BuyLink - it’s kind of marketplace that helps sellers and
               potential buyers find each other online and interact each other
             </p>
@@ -24,6 +25,8 @@ const Main = () => {
               Our mission is to connect people in one referral social network
               where they are able to get actual benefits from recommendations.
             </p>
+            </div>
+          
             <div className="flex items-center  space-x-4">
               <div className="flex flex-col space-y-5">
                 <Link

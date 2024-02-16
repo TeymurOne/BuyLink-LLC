@@ -70,7 +70,102 @@
     "15": "Instagram",
     "16": "Ləgv et",
     "17": "Saxla"
+  },
+  "index-header": {
+    "0": "Haqqımızda",
+    "1": "Üstünlüklərimiz",
+    "2": "Necə işləyir?",
+    "3": "FAQ",
+    "4": "Bizimlə əlaqə",
+    "5": "Giriş",
+    "6": "Partnyor ol"
+  },
+  "index-main": {
+    "0": "BuyLink  ",
+    "1": "dünyanın ilk rəqəmsal referal platformasıdır.",
+    "2": "Bizim missiyamız insanları və biznesləri bir referal sosial şəbəkəsi altında birləşdirərək onların müəyyən qazanc və üstünlüklərdən faydalanmasını təmin etməkdir.",
+    "3": "İzahedici video",
+    "4": "Bu video ən sadə şəkildə bizim biznesin necə işlədiyini göstərir.",
+    "5": "Elə indi yoxla"
+  },
+  "index-wallet": {
+    "0": "BuyLink Pul kisəsi -  ",
+    "1": " bonus və mükafatlar.",
+    "2": "qazanaraq xərclərinə qanaət et.",
+    "3": "Bizim pul kisəsi sayəsində ödənişlər etməklə bir sıra üstünlüklərdən yararlanacaqsan:",
+    "4": "Nağdlaşdırma",
+    "5": "Mükafatlara qənaət",
+    "6": "Partnyorumuzda pul kisəsi vasitəsilə ödəniş",
+    "7": "Yeni funksiya çox yaxında!"
+  },
+  "index-partnyor": {
+    "0": "Yeni",
+    "1": "istifadəçi və partnyorları",
+    "2": "kəşf et",
+    "3": "Şəbəkəni genişləndir və tövsiyə edəcəyin bizneslərdən gəlir əldə etməyin  ən asan yoluna bizimlə başla.",
+    "4": "Partnyorlarımızla tanış ol",
+    "5": "Ana səhifədəki partynor siyahımızı kəşf et",
+    "6": "Şəbəkəni genişləndir",
+    "7": "Axtarış bölməsindən dostlarını və ya yeni istifadəçiləri axtar. Onları öz dost siyahına əlavə edərək istinad prosesinə başla.",
+    "8": "Müxtəlif kateqoriyaları kəşf et",
+    "9": "Maraqlandığın biznesləri burada kəşf edərək onların endirim və qazanc dərəcələri ilə tanış ola bilərsən. "
+  },
+  "index-partnyor2":{
+    "0":"3 addımla",
+    "1":"qazanc əldə et",
+    "2":"Öz şəbəkənə istədiyin biznesi tövsiyə et və qazan.",
+    "3":  "Partnyor səhifəsinə daxil ol",
+    "4":"Tərəfdaşın kataloqunu araşdırın:məhsul və ya xidmətlərin siyahısı, qiymətlər, endirimlər və referal keşbekləri.",
+    "5":"İstinad linkini öz şəbəkən ilə bölüş",
+    "6":"Partnyor səhifəsində sən bu biznesi söhbət vasitəsilə şəbəkənə tövsiyə edə və ya poçtla paylaşa bilərsən.",
+    "7":"Pul kisəsinə keçid et və balansını yoxla",
+    "8":"Şəbəkən istinad linkindən istifadə etdikdən sonra səm  mükafatlar qazanırsan. Sonda pul kisəsi səhifəsində balansını yoxlaya bilərsən."
+  },
+  "index-partnyor3":{
+    "0":"Endirim",
+    "1":"necə əldə etmək olar?",
+    "2":"İstinad linklərindən istifadə edərək endirimlər qazan.",
+    "3":"İstinad səhifəsində dostlarının tövsiyələrini nəzərdən keç",
+    "4":"Şəbəkənin paylaşdığı bütün yazılara bax və səni  maraqlandıran birini seç.",
+    "5":"QR səbətinə istinad linklərini əlavə et",
+    "6":"Burada tərəfdaşlar üçün müxtəlif istifadəçilərin bütün istinad bağlantılarını görə bilərsən.",
+    "7":"QR kodu gör və endirim əldə et",
+    "8":"Qr kodu alış-veriş zamanı partnyora göstər və endirim əldə et."
+  },
+  "partner":{
+    "0":"Partnyor ol",
+    "1":"Partnyor şəbəkəmizə qoşularaq satışlarını, həmçinin müştəri bazanı artıra bilərsən.",
+    "2":"Elə indi qoşul"
+  },
+  "letters":{
+    "0":"Jurnalımıza",
+    "1":"qoşul",
+    "2":"BuyLink-lə bağlı ən son yenilik və fürsətləri e-poçtuna göndərəcəyik.",
+    "3":"İndi qoşul"
+  },
+  "accordion":{
+    "0":"Ən çox soruşulanlar",
+    "1":"BuyLink nədir?",
+    "2":"Bizim missiyamız insanları və biznesləri bir referal sosial şəbəkəsi altında birləşdirərək onların müəyyən qazanc və üstünlüklərdən faydalanmasını təmin etməkdir.",
+    "3":"BuyLink-in üstünlükləri nələrdir?",
+    "4":"Necə işləyirik?",
+    "5":"Necə işləyirik? necə etmək olar?"
+  },
+  "footer":{
+    "0":"İndi ödənişlərdən daha çox keşbek və qazanclar əldə et.",
+    "1":"Şirkət",
+    "2":"Haqqımızda",
+    "3":"İş imkanı",
+    "4":"Bloq",
+    "5":"Məhsul",
+    "6":"Hesabat",
+    "7":"Müqavilə",
+    "8":"Mühasibat",
+    "9":"Resurslar",
+    "10":"Biznes təklifi şablonu",
+    "11":"Müqavilə şablonu",
+    "12":"İzahedici video",
+    "13":"2024 Bütün hüquqları qorunur",
+    "14":"buylink@gmail.com"
   }
 }
-
-
