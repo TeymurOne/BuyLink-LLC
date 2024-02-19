@@ -74,7 +74,7 @@ export default function Header() {
               onClick={() => {
                 setTimeout(() => {
                   window.location.reload();
-                }, 100);
+                }, 0,122);
               }}
               className="text-[16px] space-x-2 text-black w-[151px] h-[44px]    flex items-center justify-center rounded-sm      "
             >

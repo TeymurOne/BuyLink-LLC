@@ -25,7 +25,7 @@ const DropdownUser = () => {
     navigate('/');
   };
 const userimage=useSelector(selectCurrentImage)
-console.log(userimage);
+console.log(userimage, 'userimage');
 
 
   useEffect(() => {

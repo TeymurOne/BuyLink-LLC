@@ -1,3 +1,7 @@
+
+
+
+ 
  export const getState = () => {
   let myToken: string | null = null;
 
@@ -19,3 +23,12 @@
 
 };
 export default getState
+
+
+export const setCokkie=(token:any)=>{
+  
+  const expires = new Date();
+  expires.setTime(expires.getTime() + 7 * 24 * 60 * 60 * 1000);
+  document.cookie = `token=${token
+  };expires=${expires.toUTCString()};path=/`;
+}
