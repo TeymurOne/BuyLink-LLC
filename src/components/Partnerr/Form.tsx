@@ -2,7 +2,7 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import React, { useEffect, useMemo, useState } from 'react';
 import addImg from '../../images/icon/addImg.png';
-
+import { LuAsterisk } from "react-icons/lu";
 import { useFetchPartnerrAllQuery, usePostPartnerrAllMutation } from '../../features/partner/apiSlice';
 import { useNavigate } from 'react-router-dom';
 interface Initial {
@@ -111,10 +111,8 @@ const Form = () => {
     }
   };
 
-  const btnDisabled = useMemo(
-    () => !title_ || !description_ || !phone_ || !email_ || !about_,
-    [!title_, !description_, !phone_, !email_, !about_],
-  );
+
+  const btnDisabled= !title_ || !phone_
 
   const [postProduct] = usePostPartnerrAllMutation();
 
@@ -239,7 +237,7 @@ const Form = () => {
                   htmlFor="title"
                   className="block text-sm font-medium leading-6 "
                 >
-                  Title
+                  Title <LuAsterisk style={{color:"red"}} />
                 </label>
                 <div className="mt-2">
                   <input
@@ -324,6 +322,7 @@ const Form = () => {
                   title="phone"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
+                  <LuAsterisk style={{color:"red"}} />
                   Phone
                 </label>
                 <div className="mt-2">
@@ -450,7 +449,7 @@ const Form = () => {
                   <input
                     onChange={handleFb}
                     value={instagram_}
-                    placeholder="instagram"
+                    placeholder="instagram url"
                     id="instagram"
                     name="instagram_"
                     type="text"

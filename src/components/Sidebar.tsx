@@ -1,7 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useTransition } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import Logo from '../images/logo/logo-buylink.jpg';
 import SidebarLinkGroup from './SidebarLinkGroup';
+import { useTranslation } from 'react-i18next';
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -11,6 +12,7 @@ interface SidebarProps {
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   const location = useLocation();
   const { pathname } = location;
+  const { t } = useTranslation();
 
   const trigger = useRef<any>(null);
   const sidebar = useRef<any>(null);
@@ -119,7 +121,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                               className="group relative flex items-center gap-2.5 rounded-md text-[16px]  font-medium text-[#abb9e8] duration-300 ease-in-out hover:text-white"
                             >
                               <p className="ml-[-13px]">-</p>
-                              Members
+                              {t("member.0")}
                             </NavLink>
                           </li>
                           <li className="my-1">
@@ -128,7 +130,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                               className="group relative flex items-center gap-2.5 rounded-md  text-[16px]   font-medium text-[#abb9e8] duration-300 ease-in-out hover:text-white"
                             >
                               <p className="ml-[-13px]">-</p>
-                              Branch
+                              {t("branch.0")}
                             </NavLink>
                           </li>
                           <li className="my-1">
@@ -137,7 +139,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                               className="group relative flex items-center gap-2.5 rounded-md  text-[16px]   font-medium text-[#abb9e8] duration-300 ease-in-out hover:text-white"
                             >
                               <p className="ml-[-13px]">-</p>
-                              Product
+                              {t("product.0")}
                             </NavLink>
                           </li>
                           <li className="my-1">
@@ -146,7 +148,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                               className="group relative flex items-center gap-2.5 rounded-md  text-[16px]   font-medium text-[#abb9e8] duration-300 ease-in-out hover:text-white"
                             >
                               <p className="ml-[-13px]">-</p>
-                              Operator
+                              {t("operator.0")} 
                             </NavLink>
                           </li>
                           <li className="my-1">
@@ -155,7 +157,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                               className="group relative flex items-center gap-2.5 rounded-md  text-[16px]   font-medium text-[#abb9e8] duration-300 ease-in-out hover:text-white"
                             >
                               <p className="ml-[-13px]">-</p>
-                              Partnerr info
+                              {t("partnerinfo.0")}
                             </NavLink>
                           </li>
                         </ul>

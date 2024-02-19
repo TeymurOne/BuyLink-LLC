@@ -70,7 +70,7 @@ function App() {
           <Route path="/admin" element={<DefaultLayout />}>
             <Route index element={<ECommerce />} />
 
-            {routes.map((route, index) => (
+            {routes.map((route:any, index ) => (
               <Route
                 key={index}
                 path={route.path}

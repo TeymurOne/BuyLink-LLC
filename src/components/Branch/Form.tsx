@@ -111,7 +111,7 @@ const Form = () => {
                   htmlFor="map"
                   className="block text-sm font-medium leading-6 "
                 >
-                                    {t("branch.12")}
+                                    {t("branch.13")}
 
                    <Map
                     selectedLat={selectedLat}

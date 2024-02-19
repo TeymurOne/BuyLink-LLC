@@ -25,7 +25,7 @@ const resources = {
         "branch": {
           "0": "Filial",
           "1": "Yarat Filial",
-          "2": "Ad",
+          "2": "Filial Adı",
           "3": "Lat",
           "4": "Lng",
           "5": "Ünvan ",
@@ -36,6 +36,7 @@ const resources = {
           "10": "Dəyiş",
           "11":"Haqqında",
           "12":"Xəritə",
+          "13":"Adına görə axtarış"
         },
         "product": {
           "0": "Məhsul ",
@@ -53,8 +54,8 @@ const resources = {
           "12":"Haqqında"
         },
         "operator": {
-          "0": "İşçi ",
-          "1": "Yarat İşçi",
+          "0": "Operator ",
+          "1": "Yarat Operator",
           "2": "Filiali",
           "3": "Ad",
           "4": "Email",
@@ -67,7 +68,7 @@ const resources = {
           "10":"Seçin"
         },
         "partnerinfo": {
-          "0": "Parner Məlumat ",
+          "0": "Partnyor Məlumat ",
           "1": "Logo",
           "3": "Cover Şəkil",
           "4": "Ad",
@@ -210,7 +211,7 @@ const resources = {
         "branch": {
           "0": "Branch ",
           "1": "Create Branch",
-          "2": "Name",
+          "2": "Branch Name",
           "3": "Lat",
           "4": "Lng",
           "5": "ADDRESS ",
@@ -221,6 +222,7 @@ const resources = {
           "10": "Update",
           "11":"Details",
           "12":"Map",
+          "13":"Search by name"
         },
         "product": {
           "0": "Products ",
