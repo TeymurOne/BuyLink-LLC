@@ -17,6 +17,8 @@ const Details = () => {
   if (isSuccess && id) {
     content = data?.data.find((item: IpostData) => item.id == id);
   }
+  console.log(content, 'content');
+  
   const defaultProps = {
     center: {
       lat:Number(content?.lat),
@@ -41,6 +43,14 @@ const Details = () => {
               </span>
               <p className=" font-medium text-black dark:text-white">
                 {content?.id}
+              </p>
+            </div>
+            <div className="flex justify-between lg:w-1/3 md:w-1/2 py-4 px-3  ">
+              <span className=" font-medium text-black dark:text-white ">
+                Phone
+              </span>
+              <p className=" font-medium text-black dark:text-white">
+                {content?.phone}
               </p>
             </div>
 

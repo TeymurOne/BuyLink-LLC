@@ -75,7 +75,7 @@ const Form = () => {
       setShowimg(URL.createObjectURL(files[0]));
     }
   };
-  const btnDisabled =!title || !description || !productID || !price || !discountprice || !images;
+  const btnDisabled =!title || !productID || !price || !discountprice || !images;
   const [postProduct] = usePostProductTypeMutation();
 
   let content;

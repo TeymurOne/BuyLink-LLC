@@ -1,10 +1,7 @@
 import { AiOutlineDelete } from 'react-icons/ai';
 import { FiEdit2, FiEye } from 'react-icons/fi';
 import Swal from 'sweetalert2';
-import {
-  
-  useRemoveProductMutation,
-} from '../../features/product/apiSlice';
+import {useRemoveProductMutation,} from '../../features/product/apiSlice';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
@@ -27,6 +24,8 @@ const Tbody: React.FC<itemAllData> = ({ item }) => {
   const [deletePost] = useRemoveProductMutation();
 
   const handleDelete = async (id: number) => {
+    console.log(id);
+    
     const result = await Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -57,7 +56,7 @@ const Tbody: React.FC<itemAllData> = ({ item }) => {
 
   useEffect(() => {}, [handleDelete]);
 
-  const { image, discount_price, price, title, id, description } = item;
+  const { image, discount_price, price, title, id } = item;
 
   return (
     <>
@@ -76,11 +75,7 @@ const Tbody: React.FC<itemAllData> = ({ item }) => {
           </p>
         </td>
 
-        <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-          <p className="text-black dark:text-white">
-            {description.slice(0, 4)}.....
-          </p>
-        </td>
+       
         <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
           <p className="text-black dark:text-white">{price}</p>
         </td>

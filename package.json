@@ -1,5 +1,5 @@
 {
-  "name": "tailadmin-react-free",
+  "name": "Buylink ",
   "private": true,
   "version": "1.0.5",
   "type": "module",
@@ -9,9 +9,9 @@
     "preview": "vite preview"
   },
   "author": {
-    "name": "TailAdmin",
-    "email": "hello@tailadmin.com",
-    "url": "https://tailadmin.com"
+    "name": "Buylink",
+    "email": "buylink",
+    "url": "buylink"
   },
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^40.2.0",
@@ -37,7 +37,6 @@
     "react-hot-toast": "^2.4.1",
     "react-i18next": "^14.0.1",
     "react-icons": "^4.12.0",
-    "react-outside-click-handler": "^1.3.0",
     "react-owl-carousel": "^2.3.3",
     "react-redux": "^8.1.3",
     "react-router-dom": "^6.14.2",

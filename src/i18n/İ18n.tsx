@@ -5,7 +5,7 @@ import detector from "i18next-browser-languagedetector";
 import backend from "i18next-http-backend";
 
 const resources = {
-  az: {
+  Aze: {
     translation: {
   
         "member": {
@@ -20,12 +20,14 @@ const resources = {
           "8": "Ləğv et ",
           "9": "Saxla ",
           "10": "Dəyiş",
-          "11":"Üzv Tipləri"
+          "11":"Üzv Tipləri",
+          "12":"Statistika",
+
         },
         "branch": {
           "0": "Filial",
           "1": "Yarat Filial",
-          "2": "Filial Adı",
+          "2": " Adı",
           "3": "Lat",
           "4": "Lng",
           "5": "Ünvan ",
@@ -102,7 +104,7 @@ const resources = {
           "2": "Bizim missiyamız insanları və biznesləri bir referal sosial şəbəkəsi altında birləşdirərək onların müəyyən qazanc və üstünlüklərdən faydalanmasını təmin etməkdir.",
           "3": "İzahedici video",
           "4": "Bu video ən sadə şəkildə bizim   biznesin necə işlədiyini göstərir.",
-          "5": "Elə indi yoxla"
+          "5": "Yüklə BuyLink"
         },
         "index-wallet": {
           "0": "BuyLink Pul kisəsi   ",
@@ -182,7 +184,8 @@ const resources = {
           "11":"Müqavilə şablonu",
           "12":"İzahedici video",
           "13":"2024 Bütün hüquqları qorunur",
-          "14":"buylink@gmail.com"
+          "14":"buylink@gmail.com",
+          "15":"000-000-00"
         }
        
       }
@@ -191,7 +194,7 @@ const resources = {
       
     },
 
-  en: {
+  Eng: {
     translation: {
     
         "member": {
@@ -206,12 +209,13 @@ const resources = {
           "8": "Cancal ",
           "9": "Save ",
           "10": "Update",
-          "11":"MemberType"
+          "11":"MemberType",
+          "12":"Statistics",
         },
         "branch": {
           "0": "Branch ",
           "1": "Create Branch",
-          "2": "Branch Name",
+          "2": " Name",
           "3": "Lat",
           "4": "Lng",
           "5": "ADDRESS ",
@@ -290,7 +294,7 @@ const resources = {
           "2": "Our mission is to connect people in one referral social network where they are able to get actual benefits from recommendations.",
           "3": "Explainer Video",
           "4": "The video shows in basic how the applications works . We cover different industries in one platform",
-          "5": "Try it now"
+          "5": "Download BuyLink"
         },
         "index-wallet": {
           "0": "BuyLink Wallet - serves as a savings for your  ",
@@ -369,7 +373,9 @@ const resources = {
       "10":"Proposal Template",
       "11":"Invoice Template",
       "12":"Tuturoial",
-      "13":"2023 All Rights Reserved"
+      "13":"2024 All Rights Reserved",
+      "14":"buylink@gmail.com",
+      "15":"000-000-00"
     }
   
       
@@ -390,7 +396,7 @@ i18n
   .init({
     resources,
 
-    lng:localStorage.getItem("lng") || "en" 
+    lng:localStorage.getItem("lng") || "Eng" 
   
   });
 

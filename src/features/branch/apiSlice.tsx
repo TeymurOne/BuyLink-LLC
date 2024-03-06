@@ -17,7 +17,7 @@ export const branchSlice = apiSlice.enhanceEndpoints({ addTagTypes: ['branch'] }
         }),
         invalidatesTags:['branch']
       }),
-      removeProduct: builder.mutation({
+      removebranch: builder.mutation({
         query: (id) => ({
           url: `/branch/delete/${id}`,
           method: 'DELETE',
@@ -40,12 +40,26 @@ export const branchSlice = apiSlice.enhanceEndpoints({ addTagTypes: ['branch'] }
           invalidatesTags:['branch']
         }),
       }),
+      getStatistics:builder.query({
+        query:()=>({
+          url: `/statistics`,
+          method: 'GET',
+        
+        })
+      })
+     
+     
+     
     }),
   });
 export const {
+  
   useFetchBranchAllQuery,
-  useRemoveProductMutation,
+  useRemovebranchMutation,
   usePostBranchMutation,
   usePostUpdateMutation,
   useLazyGetUpdateQuery,
+  useGetStatisticsQuery
+  
+  
 } = branchSlice;

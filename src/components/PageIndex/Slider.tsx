@@ -41,7 +41,7 @@ const Slider = () => {
    
     <>
  
-        <div  className='flex  items-center  py-14 justify-between mx-auto max-w-[93%]'>
+        <div  className='flex  !important z-[10] items-center  py-14 justify-between mx-auto max-w-[93%]'>
         <OwlCarousel  className='owl-theme text-center grid place-items-center' {...options} loop margin={10}  >
           <div className="item w-[137px] h-[17px]">
             <img

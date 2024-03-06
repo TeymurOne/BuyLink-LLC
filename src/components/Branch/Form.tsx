@@ -10,9 +10,11 @@ export interface IpostData {
   address: string;
   lat: number | string;
   lng: number | string;
+  phone:number | undefined
 }
 const Form = () => {
   const [addres, setAddress] = useState<string>('');
+  const [phone, setPhone]=useState<number >()
   const [name, setName] = useState<string>('');
   const navigate = useNavigate();
 
@@ -31,9 +33,11 @@ const Form = () => {
 
     setSelectedLng(lng);
   };
+ 
   const postData: IpostData = {
     name: name,
     address: addres,
+    phone:phone,
     lat:String(selectedLat),
     lng:String(selectedLng),
   };
@@ -42,7 +46,7 @@ const Form = () => {
   const postSubmit = async () => {
     try {
       setLoad(true);
-      if (addres && selectedLat && selectedLng && name) {
+      if (addres && selectedLat && selectedLng && name && phone) {
         await postBranches(postData)
           .unwrap()
           .then((res) => (res.success ? navigate('/admin/branchcreate') : ''));
@@ -52,7 +56,7 @@ const Form = () => {
       setLoad(false);
     }
   };
-  const btnDisabled = !selectedLat || !selectedLng || !addres || !name;
+  const btnDisabled = !selectedLat || !selectedLng || !addres || !name ||  !phone;
 
   return (
     <>
@@ -81,6 +85,26 @@ const Form = () => {
                     type="text"
                     name="Addess"
                     id="Address"
+                    autoComplete="given-name"
+                    className="block w-full px-2 rounded-md border-1 py-1.5  shadow-sm ring-1   placeholder:text-gray-400  border-[#ced4da] sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
+              <div className="sm:col-span-3">
+                <label
+                  htmlFor="Phone"
+                  className="block text-sm font-medium leading-6"
+                >
+                  Phone
+                </label>
+                <div className="mt-2">
+                  <input
+                    value={phone}
+                    onChange={(e:any) => setPhone(e.target.value)}
+                    type="number"
+                    placeholder='099 - 000 - 00 -00'
+                    name="number"
+                    id="number"
                     autoComplete="given-name"
                     className="block w-full px-2 rounded-md border-1 py-1.5  shadow-sm ring-1   placeholder:text-gray-400  border-[#ced4da] sm:text-sm sm:leading-6"
                   />
@@ -161,6 +185,7 @@ const Form = () => {
                 </div>
               </div>
             </div>
+            
           </div>
         </div>
 

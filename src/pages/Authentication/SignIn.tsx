@@ -40,6 +40,8 @@ const SignIn = () => {
         password,
       });
 
+      console.log(userData);
+      
       const expires = new Date();
       expires.setTime(expires.getTime() + 7 * 24 * 60 * 60 * 1000);
       document.cookie = `token=${

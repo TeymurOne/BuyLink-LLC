@@ -1,6 +1,6 @@
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import addImg from '../../images/icon/addImg.png';
 import { LuAsterisk } from "react-icons/lu";
 import { useFetchPartnerrAllQuery, usePostPartnerrAllMutation } from '../../features/partner/apiSlice';
@@ -167,12 +167,7 @@ const Form = () => {
       <form>
         <div className="space-y-12">
           <div className=" pb-12">
-            <h2 className="text-base font-semibold leading-7 text-gray-900">
-              Personal Information
-            </h2>
-            <p className="mt-1 text-sm leading-6 text-gray-600">
-              Use a permanent address where you can receive mail.
-            </p>
+          
             <div className=" col-span-full">
               <label
                 htmlFor="logo"
@@ -252,7 +247,7 @@ const Form = () => {
                 </div>
               </div>
 
-              <div className="lg:col-span-3 col-span-6 ">
+              <div className="lg:col-span-3 mt-3 col-span-6 ">
                 <label
                   htmlFor="about"
                   className="block text-sm font-medium leading-6 "
@@ -296,7 +291,7 @@ const Form = () => {
                   onChange={handleDesc}
                 ></textarea>
               </div>
-              <div className="lg:col-span-3 col-span-6 ">
+              <div className="lg:col-span-3 mt-4 col-span-6 ">
                 <label
                   htmlFor="email"
                   className="block text-sm font-medium leading-6 "
@@ -316,7 +311,7 @@ const Form = () => {
                 </div>
               </div>
 
-              <div className="sm:col-span-2 col-span-6">
+              <div className="sm:col-span-2  col-span-6">
                 <label
                   htmlFor="phone"
                   title="phone"

@@ -35,6 +35,8 @@ const CreateForm = () => {
     content = data?.data?.map((item: any, index: number) => {
       return <Tbody item={item} key={index} />;
     });
+   
+    
     
 
     const pageLength = Math.ceil(data?.meta.total / data.meta.per_page);
@@ -93,9 +95,7 @@ const CreateForm = () => {
                   <th className="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">
                     {t('product.3')}
                   </th>
-                  <th className="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">
-                    {t('product.4')}
-                  </th>
+                 
                   <th className="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">
                     {t('product.5')}
                   </th>

@@ -87,8 +87,8 @@ const SignModal: React.FC<State> = ({ showModal, setShowModal }) => {
                   </button>
 
                   <div>
-                    <h3 className="text-[36px] w-full pb-8 text-[#0C1421] font-semibold">
-                      Log in
+                    <h3 className="text-[36px] w-full pb-8 text-[#0C1421]  font-roboto">
+                      Log in as Partner
                     </h3>
 
                     <form onSubmit={handleSubmit}>

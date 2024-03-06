@@ -13,6 +13,7 @@ module.exports = {
       grotesk: ['Space Grotesk', 'sans-serif'],
     },
     colors: {
+      starrating:"#4C5DF5",
       current: 'currentColor',
       transparent: 'transparent',
       white: '#FFFFFF',
