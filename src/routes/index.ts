@@ -14,7 +14,7 @@ const privacypolicy = lazy(() => import('../components/PageIndex/PrivacyPoilcy.t
 
 
 const branchcreate = lazy(() => import('../components/Branch/CreateForm'));
-const productform = lazy(() => import('../components/Branch/Form'));
+// const productform = lazy(() => import('../components/Branch/Form'));
 const servicesCreate = lazy(() => import('../components/operator/CreateForm.tsx'));
 const servicesForm = lazy(() => import('../components/operator/Form.tsx'));
 // edit routes
@@ -44,6 +44,9 @@ const operatorEdit = lazy(() => import('../components/operator/EditOperator.tsx'
 //partner 
 
 const partnerform = lazy(() => import('../components/Partnerr/Form.tsx'));
+
+const category = lazy(() => import('../components/products/Category.tsx'));
+
 
 
 const coreRoutes = [
@@ -136,9 +139,14 @@ const coreRoutes = [
   },
 
   {
-    path: '/admin/productForm',
+    path: '/admin/productForm/:id',
     title: 'productForm',
     component: productForm,
+  },
+  {
+    path: '/admin/category',
+    title: 'category',
+    component: category,
   },
   {
     path: '/admin/detailsproduct/:id',
@@ -150,11 +158,7 @@ const coreRoutes = [
     title: 'branchcreate',
     component: branchcreate,
   },
-  {
-    path: '/admin/productform',
-    title: 'productform',
-    component: productform,
-  },
+
   {
     path: '/admin/servicesCreate',
     title: 'servicesCreate',

@@ -53,7 +53,9 @@ const resources = {
           "9": "Ləgv et ",
           "10": "Saxla",
           "11": "Dəyış",
-          "12":"Haqqında"
+          "12":"Haqqında",
+          "13":"Kateqoriya",
+          
         },
         "operator": {
           "0": "Operator ",
@@ -241,7 +243,8 @@ const resources = {
           "9": "Cancel ",
           "10": "Save",
           "11": "Update",
-          "12":"Details"
+          "12":"Details",
+          "13":"Category"
 
         },
         "operator": {

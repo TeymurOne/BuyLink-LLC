@@ -1,16 +1,18 @@
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import addImg from '../../images/icon/addImg.png';
 import {
   useFetchProducttypeQuery,
   usePostProductTypeMutation,
 } from '../../features/product/apiSlice';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { data } from '../Member/Form';
 
 const Form = () => {
+  const params=useParams()
+  console.log(params, 'params');
   interface Initial {
     title: string;
     description: string;
@@ -31,11 +33,19 @@ const Form = () => {
   const [formValue, setFormValue] = useState<Initial>(InitialData);
   const { title, description, price, discountprice, productID, images }=formValue;
   const { isSuccess, data, isError } = useFetchProducttypeQuery('');
+  const [category, setCategory]=useState<string>()
 
   const [showimg, setShowimg] = useState<string>();
   const [load, setLoad] = useState<boolean>(false);
   const postData = new FormData();
   const navigate = useNavigate();
+  useEffect(()=>{
+    setCategory(params?.id)
+    setFormValue({ ...formValue, productID: params?.id });
+
+
+
+  }, [params])
 
   const handleTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormValue({ ...formValue, title: e.target.value });
@@ -80,11 +90,14 @@ const Form = () => {
 
   let content;
   if (isSuccess) {
+
+  
+    
    
     
     content = data.data?.map((item: data, index: number) => {
       return (
-        <option key={index} value={item.id}>
+        <option key={index} value={item?.id }    selected={item.id === Number(params.id)} >
           {item.name}
         </option>
       );
@@ -200,13 +213,13 @@ const Form = () => {
                   <select
                     id="category"
                     onChange={handleMember}
-                    defaultValue="default"
+                   
                     name="category"
-                    autoComplete="category"
+                  
                     className="block w-full rounded-md border-0 py-[11px]  shadow-sm ring-1 ring-inset    sm:max-w-xs sm:text-sm sm:leading-6"
                   >
-                    <option disabled value="default">
-                      Partner Secin
+                    <option  value="default">
+                      Category Seçin
                     </option>
                     {content}
                   </select>

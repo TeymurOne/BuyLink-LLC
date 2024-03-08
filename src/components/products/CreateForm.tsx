@@ -9,6 +9,8 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 import { useTranslation } from 'react-i18next';
 
 const CreateForm = () => {
+
+  
   let content;
   let currentPages: any;
 
@@ -64,7 +66,7 @@ const CreateForm = () => {
             {t('product.0')}
           </h4>
           <Link
-            to="/admin/productform"
+            to="/admin/productForm/:id"
             className="bg-successOpacity py-5 w-9/12  space-x-2 text-[16px] px-2 rounded-sm dark:bg-[#0ab39c26] justify-center flex items-center h-[40px] max-w-[153px] hover:text-white hover:bg-success"
           >
             <IoIosAddCircleOutline />

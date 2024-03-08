@@ -1,14 +1,8 @@
-import { useGetStatisticsQuery } from "../features/branch/apiSlice";
+import { useGetStatisticsQuery } from '../features/statistcs/apiSlice';
 
 const CardOne = () => {
-  let content
-  const { isSuccess, data } = useGetStatisticsQuery('');
-  console.log(data);
-  
-  if (isSuccess) {
-    content=data
-    
-  }
+  const {  data } = useGetStatisticsQuery('');
+
 
 
   return (
@@ -36,12 +30,10 @@ const CardOne = () => {
       <div className="mt-4 flex items-end justify-between">
         <div>
           <h4 className="text-title-md font-bold text-black dark:text-white">
-          {data?.products_count}
+            {data?.products_count}
           </h4>
           <span className="text-sm font-medium">Product Count</span>
         </div>
-
-      
       </div>
     </div>
   );
