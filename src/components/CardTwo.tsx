@@ -28,6 +28,7 @@ const CardTwo = () => {
           />
         </svg>
       </div>
+      
 
       <div className="mt-4 flex items-end justify-between">
         <div>
@@ -35,6 +36,16 @@ const CardTwo = () => {
             {data?.today_referer_claims}
           </h4>
           <span className="text-sm font-medium">Today_referer_claims</span>
+        </div>
+
+    
+      </div>
+      <div className="mt-4 flex items-end justify-between">
+        <div>
+          <h4 className="text-title-md font-bold text-black dark:text-white">
+            {data?.used_referer_claims_by_today}
+          </h4>
+          <span className="text-sm font-medium">Total Recommendations</span>
         </div>
 
     

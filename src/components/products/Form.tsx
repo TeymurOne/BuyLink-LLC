@@ -11,7 +11,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { data } from '../Member/Form';
 
 const Form = () => {
-  const params=useParams()
+  const params = useParams();
   console.log(params, 'params');
   interface Initial {
     title: string;
@@ -27,25 +27,23 @@ const Form = () => {
     price: null,
     discountprice: null,
     productID: null,
-    images: '' ,
+    images: '',
   };
 
   const [formValue, setFormValue] = useState<Initial>(InitialData);
-  const { title, description, price, discountprice, productID, images }=formValue;
+  const { title, description, price, discountprice, productID, images } =
+    formValue;
   const { isSuccess, data, isError } = useFetchProducttypeQuery('');
-  const [category, setCategory]=useState<string>()
+  const [category, setCategory] = useState<string>();
 
   const [showimg, setShowimg] = useState<string>();
   const [load, setLoad] = useState<boolean>(false);
   const postData = new FormData();
   const navigate = useNavigate();
-  useEffect(()=>{
-    setCategory(params?.id)
+  useEffect(() => {
+    setCategory(params?.id);
     setFormValue({ ...formValue, productID: params?.id });
-
-
-
-  }, [params])
+  }, [params]);
 
   const handleTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormValue({ ...formValue, title: e.target.value });
@@ -54,12 +52,11 @@ const Form = () => {
     const doc = new DOMParser().parseFromString(html, 'text/html');
     return doc.body.textContent || '';
   }
-  const handleDesc = (event:any, editor: any) => {
+  const handleDesc = (event: any, editor: any) => {
     const data = editor.getData();
     const plainText = stripHtmlTags(data);
     console.log(plainText, 'plainrext');
-    
-    
+
     setFormValue((prevFormValue) => ({
       ...prevFormValue,
       description: plainText,
@@ -85,19 +82,18 @@ const Form = () => {
       setShowimg(URL.createObjectURL(files[0]));
     }
   };
-  const btnDisabled =!title || !productID || !price  || !images;
+  const btnDisabled = !title || !productID || !price || !images;
   const [postProduct] = usePostProductTypeMutation();
 
   let content;
   if (isSuccess) {
-
-  
-    
-   
-    
     content = data.data?.map((item: data, index: number) => {
       return (
-        <option key={index} value={item?.id }    selected={item.id === Number(params.id)} >
+        <option
+          key={index}
+          value={item?.id}
+          selected={item.id === Number(params.id)}
+        >
           {item.name}
         </option>
       );
@@ -113,13 +109,16 @@ const Form = () => {
     postData.append('image', images);
     postData.append('category_id', productID!.toString());
     postData.append('title', title);
-    postData.append('description', description);
     postData.append('price', price!.toString());
-    postData.append('discounted_price', discountprice!.toString());
+    postData.append('discounted_price', discountprice);
+
+    postData.append('description', description);
 
     try {
       if (postData) {
-        await postProduct(postData).unwrap().then((response) => {
+        await postProduct(postData)
+          .unwrap()
+          .then((response) => {
             if (response.data) {
               navigate('/admin/productCreate');
             }
@@ -213,14 +212,10 @@ const Form = () => {
                   <select
                     id="category"
                     onChange={handleMember}
-                   
                     name="category"
-                  
                     className="block w-full rounded-md border-0 py-[11px]  shadow-sm ring-1 ring-inset    sm:max-w-xs sm:text-sm sm:leading-6"
                   >
-                    <option  value="default">
-                      Category Seçin
-                    </option>
+                    <option value="default">Category Seçin</option>
                     {content}
                   </select>
                 </div>
@@ -259,7 +254,11 @@ const Form = () => {
                 </label>
                 <div className="mt-2">
                   <input
-                    value={formValue.discountprice !== null ? formValue.discountprice: '' }
+                    value={
+                      formValue.discountprice !== null
+                        ? formValue.discountprice
+                        : ''
+                    }
                     onChange={handleDiscountPrice}
                     type="number"
                     name="DiscountPrice"

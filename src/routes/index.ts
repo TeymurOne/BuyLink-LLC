@@ -188,7 +188,8 @@ const coreRoutes = [
     path: '/admin/partnerform',
     title: 'partnerform',
     component: partnerform,
-  }
+  },
+
   
 ];
 

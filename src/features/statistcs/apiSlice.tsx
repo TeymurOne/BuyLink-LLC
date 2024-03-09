@@ -16,6 +16,12 @@ export const branchSlice = apiSlice
           method: 'GET',
         }),
       }),
+      getBalance: builder.query({
+        query: () => ({
+          url: `/balance`,
+          method: 'GET',
+        }),
+      }),
     }),
   });
-export const { useGetStatisticsQuery, useGetReviewQuery } = branchSlice;
+export const { useGetStatisticsQuery, useGetBalanceQuery, useGetReviewQuery } = branchSlice;

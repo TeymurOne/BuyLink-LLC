@@ -119,21 +119,21 @@ const CreateForm = () => {
               <table className="w-[200px] table-auto">
                 <thead className="">
                   <tr className="bg-gray-2 text-[14px]  text-left dark:bg-meta-4">
-                    <th className="min-w-[120px] py-4 px-4  font-medium text-black dark:text-white xl:pl-11">
+                    <th className="min-w-[120px] py-2 px-4  font-medium text-black dark:text-white xl:pl-11">
                       ID
                     </th>
-                    <th className="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">
+                    <th className="min-w-[120px] py-2 px-4 font-medium text-black dark:text-white">
                       {t('branch.2')}
                     </th>
 
-                    <th className="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">
+                    <th className="min-w-[120px] py-2 px-4 font-medium text-black dark:text-white">
                       {t('branch.5')}
                     </th>
 
-                    <th className="py-4   px-6 font-medium text-black dark:text-white">
+                    <th className="py-2   px-6 font-medium text-black dark:text-white">
                       {t('branch.6')}
                     </th>
-                    <th className="min-w-[100px] py-4 px-2 font-medium text-black dark:text-white">
+                    <th className="min-w-[100px] py-2 px-2 font-medium text-black dark:text-white">
                       Map
                     </th>
                   </tr>

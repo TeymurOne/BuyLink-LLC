@@ -1,3 +1,4 @@
+import CardFive from '../../components/CardFive.tsx';
 import CardFour from '../../components/CardFour.tsx';
 import CardOne from '../../components/CardOne.tsx';
 import CardThree from '../../components/CardThree.tsx';
@@ -24,6 +25,7 @@ const ECommerce = () => {
         <CardTwo />
         <CardThree />
         <CardFour />
+        <CardFive/>
       </div>
 
       <div className="mt-4 gap-10 space-y-16 ">

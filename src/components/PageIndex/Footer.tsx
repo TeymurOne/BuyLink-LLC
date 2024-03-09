@@ -89,7 +89,7 @@ const Footer = () => {
               </h2>
               <ul>
                 <li className="text-[16px] my-2 normal font-light text-white">
-                  <Link to="">{t('footer.9')}</Link>
+                  <Link to="/privacypolicy">{t('footer.9')}</Link>
                 </li>
                 <li className="text-[16px] normal my-2 font-light text-white">
                   <Link to="">{t('footer.10')}</Link>

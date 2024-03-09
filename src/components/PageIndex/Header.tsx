@@ -86,7 +86,7 @@ export default function Header() {
               />
 
               {popup && (
-                <div className="h-[80px] text-center  w-[83px] top-18 absolute z-30  bg-white">
+                <div className="h-[80px] text-center right-[310px]  w-[83px] top-16  absolute z-30  bg-white">
                   <p
                     onClick={() => handleLang('Eng')}
                     className="hover:bg-[#E6E9FF] hover:text-[#0019F8]  "

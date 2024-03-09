@@ -52,18 +52,18 @@ const Tbody: React.FC<TbodyProps> = ({ item, handeMapShow }) => {
     <>
  
       <tr >
-        <td className=" py-5 px-4 pl-9 dark:border-strokedark xl:pl-11">
+        <td className=" py-2 px-4 pl-9 dark:border-strokedark xl:pl-11">
           <div className="font-medium w-10 dark:text-white">{item.id}</div>
         </td>
-        <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
+        <td className="border-b border-[#eee] py-2 px-4 dark:border-strokedark">
           <p className="text-black dark:text-white">{item.name}</p>
         </td>
 
-        <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
+        <td className="border-b border-[#eee] py-2 px-4 dark:border-strokedark">
           <p className="text-black dark:text-white">{item.address}</p>
         </td>
 
-        <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
+        <td className="border-b border-[#eee] py-2 px-4 dark:border-strokedark">
           <div className="flex items-center space-x-3.5">
             <Link to={`/admin/branchdetails/${item.id}`}>
               <button className="hover:text-primary">
@@ -84,7 +84,7 @@ const Tbody: React.FC<TbodyProps> = ({ item, handeMapShow }) => {
             </Link>
           </div>
         </td>
-        <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
+        <td className="border-b border-[#eee] py-2 px-4 dark:border-strokedark">
           <div className="flex items-center">
           <button onClick={handeMapShow}>
            <CiMapPin />
