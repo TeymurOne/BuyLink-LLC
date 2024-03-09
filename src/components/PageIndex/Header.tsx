@@ -5,7 +5,6 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import logo from '../../images//pageLand/logo.svg';
 import vector from '../../images//pageLand/Vector.svg';
 
-import arrow from '../../images//pageLand/arrow.svg';
 import { Link } from 'react-router-dom';
 import SignModal from '../../pages/Authentication/SignModal';
 import getState from '../../core/helpers/cookie';
@@ -16,7 +15,10 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [popup, setPopup] = useState(false);
-  const [lang, setLang] = useState('Eng');
+  const [lang, setLang] = useState(  localStorage.getItem("lng"));
+  const local=localStorage.getItem("lng")
+  console.log(local, 'local');
+  
 
   const cookie = getState();
   const { t } = useTranslation();
