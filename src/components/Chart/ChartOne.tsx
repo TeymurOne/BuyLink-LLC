@@ -108,7 +108,7 @@ const ChartOne: React.FC = () => {
       bar: {
         horizontal: false,
         borderRadius: 0,
-        columnWidth: '60%',
+        columnWidth: '45%',
         borderRadiusApplication: 'end',
         borderRadiusWhenStacked: 'last',
       },
@@ -118,7 +118,7 @@ const ChartOne: React.FC = () => {
         breakpoint: 2600,
         options: {
           chart: {
-            width: 1200,
+            width: 1400,
           },
         },
       },
@@ -126,7 +126,7 @@ const ChartOne: React.FC = () => {
         breakpoint: 1740,
         options: {
           chart: {
-            width: 1000,
+            width: 1150,
           },
         },
       },

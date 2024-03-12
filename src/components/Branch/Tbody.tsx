@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { CiMapPin } from 'react-icons/ci';
+import marker from '../../images/pageLand/marker.svg'
 
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
@@ -30,7 +30,8 @@ const Tbody: React.FC<TbodyProps> = ({ item, handeMapShow }) => {
     if (result.isConfirmed) {
       try {
         const dele = await deletePost(id);
-        console.log(dele);
+        window.location.reload();
+
 
         Swal.fire({
           title: 'Deleted!',
@@ -51,8 +52,8 @@ const Tbody: React.FC<TbodyProps> = ({ item, handeMapShow }) => {
   return (
     <>
  
-      <tr >
-        <td className=" py-2 px-4 pl-9 dark:border-strokedark xl:pl-11">
+      <tr  >
+        <td className=" py-6 px-4 pl-9 dark:border-strokedark xl:pl-11 ">
           <div className="font-medium w-10 dark:text-white">{item.id}</div>
         </td>
         <td className="border-b border-[#eee] py-2 px-4 dark:border-strokedark">
@@ -87,7 +88,7 @@ const Tbody: React.FC<TbodyProps> = ({ item, handeMapShow }) => {
         <td className="border-b border-[#eee] py-2 px-4 dark:border-strokedark">
           <div className="flex items-center">
           <button onClick={handeMapShow}>
-           <CiMapPin />
+         <img src={marker} alt="Marker" width={30} />
           </button>
           
           </div>

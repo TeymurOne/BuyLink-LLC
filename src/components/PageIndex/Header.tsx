@@ -8,7 +8,7 @@ import vector from '../../images//pageLand/Vector.svg';
 import { Link } from 'react-router-dom';
 import SignModal from '../../pages/Authentication/SignModal';
 import getState from '../../core/helpers/cookie';
-import i18n from '../../i18n/İ18n';
+import i18n from '../../../public/i18n/İ18n';
 import { useTranslation } from 'react-i18next';
 
 export default function Header() {
@@ -17,7 +17,6 @@ export default function Header() {
   const [popup, setPopup] = useState(false);
   const [lang, setLang] = useState(  localStorage.getItem("lng"));
   const local=localStorage.getItem("lng")
-  console.log(local, 'local');
   
 
   const cookie = getState();
@@ -43,7 +42,7 @@ export default function Header() {
         aria-label="Global"
       >
         <div className="flex lg:flex-1 mr-[-180px]">
-          <a href="#" className="-m-1.5   lg:block hidden p-1.5 w-[67px] h-[75px]">
+          <a href="/" className="-m-1.5   lg:block hidden p-1.5 w-[67px] h-[75px]">
             <img className="w-full h-full" src={logo} alt="Logo" />
           </a>
           <button
@@ -65,12 +64,12 @@ export default function Header() {
           </Link>
         </div>
         <div className="hidden lg:flex text-[#00000099] font-roboto lg:gap-x-4 font-medium text-[16px]">
-          <a href="#about">{t('index-header.0')}</a>
+          <a href="/#about">{t('index-header.0')}</a>
 
-          <a href="#features">{t('index-header.1')}</a>
-          <a href="#how-use">{t('index-header.2')}</a>
-          <a href="#faq">{t('index-header.3')}</a>
-          <a href="#footer">{t('index-header.4')}</a>
+          <a href="/#features">{t('index-header.1')}</a>
+          <a href="/#how-use">{t('index-header.2')}</a>
+          <a href="/#faq">{t('index-header.3')}</a>
+          <a href="/#footer">{t('index-header.4')}</a>
         </div>
         <div className="hidden font-normal lg:flex text-[#000000de] lg:flex-1 text-[14px] lg:justify-end">
           <div className="flex   z-9999  mr-[-30px] items-center ">

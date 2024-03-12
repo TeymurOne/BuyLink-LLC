@@ -24,12 +24,10 @@ const Form = () => {
   const [postBranches] = usePostBranchMutation();
 
   const handleLatChange = (lat: number) => {
-    console.log(lat);
     setSelectedLat(lat);
   };
 
   const handleLngChange = (lng: number) => {
-    console.log(lng);
 
     setSelectedLng(lng);
   };

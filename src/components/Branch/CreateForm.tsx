@@ -115,9 +115,9 @@ const CreateForm = () => {
       ) : (
         <>
           <div className="rounded-sm   shadow-default dark:border-strokedark dark:bg-boxdark ">
-            <div className="max-w-full flex overflow-x-auto">
-              <table className="w-[200px] table-auto">
-                <thead className="">
+            <div className="max-w-full flex items-start overflow-x-auto">
+              <table className="w-[100px] table-auto">
+                <thead >
                   <tr className="bg-gray-2 text-[14px]  text-left dark:bg-meta-4">
                     <th className="min-w-[120px] py-2 px-4  font-medium text-black dark:text-white xl:pl-11">
                       ID

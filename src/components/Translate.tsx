@@ -4,7 +4,7 @@ import us from '../images/flagTranslate/us.svg';
 import aze from '../images/flagTranslate/aze.png';
 
 import { useTranslation } from 'react-i18next';
-import i18n from '../i18n/İ18n';
+import i18n from '../../public/i18n/İ18n';
 
 const Translate = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);

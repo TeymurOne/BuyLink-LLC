@@ -1,8 +1,9 @@
-import { IoMdStar } from 'react-icons/io';
+import { Star } from './RatingStar';
+
 interface Item {
-  description: null | string;
+  description: string | null;
   id: number;
-  rating:number
+  rating: number;
   user: {
     email: string;
     id: number;
@@ -12,31 +13,56 @@ interface Item {
   };
 }
 
-const Review: React.FC<{ item: Item }> = ({ item }) => {
-  return (
-    <>
-      <div className="w-[450px] h-[145px] p-3 shadow-4 rounded-lg  ">
+const Review: React.FC<{ item ?: Item }> = ({ item }) => {
+  if (!item) {
+    return (
+      <div className="w-[450px] h-[145px] p-3 shadow-6 rounded-lg mx-auto mt-4 ">
         <div className="flex justify-between items-center">
           <span className="flex items-center space-x-2">
             <img
               className="w-[34px] h-[34px] rounded-2xl"
-              src={item?.user.image}
-              alt={item?.user.name}
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSX9xsNtAFzjZFBzLzTQyIAOfzLC0EyYsHoQ&usqp=CAU"
+              alt="Photo"
             />
-            <h2>{item?.user.name}</h2>
+            <h2>User Name</h2>
+            <h2></h2>
           </span>
-          <span className="flex items-center py-2">
-            <p className="text-[10px]"> {item?.rating}/5</p>{' '}
-            <IoMdStar style={{ color: '#FCD34D' }} />
-          </span>
+
+          <Star average_rating={0} /> {/* Assuming average_rating is used */}
         </div>
 
         <div>
-          <p className="text-[13px] leading-5">{item?.description}</p>
+          <p className="text-[13px] leading-5 py-2">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem
+            similique laudantium accusantium doloremque nobis culpa eos sequi
+            ....
+          </p>
         </div>
       </div>
-    </>
-  );
+    );
+  } else {
+    return (
+      <div className="w-[450px] h-[145px] p-3 shadow-6 rounded-lg  ">
+        <div className="flex justify-between items-center">
+          <span className="flex items-center space-x-2">
+            <img
+              className="w-[34px] h-[34px] rounded-2xl"
+              src={item.user?.image || ''}
+              alt={item.user?.name || ''}
+            />
+            <h2>{item.user?.name}</h2>
+            <h2></h2>
+          </span>
+
+          <Star average_rating={item.rating || 0} /> {/* Assuming average_rating is used */}
+        </div>
+
+        <div>
+          <p className="text-[13px] leading-5">{item.description || ''}</p>
+        </div>
+      </div>
+    );
+  }
 };
 
 export default Review;

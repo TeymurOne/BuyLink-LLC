@@ -12,12 +12,16 @@ import { useGetReviewQuery } from '../../features/statistcs/apiSlice.tsx';
 const ECommerce = () => {
   let content;
   const { isSuccess, data } = useGetReviewQuery('');
-  if (isSuccess) {
-    content = data?.data.map((item:any, index:number) => {
-      return <Review item={item} key={index} />;
-    });
+  if (isSuccess && data?.data) {
+    if (data.data.length > 0) {
+      content = data.data.map((item: any, index: number) => {
+        return <Review item={item} key={index} />;
+      });
+    } else {
+      content = <Review  />;
+    }
   }
-
+  
   return (
     <>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-2 2xl:gap-7.5">
@@ -35,7 +39,7 @@ const ECommerce = () => {
 
       <div className="rounded-sm border px-4 grid grid-cols-1  md:grid-cols-2 md:gap-6 xl:grid-cols-2 2xl:gap-7.5     border-stroke bg-white py-6  dark:border-strokedark dark:bg-boxdark">
         <RatingStar />
-        <div className="overflow-scroll max-h-[340px]">
+        <div className="overflow-auto max-h-[340px]">
         {content}
         </div>
       </div>
