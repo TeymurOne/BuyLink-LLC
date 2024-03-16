@@ -1,11 +1,11 @@
 
-import slide1 from '../../images/pageLand/slide1.svg';
-import slide2 from '../../images/pageLand/slide2.svg';
-import slide3 from '../../images/pageLand/slide3.svg';
-import slide4 from '../../images/pageLand/slide4.svg';
-import slide5 from '../../images/pageLand/slide5.svg';
-import slide6 from '../../images/pageLand/slide6.svg';
-import slide7 from '../../images/pageLand/slide7.svg';
+import slide1 from '../../images/Pages-index/slider/slider1.svg';
+import slide2 from '../../images/Pages-index/slider/slider2.svg';
+import slide3 from '../../images/Pages-index/slider/slider3.svg';
+import slide4 from '../../images/Pages-index/slider/slider4.svg';
+import slide5 from '../../images/Pages-index/slider/slider5.svg';
+import slide6 from '../../images/Pages-index/slider/slider6.svg';
+import slide7 from '../../images/Pages-index/slider/slider7.svg';
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';

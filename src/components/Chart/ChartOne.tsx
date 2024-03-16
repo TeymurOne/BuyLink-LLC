@@ -2,6 +2,7 @@ import { ApexOptions } from 'apexcharts';
 import React, { useState, useEffect } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import { useGetStatisticsQuery } from '../../features/branch/apiSlice';
+import { useTranslation } from 'react-i18next';
 
 interface ChartOneState {
   series: {
@@ -12,6 +13,7 @@ interface ChartOneState {
 }
 
 const ChartOne: React.FC = () => {
+  const {t}=useTranslation()
   const [categories, setCategory] = useState<string[]>([]);
   const [state, setState] = useState<ChartOneState>({
     series: [
@@ -154,7 +156,7 @@ const ChartOne: React.FC = () => {
       <div className="mb-4  gap-4 sm:flex">
         <div>
           <h4 className="text-xl font-semibold text-black dark:text-white">
-            Revenue per Month
+          {t("statistic.6")}
           </h4>
         </div>
       </div>

@@ -1,10 +1,10 @@
 import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import us from '../images/flagTranslate/us.svg';
-import aze from '../images/flagTranslate/aze.png';
+import us from '../images/flagTranslate/usa.svg';
+import aze from '../images/flagTranslate/aze.svg';
 
 import { useTranslation } from 'react-i18next';
-import i18n from '../../public/i18n/İ18n';
+import i18n from '../../i18n/İ18n';
 
 const Translate = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -30,14 +30,14 @@ const Translate = () => {
         <span className="relative  right-0 z-1 h-2 w-4 rounded-full top-[-5px]">
         {localStorage.getItem("lng")=='Aze'?(
                <img
-               className="absolute  h-[20px] w-[34px] rounded-md"
+               className="absolute  h-[24px] w-[24px] rounded-md"
                src={aze}
    
                alt="Usa Flag"
              />
           ):(
             <img
-            className="absolute  w-[29px] rounded-md"
+            className="absolute  w-[24px] rounded-md"
             src={us}
 
             alt="Usa Flag"

@@ -1,48 +1,58 @@
+import { useTranslation } from 'react-i18next';
+import Loader from '../common/Loader';
 import { useGetStatisticsQuery } from '../features/branch/apiSlice';
 
 const RatingStar = () => {
-  const { data } = useGetStatisticsQuery('');
+  const { data, isSuccess, isLoading } = useGetStatisticsQuery('');
   const average_rating:any = data?.rating.rounded_average_rating;
-  
+  const {t}=useTranslation()
+  let content
 
+  if (isSuccess) {
+    content = Object.entries(data?.rating.rating_counts || {}).map(
+      (rate: any, index: number) => {
+        return (
+          <div className="flex items-center mt-4" key={index}>
+            <a
+              href="#"
+              className="text-sm font-medium  dark:text-starrating hover:underline"
+            >
+              {rate[0]} {t("statistic.9")}
+            </a>
+            <div className="w-2/4 h-4  mx-4 bg-[#D9D9D9] rounded ">
+              <div
+                className="h-4 bg-starrating  rounded"
+                style={{ width: `${rate[1]}%` }}
+              />
+            </div>
+            <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
+              {rate[1]} %
+            </span>
+          </div>
+        );
+      }
+    );
+  }
 
   return (
     <>
+    {isLoading ? (
+      <Loader/>
+    
+
+    ): (
       <div className="rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-default dark:border-strokedark dark:bg-boxdark">
-        <div>
-          <h2 className="text-[#222222] text-3xl font-bold">
-            {data?.rating?.average_rating}/ 5
-          </h2>`  `
-          <p>Based on {data?.rating?.total_review_count} reviews</p>
-        </div>
-        <Star average_rating={average_rating}/>
-      
-
-        {Object.entries(data?.rating.rating_counts || {}).map(
-          (rate: any, index: number) => {
-
-            return (
-              <div className="flex items-center mt-4">
-                <a
-                  href="#"
-                  className="text-sm font-medium  dark:text-starrating hover:underline"
-                >
-                  {rate[0]} star
-                </a>
-                <div className="w-2/4 h-4  mx-4 bg-[#D9D9D9] rounded ">
-                  <div
-                    className="h-4 bg-starrating  rounded"
-                    style={{ width: `${rate[1]}%` }}
-                  />
-                </div>
-                <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                  {rate[1]} %
-                </span>
-              </div>
-            );
-          },
-        )}
+      <div>
+        <h2 className="text-[#222222] text-3xl font-bold">
+          {data?.rating?.average_rating}/ 5
+        </h2>
+        <p> {data?.rating?.total_review_count} {t("statistic.8")} </p>
       </div>
+      <Star average_rating={average_rating}/>
+      {content}
+    </div>
+    )}
+    
     </>
   );
 };

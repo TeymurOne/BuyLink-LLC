@@ -1,7 +1,9 @@
+import { useTranslation } from "react-i18next";
 import { useGetStatisticsQuery } from "../features/branch/apiSlice";
 
 const CardFour = () => {
   const { data } = useGetStatisticsQuery('')
+  const {t}=useTranslation()
 
   return (
     <div className="rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-default dark:border-strokedark dark:bg-boxdark">
@@ -34,7 +36,7 @@ const CardFour = () => {
           <h4 className="text-title-md font-bold text-black dark:text-white">
             {data?.total_transactions_amount}
           </h4>
-          <span className="text-sm font-medium">Total_transactions_amount</span>
+          <span className="text-sm font-medium">{t("statistic.5")}</span>
         </div>
 
       

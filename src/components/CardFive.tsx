@@ -1,7 +1,14 @@
+import { useTranslation } from "react-i18next";
 import { useGetBalanceQuery } from "../features/statistcs/apiSlice";
 
 const CardFour = () => {
-  const { data } = useGetBalanceQuery('')
+  const { data, isSuccess } = useGetBalanceQuery('')
+  const {t}=useTranslation()
+  let content;
+
+  if(isSuccess) content=data?.balance
+
+
 
   return (
     <div className="rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-default dark:border-strokedark dark:bg-boxdark">
@@ -32,9 +39,9 @@ const CardFour = () => {
       <div className="mt-4 flex items-end justify-between">
         <div>
           <h4 className="text-title-md font-bold text-black dark:text-white">
-            {data}
+            {content}
           </h4>
-          <span className="text-sm font-medium">Total_transactions_amount</span>
+          <span className="text-sm font-medium">{t("statistic.5")}</span>
         </div>
 
       

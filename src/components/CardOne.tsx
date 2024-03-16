@@ -1,7 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import { useGetStatisticsQuery } from '../features/statistcs/apiSlice';
 
 const CardOne = () => {
   const {  data } = useGetStatisticsQuery('');
+  const { t } = useTranslation();
+
 
 
 
@@ -32,7 +35,7 @@ const CardOne = () => {
           <h4 className="text-title-md font-bold text-black dark:text-white">
             {data?.products_count}
           </h4>
-          <span className="text-sm font-medium">Product Count</span>
+          <span className="text-sm font-medium">{t('statistic.0')}</span>
         </div>
       </div>
     </div>

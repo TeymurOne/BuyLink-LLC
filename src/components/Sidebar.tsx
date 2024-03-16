@@ -117,6 +117,15 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                         <ul className="mt-4 mb-5.5 flex flex-col gap-2.5 pl-3">
                         <li className="my-1">
                             <NavLink
+                              to="/admin/balance"
+                              className="group relative flex items-center gap-2.5 rounded-md text-[16px]  font-medium text-[#abb9e8] duration-300 ease-in-out hover:text-white"
+                            >
+                              <p className="ml-[-13px]">-</p>
+                              {t("member.13")}
+                            </NavLink>
+                          </li>
+                        <li className="my-1">
+                            <NavLink
                               to="/admin"
                               className="group relative flex items-center gap-2.5 rounded-md text-[16px]  font-medium text-[#abb9e8] duration-300 ease-in-out hover:text-white"
                             >

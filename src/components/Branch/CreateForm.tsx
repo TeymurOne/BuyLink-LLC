@@ -141,7 +141,7 @@ const CreateForm = () => {
                 <tbody>{content}</tbody>
               </table>
 
-            <div className='max-w-[700px] w-full'>
+            <div className='max-w-[100px] h-[400px] w-full '>
             <MapModal name={branchName} lat={lat} lng={lng} allkordinat={allkordinat}  />
             </div>
             </div>

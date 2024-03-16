@@ -62,6 +62,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Index />} />
+        
         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
 
         <Route path="/*" element={<ErrorPage />} />

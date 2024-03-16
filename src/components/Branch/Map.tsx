@@ -18,6 +18,7 @@ export const Map = (props: any) => {
   
 
   function handleLat(latKordinat: any) {
+    
     onLatChange(latKordinat);
   }
 

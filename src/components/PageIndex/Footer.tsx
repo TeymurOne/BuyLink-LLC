@@ -1,8 +1,8 @@
-import logo from '../../images/pageLand/logo.svg';
-import linkedln from '../../images/pageLand/linkedln.svg';
-import envolede from '../../images/pageLand/envolede.svg';
-import facebook from '../../images/pageLand/fb.svg';
-import instagram from '../../images/pageLand/instagram.svg';
+import logo from '../../images/Pages-index/head-main/logo.svg';
+import linkedln from '../../images/Pages-index/footer/linked.svg';
+import envolede from '../../images/Pages-index/footer/msj.svg';
+import facebook from '../../images/Pages-index/footer/fb.svg';
+import instagram from '../../images/Pages-index/footer/insta.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 const Footer = () => {
@@ -12,8 +12,7 @@ const Footer = () => {
   return (
     <>
       <footer
-        className="  container mx-auto lg:px-4 1536px:px-0 md:px-0 px-3   "
-        id="footer"
+        className="  custom-con  " id="footer"
       >
         <div className="  h-full">
           <div className="grid lg:grid-cols-4 gap-10   grid-cols-1  w-[70%] pb-10 pt-10 xsm:px-4   ">
@@ -38,9 +37,10 @@ const Footer = () => {
                 />
 
                 <img
-                  className="w-[32px] h-[32px]"
+                  className="w-[32px] h-[32px] cursor-pointer"
                   src={instagram}
                   alt="instagram"
+                  onClick={()=>window.location.href='https://www.instagram.com/buylinkapp?igsh=MXhsdXgybmlibGcybA=='}
                 />
 
                 <img

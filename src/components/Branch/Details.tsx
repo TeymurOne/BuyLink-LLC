@@ -17,7 +17,6 @@ const Details = () => {
   if (isSuccess && id) {
     content = data?.data.find((item: IpostData) => item.id == id);
   }
-  console.log(content, 'content');
   
   const defaultProps = {
     center: {

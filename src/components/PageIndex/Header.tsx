@@ -2,13 +2,13 @@ import { useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
-import logo from '../../images//pageLand/logo.svg';
-import vector from '../../images//pageLand/Vector.svg';
+import logo from '../../images/Pages-index/head-main/logo.svg';
+import vector from '../../images/Pages-index/head-main/vector.svg';
 
 import { Link } from 'react-router-dom';
 import SignModal from '../../pages/Authentication/SignModal';
 import getState from '../../core/helpers/cookie';
-import i18n from '../../../public/i18n/İ18n';
+import i18n from '../../../i18n/İ18n';
 import { useTranslation } from 'react-i18next';
 
 export default function Header() {
@@ -23,7 +23,6 @@ export default function Header() {
   const { t } = useTranslation();
 
   const handleTranslate = (lang: string) => {
-    console.log(lang);
 
     i18n.changeLanguage(lang);
     localStorage.setItem('lng', lang);
@@ -38,7 +37,7 @@ export default function Header() {
   return (
     <header className="bg-white font-roboto       ">
       <nav
-        className="mx-auto px-4 flex  w-full items-center justify-between py-3 lg:px-2"
+        className="mx-auto  flex  w-full items-center justify-between py-3"
         aria-label="Global"
       >
         <div className="flex lg:flex-1 mr-[-180px]">
@@ -64,12 +63,12 @@ export default function Header() {
           </Link>
         </div>
         <div className="hidden lg:flex text-[#00000099] font-roboto lg:gap-x-4 font-medium text-[16px]">
-          <a href="/#about">{t('index-header.0')}</a>
+          <a href="/#about">{t('index_header.0')}</a>
 
-          <a href="/#features">{t('index-header.1')}</a>
-          <a href="/#how-use">{t('index-header.2')}</a>
-          <a href="/#faq">{t('index-header.3')}</a>
-          <a href="/#footer">{t('index-header.4')}</a>
+          <a href="/#features">{t('index_header.1')}</a>
+          <a href="/#how-use">{t('index_header.2')}</a>
+          <a href="/#faq">{t('index_header.3')}</a>
+          <a href="/#footer">{t('index_header.4')}</a>
         </div>
         <div className="hidden font-normal lg:flex text-[#000000de] lg:flex-1 text-[14px] lg:justify-end">
           <div className="flex   z-9999  mr-[-30px] items-center ">
@@ -127,7 +126,7 @@ export default function Header() {
               onClick={() => setShowModal(true)}
               className="text-[14px]  text-[#000000de] w-[161px] h-[44px]    flex items-center justify-center rounded-sm     "
             >
-              {t('index-header.5')}
+              {t('index_header.5')}
             </Link>
           )}
 
@@ -135,7 +134,7 @@ export default function Header() {
             to=""
             className="text-[16px] text-white w-[161px] h-[44px]    flex items-center justify-center rounded-sm  bg-primary    "
           >
-            {t('index-header.6')}
+            {t('index_header.6')}
           </Link>
         </div>
       </nav>

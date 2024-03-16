@@ -1,57 +1,75 @@
 import Header from './Header';
+import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 
 import 'swiper/css';
 import 'swiper/css/pagination';
-
+import './Main.css';
 import { Pagination } from 'swiper/modules';
+// main
 
-import dollar from '../../images/pageLand/dollar.svg';
-import money from '../../images/pageLand/money.svg';
-import walletprogres from '../../images/pageLand/wallet-progres.svg';
+import apple from '../../images/Pages-index/head-main/apple-icon.svg';
+import play from '../../images/Pages-index/head-main/store-icon.svg';
+import main from '../../images/Pages-index/head-main/main.svg';
+
+//
+
+// wallet
+import card1 from '../../images/Pages-index/wallet/card.png';
+import icon1 from '../../images/Pages-index/wallet/icon-1.svg';
+import icon2 from '../../images/Pages-index/wallet/icon-2.svg';
+import icon3 from '../../images/Pages-index/wallet/icon-3.svg';
+import icon4 from '../../images/Pages-index/wallet/icon-4.svg';
+///////////////////////////////////////
+
+// partner-icon
+import p_icon1 from '../../images/Pages-index/partner/icon-1.svg';
+import p_icon2 from '../../images/Pages-index/partner/icon-2.svg';
+import p_icon3 from '../../images/Pages-index/partner/icon-3.svg';
+
+// partner-img
+import p1aze from '../../images/Pages-index/partner/p1az.png';
+import p1en from '../../images/Pages-index/partner/p1en.png';
+
+import p2aze from '../../images/Pages-index/partner/p2az.png';
+import p2en from '../../images/Pages-index/partner/p2en.png';
+
+import p3aze from '../../images/Pages-index/partner/p3az.png';
+import p3en from '../../images/Pages-index/partner/p3en.png';
+
+// steps
+import s_icon1 from '../../images/Pages-index/steps/icon-1.svg';
+import s_icon2 from '../../images/Pages-index/steps/icon-1.svg';
+import s_icon3 from '../../images/Pages-index/steps/icon-1.svg';
+
+import s1az from '../../images/Pages-index/steps/s1az.png';
+import s1en from '../../images/Pages-index/steps/s1en.png';
+import s2az from '../../images/Pages-index/steps/s2az.png';
+import s2en from '../../images/Pages-index/steps/s2en.png';
+import s3az from '../../images/Pages-index/steps/s3az.png';
+import s3en from '../../images/Pages-index/steps/s3en.png';
+
+
+
+// disocunt
+import d_icon1 from '../../images/Pages-index/disocunt/icon-1.svg';
+import d_icon2 from '../../images/Pages-index/disocunt/icon-1.svg';
+import d_icon3 from '../../images/Pages-index/disocunt/icon-1.svg';
+
+import d1az from '../../images/Pages-index/disocunt/d1az.png';
+import d1en from '../../images/Pages-index/disocunt/d1en.png';
+import d2az from '../../images/Pages-index/disocunt/d2az.png';
+import d2en from '../../images/Pages-index/disocunt/d2en.png';
+import d3az from '../../images/Pages-index/disocunt/d3az.png';
+import d3en from '../../images/Pages-index/disocunt/d3en.png';
+
+
+
+import partner_logo from '../../images/Pages-index/head-main/partner-logo.svg';
 
 import Slider from './Slider';
 import VideoSection from './VideoSection';
 
-import partnerA from '../../images/pageLand/partnerA.svg';
-import partnerB from '../../images/pageLand/partnerB.svg';
-import partnerC from '../../images/pageLand/partnerC.svg';
-import walletframe from '../../images/pageLand/wallet-frame.svg';
-
-import partner2A from '../../images/pageLand/partner2A.svg';
-import partner2B from '../../images/pageLand/partner2B.svg';
-import partner2C from '../../images/pageLand/partner2C.svg';
-
-import partner3A from '../../images/pageLand/partner3A.svg';
-import partner3B from '../../images/pageLand/partner3B.svg';
-import partner3C from '../../images/pageLand/partner3C.svg';
-
-import main from '../../images/pageLand/main.png';
-import card1 from '../../images/pageLand/card1.png';
-import apple from '../../images/pageLand/apple.svg';
-
-import p1 from '../../images/pageLand/p1.svg';
-import p2 from '../../images/pageLand/p2.svg';
-
-import p3 from '../../images/pageLand/p3.svg';
-
-import p4 from '../../images/pageLand/p4.svg';
-
-import p5 from '../../images/pageLand/p5.svg';
-
-import p6 from '../../images/pageLand/p6.svg';
-
-import p7 from '../../images/pageLand/p7.svg';
-
-import p8 from '../../images/pageLand/p8.svg';
-
-import p9 from '../../images/pageLand/p9.svg';
-
-import play from '../../images/pageLand/play.cvg.svg';
-
-
-import partnerLogo from '../../images/pageLand/mask.svg';
 import Accordion from './Accordion';
 import Footer from './Footer';
 import { Link } from 'react-router-dom';
@@ -62,14 +80,14 @@ const Index = () => {
   return (
     <>
       <div className="bg-white   ">
-        <div className="bg-white container mx-auto lg:px-10 1536px:px-0 md:px-0 px-0    h-auto  cursor-default">
+        <div className="bg-white custom-con   h-auto  cursor-default">
           <Header />
           <Main />
         </div>
       </div>
 
       <div className="bg-[#F3F4F6] ">
-        <div className=" container mx-auto lg:px-10 1536px:px-0 md:px-0 px-0   ">
+        <div className=" custom-con   ">
           <Slider />
 
           <VideoSection />
@@ -80,24 +98,20 @@ const Index = () => {
       </div>
 
       <div className="bg-white  py-20">
-        <div className="container mx-auto lg:px-10 1536px:px-0 md:px-0 px-0  ">
-          <BuyLinkPartner2 />
-        </div>
+        <div className="custom-con  "> <BuyLinkPartner2 /> </div>
       </div>
       <div className="bg-[#F3F4F6] py-20 ">
-        <div className="container mx-auto lg:px-10 1536px:px-0 md:px-0 px-0  ">
-          <BuyLinkPartner3 />
-        </div>
+        <div className="custom-con  "> <BuyLinkPartner3 /> </div>
       </div>
 
       <div className=" bg-[#4C5DF5]    ">
-        <div className="container  mx-auto lg:px-10 1536px:px-0 md:px-0 px-0  ">
+        <div className="custom-con  ">
           <Partner />
         </div>
       </div>
       <NewsLetter />
       <div className=" bg-[#F3F4F6] py-10 " id="faq">
-        <div className=" py-20 container mx-auto lg:px-10 1536px:px-0 md:px-0 px-0   ">
+        <div className=" py-20 custom-con   ">
           <Accordion />
         </div>
       </div>
@@ -115,13 +129,13 @@ function Main() {
 
   return (
     <>
-      <div className=" container mx-auto gap-10 space-x-4  py-5 lg:px-2 md:pl-6 px-2   flex md:flex-row flex-col items-center ">
+      <div className="  gap-10 space-x-4  py-5 lg:px-2 md:pl-6    flex md:flex-row flex-col items-center ">
         <div className="max-w-[650px] md:text-justify text-center  w-full flex flex-col  justify-between">
           <h2 className=" font-manrope  xl:text-[2.40em] lg:text-[1.775em] text-[32px] 992px:text-[40px]  whitespace-wrap  leading-10 font-bold text-black-2">
-            <span className="text-[#4C5DF5]">{t('index-main.0')}</span>{' '}
-            {t('index-main.1')}
+            <span className="text-[#4C5DF5]">{t('index_main.0')}</span>{' '}
+            {t('index_main.1')}
           </h2>
-          <p className="lg:text-[24px] text-[20px] py-4">{t('index-main.2')}</p>
+          <p className="lg:text-[24px] text-[20px] py-4">{t('index_main.2')}</p>
 
           <div className="flex md:flex-row flex-col items-center space-y-4 md:space-y-0 md:space-x-8 ">
             <Link
@@ -179,8 +193,8 @@ function WalletBuylink() {
   return (
     <>
       <section className="  py-10">
-        <div className=" grid  lg:grid-cols-2 gap-8 lg:px-0 md:px-0 px-2  md:grid-cols-1    ">
-          <div className="    mx-auto  ">
+        <div className=" grid  lg:grid-cols-2 gap-20 lg:px-0 md:px-0 px-2  md:grid-cols-1    ">
+          <div className="    mx-auto max-w-[460px]  ">
             <img
               className="     rounded-xl "
               src={card1}
@@ -191,12 +205,12 @@ function WalletBuylink() {
           <div className="   max-w-[698px] mx-auto  w-full   text-black  ">
             <div className="lg:text-start  text-center">
               <h2 className="font-manrope  xl:text-[2.20em] lg:text-[1.775em] text-[32px] 992px:text-[40px]  whitespace-wrap  leading-10 font-bold text-black-2">
-                {t('index-wallet.0')} {t('index-wallet.1')}
-                <span className="text-[#4C5DF5]"> {t('index-wallet.2')}</span>
+                {t('index_wallet.0')}- {t('index_wallet.1')}
+                <span className="text-[#4C5DF5]"> {t('index_wallet.2')}</span>
               </h2>
 
               <p className="lg:text-[20px] text-[14px] lg:leading-6 leading-4  font-medium py-4 normal font-poppins">
-                {t('index-wallet.3')}
+                {t('index_wallet.3')}
               </p>
             </div>
             <div
@@ -206,43 +220,51 @@ function WalletBuylink() {
               <div className="flex space-x-4   items-center w-full max-w-[300px]  ">
                 <img
                   className="w-[37px] h-[37px] "
-                  src={dollar}
+                  src={icon1}
                   alt="Group 155"
                 />
-                <p>{t('index-wallet.4')}</p>
+                <p>{t('index_wallet.4')}</p>
               </div>
               <div className="flex items-center space-x-4">
                 <img
                   className="w-[37px] h-[37px]"
-                  src={money}
+                  src={icon2}
                   alt="Group 155"
                 />
-                <p>{t('index-wallet.5')}</p>
-              </div>
-              <div className="flex items-center space-x-4">
-                <img className="w-[37px] h-[37px]" src={walletframe} alt="Group 155" />
-                <p>{t('index-wallet.6')} </p>
+                <p>{t('index_wallet.5')}</p>
               </div>
               <div className="flex items-center space-x-4">
                 <img
                   className="w-[37px] h-[37px]"
-                  src={walletprogres}
+                  src={icon3}
                   alt="Group 155"
                 />
-                <p>{t('index-wallet.7')}</p>
+                <p>{t('index_wallet.6')} </p>
+              </div>
+              <div className="flex items-center space-x-4">
+                <img
+                  className="w-[37px] h-[37px]"
+                  src={icon4}
+                  alt="Group 155"
+                />
+                <p>{t('index_wallet.7')}</p>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-   
     </>
   );
 }
 
 function BuyLinkPartner() {
   const { t } = useTranslation();
+  const [language, setLanguage] = useState<any>('');
+
+  useEffect(() => {
+    setLanguage(localStorage.getItem('lng'));
+  }, [localStorage.getItem('lng'), language]);
+
   return (
     <>
       <section className=" lg:px-0 px-1" id="features">
@@ -252,54 +274,54 @@ function BuyLinkPartner() {
         >
           <div className="space-y-4 ">
             <h2 className="font-manrope  lg:text-[40px] text-[30px]   leading-0    sm:leading-8  text-black font-bold">
-              {t('index-partnyor.0')}
+              {t('index_partnyor.0')}
               <span className="text-[#4C5DF5]">
                 {' '}
-                {t('index-partnyor.1')} {t('index-partnyor.2')}
+                {t('index_partnyor.1')} {t('index_partnyor.2')}
               </span>
             </h2>
             <p className="lg:text-[20px] text-[15px] pb-[2em] leading-[1.7]">
-              {t('index-partnyor.3')}
+              {t('index_partnyor.3')}
             </p>
           </div>
           <div className="w-[83%] md:place-items-start   place-items-center place-content-start grid lg:grid-cols-3 500px:grid-cols-2 md:grid-cols-2 grid-cols-1">
             <div className="pt-4 w-full max-w-[280px]">
               <div className="flex items-center  space-x-6 lg:space-x-2 ">
-                <img src={p1} alt="w-[20px] h-[28px]" />
+                <img src={p_icon1} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope   lg:text-[17px]  500px:text-[11px]   md:text-[14px]  992px:text-[16px]  text-[20px]       text-black font-bold">
-                  {t('index-partnyor.4')}
+                  {t('index_partnyor.4')}
                 </h2>
               </div>
 
               <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-                {t('index-partnyor.5')}
+                {t('index_partnyor.5')}
               </p>
             </div>
             <div className="pt-4  w-full max-w-[280px]">
               <div className="flex items-center   space-x-2 ">
-                <img src={p2} alt="w-[20px] h-[28px]" />
+                <img src={p_icon2} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope text-[20px]   lg:text-[17px] 500px:text-[11px]    md:text-[14px]  992px:text-[16px]        text-black font-bold">
-                  {t('index-partnyor.6')}
+                  {t('index_partnyor.6')}
                 </h2>
               </div>
 
               <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-                {t('index-partnyor.7')}
+                {t('index_partnyor.7')}
               </p>
             </div>
             <div className="pt-4  w-full max-w-[280px]">
               <div className="flex items-center   space-x-2 ">
-                <img src={p3} alt="w-[20px] h-[28px]" />
+                <img src={p_icon3} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope  text-[20px]  500px:text-[11px]   lg:text-[17px]  md:text-[14px]  992px:text-[16px]      text-black font-bold">
-                  {t('index-partnyor.8')}
+                  {t('index_partnyor.8')}
                 </h2>
               </div>
 
               <p className="font-poppins pt-4 pb-6  lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-                {t('index-partnyor.9')}
+                {t('index_partnyor.9')}
               </p>
             </div>
           </div>
@@ -318,7 +340,7 @@ function BuyLinkPartner() {
                 <div className=" max-w-[225px] w-full pb-2  ">
                   <img
                     className="w-full h-full object-contain"
-                    src={partnerA}
+                    src={language == 'Aze' ? p1aze : p1en}
                     alt="Iphone2"
                   />
                 </div>
@@ -327,7 +349,7 @@ function BuyLinkPartner() {
                 <div className=" pb-2   max-w-[225px] w-full ">
                   <img
                     className="w-full h-full object-contain"
-                    src={partnerB}
+                    src={language == 'Aze' ? p2aze : p2en}
                     alt="Iphone4"
                   />
                 </div>
@@ -336,7 +358,7 @@ function BuyLinkPartner() {
                 <div className=" pb-2  max-w-[225px] w-full  ">
                   <img
                     className="w-full h-full object-contain"
-                    src={partnerC}
+                    src={language == 'Aze' ? p3aze : p3en}
                     alt="Iphone2"
                   />
                 </div>
@@ -348,21 +370,21 @@ function BuyLinkPartner() {
             <div className="w-[300px] h-[490px]">
               <img
                 className="w-full h-full object-contain"
-                src={partnerA}
+                src={language == 'Aze' ? p1aze : p1en}
                 alt="Iphone2"
               />
             </div>
             <div className="w-[280px] h-[490px]">
               <img
                 className="w-full h-full object-contain"
-                src={partnerB}
+                src={language == 'Aze' ? p2aze : p2en}
                 alt="Iphone4"
               />
             </div>
             <div className="w-[280px] h-[490px]">
               <img
                 className="w-full h-full object-contain"
-                src={partnerC}
+                src={language == 'Aze' ? p3aze : p3en}
                 alt="Iphone2"
               />
             </div>
@@ -374,6 +396,11 @@ function BuyLinkPartner() {
 }
 function BuyLinkPartner2() {
   const { t } = useTranslation();
+  const [language, setLanguage] = useState<any>('');
+
+  useEffect(() => {
+    setLanguage(localStorage.getItem('lng'));
+  }, [localStorage.getItem('lng'), language]);
   return (
     <>
       <section>
@@ -383,51 +410,51 @@ function BuyLinkPartner2() {
         >
           <div className="space-y-4 ">
             <h2 className="font-manrope  lg:text-[40px] text-[30px]   leading-0    sm:leading-8  text-black font-bold">
-              {t('index-partnyor2.0')}
-              <span className="text-[#4C5DF5]"> {t('index-partnyor2.1')}</span>
+              {t('index_partnyor2.0')}
+              <span className="text-[#4C5DF5]"> {t('index_partnyor2.1')}</span>
             </h2>
             <p className="lg:text-[20px] text-[15px] pb-[2em] leading-[1.7]">
-              {t('index-partnyor2.2')}
+              {t('index_partnyor2.2')}
             </p>
           </div>
           <div className="w-[83%] grid lg:grid-cols-3 500px:grid-cols-2 md:place-items-start   place-items-center    md:grid-cols-2 grid-cols-1">
             <div className="pt-4 w-full max-w-[280px]">
               <div className="flex items-center  space-x-6 lg:space-x-2 ">
-                <img src={p4} alt="w-[20px] h-[28px]" />
+                <img src={s_icon1} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope   lg:text-[17px]  500px:text-[11px]   md:text-[14px]  992px:text-[16px]  text-[20px]       text-black font-bold">
-                  {t('index-partnyor2.3')}
+                  {t('index_partnyor2.3')}
                 </h2>
               </div>
 
               <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-                {t('index-partnyor2.4')}
+                {t('index_partnyor2.4')}
               </p>
             </div>
             <div className="pt-4  w-full max-w-[340px]">
               <div className="flex items-center   space-x-2 ">
-                <img src={p5} alt="w-[20px] h-[28px]" />
+                <img src={s_icon2} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope text-[20px]   lg:text-[17px] 500px:text-[11px]    md:text-[14px]  992px:text-[16px]        text-black font-bold">
-                  {t('index-partnyor2.5')}
+                  {t('index_partnyor2.5')}
                 </h2>
               </div>
 
               <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-                {t('index-partnyor2.6')}
+                {t('index_partnyor2.6')}
               </p>
             </div>
             <div className="pt-4  w-full max-w-[340px]">
               <div className="flex items-center   space-x-2 ">
-                <img src={p6} alt="w-[20px] h-[28px]" />
+                <img src={s_icon3} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope  text-[20px]  500px:text-[11px]   lg:text-[17px]  md:text-[14px]  992px:text-[16px]      text-black font-bold">
-                  {t('index-partnyor2.7')}
+                  {t('index_partnyor2.7')}
                 </h2>
               </div>
 
               <p className="font-poppins pt-4 pb-6  lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-                {t('index-partnyor2.8')}
+                {t('index_partnyor2.8')}
               </p>
             </div>
           </div>
@@ -446,7 +473,8 @@ function BuyLinkPartner2() {
                 <div className="max-w-[225px] h-[390px] w-full ">
                   <img
                     className="w-full h-full object-contain"
-                    src={partner2A}
+                    src={language == 'Aze' ? s1az : s1en}
+
                     alt="Iphone2"
                   />
                 </div>
@@ -455,7 +483,8 @@ function BuyLinkPartner2() {
                 <div className="max-w-[225px] h-[390px] w-full  ">
                   <img
                     className="w-full h-full object-contain"
-                    src={partner2B}
+                    src={language == 'Aze' ? s2az : s2en}
+
                     alt="Iphone4"
                   />
                 </div>
@@ -464,7 +493,8 @@ function BuyLinkPartner2() {
                 <div className="max-w-[225px] h-[390px] w-full  ">
                   <img
                     className="w-full h-full object-contain"
-                    src={partner2C}
+                    src={language == 'Aze' ? s3az : s3en}
+
                     alt="Iphone2"
                   />
                 </div>
@@ -474,13 +504,13 @@ function BuyLinkPartner2() {
         ) : (
           <div className="flex items-center pt-10  space-x-4 justify-center ">
             <div className="w-[300px] h-[490px]">
-              <img className="w-full h-full " src={partner2A} alt="Iphone2" />
+              <img className="w-full h-full "   src={language == 'Aze' ? s1az : s1en} alt="Iphone2" />
             </div>
             <div className="w-[300px] h-[490px]">
-              <img className="w-full h-full " src={partner2B} alt="Iphone4" />
+              <img className="w-full h-full " src={language == 'Aze' ? s2az : s2en} alt="Iphone4" />
             </div>
             <div className="w-[300px] h-[490px]">
-              <img className="w-full h-full" src={partner2C} alt="Iphone2" />
+              <img className="w-full h-full" src={language == 'Aze' ? s3az : s3en} alt="Iphone2" />
             </div>
           </div>
         )}
@@ -490,6 +520,11 @@ function BuyLinkPartner2() {
 }
 function BuyLinkPartner3() {
   const { t } = useTranslation();
+  const [language, setLanguage] = useState<any>('');
+
+  useEffect(() => {
+    setLanguage(localStorage.getItem('lng'));
+  }, [localStorage.getItem('lng'), language]);
   return (
     <>
       <section id="how-use">
@@ -499,51 +534,51 @@ function BuyLinkPartner3() {
         >
           <div className="space-y-4 ">
             <h2 className="font-manrope  lg:text-[40px] text-[30px]   leading-0    sm:leading-8  text-black font-bold">
-              {t('index-partnyor3.1')}
-              <span className="text-[#4C5DF5]"> {t('index-partnyor3.0')} </span>
+              {t('index_partnyor3.1')}
+              <span className="text-[#4C5DF5]"> {t('index_partnyor3.0')} </span>
             </h2>
             <p className="lg:text-[20px] text-[15px] pb-[2em] leading-[1.7]">
-              {t('index-partnyor3.2')}
+              {t('index_partnyor3.2')}
             </p>
           </div>
           <div className="w-[90%]  md:place-items-start   place-items-center grid lg:grid-cols-3 500px:grid-cols-2 md:grid-cols-2 grid-cols-1">
             <div className="pt-4 w-full max-w-[340px]">
               <div className="flex items-center   lg:space-x-2 ">
-                <img src={p7} alt="w-[20px] h-[28px]" />
+                <img src={d_icon1} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope   lg:text-[17px] lg:text-start text-center md:text-start  500px:text-[11px]   md:text-[14px]  992px:text-[16px]  text-[20px]       text-black font-bold">
-                  {t('index-partnyor3.3')}
+                  {t('index_partnyor3.3')}
                 </h2>
               </div>
 
               <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-                {t('index-partnyor3.4')}
+                {t('index_partnyor3.4')}
               </p>
             </div>
             <div className="pt-4  w-full max-w-[280px]">
               <div className="flex items-center   space-x-2 ">
-                <img src={p8} alt="w-[20px] h-[28px]" />
+                <img src={d_icon2} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope text-[20px]   lg:text-[17px] 500px:text-[11px]    md:text-[14px]  992px:text-[16px]        text-black font-bold">
-                  {t('index-partnyor3.5')}
+                  {t('index_partnyor3.5')}
                 </h2>
               </div>
 
               <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-                {t('index-partnyor3.6')}
+                {t('index_partnyor3.6')}
               </p>
             </div>
             <div className="pt-4  w-full max-w-[320px]">
               <div className="flex items-center   space-x-2 ">
-                <img src={p9} alt="w-[20px] h-[28px]" />
+                <img src={d_icon3} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope  text-[20px]  500px:text-[11px]   lg:text-[17px]  md:text-[14px]  992px:text-[16px]      text-black font-bold">
-                  {t('index-partnyor3.7')}
+                  {t('index_partnyor3.7')}
                 </h2>
               </div>
 
               <p className="font-poppins pt-4 pb-6  lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-                {t('index-partnyor3.8')}
+                {t('index_partnyor3.8')}
               </p>
             </div>
           </div>
@@ -562,7 +597,7 @@ function BuyLinkPartner3() {
                 <div className="max-w-[225px] h-[590px] w-full ">
                   <img
                     className="w-full h-full object-contain"
-                    src={partner3A}
+                    src={language == 'Aze' ? d1az : d1en}
                     alt="Iphone2"
                   />
                 </div>
@@ -571,7 +606,7 @@ function BuyLinkPartner3() {
                 <div className="max-w-[225px] h-[590px] w-full  ">
                   <img
                     className="w-full h-full object-contain"
-                    src={partner3B}
+                    src={language == 'Aze' ? d2az : d2en}
                     alt="Iphone4"
                   />
                 </div>
@@ -580,7 +615,7 @@ function BuyLinkPartner3() {
                 <div className="max-w-[225px] h-[590px] w-full  ">
                   <img
                     className="w-full h-full object-contain"
-                    src={partner3C}
+                    src={language == 'Aze' ? d3az : d3en}
                     alt="Iphone2"
                   />
                 </div>
@@ -590,13 +625,13 @@ function BuyLinkPartner3() {
         ) : (
           <div className="flex items-center pt-10  space-x-4 justify-center ">
             <div className="w-[290px] h-[550px]">
-              <img className="w-full h-full " src={partner3A} alt="Iphone2" />
+              <img className="w-full h-full " src={language == 'Aze' ? d1az : d1en} alt="Iphone2" />
             </div>
             <div className="w-[290px] h-[550px]">
-              <img className="w-full h-full " src={partner3B} alt="Iphone4" />
+              <img className="w-full h-full " src={language == 'Aze' ? d2az : d2en} alt="Iphone4" />
             </div>
             <div className="w-[290px] h-[550px]">
-              <img className="w-full h-full " src={partner3C} alt="Iphone2" />
+              <img className="w-full h-full " src={language == 'Aze' ? d3az : d3en} alt="Iphone2" />
             </div>
           </div>
         )}
@@ -622,7 +657,7 @@ function Partner() {
           </button>
         </div>
         <div className="hidden lg:block ">
-          <img src={partnerLogo} className="object-contain h-[400px]" alt="" />
+          <img src={partner_logo} className="object-contain h-[400px]" alt="" />
         </div>
       </div>
     </>
@@ -652,6 +687,5 @@ function NewsLetter() {
         </button>
       </div>
     </section>
-    
   );
 }

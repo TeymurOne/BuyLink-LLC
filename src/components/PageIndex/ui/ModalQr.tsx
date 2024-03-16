@@ -1,5 +1,5 @@
-  import modalqr from '../../../images/pageLand/ModalQr.svg';
-  import qr from '../../../images/pageLand/Qr.svg';
+  import modalqr from '../../../images/Pages-index/modal/modalqr.svg';
+  import qr from '../../../images/Pages-index/modal/qr.svg';
   import '../Privacy.css';
   interface ModalProps{
     showModal:boolean,

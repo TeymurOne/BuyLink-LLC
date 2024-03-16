@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import { useGetStatisticsQuery } from '../../features/branch/apiSlice';
 import { ApexOptions } from 'apexcharts';
+import { useTranslation } from 'react-i18next';
 
 interface ChartOneState {
   series: {
@@ -15,6 +16,7 @@ const ChartOne: React.FC = () => {
   const [categories, setCategories] = useState<string[]>([]);
   const [chartData, setChartData] = useState<ChartOneState>({ series: [] });
   const { data } = useGetStatisticsQuery('');
+  const {t}=useTranslation()
 
   useEffect(() => {
     if (data) {
@@ -39,12 +41,12 @@ const ChartOne: React.FC = () => {
 
       setChartData({
         series: [
-          { name: ' Total recommended', type: 'bar', data: transactionsData },
-          { name: 'Used recommendations ', type: 'bar', data: referClaimsData },
+          { name: `${t("statistic.10")}`, type: 'bar', data: transactionsData },
+          { name: `${t("statistic.11")}`, type: 'bar', data: referClaimsData },
         ],
       });
     }
-  }, [data]);
+  }, [data, localStorage.getItem("lng")]);
 
   const longestArrayLength = Math.max(
     chartData.series[0]?.data.length || 0,
@@ -108,7 +110,7 @@ const ChartOne: React.FC = () => {
       <div className="mb-4 gap-2 sm:flex">
         <div>
           <h4 className="text-xl font-semibold text-black dark:text-white">
-            Total Refers
+            {t("statistic.7")}
           </h4>
         </div>
       </div>

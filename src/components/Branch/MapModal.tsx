@@ -3,7 +3,7 @@ import GoogleMapReact from 'google-map-react';
 
 export const apikey = 'AIzaSyDDDB-r8zysSBEC-5qV9oFlXm41J9v0MVo';
 
-export const MapModal = ({ lat, lng, allkordinat , name}) => {
+export const MapModal = ({ lat, lng, allkordinat , name}:any) => {
 
   
   
@@ -12,7 +12,7 @@ export const MapModal = ({ lat, lng, allkordinat , name}) => {
 
   useEffect(() => {
     if (allkordinat && allkordinat.length > 0) {
-      const newMarkers = allkordinat.map((coord, index) => ({
+      const newMarkers = allkordinat.map((coord:any, index:number) => ({
         id: index,
         lat: parseFloat(coord.lat),
         lng: parseFloat(coord.lng),
@@ -57,7 +57,7 @@ export const MapModal = ({ lat, lng, allkordinat , name}) => {
   const defaultZoom = 12;
 
   return (
-    <div style={{ height: '600px', width: '700px' }}>
+    <div style={{ height: '500px', width: '700px' }}>
       <GoogleMapReact
         bootstrapURLKeys={{ key: apikey }}
         center={center}

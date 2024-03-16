@@ -11,6 +11,9 @@ const Alerts = lazy(() => import('../pages/UiElements/Alerts'));
 const Buttons = lazy(() => import('../pages/UiElements/Buttons'));
 const privacypolicy = lazy(() => import('../components/PageIndex/PrivacyPoilcy.tsx'));
 
+const balance = lazy(() => import('../components/Balance/Balanc.tsx'));
+
+
 
 
 const branchcreate = lazy(() => import('../components/Branch/CreateForm'));
@@ -189,6 +192,11 @@ const coreRoutes = [
     title: 'partnerform',
     component: partnerform,
   },
+  {
+    path: '/admin/balance',
+    title: 'balance',
+    component: balance,
+  }
 
   
 ];
