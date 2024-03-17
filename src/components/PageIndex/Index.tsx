@@ -80,7 +80,7 @@ const Index = () => {
   return (
     <>
       <div className="bg-white   ">
-        <div className="bg-white custom-con   h-auto  cursor-default">
+        <div className="bg-white custom-con px-6 lg:px-4 md:px-0   h-auto  cursor-default">
           <Header />
           <Main />
         </div>
