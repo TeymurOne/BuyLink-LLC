@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import marker from '../../images/pageLand/marker.svg'
+import { FaMapMarkerAlt } from "react-icons/fa";
 
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
@@ -88,7 +88,7 @@ const Tbody: React.FC<TbodyProps> = ({ item, handeMapShow }) => {
         <td className="border-b border-[#eee] py-2 px-4 dark:border-strokedark">
           <div className="flex items-center">
           <button onClick={handeMapShow}>
-         <img src={marker} alt="Marker" width={30} />
+          <FaMapMarkerAlt />
           </button>
           
           </div>
