@@ -132,10 +132,10 @@ function Main() {
       <div className="  gap-10 space-x-4  py-5 lg:px-2 md:pl-6    flex md:flex-row flex-col items-center ">
         <div className="max-w-[650px] md:text-justify text-center  w-full flex flex-col  justify-between">
           <h2 className=" font-manrope  xl:text-[2.40em] lg:text-[1.775em] text-[32px] 992px:text-[40px]  whitespace-wrap  leading-10 font-bold text-black-2">
-            <span className="text-[#4C5DF5]">{t('index_main.0')}</span>{' '}
-            {t('index_main.1')}
+            <span className="text-[#4C5DF5]">{t('main.0')}</span>{' '}
+            {t('main.1')}
           </h2>
-          <p className="lg:text-[24px] text-[20px] py-4">{t('index_main.2')}</p>
+          <p className="lg:text-[24px] text-[20px] py-4">{t('main.2')}</p>
 
           <div className="flex md:flex-row flex-col items-center space-y-4 md:space-y-0 md:space-x-8 ">
             <Link
@@ -205,12 +205,12 @@ function WalletBuylink() {
           <div className="   max-w-[698px] mx-auto  w-full   text-black  ">
             <div className="lg:text-start  text-center">
               <h2 className="font-manrope  xl:text-[2.20em] lg:text-[1.775em] text-[32px] 992px:text-[40px]  whitespace-wrap  leading-10 font-bold text-black-2">
-                {t('index_wallet.0')}- {t('index_wallet.1')}
-                <span className="text-[#4C5DF5]"> {t('index_wallet.2')}</span>
+                {t('wallet.0')}- {t('wallet.1')}
+                <span className="text-[#4C5DF5]"> {t('wallet.2')}</span>
               </h2>
 
               <p className="lg:text-[20px] text-[14px] lg:leading-6 leading-4  font-medium py-4 normal font-poppins">
-                {t('index_wallet.3')}
+                {t('wallet.3')}
               </p>
             </div>
             <div
@@ -223,7 +223,7 @@ function WalletBuylink() {
                   src={icon1}
                   alt="Group 155"
                 />
-                <p>{t('index_wallet.4')}</p>
+                <p>{t('wallet.4')}</p>
               </div>
               <div className="flex items-center space-x-4">
                 <img
@@ -231,7 +231,7 @@ function WalletBuylink() {
                   src={icon2}
                   alt="Group 155"
                 />
-                <p>{t('index_wallet.5')}</p>
+                <p>{t('wallet.5')}</p>
               </div>
               <div className="flex items-center space-x-4">
                 <img
@@ -239,7 +239,7 @@ function WalletBuylink() {
                   src={icon3}
                   alt="Group 155"
                 />
-                <p>{t('index_wallet.6')} </p>
+                <p>{t('wallet.6')} </p>
               </div>
               <div className="flex items-center space-x-4">
                 <img
@@ -247,7 +247,7 @@ function WalletBuylink() {
                   src={icon4}
                   alt="Group 155"
                 />
-                <p>{t('index_wallet.7')}</p>
+                <p>{t('wallet.7')}</p>
               </div>
             </div>
           </div>
@@ -274,14 +274,14 @@ function BuyLinkPartner() {
         >
           <div className="space-y-4 ">
             <h2 className="font-manrope  lg:text-[40px] text-[30px]   leading-0    sm:leading-8  text-black font-bold">
-              {t('index_partnyor.0')}
+              {t('partnyor.0')}
               <span className="text-[#4C5DF5]">
                 {' '}
-                {t('index_partnyor.1')} {t('index_partnyor.2')}
+                {t('partnyor.1')} {t('partnyor.2')}
               </span>
             </h2>
             <p className="lg:text-[20px] text-[15px] pb-[2em] leading-[1.7]">
-              {t('index_partnyor.3')}
+              {t('partnyor.3')}
             </p>
           </div>
           <div className="w-[83%] md:place-items-start   place-items-center place-content-start grid lg:grid-cols-3 500px:grid-cols-2 md:grid-cols-2 grid-cols-1">
@@ -290,12 +290,12 @@ function BuyLinkPartner() {
                 <img src={p_icon1} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope   lg:text-[17px]  500px:text-[11px]   md:text-[14px]  992px:text-[16px]  text-[20px]       text-black font-bold">
-                  {t('index_partnyor.4')}
+                  {t('partnyor.4')}
                 </h2>
               </div>
 
               <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-                {t('index_partnyor.5')}
+                {t('partnyor.5')}
               </p>
             </div>
             <div className="pt-4  w-full max-w-[280px]">
@@ -303,12 +303,12 @@ function BuyLinkPartner() {
                 <img src={p_icon2} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope text-[20px]   lg:text-[17px] 500px:text-[11px]    md:text-[14px]  992px:text-[16px]        text-black font-bold">
-                  {t('index_partnyor.6')}
+                  {t('partnyor.6')}
                 </h2>
               </div>
 
               <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-                {t('index_partnyor.7')}
+                {t('partnyor.7')}
               </p>
             </div>
             <div className="pt-4  w-full max-w-[280px]">
@@ -316,12 +316,12 @@ function BuyLinkPartner() {
                 <img src={p_icon3} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope  text-[20px]  500px:text-[11px]   lg:text-[17px]  md:text-[14px]  992px:text-[16px]      text-black font-bold">
-                  {t('index_partnyor.8')}
+                  {t('partnyor.8')}
                 </h2>
               </div>
 
               <p className="font-poppins pt-4 pb-6  lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-                {t('index_partnyor.9')}
+                {t('partnyor.9')}
               </p>
             </div>
           </div>
@@ -410,11 +410,11 @@ function BuyLinkPartner2() {
         >
           <div className="space-y-4 ">
             <h2 className="font-manrope  lg:text-[40px] text-[30px]   leading-0    sm:leading-8  text-black font-bold">
-              {t('index_partnyor2.0')}
-              <span className="text-[#4C5DF5]"> {t('index_partnyor2.1')}</span>
+              {t('partnyor2.0')}
+              <span className="text-[#4C5DF5]"> {t('partnyor2.1')}</span>
             </h2>
             <p className="lg:text-[20px] text-[15px] pb-[2em] leading-[1.7]">
-              {t('index_partnyor2.2')}
+              {t('partnyor2.2')}
             </p>
           </div>
           <div className="w-[83%] grid lg:grid-cols-3 500px:grid-cols-2 md:place-items-start   place-items-center    md:grid-cols-2 grid-cols-1">
@@ -423,12 +423,12 @@ function BuyLinkPartner2() {
                 <img src={s_icon1} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope   lg:text-[17px]  500px:text-[11px]   md:text-[14px]  992px:text-[16px]  text-[20px]       text-black font-bold">
-                  {t('index_partnyor2.3')}
+                  {t('partnyor2.3')}
                 </h2>
               </div>
 
               <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-                {t('index_partnyor2.4')}
+                {t('partnyor2.4')}
               </p>
             </div>
             <div className="pt-4  w-full max-w-[340px]">
@@ -436,12 +436,12 @@ function BuyLinkPartner2() {
                 <img src={s_icon2} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope text-[20px]   lg:text-[17px] 500px:text-[11px]    md:text-[14px]  992px:text-[16px]        text-black font-bold">
-                  {t('index_partnyor2.5')}
+                  {t('partnyor2.5')}
                 </h2>
               </div>
 
               <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-                {t('index_partnyor2.6')}
+                {t('partnyor2.6')}
               </p>
             </div>
             <div className="pt-4  w-full max-w-[340px]">
@@ -449,12 +449,12 @@ function BuyLinkPartner2() {
                 <img src={s_icon3} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope  text-[20px]  500px:text-[11px]   lg:text-[17px]  md:text-[14px]  992px:text-[16px]      text-black font-bold">
-                  {t('index_partnyor2.7')}
+                  {t('partnyor2.7')}
                 </h2>
               </div>
 
               <p className="font-poppins pt-4 pb-6  lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-                {t('index_partnyor2.8')}
+                {t('partnyor2.8')}
               </p>
             </div>
           </div>
@@ -534,11 +534,11 @@ function BuyLinkPartner3() {
         >
           <div className="space-y-4 ">
             <h2 className="font-manrope  lg:text-[40px] text-[30px]   leading-0    sm:leading-8  text-black font-bold">
-              {t('index_partnyor3.1')}
-              <span className="text-[#4C5DF5]"> {t('index_partnyor3.0')} </span>
+              {t('partnyor3.1')}
+              <span className="text-[#4C5DF5]"> {t('partnyor3.0')} </span>
             </h2>
             <p className="lg:text-[20px] text-[15px] pb-[2em] leading-[1.7]">
-              {t('index_partnyor3.2')}
+              {t('partnyor3.2')}
             </p>
           </div>
           <div className="w-[90%]  md:place-items-start   place-items-center grid lg:grid-cols-3 500px:grid-cols-2 md:grid-cols-2 grid-cols-1">
@@ -547,12 +547,12 @@ function BuyLinkPartner3() {
                 <img src={d_icon1} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope   lg:text-[17px] lg:text-start text-center md:text-start  500px:text-[11px]   md:text-[14px]  992px:text-[16px]  text-[20px]       text-black font-bold">
-                  {t('index_partnyor3.3')}
+                  {t('partnyor3.3')}
                 </h2>
               </div>
 
               <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-                {t('index_partnyor3.4')}
+                {t('partnyor3.4')}
               </p>
             </div>
             <div className="pt-4  w-full max-w-[280px]">
@@ -560,12 +560,12 @@ function BuyLinkPartner3() {
                 <img src={d_icon2} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope text-[20px]   lg:text-[17px] 500px:text-[11px]    md:text-[14px]  992px:text-[16px]        text-black font-bold">
-                  {t('index_partnyor3.5')}
+                  {t('partnyor3.5')}
                 </h2>
               </div>
 
               <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-                {t('index_partnyor3.6')}
+                {t('partnyor3.6')}
               </p>
             </div>
             <div className="pt-4  w-full max-w-[320px]">
@@ -573,12 +573,12 @@ function BuyLinkPartner3() {
                 <img src={d_icon3} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope  text-[20px]  500px:text-[11px]   lg:text-[17px]  md:text-[14px]  992px:text-[16px]      text-black font-bold">
-                  {t('index_partnyor3.7')}
+                  {t('partnyor3.7')}
                 </h2>
               </div>
 
               <p className="font-poppins pt-4 pb-6  lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-                {t('index_partnyor3.8')}
+                {t('partnyor3.8')}
               </p>
             </div>
           </div>

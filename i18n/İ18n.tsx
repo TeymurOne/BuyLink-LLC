@@ -88,7 +88,7 @@ const resources = {
         '16': 'Ləgv et',
         '17': 'Saxla',
       },
-      index_header: {
+      header: {
         '0': 'Haqqımızda',
         '1': 'Üstünlüklərimiz',
         '2': 'Necə işləyir?',
@@ -97,7 +97,7 @@ const resources = {
         '5': 'Giriş',
         '6': 'Partnyor ol',
       },
-      index_main: {
+      main: {
         '0': 'BuyLink  ',
         '1': 'dünyanın ilk rəqəmsal referal platformasıdır.',
         '2': 'Bizim missiyamız insanları və biznesləri bir referal sosial şəbəkəsi altında birləşdirərək onların müəyyən qazanc və üstünlüklərdən faydalanmasını təmin etməkdir.',
@@ -105,7 +105,7 @@ const resources = {
         '4': 'Bu video ən sadə şəkildə bizim   biznesin necə işlədiyini göstərir.',
         '5': 'Yüklə BuyLink',
       },
-      index_wallet: {
+      wallet: {
         '0': 'BuyLink Pul kisəsi   ',
         '1': ' bonus və mükafatlar.',
         '2': 'qazanaraq xərclərinə qanaət et.',
@@ -115,7 +115,7 @@ const resources = {
         '6': 'Partnyorumuzda pul kisəsi vasitəsilə ödəniş',
         '7': 'Yeni funksiya çox yaxında!',
       },
-      index_partnyor: {
+      partnyor: {
         '0': 'Yeni',
         '1': 'istifadəçi və partnyorları',
         '2': 'kəşf et',
@@ -127,7 +127,7 @@ const resources = {
         '8': 'Müxtəlif kateqoriyaları kəşf et',
         '9': 'Maraqlandığın biznesləri burada kəşf edərək onların endirim və qazanc dərəcələri ilə tanış ola bilərsən. ',
       },
-      index_partnyor2: {
+      partnyor2: {
         '0': '3 addımla',
         '1': 'qazanc əldə et',
         '2': 'Öz şəbəkənə istədiyin biznesi tövsiyə et və qazan.',
@@ -138,7 +138,7 @@ const resources = {
         '7': 'Pul kisəsinə keçid et və balansını yoxla',
         '8': 'Şəbəkən istinad linkindən istifadə etdikdən sonra səm  mükafatlar qazanırsan. Sonda pul kisəsi səhifəsində balansını yoxlaya bilərsən.',
       },
-      index_partnyor3: {
+      partnyor3: {
         '0': 'Endirim',
         '1': 'necə əldə etmək olar?',
         '2': 'İstinad linklərindən istifadə edərək endirimlər qazan.',
@@ -444,7 +444,7 @@ const resources = {
         '16': 'Cancel',
         '17': 'Save',
       },
-      index_header: {
+      header: {
         '0': 'About',
         '1': 'Features',
         '2': 'How to use',
@@ -453,7 +453,7 @@ const resources = {
         '5': 'Login',
         '6': 'Become a partner',
       },
-      index_main: {
+      main: {
         '0': 'BuyLink  ',
         '1': 'is the world first digital referral network.',
         '2': 'Our mission is to connect people in one referral social network where they are able to get actual benefits from recommendations.',
@@ -461,7 +461,7 @@ const resources = {
         '4': 'The video shows in basic how the applications works . We cover different industries in one platform',
         '5': 'Download BuyLink',
       },
-      index_wallet: {
+      wallet: {
         '0': 'BuyLink Wallet - serves as a savings for your  ',
         '1': 'bonuses and rewards.',
         '2': 'a savings for your',
@@ -471,7 +471,7 @@ const resources = {
         '6': 'Payment via wallet at our partner',
         '7': 'New feature is in progress!',
       },
-      index_partnyor: {
+      partnyor: {
         '0': 'Explore new',
         '1': 'users and ',
         '2': 'partners',
@@ -483,7 +483,7 @@ const resources = {
         '8': 'Explore different categories',
         '9': 'Here you can find different industries,choose any that you areasasa interested in ',
       },
-      index_partnyor2: {
+      partnyor2: {
         '0': ' in 3 steps',
         '1': 'Get cash ',
         '2': 'End-to-end payments and financial management in a single solution. Meet the right platform to help realize.',
@@ -494,7 +494,7 @@ const resources = {
         '7': 'Go to wallet and check you balance',
         '8': 'After your network use your referral link , you again rewards , and can check your balance in wallet page',
       },
-      index_partnyor3: {
+      partnyor3: {
         '0': 'discount?',
         '1': 'How to get',
         '2': 'End-to-end payments and financial management in a single solution. Meet the right platform to help realize.',

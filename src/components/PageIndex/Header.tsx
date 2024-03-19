@@ -15,21 +15,19 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [popup, setPopup] = useState(false);
-  const [lang, setLang] = useState(  localStorage.getItem("lng"));
-  const local=localStorage.getItem("lng")
-  
+  const [lang, setLang] = useState(localStorage.getItem('lng'));
+  const local = localStorage.getItem('lng');
 
   const cookie = getState();
   const { t } = useTranslation();
 
   const handleTranslate = (lang: string) => {
-
     i18n.changeLanguage(lang);
     localStorage.setItem('lng', lang);
   };
 
   function handleLang(lang: string) {
-    setPopup(false)
+    setPopup(false);
     setLang(lang);
     handleTranslate(lang);
   }
@@ -41,7 +39,10 @@ export default function Header() {
         aria-label="Global"
       >
         <div className="flex lg:flex-1 mr-[-180px]">
-          <a href="/" className="-m-1.5   lg:block hidden p-1.5 w-[67px] h-[75px]">
+          <a
+            href="/"
+            className="-m-1.5   lg:block hidden p-1.5 w-[67px] h-[75px]"
+          >
             <img className="w-full h-full" src={logo} alt="Logo" />
           </a>
           <button
@@ -63,12 +64,12 @@ export default function Header() {
           </Link>
         </div>
         <div className="hidden lg:flex text-[#00000099] font-roboto lg:gap-x-4 font-medium text-[16px]">
-          <a href="/#about">{t('index_header.0')}</a>
+          <a href="/#about">{t('header.0')}</a>
 
-          <a href="/#features">{t('index_header.1')}</a>
-          <a href="/#how-use">{t('index_header.2')}</a>
-          <a href="/#faq">{t('index_header.3')}</a>
-          <a href="/#footer">{t('index_header.4')}</a>
+          <a href="/#features">{t('header.1')}</a>
+          <a href="/#how-use">{t('header.2')}</a>
+          <a href="/#faq">{t('header.3')}</a>
+          <a href="/#footer">{t('header.4')}</a>
         </div>
         <div className="hidden font-normal lg:flex text-[#000000de] lg:flex-1 text-[14px] lg:justify-end">
           <div className="flex   z-9999  mr-[-30px] items-center ">
@@ -76,14 +77,13 @@ export default function Header() {
               htmlFor="Select language"
               className="flex items-center space-x-1"
             >
-              <div onClick={() => setPopup(!popup)} className=" relative cursor-pointer   ">
+              <div
+                onClick={() => setPopup(!popup)}
+                className=" relative cursor-pointer   "
+              >
                 {lang}
               </div>
-              <img
-                src={vector}
-                alt="Translate-vector arrow"
-             
-              />
+              <img src={vector} alt="Translate-vector arrow" />
 
               {popup && (
                 <div className="h-[80px] text-center right-[310px]  w-[83px] top-16  absolute z-30  bg-white">
@@ -126,7 +126,7 @@ export default function Header() {
               onClick={() => setShowModal(true)}
               className="text-[14px]  text-[#000000de] w-[161px] h-[44px]    flex items-center justify-center rounded-sm     "
             >
-              {t('index_header.5')}
+              {t('header.5')}
             </Link>
           )}
 
@@ -134,7 +134,7 @@ export default function Header() {
             to=""
             className="text-[16px] text-white w-[161px] h-[44px]    flex items-center justify-center rounded-sm  bg-primary    "
           >
-            {t('index_header.6')}
+            {t('header.6')}
           </Link>
         </div>
       </nav>

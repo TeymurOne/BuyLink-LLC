@@ -16,17 +16,17 @@ function VideoSection() {
             <div className="max-w-[384px]   text-center lg:text-start w-full lg:space-y-10 space-y-6">
               <div>
                 <h2 className="   text-2xl  text-[#4C5DF5] font-bold">
-                  {t('index_main.3')}
+                  {t('main.3')}
                 </h2>
                 <p className="lg:text-[16px] mt-2  text-[14px] leading-5 lg:leading-6   font-poppins  text-[#000000ad] font-medium">
-                  {t('index_main.4')}
+                  {t('main.4')}
                 </p>
               </div>
               <button
                 onClick={() => setShowModal(true)}
                 className="bg-[#4C5DF5]  rounded text-white font-thin text-[16px] max-w-[379px] w-full lg:w-[200px]   h-[60px]"
               >
-                {t('index_main.5')}
+                {t('main.5')}
               </button>
             </div>
           </div>
