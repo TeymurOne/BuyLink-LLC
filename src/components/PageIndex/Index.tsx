@@ -39,8 +39,8 @@ import p3en from '../../images/Pages-index/partner/p3en.png';
 
 // steps
 import s_icon1 from '../../images/Pages-index/steps/icon-1.svg';
-import s_icon2 from '../../images/Pages-index/steps/icon-1.svg';
-import s_icon3 from '../../images/Pages-index/steps/icon-1.svg';
+import s_icon2 from '../../images/Pages-index/steps/icon-2.svg';
+import s_icon3 from '../../images/Pages-index/steps/icon-3.svg';
 
 import s1az from '../../images/Pages-index/steps/s1az.png';
 import s1en from '../../images/Pages-index/steps/s1en.png';
@@ -48,8 +48,6 @@ import s2az from '../../images/Pages-index/steps/s2az.png';
 import s2en from '../../images/Pages-index/steps/s2en.png';
 import s3az from '../../images/Pages-index/steps/s3az.png';
 import s3en from '../../images/Pages-index/steps/s3en.png';
-
-
 
 // disocunt
 import d_icon1 from '../../images/Pages-index/disocunt/icon-1.svg';
@@ -62,8 +60,6 @@ import d2az from '../../images/Pages-index/disocunt/d2az.png';
 import d2en from '../../images/Pages-index/disocunt/d2en.png';
 import d3az from '../../images/Pages-index/disocunt/d3az.png';
 import d3en from '../../images/Pages-index/disocunt/d3en.png';
-
-
 
 import partner_logo from '../../images/Pages-index/head-main/partner-logo.svg';
 
@@ -98,10 +94,15 @@ const Index = () => {
       </div>
 
       <div className="bg-white  py-20">
-        <div className="custom-con  "> <BuyLinkPartner2 /> </div>
+        <div className="custom-con  ">
+          <BuyLinkPartner2 />{' '}
+        </div>
       </div>
       <div className="bg-[#F3F4F6] py-20 ">
-        <div className="custom-con  "> <BuyLinkPartner3 /> </div>
+        <div className="custom-con  ">
+          {' '}
+          <BuyLinkPartner3 />{' '}
+        </div>
       </div>
 
       <div className=" bg-[#4C5DF5]    ">
@@ -129,13 +130,12 @@ function Main() {
 
   return (
     <>
-      <div className="  gap-10 space-x-4  py-5 lg:px-2 md:pl-6    flex md:flex-row flex-col items-center ">
-        <div className="max-w-[650px] md:text-justify text-center  w-full flex flex-col  justify-between">
-          <h2 className=" font-manrope  xl:text-[2.40em] lg:text-[1.775em] text-[32px] 992px:text-[40px]  whitespace-wrap  leading-10 font-bold text-black-2">
-            <span className="text-[#4C5DF5]">{t('main.0')}</span>{' '}
-            {t('main.1')}
+      <div className="   gap-10 space-x-4  pt-5 pb-10 lg:px-2   flex-col   flex lg:flex-row   ">
+        <div className=" flex-1  pt-0  lg:p-10 mx-auto   text-center    flex flex-col items-center  ">
+          <h2 className=" font-manrope text-center  xl:text-[2.40em] lg:text-[1.775em] text-[32px] 992px:text-[40px]  whitespace-wrap  leading-10 font-[600] text-black-2">
+            <span className="text-[#4C5DF5]">{t('main.0')}</span> {t('main.1')}
           </h2>
-          <p className="lg:text-[24px] text-[20px] py-4">{t('main.2')}</p>
+          <p className="lg:text-[21px] font-regular text-[20px] text-center py-4">{t('main.2')}</p>
 
           <div className="flex md:flex-row flex-col items-center space-y-4 md:space-y-0 md:space-x-8 ">
             <Link
@@ -176,10 +176,10 @@ function Main() {
             </Link>
           </div>
         </div>
-        <div>
+        <div className=' flex-1  grid place-items-center '>
           <img
             src={main}
-            className=" border rounded-xl border-[#979797] border-opacity-60  object-contain"
+            className=" shadow-2xl  rounded-xl border-[#979797] border-opacity-60  object-contain"
             alt="Main"
           />
         </div>
@@ -192,32 +192,32 @@ function WalletBuylink() {
   const { t } = useTranslation();
   return (
     <>
-      <section className="  py-10">
-        <div className=" grid  lg:grid-cols-2 gap-20 lg:px-0 md:px-0 px-2  md:grid-cols-1    ">
-          <div className="    mx-auto max-w-[460px]  ">
+      <section className="  py-10 lg:px-0 px-6   grid place-items-center">
+        <div className=" flex  items-center justify-between  w-full  lg:flex-row   flex-col  ">
+          <div className=" lg:mx-0    max-w-[540px] w-full    ">
             <img
-              className="     rounded-xl "
+              className="  h-full w-full    rounded-xl "
               src={card1}
               alt="Buynet wallet img"
             />
           </div>
 
-          <div className="   max-w-[698px] mx-auto  w-full   text-black  ">
-            <div className="lg:text-start  text-center">
-              <h2 className="font-manrope  xl:text-[2.20em] lg:text-[1.775em] text-[32px] 992px:text-[40px]  whitespace-wrap  leading-10 font-bold text-black-2">
-                {t('wallet.0')}- {t('wallet.1')}
-                <span className="text-[#4C5DF5]"> {t('wallet.2')}</span>
+          <div className=" pt-6 lg:pt-0 lg:pl-10 pl-0 self-center  lg:self-baseline w-full max-w-[698px]      text-black  ">
+            <div className="lg:text-start space-y-4  text-center">
+              <h2 className="font-manrope lg:text-[36px] text-[32px] leading-[38px]    whitespace-wrap lg:leading-[44px] font-bold text-black-2">
+                {t('wallet.0')}
+                <span className="text-[#4C5DF5]"> {t('wallet.1')}</span>
               </h2>
 
-              <p className="lg:text-[20px] text-[14px] lg:leading-6 leading-4  font-medium py-4 normal font-poppins">
+              <p className="lg:text-[20px] text-[14px]   font-medium  normal font-poppins">
                 {t('wallet.3')}
               </p>
             </div>
             <div
               className=" grid lg:grid-cols-2 2xsm:mx-auto w-full lg:mx-0   lg:w-full sm:grid-cols-2 grid-cols-1 place-content-center   gap-y-2     font-manrope normal font-medium text-[#000000ad]"
-              id="payments"
+              
             >
-              <div className="flex space-x-4   items-center w-full max-w-[300px]  ">
+              <div className="flex space-x-4    items-center w-full max-w-[300px]  ">
                 <img
                   className="w-[37px] h-[37px] "
                   src={icon1}
@@ -225,7 +225,7 @@ function WalletBuylink() {
                 />
                 <p>{t('wallet.4')}</p>
               </div>
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center  space-x-4">
                 <img
                   className="w-[37px] h-[37px]"
                   src={icon2}
@@ -233,7 +233,7 @@ function WalletBuylink() {
                 />
                 <p>{t('wallet.5')}</p>
               </div>
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center  space-x-4">
                 <img
                   className="w-[37px] h-[37px]"
                   src={icon3}
@@ -277,50 +277,53 @@ function BuyLinkPartner() {
               {t('partnyor.0')}
               <span className="text-[#4C5DF5]">
                 {' '}
-                {t('partnyor.1')} {t('partnyor.2')}
-              </span>
+                {t('partnyor.1')} 
+                
+              </span>  
+
+                   {t('partnyor.2')}
             </h2>
             <p className="lg:text-[20px] text-[15px] pb-[2em] leading-[1.7]">
               {t('partnyor.3')}
             </p>
           </div>
-          <div className="w-[83%] md:place-items-start   place-items-center place-content-start grid lg:grid-cols-3 500px:grid-cols-2 md:grid-cols-2 grid-cols-1">
-            <div className="pt-4 w-full max-w-[280px]">
+          <div className="w-[83%] flex mx-auto  items-center flex-wrap justify-between">
+            <div className="pt-4 w-full max-w-[280px] self-baseline">
               <div className="flex items-center  space-x-6 lg:space-x-2 ">
-                <img src={p_icon1} alt="w-[20px] h-[28px]" />
+                <img src={p_icon1} alt="" className='w-[36px] h-[36px] -ml-[27px]' />
 
-                <h2 className="font-manrope   lg:text-[17px]  500px:text-[11px]   md:text-[14px]  992px:text-[16px]  text-[20px]       text-black font-bold">
+                <h2 className="font-manrope    sm:text-[17px] text-[24px]        text-black font-bold">
                   {t('partnyor.4')}
                 </h2>
               </div>
 
-              <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
+              <p className="font-poppins pt-4 lg:pt-2 opacity-70   sm:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
                 {t('partnyor.5')}
               </p>
             </div>
             <div className="pt-4  w-full max-w-[280px]">
               <div className="flex items-center   space-x-2 ">
-                <img src={p_icon2} alt="w-[20px] h-[28px]" />
+                <img src={p_icon2} alt='' className='w-[36px] h-[36px] -ml-[27px]' />
 
-                <h2 className="font-manrope text-[20px]   lg:text-[17px] 500px:text-[11px]    md:text-[14px]  992px:text-[16px]        text-black font-bold">
+                <h2 className="font-manrope    sm:text-[17px] text-[24px]         text-black font-bold">
                   {t('partnyor.6')}
                 </h2>
               </div>
 
-              <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
+              <p className="font-poppins pt-4 lg:pt-2 opacity-70   sm:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
                 {t('partnyor.7')}
               </p>
             </div>
             <div className="pt-4  w-full max-w-[280px]">
               <div className="flex items-center   space-x-2 ">
-                <img src={p_icon3} alt="w-[20px] h-[28px]" />
+                <img src={p_icon3} alt='' className='w-[36px] h-[36px] -ml-[27px]' />
 
-                <h2 className="font-manrope  text-[20px]  500px:text-[11px]   lg:text-[17px]  md:text-[14px]  992px:text-[16px]      text-black font-bold">
+                <h2 className="font-manrope  sm:text-[17px] text-[24px]       text-black font-bold">
                   {t('partnyor.8')}
                 </h2>
               </div>
 
-              <p className="font-poppins pt-4 pb-6  lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
+              <p className="font-poppins pt-4 pb-6  lg:pt-2 opacity-70   sm:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
                 {t('partnyor.9')}
               </p>
             </div>
@@ -337,18 +340,18 @@ function BuyLinkPartner() {
           >
             <div className="flex items-center   space-x-4 justify-center ">
               <SwiperSlide>
-                <div className=" max-w-[225px] w-full pb-2  ">
+                <div className="  max-w-[225px] w-full pb-2  ">
                   <img
-                    className="w-full h-full object-contain"
+                    className="w-full h-[377px] object-contain"
                     src={language == 'Aze' ? p1aze : p1en}
                     alt="Iphone2"
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className=" pb-2   max-w-[225px] w-full ">
+                <div className="    max-w-[225px] w-full ">
                   <img
-                    className="w-full h-full object-contain"
+                    className="w-full h-[377px] object-contain"
                     src={language == 'Aze' ? p2aze : p2en}
                     alt="Iphone4"
                   />
@@ -357,7 +360,7 @@ function BuyLinkPartner() {
               <SwiperSlide>
                 <div className=" pb-2  max-w-[225px] w-full  ">
                   <img
-                    className="w-full h-full object-contain"
+                    className="w-full h-[377px] object-contain"
                     src={language == 'Aze' ? p3aze : p3en}
                     alt="Iphone2"
                   />
@@ -367,21 +370,21 @@ function BuyLinkPartner() {
           </Swiper>
         ) : (
           <div className="flex items-center pt-10   space-x-4 justify-center ">
-            <div className="w-[300px] h-[490px]">
+            <div className=" h-[558px]">
               <img
                 className="w-full h-full object-contain"
                 src={language == 'Aze' ? p1aze : p1en}
                 alt="Iphone2"
               />
             </div>
-            <div className="w-[280px] h-[490px]">
+            <div className="h-[558px]">
               <img
                 className="w-full h-full object-contain"
                 src={language == 'Aze' ? p2aze : p2en}
                 alt="Iphone4"
               />
             </div>
-            <div className="w-[280px] h-[490px]">
+            <div className=" h-[558px]">
               <img
                 className="w-full h-full object-contain"
                 src={language == 'Aze' ? p3aze : p3en}
@@ -412,48 +415,49 @@ function BuyLinkPartner2() {
             <h2 className="font-manrope  lg:text-[40px] text-[30px]   leading-0    sm:leading-8  text-black font-bold">
               {t('partnyor2.0')}
               <span className="text-[#4C5DF5]"> {t('partnyor2.1')}</span>
+              {t('partnyor2.9')}
             </h2>
             <p className="lg:text-[20px] text-[15px] pb-[2em] leading-[1.7]">
               {t('partnyor2.2')}
             </p>
           </div>
-          <div className="w-[83%] grid lg:grid-cols-3 500px:grid-cols-2 md:place-items-start   place-items-center    md:grid-cols-2 grid-cols-1">
-            <div className="pt-4 w-full max-w-[280px]">
+          <div className="w-[83%] flex mx-auto  items-center flex-wrap justify-between">
+            <div className="pt-4 w-full max-w-[280px] ">
               <div className="flex items-center  space-x-6 lg:space-x-2 ">
-                <img src={s_icon1} alt="w-[20px] h-[28px]" />
+                <img src={s_icon1} alt="" className='w-[36px] h-[36px] -ml-[27px]' />
 
-                <h2 className="font-manrope   lg:text-[17px]  500px:text-[11px]   md:text-[14px]  992px:text-[16px]  text-[20px]       text-black font-bold">
+                <h2 className="font-manrope    sm:text-[17px] text-[24px]        text-black font-bold">
                   {t('partnyor2.3')}
                 </h2>
               </div>
 
-              <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
+              <p className="font-poppins pt-4 lg:pt-2 opacity-70   sm:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
                 {t('partnyor2.4')}
               </p>
             </div>
-            <div className="pt-4  w-full max-w-[340px]">
+            <div className="pt-4  w-full max-w-[280px]">
               <div className="flex items-center   space-x-2 ">
-                <img src={s_icon2} alt="w-[20px] h-[28px]" />
+                <img src={s_icon2} alt='' className='w-[36px] h-[36px] -ml-[27px]' />
 
-                <h2 className="font-manrope text-[20px]   lg:text-[17px] 500px:text-[11px]    md:text-[14px]  992px:text-[16px]        text-black font-bold">
+                <h2 className="font-manrope    sm:text-[17px] text-[24px]         text-black font-bold">
                   {t('partnyor2.5')}
                 </h2>
               </div>
 
-              <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
+              <p className="font-poppins pt-4 lg:pt-2 opacity-70   sm:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
                 {t('partnyor2.6')}
               </p>
             </div>
-            <div className="pt-4  w-full max-w-[340px]">
+            <div className="pt-4  w-full max-w-[280px]">
               <div className="flex items-center   space-x-2 ">
-                <img src={s_icon3} alt="w-[20px] h-[28px]" />
+                <img src={s_icon3} alt='' className='w-[36px] h-[36px] -ml-[27px]' />
 
-                <h2 className="font-manrope  text-[20px]  500px:text-[11px]   lg:text-[17px]  md:text-[14px]  992px:text-[16px]      text-black font-bold">
+                <h2 className="font-manrope  sm:text-[17px] text-[24px]       text-black font-bold">
                   {t('partnyor2.7')}
                 </h2>
               </div>
 
-              <p className="font-poppins pt-4 pb-6  lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
+              <p className="font-poppins pt-4 pb-6  lg:pt-2 opacity-70   sm:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
                 {t('partnyor2.8')}
               </p>
             </div>
@@ -474,7 +478,6 @@ function BuyLinkPartner2() {
                   <img
                     className="w-full h-full object-contain"
                     src={language == 'Aze' ? s1az : s1en}
-
                     alt="Iphone2"
                   />
                 </div>
@@ -484,7 +487,6 @@ function BuyLinkPartner2() {
                   <img
                     className="w-full h-full object-contain"
                     src={language == 'Aze' ? s2az : s2en}
-
                     alt="Iphone4"
                   />
                 </div>
@@ -494,7 +496,6 @@ function BuyLinkPartner2() {
                   <img
                     className="w-full h-full object-contain"
                     src={language == 'Aze' ? s3az : s3en}
-
                     alt="Iphone2"
                   />
                 </div>
@@ -503,14 +504,26 @@ function BuyLinkPartner2() {
           </Swiper>
         ) : (
           <div className="flex items-center pt-10  space-x-4 justify-center ">
-            <div className="w-[300px] h-[490px]">
-              <img className="w-full h-full "   src={language == 'Aze' ? s1az : s1en} alt="Iphone2" />
+            <div className="w-[300px]">
+              <img
+                className="w-full h-full "
+                src={language == 'Aze' ? s1az : s1en}
+                alt="Iphone2"
+              />
             </div>
-            <div className="w-[300px] h-[490px]">
-              <img className="w-full h-full " src={language == 'Aze' ? s2az : s2en} alt="Iphone4" />
+            <div className="w-[300px] ">
+              <img
+                className="w-full h-full "
+                src={language == 'Aze' ? s2az : s2en}
+                alt="Iphone4"
+              />
             </div>
-            <div className="w-[300px] h-[490px]">
-              <img className="w-full h-full" src={language == 'Aze' ? s3az : s3en} alt="Iphone2" />
+            <div className="w-[300px] ">
+              <img
+                className="w-full h-full"
+                src={language == 'Aze' ? s3az : s3en}
+                alt="Iphone2"
+              />
             </div>
           </div>
         )}
@@ -534,8 +547,8 @@ function BuyLinkPartner3() {
         >
           <div className="space-y-4 ">
             <h2 className="font-manrope  lg:text-[40px] text-[30px]   leading-0    sm:leading-8  text-black font-bold">
+              <span className="text-[#4C5DF5]"> {t('partnyor3.0')} </span>{' '}
               {t('partnyor3.1')}
-              <span className="text-[#4C5DF5]"> {t('partnyor3.0')} </span>
             </h2>
             <p className="lg:text-[20px] text-[15px] pb-[2em] leading-[1.7]">
               {t('partnyor3.2')}
@@ -625,13 +638,25 @@ function BuyLinkPartner3() {
         ) : (
           <div className="flex items-center pt-10  space-x-4 justify-center ">
             <div className="w-[290px] h-[550px]">
-              <img className="w-full h-full " src={language == 'Aze' ? d1az : d1en} alt="Iphone2" />
+              <img
+                className="w-full h-full "
+                src={language == 'Aze' ? d1az : d1en}
+                alt="Iphone2"
+              />
             </div>
             <div className="w-[290px] h-[550px]">
-              <img className="w-full h-full " src={language == 'Aze' ? d2az : d2en} alt="Iphone4" />
+              <img
+                className="w-full h-full "
+                src={language == 'Aze' ? d2az : d2en}
+                alt="Iphone4"
+              />
             </div>
             <div className="w-[290px] h-[550px]">
-              <img className="w-full h-full " src={language == 'Aze' ? d3az : d3en} alt="Iphone2" />
+              <img
+                className="w-full h-full "
+                src={language == 'Aze' ? d3az : d3en}
+                alt="Iphone2"
+              />
             </div>
           </div>
         )}

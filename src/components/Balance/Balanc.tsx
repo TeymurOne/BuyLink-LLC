@@ -4,6 +4,7 @@ import amount from '../../images/balance/amount.svg';
 import Tbody from './Tbody';
 import { useGetBalanceQuery, useGetTransactionsQuery } from '../../features/statistcs/apiSlice';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Balanc = () => {
   const [filtered, setFiltered] = useState<string>();
@@ -45,6 +46,7 @@ const Balanc = () => {
 export default Balanc;
 
 function CardOne({ onHandle, show }: any) {
+  const {t}=useTranslation()
   const isHighlighted = show == 3;
   let content;
   const {isSuccess, data }=useGetBalanceQuery('')
@@ -90,7 +92,7 @@ function CardOne({ onHandle, show }: any) {
               />
             </svg>
           )}
-          <h2 className="text-[20px] font-semibold">Total Revenue</h2>
+          <h2 className="text-[20px] font-semibold">{t("balance.0")}</h2>
         </span>
         <span
           className={`font-semibold text-${
@@ -105,6 +107,7 @@ function CardOne({ onHandle, show }: any) {
 }
 function CardTwo() {
   const {isSuccess, data }=useGetBalanceQuery('')
+  const {t}=useTranslation()
   let content
   if(isSuccess) content=data?.due_to_buylink
   return (
@@ -113,7 +116,7 @@ function CardTwo() {
         <img className="w-[50px] h-[46px]" src={coin} alt="" />
       </span>
       <span className="font-semibold text-[#000F95]">
-        <h2 className="font-normal">Duo to Buylink</h2>
+        <h2 className="font-normal">{t("balance.1")}</h2>
         <h2 className="font-semibold">{content}  ₼</h2>
       </span>
     </div>
@@ -121,13 +124,14 @@ function CardTwo() {
 }
 function CardThree({ onHandle, show }: any) {
   const isHighlighted = show == 2;
+  const {t}=useTranslation()
   const {isSuccess, data }=useGetBalanceQuery('')
   let content
   if(isSuccess) content=data?.cash_till
   return (
     <div
       onClick={() => onHandle('cash_till', 2)}
-      className={`w-[275px] p-4 mt-5 flex items-center   border-2 border-[#728DFF] h-[100px] gap-2  bg-${
+      className={`w-[259px] p-4 mt-5 flex items-center   border-2 border-[#728DFF] h-[100px] gap-2  bg-${
         isHighlighted ? '[#4C5DF5]' : 'white'
       }`}
     >
@@ -165,7 +169,7 @@ function CardThree({ onHandle, show }: any) {
           isHighlighted ? 'white' : 'text-[#000F95]'
         }`}
       >
-        <h2 className="font-normal">Cash Till</h2>
+        <h2 className="font-normal">{t("balance.2")}</h2>
         <h2 className="font-semibold">{content}  ₼</h2>
       </span>
     </div>
@@ -173,6 +177,7 @@ function CardThree({ onHandle, show }: any) {
 }
 function CardFour({ onHandle, show }: any) {
   const isHighlighted = show == 1;
+  const {t}=useTranslation()
   const {isSuccess, data }=useGetBalanceQuery('')
   let content
   if(isSuccess) content=data?.wallet
@@ -180,7 +185,7 @@ function CardFour({ onHandle, show }: any) {
   return (
     <div
       onClick={() => onHandle('wallet', 1)}
-      className={`w-[211px] p-4 mt-5 flex items-center  border-2 border-[#728DFF] h-[100px] gap-2  bg-${
+      className={`w-[226px] px-3 mt-5 flex items-center  border-2 border-[#728DFF] h-[100px] gap-2  bg-${
         isHighlighted ? '[#4C5DF5]' : 'white'
       }`}
     >
@@ -250,7 +255,7 @@ function CardFour({ onHandle, show }: any) {
           isHighlighted ? 'white' : 'text-[#000F95]'
         }`}
       >
-        <h2 className="font-normal">Buylink Wallet</h2>
+        <h2 className="font-normal">{t("balance.3")}</h2>
         <h2 className="font-semibold">{content} ₼</h2>
       </span>
     </div>
@@ -258,6 +263,7 @@ function CardFour({ onHandle, show }: any) {
 }
 function CardFive() {
   const {isSuccess, data }=useGetBalanceQuery('')
+  const {t}=useTranslation()
   let content
   if(isSuccess) content=data?.net_amount
   return (
@@ -266,7 +272,7 @@ function CardFive() {
         <img className="w-[50px] h-[46px]" src={amount} alt="" />
       </span>
       <span className="font-semibold text-[#000F95]">
-        <h2 className="font-normal">Net amount</h2>
+        <h2 className="font-normal">{t("balance.4")}</h2>
         <h2 className="font-semibold">{content}   ₼</h2>
       </span>
     </div>

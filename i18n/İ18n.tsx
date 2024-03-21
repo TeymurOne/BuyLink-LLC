@@ -117,8 +117,8 @@ const resources = {
       },
       partnyor: {
         '0': 'Yeni',
-        '1': 'istifadəçi və partnyorları',
-        '2': 'kəşf et',
+        '1': 'istifadəçi və partnyorları  ',
+        '2': '       kəşf et',
         '3': 'Şəbəkəni genişləndir və tövsiyə edəcəyin bizneslərdən gəlir əldə etməyin  ən asan yoluna bizimlə başla.',
         '4': 'Partnyorlarımızla tanış ol',
         '5': 'Ana səhifədəki partynor siyahımızı kəşf et',
@@ -129,7 +129,7 @@ const resources = {
       },
       partnyor2: {
         '0': '3 addımla',
-        '1': 'qazanc əldə et',
+        '1': 'qazanc',
         '2': 'Öz şəbəkənə istədiyin biznesi tövsiyə et və qazan.',
         '3': 'Partnyor səhifəsinə daxil ol',
         '4': 'Tərəfdaşın kataloqunu araşdırın:məhsul və ya xidmətlərin siyahısı, qiymətlər, endirimlər və referal keşbekləri.',
@@ -137,9 +137,10 @@ const resources = {
         '6': 'Partnyor səhifəsində sən bu biznesi söhbət vasitəsilə şəbəkənə tövsiyə edə və ya poçtla paylaşa bilərsən.',
         '7': 'Pul kisəsinə keçid et və balansını yoxla',
         '8': 'Şəbəkən istinad linkindən istifadə etdikdən sonra səm  mükafatlar qazanırsan. Sonda pul kisəsi səhifəsində balansını yoxlaya bilərsən.',
+        '9': ' əldə et',
       },
       partnyor3: {
-        '0': 'Endirim',
+        '0': 'Endirim  ',
         '1': 'necə əldə etmək olar?',
         '2': 'İstinad linklərindən istifadə edərək endirimlər qazan.',
         '3': 'İstinad səhifəsində dostlarının tövsiyələrini nəzərdən keç',
@@ -342,21 +343,28 @@ const resources = {
         Tətbiq edilən Məxfilik Siyasətinin yoxlanılması və ona edilmiş dəyişikliklərdən xəbardar olmaq İstifadəçinin öhdəliyindədir.
         Dəyişikliklər İstifadəçinin razılığı əsasında həyata keçirilən işlənmə fəaliyyətlərinə təsir göstərərsə, Sahibkar lazım olduqda istifadəçidən yeni razılıq əldə etməlidir.`,
       },
-      statistic:{
-        "0":"Məhsul sayı",
-        "1":"Bugün tövsiyyə olunanlar",
-        "2":'Ümumi tövsiyyələr',
-        "3":"Bugün ki əməliyyatlar",
-        "4":"Ümumi əməliyyatlar",
-        "5":"Ümumi əməliyyatlaın məbləği",
-        "6":"Aylıq gəlir",
-        "7":"Ümumi məsləhətlər",
-        "8":'Rəy əsasında',
-        "9":'Ulduz',
-        "10":"Ümumi tövsiyyələr",
-        "11":"İstifadə olunan tövsiyyələr"
-      }
+      statistic: {
+        '0': 'Məhsul sayı',
+        '1': 'Bugün tövsiyyə olunanlar',
+        '2': 'Ümumi tövsiyyələr',
+        '3': 'Bugün ki əməliyyatlar',
+        '4': 'Ümumi əməliyyatlar',
+        '5': 'Ümumi əməliyyatlaın məbləği',
+        '6': 'Aylıq gəlir',
+        '7': 'Ümumi məsləhətlər',
+        '8': 'Rəy əsasında',
+        '9': 'Ulduz',
+        '10': 'Ümumi tövsiyyələr',
+        '11': 'İstifadə olunan tövsiyyələr',
+      },
+      balance: {
+        '0': ' Ümumi satış',
+        '1': ' BuyLinkə  borc',
 
+        '2': 'Kassadan əməliyyatlar',
+        '3': 'BuyLink balansdan',
+        '4': 'Net məbləğ',
+      },
     },
   },
 
@@ -484,8 +492,8 @@ const resources = {
         '9': 'Here you can find different industries,choose any that you areasasa interested in ',
       },
       partnyor2: {
-        '0': ' in 3 steps',
-        '1': 'Get cash ',
+        '0': 'Get cash ',
+        '1': 'in 3 steps',
         '2': 'End-to-end payments and financial management in a single solution. Meet the right platform to help realize.',
         '3': 'Enter to partner page',
         '4': 'Explore menu / catalogue of partner. With list of products of services, prices, discounts, and referral cashbacks',
@@ -495,8 +503,8 @@ const resources = {
         '8': 'After your network use your referral link , you again rewards , and can check your balance in wallet page',
       },
       partnyor3: {
-        '0': 'discount?',
-        '1': 'How to get',
+        '0': 'How to get',
+        '1': ' discount?',
         '2': 'End-to-end payments and financial management in a single solution. Meet the right platform to help realize.',
         '3': 'See you network recommendations in referral page',
         '4': 'See all posts that you network share, and chooseone that interests you',
@@ -704,20 +712,27 @@ const resources = {
         It is the User's responsibility to check the applicable Privacy Policy and to be aware of any changes made to it.
         If the changes affect the processing activities performed on the basis of the User's consent, the Owner must obtain a new consent from the user, if necessary.`,
       },
-      statistic:{
-        "0":"Product count",
-        "1":"Today referer claims",
-        "2":'Total Recommendations  ',
-        "3":"Today_transactions",
-        "4":"Total_transactions",
-        "5":"Total_transactions_amount",
-        "6":"Revenue per Month",
-        "7":"Total Referers",
-        "8":'Based on  reviews',
-        "9":'Star',
-        "10":"Total recommended",
-        "11":"Used recommendations"
-      }
+      statistic: {
+        '0': 'Product count',
+        '1': 'Today referer claims',
+        '2': 'Total Recommendations  ',
+        '3': 'Today_transactions',
+        '4': 'Total_transactions',
+        '5': 'Total_transactions_amount',
+        '6': 'Revenue per Month',
+        '7': 'Total Referers',
+        '8': 'Based on  reviews',
+        '9': 'Star',
+        '10': 'Total recommended',
+        '11': 'Used recommendations',
+      },
+      balance: {
+        '0': 'Total Revenue',
+        '1': 'Duo to BuyLink',
+        '2': 'Cash Till',
+        '3': 'Buylink  Wallet',
+        '4': 'Net amount',
+      },
     },
   },
 };

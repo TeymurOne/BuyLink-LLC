@@ -276,6 +276,10 @@ module.exports = {
         'spin-2': 'spin 2s linear infinite',
         'spin-3': 'spin 3s linear infinite',
       },
+      flex: {
+        '2': '1 0 60%',
+        '1': '2 2 60%'
+      }
     },
   },
   plugins: [],

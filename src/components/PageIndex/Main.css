@@ -42,4 +42,13 @@
         max-width: 1520px !important;
     }
   }
+ 
+  .h2{
+    font-size: clamp(20px, 400px,  40px);
+    line-height: 46px;
+    font-weight: 600 !important;
+  }
+
+ 
+  
   

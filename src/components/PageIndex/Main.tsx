@@ -50,7 +50,7 @@ const Main = () => {
                   </span>
                 </Link>
               </div>
-              <div>
+              <div >
                 <img className="w-[144px] h-[146px]" src={screen} alt="" />
               </div>
             </div>

@@ -14,6 +14,7 @@ const Translate = () => {
 
   const { t } = useTranslation();
   const handleClick = (lang: string) => {
+    setDropdownOpen(false)
     i18n.changeLanguage(lang);
     localStorage.setItem('lng', lang);
   };

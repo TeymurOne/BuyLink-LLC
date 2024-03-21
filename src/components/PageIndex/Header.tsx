@@ -33,7 +33,7 @@ export default function Header() {
   }
 
   return (
-    <header className="bg-white font-roboto       ">
+    <header className="bg-white font-roboto  pb-6   pt-3    ">
       <nav
         className="mx-auto  flex  w-full items-center justify-between py-3"
         aria-label="Global"
@@ -63,39 +63,57 @@ export default function Header() {
             Login
           </Link>
         </div>
-        <div className="hidden lg:flex text-[#00000099] font-roboto lg:gap-x-4 font-medium text-[16px]">
-          <a href="/#about">{t('header.0')}</a>
+        <ul className="hidden   text-center  lg:flex  text-[#00000099] font-roboto lg:gap-x-4 font-medium text-[16px]">
+          <li  className='px-3' >
+            <a  href="/#about">
+              {t('header.0')}
+            </a>
+          </li>
+          <li className='px-3'  >
+            <a  href="/#features">
+              {t('header.1')}
+            </a>
+          </li>
+          <li className=' w-[123px] px-3 ' >
+            <a href="/#how-use">
+              {t('header.2')}
+            </a>
+          </li>
+          <li >
+            <a  href="/#faq">
+              {t('header.3')}
+            </a>
+          </li>
+          <li  className='w-[123px]'>
+            <a href="/#footer">
+              {t('header.4')}
+            </a>
+          </li>
+        </ul>
 
-          <a href="/#features">{t('header.1')}</a>
-          <a href="/#how-use">{t('header.2')}</a>
-          <a href="/#faq">{t('header.3')}</a>
-          <a href="/#footer">{t('header.4')}</a>
-        </div>
         <div className="hidden font-normal lg:flex text-[#000000de] lg:flex-1 text-[14px] lg:justify-end">
-          <div className="flex   z-9999  mr-[-30px] items-center ">
+          <div
+            onClick={() => setPopup(!popup)}
+            className="flex     z-9999  mr-[-30px] items-center "
+          >
             <label
               htmlFor="Select language"
-              className="flex items-center space-x-1"
+              className="flex items-center space-x-1  cursor-pointer  "
             >
-              <div
-                onClick={() => setPopup(!popup)}
-                className=" relative cursor-pointer   "
-              >
-                {lang}
-              </div>
+              <div className=" relative ">{lang}</div>
               <img src={vector} alt="Translate-vector arrow" />
 
               {popup && (
-                <div className="h-[80px] text-center right-[310px]  w-[83px] top-16  absolute z-30  bg-white">
+                <div className="h-[80px] mr-[-10px] text-center shadow-1 rounded-md w-[83px] top-14  absolute z-30  bg-white">
                   <p
                     onClick={() => handleLang('Eng')}
-                    className="hover:bg-[#E6E9FF] hover:text-[#0019F8]  "
+                    className="hover:bg-[#E6E9FF] hover:text-[#0019F8] mt-2  "
                   >
                     Eng
                   </p>
                   <p
                     onClick={() => handleLang('Aze')}
-                    className="hover:bg-[#E6E9FF] hover:text-[#0019F8] "
+                    className="hover:bg-[#E6E9FF] hover:text-[#0019F8] mt-2 "
                   >
                     Aze
                   </p>
