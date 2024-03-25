@@ -1,5 +1,3 @@
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import React, { useEffect, useState } from 'react';
 import addImg from '../../images/icon/addImg.png';
 import { LuAsterisk } from 'react-icons/lu';
@@ -18,7 +16,7 @@ interface Initial {
   about_: string;
   description_: any;
   phone_: any;
-  address_: string;
+  address_: any;
   email_: string;
   cover_: any;
   img_: any;
@@ -34,13 +32,14 @@ interface Initial {
 }
 const Form = () => {
   const { data, isSuccess, isLoading } = useFetchPartnerrAllQuery('');
-
+  const language = ['az', 'en', 'ru'];
+  const [active, setActive] = useState<string>('az');
   const [formValue, setFormValue] = useState<Initial>({
     title_: '',
     about_: '',
-    description_: '',
+    description_: {},
     phone_: '',
-    address_: '',
+    address_: {},
     email_: '',
     cover_: '',
     img_: '',
@@ -85,6 +84,7 @@ const Form = () => {
   const {
     title_,
     description_,
+
     phone_,
     address_,
     website_,
@@ -112,23 +112,37 @@ const Form = () => {
   const handleAbout = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormValue({ ...formValue, about_: e.target.value });
   };
-  const handleDesc = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormValue({ ...formValue, description_: e.target.value });
-  };
 
-  const handleAddress = (event: any, editor: any) => {
-    const data = editor.getData();
-    const plainText = stripHtmlTags(data);
+  const handleDesc = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    language: string,
+  ) => {
+    const value = e.target.value;
 
     setFormValue((prevFormValue) => ({
       ...prevFormValue,
-      address_: plainText,
+      description_: {
+        ...prevFormValue.description_,
+        [language]: value,
+      },
     }));
   };
-  function stripHtmlTags(html: string) {
-    const doc = new DOMParser().parseFromString(html, 'text/html');
-    return doc.body.textContent || '';
-  }
+
+  const handleAddress = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    language: string,
+  ) => {
+    const value = e.target.value;
+
+    setFormValue((prevFormValue) => ({
+      ...prevFormValue,
+      address_: {
+        ...prevFormValue.address_,
+        [language]: value,
+      },
+    }));
+  };
+
   const handlePhone = (e: React.ChangeEvent<HTMLInputElement>) => {
     const priceNum = Number(e.target.value);
     setFormValue({ ...formValue, phone_: priceNum });
@@ -172,9 +186,8 @@ const Form = () => {
     setFormValue((prevFormValue) => ({ ...prevFormValue, lng: lng_ }));
   }
 
-
   const postSubmit = async (e: React.FormEvent<HTMLButtonElement>) => {
-    const notify = () => toast("Wow so easy!");
+    const notify = () => toast('Wow so easy!');
     setLoad(true);
     e.preventDefault();
 
@@ -184,14 +197,21 @@ const Form = () => {
     if (cover_.length > 0 && cover_ !== 'null') {
       postData.append('cover', cover_);
     }
+
     postData.append('facebook', facebook_);
     postData.append('instagram', instagram_);
     postData.append('title', title_);
-    postData.append('description', description_);
-    postData.append('address', address_);
+    Object.keys(description_).forEach((key) => {
+      const value = description_[key];
+      postData.append(`description[${key}]`, value);
+    });
+    Object.keys(address_).forEach((key) => {
+      const value = address_[key];
+      postData.append(`address[${key}]`, value);
+    });
+
     postData.append('phone', phone_);
     postData.append('about', about_);
-    postData.append('address', address_);
 
     postData.append('website', website_);
 
@@ -205,7 +225,6 @@ const Form = () => {
           .then((response) => {
             if (response.success) {
               toast.success('Success!');
-
             }
           });
       }
@@ -215,14 +234,17 @@ const Form = () => {
       setLoad(false);
     }
   };
+  const handleTab = (item: string) => {
+    setActive(item);
+  };
 
   return (
     <>
       {isLoading ? (
         <Loader />
       ) : (
-        <div  >
-           <ToastContainer />
+        <div>
+          <ToastContainer />
           <div className="space-y-12">
             <div className=" pb-12">
               <div className=" col-span-full mr-20 inline-block">
@@ -309,7 +331,6 @@ const Form = () => {
                     Ada görə axtarış
                   </label>
                   <EditMap lat={lat} lng={lng} onLat={onLat} onLng={onLng} />
-
                 </div>
 
                 <div className="lg:col-span-3 mt-3 col-span-6 ">
@@ -332,30 +353,66 @@ const Form = () => {
                   </div>
                 </div>
 
-                <div className="sm:col-span-6 col-span-6 my-4 ">
-                  <label
-                    htmlFor="address"
-                    className="block text-sm font-medium leading-6 mb-4 "
-                  >
-                    Address
-                  </label>
-                  <CKEditor editor={ClassicEditor} onChange={handleAddress} />
-                </div>
-                <div className="sm:col-span-6 col-span-6 my-4 ">
-                  <label
-                    htmlFor="description"
-                    className="block text-sm font-medium leading-6 mb-4 "
-                  >
-                    Description
-                  </label>
-                  <textarea
-                    name=""
-                    id=""
-                    className="w-full h-[100px] pl-4 pt-2"
-                    value={description_}
-                    onChange={handleDesc}
-                  ></textarea>
-                </div>
+                <ul className="flex flex-wrap w-[400px] text-sm font-medium text-center">
+                  {language.map((item, index) => (
+                    <li
+                      className="me-2"
+                      key={index}
+                      onClick={() => handleTab(item)}
+                    >
+                      <a
+                        href="#"
+                        className={`shadow-2 inline-block px-4 mt-10 py-3 hover:bg-starrating hover:text-white rounded-lg ${
+                          active === item ? 'active' : ''
+                        }`}
+                        aria-current={active === item ? 'page' : undefined}
+                      >
+                        {item}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+
+                {language.map((lang, index) => (
+                  <>
+                    <div
+                      key={index}
+                      className={`sm:col-span-6 col-span-6 my-1 ${
+                        active !== lang ? 'hidden' : ''
+                      }`}
+                    >
+                      <label
+                        htmlFor={`description-${lang}`}
+                        className="block text-sm font-medium leading-6 mb-4"
+                      >
+                        Description {lang.toUpperCase()}
+                      </label>
+                      <textarea
+                        name={`description-${lang}`}
+                        id={`description-${lang}`}
+                        className="w-full h-[100px] pl-4 pt-2"
+                        value={description_[lang]}
+                        onChange={(e) => handleDesc(e, lang)}
+                      ></textarea>
+                      <div className="sm:col-span-6 col-span-6 my-4 ">
+                        <label
+                          htmlFor="address"
+                          className="block text-sm font-medium leading-6 mb-4 "
+                        >
+                          Address {lang.toUpperCase()}
+                        </label>
+                        <textarea
+                          name={`address_-${lang}`}
+                          id={`address_-${lang}`}
+                          className="w-full h-[100px] pl-4 pt-2"
+                          value={address_[lang]}
+                          onChange={(e) => handleAddress(e, lang)}
+                        ></textarea>
+                      </div>
+                    </div>
+                  </>
+                ))}
+
                 <div className="lg:col-span-3 mt-4 col-span-6 ">
                   <label
                     htmlFor="email"

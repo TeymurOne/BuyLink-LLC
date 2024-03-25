@@ -433,7 +433,7 @@ const resources = {
         '10': 'Select',
       },
       partnerinfo: {
-        '0': 'Parner Info ',
+        '0': 'Partner Info ',
         '1': 'Logo',
         '3': 'Cover Photo',
         '4': 'Title',
@@ -501,6 +501,8 @@ const resources = {
         '6': 'In partner page you can recommend this business to your network via chat on share on post',
         '7': 'Go to wallet and check you balance',
         '8': 'After your network use your referral link , you again rewards , and can check your balance in wallet page',
+        '9': '',
+
       },
       partnyor3: {
         '0': 'How to get',

@@ -1,14 +1,25 @@
 .modalqr {
  max-width: 960px;
-  height: 563px;
+ 
   background-color: #fff;
   display: flex;
   align-items: center;
   border-radius: 40px;
   overflow: hidden;
 }
+.gradient{
+  background-image: linear-gradient(
+    to right,
+    #fff,
+    #e4e7ff,
+    rgba(77, 93, 245, 0.5)
+  );
+  border-radius: 80px 0 0 0;
+}
+
 .qr-left {
-  width: 40%;
+  max-width: 40%;
+  
   float: left;
   text-align: center;
   margin-left: 100px;
@@ -26,17 +37,21 @@
   margin-right: -20px;
 
   border-radius: 223px 0 0 0;
-  height: 563px;
-  width: 60%;
+  height: 463px;
+  max-width: 60%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
 
+
+
 .qr-right .qr-container{
-    width: 332px;
-    height: 307px;
+    height: 232px;
+    max-width: 232px;
+    width: 100%;
     background-color: #fff;
     display: grid;
     place-items: center;
@@ -44,4 +59,16 @@
     border: 1px solid #0017E3;
 
 }
+
+@media screen and (max-width:586px) {
+  .small{
+    display: flex !important;
+  }
+  .big{
+    display: none;
+  }
+
+}
+
+
 

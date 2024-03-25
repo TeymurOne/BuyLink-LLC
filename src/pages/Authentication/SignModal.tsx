@@ -19,6 +19,7 @@ const SignModal: React.FC<State> = ({ showModal, setShowModal }) => {
   const [load, setLoad] = useState<boolean>(false);
   const [email, setEmail] = useState<any>('');
   const [password, setPwd] = useState<any>('');
+  const [show, setShow] = useState<boolean>(true);
 
   const useref = useRef<HTMLInputElement>(null);
   const errRef = useRef();
@@ -41,6 +42,7 @@ const SignModal: React.FC<State> = ({ showModal, setShowModal }) => {
     e.preventDefault();
     setPwd(e.target.value);
   }
+ 
   const [error, setError] = useState<string>('');
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -67,6 +69,7 @@ const SignModal: React.FC<State> = ({ showModal, setShowModal }) => {
       setLoad(false);
     }
   };
+
   return (
     <div>
       {showModal ? (
@@ -90,51 +93,57 @@ const SignModal: React.FC<State> = ({ showModal, setShowModal }) => {
                     <h3 className="text-[36px] w-full pb-8 text-[#0C1421]  font-roboto">
                       Log in as Partner
                     </h3>
-
                     <form onSubmit={handleSubmit}>
-                      <div>
-                        <label className="mb-2.5 block text-[#0C1421] font-roboto text-[16px] normal font-normal  dark:text-white">
-                          Email
-                        </label>
-                        <div className=" relative h-[48px] lg:w-[388px]">
+                        <div>
+                          <label className="mb-2.5 block text-[#0C1421] font-roboto text-[16px] normal font-normal  dark:text-white">
+                            Email
+                          </label>
+                          <div className=" relative h-[48px] lg:w-[388px]">
+                            <input
+                              value={email}
+                              onChange={handleUser}
+                              ref={useref}
+                              type="email"
+                              placeholder="Enter your email"
+                              className=" border-2 border-opacity-65 p-4 border-[#D4D7E3] w-full bg-white h-[48px] rounded-md"
+                            />
+                          </div>
+                        </div>
+
+                        <div className="mb-2">
+                          <label className="mb-2.5 block font-medium text-black dark:text-white">
+                            Password
+                          </label>
+                          <div className="relative">
+                            <input
+                              value={password}
+                              onChange={handlePwd}
+                              type="password"
+                              placeholder="6+ Characters, 1 Capital letter"
+                              className="border-2 border-opacity-65 p-4 border-[#D4D7E3] w-full bg-white h-[48px] rounded-md"
+                            />
+                          </div>
+                          {error && (
+                            <p className="font-normal  text-danger">{error}</p>
+                          )}
+                        </div>
+
+                        <div>
+                          <a
+                            href="#"
+                            onClick={() => setShow(!show)}
+                            className="pb-10"
+                          >
+                            Change Password
+                          </a>
                           <input
-                            value={email}
-                            onChange={handleUser}
-                            ref={useref}
-                            type="email"
-                            placeholder="Enter your email"
-                            className=" border-2 border-opacity-65 p-4 border-[#D4D7E3] w-full bg-white h-[48px] rounded-md"
+                            type="submit"
+                            value="Sign In"
+                            data-bs-dismiss="modal"
+                            className="w-full cursor-pointer rounded-lg border h-[52px] border-primary bg-primary  text-white transition hover:bg-opacity-90"
                           />
                         </div>
-                      </div>
-
-                      <div className="mb-6">
-                        <label className="mb-2.5 block font-medium text-black dark:text-white">
-                          Password
-                        </label>
-                        <div className="relative">
-                          <input
-                            value={password}
-                            onChange={handlePwd}
-                            type="password"
-                            placeholder="6+ Characters, 1 Capital letter"
-                            className="border-2 border-opacity-65 p-4 border-[#D4D7E3] w-full bg-white h-[48px] rounded-md"
-                          />
-                        </div>
-                        {error && (
-                          <p className="font-normal  text-danger">{error}</p>
-                        )}
-                      </div>
-
-                      <div className="m">
-                        <input
-                          type="submit"
-                          value="Sign In"
-                          data-bs-dismiss="modal"
-                          className="w-full cursor-pointer rounded-lg border h-[52px] border-primary bg-primary  text-white transition hover:bg-opacity-90"
-                        />
-                      </div>
-                    </form>
+                      </form>
                   </div>
                 </>
               )}

@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 
 interface IproductResponse {
   id: number;
-  title: string;
+  title: any;
   description: string;
   image: string;
   discount_price: number;
@@ -57,6 +57,8 @@ const Tbody: React.FC<itemAllData> = ({ item }) => {
   useEffect(() => {}, [handleDelete]);
 
   const { image, discount_price, price, title, id } = item;
+  console.log(item, 'item');
+  
 
   return (
     <>
@@ -71,7 +73,7 @@ const Tbody: React.FC<itemAllData> = ({ item }) => {
         </td>
         <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
           <p className="inline-flex rounded-full bg-opacity-10 py-1 px-3 text-sm font-medium ">
-            {title}
+            {title?.az}
           </p>
         </td>
 
@@ -83,7 +85,7 @@ const Tbody: React.FC<itemAllData> = ({ item }) => {
           <p className="text-black dark:text-white">{discount_price}</p>
         </td>
         <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-          <p className="text-black dark:text-white ">{item.category.name}</p>
+           <p className="text-black dark:text-white ">{item.category?.name}</p> 
         </td>
 
         <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">

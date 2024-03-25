@@ -61,7 +61,8 @@ const EditProduct = () => {
   );
   let content;
   const { isSuccess, data, isError } = useFetchProducttypeQuery('');
-
+  const language = ['az', 'en', 'ru'];
+  const [active, setActive] = useState<string>('az');
   const [dataEdit] = useUpdateProductMutation();
   const [showimg, setShowimg] = useState<string>();
   const postData = new FormData();
@@ -84,12 +85,10 @@ const EditProduct = () => {
    
   } else if (isError) {
     console.error('Error fetching data', 'Product Types');
+    
   }
-  const handleFullname = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setRes({ ...res, title_: e.target.value });
-  };
-  const handleDesc = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setRes({ ...res, desc_: e.target.value });
+  const handleTab = (item: string) => {
+    setActive(item);
   };
   const handlePrice = (e: React.ChangeEvent<HTMLInputElement>) => {
     const numPrice = Number(e.target.value);
@@ -122,10 +121,18 @@ const EditProduct = () => {
 
     postData.append('image', img);
     postData.append('category_id', res.categoryId);
-    postData.append('title', title_);
-    postData.append('description', desc_);
+    
+ 
     postData.append('price', price_);
     postData.append('discounted_price', discountedPrice.toString());
+    Object.keys(desc_).forEach((key) => {
+      const value = desc_[key];
+      postData.append(`description[${key}]`, value);
+    });
+    Object.keys(title_).forEach((key) => {
+      const value = title_[key];
+      postData.append(`title[${key}]`, value);
+    });
 
     try {
       if (postData) {
@@ -137,6 +144,37 @@ const EditProduct = () => {
       }
     } catch (error) {}
   };
+  const handleTitle = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    language: string,
+  ) => {
+    const value = e.target.value;
+
+    setRes((prevFormValue) => ({
+      ...prevFormValue,
+      title: {
+        ...prevFormValue.title_,
+        [language]: value,
+      },
+    }));
+  };
+
+ 
+  const handleDesc = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    language: string,
+  ) => {
+    const value = e.target.value;
+
+    setRes((prevFormValue) => ({
+      ...prevFormValue,
+      description: {
+        ...prevFormValue.desc_,
+        [language]: value,
+      },
+    }));
+  };
+
   return (
     <>
       <form>
@@ -171,46 +209,67 @@ const EditProduct = () => {
             </div>
           </div>
           <div className="mt-10 grid grid-cols-6 gap-x-6  sm:grid-cols-6">
-            <div className="lg:col-span-3 col-span-6 ">
-              <label
-                htmlFor="title"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Title
-              </label>
-              <div className="mt-2">
-                <input
-                  value={title_}
-                  onChange={handleFullname}
-                  type="text"
-                  name="title"
-                  id="title"
-                  autoComplete="given-name"
-                  required
-                  className="block w-full px-2 rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1   placeholder:text-gray-400  border-[#ced4da] sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
+          <ul className="flex flex-wrap w-[400px] text-sm font-medium text-center">
+                  {language.map((item, index) => (
+                    <li
+                      className="me-2"
+                      key={index}
+                      onClick={() => handleTab(item)}
+                    >
+                      <a
+                        href="#"
+                        className={`shadow-2 inline-block px-4 mt-10 py-3 hover:bg-starrating hover:text-white rounded-lg ${
+                          active === item ? 'active' : ''
+                        }`}
+                        aria-current={active === item ? 'page' : undefined}
+                      >
+                        {item}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
 
-            <div className="sm:col-span-6 col-span-6 my-4 ">
-              <label
-                htmlFor="last-name"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Description
-              </label>
-              <div className="mt-2">
-                <input
-                  onChange={handleDesc}
-                  value={desc_}
-                  type="text"
-                  name="Description"
-                  id="Description"
-                  autoComplete="family-name"
-                  className="block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
+                {language.map((lang, index) => (
+                  <>
+                    <div
+                      key={index}
+                      className={`sm:col-span-6 col-span-6 my-1 ${
+                        active !== lang ? 'hidden' : ''
+                      }`}
+                    >
+                      <label
+                        htmlFor={`title-${lang}`}
+                        className="block text-sm font-medium leading-6 mb-4"
+                      >
+                        Title {lang.toUpperCase()}
+                      </label>
+                      <textarea
+                        name={`title-${lang}`}
+                        id={`title-${lang}`}
+                        className="w-full h-[100px] pl-4 pt-2"
+                        value={title_[lang]}
+                        onChange={(e) => handleTitle(e, lang)}
+                      ></textarea>
+
+
+                      <div className="sm:col-span-6 col-span-6 my-4 ">
+                        <label
+                          htmlFor="description"
+                          className="block text-sm font-medium leading-6 mb-4 "
+                        >
+                          Description {lang.toUpperCase()}
+                        </label>
+                        <input
+                          name={`description-${lang}`}
+                          id={`description-${lang}`}
+                          className="w-full h-[100px] pl-4 pt-2"
+                          value={desc_[lang]}
+                          onChange={(e) => handleDesc(e, lang)}
+                        ></input>
+                      </div>
+                    </div>
+                  </>
+                ))}
 
             <div className="sm:col-span-2 col-span-6">
               <label

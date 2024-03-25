@@ -20,10 +20,10 @@ const Details = () => {
 
   if (isSuccess && id) {
     content = data?.data.find((item: any) => item.id == id);
-    plainTextDescription = stripHtmlTags(content.description);
+    plainTextDescription = stripHtmlTags(content.description.az);
   }
 
-  console.log(content);
+  console.log(content, 'content');
   
   return (
     <>
@@ -48,7 +48,7 @@ const Details = () => {
                 {t('product.3')}
               </span>
               <p className=" font-medium text-black  dark:text-white  ">
-                {content?.title}
+                {content?.title.az}
               </p>
             </div>
             <p className="border-b border-stroke  dark:border-strokedark  py-1"></p>
@@ -71,14 +71,7 @@ const Details = () => {
                 {plainTextDescription}
               </p>
             </div>
-            <div className="flex justify-between lg:w-1/3 md:w-1/2 py-4 px-3  ">
-              <span className=" font-medium text-black dark:text-white  ">
-                {t('product.8')}
-              </span>
-              <p className=" font-medium text-black dark:text-white  ">
-                {content?.categoyName}
-              </p>
-            </div>
+          
             <p className="border-b border-stroke  dark:border-strokedark  py-1"></p>
             <div className="flex justify-between lg:w-1/3 md:w-1/2 py-4 px-3  ">
               <span className=" font-medium text-black dark:text-white ">

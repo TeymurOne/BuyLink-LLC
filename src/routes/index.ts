@@ -6,7 +6,7 @@ const FormElements = lazy(() => import('../pages/Form/FormElements'));
 const FormLayout = lazy(() => import('../pages/Form/FormLayout'));
 const Profile = lazy(() => import('../pages/Profile'));
 
-const Tables = lazy(() => import('../pages/Tables'));
+const Tables = lazy(() => import('../pages/MyProfile.tsx'));
 const Alerts = lazy(() => import('../pages/UiElements/Alerts'));
 const Buttons = lazy(() => import('../pages/UiElements/Buttons'));
 const privacypolicy = lazy(() => import('../components/PageIndex/PrivacyPoilcy.tsx'));

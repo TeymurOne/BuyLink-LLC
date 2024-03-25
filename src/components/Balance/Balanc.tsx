@@ -1,44 +1,138 @@
-
 import coin from '../../images/balance/coin.svg';
 import amount from '../../images/balance/amount.svg';
 import Tbody from './Tbody';
-import { useGetBalanceQuery, useGetTransactionsQuery } from '../../features/statistcs/apiSlice';
+import {
+  useGetBalanceQuery,
+  useGetTransactionsQuery,
+} from '../../features/statistcs/apiSlice';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import Loader from '../../common/Loader';
 
 const Balanc = () => {
   const [filtered, setFiltered] = useState<string>();
   const [newData, setData] = useState([]);
   const [show, setShow] = useState<number | null>(null);
   const { data, isSuccess } = useGetTransactionsQuery(filtered);
+
   useEffect(() => {
     if (isSuccess && data) {
       setData(data?.data);
     }
   }, [data]);
+  const filterData = [
+    'Today',
+    'Yesterday',
+    'Last 7 days',
+    'Last 15 day',
+    'Last month',
+    'Last 6 month',
+    'Last 12 month',
+  ];
+  const filterDataValue = [
+    'today',
+    'yesterday',
+    'last_7_days',
+    'last_15_days',
+    'last_month',
+    'last_6_month',
+    'last_12_month',
+  ];
 
-  function handleFilter(item: string, num: number) {
-
+  function handleFilter(item: string, num?: number | any) {
     if (item) {
       setShow(num);
       setFiltered(item);
     }
   }
+  function handleChange(e: any) {
+    const value: string = e.target.value;
+    if (value) {
+      handleFilter(value);
+    }
+  }
 
   return (
     <>
-      <div className="flex  space-x-40  cursor-pointer">
+      <div className="flex   cursor-pointer">
+        <CardTimer />
+      </div>
+      <div className="flex  justify-between  cursor-pointer">
         <CardOne onHandle={handleFilter} show={show} />
         <CardTwo />
       </div>
-      <div className="flex space-x-39.5  cursor-pointer ">
+      <div className="flex justify-between cursor-pointer ">
         <div className="flex space-x-2.5">
           <CardThree onHandle={handleFilter} show={show} />
           <CardFour onHandle={handleFilter} show={show} />
         </div>
         <CardFive />
       </div>
-      {newData.length > 0 && <Tbody newData={newData} />}
+
+      <div className="rounded-sm pt-20   shadow-default dark:border-strokedark dark:bg-boxdark ">
+        <div className="max-w-full  overflow-x-auto">
+          <select
+            className="w-[400px] absolute  outline-none my-2 h-[40px] rounded-md border-none px-4"
+            name="filter"
+            id="filter"
+            onChange={handleChange}
+          >
+            Date
+            <option value="-" disabled>
+              -
+            </option>
+            {filterData.map((item, index) => {
+              return (
+                <option key={index} value={filterDataValue[index]}>
+                  {item}
+                </option>
+              );
+            })}
+            -
+          </select>
+          <table className="w-full    ">
+            <div className="rounded-sm pt-20   shadow-default dark:border-strokedark dark:bg-boxdark ">
+              <div className="max-w-full max-h-[300px] overflow-y-auto overflow-x-hidden  ">
+                <div>
+                  <thead>
+                    <tr className="bg-gray-2 text-[14px] text-left dark:bg-meta-4">
+                      <th className="min-w-[50px] py-4 px-4  font-medium ">
+                        ID
+                      </th>
+
+                      <th className="min-w-[200px] py-4 px-4 font-medium ">
+                        Profit
+                      </th>
+                      <th className="min-w-[200px] py-4 px-4 font-medium ">
+                        Amount
+                      </th>
+                      <th className="min-w-[200px] py-4 px-4 font-medium ">
+                        Discounted_amount
+                      </th>
+
+                      <th className=" min-w-[200px] py-4 px-4  font-medium ">
+                        Discounted_percent
+                      </th>
+                      <th className="min-w-[200px] py-4 px-4 font-medium ">
+                        Created_at
+                      </th>
+                      <th className="min-w-[200px] py-4 px-4 font-medium ">
+                        User
+                      </th>
+                    </tr>
+                  </thead>
+
+                  {newData.length > 0 ? (
+                    <Tbody newData={newData} />
+                  ) : (
+                    <Tbody newData={''} />
+                  )}
+                </div>
+              </div>
+            </div>
+          </table>
+        </div>
+      </div>
     </>
   );
 };
@@ -46,17 +140,17 @@ const Balanc = () => {
 export default Balanc;
 
 function CardOne({ onHandle, show }: any) {
-  const {t}=useTranslation()
+  const { t } = useTranslation();
   const isHighlighted = show == 3;
   let content;
-  const {isSuccess, data }=useGetBalanceQuery('')
-  if(isSuccess) content=data?.total_revenue
+  const { isSuccess, data } = useGetBalanceQuery('');
+  if (isSuccess) content = data?.total_revenue;
 
   return (
     <>
       <div
         onClick={() => onHandle('all', 3)}
-        className={`w-[495px]  justify-between p-4  flex items-center border-2 border-[#728DFF] h-[100px] gap-2  bg-${
+        className={`w-[495px]  justify-between p-4 rounded-md  flex items-center border-2 border-[#728DFF] h-[100px] gap-2  bg-${
           isHighlighted ? '[#4C5DF5]' : 'white'
         }`}
       >
@@ -92,46 +186,46 @@ function CardOne({ onHandle, show }: any) {
               />
             </svg>
           )}
-          <h2 className="text-[20px] font-semibold">{t("balance.0")}</h2>
+          <h2 className="text-[20px] font-semibold">{t('balance.0')}</h2>
         </span>
         <span
           className={`font-semibold text-${
             isHighlighted ? 'white' : 'text-[#000F95]'
           }`}
         >
-          {content}  ₼
+          {content} ₼
         </span>
       </div>
     </>
   );
 }
 function CardTwo() {
-  const {isSuccess, data }=useGetBalanceQuery('')
-  const {t}=useTranslation()
-  let content
-  if(isSuccess) content=data?.due_to_buylink
+  const { isSuccess, data } = useGetBalanceQuery('');
+  const { t } = useTranslation();
+  let content;
+  if (isSuccess) content = data?.due_to_buylink;
   return (
-    <div className="w-[324px] p-4 flex items-center  border-2 border-[#728DFF] h-[100px] gap-2 bg-white">
+    <div className="w-[324px] p-4 flex items-center rounded-md   border-2 border-[#728DFF] h-[100px] gap-2 bg-white">
       <span className="flex items-center space-x-2">
         <img className="w-[50px] h-[46px]" src={coin} alt="" />
       </span>
       <span className="font-semibold text-[#000F95]">
-        <h2 className="font-normal">{t("balance.1")}</h2>
-        <h2 className="font-semibold">{content}  ₼</h2>
+        <h2 className="font-normal">{t('balance.1')}</h2>
+        <h2 className="font-semibold">{content} ₼</h2>
       </span>
     </div>
   );
 }
 function CardThree({ onHandle, show }: any) {
   const isHighlighted = show == 2;
-  const {t}=useTranslation()
-  const {isSuccess, data }=useGetBalanceQuery('')
-  let content
-  if(isSuccess) content=data?.cash_till
+  const { t } = useTranslation();
+  const { isSuccess, data } = useGetBalanceQuery('');
+  let content;
+  if (isSuccess) content = data?.cash_till;
   return (
     <div
       onClick={() => onHandle('cash_till', 2)}
-      className={`w-[259px] p-4 mt-5 flex items-center   border-2 border-[#728DFF] h-[100px] gap-2  bg-${
+      className={`w-[259px] p-4 mt-5 flex items-center rounded-md    border-2 border-[#728DFF] h-[100px] gap-2  bg-${
         isHighlighted ? '[#4C5DF5]' : 'white'
       }`}
     >
@@ -169,23 +263,23 @@ function CardThree({ onHandle, show }: any) {
           isHighlighted ? 'white' : 'text-[#000F95]'
         }`}
       >
-        <h2 className="font-normal">{t("balance.2")}</h2>
-        <h2 className="font-semibold">{content}  ₼</h2>
+        <h2 className="font-normal">{t('balance.2')}</h2>
+        <h2 className="font-semibold">{content} ₼</h2>
       </span>
     </div>
   );
 }
 function CardFour({ onHandle, show }: any) {
   const isHighlighted = show == 1;
-  const {t}=useTranslation()
-  const {isSuccess, data }=useGetBalanceQuery('')
-  let content
-  if(isSuccess) content=data?.wallet
+  const { t } = useTranslation();
+  const { isSuccess, data } = useGetBalanceQuery('');
+  let content;
+  if (isSuccess) content = data?.wallet;
 
   return (
     <div
       onClick={() => onHandle('wallet', 1)}
-      className={`w-[226px] px-3 mt-5 flex items-center  border-2 border-[#728DFF] h-[100px] gap-2  bg-${
+      className={`w-[226px] px-3 mt-5 flex items-center rounded-md   border-2 border-[#728DFF] h-[100px] gap-2  bg-${
         isHighlighted ? '[#4C5DF5]' : 'white'
       }`}
     >
@@ -255,26 +349,70 @@ function CardFour({ onHandle, show }: any) {
           isHighlighted ? 'white' : 'text-[#000F95]'
         }`}
       >
-        <h2 className="font-normal">{t("balance.3")}</h2>
+        <h2 className="font-normal">{t('balance.3')}</h2>
         <h2 className="font-semibold">{content} ₼</h2>
       </span>
     </div>
   );
 }
 function CardFive() {
-  const {isSuccess, data }=useGetBalanceQuery('')
-  const {t}=useTranslation()
-  let content
-  if(isSuccess) content=data?.net_amount
+  const { isSuccess, data } = useGetBalanceQuery('');
+  const { t } = useTranslation();
+  let content;
+  if (isSuccess) content = data?.net_amount;
   return (
-    <div className="w-[324px] p-4 flex   mt-5 items-center  border-2 border-[#728DFF] h-[100px] gap-2 bg-white">
+    <div className="w-[324px] p-4 flex   mt-5 items-center rounded-md   border-2 border-[#728DFF] h-[100px] gap-2 bg-white">
       <span className="flex items-center space-x-2">
         <img className="w-[50px] h-[46px]" src={amount} alt="" />
       </span>
       <span className="font-semibold text-[#000F95]">
-        <h2 className="font-normal">{t("balance.4")}</h2>
-        <h2 className="font-semibold">{content}   ₼</h2>
+        <h2 className="font-normal">{t('balance.4')}</h2>
+        <h2 className="font-semibold">{content} ₼</h2>
       </span>
+    </div>
+  );
+}
+
+function CardTimer() {
+  const { isSuccess, isLoading, data } = useGetBalanceQuery('');
+
+  if (isLoading) {
+    return <div>Loader...</div>; 
+  }
+
+  if (!isSuccess) {
+    return null; 
+  }
+
+  const dateParts = data?.debt_date.split(' ');
+  const [year, day, month] = dateParts[0].split('-');
+  const [hours, minutes] = dateParts[1].split(':');
+
+  return (
+    <div className="flex w-full items-center justify-between px-10">
+      <div className="w-[230px] h-[94px] mr-[500px] flex justify-between">
+        <TimerBox value={day} unit="Days" />
+        <TimerBox value={hours} unit="Hours" />
+        <TimerBox value={minutes} unit="Minutes" />
+      </div>
+      <div className="w-[230px] h-[94px] flex justify-between">
+        <TimerBox value="14" unit="Days" />
+        <TimerBox value="14" unit="Days" />
+        <TimerBox value="14" unit="Days" />
+      </div>
+    </div>
+  );
+}
+
+interface TimerBox{
+  value?:string,
+  unit:string
+}
+function TimerBox({ value, unit }:TimerBox) {
+  return (
+    <div className="w-[66px] text-[#002EEF] h-[66px] text-center items-center rounded-[100px] border border-[#728DFF]">
+      <p className="text-[24px] font-bold mt-[10px] ">{value}</p>
+      <p className="text-[13px] mt-[-7px] ">{unit}</p>
     </div>
   );
 }

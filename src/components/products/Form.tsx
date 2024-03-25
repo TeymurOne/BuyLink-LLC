@@ -1,5 +1,4 @@
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 import React, { useEffect, useState } from 'react';
 
 import addImg from '../../images/icon/addImg.png';
@@ -12,10 +11,10 @@ import { data } from '../Member/Form';
 
 const Form = () => {
   const params = useParams();
-  console.log(params, 'params');
+
   interface Initial {
-    title: string;
-    description: string;
+    title: any;
+    description: any;
     price: null | number;
     discountprice: number | null;
     productID: number | null;
@@ -31,10 +30,11 @@ const Form = () => {
   };
 
   const [formValue, setFormValue] = useState<Initial>(InitialData);
-  const { title, description, price, discountprice, productID, images } =
-    formValue;
+  const { title, description, price, discountprice, productID, images } = formValue;
   const { isSuccess, data, isError } = useFetchProducttypeQuery('');
   const [category, setCategory] = useState<string>();
+  const language = ['az', 'en', 'ru'];
+  const [active, setActive] = useState<string>('az');
 
   const [showimg, setShowimg] = useState<string>();
   const [load, setLoad] = useState<boolean>(false);
@@ -45,23 +45,40 @@ const Form = () => {
     setFormValue({ ...formValue, productID: params?.id });
   }, [params]);
 
-  const handleTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormValue({ ...formValue, title: e.target.value });
-  };
-  function stripHtmlTags(html: string) {
-    const doc = new DOMParser().parseFromString(html, 'text/html');
-    return doc.body.textContent || '';
-  }
-  const handleDesc = (event: any, editor: any) => {
-    const data = editor.getData();
-    const plainText = stripHtmlTags(data);
-    console.log(plainText, 'plainrext');
+  const handleTitle = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    language: string,
+  ) => {
+    const value = e.target.value;
 
     setFormValue((prevFormValue) => ({
       ...prevFormValue,
-      description: plainText,
+      title: {
+        ...prevFormValue.title,
+        [language]: value,
+      },
     }));
   };
+
+ 
+  const handleDesc = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    language: string,
+  ) => {
+    const value = e.target.value;
+    
+
+    setFormValue((prevFormValue) => ({
+      ...prevFormValue,
+      description: {
+        ...prevFormValue.description,
+        [language]: value,
+      },
+    }));
+  };
+
+  
+
   const handleNum = (e: React.ChangeEvent<HTMLInputElement>) => {
     const priceNum = Number(e.target.value);
     setFormValue({ ...formValue, price: priceNum });
@@ -81,6 +98,9 @@ const Form = () => {
       setFormValue({ ...formValue, images: files[0] });
       setShowimg(URL.createObjectURL(files[0]));
     }
+  };
+  const handleTab = (item: string) => {
+    setActive(item);
   };
   const btnDisabled = !title || !productID || !price || !images;
   const [postProduct] = usePostProductTypeMutation();
@@ -108,11 +128,20 @@ const Form = () => {
 
     postData.append('image', images);
     postData.append('category_id', productID!.toString());
-    postData.append('title', title);
+
     postData.append('price', price!.toString());
     postData.append('discounted_price', discountprice);
+    
+  language.forEach((key) => {
+      const value = description[key];
+      postData.append(`description[${key}]`, value || "");
+    });
+    language.forEach((key) => {
+      const value = title[key];
+      postData.append(`title[${key}]`, value || " ");
+    });
 
-    postData.append('description', description);
+  
 
     try {
       if (postData) {
@@ -172,35 +201,73 @@ const Form = () => {
             </div>
 
             <div className="mt-10 grid grid-cols-6 gap-x-6 gap-y-8 sm:grid-cols-6">
-              <div className="lg:col-span-3 col-span-6 ">
-                <label
-                  htmlFor="title"
-                  className="block text-sm font-medium leading-6 "
-                >
-                  Title
-                </label>
-                <div className="mt-2">
-                  <input
-                    onChange={handleTitle}
-                    value={title}
-                    placeholder="Title"
-                    id="text"
-                    name="text"
-                    type="text"
-                    className="block  pl-4 w-full rounded-md border-0 py-1.5  shadow-sm ring-1  sm:text-sm sm:leading-6"
-                  />
-                </div>
-              </div>
+              
+              <ul className="flex flex-wrap w-[400px] text-sm font-medium text-center">
+                  {language.map((item, index) => (
+                    <li
+                      className="me-2"
+                      key={index}
+                      onClick={() => handleTab(item)}
+                    >
+                      <a
+                        href="#"
+                        className={`shadow-2 inline-block px-4 mt-10 py-3 hover:bg-starrating hover:text-white rounded-lg ${
+                          active === item ? 'active' : ''
+                        }`}
+                        aria-current={active === item ? 'page' : undefined}
+                      >
+                        {item}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
 
-              <div className="sm:col-span-6 col-span-6 my-4 ">
-                <label
-                  htmlFor="description"
-                  className="block text-sm font-medium leading-6 mb-4 "
-                >
-                  Description
-                </label>
-                <CKEditor editor={ClassicEditor} onChange={handleDesc} />
-              </div>
+                {language.map((lang, index) => (
+                  <>
+                    <div
+                      key={index}
+                      className={`sm:col-span-6 col-span-6 my-1 ${
+                        active !== lang ? 'hidden' : ''
+                      }`}
+                    >
+                      <label
+                        htmlFor={`title-${lang}`}
+                        className="block text-sm font-medium leading-6 mb-4"
+                      >
+                        Title {lang.toUpperCase()}
+                      </label>
+                      <input
+                        name={`title-${lang}`}
+                        id={`title-${lang}`}
+                        className="block w-1/3 px-2 rounded-md border-1 py-1.5
+                   shadow-sm ring-1 w   placeholder:text-gray-400  border-[#ced4da]
+                    sm:text-sm sm:leading-6  "
+                        value={title[lang]}
+                        onChange={(e) => handleTitle(e, lang)}
+                      ></input>
+
+
+                      <div className="sm:col-span-6 col-span-6 my-4 ">
+                        <label
+                          htmlFor="description"
+                          className="block text-sm font-medium leading-6 mb-4 "
+                        >
+                          Description {lang.toUpperCase()}
+                        </label>
+                        <input
+                          name={`description-${lang}`}
+                          id={`description-${lang}`}
+                          className="w-full h-[100px] pl-4 pt-2"
+                          value={description[lang]}
+                          onChange={(e) => handleDesc(e, lang)}
+                        ></input>
+                      </div>
+                    </div>
+                  </>
+                ))}
+
+
+
               <div className="sm:col-span-2 col-span-6">
                 <label
                   htmlFor="country"
