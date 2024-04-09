@@ -9,6 +9,10 @@ interface Props {
 }
 
 const EditMap = ({ lat, lng, onLat, onLng }: Props) => {
+
+
+  
+  
   const [selectedLat, setSelectedLat] = useState<number>(Number(lat));
   const [selectedLng, setSelectedLng] = useState<number>(Number(lng));
 
@@ -16,7 +20,7 @@ const EditMap = ({ lat, lng, onLat, onLng }: Props) => {
     const timeout = setTimeout(() => {
       setSelectedLat(Number(lat));
       setSelectedLng(Number(lng));
-    }, 1000);
+    }, 1500);
 
     return () => clearTimeout(timeout);
   }, [lat, lng]);
@@ -33,14 +37,12 @@ const EditMap = ({ lat, lng, onLat, onLng }: Props) => {
 
   return (
     <>
-      {selectedLat !== null && selectedLng !== null && (
-        <Map
+     <Map
           selectedLat={selectedLat}
           selectedLng={selectedLng}
           onLatChange={handleLatChange}
           onLngChange={handleLngChange}
         />
-      )}
     </>
   );
 };

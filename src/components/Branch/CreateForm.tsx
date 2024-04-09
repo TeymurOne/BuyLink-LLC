@@ -39,14 +39,13 @@ const CreateForm = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      const coordinates: { lat: number; lng: number }[] = [];
+      const coordinates: { lat: number | string; lng: number | string }[] = [];
       data.data?.forEach((item: IpostData) => {
         coordinates.push({ lat: item.lat, lng: item.lng });
       });
       setKordinat(coordinates);
     }
   }, [isSuccess, data]);
-  
 
   if (isSuccess) {
     const { last_page, to, from, current_page, total, per_page } = data?.meta;
@@ -81,9 +80,7 @@ const CreateForm = () => {
   }
 
   function handeMapShow(item: any) {
-    
-    
-    setBranchName(item?.name)
+    setBranchName(item?.name);
     setLat(Number(item?.lat));
     setLng(Number(item?.lng));
   }
@@ -104,6 +101,12 @@ const CreateForm = () => {
         </div>
         <Link
           to="/admin/branchform"
+          onClick={() => {
+            setTimeout(() => {
+              window.location.reload()
+              
+            }, 100);
+          }}
           className="bg-successOpacity py-4 mb-4 lg:mb-0 md:mb-0 sm:mb-0 space-x-2 text-[16px] rounded-sm dark:bg-[#0ab39c26] justify-center flex items-center h-[40px] w-auto px-2 hover:text-white hover:bg-success"
         >
           <IoIosAddCircleOutline />
@@ -117,7 +120,7 @@ const CreateForm = () => {
           <div className="rounded-sm   shadow-default dark:border-strokedark dark:bg-boxdark ">
             <div className="max-w-full flex items-start overflow-x-auto">
               <table className="w-[100px] table-auto">
-                <thead >
+                <thead>
                   <tr className="bg-gray-2 text-[14px]  text-left dark:bg-meta-4">
                     <th className="min-w-[120px] py-2 px-4  font-medium text-black dark:text-white xl:pl-11">
                       ID
@@ -141,9 +144,14 @@ const CreateForm = () => {
                 <tbody>{content}</tbody>
               </table>
 
-            <div className='max-w-[100px] h-[400px] w-full '>
-            <MapModal name={branchName} lat={lat} lng={lng} allkordinat={allkordinat}  />
-            </div>
+              <div className="max-w-[100px] h-[400px] w-full ">
+                <MapModal
+                  name={branchName}
+                  lat={lat}
+                  lng={lng}
+                  allkordinat={allkordinat}
+                />
+              </div>
             </div>
           </div>
           {currentPages?.length > 1 && (

@@ -4,7 +4,7 @@ import { initReactI18next } from 'react-i18next';
 import detector from 'i18next-browser-languagedetector';
 import backend from 'i18next-http-backend';
 const resources = {
-  Aze: {
+  az: {
     translation: {
       member: {
         '0': 'Üzvlər',
@@ -100,7 +100,9 @@ const resources = {
       main: {
         '0': 'BuyLink  ',
         '1': 'dünyanın ilk rəqəmsal referal platformasıdır.',
-        '2': 'Bizim missiyamız insanları və biznesləri bir referal sosial şəbəkəsi altında birləşdirərək onların müəyyən qazanc və üstünlüklərdən faydalanmasını təmin etməkdir.',
+        '2': `Biz biznesləri və istifadəçiləri qarşılıqlı faydalı ekosistemə birləşdiririk: 
+
+        Tərəfdaşlarımız müştəri bazasının, loyallığın və mənfəətinin artırılmasından, istifadəçilərimiz isə tövsiyələr nəticəsində endirimlər və bonuslardan yararlana bilərlər`,
         '3': 'İzahedici video',
         '4': 'Bu video ən sadə şəkildə bizim   biznesin necə işlədiyini göstərir.',
         '5': 'Yüklə BuyLink',
@@ -188,30 +190,9 @@ const resources = {
         '15': '000-000-00',
       },
       privacy: {
-        '0': `“BuyLink”
-        Aidiyyati qanunvericilik
-        Fərdi Məlumatlar haqqında qanun – https://e-qanun.az/framework/19675 
-        Biometrik İnformasiya haqqında qanun – https://e-qanun.az/framework/15144
-        Fərdi məlumatların informasiya sistemlərinin dövlət qeydiyyatına alınması və dövlət qeydiyyatının ləğv edilməsi – https://e-qanun.az/framework/20039
-        Fərdi məlumatların mühafizəsinə dair tələblər – https://e-qanun.az/framework/20046 
-        Dövlət qeydiyyatına alınması tələb olunmayan fərdi məlumatların informasiya sistemləri – https://e-qanun.az/framework/21060
-        Fərdi məlumatların informasiya sisteminin dövlət qeydiyyatı ləğv edildikdə, həmin informasiya sistemində olan məlumatların məhv edilməsi – https://e-qanun.az/framework/21059
-        Fərdi məlumatların informasiya sistemlərinə fərdi identifikasiya nömrəsinin daxil edilməsi və istifadə olunması qaydası – https://e-qanun.az/framework/21469
-        “Azərbaycan Respublikası İnzibati Xətalar Məcəlləsinin təsdiq edilməsi haqqında” Azərbaycan Respublikasının 2015-ci il 29 dekabr tarixli 96-VQ nömrəli Qanununun tətbiqi barədə - https://e-qanun.az/framework/32186
-        Azərbaycan Respublikasının Cinayət Məcəlləsi – https://e-qanun.az/framework/46947
+        '0': `
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+    
         “BuyLink” mobil tətbiqinin Məxfilik Siyasəti
         Məzmun
         Şərhlər və hüquqi istinadlar
@@ -368,7 +349,7 @@ const resources = {
     },
   },
 
-  Eng: {
+  en: {
     translation: {
       member: {
         '0': 'Members',
@@ -502,7 +483,6 @@ const resources = {
         '7': 'Go to wallet and check you balance',
         '8': 'After your network use your referral link , you again rewards , and can check your balance in wallet page',
         '9': '',
-
       },
       partnyor3: {
         '0': 'How to get',
@@ -553,17 +533,8 @@ const resources = {
         '15': '000-000-00',
       },
       privacy: {
-        '0': `“BuyLink”
-        Legal Basis
-        Fərdi Məlumatlar haqqında qanun – https://e-qanun.az/framework/19675 
-        Biometrik İnformasiya haqqında qanun – https://e-qanun.az/framework/15144
-        Fərdi məlumatların informasiya sistemlərinin dövlət qeydiyyatına alınması və dövlət qeydiyyatının ləğv edilməsi – https://e-qanun.az/framework/20039
-        Fərdi məlumatların mühafizəsinə dair tələblər – https://e-qanun.az/framework/20046 
-        Dövlət qeydiyyatına alınması tələb olunmayan fərdi məlumatların informasiya sistemləri – https://e-qanun.az/framework/21060
-        Fərdi məlumatların informasiya sisteminin dövlət qeydiyyatı ləğv edildikdə, həmin informasiya sistemində olan məlumatların məhv edilməsi – https://e-qanun.az/framework/21059
-        Fərdi məlumatların informasiya sistemlərinə fərdi identifikasiya nömrəsinin daxil edilməsi və istifadə olunması qaydası – https://e-qanun.az/framework/21469
-        “Azərbaycan Respublikası İnzibati Xətalar Məcəlləsinin təsdiq edilməsi haqqında” Azərbaycan Respublikasının 2015-ci il 29 dekabr tarixli 96-VQ nömrəli Qanununun tətbiqi barədə - https://e-qanun.az/framework/32186
-        Azərbaycan Respublikasının Cinayət Məcəlləsi – https://e-qanun.az/framework/46947
+        '0': `
+        
         
         
         
@@ -747,7 +718,7 @@ i18n
   .init({
     resources,
 
-    lng: localStorage.getItem('lng') || 'Eng',
+    lng: localStorage.getItem('lng') || 'en',
   });
 
 export default i18n;

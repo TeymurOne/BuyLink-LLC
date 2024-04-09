@@ -3,10 +3,7 @@ import { BASAE_URL } from '../../data/mock/enviroments';
 import { RootState } from './store';
 import getState from '../../core/helpers/cookie';
 
-
-
-const getCookieToken=getState()
-
+const getCookieToken = getState();
 
 export const apiSlice = createApi({
   reducerPath: 'apiSlice',
@@ -15,14 +12,15 @@ export const apiSlice = createApi({
 
     prepareHeaders: (headers, { getState }) => {
       const state = getState() as RootState;
+      console.log(state, 'state');
+      
 
-  
-      const token = state.auth.token || getCookieToken 
-  
+      const token = state.auth.token || getCookieToken;
+
       if (token) {
         headers.set('authorization', `Bearer ${token}`);
       }
-  
+
       return headers;
     },
     credentials: 'include',

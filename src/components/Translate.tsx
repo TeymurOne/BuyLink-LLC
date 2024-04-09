@@ -29,7 +29,7 @@ const Translate = () => {
         className="relative flex h-8.5 w-8.5 items-center justify-center rounded-full border-[0.5px] border-stroke bg-gray hover:text-primary dark:border-strokedark dark:bg-meta-4 dark:text-white"
       >
         <span className="relative  right-0 z-1 h-2 w-4 rounded-full top-[-5px]">
-        {localStorage.getItem("lng")=='Aze'?(
+        {localStorage.getItem("lng")=='az'?(
                <img
                className="absolute  h-[24px] w-[24px] rounded-md"
                src={aze}
@@ -59,7 +59,7 @@ const Translate = () => {
         <ul className="flex h-auto flex-col overflow-y-auto">
           <li>
             <Link
-              onClick={() => handleClick('Eng')}
+              onClick={() => handleClick('en')}
               className="flex flex-col gap-2.5 border-t border-stroke px-4.5 py-3 hover:bg-gray-2 dark:border-strokedark dark:hover:bg-meta-4"
               to="#"
             >
@@ -71,7 +71,7 @@ const Translate = () => {
           </li>
           <li>
             <Link
-              onClick={() => handleClick('Aze')}
+              onClick={() => handleClick('az')}
               className="flex flex-col gap-2.5 border-t border-stroke px-4.5 py-3 hover:bg-gray-2 dark:border-strokedark dark:hover:bg-meta-4"
               to="#"
             >

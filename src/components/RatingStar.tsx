@@ -9,6 +9,7 @@ const RatingStar = () => {
   let content
 
   if (isSuccess) {
+    
     content = Object.entries(data?.rating.rating_counts || {}).map(
       (rate: any, index: number) => {
         return (
@@ -32,6 +33,7 @@ const RatingStar = () => {
         );
       }
     );
+    
   }
 
   return (
@@ -50,7 +52,9 @@ const RatingStar = () => {
       </div>
       <Star average_rating={average_rating}/>
       {content}
+      
     </div>
+    
     )}
     
     </>

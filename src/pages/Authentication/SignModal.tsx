@@ -22,7 +22,6 @@ const SignModal: React.FC<State> = ({ showModal, setShowModal }) => {
   const [show, setShow] = useState<boolean>(true);
 
   const useref = useRef<HTMLInputElement>(null);
-  const errRef = useRef();
   const navigate = useNavigate();
 
   const dispatch = useDispatch();

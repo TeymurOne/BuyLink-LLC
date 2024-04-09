@@ -52,9 +52,9 @@ import { Pagination } from 'swiper/modules';
                 {t('partnyor.3')}
               </p>
             </div>
-            <div className="w-[90%]  md:place-items-start   place-items-center grid lg:grid-cols-3 500px:grid-cols-2 md:grid-cols-2 grid-cols-1">
+            <div className="w-[90%]  place-items-start   grid lg:grid-cols-3 500px:grid-cols-2 md:grid-cols-2 grid-cols-1">
             <div className="pt-4 w-full max-w-[340px]">
-              <div className="flex items-center   lg:space-x-2 ">
+              <div className="flex items-center    space-x-2 ">
                 <img src={p_icon1} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope   lg:text-[17px] lg:text-start text-center md:text-start  500px:text-[11px]   md:text-[14px]  992px:text-[16px]  text-[20px]       text-black font-bold">

@@ -32,19 +32,17 @@ export default function Header() {
     handleTranslate(lang);
   }
 
-  React.useEffect(()=>{
+  React.useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      
-      if (popup && !((event.target as HTMLElement).closest(".popup"))) {
+      if (popup && !(event.target as HTMLElement).closest('.popup')) {
         setPopup(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
-        document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
-
-  }, [popup])
+  }, [popup]);
 
   return (
     <header className="bg-white font-roboto  pb-6   pt-3    ">
@@ -69,6 +67,36 @@ export default function Header() {
           </button>
         </div>
         <div className="flex lg:hidden">
+          <div
+            onClick={() => setPopup(!popup)}
+            className="flex   relative mr-8    z-9999   items-center "
+          >
+            <label
+              htmlFor="Select language"
+              className="flex items-center space-x-1  cursor-pointer  "
+            >
+              <div className=" relative ">{lang}</div>
+              <img src={vector} alt="Translate-vector arrow" />
+
+              {popup && (
+                <div className="h-[80px]  text-center shadow-1 rounded-md w-[83px] top-[96%]  -left-[10px]  absolute z-30  bg-white">
+                  <p
+                    onClick={() => handleLang('Eng')}
+                    className="hover:bg-[#E6E9FF] hover:text-[#0019F8] mt-2 popup  "
+                  >
+                    Eng
+                  </p>
+                  <p
+                    onClick={() => handleLang('Aze')}
+                    className="hover:bg-[#E6E9FF] hover:text-[#0019F8] mt-2 popup "
+                  >
+                    Aze
+                  </p>
+                </div>
+              )}
+            </label>
+          </div>
+
           <Link
             to=""
             onClick={() => setShowModal(true)}
@@ -104,19 +132,19 @@ export default function Header() {
               htmlFor="Select language"
               className="flex items-center space-x-1  cursor-pointer  "
             >
-              <div className=" relative ">{lang}</div>
+              <div className=" relative ">{lang==='az' ? "Aze" :"Eng"}</div>
               <img src={vector} alt="Translate-vector arrow" />
 
               {popup && (
                 <div className="h-[80px]  text-center shadow-1 rounded-md w-[83px] top-[96%]  -left-[21px]  absolute z-30  bg-white">
                   <p
-                    onClick={() => handleLang('Eng')}
+                    onClick={() => handleLang('en')}
                     className="hover:bg-[#E6E9FF] hover:text-[#0019F8] mt-2 popup  "
                   >
                     Eng
                   </p>
                   <p
-                    onClick={() => handleLang('Aze')}
+                    onClick={() => handleLang('az')}
                     className="hover:bg-[#E6E9FF] hover:text-[#0019F8] mt-2 popup "
                   >
                     Aze
@@ -129,15 +157,13 @@ export default function Header() {
             {cookie ? (
               <Link
                 to="/admin"
-                onClick={() => {
-                  setTimeout(
-                    () => {
-                      window.location.reload();
-                    },
-                    0,
-                    122,
-                  );
+                onClick={()=>{
+                  setTimeout(() => {
+                    window.location.reload()
+                    
+                  }, 100);
                 }}
+             
                 className="text-[16px]   space-x-2 text-black   h-[44px]    flex items-center justify-center rounded-sm      "
               >
                 Admin
@@ -195,7 +221,7 @@ export default function Header() {
                   onClick={() => setMobileMenuOpen(false)}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7"
                 >
-                    {t('header.1')}
+                  {t('header.1')}
                 </a>
                 <a
                   href="#how-use"
@@ -209,45 +235,45 @@ export default function Header() {
                   onClick={() => setMobileMenuOpen(false)}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 "
                 >
-                   {t('header.3')}
+                  {t('header.3')}
                 </a>
                 <a
                   href="#footer"
                   onClick={() => setMobileMenuOpen(false)}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 "
                 >
-                    {t('header.4')}
+                  {t('header.4')}
                 </a>
-             
-                <div
-            onClick={() => setPopup(!popup)}
-            className="flex   relative    z-9999   items-center "
-          >
-            <label
-              htmlFor="Select language"
-              className="flex items-center space-x-1  cursor-pointer  "
-            >
-              <div className=" relative ">{lang}</div>
-              <img src={vector} alt="Translate-vector arrow" />
 
-              {popup && (
-                <div className="h-[80px]  text-center shadow-1 rounded-md w-[83px] top-[96%]  -left-[10px]  absolute z-30  bg-white">
-                  <p
-                    onClick={() => handleLang('Eng')}
-                    className="hover:bg-[#E6E9FF] hover:text-[#0019F8] mt-2 popup  "
+                <div
+                  onClick={() => setPopup(!popup)}
+                  className="flex   relative    z-9999   items-center "
+                >
+                  <label
+                    htmlFor="Select language"
+                    className="flex items-center space-x-1  cursor-pointer  "
                   >
-                    Eng
-                  </p>
-                  <p
-                    onClick={() => handleLang('Aze')}
-                    className="hover:bg-[#E6E9FF] hover:text-[#0019F8] mt-2 popup "
-                  >
-                    Aze
-                  </p>
+                    <div className=" relative ">{lang}</div>
+                    <img src={vector} alt="Translate-vector arrow" />
+
+                    {popup && (
+                      <div className="h-[80px]  text-center shadow-1 rounded-md w-[83px] top-[96%]  -left-[10px]  absolute z-30  bg-white">
+                        <p
+                          onClick={() => handleLang('en')}
+                          className="hover:bg-[#E6E9FF] hover:text-[#0019F8] mt-2 popup  "
+                        >
+                          Eng
+                        </p>
+                        <p
+                          onClick={() => handleLang('az')}
+                          className="hover:bg-[#E6E9FF] hover:text-[#0019F8] mt-2 popup "
+                        >
+                          Aze
+                        </p>
+                      </div>
+                    )}
+                  </label>
                 </div>
-              )}
-            </label>
-          </div>
               </div>
               <div className="py-6">
                 <Link

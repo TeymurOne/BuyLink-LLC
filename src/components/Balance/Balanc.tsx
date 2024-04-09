@@ -7,7 +7,6 @@ import {
 } from '../../features/statistcs/apiSlice';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Loader from '../../common/Loader';
 
 const Balanc = () => {
   const [filtered, setFiltered] = useState<string>();
@@ -54,19 +53,23 @@ const Balanc = () => {
 
   return (
     <>
-      <div className="flex   cursor-pointer">
+      <div className="flex  justify-between w-full cursor-pointer">
         <CardTimer />
       </div>
-      <div className="flex  justify-between  cursor-pointer">
-        <CardOne onHandle={handleFilter} show={show} />
-        <CardTwo />
-      </div>
-      <div className="flex justify-between cursor-pointer ">
-        <div className="flex space-x-2.5">
-          <CardThree onHandle={handleFilter} show={show} />
-          <CardFour onHandle={handleFilter} show={show} />
+      <div className="flex md:space-x-2 space-x-0  md:flex-row  flex-col  justify-between">
+        {/* // left  */}
+        <div className="flex flex-col   cursor-pointer">
+          <CardOne onHandle={handleFilter} show={show} />
+          <div className="flex lg:space-x-2 space-x-2.5   ">
+            <CardThree onHandle={handleFilter} show={show} />
+            <CardFour onHandle={handleFilter} show={show} />
+          </div>
         </div>
-        <CardFive />
+        {/* right */}
+        <div className="flex md:flex-col md:space-x-0 space-x-2.5  flex-row items-center    cursor-pointer ">
+          <CardTwo />
+          <CardFive />
+        </div>
       </div>
 
       <div className="rounded-sm pt-20   shadow-default dark:border-strokedark dark:bg-boxdark ">
@@ -150,7 +153,7 @@ function CardOne({ onHandle, show }: any) {
     <>
       <div
         onClick={() => onHandle('all', 3)}
-        className={`w-[495px]  justify-between p-4 rounded-md  flex items-center border-2 border-[#728DFF] h-[100px] gap-2  bg-${
+        className={`lg:max-w-[495px] w-full   max-w-screen-md  justify-between   p-4 rounded-md  flex items-center border-[3px] border-[#728DFF] h-[100px] gap-10  bg-${
           isHighlighted ? '[#4C5DF5]' : 'white'
         }`}
       >
@@ -205,7 +208,7 @@ function CardTwo() {
   let content;
   if (isSuccess) content = data?.due_to_buylink;
   return (
-    <div className="w-[324px] p-4 flex items-center rounded-md   border-2 border-[#728DFF] h-[100px] gap-2 bg-white">
+    <div className="md:w-[300px] w-screen   p-4 flex items-center rounded-md    border-[3px] border-[#728DFF] h-[100px] gap-2 bg-white">
       <span className="flex items-center space-x-2">
         <img className="w-[50px] h-[46px]" src={coin} alt="" />
       </span>
@@ -225,7 +228,7 @@ function CardThree({ onHandle, show }: any) {
   return (
     <div
       onClick={() => onHandle('cash_till', 2)}
-      className={`w-[259px] p-4 mt-5 flex items-center rounded-md    border-2 border-[#728DFF] h-[100px] gap-2  bg-${
+      className={`md:w-[259px] w-screen   p-4  mt-2 flex items-center rounded-md    border-[3px] border-[#728DFF] h-[100px] gap-2  bg-${
         isHighlighted ? '[#4C5DF5]' : 'white'
       }`}
     >
@@ -279,7 +282,7 @@ function CardFour({ onHandle, show }: any) {
   return (
     <div
       onClick={() => onHandle('wallet', 1)}
-      className={`w-[226px] px-3 mt-5 flex items-center rounded-md   border-2 border-[#728DFF] h-[100px] gap-2  bg-${
+      className={`w-screen md:w-[226px]   my-2    px-3  flex items-center rounded-md    border-[3px] border-[#728DFF] h-[100px] gap-2  bg-${
         isHighlighted ? '[#4C5DF5]' : 'white'
       }`}
     >
@@ -361,7 +364,7 @@ function CardFive() {
   let content;
   if (isSuccess) content = data?.net_amount;
   return (
-    <div className="w-[324px] p-4 flex   mt-5 items-center rounded-md   border-2 border-[#728DFF] h-[100px] gap-2 bg-white">
+    <div className="md:w-[300px] w-screen  my-2    p-4 flex    items-center rounded-md   border-[3px] border-[#728DFF] h-[100px] gap-2 bg-white">
       <span className="flex items-center space-x-2">
         <img className="w-[50px] h-[46px]" src={amount} alt="" />
       </span>
@@ -384,16 +387,16 @@ function CardTimer() {
     return null; 
   }
 
-  const dateParts = data?.debt_date.split(' ');
-  const [year, day, month] = dateParts[0].split('-');
-  const [hours, minutes] = dateParts[1].split(':');
+  // const dateParts = data?.debt_date(' ');
+  // const [year, day, month] = dateParts[0].split('-');
+  // const [hours, minutes] = dateParts[1].split(':');
 
   return (
-    <div className="flex w-full items-center justify-between px-10">
+    <div className="flex flex-wrap w-full items-center justify-between px-10">
       <div className="w-[230px] h-[94px] mr-[500px] flex justify-between">
-        <TimerBox value={day} unit="Days" />
-        <TimerBox value={hours} unit="Hours" />
-        <TimerBox value={minutes} unit="Minutes" />
+        <TimerBox value="8" unit="Days" />
+        <TimerBox value="8" unit="Hours" />
+        <TimerBox value="9" unit="Minutes" />
       </div>
       <div className="w-[230px] h-[94px] flex justify-between">
         <TimerBox value="14" unit="Days" />

@@ -42,12 +42,12 @@ export function BuyLinkPartner3() {
               {t('partnyor3.2')}
             </p>
           </div>
-          <div className="w-[90%]  md:place-items-start   place-items-center grid lg:grid-cols-3 500px:grid-cols-2 md:grid-cols-2 grid-cols-1">
-            <div className="pt-4 w-full max-w-[340px]">
-              <div className="flex items-center   lg:space-x-2 ">
+          <div className="w-[90%]  md:place-items-start  gap-4   place-items-center grid lg:grid-cols-3 500px:grid-cols-2 md:grid-cols-2 grid-cols-1">
+            <div className="pt-4 w-full max-w-[340px] leading-4">
+              <div className="flex items-center justify-between leading-4    ">
                 <img src={d_icon1} alt="w-[20px] h-[28px]" />
 
-                <h2 className="font-manrope   lg:text-[17px] lg:text-start text-center md:text-start  500px:text-[11px]   md:text-[14px]  992px:text-[16px]  text-[20px]       text-black font-bold">
+                <h2 className="font-manrope  lg:text-[17px] leading-4  lg:text-start text-center md:text-start  500px:text-[11px]   md:text-[14px]  992px:text-[16px]  text-[20px]       text-black font-bold">
                   {t('partnyor3.3')}
                 </h2>
               </div>
@@ -56,8 +56,8 @@ export function BuyLinkPartner3() {
                 {t('partnyor3.4')}
               </p>
             </div>
-            <div className="pt-4  w-full max-w-[280px]">
-              <div className="flex items-center   space-x-2 ">
+            <div className="pt-4  w-full max-w-[340px] leading-4 ">
+              <div className="flex items-center justify-between  ">
                 <img src={d_icon2} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope text-[20px]   lg:text-[17px] 500px:text-[11px]    md:text-[14px]  992px:text-[16px]        text-black font-bold">
@@ -69,8 +69,8 @@ export function BuyLinkPartner3() {
                 {t('partnyor3.6')}
               </p>
             </div>
-            <div className="pt-4  w-full max-w-[320px]">
-              <div className="flex items-center   space-x-2 ">
+            <div className="pt-4  w-full max-w-[340px] leading-4 ">
+              <div className="flex items-center  justify-between   ">
                 <img src={d_icon3} alt="w-[20px] h-[28px]" />
 
                 <h2 className="font-manrope  text-[20px]  500px:text-[11px]   lg:text-[17px]  md:text-[14px]  992px:text-[16px]      text-black font-bold">
@@ -125,24 +125,24 @@ export function BuyLinkPartner3() {
           </Swiper>
         ) : (
           <div className="flex items-center pt-10  space-x-10 justify-center ">
-            <div className="w-[290px] h-[550px]">
+            <div className="w-[290px] ">
               <img
                 className="w-full h-full "
                 src={language == 'Aze' ? d1az : d1en}
                 alt="Iphone2"
               />
             </div>
-            <div className="w-[290px] h-[550px]">
-              <img
-                className="w-full h-full "
-                src={language == 'Aze' ? d2az : d2en}
-                alt="Iphone4"
-              />
-            </div>
-            <div className="w-[290px] h-[550px]">
+            <div className="w-[290px] ">
               <img
                 className="w-full h-full "
                 src={language == 'Aze' ? d3az : d3en}
+                alt="Iphone4"
+              />
+            </div>
+            <div className="w-[290px] ">
+              <img
+                className="w-full h-full "
+                src={language == 'Aze' ? d2az : d2en}
                 alt="Iphone2"
               />
             </div>

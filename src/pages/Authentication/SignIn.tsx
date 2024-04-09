@@ -11,7 +11,6 @@ const SignIn = () => {
   const [password, setPwd] = useState<any>('');
 
   const useref = useRef<HTMLInputElement>(null);
-  const errRef = useRef();
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -40,7 +39,6 @@ const SignIn = () => {
         password,
       });
 
-      console.log(userData);
       
       const expires = new Date();
       expires.setTime(expires.getTime() + 7 * 24 * 60 * 60 * 1000);

@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { useFetchMemberTypeQuery, usePostMemberMutation,} from '../../features/members/apiSlice';
+import {
+  useFetchMemberTypeQuery,
+  usePostMemberMutation,
+} from '../../features/members/apiSlice';
 import { useNavigate } from 'react-router-dom';
 import addImg from '../../images/icon/addImg.png';
 type TinitialState = {
@@ -22,7 +25,7 @@ export type Titem = {
 
 const Form = () => {
   const [showimg, setShowimg] = useState<string>();
-  const [formValue, setFormValue] = useState(initialState);
+  const [formValue, setFormValue] = useState<TinitialState>(initialState);
   const { fullname, position, membertypes, images } = formValue;
   const [load, setLoad] = useState<boolean>(false);
   const postData = new FormData();
@@ -44,15 +47,15 @@ const Form = () => {
     console.error('Error fetching data', 'Member Types');
   }
 
-  const handleMember = (e: React.ChangeEvent<HTMLSelectElement>):void => {
+  const handleMember = (e: React.ChangeEvent<HTMLSelectElement>): void => {
     setFormValue({ ...formValue, membertypes: e.target.value });
   };
-  const handleFullname = (e: React.ChangeEvent<HTMLInputElement>):void => {
+  const handleFullname = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setFormValue({ ...formValue, fullname: e.target.value });
   };
 
-  const handleImg = (e: React.ChangeEvent<HTMLInputElement>):void => {
-    let files:FileList | null = e.target.files;
+  const handleImg = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    let files: FileList | null = e.target.files;
 
     if (files) {
       setFormValue({ ...formValue, images: files[0] });
@@ -60,7 +63,7 @@ const Form = () => {
     }
   };
 
-  const handlePosition = (e: React.ChangeEvent<HTMLInputElement>):void => {
+  const handlePosition = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setFormValue({ ...formValue, position: e.target.value });
   };
   const postSubmit = async (e: React.FormEvent<HTMLButtonElement>) => {
@@ -92,7 +95,7 @@ const Form = () => {
     }
   };
 
-  const btnDisabled:boolean = !fullname || !position || !membertypes || !images;
+  const btnDisabled: boolean = !fullname || !position || !membertypes || !images;
   return (
     <>
       <form>

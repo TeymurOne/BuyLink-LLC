@@ -10,11 +10,11 @@ export interface IpostData {
   address: string;
   lat: number | string;
   lng: number | string;
-  phone:number | undefined
+  phone: number | undefined;
 }
 const Form = () => {
   const [addres, setAddress] = useState<string>('');
-  const [phone, setPhone]=useState<number >()
+  const [phone, setPhone] = useState<number>();
   const [name, setName] = useState<string>('');
   const navigate = useNavigate();
 
@@ -28,16 +28,15 @@ const Form = () => {
   };
 
   const handleLngChange = (lng: number) => {
-
     setSelectedLng(lng);
   };
- 
+
   const postData: IpostData = {
     name: name,
     address: addres,
-    phone:phone,
-    lat:String(selectedLat),
-    lng:String(selectedLng),
+    phone: phone,
+    lat: String(selectedLat),
+    lng: String(selectedLng),
   };
   const { t } = useTranslation();
 
@@ -54,7 +53,7 @@ const Form = () => {
       setLoad(false);
     }
   };
-  const btnDisabled = !selectedLat || !selectedLng || !addres || !name ||  !phone;
+  const btnDisabled =!selectedLat || !selectedLng || !addres || !name || !phone;
 
   return (
     <>
@@ -98,9 +97,9 @@ const Form = () => {
                 <div className="mt-2">
                   <input
                     value={phone}
-                    onChange={(e:any) => setPhone(e.target.value)}
+                    onChange={(e: any) => setPhone(e.target.value)}
                     type="number"
-                    placeholder='099 - 000 - 00 -00'
+                    placeholder="099 - 000 - 00 -00"
                     name="number"
                     id="number"
                     autoComplete="given-name"
@@ -133,9 +132,9 @@ const Form = () => {
                   htmlFor="map"
                   className="block text-sm font-medium leading-6 "
                 >
-                                    {t("branch.13")}
+                  {t('branch.13')}
 
-                   <Map
+                  <Map
                     selectedLat={selectedLat}
                     selectedLng={selectedLng}
                     onLatChange={handleLatChange}
@@ -183,7 +182,6 @@ const Form = () => {
                 </div>
               </div>
             </div>
-            
           </div>
         </div>
 

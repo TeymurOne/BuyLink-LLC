@@ -18,6 +18,8 @@ const ChartOne: React.FC = () => {
   const { data } = useGetStatisticsQuery('');
   const {t}=useTranslation()
 
+  
+
   useEffect(() => {
     if (data) {
       const { transactions_by_month, refer_claims_by_month, month } = data;

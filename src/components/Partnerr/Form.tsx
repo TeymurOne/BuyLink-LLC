@@ -5,7 +5,6 @@ import {
   useFetchPartnerrAllQuery,
   usePostPartnerrAllMutation,
 } from '../../features/partner/apiSlice';
-import { useNavigate } from 'react-router-dom';
 import EditMap from './EditMap';
 import Loader from '../../common/Loader';
 import { ToastContainer, toast } from 'react-toastify';
@@ -31,14 +30,17 @@ interface Initial {
   lng: any;
 }
 const Form = () => {
-  const { data, isSuccess, isLoading } = useFetchPartnerrAllQuery('');
+  const { data, isSuccess, isLoading, refetch } = useFetchPartnerrAllQuery('');
+  console.log(data, 'abc');
+  
+
   const language = ['az', 'en', 'ru'];
   const [active, setActive] = useState<string>('az');
   const [formValue, setFormValue] = useState<Initial>({
     title_: '',
     about_: '',
     description_: {},
-    phone_: '',
+    phone_: 0,
     address_: {},
     email_: '',
     cover_: '',
@@ -79,8 +81,6 @@ const Form = () => {
     }
   }, [isSuccess, data]);
 
-  const navigate = useNavigate();
-
   const {
     title_,
     description_,
@@ -97,6 +97,7 @@ const Form = () => {
     lat,
     lng,
   } = formValue;
+
   const [imglogo, setLogo] = useState<string>('');
   const [imgcover, setCover] = useState<string>('');
 
@@ -144,8 +145,9 @@ const Form = () => {
   };
 
   const handlePhone = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const priceNum = Number(e.target.value);
-    setFormValue({ ...formValue, phone_: priceNum });
+    const inputVal = e.target.value;
+    const numericValue = inputVal.replace(/\D/g, '');
+    setFormValue({ ...formValue, phone_: numericValue });
   };
 
   const handleImgLogo = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -187,7 +189,6 @@ const Form = () => {
   }
 
   const postSubmit = async (e: React.FormEvent<HTMLButtonElement>) => {
-    const notify = () => toast('Wow so easy!');
     setLoad(true);
     e.preventDefault();
 
@@ -201,13 +202,13 @@ const Form = () => {
     postData.append('facebook', facebook_);
     postData.append('instagram', instagram_);
     postData.append('title', title_);
-    Object.keys(description_).forEach((key) => {
+    language.forEach((key) => {
       const value = description_[key];
-      postData.append(`description[${key}]`, value);
+      postData.append(`description[${key}]`, value || ' ');
     });
-    Object.keys(address_).forEach((key) => {
+    language.forEach((key) => {
       const value = address_[key];
-      postData.append(`address[${key}]`, value);
+      postData.append(`address[${key}]`, value || ' ');
     });
 
     postData.append('phone', phone_);
@@ -225,6 +226,7 @@ const Form = () => {
           .then((response) => {
             if (response.success) {
               toast.success('Success!');
+              refetch()
             }
           });
       }
@@ -324,6 +326,7 @@ const Form = () => {
                       className="block  pl-4 w-full rounded-md border-0 py-1.5  shadow-sm ring-1  sm:text-sm sm:leading-6"
                     />
                   </div>
+
                   <label
                     htmlFor="title"
                     className="block text-sm font-medium leading-6 "
@@ -374,43 +377,41 @@ const Form = () => {
                 </ul>
 
                 {language.map((lang, index) => (
-                  <>
-                    <div
-                      key={index}
-                      className={`sm:col-span-6 col-span-6 my-1 ${
-                        active !== lang ? 'hidden' : ''
-                      }`}
+                  <div
+                    key={index}
+                    className={`sm:col-span-6 col-span-6 my-1 ${
+                      active !== lang ? 'hidden' : ''
+                    }`}
+                  >
+                    <label
+                      htmlFor={`description-${lang}`}
+                      className="block text-sm font-medium leading-6 mb-4"
                     >
+                      Description {lang.toUpperCase()}
+                    </label>
+                    <textarea
+                      name={`description-${lang}`}
+                      id={`description-${lang}`}
+                      className="w-full h-[100px] pl-4 pt-2"
+                      value={description_[lang]}
+                      onChange={(e) => handleDesc(e, lang)}
+                    ></textarea>
+                    <div className="sm:col-span-6 col-span-6 my-4 ">
                       <label
-                        htmlFor={`description-${lang}`}
-                        className="block text-sm font-medium leading-6 mb-4"
+                        htmlFor="address"
+                        className="block text-sm font-medium leading-6 mb-4 "
                       >
-                        Description {lang.toUpperCase()}
+                        Address {lang.toUpperCase()}
                       </label>
                       <textarea
-                        name={`description-${lang}`}
-                        id={`description-${lang}`}
+                        name={`address_-${lang}`}
+                        id={`address_-${lang}`}
                         className="w-full h-[100px] pl-4 pt-2"
-                        value={description_[lang]}
-                        onChange={(e) => handleDesc(e, lang)}
+                        value={address_[lang]}
+                        onChange={(e) => handleAddress(e, lang)}
                       ></textarea>
-                      <div className="sm:col-span-6 col-span-6 my-4 ">
-                        <label
-                          htmlFor="address"
-                          className="block text-sm font-medium leading-6 mb-4 "
-                        >
-                          Address {lang.toUpperCase()}
-                        </label>
-                        <textarea
-                          name={`address_-${lang}`}
-                          id={`address_-${lang}`}
-                          className="w-full h-[100px] pl-4 pt-2"
-                          value={address_[lang]}
-                          onChange={(e) => handleAddress(e, lang)}
-                        ></textarea>
-                      </div>
                     </div>
-                  </>
+                  </div>
                 ))}
 
                 <div className="lg:col-span-3 mt-4 col-span-6 ">
@@ -444,7 +445,7 @@ const Form = () => {
                   </label>
                   <div className="mt-2">
                     <input
-                      type="number"
+                      type="text"
                       value={phone_}
                       name="phone"
                       placeholder="Phone"
@@ -510,7 +511,7 @@ const Form = () => {
                     <input
                       onChange={handleFb}
                       value={website_}
-                      placeholder="instagram"
+                      placeholder="https://www.example.com"
                       id="website"
                       name="website_"
                       type="text"

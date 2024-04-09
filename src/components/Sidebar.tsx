@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, useTransition } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useParams } from 'react-router-dom';
 import Logo from '../images/logo/logo-buylink.jpg';
 import SidebarLinkGroup from './SidebarLinkGroup';
 import { useTranslation } from 'react-i18next';
@@ -10,6 +10,8 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
+  const [active, setActive] = useState(false);
+
   const location = useLocation();
   const { pathname } = location;
   const { t } = useTranslation();
@@ -58,11 +60,10 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   return (
     <aside
       ref={sidebar}
-      className={`absolute left-0 top-0 z-9999 flex h-screen w-[260px] flex-col overflow-y-hidden bg-menuBorder duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0 ${
+      className={`absolute left-0 top-0 z-999 flex h-screen w-[260px] flex-col overflow-y-hidden bg-menuBorder duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0 ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       }`}
     >
-      {/* <!-- SIDEBAR HEADER --> */}
       <div className="flex items-center justify-center gap-2 px-6 pt-5.5 lg:pt-6.5">
         <NavLink to="/">
           <img className="w-[90px] h-[77px] rounded-xl" src={Logo} alt="Logo" />
@@ -111,80 +112,83 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 {() => {
                   return (
                     <>
-                    
                       {/* <!-- Dropdown Menu Start --> */}
                       <div>
                         <ul className="mt-4 mb-5.5 flex flex-col gap-2.5 pl-3">
-                        <li className="my-1">
+                          <li>
                             <NavLink
                               to="/admin/balance"
-                              className="group relative flex items-center gap-2.5 rounded-md text-[16px]  font-medium text-[#abb9e8] duration-300 ease-in-out hover:text-white"
+                              className={`group relative flex items-center gap-2.5 rounded-md text-[16px] font-medium duration-300 ease-in-out hover:text-white ${
+                                ['/admin/balance'].includes(pathname)
+                                  ? 'text-white'
+                                  : 'text-[#abb9e8]'
+                              }`}
                             >
                               <p className="ml-[-13px]">-</p>
-                              {t("member.13")}
+                              {t('member.13')}
                             </NavLink>
                           </li>
-                        <li className="my-1">
+                          <li className="my-1">
                             <NavLink
                               to="/admin"
-                              className="group relative flex items-center gap-2.5 rounded-md text-[16px]  font-medium text-[#abb9e8] duration-300 ease-in-out hover:text-white"
+                              className={`group relative  ${[`/admin`].includes(pathname) ? "text-white":"text-[#abb9e8]"} flex items-center gap-2.5 rounded-md text-[16px]  font-medium  duration-300 ease-in-out hover:text-white`}
                             >
                               <p className="ml-[-13px]">-</p>
-                              {t("member.12")}
+                              {t('member.12')}
                             </NavLink>
                           </li>
                           <li className="my-1">
                             <NavLink
                               to="/admin/createForm"
-                              className="group relative flex items-center gap-2.5 rounded-md text-[16px]  font-medium text-[#abb9e8] duration-300 ease-in-out hover:text-white"
+                              className={`group ${[`/admin/createForm`].includes(pathname) ?"text-white":"text-[#abb9e8]"} relative flex items-center gap-2.5 rounded-md text-[16px]  font-medium text-[#abb9e8] duration-300 ease-in-out hover:text-white`}
                             >
                               <p className="ml-[-13px]">-</p>
-                              {t("member.0")}
+                              {t('member.0')}
                             </NavLink>
                           </li>
                           <li className="my-1">
                             <NavLink
                               to="/admin/branchcreate"
-                              className="group relative flex items-center gap-2.5 rounded-md  text-[16px]   font-medium text-[#abb9e8] duration-300 ease-in-out hover:text-white"
+                              className={`group relative ${[`/admin/branchcreate`].includes(pathname) ? "text-white":"text-[#abb9e8]"} flex items-center gap-2.5 rounded-md  text-[16px]   font-medium text-[#abb9e8] duration-300 ease-in-out hover:text-white`}
                             >
                               <p className="ml-[-13px]">-</p>
-                              {t("branch.0")}
+                              {t('branch.0')}
                             </NavLink>
                           </li>
                           <li className="my-1">
                             <NavLink
                               to="/admin/category"
-                              className="group relative flex items-center gap-2.5 rounded-md  text-[16px]   font-medium text-[#abb9e8] duration-300 ease-in-out hover:text-white"
+                              className={`group ${[`/admin/category`].includes(pathname) ? "text-white":"text-[#abb9e8]"} relative flex items-center gap-2.5 rounded-md  text-[16px]   font-medium text-[#abb9e8] duration-300 ease-in-out hover:text-white`}
                             >
                               <p className="ml-[-13px]">-</p>
-                              {t("product.13")}
+                              {t('product.13')}
                             </NavLink>
                           </li>
-                             <li className="my-1">
+                          <li className="my-1">
                             <NavLink
                               to="/admin/productCreate"
-                              className="group relative flex items-center gap-2.5 rounded-md  text-[16px]   font-medium text-[#abb9e8] duration-300 ease-in-out hover:text-white"
+                              className={`group relative flex items-center gap-2.5 rounded-md ${[`/admin/productCreate`].includes(pathname)? "text-white":"text-[#abb9e8]"}  text-[16px]   font-medium text-[#abb9e8] duration-300 ease-in-out hover:text-white`}
                             >
                               <p className="ml-[-13px]">-</p>
-                              {t("product.0")}
+                              {t('product.0')}
                             </NavLink>
                           </li>
                           <li className="my-1">
                             <NavLink
                               to="/admin/servicesCreate"
-                              className="group relative flex items-center gap-2.5 rounded-md  text-[16px]   font-medium text-[#abb9e8] duration-300 ease-in-out hover:text-white"
+                              className={`group ${[`/admin/servicesCreate`].includes(pathname)? "text-white":"text-[#abb9e8]"} relative flex items-center gap-2.5 rounded-md  text-[16px]   font-medium text-[#abb9e8] duration-300 ease-in-out hover:text-white`}
                             >
                               <p className="ml-[-13px]">-</p>
-                              {t("operator.0")} 
+                              {t('operator.0')}
                             </NavLink>
                           </li>
                           <li className="my-1">
                             <NavLink
                               to="/admin/partnerform"
-                              className="group relative flex items-center gap-2.5 rounded-md  text-[16px]   font-medium text-[#abb9e8] duration-300 ease-in-out hover:text-white"
+                              className={`group relative ${[`/admin/partnerform`].includes(pathname)? "text-white":"text-[#abb9e8]"} flex items-center gap-2.5 rounded-md  text-[16px]   font-medium text-[#abb9e8] duration-300 ease-in-out hover:text-white`}
                             >
                               <p className="ml-[-13px]">-</p>
-                              {t("partnerinfo.0")}
+                              {t('partnerinfo.0')}
                             </NavLink>
                           </li>
                         </ul>
@@ -194,11 +198,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   );
                 }}
               </SidebarLinkGroup>
-
             </ul>
           </div>
-
-         
         </nav>
       </div>
     </aside>

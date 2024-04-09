@@ -36,6 +36,8 @@ const Form = () => {
 
       if (response) {
         const dataToPass = response.data;
+        console.log(dataToPass, 'datratopass');
+        
 
         setRes({
           ...res,
@@ -49,12 +51,9 @@ const Form = () => {
   };
 
   useEffect(() => {
-    const timeout=setTimeout(() => {
-      handleEdit(id);
-    }, 1000);
-    clearTimeout(timeout)
+    handleEdit(id);
   
-  }, [id]);
+  }, [id,]);
 
   const navigate = useNavigate();
 
@@ -193,7 +192,7 @@ const Form = () => {
                     </label>
                     <div className="mt-2">
                       <input
-                        value={selectedLat}
+                        value={selectedLat || lat_}
                         onChange={(e) => setSelectedLat(Number(e.target.value))}
                         id="lat"
                         name="lat"
@@ -211,7 +210,7 @@ const Form = () => {
                     </label>
                     <div className="mt-2">
                       <input
-                        value={selectedLng}
+                        value={selectedLng || lng_}
                         onChange={(e) => setSelectedLng(Number(e.target.value))}
                         id="text"
                         name="text"

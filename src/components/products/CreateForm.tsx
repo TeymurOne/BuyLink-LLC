@@ -4,11 +4,16 @@ import { IoIosAddCircleOutline } from 'react-icons/io';
 import Tbody from './Tbody';
 import { useFetchProducPaginationQuery } from '../../features/product/apiSlice';
 import Loader from '../../common/Loader';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 import { useTranslation } from 'react-i18next';
 
 const CreateForm = () => {
+  const [language, setLanguage] = useState<string | null>(localStorage.getItem("i18nextLng" || "en"));
+
+  useEffect(() => {
+    setLanguage(localStorage.getItem("i18nextLng"));
+  }, []);
 
   
   let content;

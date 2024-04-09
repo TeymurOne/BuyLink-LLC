@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 
 import addImg from '../../images/icon/addImg.png';
@@ -30,7 +29,8 @@ const Form = () => {
   };
 
   const [formValue, setFormValue] = useState<Initial>(InitialData);
-  const { title, description, price, discountprice, productID, images } = formValue;
+  const { title, description, price, discountprice, productID, images } =
+    formValue;
   const { isSuccess, data, isError } = useFetchProducttypeQuery('');
   const [category, setCategory] = useState<string>();
   const language = ['az', 'en', 'ru'];
@@ -60,13 +60,11 @@ const Form = () => {
     }));
   };
 
- 
   const handleDesc = (
     e: React.ChangeEvent<HTMLInputElement>,
     language: string,
   ) => {
     const value = e.target.value;
-    
 
     setFormValue((prevFormValue) => ({
       ...prevFormValue,
@@ -76,8 +74,6 @@ const Form = () => {
       },
     }));
   };
-
-  
 
   const handleNum = (e: React.ChangeEvent<HTMLInputElement>) => {
     const priceNum = Number(e.target.value);
@@ -104,17 +100,22 @@ const Form = () => {
   };
   const btnDisabled = !title || !productID || !price || !images;
   const [postProduct] = usePostProductTypeMutation();
+  const local = localStorage.getItem('lng');
+
+  
 
   let content;
   if (isSuccess) {
     content = data.data?.map((item: data, index: number) => {
+     
+      
       return (
         <option
           key={index}
           value={item?.id}
           selected={item.id === Number(params.id)}
         >
-          {item.name}
+          {item.name[local]}
         </option>
       );
     });
@@ -131,17 +132,15 @@ const Form = () => {
 
     postData.append('price', price!.toString());
     postData.append('discounted_price', discountprice);
-    
-  language.forEach((key) => {
+
+    language.forEach((key) => {
       const value = description[key];
-      postData.append(`description[${key}]`, value || "");
+      postData.append(`description[${key}]`, value || '');
     });
     language.forEach((key) => {
       const value = title[key];
-      postData.append(`title[${key}]`, value || " ");
+      postData.append(`title[${key}]`, value || ' ');
     });
-
-  
 
     try {
       if (postData) {
@@ -201,72 +200,68 @@ const Form = () => {
             </div>
 
             <div className="mt-10 grid grid-cols-6 gap-x-6 gap-y-8 sm:grid-cols-6">
-              
               <ul className="flex flex-wrap w-[400px] text-sm font-medium text-center">
-                  {language.map((item, index) => (
-                    <li
-                      className="me-2"
-                      key={index}
-                      onClick={() => handleTab(item)}
-                    >
-                      <a
-                        href="#"
-                        className={`shadow-2 inline-block px-4 mt-10 py-3 hover:bg-starrating hover:text-white rounded-lg ${
-                          active === item ? 'active' : ''
-                        }`}
-                        aria-current={active === item ? 'page' : undefined}
-                      >
-                        {item}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-
-                {language.map((lang, index) => (
-                  <>
-                    <div
-                      key={index}
-                      className={`sm:col-span-6 col-span-6 my-1 ${
-                        active !== lang ? 'hidden' : ''
+                {language.map((item, index) => (
+                  <li
+                    className="me-2"
+                    key={index}
+                    onClick={() => handleTab(item)}
+                  >
+                    <a
+                      href="#"
+                      className={`shadow-2 inline-block px-4 mt-10 py-3 hover:bg-starrating hover:text-white rounded-lg ${
+                        active === item ? 'active' : ''
                       }`}
+                      aria-current={active === item ? 'page' : undefined}
                     >
-                      <label
-                        htmlFor={`title-${lang}`}
-                        className="block text-sm font-medium leading-6 mb-4"
-                      >
-                        Title {lang.toUpperCase()}
-                      </label>
-                      <input
-                        name={`title-${lang}`}
-                        id={`title-${lang}`}
-                        className="block w-1/3 px-2 rounded-md border-1 py-1.5
+                      {item}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+
+              {language.map((lang, index) => (
+                <>
+                  <div
+                    key={index}
+                    className={`sm:col-span-6 col-span-6 my-1 ${
+                      active !== lang ? 'hidden' : ''
+                    }`}
+                  >
+                    <label
+                      htmlFor={`title-${lang}`}
+                      className="block text-sm font-medium leading-6 mb-4"
+                    >
+                      Title {lang.toUpperCase()}
+                    </label>
+                    <input
+                      name={`title-${lang}`}
+                      id={`title-${lang}`}
+                      className="block w-1/3 px-2 rounded-md border-1 py-1.5
                    shadow-sm ring-1 w   placeholder:text-gray-400  border-[#ced4da]
                     sm:text-sm sm:leading-6  "
-                        value={title[lang]}
-                        onChange={(e) => handleTitle(e, lang)}
+                      value={title[lang]}
+                      onChange={(e) => handleTitle(e, lang)}
+                    ></input>
+
+                    <div className="sm:col-span-6 col-span-6 my-4 ">
+                      <label
+                        htmlFor="description"
+                        className="block text-sm font-medium leading-6 mb-4 "
+                      >
+                        Description {lang.toUpperCase()}
+                      </label>
+                      <input
+                        name={`description-${lang}`}
+                        id={`description-${lang}`}
+                        className="w-full h-[100px] pl-4 pt-2"
+                        value={description[lang]}
+                        onChange={(e) => handleDesc(e, lang)}
                       ></input>
-
-
-                      <div className="sm:col-span-6 col-span-6 my-4 ">
-                        <label
-                          htmlFor="description"
-                          className="block text-sm font-medium leading-6 mb-4 "
-                        >
-                          Description {lang.toUpperCase()}
-                        </label>
-                        <input
-                          name={`description-${lang}`}
-                          id={`description-${lang}`}
-                          className="w-full h-[100px] pl-4 pt-2"
-                          value={description[lang]}
-                          onChange={(e) => handleDesc(e, lang)}
-                        ></input>
-                      </div>
                     </div>
-                  </>
-                ))}
-
-
+                  </div>
+                </>
+              ))}
 
               <div className="sm:col-span-2 col-span-6">
                 <label
