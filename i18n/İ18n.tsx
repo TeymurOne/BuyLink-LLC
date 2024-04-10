@@ -6,6 +6,9 @@ import backend from 'i18next-http-backend';
 const resources = {
   az: {
     translation: {
+      default:{
+        "0":"az"
+      },
       member: {
         '0': 'Üzvlər',
         '1': 'Üzv yarat',
@@ -351,6 +354,9 @@ const resources = {
 
   en: {
     translation: {
+      default:{
+        "0":"en"
+      },
       member: {
         '0': 'Members',
         '1': 'Create Member',

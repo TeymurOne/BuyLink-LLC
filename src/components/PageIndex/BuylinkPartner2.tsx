@@ -99,7 +99,7 @@ export function BuyLinkPartner2() {
                   <div className="max-w-[225px] h-[390px] w-full ">
                     <img
                       className="w-full h-full object-contain"
-                      src={language == 'Aze' ? s1az : s1en}
+                      src={language == 'az' ? s1az : s1en}
                       alt="Iphone2"
                     />
                   </div>
@@ -108,7 +108,7 @@ export function BuyLinkPartner2() {
                   <div className="max-w-[225px] h-[390px] w-full  ">
                     <img
                       className="w-full h-full object-contain"
-                      src={language == 'Aze' ? s2az : s2en}
+                      src={language == 'az' ? s2az : s2en}
                       alt="Iphone4"
                     />
                   </div>
@@ -117,7 +117,7 @@ export function BuyLinkPartner2() {
                   <div className="max-w-[225px] h-[390px] w-full  ">
                     <img
                       className="w-full h-full object-contain"
-                      src={language == 'Aze' ? s3az : s3en}
+                      src={language == 'az' ? s3az : s3en}
                       alt="Iphone2"
                     />
                   </div>
@@ -129,21 +129,21 @@ export function BuyLinkPartner2() {
               <div >
                 <img
                   className="w-full h-[458px] object-contain "
-                  src={language == 'Aze' ? s1az : s1en}
+                  src={language == 'az' ? s1az : s1en}
                   alt="Iphone2"
                 />
               </div>
               <div>
                 <img
                   className="w-full h-[458px] object-contain "
-                  src={language == 'Aze' ? s2az : s2en}
+                  src={language == 'az' ? s2az : s2en}
                   alt="Iphone4"
                 />
               </div>
               <div>
                 <img
                   className="w-full h-[458px] object-contain"
-                  src={language == 'Aze' ? s3az : s3en}
+                  src={language == 'az' ? s3az : s3en}
                   alt="Iphone2"
                 />
               </div>

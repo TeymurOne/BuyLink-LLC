@@ -3,16 +3,38 @@ import { IoIosAddCircleOutline } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 import { useFetchProducttypeQuery } from '../../features/product/apiSlice';
 import Loader from '../../common/Loader';
+import { useTranslation } from 'react-i18next';
 
 const Category = () => {
+  const { t } = useTranslation();
+
   const { isSuccess, isLoading, data } = useFetchProducttypeQuery('');
-  const [language, setLanguage] = useState<string | null>(localStorage.getItem("i18nextLng" || "en"));
+  const [language, setLanguage] = useState<any>();
+  const [filteredData, setFilteredData] = useState([]);
+  const [search, setSearchText] = useState('');
+
+  const local = t('default.0');
+  useEffect(() => {
+    setLanguage(local);
+  }, [local]);
 
   useEffect(() => {
-    setLanguage(localStorage.getItem("i18nextLng"));
-  }, []);
+    if (isSuccess && data) {
+      setFilteredData(data?.data);
+    }
+  }, [isSuccess, data]);
 
-  if (!isSuccess) return null;
+  useEffect(() => {
+    let filteredData = data?.data;
+    if (search.trim() !== '') {
+      filteredData = filteredData.filter((item: any) => {
+        return item.name[language]
+          ?.toLocaleLowerCase()
+          .includes(search.toLocaleLowerCase());
+      });
+    }
+    setFilteredData(filteredData);
+  }, [search]);
 
   if (isLoading) {
     return (
@@ -21,12 +43,14 @@ const Category = () => {
       </div>
     );
   }
+  if (!isSuccess) return null;
 
   return (
     <>
       <input
         type="text"
         placeholder=" search..."
+        onChange={(e) => setSearchText(e.target.value)}
         className="max-w-[243px] w-full py-2 my-4  pr-4 pl-9 focus:outline-none rounded-md   "
       />
 
@@ -48,7 +72,7 @@ const Category = () => {
               </tr>
             </thead>
             <tbody>
-              {data?.data.map((item: any, index: number) => (
+              {filteredData?.map((item: any, index: number) => (
                 <Tbody item={item} key={index} language={language} />
               ))}
             </tbody>
@@ -70,8 +94,6 @@ interface TbodyProps {
 }
 
 function Tbody({ item, language }: TbodyProps) {
- 
-  
   return (
     <tr className="text-sm ">
       <td className="border-b border-[#eee] text-[16px] py-5 px-4 dark:border-strokedark">

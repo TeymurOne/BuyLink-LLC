@@ -15,8 +15,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [popup, setPopup] = useState(false);
-  const [lang, setLang] = useState(localStorage.getItem('lng') || 'Eng');
-  const local = localStorage.getItem('lng');
+  const [lang, setLang] = useState(localStorage.getItem('lng') || 'en');
 
   const cookie = getState();
   const { t } = useTranslation();
@@ -75,19 +74,20 @@ export default function Header() {
               htmlFor="Select language"
               className="flex items-center space-x-1  cursor-pointer  "
             >
-              <div className=" relative ">{lang}</div>
+               <div className=" relative ">{lang==='az' ? "Aze" :"Eng"}</div>
+
               <img src={vector} alt="Translate-vector arrow" />
 
               {popup && (
                 <div className="h-[80px]  text-center shadow-1 rounded-md w-[83px] top-[96%]  -left-[10px]  absolute z-30  bg-white">
                   <p
-                    onClick={() => handleLang('Eng')}
+                    onClick={() => handleLang('en')}
                     className="hover:bg-[#E6E9FF] hover:text-[#0019F8] mt-2 popup  "
                   >
                     Eng
                   </p>
                   <p
-                    onClick={() => handleLang('Aze')}
+                    onClick={() => handleLang('az')}
                     className="hover:bg-[#E6E9FF] hover:text-[#0019F8] mt-2 popup "
                   >
                     Aze

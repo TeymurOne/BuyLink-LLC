@@ -98,7 +98,7 @@ export function BuyLinkPartner3() {
                 <div className="max-w-[225px] h-[590px] w-full ">
                   <img
                     className="w-full h-full object-contain"
-                    src={language == 'Aze' ? d1az : d1en}
+                    src={language == 'az' ? d1az : d1en}
                     alt="Iphone2"
                   />
                 </div>
@@ -107,7 +107,7 @@ export function BuyLinkPartner3() {
                 <div className="max-w-[225px] h-[590px] w-full  ">
                   <img
                     className="w-full h-full object-contain"
-                    src={language == 'Aze' ? d2az : d2en}
+                    src={language == 'az' ? d2az : d2en}
                     alt="Iphone4"
                   />
                 </div>
@@ -116,7 +116,7 @@ export function BuyLinkPartner3() {
                 <div className="max-w-[225px] h-[590px] w-full  ">
                   <img
                     className="w-full h-full object-contain"
-                    src={language == 'Aze' ? d3az : d3en}
+                    src={language == 'az' ? d3az : d3en}
                     alt="Iphone2"
                   />
                 </div>
@@ -128,21 +128,21 @@ export function BuyLinkPartner3() {
             <div className="w-[290px] ">
               <img
                 className="w-full h-full "
-                src={language == 'Aze' ? d1az : d1en}
+                src={language == 'az' ? d1az : d1en}
                 alt="Iphone2"
               />
             </div>
             <div className="w-[290px] ">
               <img
                 className="w-full h-full "
-                src={language == 'Aze' ? d3az : d3en}
+                src={language == 'az' ? d3az : d3en}
                 alt="Iphone4"
               />
             </div>
             <div className="w-[290px] ">
               <img
                 className="w-full h-full "
-                src={language == 'Aze' ? d2az : d2en}
+                src={language == 'az' ? d2az : d2en}
                 alt="Iphone2"
               />
             </div>

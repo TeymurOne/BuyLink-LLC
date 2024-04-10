@@ -17,7 +17,7 @@ function reducer(state: any, action: any) {
     case 'inputValue':
       return { ...state, inputValue: action.payload };
     default:
-      return state; 
+      return state;
   }
 }
 interface Iface {
@@ -32,7 +32,6 @@ interface Iface {
 export const Map = (props: any) => {
   const maps = window.google && window.google.maps;
 
-
   const initialState: Iface = {
     lat: 40.405999043422824,
     lng: 49.91863556236839,
@@ -46,6 +45,7 @@ export const Map = (props: any) => {
     { lat, lng, marker, inputValue, autocompleteService, autocomplete },
     dispatch,
   ] = useReducer(reducer, initialState);
+
   function test() {
     dispatch({
       type: 'setAutocompleteService',
@@ -55,10 +55,9 @@ export const Map = (props: any) => {
     dispatch({
       type: 'setAutocomplete',
       payload: new maps.places.Autocomplete(
-        document.getElementById('autocomplete-input') as HTMLInputElement
+        document.getElementById('autocomplete-input') as HTMLInputElement,
       ),
     });
-    
   }
 
   const { selectedLat, selectedLng, onLatChange, onLngChange } = props;
@@ -71,23 +70,16 @@ export const Map = (props: any) => {
   useEffect(() => {
     if (maps) {
       setTimeout(() => {
-        test()
-
-        
+        test();
       }, 1000);
- 
-    
-      
     }
   }, [props]);
-  
 
   useEffect(() => {
     if (marker) {
       marker.setPosition({ lat, lng });
     }
   }, [lat, lng, marker, selectedLat, selectedLng]);
-
 
   const loadMap = (map: any, maps: any) => {
     if (!marker) {
@@ -102,8 +94,8 @@ export const Map = (props: any) => {
       newMarker.addListener('dragend', handleDragEnd);
       dispatch({ type: 'setMarker', payload: newMarker });
     }
-  
-    test()
+
+    test();
   };
 
   const handleDragEnd = (e: any) => {
@@ -120,6 +112,8 @@ export const Map = (props: any) => {
       const lng = place.geometry.location.lng();
       dispatch({ type: 'setLat', payload: lat });
       dispatch({ type: 'setLng', payload: lng });
+      const selectedValue = place.formatted_address;
+      dispatch({type:"inputValue", payload:selectedValue})
 
       onLatChange(lat);
       onLngChange(lng);
@@ -140,7 +134,7 @@ export const Map = (props: any) => {
     onLngChange(lngKordinat);
   };
 
-  const defaultProps = {
+    const defaultProps = {
     center: {
       lat: lat,
       lng: lng,
@@ -152,13 +146,10 @@ export const Map = (props: any) => {
   useEffect(() => {
     if (inputValue.trim() !== '' && autocompleteService) {
       const componentRestrictions = { country: 'AZ' };
-      autocompleteService.getPlacePredictions(
-        {
-          input: inputValue,
-          componentRestrictions,
-        },
-      
-      );
+      autocompleteService.getPlacePredictions({
+        input: inputValue,
+        componentRestrictions,
+      });
     }
   }, [inputValue, autocompleteService]);
 
@@ -168,7 +159,7 @@ export const Map = (props: any) => {
         type="text"
         id="autocomplete-input"
         className="block w-full max-w-[300px] px-2 rounded-md border-1 py-1.5 mb-4  shadow-sm ring-1   placeholder:text-gray-400  border-[#ced4da] sm:text-sm sm:leading-6"
-        value={inputValue}
+        value={inputValue }
         onChange={(e) =>
           dispatch({ type: 'inputValue', payload: e.target.value })
         }
@@ -179,7 +170,6 @@ export const Map = (props: any) => {
         defaultZoom={defaultProps.zoom}
         yesIWantToUseGoogleMapApiInternals
         onGoogleApiLoaded={({ map, maps }) => loadMap(map, maps)}
-        
       />
     </div>
   );
