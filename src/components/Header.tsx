@@ -60,7 +60,7 @@ const Header = (props: {
           </Link>
         </div>
 
-        <div className="hidden sm:block">
+        <div className="hidden opacity-0 sm:block">
           <form action="https://formbold.com/s/unique_form_id" method="POST">
             <div className="relative">
               <p className="absolute top-1/2 left-0 -translate-y-1/2">
