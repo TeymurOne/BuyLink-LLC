@@ -7,13 +7,15 @@ import { useTranslation } from 'react-i18next';
 
 const Category = () => {
   const { t } = useTranslation();
+  const local = t('default.0');
 
   const { isSuccess, isLoading, data } = useFetchProducttypeQuery('');
-  const [language, setLanguage] = useState<any>();
+  const [language, setLanguage] = useState<any>(local);
   const [filteredData, setFilteredData] = useState([]);
   const [search, setSearchText] = useState('');
 
-  const local = t('default.0');
+
+  
   useEffect(() => {
     setLanguage(local);
   }, [local]);
