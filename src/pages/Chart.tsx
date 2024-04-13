@@ -1,5 +1,5 @@
 // import ChartFour from '../components copy/ChartFour.tsx';
-import Breadcrumb from '../components/Breadcrumb.tsx';
+import Breadcrumb from '../components/dashboard/Breadcrumb.tsx';
 
 import ChartOne from '../components/Chart/ChartOne.tsx';
 import ChartThree from '../components/Chart/ChartThree.tsx';

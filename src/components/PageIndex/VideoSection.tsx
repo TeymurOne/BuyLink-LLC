@@ -40,8 +40,8 @@ function VideoSection() {
               controls={true}
             >
               {' '}
-              {language == 'Aze' && <source src="./Aze.mp4" type="video/mp4" />}
-              {language == 'Eng' && <source src="./eng.mp4" type="video/mp4" />}
+              {language == 'az' && <source src="./Aze.mp4" type="video/mp4" />}
+              {language == 'en' && <source src="./eng.mp4" type="video/mp4" />}
             </video>
           </div>
         </div>

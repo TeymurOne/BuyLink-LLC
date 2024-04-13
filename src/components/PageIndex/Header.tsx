@@ -5,7 +5,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import logo from '../../images/Pages-index/head-main/logo.svg';
 import vector from '../../images/Pages-index/head-main/vector.svg';
 
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import SignModal from '../../pages/Authentication/SignModal';
 import getState from '../../core/helpers/cookie';
 import i18n from '../../../i18n/İ18n';
@@ -18,6 +18,8 @@ export default function Header() {
   const [lang, setLang] = useState(localStorage.getItem('lng') || 'en');
 
   const cookie = getState();
+  console.log(cookie, );
+  
   const { t } = useTranslation();
 
   const handleTranslate = (lang: string) => {
@@ -42,9 +44,12 @@ export default function Header() {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [popup]);
+  const useparams=useLocation()
+
+  
 
   return (
-    <header className="bg-white font-roboto  pb-6   pt-3    ">
+    <header className= { ` ${useparams.pathname=='/privacypolicy' ? "bg-gray2" :"bg-white"}   font-roboto  pb-6   pt-3  `}>
       <nav
         className="mx-auto  flex  w-full items-center justify-between py-3"
         aria-label="Global"
@@ -157,12 +162,7 @@ export default function Header() {
             {cookie ? (
               <Link
                 to="/admin"
-                onClick={()=>{
-                  setTimeout(() => {
-                    window.location.reload()
-                    
-                  }, 100);
-                }}
+            
              
                 className="text-[16px]   space-x-2 text-black   h-[44px]    flex items-center justify-center rounded-sm      "
               >

@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { useGetStatisticsQuery } from '../features/statistcs/apiSlice';
+import { useGetStatisticsQuery } from '../../features/statistcs/apiSlice';
 
 const CardOne = () => {
   const {  data } = useGetStatisticsQuery('');

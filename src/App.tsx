@@ -7,18 +7,15 @@ import ECommerce from './pages/Dashboard/ECommerce';
 
 import Loader from './common/Loader';
 import axiosInstance from './core/lib/axios.config';
-import {
-  selectCurrentUser,
-  setCredentials,
-} from './features/auth/authSlice';
+import { selectCurrentUser, setCredentials } from './features/auth/authSlice';
 import ProtectedRoutes from './private/ProtectedRoutes';
 import ErrorPage from './components/ErrorPage';
 import Index from './components/PageIndex/Index';
 import routes from './routes';
 import PrivacyPolicy from './components/PageIndex/PrivacyPoilcy';
 import getState from './core/helpers/cookie';
+import DefaultLayout from './layout/DefaultLayout';
 
-const DefaultLayout = lazy(() => import('./layout/DefaultLayout'));
 
 function App() {
   const userState = useSelector(selectCurrentUser);

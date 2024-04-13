@@ -8,6 +8,8 @@ import { useTranslation } from 'react-i18next';
 const Category = () => {
   const { t } = useTranslation();
   const local = t('default.0');
+  console.log(local, 'local');
+  
 
   const { isSuccess, isLoading, data } = useFetchProducttypeQuery('');
   const [language, setLanguage] = useState<any>(local);

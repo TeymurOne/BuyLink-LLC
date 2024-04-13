@@ -1,3 +1,4 @@
+
 const Transactions = ({ newData }: any) => {
   let content;
   if (newData) {
@@ -55,6 +56,8 @@ const Tbody = ({ item }: any) => {
           </p>
         </td>
       </tr>
+
+  
     </>
   );
 };

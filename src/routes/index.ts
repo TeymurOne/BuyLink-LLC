@@ -39,6 +39,8 @@ const branchform = lazy(() => import('../components/Branch/Form.tsx'));
 const operatorDetails = lazy(
   () => import('../components/operator/Details.tsx'),
 );
+
+
 const operatorEdit = lazy(
   () => import('../components/operator/EditOperator.tsx'),
 );
@@ -180,6 +182,7 @@ const coreRoutes = [
     title: 'balance',
     component: balance,
   },
+
 ];
 
 const routes = [...coreRoutes];

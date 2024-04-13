@@ -7,6 +7,7 @@ import {
 } from '../../features/product/apiSlice';
 import { useNavigate, useParams } from 'react-router-dom';
 import { data } from '../Member/Form';
+import { useTranslation } from 'react-i18next';
 
 const Form = () => {
   const params = useParams();
@@ -100,7 +101,10 @@ const Form = () => {
   };
   const btnDisabled = !title || !productID || !price || !images;
   const [postProduct] = usePostProductTypeMutation();
-  const local = localStorage.getItem('lng');
+  const { t } = useTranslation();
+  const local = t('default.0');
+  console.log(local, 'local');
+  
 
   
 
