@@ -73,7 +73,7 @@ export default function Header() {
         <div className="flex lg:hidden">
           <div
             onClick={() => setPopup(!popup)}
-            className="flex   relative mr-8    z-9999   items-center "
+            className="lg:flex  hidden  relative mr-8    z-9999   items-center "
           >
             <label
               htmlFor="Select language"
@@ -84,7 +84,7 @@ export default function Header() {
               <img src={vector} alt="Translate-vector arrow" />
 
               {popup && (
-                <div className="h-[80px]  text-center shadow-1 rounded-md w-[83px] top-[96%]  -left-[10px]  absolute z-30  bg-white">
+                <div className="h-[80px] hid  text-center shadow-1 rounded-md w-[83px] top-[96%]  -left-[10px]  absolute z-30  bg-white">
                   <p
                     onClick={() => handleLang('en')}
                     className="hover:bg-[#E6E9FF] hover:text-[#0019F8] mt-2 popup  "
@@ -141,7 +141,7 @@ export default function Header() {
               <img src={vector} alt="Translate-vector arrow" />
 
               {popup && (
-                <div className="h-[80px]  text-center shadow-1 rounded-md w-[83px] top-[96%]  -left-[21px]  absolute z-30  bg-white">
+                <div className="h-[80px]    text-center shadow-1 rounded-md w-[83px] top-[96%]  -left-[21px]  absolute z-30  bg-white">
                   <p
                     onClick={() => handleLang('en')}
                     className="hover:bg-[#E6E9FF] hover:text-[#0019F8] mt-2 popup  "
@@ -253,7 +253,7 @@ export default function Header() {
                     htmlFor="Select language"
                     className="flex items-center space-x-1  cursor-pointer  "
                   >
-                    <div className=" relative ">{lang}</div>
+              <div className=" relative text-base font-semibold  ">{lang==='az' ? "Aze" :"Eng"}</div>
                     <img src={vector} alt="Translate-vector arrow" />
 
                     {popup && (

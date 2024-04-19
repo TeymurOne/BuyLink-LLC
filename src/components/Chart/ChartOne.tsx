@@ -35,7 +35,6 @@ const ChartOne: React.FC = () => {
     if (isSuccess && data) {
 
       const transactions_by_month = Object.values(data.transactions_by_month);
-      console.log(transactions_by_month);
       
      
       
@@ -65,7 +64,9 @@ const ChartOne: React.FC = () => {
     colors: ['#3C50E0', '#FF0000'],
     chart: {
       fontFamily: 'Satoshi, sans-serif',
-      height: 335,
+      
+      
+    
       toolbar: {
         show: false,
       },
@@ -92,7 +93,7 @@ const ChartOne: React.FC = () => {
       fontWeight: 500,
       fontSize: '14px',
       markers: {
-        radius: 20,
+        radius: 15,
       },
     },
     stroke: {
@@ -120,7 +121,11 @@ const ChartOne: React.FC = () => {
         breakpoint: 2600,
         options: {
           chart: {
-            width: 1400,
+            width: 475,
+            height:200
+
+            
+            
           },
         },
       },
@@ -128,7 +133,8 @@ const ChartOne: React.FC = () => {
         breakpoint: 1740,
         options: {
           chart: {
-            width: 1150,
+            width: 475,
+            height:236
           },
         },
       },
@@ -136,15 +142,59 @@ const ChartOne: React.FC = () => {
         breakpoint: 1340,
         options: {
           chart: {
-            width: 500,
+            width: 405,
+            height:316,
           },
         },
       },
       {
-        breakpoint: 800,
+        breakpoint: 1200,
         options: {
           chart: {
-            width: 600,
+            width: 405,
+            height:326,
+          },
+        },
+      },
+      {
+        breakpoint: 768,
+        options: {
+          chart: {
+            width: 400,
+            height:326
+          },
+        },
+      },
+      {
+        breakpoint: 600,
+        options: {
+          chart: {
+            width: 400,
+            height:326
+          },
+        },
+      },
+      {
+        breakpoint: 500,
+        options: {
+          chart: {
+            width: 400,
+          },
+        },
+      },
+      {
+        breakpoint: 400,
+        options: {
+          chart: {
+            width: 340,
+          },
+        },
+      },
+      {
+        breakpoint: 992,
+        options: {
+          chart: {
+            width: 405,
           },
         },
       },
@@ -152,7 +202,7 @@ const ChartOne: React.FC = () => {
   };
 
   return (
-    <div className="rounded-sm border border-stroke bg-white p-7.5 shadow-default dark:border-strokedark dark:bg-boxdark xl:col-span-4">
+    <div className="  bg-white p-7 lg:mt-0 mt-6 rounded-[15px] shadow-default dark:border-strokedark dark:bg-boxdark ">
       <div className="mb-4  gap-4 sm:flex">
         <div>
           <h4 className="text-xl font-semibold text-black dark:text-white">
@@ -166,8 +216,9 @@ const ChartOne: React.FC = () => {
           <ReactApexChart
             options={options}
             series={state.series}
+            width={455}
+            height={300}
             type="bar"
-            height={450}
           />
         </div>
       </div>

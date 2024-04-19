@@ -659,16 +659,7 @@ export default function Entext() {
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </span>
           </span>
-          <span
-            lang="AZ-LATIN"
-            style={{
-              fontSize: '12.0pt',
-              lineHeight: '107%',
-              fontFamily: '"Palatino Linotype",serif',
-            }}
-          >
-            gender;{' '}
-          </span>
+     
         </p>
         <p
           className="MsoListParagraphCxSpMiddle"
@@ -2696,7 +2687,7 @@ export default function Entext() {
                 fontFamily: '"Palatino Linotype",serif',
               }}
             >
-              Məxfilik Siyasətinə Dəyişikliklər
+           Changes to Privacy Policy
             </span>
           </b>
           <span

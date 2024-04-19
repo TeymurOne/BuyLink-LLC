@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 interface Initial {
   title_: any;
-  about_: string;
+
   description_: any;
   phone_: any;
   address_: any;
@@ -31,14 +31,12 @@ interface Initial {
 }
 const Form = () => {
   const { data, isSuccess, isLoading, refetch } = useFetchPartnerrAllQuery('');
-  console.log(data, 'abc');
-  
 
   const language = ['az', 'en', 'ru'];
   const [active, setActive] = useState<string>('az');
   const [formValue, setFormValue] = useState<Initial>({
     title_: '',
-    about_: '',
+  
     description_: {},
     phone_: 0,
     address_: {},
@@ -93,7 +91,7 @@ const Form = () => {
     cover_,
     img_,
     email_,
-    about_,
+ 
     lat,
     lng,
   } = formValue;
@@ -109,9 +107,6 @@ const Form = () => {
   };
   const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormValue({ ...formValue, email_: e.target.value });
-  };
-  const handleAbout = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormValue({ ...formValue, about_: e.target.value });
   };
 
   const handleDesc = (
@@ -212,7 +207,6 @@ const Form = () => {
     });
 
     postData.append('phone', phone_);
-    postData.append('about', about_);
 
     postData.append('website', website_);
 
@@ -226,7 +220,7 @@ const Form = () => {
           .then((response) => {
             if (response.success) {
               toast.success('Success!');
-              refetch()
+              refetch();
             }
           });
       }
@@ -336,25 +330,7 @@ const Form = () => {
                   <EditMap lat={lat} lng={lng} onLat={onLat} onLng={onLng} />
                 </div>
 
-                <div className="lg:col-span-3 mt-3 col-span-6 ">
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 "
-                  >
-                    About
-                  </label>
-                  <div className="mt-2">
-                    <input
-                      onChange={handleAbout}
-                      value={about_}
-                      placeholder="About"
-                      id="about"
-                      name="about"
-                      type="text"
-                      className="block  pl-4 w-full rounded-md border-0 py-1.5  shadow-sm ring-1  sm:text-sm sm:leading-6"
-                    />
-                  </div>
-                </div>
+                <div className="lg:col-span-3 mt-3 col-span-6 "></div>
 
                 <ul className="flex flex-wrap w-[400px] text-sm font-medium text-center">
                   {language.map((item, index) => (
@@ -412,7 +388,7 @@ const Form = () => {
                       ></textarea>
                     </div>
                   </div>
-                ))}
+                  ))}
 
                 <div className="lg:col-span-3 mt-4 col-span-6 ">
                   <label

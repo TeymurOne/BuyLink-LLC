@@ -1,13 +1,13 @@
-import CardFive from '../../components/dashboard/CardFive.tsx';
 import CardFour from '../../components/dashboard/CardFour.tsx';
 import CardOne from '../../components/dashboard/CardOne.tsx';
 import CardThree from '../../components/dashboard/CardThree.tsx';
 import CardTwo from '../../components/dashboard/CardTwo.tsx';
 import ChartOne from '../../components/Chart/ChartOne.tsx';
-import ChartTwo from '../../components/Chart/ChartTwo.tsx';
 import RatingStar from '../../components/RatingStar.tsx';
 import Review from '../../components/Review.tsx';
 import { useGetReviewQuery } from '../../features/statistcs/apiSlice.tsx';
+import Chart from '../Chart.tsx';
+import ChartTwo from '../../components/Chart/ChartTwo.tsx';
 
 const ECommerce = () => {
   let content;
@@ -21,27 +21,41 @@ const ECommerce = () => {
       content = <Review  />;
     }
   }
-  
   return (
     <>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-2 2xl:gap-7.5">
-        <CardOne />
-        <CardTwo />
-        <CardThree />
-        <CardFour />
-        <CardFive/>
-      </div>
-
-      <div className="mt-4 gap-10 space-y-16 ">
-        <ChartOne />
-        <ChartTwo />
-      </div>
-
-      <div className="rounded-sm border px-4 grid grid-cols-1  md:grid-cols-2 md:gap-6 xl:grid-cols-2 2xl:gap-7.5     border-stroke bg-white py-6  dark:border-strokedark dark:bg-boxdark">
-        <RatingStar />
-        <div className="overflow-auto max-h-[340px]">
-        {content}
+      <div className="  flex lg:flex-row flex-col      space-x-4 ">
+        <div className="lg:max-w-[681px] max-w-full  w-full   ">
+          <div className="  w-full flex  space-x-2 justify-between     ">
+            <CardOne />
+            <CardFour />
+          </div>
+          <div className="grid grid-cols-1 gap-2 lg:grid-cols-2  mt-3 items-baseline   ">
+            <CardTwo />
+            <CardThree />
+          </div>
         </div>
+        <div>
+          <ChartOne />
+        </div>
+      </div>
+
+      <div className=" flex   lg:flex-row flex-col   max-w-full w-full          dark:border-strokedark dark:bg-boxdark">
+        <div className='bg-white 1200px:flex-row flex-col flex h-[340px] max-w-[678px]  w-full  overflow-x-hidden  pt-4     mt-2  mr-2 rounded-[15px] '>
+          <RatingStar/>
+          <div className='flex flex-col  overflow-y-auto min-w-[330px] h-[300px]  '>
+          {content}
+          </div>
+        
+
+        </div>
+        <div className='items-baseline '>
+        <ChartTwo/>
+        </div>
+   
+        {/* <RatingStar /> */}
+        {/* <div className="overflow-auto max-h-[340px]">
+        {content}
+        </div> */}
       </div>
     </>
   );

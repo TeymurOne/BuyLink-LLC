@@ -1,16 +1,18 @@
-import { IoIosAddCircleOutline } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid';
 import { useState } from 'react';
-import { IMemberApiResponse, useFetchMemberDataQuery} from '../../features/members/apiSlice';
+import {
+  IMemberApiResponse,
+  useFetchMemberDataQuery,
+} from '../../features/members/apiSlice';
 import Tbody from './Tbody';
 import Loader from '../../common/Loader';
 import { useTranslation } from 'react-i18next';
+import create from '../../images/action-icon/create.svg';
+import TbodyResponsive from './TbodyResponsive';
+
 const CreateForm: React.FC = () => {
   const { t } = useTranslation();
- 
-
-
 
   const [page, setPage] = useState<any>(1);
   const { data, isSuccess, isLoading } = useFetchMemberDataQuery(page);
@@ -18,6 +20,7 @@ const CreateForm: React.FC = () => {
   let currentPages: any;
 
   let content: any;
+  let TbodyResponsiv: any;
 
   const handlePagination = (id: number) => {
     setPage(id);
@@ -34,7 +37,6 @@ const CreateForm: React.FC = () => {
     } else {
     }
   };
-
 
   if (isSuccess && data) {
     content = data.data?.map((item: IMemberApiResponse, index: number) => (
@@ -61,54 +63,61 @@ const CreateForm: React.FC = () => {
     <div>
       <div className="flex justify-between flex-wrap">
         <div className="flex flex-col w-60">
-          <h4 className="mb-6 text-xl font-semibold text-black dark:text-white">
-          {t('member.0')}
+          <h4 className=" text-xl font-semibold text-black dark:text-white">
+            {t('member.0')}
           </h4>
           <input
             type="text"
             placeholder=" search..."
-            className="w-full py-2 my-4  pr-4 pl-9 focus:outline-none rounded-md   "
+            className="max-w-[270px] w-full shadow-2 rounded-xl py-2 my-4   pl-9 focus:outline-none   "
           />
         </div>
         <Link
           to="/admin/form"
-          className="bg-successOpacity py-3 mb-4 lg:mb-0 md:mb-0 sm:mb-0 space-x-2 text-[16px] rounded-md dark:bg-[#0ab39c26] justify-center flex items-center h-[40px] w-full max-w-[163px] hover:text-white hover:bg-success"
+          className="bg-white text-[0.900em] font-medium  mb-4 lg:mb-0 md:mb-0 sm:mb-0 space-x-2  rounded-md  justify-center flex items-center h-[36px] w-full max-w-[163px] "
         >
-          <IoIosAddCircleOutline />
-         {t("member.1")}
+          <img src={create} alt="Create icon" />
+          {t('member.1')}
         </Link>
       </div>
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="rounded-sm   shadow-default dark:border-strokedark dark:bg-boxdark ">
-          <div className="max-w-full  overflow-x-auto">
-            <table className="w-full table-auto">
-              <thead>
-                <tr className="bg-gray-2 text-[14px] text-left dark:bg-meta-4">
-                  <th className="min-w-[50px] py-4 px-4  font-medium ">ID</th>
-                  <th className="min-w-[120px] py-4 px-4  lg:pl-10  md:pl-4  sm:pl-0 font-medium  ">
-                    {t("member.2")}
-                  </th>
-                  <th className="min-w-[120px] py-4 px-4 font-medium ">
-                  {t("member.3")}
-                  </th>
-                  <th className="min-w-[120px] py-4 px-4 font-medium ">
-                  {t("member.4")}
-                  </th>
-                  <th className="min-w-[120px] py-4 px-4 font-medium ">
-                  {t("member.5")}
-                  </th>
+        <>
+          <div className="rounded-sm  md:block hidden  shadow-default  dark:border-strokedark dark:bg-boxdark ">
+            <div className="max-w-full  border  rounded-lg border-[#DFDFDF] overflow-hidden   overflow-x-auto   ">
+              <table className="w-full table-auto bg-white    ">
+                <thead>
+                  <tr className="2 bg-white text-[0.900em] font-poppins text-[black] text-left dark:bg-meta-4">
+                    <th className="w-[58px] h-[41px]  border-b border-r  border-[#DFDFDF] px-4  font-medium ">
+                      ID
+                    </th>
+                    <th className="min-w-[120px] py-2 border-b border-r  border-[#DFDFDF] px-4  lg:pl-10  md:pl-4  sm:pl-0 font-medium  ">
+                      {t('member.2')}
+                    </th>
+                    <th className="min-w-[120px] py-2 border-b border-r  border-[#DFDFDF] px-4 font-medium ">
+                      {t('member.3')}
+                    </th>
+                    <th className="min-w-[120px] border-b border-r  border-[#DFDFDF] py-2 px-4 font-medium ">
+                      {t('member.4')}
+                    </th>
+                    <th className="min-w-[120px] border-b border-r  border-[#DFDFDF] py-2 px-4 font-medium ">
+                      {t('member.5')}
+                    </th>
 
-                  <th className=" min-w-[120px] py-4 px-4  font-medium ">
-                  {t("member.6")}
-                  </th>
-                </tr>
-              </thead>
-              <tbody>{content}</tbody>
-            </table>
+                    <th className=" min-w-[120px] border-b border-l  border-[#DFDFDF]  py-2 px-4  font-medium ">
+                      {t('member.6')}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>{content}</tbody>
+              </table>
+            </div>
           </div>
-        </div>
+          {data?.data.map((item:any, index) => {
+            return <TbodyResponsive key={index} item={item} />;
+          })}
+        </>
       )}
       <div className="flex items-center justify-between my-4  border-gray-200  px-4 py-3 sm:px-6">
         <div className="flex flex-1 justify-between sm:hidden">

@@ -5,15 +5,16 @@ import {
   useLazyEditProductQuery,
   useUpdateProductMutation,
 } from '../../features/product/apiSlice';
+import { useTranslation } from 'react-i18next';
 interface Data {
-  id:string | undefined,
+  id: string | undefined;
   title_: string;
 
   desc_: string;
   price_: any;
   discountedPrice: any;
   img: any;
-  categoryId:any
+  categoryId: any;
 }
 type data = {
   id: number;
@@ -26,28 +27,30 @@ const EditProduct = () => {
   const [editProduct] = useLazyEditProductQuery();
 
   const [res, setRes] = useState<Data>({
-    id:id,
+    id: id,
     title_: '',
     desc_: '',
     price_: '',
     discountedPrice: '',
     img: '',
-    categoryId:''
+    categoryId: '',
   });
+  const { t } = useTranslation();
+  const local:any = t('default.0');
 
   async function handleEdit(id: any) {
     try {
       const response = await editProduct(id);
       if (response) {
-        const data = response.data?.data;       
-         
+        const data = response.data?.data;
+
         setRes({
           ...res,
           title_: data?.title,
           desc_: data?.description,
           img: data?.image,
           price_: data?.price,
-          categoryId:data?.category.id,
+          categoryId: data?.category.id,
           discountedPrice: data?.discount_price,
         });
       }
@@ -66,33 +69,31 @@ const EditProduct = () => {
   const [dataEdit] = useUpdateProductMutation();
   const [showimg, setShowimg] = useState<string>();
   const postData = new FormData();
-  const idUrl=res?.id  
-  const navigate=useNavigate()
+  const idUrl = res?.id;
+  const navigate = useNavigate();
   const { desc_, title_, price_, discountedPrice, img } = res;
 
   if (isSuccess) {
-    (content = data?.data?.map((item: data, index: number) => {
+    content = data?.data?.map((item: data, index: number) => {
       return (
         <option
           key={index}
           value={item.id}
           selected={item.id == Number(res?.categoryId)}
         >
-          {item.name}
+          {item.name[local]}
         </option>
       );
-    }))
-   
+    });
   } else if (isError) {
     console.error('Error fetching data', 'Product Types');
-    
   }
   const handleTab = (item: string) => {
     setActive(item);
   };
   const handlePrice = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const numPrice = Number(e.target.value);
-    
+    const numPrice = e.target.value;
+
     setRes({ ...res, price_: numPrice });
   };
   const handleDiscountPrice = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -101,10 +102,10 @@ const EditProduct = () => {
   };
   const handleCategory = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const categoryId = parseInt(e.target.value, 10);
-    
+
     setRes((prev) => ({
       ...prev,
-      categoryId:categoryId ,
+      categoryId: categoryId,
     }));
   };
   const handleImg = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -117,30 +118,27 @@ const EditProduct = () => {
   };
   const handleUpdate = async (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    
 
     postData.append('image', img);
     postData.append('category_id', res.categoryId);
-    
- 
+
     postData.append('price', price_);
     postData.append('discounted_price', discountedPrice.toString());
-    Object.keys(desc_).forEach((key) => {
+    language.forEach((key:any) => {
       const value = desc_[key];
-      postData.append(`description[${key}]`, value);
+      postData.append(`description[${key}]`, value || " ");
     });
-    Object.keys(title_).forEach((key) => {
+   language.forEach((key:any) => {
       const value = title_[key];
-      postData.append(`title[${key}]`, value);
+      postData.append(`title[${key}]`, value || "");
     });
 
     try {
       if (postData) {
         console.log(postData, 'postdata');
-        
+
         await dataEdit({ postData, idUrl });
         navigate('/admin/productCreate');
-
       }
     } catch (error) {}
   };
@@ -152,14 +150,13 @@ const EditProduct = () => {
 
     setRes((prevFormValue) => ({
       ...prevFormValue,
-      title: {
+      title_: {
         ...prevFormValue.title_,
         [language]: value,
       },
     }));
   };
 
- 
   const handleDesc = (
     e: React.ChangeEvent<HTMLInputElement>,
     language: string,
@@ -168,7 +165,7 @@ const EditProduct = () => {
 
     setRes((prevFormValue) => ({
       ...prevFormValue,
-      description: {
+      desc_: {
         ...prevFormValue.desc_,
         [language]: value,
       },
@@ -209,67 +206,66 @@ const EditProduct = () => {
             </div>
           </div>
           <div className="mt-10 grid grid-cols-6 gap-x-6  sm:grid-cols-6">
-          <ul className="flex flex-wrap w-[400px] text-sm font-medium text-center">
-                  {language.map((item, index) => (
-                    <li
-                      className="me-2"
-                      key={index}
-                      onClick={() => handleTab(item)}
+            <ul className="flex flex-wrap w-[400px] text-sm font-medium text-center">
+              {language.map((item, index) => (
+                <li
+                  className="me-2"
+                  key={index}
+                  onClick={() => handleTab(item)}
+                >
+                  <a
+                    href="#"
+                    className={`shadow-2 inline-block px-4 mt-10 py-3 hover:bg-starrating hover:text-white rounded-lg ${
+                      active === item ? 'active' : ''
+                    }`}
+                    aria-current={active === item ? 'page' : undefined}
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            {language.map((lang:any, index) => (
+              <>
+                <div
+                  key={index}
+                  className={`sm:col-span-6 col-span-6 my-1 ${
+                    active !== lang ? 'hidden' : ''
+                  }`}
+                >
+                  <label
+                    htmlFor={`title-${lang}`}
+                    className="block text-sm font-medium leading-6 mb-4"
+                  >
+                    Title {lang.toUpperCase()}
+                  </label>
+                  <textarea
+                    name={`title-${lang}`}
+                    id={`title-${lang}`}
+                    className="w-full h-[100px] pl-4 pt-2"
+                    value={title_[lang] || ""}
+                    onChange={(e) => handleTitle(e, lang)}
+                  ></textarea>
+
+                  <div className="sm:col-span-6 col-span-6 my-4 ">
+                    <label
+                      htmlFor="description"
+                      className="block text-sm font-medium leading-6 mb-4 "
                     >
-                      <a
-                        href="#"
-                        className={`shadow-2 inline-block px-4 mt-10 py-3 hover:bg-starrating hover:text-white rounded-lg ${
-                          active === item ? 'active' : ''
-                        }`}
-                        aria-current={active === item ? 'page' : undefined}
-                      >
-                        {item}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-
-                {language.map((lang, index) => (
-                  <>
-                    <div
-                      key={index}
-                      className={`sm:col-span-6 col-span-6 my-1 ${
-                        active !== lang ? 'hidden' : ''
-                      }`}
-                    >
-                      <label
-                        htmlFor={`title-${lang}`}
-                        className="block text-sm font-medium leading-6 mb-4"
-                      >
-                        Title {lang.toUpperCase()}
-                      </label>
-                      <textarea
-                        name={`title-${lang}`}
-                        id={`title-${lang}`}
-                        className="w-full h-[100px] pl-4 pt-2"
-                        value={title_[lang]}
-                        onChange={(e) => handleTitle(e, lang)}
-                      ></textarea>
-
-
-                      <div className="sm:col-span-6 col-span-6 my-4 ">
-                        <label
-                          htmlFor="description"
-                          className="block text-sm font-medium leading-6 mb-4 "
-                        >
-                          Description {lang.toUpperCase()}
-                        </label>
-                        <input
-                          name={`description-${lang}`}
-                          id={`description-${lang}`}
-                          className="w-full h-[100px] pl-4 pt-2"
-                          value={desc_[lang]}
-                          onChange={(e) => handleDesc(e, lang)}
-                        ></input>
-                      </div>
-                    </div>
-                  </>
-                ))}
+                      Description {lang.toUpperCase()}
+                    </label>
+                    <input
+                      name={`description-${lang}`}
+                      id={`description-${lang}`}
+                      className="w-full h-[100px] pl-4 pt-2"
+                      value={desc_[lang] || ""}
+                      onChange={(e) => handleDesc(e, lang)}
+                    ></input>
+                  </div>
+                </div>
+              </>
+            ))}
 
             <div className="sm:col-span-2 col-span-6">
               <label
@@ -282,7 +278,7 @@ const EditProduct = () => {
                 <input
                   onChange={handlePrice}
                   value={price_}
-                  type="text"
+                  type="number"
                   name="Price"
                   id="Price"
                   autoComplete="Price"

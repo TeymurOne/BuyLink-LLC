@@ -6,8 +6,10 @@ import {
 } from '../../features/members/apiSlice';
 import Swal from 'sweetalert2';
 import { Link, useNavigate } from 'react-router-dom';
-import { FiEdit2, FiEye } from 'react-icons/fi';
-import { AiOutlineDelete } from 'react-icons/ai';
+
+import edit from '../../images/action-icon/edit.svg';
+import rubbish from '../../images/action-icon/rubish.svg';
+import eye from '../../images/action-icon/details.svg';
 
 interface TbodyProps {
   item: IMemberApiResponse;
@@ -15,8 +17,7 @@ interface TbodyProps {
 
 const Tbody: React.FC<TbodyProps> = ({ item }) => {
   const [deletePost] = useDeleteMemberMutation();
-  const navigate = useNavigate();
-  const [updatePost] = useLazyUpdateGetMemberQuery();
+  
   const handleDelete = async (id: number) => {
     const result = await Swal.fire({
       title: 'Are you sure?',
@@ -46,16 +47,14 @@ const Tbody: React.FC<TbodyProps> = ({ item }) => {
     }
   };
 
-
-
   return (
     <>
-      <tr className=" dark:bg-boxdark">
-        <td className="border-b border-[#eee] text-[16px] py-5 px-4 dark:border-strokedark">
+      <tr className=" dark:bg-boxdark border-0 bg-white hover:bg-[#F8F8F8]">
+        <td className="  border-[#eee] border-0 text-[16px]  px-4 dark:border-strokedark">
           {item?.id}
         </td>
-        <td className="border-b border-[#eee] py-5 px-4  dark:border-strokedark xl:pl-11">
-          <div className="font-medium w-11 h-10  dark:text-white">
+        <td className=" border-[#eee] py-1 px-4  dark:border-strokedark xl:pl-11">
+          <div className="font-medium w-[42px] h-[42px]  dark:text-white">
             <img
               src={item?.image}
               className="w-full h-full rounded-full"
@@ -63,41 +62,37 @@ const Tbody: React.FC<TbodyProps> = ({ item }) => {
             />
           </div>
         </td>
-        <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
+        <td className=" border-[#eee] py-1 px-4 dark:border-strokedark">
           <p className="inline-flex rounded-full bg-opacity-10 py-1 px-3 text-sm font-medium  ">
             {item?.member_type?.name}
           </p>
         </td>
-        <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
+        <td className=" border-[#eee] py-1 px-4 dark:border-strokedark">
           <p className="inline-flex rounded-full bg-opacity-10 py-1 px-3 text-sm font-medium ">
             {item?.full_name}
           </p>
         </td>
-        <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
+        <td className=" border-[#eee] py-1 px-4 dark:border-strokedark">
           <p className="inline-flex rounded-full bg-opacity-10 py-1 px-3 text-sm font-medium ">
             {item?.position}
           </p>
         </td>
 
-        <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-          <div className="flex items-center space-x-3.5">
+        <td className=" border-[#eee] py-1 px-4 dark:border-strokedark">
+          <div className="flex items-center space-x-2">
             <Link
               to={`/admin/member/details/${item.id}`}
-              className="hover:text-primary"
             >
-              <FiEye />
+              <img src={eye} alt="" className="w-[20px] h-[20px]" />
             </Link>
-            <button
-              className="hover:text-primary"
-              onClick={() => handleDelete(item.id)}
-            >
-              <AiOutlineDelete />
-            </button>
             <Link
               to={`/admin/editMember/${item.id}`}
-              className="hover:text-primary"
+           
             >
-              <FiEdit2 />
+              <img src={edit} alt="" className="w-[20px] h-[20px]" />
+            </Link>
+            <Link to={''} onClick={() => handleDelete(item.id)}>
+              <img src={rubbish} alt="" className="w-[20px] h-[20px]" />
             </Link>
           </div>
         </td>

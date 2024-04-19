@@ -519,22 +519,7 @@ export default function Aztext() {
                 e-poçt ünvanı;&nbsp;
               </span>
             </li>
-            <li
-              className="ListParagraph"
-              style={{
-                marginLeft: '28.52pt',
-                marginBottom: '0pt',
-                textAlign: 'justify',
-                lineHeight: '108%',
-                paddingLeft: '7.48pt',
-                fontFamily: 'serif',
-                fontSize: '12pt',
-              }}
-            >
-              <span style={{ fontFamily: '"Palatino Linotype"' }}>
-                cinsiyyət;&nbsp;
-              </span>
-            </li>
+          
             <li
               className="ListParagraph"
               style={{
@@ -757,7 +742,7 @@ export default function Aztext() {
             <span
               style={{
                 fontFamily: '"Palatino Linotype"',
-                backgroundColor: '#ffff00',
+               
               }}
             >
               istifadəçiyə xidmətlərin
@@ -769,7 +754,7 @@ export default function Aztext() {
             <span
               style={{
                 fontFamily: '"Palatino Linotype"',
-                backgroundColor: '#ffff00',
+               
               }}
             >
               mümkünsüz
@@ -2145,141 +2130,12 @@ export default function Aztext() {
                 <span style={{ fontFamily: 'Arial' }}>&nbsp;</span>
               </strong>
             </p>
-            <p className="Footer" style={{ fontSize: '9pt' }}>
-              <strong>
-                <span style={{ fontFamily: 'Arial' }}>
-                  “BuyLink” MƏXFİLİK SİYASƏTİ&nbsp;
-                </span>
-              </strong>
-              <strong>
-                <span
-                  style={{
-                    width: '97.92pt',
-                    fontFamily: 'Arial',
-                    display: 'inline-block',
-                  }}
-                >
-                  &nbsp;
-                </span>
-              </strong>
-              <strong>
-                <span
-                  style={{
-                    width: '158.99pt',
-                    fontFamily: 'Arial',
-                    display: 'inline-block',
-                  }}
-                >
-                  &nbsp;
-                </span>
-              </strong>
-              <strong>
-                <span style={{ fontFamily: 'Arial' }}>2024-CÜ İL ÜÇÜN</span>
-              </strong>
-            </p>
+          
           </div>
         </div>
       </div>
 
-      <hr style={{ width: '33%', height: 1, textAlign: 'left' }} />
-      <div id="_cmnt1">
-        <p className="CommentText">
-          <a href="#_cmntref1" style={{ textDecoration: 'none' }}>
-            <span className="CommentReference">[IGM1]</span>
-          </a>
-          Zəhmət olmazsa, məqsədlərə münasibət bildirin. Əlavə məqsədlər üçün
-          istifadə edildiyi təqdirdə, bildirməyinizi xahiş edirəm
-        </p>
-      </div>
-      <div id="_cmnt2">
-        <p className="CommentText">
-          <a href="#_cmntref2" style={{ textDecoration: 'none' }}>
-            <span className="CommentReference">[IGM2]</span>
-          </a>
-          Zəhmət olmazsa, tələb olunmayan məlumat növlərinin çəxarılmasını və ya
-          əlavə olunmalı məlumatları qeyd edin
-        </p>
-      </div>
-      <div id="_cmnt3">
-        <p className="CommentText">
-          <a href="#_cmntref3" style={{ textDecoration: 'none' }}>
-            <span className="CommentReference">[IGM3]</span>
-          </a>
-          Zəhmət olmazsa, İşlənən Cookies-lər haqqında daha ətraflı məlumat
-          verməyiniz xahiş olunur.
-        </p>
-      </div>
-      <div id="_cmnt4">
-        <p className="CommentText">
-          <a href="#_cmntref4" style={{ textDecoration: 'none' }}>
-            <span className="CommentReference">[IGM4]</span>
-          </a>
-          Zəhmət olmazsa, münasibət bildirin
-        </p>
-      </div>
-      <div id="_cmnt5">
-        <p className="CommentText">
-          <a href="#_cmntref5" style={{ textDecoration: 'none' }}>
-            <span className="CommentReference">[IGM5]</span>
-          </a>
-          Zəhmət olmazsa, münasibət bildirin
-        </p>
-      </div>
-      <div id="_cmnt6">
-        <p className="CommentText">
-          <a href="#_cmntref6" style={{ textDecoration: 'none' }}>
-            <span className="CommentReference">[IGM6]</span>
-          </a>
-          Zəhmət olmazsa, texniki cəhətdən düzgünlüyünü təsdiqləyin
-        </p>
-      </div>
-      <div id="_cmnt7">
-        <p className="CommentText">
-          <a href="#_cmntref7" style={{ textDecoration: 'none' }}>
-            <span className="CommentReference">[IGM7]</span>
-          </a>
-          Zəhmət olmazsa, sizin icarəyə aldığınız
-        </p>
-        <p className="CommentText">&nbsp;</p>
-        <p className="CommentText">&nbsp;</p>
-        <p className="CommentText">
-          &nbsp;serverlərinin ABŞ-da yerləşməsini təsdiq edin
-        </p>
-      </div>
-      <div id="_cmnt8">
-        <p className="CommentText">
-          <a href="#_cmntref8" style={{ textDecoration: 'none' }}>
-            <span className="CommentReference">[IGM8]</span>
-          </a>
-          Zəhmət olmazsa, tələb olunan məlumatları qeyd edin
-        </p>
-      </div>
-      <div id="_cmnt9">
-        <p className="CommentText">
-          <a href="#_cmntref9" style={{ textDecoration: 'none' }}>
-            <span className="CommentReference">[IGM9]</span>
-          </a>
-          Reklam haqqında qanuna əsasən
-        </p>
-      </div>
-      <div id="_cmnt10">
-        <p className="CommentText">
-          <a href="#_cmntref10" style={{ textDecoration: 'none' }}>
-            <span className="CommentReference">[IGM10]</span>
-          </a>
-          Zəhmət olmazsa, müddətin kifayət edib etməməsi haqqında münasibət
-          bildirin
-        </p>
-      </div>
-      <p style={{ bottom: 10, right: 10, position: 'absolute' }}>
-        <a
-          href="https://wordtohtml.net"
-          target="_blank"
-          style={{ fontSize: 11, color: '#d0d0d0' }}
-        >
-          Converted to HTML with WordToHTML.net
-        </a>
-      </p>
+     
       </div>
       
     </>

@@ -1,4 +1,4 @@
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import authSlice from '../../features/auth/authSlice';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { apiSlice } from './apiSlice';

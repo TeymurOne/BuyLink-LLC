@@ -103,16 +103,10 @@ const Form = () => {
   const [postProduct] = usePostProductTypeMutation();
   const { t } = useTranslation();
   const local = t('default.0');
-  console.log(local, 'local');
-  
-
-  
 
   let content;
   if (isSuccess) {
     content = data.data?.map((item: data, index: number) => {
-     
-      
       return (
         <option
           key={index}

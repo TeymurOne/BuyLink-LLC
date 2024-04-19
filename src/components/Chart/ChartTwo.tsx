@@ -74,6 +74,8 @@ const ChartOne: React.FC = () => {
       height: height,
       toolbar: { show: false },
       zoom: { enabled: false },
+      width: '100%', // Grafik genişliğini maksimum ekran genişliğine uyacak şekilde ayarlar
+      style: { maxWidth: '475px' }, // Grafik maksimum genişliği 475 piksel olacak şekilde ayarlar
     },
     xaxis: { categories: categories },
     yaxis: [
@@ -97,18 +99,90 @@ const ChartOne: React.FC = () => {
     stroke: { width: 1, curve: 'smooth' },
     grid: { borderColor: '#f1f1f1', padding: { bottom: 20 } },
     plotOptions: {
-      bar: { horizontal: false, columnWidth: '85%', borderRadius: 1,  },
+      bar: { horizontal: false, columnWidth: '85%', borderRadius: 0,  },
     },
     responsive: [
-      { breakpoint: 2600, options: { chart: { width: 1200 } } },
-      { breakpoint: 1740, options: { chart: { width: 1150 } } },
-      { breakpoint: 1340, options: { chart: { width: 800 } } },
-      { breakpoint: 800, options: { chart: { width: 600 } } },
+      {
+        breakpoint: 2600,
+        options: {
+          chart: {
+            width: 425,
+            
+            
+          },
+        },
+      },
+      {
+        breakpoint: 1740,
+        options: {
+          chart: {
+            width: 470,
+                 },
+        },
+      },
+      {
+        breakpoint: 1340,
+        options: {
+          chart: {
+            width: 405,
+                  },
+        },
+      },
+      {
+        breakpoint: 1200,
+        options: {
+          chart: {
+            width: 405,
+                 },
+        },
+      },
+      {
+        breakpoint: 768,
+        options: {
+          chart: {
+            width: 400,
+          
+          },
+        },
+      },
+      {
+        breakpoint: 600,
+        options: {
+          chart: {
+            width: 400,
+        
+          },
+        },
+      },
+      {
+        breakpoint: 500,
+        options: {
+          chart: {
+            width: 320,
+          },
+        },
+      },
+      {
+        breakpoint: 400,
+        options: {
+          chart: {
+            width: 320,
+          },
+        },
+      },
+      {
+        breakpoint: 992,
+        options: {
+          chart: {
+            width: 326,
+          },
+        },
+      },
     ],
   };
 
   return (
-    <div className="rounded-sm border border-stroke bg-white p-7.5 shadow-default dark:border-strokedark dark:bg-boxdark xl:col-span-4">
+    <div className=" border border-stroke rounded-[15px] bg-white p-7.5 shadow-default dark:border-strokedark dark:bg-boxdark xl:col-span-4">
       <div className="mb-4 gap-2 sm:flex">
         <div>
           <h4 className="text-xl font-semibold text-black dark:text-white">
@@ -122,7 +196,7 @@ const ChartOne: React.FC = () => {
             options={options}
             series={chartData.series}
             type="bar"
-            height={450}
+            height={260}
           />
         </div>
       </div>

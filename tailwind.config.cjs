@@ -6,6 +6,8 @@ module.exports = {
   darkMode: 'class',
   theme: {
     fontFamily: {
+      inter: ['inter', 'sans-serif'],
+
       satoshi: ['Satoshi', 'sans-serif'],
       poppins: ['Poppins', 'sans-serif'],
       manrope: ['Manrope', 'sans-serif'],
@@ -58,8 +60,10 @@ module.exports = {
     screens: {
       '2xsm': '375px',
       xsm: '425px',
+      '478px': '478px',
 
       '500px': '500px',
+      '530px': '530px',
       '2md': '700px',
       '992px': '992px',
       '1200px': '1200px',
