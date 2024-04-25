@@ -6,8 +6,9 @@ import eye from '../../images/action-icon/details.svg';
 import { useState } from 'react';
 import { useDeleteMemberMutation } from '../../features/members/apiSlice';
 import Swal from 'sweetalert2';
+import { useTranslation } from 'react-i18next';
 
-const TbodyResponsive = ({ item }) => {
+const TbodyResponsive = ({ item }:any) => {
     const [deletePost] = useDeleteMemberMutation();
   
     const handleDelete = async (id: number) => {
@@ -40,6 +41,7 @@ const TbodyResponsive = ({ item }) => {
     };
 
   const [show, setShow] = useState(false);
+  const { t } = useTranslation();
 
   return (
     <>
@@ -99,6 +101,8 @@ const TbodyResponsive = ({ item }) => {
           </div>
         </div>
       </div>
+
+     
     </>
   );
 };

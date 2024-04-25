@@ -15,10 +15,19 @@ module.exports = {
       grotesk: ['Space Grotesk', 'sans-serif'],
     },
     colors: {
-      starrating:"#4C5DF5",
+      tborder:"#DFDFDF",
+      white: '#FFFFFF',
+      tborderHover:"#F8F8F8",
+     btnBgColor:"#2D83B6",
+
+
+
+
+      starrating: '#4C5DF5',
       current: 'currentColor',
       transparent: 'transparent',
-      white: '#FFFFFF',
+      gray:"#eee",
+     
       black: '#1C2434',
       'black-2': '#010101',
       body: '#64748B',
@@ -91,6 +100,7 @@ module.exports = {
         'title-md2': ['26px', '30px'],
         'title-sm': ['20px', '26px'],
         'title-xsm': ['18px', '24px'],
+        'title-2xsm': ['12px', '20px'],
       },
       spacing: {
         4.5: '1.125rem',
@@ -219,6 +229,7 @@ module.exports = {
       },
       minWidth: {
         22.5: '5.625rem',
+        24.5: '7.5rem',
         42.5: '10.625rem',
         47.5: '11.875rem',
         75: '18.75rem',
@@ -282,8 +293,8 @@ module.exports = {
       },
       flex: {
         '2': '1 0 60%',
-        '1': '2 2 60%'
-      }
+        '1': '2 2 60%',
+      },
     },
   },
   plugins: [],

@@ -66,8 +66,16 @@ const Index = () => {
       <div className="bg-[#000000DE] w-full  py-12">
         <Footer />
       </div>
+
+   
+
+
+
     </>
   );
 };
+
+
+
 
 export default Index;

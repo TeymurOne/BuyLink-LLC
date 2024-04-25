@@ -20,7 +20,6 @@ const CreateForm: React.FC = () => {
   let currentPages: any;
 
   let content: any;
-  let TbodyResponsiv: any;
 
   const handlePagination = (id: number) => {
     setPage(id);
@@ -69,12 +68,12 @@ const CreateForm: React.FC = () => {
           <input
             type="text"
             placeholder=" search..."
-            className="max-w-[270px] w-full shadow-2 rounded-xl py-2 my-4   pl-9 focus:outline-none   "
+            className="max-w-70 w-full shadow-2 rounded-xl py-2 my-4   pl-9 focus:outline-none   "
           />
         </div>
         <Link
           to="/admin/form"
-          className="bg-white text-[0.900em] font-medium  mb-4 lg:mb-0 md:mb-0 sm:mb-0 space-x-2  rounded-md  justify-center flex items-center h-[36px] w-full max-w-[163px] "
+          className="bg-white text-xs font-medium  mb-4 lg:mb-0 md:mb-0 sm:mb-0 space-x-2  rounded-md  justify-center flex items-center h-9 w-full max-w-35 "
         >
           <img src={create} alt="Create icon" />
           {t('member.1')}
@@ -85,27 +84,27 @@ const CreateForm: React.FC = () => {
       ) : (
         <>
           <div className="rounded-sm  md:block hidden  shadow-default  dark:border-strokedark dark:bg-boxdark ">
-            <div className="max-w-full  border  rounded-lg border-[#DFDFDF] overflow-hidden   overflow-x-auto   ">
+            <div className="max-w-full  border  rounded-lg border-tborder overflow-hidden   overflow-x-auto   ">
               <table className="w-full table-auto bg-white    ">
                 <thead>
-                  <tr className="2 bg-white text-[0.900em] font-poppins text-[black] text-left dark:bg-meta-4">
-                    <th className="w-[58px] h-[41px]  border-b border-r  border-[#DFDFDF] px-4  font-medium ">
+                  <tr className="2 bg-white text-title-2xsm font-poppins text-black text-left dark:bg-meta-4">
+                    <th className="w-14.5 h-10  border-b border-r  border-tborder px-4  font-medium ">
                       ID
                     </th>
-                    <th className="min-w-[120px] py-2 border-b border-r  border-[#DFDFDF] px-4  lg:pl-10  md:pl-4  sm:pl-0 font-medium  ">
+                    <th className="min-w-24.5 py-2 border-b border-r  border-tborder px-4  lg:pl-10  md:pl-4  sm:pl-0 font-medium  ">
                       {t('member.2')}
                     </th>
-                    <th className="min-w-[120px] py-2 border-b border-r  border-[#DFDFDF] px-4 font-medium ">
+                    <th className="min-w-24.5 py-2 border-b border-r  border-tborder px-4 font-medium ">
                       {t('member.3')}
                     </th>
-                    <th className="min-w-[120px] border-b border-r  border-[#DFDFDF] py-2 px-4 font-medium ">
+                    <th className="min-w-24.5 border-b border-r  border-tborder py-2 px-4 font-medium ">
                       {t('member.4')}
                     </th>
-                    <th className="min-w-[120px] border-b border-r  border-[#DFDFDF] py-2 px-4 font-medium ">
+                    <th className="min-w-24.5 border-b border-r  border-tborder py-2 px-4 font-medium ">
                       {t('member.5')}
                     </th>
 
-                    <th className=" min-w-[120px] border-b border-l  border-[#DFDFDF]  py-2 px-4  font-medium ">
+                    <th className=" min-w-24.5 border-b border-l  border-tborder  py-2 px-4  font-medium ">
                       {t('member.6')}
                     </th>
                   </tr>
@@ -119,17 +118,17 @@ const CreateForm: React.FC = () => {
           })}
         </>
       )}
-      <div className="flex items-center justify-between my-4  border-gray-200  px-4 py-3 sm:px-6">
+      <div className="flex items-center justify-between my-4    px-4 py-3 sm:px-6">
         <div className="flex flex-1 justify-between sm:hidden">
           <a
             href="#"
-            className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+            className="relative inline-flex items-center rounded-md border  bg-white px-4 py-2 text-sm font-medium "
           >
             Previous
           </a>
           <a
             href="#"
-            className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+            className="relative ml-3 inline-flex items-center rounded-md border  bg-white px-4 py-2 text-sm font-medium "
           >
             Next
           </a>
@@ -137,10 +136,10 @@ const CreateForm: React.FC = () => {
         {currentPages?.length > 1 && (
           <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
             <div>
-              <p className="text-sm ">
-                Showing <span className="font-medium">1</span> to
-                <span className="font-medium">10</span> of
-                <span className="font-medium">97</span> results
+              <p className="text-sm font-medium ">
+                Showing <span >1</span> to
+                <span >10</span> of
+                <span >97</span> results
               </p>
             </div>
             <div>

@@ -12,11 +12,16 @@ import './index.css';
 import './satoshi.css';
 
 import { Provider } from 'react-redux';
+import { QuizProvider } from './context/UseContext';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <Provider store={store}>
+  
     <BrowserRouter>
+    <QuizProvider>
       <App />
+      </QuizProvider>
     </BrowserRouter>
+  
   </Provider>,
 );

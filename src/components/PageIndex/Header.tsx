@@ -18,7 +18,7 @@ export default function Header() {
   const [lang, setLang] = useState(localStorage.getItem('lng') || 'en');
 
   const cookie = getState();
-  console.log(cookie, );
+
   
   const { t } = useTranslation();
 

@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState, useTransition } from 'react';
-import { NavLink, useLocation, useParams } from 'react-router-dom';
+import  { useEffect, useRef, useState } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import Logo from '../images/logo/logo-buylink.jpg';
 import SidebarLinkGroup from './SidebarLinkGroup';
 import { useTranslation } from 'react-i18next';
@@ -10,7 +10,6 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
-  const [active, setActive] = useState(false);
 
   const location = useLocation();
   const { pathname } = location;
