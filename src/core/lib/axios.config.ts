@@ -4,6 +4,8 @@ import { getState } from '../helpers/cookie';
 
 const token = getState();
 
+
+
 const axiosInstance = axios.create({
   baseURL: BASAE_URL,
   headers: {

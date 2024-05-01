@@ -21,7 +21,7 @@ function VideoSection() {
               <h2 className="   text-2xl  text-[#4C5DF5] font-bold">
                 {t('main.3')}
               </h2>
-              <p className="lg:text-[16px] mt-2  text-[14px] leading-5 lg:leading-6   font-poppins  text-[#000000ad] font-medium">
+              <p className="lg:text-[16px] mt-2  text-[14px] leading-5 lg:leading-6   font-poppins  text-[#00000ad] font-medium">
                 {t('main.4')}
               </p>
             </div>

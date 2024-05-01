@@ -52,19 +52,19 @@ const Tbody: React.FC<TbodyProps> = ({ item, handeMapShow }) => {
   return (
     <>
  
-      <tr  >
-        <td className=" py-6 px-4 pl-9 dark:border-strokedark xl:pl-11 ">
+      <tr  className=" dark:bg-boxdark border-0 bg-white hover:bg-tborderHover" >
+        <td className="  border-gray border-0 text-xs  px-4 dark:border-strokedark">
           <div className="font-medium w-10 dark:text-white">{item.id}</div>
         </td>
-        <td className="border-b border-[#eee] py-2 px-4 dark:border-strokedark">
+        <td className="  border-gray border-0 text-xs  px-4 dark:border-strokedark">
           <p className="text-black dark:text-white">{item.name}</p>
         </td>
 
-        <td className="border-b border-[#eee] py-2 px-4 dark:border-strokedark">
+        <td className="  border-gray border-0 text-xs  px-4 dark:border-strokedark">
           <p className="text-black dark:text-white">{item.address}</p>
         </td>
 
-        <td className="border-b border-[#eee] py-2 px-4 dark:border-strokedark">
+        <td className="  border-gray border-0 text-xs  px-4 dark:border-strokedark">
           <div className="flex items-center space-x-3.5">
             <Link to={`/admin/branchdetails/${item.id}`}>
               <button className="hover:text-primary">

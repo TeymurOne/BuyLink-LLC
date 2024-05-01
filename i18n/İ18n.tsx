@@ -6,8 +6,8 @@ import backend from 'i18next-http-backend';
 const resources = {
   az: {
     translation: {
-      default:{
-        "0":"az"
+      default: {
+        '0': 'az',
       },
       member: {
         '0': 'Üzvlər',
@@ -103,9 +103,7 @@ const resources = {
       main: {
         '0': 'BuyLink  ',
         '1': 'dünyanın ilk rəqəmsal referal platformasıdır.',
-        '2': `Biz biznesləri və istifadəçiləri qarşılıqlı faydalı ekosistemə birləşdiririk: 
-
-        Tərəfdaşlarımız müştəri bazasının, loyallığın və mənfəətinin artırılmasından, istifadəçilərimiz isə tövsiyələr nəticəsində endirimlər və bonuslardan yararlana bilərlər`,
+        '2': `Bizim missiyamız insanları və biznesləri tövsiyələrdən faktiki fayda əldə edə biləcəkləri bir sosial şəbəkədə birləşdirməkdir.`,
         '3': 'İzahedici video',
         '4': 'Bu video ən sadə şəkildə bizim   biznesin necə işlədiyini göstərir.',
         '5': 'Yüklə BuyLink',
@@ -354,8 +352,8 @@ const resources = {
 
   en: {
     translation: {
-      default:{
-        "0":"en"
+      default: {
+        '0': 'en',
       },
       member: {
         '0': 'Members',
@@ -451,7 +449,7 @@ const resources = {
       main: {
         '0': 'BuyLink  ',
         '1': 'is the world first digital referral network.',
-        '2': 'Our mission is to connect people in one referral social network where they are able to get actual benefits from recommendations.',
+        '2': `Our mission is to connect people and businesses in one referral social network where they are able to get actual benefits from recommendations.`,
         '3': 'Explainer Video',
         '4': 'The video shows in basic how the applications works . We cover different industries in one platform',
         '5': 'Download BuyLink',

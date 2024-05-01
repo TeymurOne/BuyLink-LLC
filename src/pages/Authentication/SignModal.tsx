@@ -118,7 +118,7 @@ const SignModal: React.FC<State> = ({ showModal, setShowModal }) => {
                               value={password}
                               onChange={handlePwd}
                               type="password"
-                              placeholder="6+ Characters, 1 Capital letter"
+                              placeholder=""
                               className="border-2 border-opacity-65 p-4 border-[#D4D7E3] w-full bg-white h-[48px] rounded-md"
                             />
                           </div>

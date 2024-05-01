@@ -8,8 +8,9 @@ import {
 import Loader from '../../common/Loader';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useQuiz } from '../../context/UseContext';
 import App from '../../Map/App';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectLat, selectLng } from '../../features/map/MapSlice';
 
 interface Initial {
   title_: any;
@@ -31,8 +32,15 @@ interface Initial {
   lng: any;
 }
 const Form = () => {
+  const latData= useSelector(selectLat);
+  const lngData= useSelector(selectLng);
+  console.log(latData, lngData, 'data ferhad');
+  
+   
+   const dispatch = useDispatch();
   const { data, isSuccess, isLoading, refetch } = useFetchPartnerrAllQuery('');
-
+  
+ 
   const language = ['az', 'en', 'ru'];
   const [active, setActive] = useState<string>('az');
   const [formValue, setFormValue] = useState<Initial>({
@@ -55,7 +63,6 @@ const Form = () => {
     lng: null,
   });
 
-  const {  state } = useQuiz();
 
   useEffect(() => {
     if (isSuccess) {
@@ -79,8 +86,11 @@ const Form = () => {
         lat: data?.data.location?.lat || '',
         lng: data?.data.location?.lng || '',
       }));
+      // dispatch(partnerFormMap({ lat, lng }));
     }
   }, [isSuccess, data]);
+
+  console.log(formValue.lat, 'formvalue');
 
   const {
     title_,
@@ -144,8 +154,8 @@ const Form = () => {
 
   const handlePhone = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputVal = e.target.value;
-    const numericValue = inputVal.replace(/\D/g, '');
-    setFormValue({ ...formValue, phone_: numericValue });
+ 
+    setFormValue({ ...formValue, phone_: inputVal });
   };
 
   const handleImgLogo = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -204,8 +214,8 @@ const Form = () => {
     postData.append('phone', phone_);
 
     postData.append('website', website_);
-    postData.append('lat', state.lat || lat);
-    postData.append('lng', state.lng || lng);
+    postData.append('lat', latData);
+    postData.append('lng', lngData);
 
     try {
       if (postData) {
@@ -321,15 +331,7 @@ const Form = () => {
                 </div>
               </div>
 
-              <div>
-                <label
-                  htmlFor="title"
-                  className="block text-sm font-normal leading-6 "
-                >
-                  Ada görə axtarış
-                </label>
-                <App lat={lat} lng={lng} />
-              </div>
+              <div>{lat && lng && <App lat={lat} lng={lng}  />}</div>
               <select
                 name="language"
                 className="w-20 bg-white outline-none h-10 text-center my-4 rounded-md shadow-md"
@@ -388,8 +390,8 @@ const Form = () => {
                   </div>
                 </div>
               ))}
-              <div className='grid lg:grid-cols-2 gap-4 grod-cols-1 '>
-              <div className="max-w-125 w-full">
+              <div className="grid lg:grid-cols-2 gap-4 grod-cols-1 ">
+                <div className="max-w-125 w-full">
                   <label
                     htmlFor="email"
                     className="block text-sm font-medium leading-6 "
@@ -422,7 +424,6 @@ const Form = () => {
                       type="text"
                       value={phone_}
                       name="phone"
-                    
                       id="Phone"
                       onChange={handlePhone}
                       autoComplete="given-name"
@@ -432,8 +433,6 @@ const Form = () => {
                     />
                   </div>
                 </div>
-
-              
               </div>
 
               <div className="mt-10 grid grid-cols-6 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -448,7 +447,6 @@ const Form = () => {
                     <input
                       onChange={handleFb}
                       value={facebook_}
-                     
                       id="facebook"
                       name="facebook_"
                       type="text"
@@ -468,7 +466,6 @@ const Form = () => {
                     <input
                       onChange={handleFb}
                       value={instagram_}
-                  
                       id="instagram"
                       name="instagram_"
                       type="text"
@@ -523,7 +520,7 @@ const Form = () => {
                   onClick={postSubmit}
                   type="submit"
                   className={` ${
-                    btnDisabled ?  ' opacity-65' : 'opacity-100'
+                    btnDisabled ? ' opacity-65' : 'opacity-100'
                   }  bg-btnBgColor rounded-md  h-10 w-27  text-sm font-normal text-white
                   focus-visible:outline 
                  focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}

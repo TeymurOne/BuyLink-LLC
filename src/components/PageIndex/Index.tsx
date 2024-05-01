@@ -22,14 +22,15 @@ export const isMobile = window.innerWidth <= 455;
 const Index = () => {
   return (
     <>
-      <div className="bg-white   ">
-        <div className="bg-white custom-con px-6 lg:px-4 md:px-0   h-auto  cursor-default">
+  
+       <div className="bg-white w-[full] cursor-default   ">
+        <div className="bg-white custom-con px-6  md:px-0   h-auto  cursor-default">
           <Header />
           <Main />
         </div>
       </div>
 
-      <div className="bg-[#F3F4F6] ">
+      {/* <div className="bg-[#F3F4F6] ">
         <div className="  custom-con px-6 lg:px-4 md:px-0     ">
           <Slider />
 
@@ -38,9 +39,9 @@ const Index = () => {
           <WalletBuylink />
           <BuyLinkPartner1 />
         </div>
-      </div>
+      </div> * */}
 
-      <div className="bg-white  py-20">
+      {/* <div className="bg-white  py-20">
         <div className="  custom-con px-6 lg:px-4 md:px-0   ">
           <BuyLinkPartner2 />{' '}
         </div>
@@ -65,7 +66,7 @@ const Index = () => {
       </div>
       <div className="bg-[#000000DE] w-full  py-12">
         <Footer />
-      </div>
+      </div> */}
 
    
 

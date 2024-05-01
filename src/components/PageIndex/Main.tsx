@@ -10,11 +10,11 @@ export function Main() {
   return (
     <>
       <div className="   gap-10 space-x-4  pt-5 pb-10 lg:px-2   flex-col   flex lg:flex-row   ">
-        <div className=" flex-1  pt-0 w-full  mx-auto lg:items-start  lg:text-left  text-center    flex flex-col items-center  ">
-          <h2 className=" hyphens-auto   font-manrope text-center lg:text-left  xl:text-[2.40em] lg:text-[1.775em] hie text-[32px] 992px:text-[40px]    leading-10 font-[600] text-black-2">
-            <span className="text-[#4C5DF5]">{t('main.0')}</span> {t('main.1')}
+        <div className="  flex-2   pt-0 w-full  mx-auto lg:items-start  lg:text-left  text-center    flex flex-col items-center  ">
+          <h2 className=" hyphens-auto font-semibold lg:text-6xl    text-center lg:text-left        text-black-2">
+            <span className="text-starrating">{t('main.0')}</span> {t('main.1')}
           </h2>
-          <p className="lg:text-[21px] leading-7 hyphens-auto text-center lg:text-left font-regular text-[20px]  py-4">
+          <p className="lg:text-xl  text-black text-center lg:text-left  font-poppins  py-4">
             {t('main.2')}
           </p>
 
@@ -60,7 +60,7 @@ export function Main() {
         <div className=" flex-1  grid place-items-center ">
           <img
             src={main}
-            className=" shadow-2xl  rounded-xl border-[#979797] border-opacity-60  object-contain"
+            className=" shadow-lg  rounded-xl border-[#979797] border-opacity-60  object-contain"
             alt="Main"
           />
         </div>

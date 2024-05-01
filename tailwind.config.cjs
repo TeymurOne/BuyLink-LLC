@@ -1,5 +1,6 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
@@ -19,6 +20,10 @@ module.exports = {
       white: '#FFFFFF',
       tborderHover:"#F8F8F8",
      btnBgColor:"#2D83B6",
+     textHover:"#E6E9FF",
+     textPrimary:"#0019F8",
+     loginbg:"#202020",
+     textNav:"#00000099",
 
 
 
@@ -292,7 +297,7 @@ module.exports = {
         'spin-3': 'spin 3s linear infinite',
       },
       flex: {
-        '2': '1 0 60%',
+        '2': '1 0 58%',
         '1': '2 2 60%',
       },
     },

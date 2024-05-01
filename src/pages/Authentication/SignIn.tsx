@@ -2,18 +2,20 @@ import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../../images/logo/logo-buylink.jpg';
 import { useState, useRef, useEffect } from 'react';
 
-import { useDispatch } from 'react-redux';
-import { setCredentials, setToken } from '../../features/auth/authSlice';
+
 import axiosInstance from '../../core/lib/axios.config';
+import { useAuth } from '../../context/UseAuthContext';
 
 const SignIn = () => {
   const [email, setEmail] = useState<any>('');
   const [password, setPwd] = useState<any>('');
+  const {dispatch}=useAuth()
+  console.log(dispatch, 'dsi');
+  
 
   const useref = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
 
-  const dispatch = useDispatch();
 
   useEffect(() => {
     if (useref.current) {
@@ -45,9 +47,13 @@ const SignIn = () => {
       document.cookie = `token=${
         userData.data.token
       };expires=${expires.toUTCString()};path=/`;
+      
+     
+      dispatch({type:"setUser", payload:'1212' })
+      dispatch({type:"setToken", payload:{userData.data.token}})
 
-      dispatch(setCredentials({ ...userData.data.user }));
-      dispatch(setToken(userData.data.token));
+      // dispatch(setCredentials({ ...userData.data.user }));
+      // dispatch(setToken(userData.data.token));
 
       setEmail('');
       setPwd('');

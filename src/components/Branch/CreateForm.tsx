@@ -8,6 +8,7 @@ import Loader from '../../common/Loader';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { useTranslation } from 'react-i18next';
 import { MapModal } from './MapModal';
+import Map from '../../Map/Map';
 
 const CreateForm = () => {
   const [lat, setLat] = useState<number>(40.405999043422824);
@@ -144,13 +145,8 @@ const CreateForm = () => {
                 <tbody>{content}</tbody>
               </table>
 
-              <div className="max-w-[100px] h-[400px] w-full ">
-                <MapModal
-                  name={branchName}
-                  lat={lat}
-                  lng={lng}
-                  allkordinat={allkordinat}
-                />
+              <div className="max-w-[400px] w-full h-[400px] ">
+               <Map/>
               </div>
             </div>
           </div>

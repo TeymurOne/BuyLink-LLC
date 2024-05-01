@@ -4,11 +4,13 @@ import { setupListeners } from '@reduxjs/toolkit/query';
 import { apiSlice } from './apiSlice';
 import commonSlice from '../../features/members/memberSlice';
 import editSlice from '../../features/members/editSlice';
+import  partnerFormMap  from '../../features/map/MapSlice';
 
 export const store = configureStore({
   reducer: {
     commonSlice:commonSlice,
     editSlice:editSlice,
+    partnerMap:partnerFormMap,
     [apiSlice.reducerPath]:apiSlice.reducer,
 
     auth: authSlice,

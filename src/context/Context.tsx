@@ -1,24 +1,24 @@
 import React, { createContext, useContext, useReducer, ReactNode } from 'react';
 
-interface QuizState {
+interface MapState {
   lat: string;
   lng: string;
   status: 'loading' | 'ready' | 'active' | 'finished';
  
 }
 
-type QuizAction =
+type MapAction =
   | { type: 'dataReceived'; payload: { lat: string; lon: string } }
   | { type: 'unknown' };
 
 interface QuizContextType {
-  state: QuizState;
-  dispatch: React.Dispatch<QuizAction>;
+  state: MapState;
+  dispatch: React.Dispatch<MapAction>;
 }
 
 const QuizContext = createContext<QuizContextType | undefined>(undefined);
 
-const initialState: QuizState = {
+const initialState: MapState = {
   lat: '',
   lng: '',
   status: 'loading',
@@ -27,7 +27,7 @@ const initialState: QuizState = {
 console.log(initialState, 'inintasl');
 
 
-function reducer(state: QuizState, action: QuizAction): QuizState {
+function reducer(state: MapState, action: MapAction): MapState {
   switch (action.type) {
     case 'dataReceived':
       const { lat, lon } = action.payload; 

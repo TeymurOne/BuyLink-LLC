@@ -23,6 +23,10 @@ const DropdownUser = () => {
     document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
  
     navigate('/');
+    setTimeout(() => {
+      window.location.reload()
+      
+    }, 100);
   };
    const userimage=useSelector(selectCurrentImage)
 
