@@ -4,7 +4,6 @@ import Map from './Map';
 const App = (props: any) => {
   const { lat, lng } = props;
   
-  console.log(props, 'propa app');
   
   const [cordinat, setCoordinat] = useState<any>({
     lat: lat === undefined ? 40.350049801807025 : lat,

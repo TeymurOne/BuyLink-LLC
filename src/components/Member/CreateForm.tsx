@@ -87,7 +87,7 @@ const CreateForm: React.FC = () => {
             <div className="max-w-full  border  rounded-lg border-tborder overflow-hidden   overflow-x-auto   ">
               <table className="w-full table-auto bg-white    ">
                 <thead>
-                  <tr className="2 bg-white text-title-2xsm font-poppins text-black text-left dark:bg-meta-4">
+                  <tr className=" bg-white text-title-2xsm font-poppins text-black text-left dark:bg-meta-4">
                     <th className="w-14.5 h-10  border-b border-r  border-tborder px-4  font-medium ">
                       ID
                     </th>

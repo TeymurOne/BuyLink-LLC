@@ -53,7 +53,8 @@ const Form = () => {
       setLoad(false);
     }
   };
-  const btnDisabled =!selectedLat || !selectedLng || !addres || !name || !phone;
+  const btnDisabled =
+    !selectedLat || !selectedLng || !addres || !name || !phone;
 
   return (
     <>
@@ -127,13 +128,12 @@ const Form = () => {
                 </div>
               </div>
 
-              <div className="sm:col-span-6">
+              {/* <div className="sm:col-span-6">
                 <label
                   htmlFor="map"
                   className="block text-sm font-medium leading-6 "
                 >
                   {t('branch.13')}
-                  
 
                   <Map
                     selectedLat={selectedLat}
@@ -142,7 +142,7 @@ const Form = () => {
                     onLngChange={handleLngChange}
                   />
                 </label>
-              </div>
+              </div> */}
 
               <div className="flex flex-col w-[300px]">
                 <div className="sm:col-span-3 mb-4">

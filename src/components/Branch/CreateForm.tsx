@@ -118,36 +118,36 @@ const CreateForm = () => {
         <Loader />
       ) : (
         <>
-          <div className="rounded-sm   shadow-default dark:border-strokedark dark:bg-boxdark ">
-            <div className="max-w-full flex items-start overflow-x-auto">
-              <table className="w-[100px] table-auto">
+          <div className="rounded-sm  md:block hidden  shadow-default  dark:border-strokedark dark:bg-boxdark ">
+            <div className="max-w-full  border  rounded-lg border-tborder overflow-hidden   overflow-x-auto   ">
+              <table className="w-full table-auto bg-white    ">
                 <thead>
-                  <tr className="bg-gray-2 text-[14px]  text-left dark:bg-meta-4">
-                    <th className="min-w-[120px] py-2 px-4  font-medium text-black dark:text-white xl:pl-11">
+                  <tr className=" bg-white text-title-2xsm font-poppins text-black text-left dark:bg-meta-4">
+                    <th className="w-14.5 h-10  border-b border-r  border-tborder px-4  font-medium ">
                       ID
                     </th>
-                    <th className="min-w-[120px] py-2 px-4 font-medium text-black dark:text-white">
+                    <th className="min-w-14.5 py-2 border-b border-r  border-tborder px-4  lg:pl-10  md:pl-4  sm:pl-0 font-medium  ">
                       {t('branch.2')}
                     </th>
 
-                    <th className="min-w-[120px] py-2 px-4 font-medium text-black dark:text-white">
+                    <th className="min-w-14.5 py-2 border-b border-r  border-tborder px-4 font-medium ">
                       {t('branch.5')}
                     </th>
 
-                    <th className="py-2   px-6 font-medium text-black dark:text-white">
+                    <th className="min-w-14.5 border-b border-r  border-tborder py-2 px-4 font-medium ">
+                    Phone
+                    </th>
+                    <th className="max-w-10.5 border-b border-r  border-tborder py-2 px-4 font-medium ">
                       {t('branch.6')}
                     </th>
-                    <th className="min-w-[100px] py-2 px-2 font-medium text-black dark:text-white">
-                      Map
-                    </th>
+                   
                   </tr>
                 </thead>
                 <tbody>{content}</tbody>
+                
               </table>
 
-              <div className="max-w-[400px] w-full h-[400px] ">
-               <Map/>
-              </div>
+            
             </div>
           </div>
           {currentPages?.length > 1 && (

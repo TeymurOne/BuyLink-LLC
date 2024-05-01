@@ -56,10 +56,13 @@ const Tbody: React.FC<TbodyProps> = ({ item, handeMapShow }) => {
         <td className="  border-gray border-0 text-xs  px-4 dark:border-strokedark">
           <div className="font-medium w-10 dark:text-white">{item.id}</div>
         </td>
-        <td className="  border-gray border-0 text-xs  px-4 dark:border-strokedark">
+        <td className=" border-gray py-1 px-4  dark:border-strokedark xl:pl-11">
           <p className="text-black dark:text-white">{item.name}</p>
         </td>
 
+        <td className="  border-gray border-0 text-xs  px-4 dark:border-strokedark">
+          <p className="text-black dark:text-white">{item.address}</p>
+        </td>
         <td className="  border-gray border-0 text-xs  px-4 dark:border-strokedark">
           <p className="text-black dark:text-white">{item.address}</p>
         </td>
@@ -85,14 +88,7 @@ const Tbody: React.FC<TbodyProps> = ({ item, handeMapShow }) => {
             </Link>
           </div>
         </td>
-        <td className="border-b border-[#eee] py-2 px-4 dark:border-strokedark">
-          <div className="flex items-center">
-          <button onClick={handeMapShow}>
-          <FaMapMarkerAlt />
-          </button>
-          
-          </div>
-        </td>
+     
       </tr>
     </>
   );
