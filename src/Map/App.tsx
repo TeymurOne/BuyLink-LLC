@@ -5,9 +5,11 @@ const App = (props: any) => {
   const { lat, lng } = props;
   
   
+  
+  
   const [cordinat, setCoordinat] = useState<any>({
-    lat: lat === undefined ? 40.350049801807025 : lat,
-    lng: lng === undefined ? 49.8104595974197 : lng,
+    lat:   40.350049801807025 || lat,
+    lng:  49.8104595974197 || lng,
   });
 
   const handleCoordinateChange = (e: React.ChangeEvent<HTMLInputElement>) => {

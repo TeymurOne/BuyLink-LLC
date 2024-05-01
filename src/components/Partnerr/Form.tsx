@@ -331,7 +331,7 @@ const Form = () => {
                 </div>
               </div>
 
-              <div>{lat && lng && <App lat={lat} lng={lng}  />}</div>
+              <div>{ <App lat={lat} lng={lng}  />}</div>
               <select
                 name="language"
                 className="w-20 bg-white outline-none h-10 text-center my-4 rounded-md shadow-md"
