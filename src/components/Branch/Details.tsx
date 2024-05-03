@@ -4,28 +4,18 @@ import { FaArrowLeft } from 'react-icons/fa6';
 import { useTranslation } from 'react-i18next';
 import { useFetchBranchAllQuery } from '../../features/branch/apiSlice';
 import Loader from '../../common/Loader';
-import GoogleMapReact from 'google-map-react';
-import { apikey } from './Map';
+
 
 const Details = () => {
   const { id } = useParams();
-
   const { t } = useTranslation();
-
   const { isSuccess, data } = useFetchBranchAllQuery('');
   let content;
   if (isSuccess && id) {
     content = data?.data.find((item: IpostData) => item.id == id);
   }
   
-  const defaultProps = {
-    center: {
-      lat:Number(content?.lat),
-      lng: Number(content?.lng),
-    },
-    zoom: 13,
-    draggable: true,
-  };
+ 
 
   return (
     <>
@@ -93,13 +83,7 @@ const Details = () => {
               </p>
             </div>
           </div>
-          <div className='w-full h-40 mt-3'>
-          <GoogleMapReact
-        bootstrapURLKeys={{ key: apikey }}
-        center={defaultProps?.center}
-        defaultZoom={defaultProps.zoom}
-      />
-          </div>
+        
         </>
       ) : (
         <Loader />

@@ -1,19 +1,19 @@
 import React, { useEffect } from 'react';
-import { FaMapMarkerAlt } from "react-icons/fa";
 
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
-import { FiEdit2, FiEye } from 'react-icons/fi';
-import { AiOutlineDelete } from 'react-icons/ai';
+
 import { IpostData } from './Form';
 import { useRemovebranchMutation } from '../../features/branch/apiSlice';
+import edit from '../../images/action-icon/edit.svg';
+import rubbish from '../../images/action-icon/rubish.svg';
+import eye from '../../images/action-icon/details.svg';
 
 interface TbodyProps {
   item: IpostData;
-  handeMapShow: () => void;
 }
 
-const Tbody: React.FC<TbodyProps> = ({ item, handeMapShow }) => {
+const Tbody: React.FC<TbodyProps> = ({ item }) => {
   const [deletePost] = useRemovebranchMutation();
 
   const handleRemove = async (id: number) => {
@@ -31,7 +31,6 @@ const Tbody: React.FC<TbodyProps> = ({ item, handeMapShow }) => {
       try {
         const dele = await deletePost(id);
         window.location.reload();
-
 
         Swal.fire({
           title: 'Deleted!',
@@ -51,8 +50,7 @@ const Tbody: React.FC<TbodyProps> = ({ item, handeMapShow }) => {
 
   return (
     <>
- 
-      <tr  className=" dark:bg-boxdark border-0 bg-white hover:bg-tborderHover" >
+      <tr className=" dark:bg-boxdark border-0 bg-white h-15 hover:bg-tborderHover">
         <td className="  border-gray border-0 text-xs  px-4 dark:border-strokedark">
           <div className="font-medium w-10 dark:text-white">{item.id}</div>
         </td>
@@ -64,31 +62,31 @@ const Tbody: React.FC<TbodyProps> = ({ item, handeMapShow }) => {
           <p className="text-black dark:text-white">{item.address}</p>
         </td>
         <td className="  border-gray border-0 text-xs  px-4 dark:border-strokedark">
-          <p className="text-black dark:text-white">{item.address}</p>
+          <p className="text-black dark:text-white">{item.phone}</p>
         </td>
 
         <td className="  border-gray border-0 text-xs  px-4 dark:border-strokedark">
           <div className="flex items-center space-x-3.5">
             <Link to={`/admin/branchdetails/${item.id}`}>
               <button className="hover:text-primary">
-                <FiEye />
+              <img src={eye} alt="" className="w-5 h-5" />
               </button>
             </Link>
             <button
               className="hover:text-primary"
               onClick={() => handleRemove(item.id)}
             >
-              <AiOutlineDelete />
+               <img src={rubbish} alt="" className="w-5 h-5" />
             </button>
             <Link
               to={`/admin/branchEdit/${item.id}`}
               className="hover:text-primary"
             >
-              <FiEdit2 />
+                <img src={edit} alt="" className="w-5 h-5" />
+               
             </Link>
           </div>
         </td>
-     
       </tr>
     </>
   );

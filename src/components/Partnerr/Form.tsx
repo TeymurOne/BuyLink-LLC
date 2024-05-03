@@ -11,6 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import App from '../../Map/App';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectLat, selectLng } from '../../features/map/MapSlice';
+import { Link } from 'react-router-dom';
 
 interface Initial {
   title_: any;
@@ -32,15 +33,12 @@ interface Initial {
   lng: any;
 }
 const Form = () => {
-  const latData= useSelector(selectLat);
-  const lngData= useSelector(selectLng);
-  console.log(latData, lngData, 'data ferhad');
-  
-   
-   const dispatch = useDispatch();
+  const latData = useSelector(selectLat);
+  const lngData = useSelector(selectLng);
+
+  const dispatch = useDispatch();
   const { data, isSuccess, isLoading, refetch } = useFetchPartnerrAllQuery('');
-  
- 
+
   const language = ['az', 'en', 'ru'];
   const [active, setActive] = useState<string>('az');
   const [formValue, setFormValue] = useState<Initial>({
@@ -63,7 +61,6 @@ const Form = () => {
     lng: null,
   });
 
-
   useEffect(() => {
     if (isSuccess) {
       setFormValue((prevFormValue) => ({
@@ -83,14 +80,12 @@ const Form = () => {
         youtube_: data?.data.socials?.youtube || '',
         linkedln_: data?.data.socials?.linkedln || '',
         website_: data?.data.website || '',
-        lat: data?.data.location?.lat || '',
-        lng: data?.data.location?.lng || '',
+        lat: data?.data.location?.lat,
+        lng: data?.data.location?.lng,
       }));
       // dispatch(partnerFormMap({ lat, lng }));
     }
   }, [isSuccess, data]);
-
-  console.log(formValue.lat, 'formvalue');
 
   const {
     title_,
@@ -154,7 +149,7 @@ const Form = () => {
 
   const handlePhone = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputVal = e.target.value;
- 
+
     setFormValue({ ...formValue, phone_: inputVal });
   };
 
@@ -331,7 +326,11 @@ const Form = () => {
                 </div>
               </div>
 
-              <div>{ <App lat={lat} lng={lng}  />}</div>
+              <div>{lat && lng? (
+                 <App lat={lat} lng={lng} />
+              ):<Loader/>}
+              
+                </div>
               <select
                 name="language"
                 className="w-20 bg-white outline-none h-10 text-center my-4 rounded-md shadow-md"
@@ -339,18 +338,20 @@ const Form = () => {
                 onChange={(e) => handleTab(e.target.value)}
               >
                 {language.map((item, index) => (
-                  <option className="me-2" key={index}>
-                    <a
-                      href="#"
-                      className={`shadow-2 inline-block px-4 mt-10 py-3  hover:text-white rounded-lg ${
+                 
+                    <option
+                    key={index}
+                      
+                      className={`shadow-2 me-2 inline-block px-4 mt-10 py-3  hover:text-white rounded-lg ${
                         active === item ? 'active' : ''
                       }`}
                       aria-current={active === item ? 'page' : undefined}
                     >
                       {item}
-                    </a>
-                  </option>
-                ))}
+                    </option>
+                  
+                  
+                  ))}
               </select>
 
               {language.map((lang, index) => (

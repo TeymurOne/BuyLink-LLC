@@ -154,7 +154,7 @@ const Form = () => {
                     id="first-name"
                     autoComplete="given-name"
                     required
-                    className="block w-full px-2 rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1   placeholder:text-gray-400  border-[#ced4da] sm:text-sm sm:leading-6"
+                    className="block w-full px-2 rounded-md py-1.5 text-gray-900 shadow-md      border-inputColor sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>

@@ -24,6 +24,9 @@ module.exports = {
      textPrimary:"#0019F8",
      loginbg:"#202020",
      textNav:"#00000099",
+     tdColor:"#5B5B5B",
+     searchColor:"#979797",
+     inputColor:"#ced4da",
 
 
 

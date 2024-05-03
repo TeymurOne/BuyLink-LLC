@@ -23,7 +23,7 @@ const Index = () => {
   return (
     <>
   
-       <div className="bg-white w-[full] cursor-default   ">
+       <div className="bg-white w-full cursor-default   ">
         <div className="bg-white custom-con px-6  md:px-0   h-auto  cursor-default">
           <Header />
           <Main />

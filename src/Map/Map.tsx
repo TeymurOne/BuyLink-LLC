@@ -2,7 +2,7 @@ import {
   MapContainer,
   TileLayer,
   Marker,
-  Popup,
+  
   useMapEvents,
   useMap,
 } from 'react-leaflet';
@@ -11,9 +11,10 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { partnerFormMap } from '../features/map/MapSlice';
 
-function ResetCenterWiew(props:any) {
+function ResetCenterWiew(props: any) {
   const { cordinat, setClickPosition } = props;
   const map = useMap();
+
 
   useEffect(() => {
     if (cordinat && cordinat.lat && cordinat.lng) {
@@ -31,17 +32,19 @@ const Map = (props: any) => {
   const dispatch = useDispatch();
 
   const { cordinat, setCoordinat } = props;
+  console.log(cordinat.lat, 'kodrinat');
+  
   const [clickedPosition, setClickPosition] = useState(null);
-  useEffect(()=>{
+  useEffect(() => {
     if (clickedPosition) {
       dispatch(partnerFormMap(clickedPosition));
     }
-
-  }, [clickedPosition, dispatch])
- 
+  }, [clickedPosition, dispatch]);
 
   const handleMapClick = (e) => {
     const { lat, lng } = e.latlng;
+  
+    
     setClickPosition({ lat, lng });
     setCoordinat({ lat, lng });
 
@@ -70,13 +73,13 @@ const Map = (props: any) => {
         {clickedPosition && (
           <Marker position={clickedPosition} icon={icons}></Marker>
         )}
-     
-        {cordinat && (
-          <ResetCenterWiew
-            setClickPosition={setClickPosition}
-            cordinat={cordinat}
-          />
-        )}
+
+{typeof cordinat.lat === 'undefined' && typeof cordinat.lng === 'undefined' ? (
+  <ResetCenterWiew setClickPosition={setClickPosition} cordinat={{}} />
+) : (
+  <ResetCenterWiew setClickPosition={setClickPosition} cordinat={cordinat} />
+)}
+
       </MapContainer>
     </>
   );

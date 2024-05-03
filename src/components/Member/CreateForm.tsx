@@ -114,7 +114,7 @@ const CreateForm: React.FC = () => {
             </div>
           </div>
           {data?.data.map((item:any, index) => {
-            return <TbodyResponsive key={index} item={item} />;
+            return <TbodyResponsive  key={index} item={item} />;
           })}
         </>
       )}

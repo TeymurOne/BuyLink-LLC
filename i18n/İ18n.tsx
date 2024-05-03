@@ -101,12 +101,13 @@ const resources = {
         '6': 'Partnyor ol',
       },
       main: {
-        '0': 'BuyLink  ',
-        '1': 'dünyanın ilk rəqəmsal referal platformasıdır.',
+        '0': 'BuyLink',
+        '1': `dünyanın ilk rəqəmsal referal platformasıdır`,
         '2': `Bizim missiyamız insanları və biznesləri tövsiyələrdən faktiki fayda əldə edə biləcəkləri bir sosial şəbəkədə birləşdirməkdir.`,
         '3': 'İzahedici video',
         '4': 'Bu video ən sadə şəkildə bizim   biznesin necə işlədiyini göstərir.',
         '5': 'Yüklə BuyLink',
+        '6': 'Yüklə BuyLink',
       },
       wallet: {
         '0': 'BuyLink Pul kisəsi   ',
@@ -447,7 +448,7 @@ const resources = {
         '6': 'Become a partner',
       },
       main: {
-        '0': 'BuyLink  ',
+        '0': 'BuyLink',
         '1': 'is the world first digital referral network.',
         '2': `Our mission is to connect people and businesses in one referral social network where they are able to get actual benefits from recommendations.`,
         '3': 'Explainer Video',
