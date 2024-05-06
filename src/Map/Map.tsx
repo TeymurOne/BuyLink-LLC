@@ -9,6 +9,7 @@ import 'leaflet/dist/leaflet.css';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { partnerFormMap } from '../features/map/MapSlice';
+import placeholder from '../../public/placeholder.png'
 
 function ResetCenterWiew(props: any) {
   const { cordinat, setClickPosition } = props;
@@ -50,7 +51,7 @@ const Map = (props: any) => {
 
   const position = [40.34720432727009, 49.81097458154038];
   const icons = L.icon({
-    iconUrl: '/placeholder.png',
+    iconUrl: placeholder,
     iconSize: [38, 38],
   });
 
