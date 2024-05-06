@@ -27,8 +27,6 @@ export function BuyLinkPartner1() {
 
   const { t } = useTranslation();
   const [language, setLanguage] = useState<any>('');
-  
-  
 
   useEffect(() => {
     setLanguage(localStorage.getItem('lng'));
@@ -48,47 +46,49 @@ export function BuyLinkPartner1() {
 
               {t('partnyor.2')}
             </h2>
-            <p className="lg:text-[20px] text-[15px] pb-[2em] leading-[1.7]">
+            <p className="lg:text-[20px] text-start text-[15px] pb-[2em] leading-[1.7]">
               {t('partnyor.3')}
             </p>
           </div>
-          <div className="w-[90%]  place-items-start   grid lg:grid-cols-3 500px:grid-cols-2 md:grid-cols-2 grid-cols-1">
-            <div className="pt-4 w-full max-w-[340px]">
-              <div className="flex items-center    space-x-2 ">
+          <div className=" grid place-items-center max-w-[1600px] mx-auto lg:grid-cols-3 md:grid-cols-1  gap-10 ">
+            <div className="flex   flex-col items-start ">
+              <span className="flex items-center space-x-2 ">
                 <img src={p_icon1} alt="w-[20px] h-[28px]" />
 
-                <h2 className="font-manrope   lg:text-[17px] lg:text-start text-center md:text-start  500px:text-[11px]   md:text-[14px]  992px:text-[16px]  text-[20px]       text-black font-bold">
+                <h2 className="font-manrope   lg:text-lg md:text-sm text-lg lg:text-start text-center       text-black font-bold">
                   {t('partnyor.4')}
                 </h2>
-              </div>
+              </span>
 
-              <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
+              <p className="font-poppins text-center pt-4 lg:pt-2 opacity-70   md:text-start   leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
                 {t('partnyor.5')}
               </p>
             </div>
-            <div className="pt-4  w-full max-w-[280px]">
-              <div className="flex items-center   space-x-2 ">
+
+            <div className="flex   flex-col  items-start       ">
+              <span className="flex items-center">
                 <img src={p_icon2} alt="w-[20px] h-[28px]" />
 
-                <h2 className="font-manrope text-[20px]   lg:text-[17px] 500px:text-[11px]    md:text-[14px]  992px:text-[16px]        text-black font-bold">
+                <h2 className="font-manrope lg:text-lg md:text-sm text-lg        text-black font-bold">
                   {t('partnyor.6')}
                 </h2>
-              </div>
+              </span>
 
-              <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
+              <p className="font-poppins text-start pt-4 lg:pt-2 opacity-70     leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
                 {t('partnyor.7')}
               </p>
             </div>
-            <div className="pt-4  w-full max-w-[320px]">
-              <div className="flex items-center   space-x-2 ">
+
+            <div className="flex  flex-col   items-start      ">
+              <span className="flex items-center">
                 <img src={p_icon3} alt="w-[20px] h-[28px]" />
 
-                <h2 className="font-manrope  text-[20px]  500px:text-[11px]   lg:text-[17px]  md:text-[14px]  992px:text-[16px]      text-black font-bold">
+                <h2 className="font-manrope   lg:text-lg md:text-sm text-lg       text-black font-bold">
                   {t('partnyor.8')}
                 </h2>
-              </div>
+              </span>
 
-              <p className="font-poppins pt-4 pb-6  lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
+              <p className="font-poppins  text-start pt-4 lg:pt-2 opacity-70    leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
                 {t('partnyor.9')}
               </p>
             </div>

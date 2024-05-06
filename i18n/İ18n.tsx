@@ -103,10 +103,10 @@ const resources = {
       main: {
         '0': 'BuyLink',
         '1': `dünyanın ilk rəqəmsal referal platformasıdır`,
-        '2': `Bizim missiyamız insanları və biznesləri tövsiyələrdən faktiki fayda əldə edə biləcəkləri bir sosial şəbəkədə birləşdirməkdir.`,
+        '2': `Bizim missiyamız insanları və biznesləri bir referal sosial şəbəkəsi altında birləşdirərək onların müəyyən qazanc və üstünlüklərdən faydalanmasını təmin etməkdir.`,
         '3': 'İzahedici video',
         '4': 'Bu video ən sadə şəkildə bizim   biznesin necə işlədiyini göstərir.',
-        '5': 'Yüklə BuyLink',
+        '5': 'Elə indi yoxla',
         '6': 'Yüklə BuyLink',
       },
       wallet: {
@@ -456,10 +456,10 @@ const resources = {
         '5': 'Download BuyLink',
       },
       wallet: {
-        '0': 'BuyLink Wallet - serves as a savings for your  ',
-        '1': 'bonuses and rewards.',
+        '0': '  Save your  ',
+        '1': 'bonuses and rewards ',
         '2': 'a savings for your',
-        '3': 'This is the easisest way to manege your payme',
+        '3': 'BuyLink Wallet is a digital wallet that allows you to store your bonuses and rewards and use them to make purchases on the BuyLink platform.',
         '4': 'Cash withdrawals',
         '5': 'Saving of rewerads',
         '6': 'Payment via wallet at our partner',

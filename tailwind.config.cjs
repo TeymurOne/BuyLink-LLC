@@ -27,6 +27,8 @@ module.exports = {
      tdColor:"#5B5B5B",
      searchColor:"#979797",
      inputColor:"#ced4da",
+     gray700:"#F3F4F6",
+     blak700:"#000000ad",
 
 
 
@@ -96,6 +98,13 @@ module.exports = {
     },
     container: {
       center: true,
+      padding: {
+        DEFAULT: '1rem',
+        sm: '1rem',
+        lg: '3.75rem',
+        xl: '3.75rem',
+        '2xl': '3.75rem',
+      },
     },
     extend: {
       borderOpacity: ['active'],
@@ -163,6 +172,7 @@ module.exports = {
         45: '11.25rem',
         46: '11.5rem',
         47.5: '11.875rem',
+        48:"23.5",
         49: '12.25rem',
         50: '12.5rem',
         52: '13rem',

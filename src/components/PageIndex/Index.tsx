@@ -2,7 +2,7 @@ import Header from './Header';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
-import './Main.css';
+
 
 import Slider from './Slider';
 import VideoSection from './VideoSection';
@@ -24,13 +24,13 @@ const Index = () => {
     <>
   
        <div className="bg-white w-full cursor-default   ">
-        <div className="bg-white custom-con px-6  md:px-0   h-auto  cursor-default">
+        <div className=" container mx-auto px-6  md:px-0   h-auto  cursor-default">
           <Header />
           <Main />
         </div>
       </div>
 
-      {/* <div className="bg-[#F3F4F6] ">
+      <div className="bg-[#F3F4F6] ">
         <div className="  custom-con px-6 lg:px-4 md:px-0     ">
           <Slider />
 
@@ -39,7 +39,7 @@ const Index = () => {
           <WalletBuylink />
           <BuyLinkPartner1 />
         </div>
-      </div> * */}
+      </div> *
 
       {/* <div className="bg-white  py-20">
         <div className="  custom-con px-6 lg:px-4 md:px-0   ">

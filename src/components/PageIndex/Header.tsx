@@ -19,7 +19,6 @@ export default function Header() {
 
   const cookie = getState();
 
-  
   const { t } = useTranslation();
 
   const handleTranslate = (lang: string) => {
@@ -44,19 +43,20 @@ export default function Header() {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [popup]);
-  const useparams=useLocation()
-
-  
+  const useparams = useLocation();
 
   return (
-    <header className= { ` ${useparams.pathname=='/privacypolicy' ? "bg-gray2" :"bg-white"}   font-roboto  pb-6   pt-3  `}>
+    <header
+      className={` ${
+        useparams.pathname == '/privacypolicy' ? 'bg-gray2' : 'bg-white'
+      }   font-roboto  pb-6   pt-3  `}
+    >
       <nav
-        className="mx-auto  flex  w-full items-center justify-between py-3" aria-label="Global" >
+        className="mx-auto  flex  w-full items-center justify-between py-3"
+        aria-label="Global"
+      >
         <div className="flex lg:flex-1 -mr-45">
-          <Link
-            to="/"
-            className="-m-1.5   lg:block hidden p-1.5 w-17 h-19"
-          >
+          <Link to="/" className="-m-1.5   lg:block hidden p-1.5 w-17 h-19">
             <img className="w-full h-full" src={logo} alt="Logo" />
           </Link>
           <button
@@ -77,7 +77,9 @@ export default function Header() {
               htmlFor="Select language"
               className="flex items-center space-x-1  cursor-pointer  "
             >
-               <div className=" cursor-pointer relative ">{lang==='az' ? "Aze" :"Eng"}</div>
+              <div className=" cursor-pointer relative ">
+                {lang === 'az' ? 'Aze' : 'Eng'}
+              </div>
 
               <img src={vector} alt="Translate-vector arrow" />
 
@@ -135,7 +137,9 @@ export default function Header() {
               htmlFor="Select language"
               className="flex items-center space-x-1  cursor-pointer  "
             >
-              <div className=" relative text-lg ">{lang==='az' ? "Aze" :"Eng"}</div>
+              <div className=" relative text-lg ">
+                {lang === 'az' ? 'Aze' : 'Eng'}
+              </div>
               <img src={vector} alt="Translate-vector arrow" />
 
               {popup && (
@@ -160,8 +164,6 @@ export default function Header() {
             {cookie ? (
               <Link
                 to="/admin"
-            
-             
                 className="text-lg font-roboto   space-x-2 text-black   h-11    flex items-center justify-center rounded-sm      "
               >
                 Admin
@@ -178,7 +180,8 @@ export default function Header() {
           </div>
           <div className=" ">
             <Link
-              to=""
+              to="https://47gk82mq.forms.app/terefdashliq-formasi"
+              target='_blank'
               className="text-lg text-white font-roboto  w-44 h-11 px-2   flex items-center justify-center rounded-sm  bg-primary    "
             >
               {t('header.6')}
@@ -251,7 +254,9 @@ export default function Header() {
                     htmlFor="Select language"
                     className="flex items-center space-x-1  cursor-pointer  "
                   >
-              <div className=" relative text-base font-semibold  ">{lang==='az' ? "Aze" :"Eng"}</div>
+                    <div className=" relative text-base font-semibold  ">
+                      {lang === 'az' ? 'Aze' : 'Eng'}
+                    </div>
                     <img src={vector} alt="Translate-vector arrow" />
 
                     {popup && (
@@ -275,7 +280,8 @@ export default function Header() {
               </div>
               <div className="py-6">
                 <Link
-                  to=""
+                  to="https://47gk82mq.forms.app/terefdashliq-formasi"
+                  target='_blank'
                   className="text-lg text-white w-40 h-11    flex items-center justify-center rounded-sm  bg-primary    "
                 >
                   Become a partner

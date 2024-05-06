@@ -99,8 +99,8 @@ const Form: React.FC = () => {
         dispatch({ type: 'setAddress', payload: dataToPass?.data.address });
         dispatch({ type: 'setName', payload: dataToPass?.data?.name });
         dispatch({ type: 'setPhone', payload: dataToPass?.data?.phone });
-        dispatch({ type: 'setLat', payload: dataToPass?.data.lat });
-        dispatch({ type: 'setLng', payload: dataToPass?.data.lng });
+        dispatch({ type: 'setLat', payload: parseFloat(dataToPass?.data.lat)});
+        dispatch({ type: 'setLng', payload: parseFloat(dataToPass?.data.lng) });
       }
     } catch (error) {}
   };
@@ -138,12 +138,12 @@ const Form: React.FC = () => {
           name,
           address,
           phone,
-          lat: currentLat,
-          lng: currentLng,
+          lat: String(currentLat) ,
+          lng: String(currentLng) ,
         };
         console.log(postData, 'psodata');
         const response = await postBranches({postData, id}).unwrap();
-        if (response.success) {
+        if (response) {
           navigate('/admin/branchcreate');
         }
       }

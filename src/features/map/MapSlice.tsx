@@ -4,8 +4,8 @@ export const partnerMap = createSlice({
   name: 'partnerMap',
   initialState: [
     {
-      lat: 0,
-      lng: 0,
+      lat: null,
+      lng: null,
     },
   ],
 

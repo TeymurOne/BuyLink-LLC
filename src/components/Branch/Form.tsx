@@ -10,8 +10,8 @@ interface IpostData {
   name: string;
   phone?: string | number;
   address: any;
-  lat: number | string;
-  lng: number | string;
+  lat: any ;
+  lng: any ;
   load?: boolean;
 }
 
@@ -76,8 +76,8 @@ const Form: React.FC = () => {
     address: '',
     phone: '',
     name: '',
-    lat: 0,
-    lng: 0,
+    lat: null,
+    lng: null,
     load: false,
   };
   const [{ address, phone, name, load }, dispatch] = useReducer( Reducer, initialState, );
@@ -90,16 +90,17 @@ const Form: React.FC = () => {
     e.preventDefault();
     try {
       dispatch({ type: 'setLaod', payload: true });
-      const currentLat = latData || useSelector(selectLat);
-      const currentLng = lngData || useSelector(selectLng);
-      if (address && currentLat && currentLng && name && phone) {
+    
+      if (address && latData && lngData && name && phone) {
         const postData: IpostData = {
           name,
           address,
           phone,
-          lat: currentLat,
-          lng: currentLng,
+          lat:String(latData) ,
+          lng: String(lngData),
         };
+      
+        
         const response = await postBranches(postData).unwrap();
         if (response.success) {
 
@@ -150,7 +151,7 @@ const Form: React.FC = () => {
               />
             </div>
             <div className="w-full my-4">
-              <App />
+              <App lat="" lng="" />
             </div>
           </div>
         </div>

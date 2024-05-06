@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import apple from '../../images/Pages-index/head-main/apple-icon.svg';
 import play from '../../images/Pages-index/head-main/store-icon.svg';
-import main from '../../images/Pages-index/head-main/main.svg';
+import main from '../../images/main/main.svg';
 import people from '../../images/main/people.svg';
 import star from '../../images/main/star.svg';
 import money from '../../images/main/money.svg';
@@ -12,23 +12,23 @@ export function Main() {
 
   return (
     <>
-      <div className="   gap-10 space-x-4 items-center  pt-5 pb-10 lg:px-2   flex-col   flex lg:flex-row   ">
-        <div className="  max-w-7xl w-full  pt-0   mx-auto lg:items-start  lg:text-left  text-center    flex flex-col items-center  ">
-          <h2 className=" hyphens-auto font-semibold font-manrope  lg:text-6xl md:text-4xl sm:text-2xl text-xl    text-center lg:text-start        text-black-2">
+      <div className='flex lg:flex-row flex-col items-center justify-between '>
+        <div className=" max-w-[688px] w-full  ">
+          <h2 className=" lg:text-title-xxl md:text-title-xl2 text-[28px] lg:text-left text-center   font-bold font-manrope      text-black-2">
             <a className="text-primary">{t('main.0')}</a> {t('main.1')}
           </h2>
-          <p className="lg:text-xl  text-black-2 text-center lg:text-left  font-poppins  py-4">
+          <p className=" lg:text-xl md:text-base text-sm lg:text-left text-center  font-poppins py-2 font-normal  text-black-2 ">
             {t('main.2')}
           </p>
 
-          <div className="flex md:flex-row flex-col items-center space-y-4 md:space-y-0 md:space-x-8 ">
+          <div className="flex   h-34  flex-wrap items-center 530px:space-x-4 space-x-0  lg:justify-start justify-center  ">
             <Link
               to="#"
-              className="bg-black-2 h-15 grid place-items-center   w-46"
+              className="bg-black-2 mr-2  h-15 grid place-items-center   w-46"
             >
               <div className="h-15 flex items-center space-x-1  ">
                 <img src={apple} alt="Apple icon" className="w-5 h-7" />
-                <span className="flex flex-col mb-[10px]  text-white">
+                <span className="flex flex-col mb-3  text-white">
                   <p className="text-title-2xsm">Download on the</p>
                   <p className="text-title-xsm  -mt-1.5 font-medium">
                     App Store
@@ -38,20 +38,20 @@ export function Main() {
             </Link>
             <Link
               to="#"
-              className="bg-black-2 h-15 grid place-items-center   w-46"
+              className="bg-black-2 h-15  grid place-items-center   w-46"
             >
               <div className="h-14 flex items-center space-x-1  ">
                 <img src={play} alt="Apple icon" className="w-5 h-8" />
                 <span className="flex flex-col mb-3   text-white">
                   <p className="text-title-2xsm  font-thin">Get it on</p>
-                  <p className="text-[19px]  -mt-1.5 font-medium">
+                  <p className="text-lg  -mt-1.5 font-medium">
                     Google Play
                   </p>
                 </span>
               </div>
             </Link>
           </div>
-          <div className="flex md:flex-row flex-col mt-4 items-center space-y-4 md:space-y-0 ">
+          <div className="flex  md:flex-row flex-col  items-center space-y-4 md:space-y-0 ">
             <img src={people} alt="People" />
             <div className="mx-2  ">
               <span className="font-manrope flex font-bold text-lg">
@@ -63,10 +63,10 @@ export function Main() {
           </div>
         </div>
 
-        <div className="  max-w-125 w-full  grid place-items-center ">
+        <div className="  max-w-[660px] w-full">
           <img
             src={main}
-            className=" shadow-2xl w-ful h-full  rounded-2xl border-searchColor border-opacity-60  object-contain"
+            className="  w-full h-full     "
             alt="Main"
           />
         </div>

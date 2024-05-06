@@ -9,10 +9,12 @@
 }
 .gradient{
   background-image: linear-gradient(
-    to right,
+    to right top,
     #fff,
     #e4e7ff,
-    rgba(77, 93, 245, 0.5)
+    
+
+    rgba(77, 93, 245, 0.9)
   );
   border-radius: 80px 0 0 0;
 }

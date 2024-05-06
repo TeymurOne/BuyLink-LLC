@@ -1,11 +1,7 @@
 import { lazy } from 'react';
 
-const Calendar = lazy(() => import('../pages/Calendar'));
-const Chart = lazy(() => import('../pages/Chart'));
 
-const Tables = lazy(() => import('../pages/MyProfile.tsx'));
-const Alerts = lazy(() => import('../pages/UiElements/Alerts'));
-const Buttons = lazy(() => import('../pages/UiElements/Buttons'));
+
 const privacypolicy = lazy(() => import('../components/PageIndex/PrivacyPoilcy.tsx'),
 );
 
@@ -52,33 +48,8 @@ const partnerform = lazy(() => import('../components/Partnerr/Form.tsx'));
 const category = lazy(() => import('../components/products/Category.tsx'));
 
 const coreRoutes = [
-  {
-    path: '/admin/calendar',
-    title: 'Calender',
-    component: Calendar,
-  },
 
-  {
-    path: '/admin/tables',
-    title: 'Tables',
-    component: Tables,
-  },
 
-  {
-    path: '/admin/chart',
-    title: 'Chart',
-    component: Chart,
-  },
-  {
-    path: '/admin/ui/alerts',
-    title: 'Alerts',
-    component: Alerts,
-  },
-  {
-    path: '/admin/ui/buttons',
-    title: 'Buttons',
-    component: Buttons,
-  },
   {
     path: '/admin/branchdetails/:id',
     title: 'branchDetails',
