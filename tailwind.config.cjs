@@ -28,7 +28,7 @@ module.exports = {
      searchColor:"#979797",
      inputColor:"#ced4da",
      gray700:"#F3F4F6",
-     blak700:"#000000ad",
+     black700:"#000000ad",
 
 
 

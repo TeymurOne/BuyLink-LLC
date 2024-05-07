@@ -42,45 +42,41 @@ export function BuyLinkPartner3() {
               {t('partnyor3.2')}
             </p>
           </div>
-          <div className="w-[90%]  md:place-items-start  gap-4   place-items-center grid lg:grid-cols-3 500px:grid-cols-2 md:grid-cols-2 grid-cols-1">
-            <div className="pt-4 w-full max-w-[340px] leading-4">
-              <div className="flex items-center justify-between leading-4    ">
-                <img src={d_icon1} alt="w-[20px] h-[28px]" />
+          <div className="grid lg:grid-cols-12   gap-10     ">
+            <div className="w-full p-6 lg:col-span-4 md:col-span-6 bg-white border border-gray700 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+              <span className='flex justify-center space-x-2'>
+              <img src={d_icon1} alt="Icon" className="w-6" />
+              <h2 className="font-manrope text-lg        text-black font-bold">
+                {t('partnyor3.3')}
+              </h2>
+              </span>
 
-                <h2 className="font-manrope  lg:text-[17px] leading-4  lg:text-start text-center md:text-start  500px:text-[11px]   md:text-[14px]  992px:text-[16px]  text-[20px]       text-black font-bold">
-                  {t('partnyor3.3')}
-                </h2>
-              </div>
-
-              <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
+              <p className="mb-3 font-normal opacity-70 font-poppins text-xs pt-2 text-black700">
                 {t('partnyor3.4')}
               </p>
             </div>
-            <div className="pt-4  w-full max-w-[340px] leading-4 ">
-              <div className="flex items-center justify-between  ">
-                <img src={d_icon2} alt="w-[20px] h-[28px]" />
 
-                <h2 className="font-manrope text-[20px]   lg:text-[17px] 500px:text-[11px]    md:text-[14px]  992px:text-[16px]        text-black font-bold">
+            <div className="w-full p-6 lg:col-span-4 md:col-span-6 bg-white border border-gray700  rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+              <span className='flex justify-center space-x-2'>
+                <img src={d_icon2} alt="Icon" className="w-6" />
+                <h2 className="font-manrope text-lg      text-black font-bold">
                   {t('partnyor3.5')}
                 </h2>
-              </div>
+              </span>
 
-              <p className="font-poppins pt-4 lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
+              <p className="mb-3 font-normal opacity-70 font-poppins text-xs pt-2 text-black700 ">
                 {t('partnyor3.6')}
               </p>
             </div>
-            <div className="pt-4  w-full max-w-[340px] leading-4 ">
-              <div className="flex items-center  justify-between   ">
-                <img src={d_icon3} alt="w-[20px] h-[28px]" />
-
-                <h2 className="font-manrope  text-[20px]  500px:text-[11px]   lg:text-[17px]  md:text-[14px]  992px:text-[16px]      text-black font-bold">
+            <div className="w-full p-6 lg:col-span-4 md:col-span-12 bg-white border border-gray700  rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+              <span className="flex  justify-center space-x-2">
+                <img src={d_icon3} alt="Icon" className="w-6" />
+                <h2 className="font-manrope text-lg         text-black font-bold">
                   {t('partnyor3.7')}
                 </h2>
-              </div>
+              </span>
 
-              <p className="font-poppins pt-4 pb-6  lg:pt-2 opacity-70   md:text-start  text-center leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-                {t('partnyor3.8')}
-              </p>
+              <p className="mb-3 font-normal font-poppins text-xs opacity-70 pt-2 text-black700 ">{t('partnyor3.8')}</p>
             </div>
           </div>
         </div>

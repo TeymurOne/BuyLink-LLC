@@ -50,47 +50,41 @@ export function BuyLinkPartner1() {
               {t('partnyor.3')}
             </p>
           </div>
-          <div className=" grid place-items-center max-w-[1600px] mx-auto lg:grid-cols-3 md:grid-cols-1  gap-10 ">
-            <div className="flex   flex-col items-start ">
-              <span className="flex items-center space-x-2 ">
-                <img src={p_icon1} alt="w-[20px] h-[28px]" />
-
-                <h2 className="font-manrope   lg:text-lg md:text-sm text-lg lg:text-start text-center       text-black font-bold">
-                  {t('partnyor.4')}
-                </h2>
+          <div className="grid lg:grid-cols-12   gap-10     ">
+            <div className="w-full p-6 lg:col-span-4 md:col-span-6 bg-white border border-gray700 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+              <span className='flex justify-center space-x-2'>
+              <img src={p_icon1} alt="Icon" className="w-6" />
+              <h2 className="font-manrope text-lg        text-black font-bold">
+                {t('partnyor.4')}
+              </h2>
               </span>
 
-              <p className="font-poppins text-center pt-4 lg:pt-2 opacity-70   md:text-start   leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
+              <p className="mb-3 font-normal pt-2 opacity-70 font-poppins  text-xs">
                 {t('partnyor.5')}
               </p>
             </div>
 
-            <div className="flex   flex-col  items-start       ">
-              <span className="flex items-center">
-                <img src={p_icon2} alt="w-[20px] h-[28px]" />
-
-                <h2 className="font-manrope lg:text-lg md:text-sm text-lg        text-black font-bold">
+            <div className="w-full p-6 lg:col-span-4 md:col-span-6 bg-white border border-gray700  rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+              <span className='flex justify-center space-x-2'>
+                <img src={p_icon2} alt="Icon" className="w-6" />
+                <h2 className="font-manropetext-lg       text-black font-bold">
                   {t('partnyor.6')}
                 </h2>
               </span>
 
-              <p className="font-poppins text-start pt-4 lg:pt-2 opacity-70     leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
+              <p className="mb-3 font-normal text-xs opacity-70 font-poppins pt-2">
                 {t('partnyor.7')}
               </p>
             </div>
-
-            <div className="flex  flex-col   items-start      ">
-              <span className="flex items-center">
-                <img src={p_icon3} alt="w-[20px] h-[28px]" />
-
-                <h2 className="font-manrope   lg:text-lg md:text-sm text-lg       text-black font-bold">
+            <div className="w-full p-6 lg:col-span-4 md:col-span-12 bg-white border border-gray700  rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+              <span className="flex  justify-center space-x-2">
+                <img src={p_icon3} alt="Icon" className="w-6" />
+                <h2 className="font-manrope text-lg         text-black font-bold">
                   {t('partnyor.8')}
                 </h2>
               </span>
 
-              <p className="font-poppins  text-start pt-4 lg:pt-2 opacity-70    leading-[1.9] lg:text-[12px] text-[14px]   text-[#000000ad] font-medium">
-                {t('partnyor.9')}
-              </p>
+              <p className="mb-3 font-normal pt-2 opacity-70 font-poppins text-xs ">{t('partnyor.9')}</p>
             </div>
           </div>
         </div>
