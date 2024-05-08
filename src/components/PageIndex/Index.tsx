@@ -1,21 +1,21 @@
-import Header from './Header';
+import Header from '../home/layout/Header';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
 
 
-import Slider from './Slider';
-import VideoSection from './VideoSection';
+import Slider from '../home/Slider';
+import VideoSection from '../home/VideoSection';
 
-import Accordion from './Accordion';
-import Footer from './Footer';
+import Accordion from '../home/Accordion';
+import Footer from '../home/layout/Footer';
 
-import { BuyLinkPartner1 } from './BuylinkPartner1';
-import { BuyLinkPartner2 } from './BuylinkPartner2';
-import { BuyLinkPartner3 } from './BuylinkPartner3';
-import { WalletBuylink } from './Wallet';
+import { BuyLinkPartner1 } from '../home/BuylinkPartner1';
+import { BuyLinkPartner2 } from '../home/BuylinkPartner2';
+import { BuyLinkPartner3 } from '../home/BuylinkPartner3';
+import { WalletBuylink } from '../home/Wallet';
 import { Main } from './Main';
-import { Partner } from './Partner';
+import { Partner } from '../home/Partner';
 import { NewsLetter } from './NewsLetter';
 export const isMobile = window.innerWidth <= 455;
 

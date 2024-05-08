@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
-import logo from '../../images/Pages-index/head-main/logo.svg';
-import vector from '../../images/Pages-index/head-main/vector.svg';
+import logo from '../../../images/Pages-index/head-main/logo.svg';
+import vector from '../../../images/Pages-index/head-main/vector.svg';
 
 import { Link, useLocation } from 'react-router-dom';
-import SignModal from '../../pages/Authentication/SignModal';
-import getState from '../../core/helpers/cookie';
-import i18n from '../../../i18n/İ18n';
+import SignModal from '../../../pages/Authentication/SignModal';
+import getState from '../../../core/helpers/cookie';
+import i18n from '../../../../i18n/İ18n';
 import { useTranslation } from 'react-i18next';
 
 export default function Header() {

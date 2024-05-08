@@ -1,8 +1,8 @@
-import logo from '../../images/Pages-index/head-main/logo.svg';
-import linkedln from '../../images/Pages-index/footer/linked.svg';
-import envolede from '../../images/Pages-index/footer/msj.svg';
-import facebook from '../../images/Pages-index/footer/fb.svg';
-import instagram from '../../images/Pages-index/footer/insta.svg';
+import logo from '../../../images/Pages-index/head-main/logo.svg';
+import linkedln from '../../../images/Pages-index/footer/linked.svg';
+import envolede from '../../../images/Pages-index/footer/msj.svg';
+import facebook from '../../../images/Pages-index/footer/fb.svg';
+import instagram from '../../../images/Pages-index/footer/insta.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 const Footer = () => {

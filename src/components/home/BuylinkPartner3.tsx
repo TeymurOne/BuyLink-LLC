@@ -42,7 +42,7 @@ export function BuyLinkPartner3() {
               {t('partnyor3.2')}
             </p>
           </div>
-          <div className="grid lg:grid-cols-12   gap-10     ">
+          <div className="grid lg:grid-cols-12 mb-10   gap-10     ">
             <div className="w-full p-6 lg:col-span-4 md:col-span-6 bg-white border border-gray700 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
               <span className='flex justify-center space-x-2'>
               <img src={d_icon1} alt="Icon" className="w-6" />
@@ -89,9 +89,9 @@ export function BuyLinkPartner3() {
             modules={[Pagination]}
             className="mySwiper"
           >
-            <div className="flex items-center  space-x-4 justify-center ">
+            <div className="flex items-center w-100 pb-2  justify-center ">
               <SwiperSlide>
-                <div className="max-w-[225px] h-[590px] w-full ">
+                <div className="max-w-70 h-[590px] w-full ">
                   <img
                     className="w-full h-full object-contain"
                     src={language == 'az' ? d1az : d1en}
@@ -100,7 +100,7 @@ export function BuyLinkPartner3() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="max-w-[225px] h-[590px] w-full  ">
+                <div className="max-w-70 h-[590px] w-full  ">
                   <img
                     className="w-full h-full object-contain"
                     src={language == 'az' ? d2az : d2en}
@@ -109,7 +109,7 @@ export function BuyLinkPartner3() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="max-w-[225px] h-[590px] w-full  ">
+                <div className="max-w-70 h-[590px] w-full  ">
                   <img
                     className="w-full h-full object-contain"
                     src={language == 'az' ? d3az : d3en}

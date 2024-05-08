@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import ModalQr from './ui/ModalQr';
+import ModalQr from '../PageIndex/ui/ModalQr';
 import { useState, useEffect } from 'react';
 
 function VideoSection() {
