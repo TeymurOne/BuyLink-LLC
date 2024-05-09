@@ -1,4 +1,5 @@
 
+import { useEffect, useState } from 'react';
 import slide1 from '../../images/Pages-index/slider/slider1.svg';
 import slide2 from '../../images/Pages-index/slider/slider2.svg';
 import slide3 from '../../images/Pages-index/slider/slider3.svg';
@@ -7,11 +8,30 @@ import slide5 from '../../images/Pages-index/slider/slider5.svg';
 import slide6 from '../../images/Pages-index/slider/slider6.svg';
 import slide7 from '../../images/Pages-index/slider/slider7.svg';
 import OwlCarousel from 'react-owl-carousel';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
+import axiosInstance from '../../core/lib/axios.config';
+
 
 
 const Slider = () => {
+  const [sliderData, setSliderData]=useState([])
+
+  useEffect(() => {
+    const fetchSliderData = async () => {
+      try {
+        const response = await axiosInstance('/partner-logos');
+        setSliderData(response.data);
+      } catch (error) {
+        console.error('Error fetching slider data:', error);
+      }
+    };
+
+    fetchSliderData();
+  }, []);
+
+  console.log(sliderData, 'sllider');
+  
+
+
  const options={
     loop: true,
     margin:20,
