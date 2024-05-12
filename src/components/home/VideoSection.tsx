@@ -5,13 +5,14 @@ function VideoSection() {
   const { t } = useTranslation();
 
   const [language, setLanguage] = useState<any>('');
+  const currentLanguage=t('default.0')
 
 
   useEffect(() => {
     if (localStorage.getItem('lng')) {
       setLanguage(localStorage.getItem('lng'));
     }else{
-      setLanguage('az')
+      setLanguage(currentLanguage)
     }
   
   }, [localStorage.getItem('lng'), language]);
