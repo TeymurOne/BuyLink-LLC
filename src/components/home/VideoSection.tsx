@@ -1,14 +1,17 @@
 import { useTranslation } from 'react-i18next';
-import { useState, useEffect, useRef, useLayoutEffect } from 'react';
+import { useState, useEffect,  } from 'react';
 
 function VideoSection() {
   const { t } = useTranslation();
 
   const [language, setLanguage] = useState<any>('');
 
+
   useEffect(() => {
     if (localStorage.getItem('lng')) {
       setLanguage(localStorage.getItem('lng'));
+    }else{
+      setLanguage('az')
     }
   
   }, [localStorage.getItem('lng'), language]);
