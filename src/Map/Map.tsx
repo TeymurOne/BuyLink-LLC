@@ -9,7 +9,7 @@ import 'leaflet/dist/leaflet.css';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { partnerFormMap } from '../features/map/MapSlice';
-import placeholder from '../../public/placeholder.png'
+import placeholder from '../../public/placeholder.png';
 
 function ResetCenterWiew(props: any) {
   const { cordinat, setClickPosition } = props;
@@ -31,7 +31,6 @@ const Map = (props: any) => {
   const dispatch = useDispatch();
 
   const { cordinat, setCoordinat } = props;
- 
 
   const [clickedPosition, setClickPosition] = useState(null);
   useEffect(() => {
@@ -72,12 +71,12 @@ const Map = (props: any) => {
           <Marker position={clickedPosition} icon={icons}></Marker>
         )}
 
-     {cordinat && (
-       <ResetCenterWiew
-       setClickPosition={setClickPosition}
-       cordinat={cordinat}
-     />
-     )}
+        {cordinat && (
+          <ResetCenterWiew
+            setClickPosition={setClickPosition}
+            cordinat={cordinat}
+          />
+        )}
       </MapContainer>
     </>
   );

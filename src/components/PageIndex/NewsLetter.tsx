@@ -3,12 +3,12 @@ import { useTranslation } from "react-i18next";
 export function NewsLetter() {
     const { t } = useTranslation();
     return (
-      <section className="py-10 text-center lg:px-0 px-2">
-        <h2 className="font-manrope  lg:text-[40px] text-[27px]      leading-8  text-black font-bold">
+      <section className="py-14 text-center lg:px-0 px-2 ">
+        <h2 className="font-manrope  lg:text-title-xxl text-5xl      leading-8  text-black font-bold">
           {t('letters.0')}{' '}
           <span className="text-[#4C5DF5]">{t('letters.1')}</span>
         </h2>
-        <p className="lg:text-2xl text-sm font-light font-grotesk text-[#1C1C1C]">
+        <p className="lg:text-2xl pt-3 opacity-75  text-sm font-light font-grotesk text-black">
           {t('letters.2')}
         </p>
   

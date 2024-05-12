@@ -18,18 +18,17 @@ export const isMobile = window.innerWidth <= 455;
 const Index = () => {
   return (
     <>
-      <div className="bg-white border-opacity-50  border-b w-full cursor-default   ">
-        <div className="bg-white  container mx-auto   h-auto  cursor-default">
+      <div className="bg-white  w-full cursor-default   ">
+        <div className="bg-white  container lg:px-16 md:px-10 px-4 mx-auto   h-auto  cursor-default">
           <Header />
           <Main />
         </div>
       </div>
 
       <div className="bg-white w-full ">
-        <div>
         <Partnyor />
-        </div>
-        <div className=" bg-white container mx-auto   h-auto  cursor-default    ">
+
+        <div className="  container  bg-white lg:px-16 md:px-4 px-4 mx-auto    h-auto  cursor-default    ">
           <VideoSection />
 
           <WalletBuylink />
@@ -37,7 +36,7 @@ const Index = () => {
         </div>
       </div>
 
-      <div className="bg-white  py-20">
+      <div className="bg-[#F8F8F8]  py-20">
         <div className="  container   ">
           <BuyLinkPartner2 />{' '}
         </div>
@@ -54,12 +53,13 @@ const Index = () => {
           <Partner />
         </div>
       </div>
-      <NewsLetter />
-      <div className=" bg-[#F3F4F6] py-10 ">
+     <div className='bg-white py-10'>
+     <NewsLetter />
+     </div>
+   
         <ModalQr />
-        <div className=" py-20 container  ">
+        <div className=" py-20 bg-white container  ">
           <Accordion />
-        </div>
       </div>
       <div className="bg-[#000000DE] w-full  py-12">
         <Footer />

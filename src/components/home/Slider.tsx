@@ -1,5 +1,4 @@
 
-import { useEffect, useState } from 'react';
 import slide1 from '../../images/Pages-index/slider/slider1.svg';
 import slide2 from '../../images/Pages-index/slider/slider2.svg';
 import slide3 from '../../images/Pages-index/slider/slider3.svg';
@@ -8,27 +7,12 @@ import slide5 from '../../images/Pages-index/slider/slider5.svg';
 import slide6 from '../../images/Pages-index/slider/slider6.svg';
 import slide7 from '../../images/Pages-index/slider/slider7.svg';
 import OwlCarousel from 'react-owl-carousel';
-import axiosInstance from '../../core/lib/axios.config';
+
 
 
 
 const Slider = () => {
-  const [sliderData, setSliderData]=useState([])
 
-  useEffect(() => {
-    const fetchSliderData = async () => {
-      try {
-        const response = await axiosInstance('/partner-logos');
-        setSliderData(response.data);
-      } catch (error) {
-        console.error('Error fetching slider data:', error);
-      }
-    };
-
-    fetchSliderData();
-  }, []);
-
-  console.log(sliderData, 'sllider');
   
 
 
@@ -60,6 +44,7 @@ const Slider = () => {
   return (
    
     <>
+    
  
         <div  className='flex  !important z-[10] items-center  py-14 justify-between mx-auto max-w-[93%]'>
         <OwlCarousel  className='owl-theme text-center grid place-items-center' {...options} loop margin={10}  >

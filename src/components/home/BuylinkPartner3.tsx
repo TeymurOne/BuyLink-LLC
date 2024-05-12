@@ -18,7 +18,7 @@ import './Main.css';
 import { Pagination } from 'swiper/modules';
 import { useTranslation } from 'react-i18next';
 export function BuyLinkPartner3() {
-  const isMobile = window.innerWidth <= 455;
+  const isMobile = window.innerWidth <= 555;
 
   const { t } = useTranslation();
   const [language, setLanguage] = useState<any>('');
@@ -42,41 +42,43 @@ export function BuyLinkPartner3() {
               {t('partnyor3.2')}
             </p>
           </div>
-          <div className="grid lg:grid-cols-12 mb-10   gap-10     ">
-            <div className="w-full p-6 lg:col-span-4 md:col-span-6 bg-white border border-gray700 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-              <span className='flex justify-center space-x-2'>
-              <img src={d_icon1} alt="Icon" className="w-6" />
-              <h2 className="font-manrope text-lg        text-black font-bold">
-                {t('partnyor3.3')}
-              </h2>
+          <div className="grid lg:grid-cols-12 mb-10   gap-6    ">
+            <div className="w-full px-6  grid place-items-center  lg:col-span-4 md:col-span-6 bg-white border border-gray700 rounded-lg shadow-md ">
+              <span className="flex pt-4  items-center  ">
+                <img src={d_icon1} alt="Icon" className="lg:w-9 w-6  mr-2" />
+                <h2 className="font-manrope xl:text-lg  lg:text-base text-lg       text-black font-bold">
+                  {t('partnyor3.3')}
+                </h2>
               </span>
-
-              <p className="mb-3 font-normal opacity-70 font-poppins text-xs pt-2 text-black700">
+              <p className=" font-normal  pb-4  opacity-70 font-poppins text-xs  text-black700">
                 {t('partnyor3.4')}
-              </p>
+              </p>{' '}
+             
             </div>
 
-            <div className="w-full p-6 lg:col-span-4 md:col-span-6 bg-white border border-gray700  rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-              <span className='flex justify-center space-x-2'>
-                <img src={d_icon2} alt="Icon" className="w-6" />
+            <div className="w-full  px-6     lg:col-span-4 md:col-span-6 bg-white border border-gray700  rounded-lg shadow-md ">
+              <span className="flex justify-center space-x-2 pt-4 ">
+                <img src={d_icon2} alt="Icon" className="lg:w-9 w-6 " />
                 <h2 className="font-manrope text-lg      text-black font-bold">
                   {t('partnyor3.5')}
                 </h2>
               </span>
 
-              <p className="mb-3 font-normal opacity-70 font-poppins text-xs pt-2 text-black700 ">
+              <p className="mb-3 font-normal opacity-70 pt-3  font-poppins text-xs  text-black700 ">
                 {t('partnyor3.6')}
               </p>
             </div>
-            <div className="w-full p-6 lg:col-span-4 md:col-span-12 bg-white border border-gray700  rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-              <span className="flex  justify-center space-x-2">
-                <img src={d_icon3} alt="Icon" className="w-6" />
+            <div className="w-full  px-6    lg:col-span-4 md:col-span-12 bg-white border border-gray700  rounded-lg shadow-md">
+              <span className="flex  justify-center pt-4   ">
+                <img src={d_icon3} alt="Icon" className="lg:w-9 w-6  mr-[2px]" />
                 <h2 className="font-manrope text-lg         text-black font-bold">
                   {t('partnyor3.7')}
                 </h2>
               </span>
 
-              <p className="mb-3 font-normal font-poppins text-xs opacity-70 pt-2 text-black700 ">{t('partnyor3.8')}</p>
+              <p className=" font-normal font-poppins text-xs opacity-70  py-4  text-black700 ">
+                {t('partnyor3.8')}
+              </p>
             </div>
           </div>
         </div>
@@ -148,4 +150,3 @@ export function BuyLinkPartner3() {
     </>
   );
 }
-
