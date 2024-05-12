@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useLayoutEffect } from 'react';
 
 function VideoSection() {
   const { t } = useTranslation();
@@ -7,14 +7,20 @@ function VideoSection() {
   const [language, setLanguage] = useState<any>('');
 
   useEffect(() => {
-    setLanguage(localStorage.getItem('lng'));
+    if (localStorage.getItem('lng')) {
+      setLanguage(localStorage.getItem('lng'));
+    }
+  
   }, [localStorage.getItem('lng'), language]);
+  
+  
+
   return (
     <>
       <section className="bg-white">
         <div className="flex lg:flex-row flex-col items-center justify-between h-full   ">
           <div className=" h-full space-y-10  text-center  lg:text-start max-w-94 w-full">
-            <div >
+            <div>
               <h2 className="   text-4xl  font-manrope h-full  text-starrating font-bold">
                 {t('main.3')}
               </h2>
@@ -25,15 +31,16 @@ function VideoSection() {
                 {t('main.5')}
               </p>
             </div>
-            <button className="bg-starrating  rounded text-white font-medium max-w-40  w-full text-base   h-15">
+            <button   className="bg-starrating  rounded text-white font-medium max-w-40  w-full text-base   h-15">
               {t('main.6')}
             </button>
           </div>
 
-          <div className=" bg-black-2 mt-10  max-w-[889px] w-full h-[400px]  ">
+          <div className=" bg-black-2 mt-10  max-w-[889px] w-full h-auto md:h-[300px] lg:h-[400px]  ">
             <video
               id="myVideo"
               width="100%"
+              controlsList="nodownload" preload="true" autoPlay muted
               className="bg-black-2    w-full  h-full         "
               controls={true}
             >
