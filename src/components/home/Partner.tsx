@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import partner_logo from '../../images/Pages-index/head-main/becomepartner.png';
+import partnerlogo from '../../images/Pages-index/head-main/becomepartner.png';
 
 
 export function Partner() {
@@ -19,7 +19,7 @@ export function Partner() {
             </button>
           </div>
           <div className="hidden lg:block ">
-            <img src={partner_logo} className=" w-auto mt-1 h-115" alt="" />
+            <img src={partnerlogo} className=" w-auto mt-1 h-115" alt="Partner Logo" />
           </div>
         </div>
       </>
