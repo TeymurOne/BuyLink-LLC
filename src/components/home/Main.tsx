@@ -21,10 +21,10 @@ export function Main() {
             {t('main.2')}
           </p>
 
-          <div className="flex   h-34  flex-wrap items-center 530px:space-x-4 space-x-0  lg:justify-start justify-center  ">
+          <div className="flex   h-34  flex-wrap items-center space-x-0 xsm:space-x-4  lg:justify-start justify-center  ">
             <Link
               to="#"
-              className="bg-black-2 mr-2  h-15 grid place-items-center   w-46"
+              className="bg-black-2  h-15 grid place-items-center   w-46"
             >
               <div className="h-15 flex items-center space-x-1  ">
                 <img src={apple} alt="Apple icon" className="w-5 h-7" />

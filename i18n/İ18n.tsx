@@ -730,7 +730,7 @@ i18n
   .init({
     resources,
 
-    lng: localStorage.getItem('lng') || 'en',
+    lng: localStorage.getItem('lng') || 'az',
   });
 
 export default i18n;

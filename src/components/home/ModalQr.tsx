@@ -7,13 +7,13 @@ import { Link } from 'react-router-dom';
 
 const ModalQr = () => {
   return (
-    <>
-      <div className=" w-full lg:flex hidden items-center justify-between bg-tborderHover   ">
-          <div className="pl-30 text-center">
-            <span className="text-starrating text-5xl font-inter font-semibold">
+    <div className='w-full  bg-tborderHover '>
+      <div className="  lg:flex hidden items-center   ">
+          <div className=" text-center ml-auto pr-10  space-x-3">
+            <span className="text-starrating xl:text-5xl lg:text-4xl font-inter font-semibold">
               Buylink
             </span>
-            <span className="text-starrating text-5xl font-inter font-medium">
+            <span className="text-starrating xl:text-5xl lg:text-4xl font-inter font-medium">
               tətbiqini yüklə
             </span>
             <h4 className=" text-4xl">Hər yerdə mövcuddur</h4>
@@ -60,7 +60,7 @@ const ModalQr = () => {
             </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

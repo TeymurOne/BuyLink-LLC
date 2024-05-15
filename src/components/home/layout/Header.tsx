@@ -102,13 +102,22 @@ export default function Header() {
             </label>
           </div>
 
-          <Link
-            to=""
-            onClick={() => setShowModal(true)}
-            className="-mx-3 text-sm  rounded-lg pt-3  p-2 text-white  text-center w-17 h-11  bg-loginbg"
-          >
-            Login
-          </Link>
+          {cookie ? (
+              <Link
+                to="/admin"
+                className="text-sm rounded-md font-roboto bg-black w-30     space-x-2 text-white   h-11    flex items-center justify-center       "
+              >
+                Admin
+              </Link>
+            ) : (
+              <Link
+                to=""
+                onClick={() => setShowModal(true)}
+                className="text-lg  font-roboto  space-x-2 text-black   h-11    flex items-center justify-center rounded-sm      "
+              >
+                {t('header.5')}
+              </Link>
+            )}
         </div>
         <ul className="hidden   space-x-6  text-center  lg:flex  text-black font-roboto   font-normal text-lg">
           <li className="px-3">
@@ -284,7 +293,7 @@ export default function Header() {
                   target='_blank'
                   className="text-lg text-white w-40 h-11    flex items-center justify-center rounded-sm  bg-primary    "
                 >
-                  Become a partner
+                {t('header.6')}
                 </Link>
               </div>
             </div>
