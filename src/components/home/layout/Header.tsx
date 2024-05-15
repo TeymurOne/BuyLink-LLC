@@ -113,7 +113,7 @@ export default function Header() {
               <Link
                 to=""
                 onClick={() => setShowModal(true)}
-                className="text-lg  font-roboto  space-x-2 text-black   h-11    flex items-center justify-center rounded-sm      "
+                className="text-sm rounded-md font-roboto bg-black w-30     space-x-2 text-white   h-11    flex items-center justify-centertext-lg  font-roboto  space-x-2 text-black   h-11    flex items-center justify-center rounded-sm      "
               >
                 {t('header.5')}
               </Link>
