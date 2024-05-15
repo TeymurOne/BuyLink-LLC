@@ -83,6 +83,7 @@ export function BuyLinkPartner3() {
         </div>
         {isMobile ? (
           <Swiper
+          loop={true}
             pagination={{
               dynamicBullets: true,
               clickable: true,
@@ -90,7 +91,7 @@ export function BuyLinkPartner3() {
             modules={[Pagination]}
             className="mySwiper"
           >
-            <div className="flex items-center w-100 pb-2  justify-center ">
+            <div className="flex items-center w-auto pb-2  justify-center ">
               <SwiperSlide>
                 <div className="max-w-70 h-auto w-full ">
                   <img

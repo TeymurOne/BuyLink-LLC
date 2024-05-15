@@ -4,7 +4,7 @@ export function NewsLetter() {
     const { t } = useTranslation();
     return (
       <section className="py-14 text-center lg:px-0 px-2 ">
-        <h2 className="font-manrope  lg:text-title-xxl text-5xl      leading-8  text-black font-bold">
+        <h2 className="font-manrope  lg:text-title-xxl text-4xl      leading-8  text-black font-bold">
           {t('letters.0')}{' '}
           <span className="text-starrating">{t('letters.1')}</span>
         </h2>

@@ -36,7 +36,7 @@ const Index = () => {
         </div>
       </div>
 
-      <div className="bg-tborderHover  py-20">
+      <div className="bg-tborderHover  lg:py-10 py-6">
         <div className="  container   ">
           <BuyLinkPartner2 />{' '}
         </div>

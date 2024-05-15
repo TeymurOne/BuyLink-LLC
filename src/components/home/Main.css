@@ -1,3 +1,6 @@
+.swiper-slide-active{
+  width: 290px !important;
+}
 .modalqr {
   max-width: 960px;
   

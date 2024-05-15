@@ -99,6 +99,7 @@ export function BuyLinkPartner1() {
               clickable: true,
             }}
             modules={[Pagination]}
+            loop={true}
             className="mySwiper"
           >
             <div className="flex items-center    w-100 justify-center ">
