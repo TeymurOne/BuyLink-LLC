@@ -1,11 +1,5 @@
 import ReactDOM from 'react-dom/client';
-import {
-  BrowserRouter,
-  
-
-  BrowserRouter as Router,
-  
-} from 'react-router-dom';
+import { BrowserRouter, BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
 import store from './app/api/store';
 import './index.css';
@@ -16,12 +10,10 @@ import { QuizProvider } from './context/Context';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <Provider store={store}>
-  
     <BrowserRouter>
-    <QuizProvider>
-      <App />
+      <QuizProvider>
+        <App />
       </QuizProvider>
     </BrowserRouter>
-  
   </Provider>,
 );

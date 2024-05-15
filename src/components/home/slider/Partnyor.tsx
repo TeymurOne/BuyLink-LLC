@@ -92,11 +92,11 @@ function Partnyor() {
   };
 
   return (
-    <div className="slider-container overflow-hidden pt-10">
+    <div className="slider-container border-t border-opacity-40 overflow-hidden pt-10"  >
       <Slider {...settings}>
         {partners.map((partner: Partner, index: number) => (
           <div key={index}  >
-            <img className="lg:h-22 lg:w-22 h-18 w-18 " src={partner.image} alt={`Partner ${index}`} />
+            <img className="lg:h-19 lg:w-19 h-18 w-18 " src={partner.image} alt={`Partner ${index}`} />
           </div>
         ))}
       </Slider>

@@ -13,15 +13,15 @@ export function WalletBuylink() {
       <section className="  py-10 lg:px-0    grid place-items-center">
         <h2 className='text-center font-manrope lg:text-title-xxl md:text-title-xl text-2xl text-starrating font-bold lg:py-14 md:py-7 py-4'>  <span className='text-black'> {t('main.0')}</span> Wallet</h2>
         <div className=" flex  items-center justify-between  w-full  lg:flex-row   flex-col  ">
-          <div className=" lg:mx-0  lg:h-[280px] h-auto   max-w-[490px] w-full    ">
+          <div className=" lg:mx-0  lg:h-70 h-auto   max-w-125 w-full    ">
             <img
-              className="  h-full w-full o    rounded-xl "
+              className="  h-full w-full rounded-xl "
               src={card1}
               alt="Buynet wallet img"
             />
           </div>
 
-          <div className=" pt-6 lg:pt-0 lg:pl-10 pl-0 self-center  lg:self-baseline w-full max-w-[761px]      text-black  ">
+          <div className=" pt-6 lg:pt-0 lg:pl-10 pl-0 self-center  lg:self-baseline w-full max-w-190      text-black  ">
             <div className="lg:text-start space-y-4  text-center">
               <h2 className="font-manrope lg:text-title-xxl md:text-title-xl2   text-title-lg    font-semibold text-black-2">
                 {t('wallet.0')}

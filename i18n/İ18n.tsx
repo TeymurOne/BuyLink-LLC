@@ -106,7 +106,7 @@ const resources = {
         '2': `Bizim missiyamız insanları və biznesləri bir referal sosial şəbəkəsi altında birləşdirərək onların müəyyən qazanc və üstünlüklərdən faydalanmasını təmin etməkdir.`,
         '3': 'İzahedici video',
         '4': 'Bu video ən sadə şəkildə bizim   biznesin necə işlədiyini göstərir.',
-        "5":"Biz bir platformada müxtəlif sənaye sahələri əhatə edirik",
+        '5': 'Biz bir platformada müxtəlif sənaye sahələri əhatə edirik',
         '6': 'Yüklə BuyLink',
       },
       wallet: {
@@ -170,8 +170,10 @@ const resources = {
         '1': 'BuyLink nədir?',
         '2': 'Bizim missiyamız insanları və biznesləri bir referal sosial şəbəkəsi altında birləşdirərək onların müəyyən qazanc və üstünlüklərdən faydalanmasını təmin etməkdir.',
         '3': 'BuyLink-in üstünlükləri nələrdir?',
-        '4': 'Necə işləyirik?',
-        '5': 'Necə işləyirik? necə etmək olar?',
+        '4': `Buylink-in üstünlükləri bir çoxdur. İlk olaraq, bu platform istifadəçilərə hem pul qazanmaq, hem də endirimlərdən yararlana biləcəkləri bir şəbəkə təmin edir. Bu, istifadəçilərin həm keyfiyyətli məhsulları əldə etmək, həm də gəlir əldə etmək imkanını bir araya gətirir.
+        Əlavə olaraq, Buylink-in rəfərallar üzərində əsaslanan qarşılıqlı marketing modeli, istifadəçilərə daha çox insanı platforma cəlb etmək və onların həcmə bağlı olaraq artan gəlir əldə etmək imkanı verir.`,
+        '5': 'Necə işləyirik?',
+        '6': `Buylink platformunda paylaşılan postlar, istifadəçilərin mekanları tanıtmalarını, təcrübələrini paylaşmalarını və promosyonlar təklif etmələrini təmin edir. Bu, onların öz sosial şəbəkələrindən faydalanaraq gəlir qazanmalarına və digər istifadəçilərə fayda vermələrinə imkan verir.`,
       },
       footer: {
         '0': 'İndi ödənişlərdən daha çox keşbek və qazanclar əldə et.',
@@ -453,7 +455,7 @@ const resources = {
         '2': `Our mission is to connect people and businesses in one referral social network where they are able to get actual benefits from recommendations.`,
         '3': 'Explainer Video',
         '4': 'The video shows in basic how the applications works .',
-        "5":" We cover different industries in one platform",
+        '5': ' We cover different industries in one platform',
         '6': 'Download BuyLink',
       },
       wallet: {
@@ -515,10 +517,13 @@ const resources = {
       accordion: {
         '0': 'Frequently Asked Questions',
         '1': 'What is the BUYLINK?',
-        '2': 'Lorem ipsum dolor sit amet, consectetur adipiscing elm, quis nostrud exercitation ullamco laboris nisi',
-        '3': 'BWhy do we use it??',
-        '4': 'How it works??',
+        '2': `Our mission is to connect people and businesses under one referral social network to ensure they benefit from the benefits and benefits.`,
+        '3': 'Why do we use it??',
+        '4': `The advantages of Buylink are many. First, this platform provides users with a network where they can both earn money and take advantage of discounts. This brings together the opportunity for users to get quality products and generate income.
+        Additionally, Buylink's affiliate marketing model based on referrals allows users to attract more people to the platform and earn increased revenue based on their volume.`,
         '5': 'How to get cash??',
+        '6': 'Posts shared on the Buylink platform allow users to promote places, share experiences and offer promotions. This allows them to take advantage of their social networks to earn income and benefit other users.',
+
       },
       footer: {
         '0': 'Finance helps companies manage payments easily.',

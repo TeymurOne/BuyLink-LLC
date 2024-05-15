@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
-import  Aztext from '../home/privacy/Aztext';
-import  Entext from '../home/privacy/Entext';
+import Aztext from "./Az";
+import Entext from "./En";
+
 
 export default function PrivacyText() {
   const { t } = useTranslation();

@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-// disocunt
 import d_icon1 from '../../images/Pages-index/disocunt/icon-1.svg';
 import d_icon2 from '../../images/Pages-index/disocunt/icon-2.svg';
 import d_icon3 from '../../images/Pages-index/disocunt/icon-3.svg';
@@ -18,7 +17,7 @@ import './Main.css';
 import { Pagination } from 'swiper/modules';
 import { useTranslation } from 'react-i18next';
 export function BuyLinkPartner3() {
-  const isMobile = window.innerWidth <= 555;
+  const isMobile = window.innerWidth <= 600;
 
   const { t } = useTranslation();
   const [language, setLanguage] = useState<any>('');
@@ -34,11 +33,11 @@ export function BuyLinkPartner3() {
           id="buylinkpartner"
         >
           <div className="space-y-4 ">
-            <h2 className="font-manrope  lg:text-[40px] text-[30px]   leading-0    sm:leading-8  text-black font-bold">
-              <span className="text-[#4C5DF5]"> {t('partnyor3.0')} </span>{' '}
+            <h2 className="font-manrope  lg:text-title-xxl text-3xl    text-black font-bold">
+              <span className="text-starrating"> {t('partnyor3.0')} </span>{' '}
               {t('partnyor3.1')}
             </h2>
-            <p className="lg:text-[20px] text-[15px] pb-[2em] leading-[1.7]">
+            <p className="lg:text-xl text-base pb-10 ">
               {t('partnyor3.2')}
             </p>
           </div>
@@ -70,7 +69,7 @@ export function BuyLinkPartner3() {
             </div>
             <div className="w-full  px-6    lg:col-span-4 md:col-span-12 bg-white border border-gray700  rounded-lg shadow-md">
               <span className="flex  justify-center pt-4   ">
-                <img src={d_icon3} alt="Icon" className="lg:w-9 w-6  mr-[2px]" />
+                <img src={d_icon3} alt="Icon" className="lg:w-9 w-6  mr-1" />
                 <h2 className="font-manrope text-lg         text-black font-bold">
                   {t('partnyor3.7')}
                 </h2>
@@ -93,7 +92,7 @@ export function BuyLinkPartner3() {
           >
             <div className="flex items-center w-100 pb-2  justify-center ">
               <SwiperSlide>
-                <div className="max-w-70 h-[590px] w-full ">
+                <div className="max-w-70 h-auto w-full ">
                   <img
                     className="w-full h-full object-contain"
                     src={language == 'az' ? d1az : d1en}
@@ -102,7 +101,7 @@ export function BuyLinkPartner3() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="max-w-70 h-[590px] w-full  ">
+                <div className="max-w-70 h-auto w-full  ">
                   <img
                     className="w-full h-full object-contain"
                     src={language == 'az' ? d2az : d2en}
@@ -111,7 +110,7 @@ export function BuyLinkPartner3() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="max-w-70 h-[590px] w-full  ">
+                <div className="max-w-70 h-auto w-full  ">
                   <img
                     className="w-full h-full object-contain"
                     src={language == 'az' ? d3az : d3en}
@@ -123,21 +122,21 @@ export function BuyLinkPartner3() {
           </Swiper>
         ) : (
           <div className="flex items-center pt-10  space-x-10 justify-center ">
-            <div className="w-[290px] ">
+            <div className="w-73 ">
               <img
                 className="w-full h-full "
                 src={language == 'az' ? d1az : d1en}
                 alt="Iphone2"
               />
             </div>
-            <div className="w-[290px] ">
+            <div className="w-73 ">
               <img
                 className="w-full h-full "
                 src={language == 'az' ? d3az : d3en}
                 alt="Iphone4"
               />
             </div>
-            <div className="w-[290px] ">
+            <div className="w-73 ">
               <img
                 className="w-full h-full "
                 src={language == 'az' ? d2az : d2en}

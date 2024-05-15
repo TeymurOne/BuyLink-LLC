@@ -1,14 +1,14 @@
-import partnerleft from '../../../images/Pages-index/modal/partner-left.png';
-import play from '../../../images/Pages-index/head-main/store-icon.svg';
-import apple from '../../../images/Pages-index/head-main/apple-icon.svg';
-import qr from '../../../images/Pages-index/modal/qr.svg';
-import '../Privacy.css';
+import partnerleft from '../../images/Pages-index/modal/partner-left.png';
+import play from '../../images/Pages-index/head-main/store-icon.svg';
+import apple from '../../images/Pages-index/head-main/apple-icon.svg';
+import qr from '../../images/Pages-index/modal/qr.svg';
+import './Main.css';
 import { Link } from 'react-router-dom';
 
 const ModalQr = () => {
   return (
     <>
-      <div className=" w-full lg:flex hidden items-center justify-between bg-[#F8F8F8]    ">
+      <div className=" w-full lg:flex hidden items-center justify-between bg-tborderHover   ">
           <div className="pl-30 text-center">
             <span className="text-starrating text-5xl font-inter font-semibold">
               Buylink
@@ -16,15 +16,15 @@ const ModalQr = () => {
             <span className="text-starrating text-5xl font-inter font-medium">
               tətbiqini yüklə
             </span>
-            <h4 className="text-[#17171] text-4xl">Hər yerdə mövcuddur</h4>
+            <h4 className=" text-4xl">Hər yerdə mövcuddur</h4>
             <img src={partnerleft} alt="Partner left" />
           </div>
-          <div className=" h-[539px] gradient grid place-items-center max-w-[778px] w-full rounded-tl-[320px]  bg-textPrimary ">
-            <div className=" flex w-[300px]  items-center justify-center flex-col h-[219px]">
-              <div className="rounded-3xl p-6 border-2 border-[#4C5DF5]  bg-white grid place-items-center max-w-[307px] w-full h-[279px]">
-                <img className="w-[221px] h-[218px]" src={qr} alt=" Qr" />
+          <div className=" py-40 gradient grid place-items-center max-w-3xl w-full rounded-tl-[320px]  bg-textPrimary ">
+            <div className=" flex w-75  items-center justify-center flex-col h-[219px]">
+              <div className="rounded-3xl p-6 border-2 border-starrating  bg-white grid place-items-center max-w-90 w-full ">
+                <img className="w-55 h-full" src={qr} alt=" Qr" />
               </div>
-              <h2 className="text-[#4C5DF5] py-4  text-[28px] font-[600]   ">
+              <h2 className="text-starrating py-4  text-title-lg font-semibold   ">
                 For download Scan QR
               </h2>
               <div className="flex mt-6    h-34   ">

@@ -21,25 +21,21 @@ const Accordion = () => {
     {
       id: 2,
       question: t("accordion.3"),
-      answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elm, quis nostrud exercitation ullamco laboris nisi',
+      answer: t("accordion.4"),
     },
     {
       id: 3,
-      question: t("accordion.4"),
-      answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elm, quis nostrud exercitation ullamco laboris nisi',
-    },
-    {
-      id: 4,
       question: t("accordion.5"),
-      answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elm, quis nostrud exercitation ullamco laboris nisi',
+      answer: t("accordion.6"),
     },
+  
   ];
 
   const [curOpen, setCurOpen] = useState<any>(null);
 
   return (
     <section className="h-auto">
-      <h2 className="text-center font-manrope lg:text-[40px] text-[30px] leading-8 text-black font-bold">
+      <h2 className="text-center font-manrope lg:text-title-xxl text-3xl leading-8 text-black font-bold">
         Frequently Asked Questions
       </h2>
       <div className="flex justify-between flex-wrap">
@@ -72,11 +68,11 @@ function AccordionItem({ num, question, answer, curOpen, setCurOpen }: any) {
   return (
     <div
       onClick={handleToggle}
-      className="cursor-pointer h-auto border-b-[1px] border-[#C4C4C4] border-opacity-[20%] flex justify-between items-center w-full pb-2"
+      className="cursor-pointer h-auto border-b-[1px] border-border2 border-opacity-[20%] flex justify-between items-center w-full pb-2"
     >
       <div className="w-full">
-        <div className="flex items-center justify-between h-[80px]">
-          <h2 className="lg:text-[28px] py-3 font-manrope text-[20px] normal text-[#4C5DF5] font-semibold">
+        <div className="flex items-center justify-between h-20">
+          <h2 className="lg:text-3xl py-3 font-manrope text-xl normal text-starrating font-semibold">
             {question}
           </h2>
           <button>
@@ -90,7 +86,7 @@ function AccordionItem({ num, question, answer, curOpen, setCurOpen }: any) {
 
         <p
           id="transition"
-          className={`text-[20px] h-0 overflow-hidden font-poppins ${isOpen && 'lg:pb-14 pb-30 md:pb-16'}`}
+          className={`text-xl h-0 overflow-hidden font-poppins ${isOpen && 'h-auto  py-2'}`}
         >
           {answer}
         </p>

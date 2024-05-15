@@ -13,8 +13,8 @@ export function Main() {
   return (
     <>
       <div className='flex lg:flex-row flex-col items-center justify-between '>
-        <div className=" max-w-[688px] w-full  ">
-          <h2 className=" lg:text-title-xxl md:text-title-xl2 text-[28px] lg:text-left text-center   font-bold font-manrope      text-black-2">
+        <div className=" max-w-180 pr-2 w-full  ">
+          <h2 className=" lg:text-title-xxl md:text-title-xl2 text-3xl lg:text-left text-center   font-bold font-manrope      text-black-2">
             <a className="text-primary">{t('main.0')}</a> {t('main.1')}
           </h2>
           <p className=" lg:text-xl md:text-base text-sm lg:text-left text-center  font-poppins py-2 font-normal  text-black-2 ">
@@ -63,7 +63,7 @@ export function Main() {
           </div>
         </div>
 
-        <div className="  max-w-[660px] w-full">
+        <div className="  max-w-150 w-full">
           <img
             src={main}
             className="  w-full h-full     "

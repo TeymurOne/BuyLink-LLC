@@ -1,6 +1,8 @@
-import Header from '../home/layout/Header';
 
-import PrivacyText from './PrivacyText';
+
+
+import Header from '../layout/Header';
+import PrivacyText from './PrivacyLayout';
 
 const PrivacyPolicy = () => {
   return (

@@ -23,18 +23,22 @@ import './Main.css';
 import { Pagination } from 'swiper/modules';
 
 export function BuyLinkPartner1() {
-  const isMobile = window.innerWidth <= 455;
+  const isMobile = window.innerWidth <= 600;
 
   const { t } = useTranslation();
-  const [language, setLanguage] = useState<any>('');
+  const [language, setLanguage] = useState<string | null>('');
+
 
   useEffect(() => {
-    setLanguage(localStorage.getItem('lng'));
+    if (localStorage.getItem("lng")) {
+      setLanguage(localStorage.getItem('lng'));
+
+    }
   }, [localStorage.getItem('lng'), language]);
 
   return (
     <>
-      <section className=" lg:pt-20 md:pt-10 pt-2" >
+      <section className=" lg:pt-20 lg:py-30 md:py-10 py-4 md:pt-10 pt-2" >
         <div className="flex flex-col lg:items-center  items-stretch text-center">
           <div className="space-y-4  max-w-5xl mx-auto ">
             <h2 className="font-manrope  lg:text-title-xxl text-title-lg   leading-0    sm:leading-8  text-black font-bold">
@@ -101,7 +105,7 @@ export function BuyLinkPartner1() {
               <SwiperSlide>
                 <div className="  max-w-70  w-full pb-2  ">
                   <img
-                    className="w-full h-[377px] object-contain"
+                    className="w-full h-94 object-contain"
                     src={language == 'Aze' ? p1aze : p1en}
                     alt="Iphone2"
                   />

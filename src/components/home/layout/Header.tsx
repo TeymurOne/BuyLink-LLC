@@ -15,7 +15,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [popup, setPopup] = useState(false);
-  const [lang, setLang] = useState(localStorage.getItem('lng') || 'en');
+  const [lang, setLang] = useState(localStorage.getItem('lng') || 'az');
 
   const cookie = getState();
 

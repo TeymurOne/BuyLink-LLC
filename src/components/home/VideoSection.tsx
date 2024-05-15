@@ -21,7 +21,7 @@ function VideoSection() {
 
   return (
     <>
-      <section className="bg-white">
+      <section className="bg-white lg:pt-14 md:pt-10 pt-2">
         <div className="flex lg:flex-row flex-col items-center justify-between h-full   ">
           <div className=" h-full space-y-10  text-center  lg:text-start max-w-94 w-full">
             <div>
@@ -40,12 +40,12 @@ function VideoSection() {
             </button>
           </div>
 
-          <div className=" bg-black-2 mt-10  max-w-[889px] w-full h-auto md:h-[300px] lg:h-[400px]  ">
+          <div className=" bg-black-2 mt-10  max-w-4xl w-full h-auto md:h-75 lg:h-100  ">
             <video
               id="myVideo"
               width="100%"
               controlsList="nodownload" preload="true" autoPlay muted
-              className="bg-black-2    w-full  h-full         "
+              className="bg-black-2    w-full  h-full  "
               controls={true}
             >
               {language == 'az' && <source src="./Aze.mp4" type="video/mp4" />}

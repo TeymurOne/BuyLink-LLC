@@ -2,8 +2,7 @@ import { lazy } from 'react';
 
 
 
-const privacypolicy = lazy(() => import('../components/PageIndex/PrivacyPoilcy.tsx'),
-);
+const privacypolicy = lazy(() => import('../components/home/PrivacyPolicy/Index.tsx'));
 
 const balance = lazy(() => import('../components/Balance/Balanc.tsx'));
 

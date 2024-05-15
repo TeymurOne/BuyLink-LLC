@@ -17,6 +17,7 @@ module.exports = {
     },
     colors: {
       tborder:"#DFDFDF",
+      border2:"#C4C4C4",
       white: '#FFFFFF',
       tborderHover:"#F8F8F8",
      btnBgColor:"#2D83B6",
@@ -28,12 +29,13 @@ module.exports = {
      searchColor:"#979797",
      inputColor:"#ced4da",
      gray700:"#F3F4F6",
+     gray200:"#F3F2F2",
      black700:"#000000ad",
 
 
 
 
-      starrating: '#4C5DF5',
+  starrating: '#4C5DF5',
       current: 'currentColor',
       transparent: 'transparent',
       gray:"#eee",
@@ -232,7 +234,7 @@ module.exports = {
         142.5: '35.625rem',
         150: '37.5rem',
         180: '45rem',
-        190:'48.75',
+        190:'47.5rem',
         203: '50.75rem',
         230: '57.5rem',
         242.5: '60.625rem',
