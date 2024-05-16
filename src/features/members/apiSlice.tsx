@@ -61,8 +61,8 @@ export const membersApi = apiSlice.enhanceEndpoints({addTagTypes: ['Post'],
         }),
       }),
       updateMember: builder.mutation({
-        query: ({ postData, idUrl }) => ({
-          url: `member/update/${idUrl}`,
+        query: ({ postData, memberId }) => ({
+          url: `member/update/${memberId}`,
           method: 'POST',
           body: postData,
         }),

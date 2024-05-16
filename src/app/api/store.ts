@@ -5,10 +5,14 @@ import { apiSlice } from './apiSlice';
 import commonSlice from '../../features/members/memberSlice';
 import editSlice from '../../features/members/editSlice';
 import  partnerFormMap  from '../../features/map/MapSlice';
-
+import membersSlice from '../../features/members/membersSlice';
+import partnerSlice from '../../features/partner/partnerSlice';
 export const store = configureStore({
+  
   reducer: {
     commonSlice:commonSlice,
+    memberSlice:membersSlice,
+    partnerSlice:partnerSlice,
     editSlice:editSlice,
     partnerMap:partnerFormMap,
     [apiSlice.reducerPath]:apiSlice.reducer,

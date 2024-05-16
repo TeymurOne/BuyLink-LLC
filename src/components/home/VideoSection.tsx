@@ -35,8 +35,9 @@ function VideoSection() {
                 {t('main.5')}
               </p>
             </div>
-            <button   className="bg-starrating  rounded text-white font-medium max-w-40  w-full text-base   h-15">
-              {t('main.6')}
+            <button  className="bg-starrating  rounded text-white font-medium max-w-40  w-full text-base   h-15">
+              <a href="#buylinkdownload">    {t('main.6')}</a>
+          
             </button>
           </div>
 

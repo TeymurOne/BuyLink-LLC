@@ -107,7 +107,7 @@ const Footer = () => {
               <ul className="text-border2 text-sm font-medium flex xl:flex-row flex-col space-x-0 xl:space-x-9 justify-between">
                 <li className="divide-x divide-blue-200">{t('footer.13')}</li>
                 <li className="">{t('footer.14')}</li>
-                <li className="">{t('footer.15')}</li>
+                <li >051-411-84-44</li>
               </ul>
             </div>
           </div>

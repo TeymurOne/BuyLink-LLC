@@ -99,7 +99,8 @@ const Form = () => {
   const handleTab = (item: string) => {
     setActive(item);
   };
-  const btnDisabled = !title || !productID || !price || !images;
+  const btnDisabled =
+    !title || !productID || !price || !images || !discountprice;
   const [postProduct] = usePostProductTypeMutation();
   const { t } = useTranslation();
   const local = t('default.0');
@@ -108,13 +109,16 @@ const Form = () => {
   if (isSuccess) {
     content = data.data?.map((item: data, index: number) => {
       return (
-        <option
-          key={index}
-          value={item?.id}
-          selected={item.id === Number(params.id)}
-        >
-          {item.name[local]}
-        </option>
+        <>
+
+          <option
+            key={index}
+            value={item?.id}
+            selected={item.id === Number(params.id)}
+          >
+            {item.name[local]}
+          </option>
+        </>
       );
     });
   } else if (isError) {
@@ -124,6 +128,7 @@ const Form = () => {
   const postSubmit = async (e: React.FormEvent<HTMLButtonElement>) => {
     setLoad(true);
     e.preventDefault();
+   
 
     postData.append('image', images);
     postData.append('category_id', productID!.toString());
@@ -273,9 +278,11 @@ const Form = () => {
                     id="category"
                     onChange={handleMember}
                     name="category"
+                    required
                     className="block w-full rounded-md border-0 py-[11px]  shadow-sm ring-1 ring-inset    sm:max-w-xs sm:text-sm sm:leading-6"
                   >
-                    <option value="default">Category Seçin</option>
+               <option selected disabled value="default">Category seçin</option>
+
                     {content}
                   </select>
                 </div>
@@ -292,6 +299,7 @@ const Form = () => {
                   <input
                     type="number"
                     name="Price"
+                    required
                     placeholder=" Price"
                     id="Price"
                     onChange={handleNum}

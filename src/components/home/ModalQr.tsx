@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const ModalQr = () => {
   return (
-    <div className='w-full  bg-tborderHover '>
+    <div className='w-full  bg-tborderHover ' id='buylinkdownload'>
       <div className="  lg:flex hidden items-center   ">
           <div className=" text-center ml-auto pr-10  space-x-3">
             <span className="text-starrating xl:text-5xl lg:text-4xl font-inter font-semibold">

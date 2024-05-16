@@ -107,7 +107,7 @@ const resources = {
         '3': 'İzahedici video',
         '4': 'Bu video ən sadə şəkildə bizim   biznesin necə işlədiyini göstərir.',
         '5': 'Biz bir platformada müxtəlif sənaye sahələri əhatə edirik',
-        '6': 'Yüklə BuyLink',
+        '6': 'BuyLinki  yüklə',
       },
       wallet: {
         '0': 'BuyLink Pul kisəsi   ',
