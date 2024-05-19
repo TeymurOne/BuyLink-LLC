@@ -1,8 +1,6 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-import detector from 'i18next-browser-languagedetector';
-import backend from 'i18next-http-backend';
 const resources = {
   az: {
     translation: {
@@ -720,16 +718,15 @@ const resources = {
     },
   },
 };
+const defaultLanguage = localStorage.getItem("lng"); 
 
 i18n
-  .use(initReactI18next)
-  .use(detector)
-  .use(backend)
-  .use(initReactI18next)
+  .use(initReactI18next) 
   .init({
-    resources,
+    resources, 
 
-    lng: 'az',
+    lng: defaultLanguage ? defaultLanguage : 'az', 
   });
+
 
 export default i18n;
