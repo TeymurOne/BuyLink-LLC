@@ -9,19 +9,19 @@ interface productSlice {
   imgurl: string;
   filesImg: any;
   active: string;
-  error:string
+  error: string;
 }
 
 const initialState: productSlice = {
-  name:{
-    az:"",
-    en:'',
-    ru:""
+  name: {
+    az: '',
+    en: '',
+    ru: '',
   },
-  desc:{
-    az:"",
-    en:'',
-    ru:""
+  desc: {
+    az: '',
+    en: '',
+    ru: '',
   },
   price: '',
   discount: '',
@@ -30,7 +30,7 @@ const initialState: productSlice = {
   imgurl: '',
   filesImg: '',
   active: 'az',
-  error:"",
+  error: '',
 };
 
 const productSlice = createSlice({
@@ -59,28 +59,52 @@ const productSlice = createSlice({
       return { ...state, filesImg: action.payload };
     },
     setName(state, action) {
-        const { language, value } = action.payload;
+      const { language, value, az, en, ru } = action.payload;
+
+      if (az || en || ru) {
         return {
-            ...state,
-            name: {
-                ...state.name,
-                [language]: value,
-            },
+          ...state,
+          name: {
+            ...state.name,
+            ['az']: az,
+            ['en']: en,
+            ['ru']: ru,
+          },
         };
+      }
+
+      return {
+        ...state,
+        name: {
+          ...state.name,
+          [language]: value,
+        },
+      };
     },
-    
+
     setDesc(state, action) {
-        const { language, value } = action.payload;
+      const { language, value, az, en, ru } = action.payload;
+      if (az || en || ru) {
         return {
-            ...state,
-            desc: {
-                ...state.desc,
-                [language]: value,
-            },
+          ...state,
+          desc: {
+            ...state.desc,
+            ['az']: az,
+            ['en']: en,
+            ['ru']: ru,
+          },
         };
+      }
+      return {
+        ...state,
+        desc: {
+          ...state.desc,
+          [language]: value,
+        },
+      };
     },
-    setError(state, action){
-        return {...state, error:action.payload}
+    setError(state, action) {
+      return { ...state, error: action.payload };
     },
 
     setReset: (state) => initialState,
@@ -88,7 +112,8 @@ const productSlice = createSlice({
 });
 
 export const {
-  setPrice,setError,
+  setPrice,
+  setError,
   setReset,
   setimgUrl,
   setDesc,

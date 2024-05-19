@@ -1,5 +1,6 @@
-import { AiOutlineDelete } from 'react-icons/ai';
-import { FiEdit2, FiEye } from 'react-icons/fi';
+import edit from '../../images/action-icon/edit.svg';
+import rubbish from '../../images/action-icon/rubish.svg';
+import eye from '../../images/action-icon/details.svg';
 import Swal from 'sweetalert2';
 import {useRemoveProductMutation,} from '../../features/product/apiSlice';
 import { Link } from 'react-router-dom';
@@ -57,17 +58,16 @@ const Tbody: React.FC<itemAllData> = ({ item }) => {
   useEffect(() => {}, [handleDelete]);
 
   const { image, discount_price, price, title, id } = item;
-  console.log(item, 'item');
   
 
   return (
     <>
-      <tr className="text-sm">
-        <td className="border-b border-[#eee] text-[16px] py-5 px-4 dark:border-strokedark">
+      <tr className=" dark:bg-boxdark border-0 bg-white hover:bg-tborderHover">
+        <td className="  border-gray border-0 text-xs  px-4 dark:border-strokedark">
           {id}
         </td>
-        <td className="border-b border-[#eee] py-5 px-4  dark:border-strokedark xl:pl-11">
-          <div className="font-medium w-11 h-10  dark:text-white">
+        <td className=" border-gray py-1 px-4  dark:border-strokedark xl:pl-11">
+          <div className="font-medium w-10.5 h-10  dark:text-white">
             <img src={image} className="w-full h-full rounded-full" alt="" />
           </div>
         </td>
@@ -92,18 +92,18 @@ const Tbody: React.FC<itemAllData> = ({ item }) => {
           <div className="flex items-center space-x-3.5 ">
           <Link to={`/admin/detailsproduct/${id}`}>
           <button className="hover:text-primary" >
-              <FiEye />
+          <img src={eye} alt="" className="w-5 h-5" />
             </button>
           </Link>
             <button
               onClick={() => handleDelete(id)}
               className="hover:text-primary"
             >
-              <AiOutlineDelete />
+               <img src={rubbish} alt="" className="w-5 h-5" />
             </button>
             <Link to={`/admin/editproduct/${id}`}>
               <button className="hover:text-primary">
-                <FiEdit2 />
+              <img src={edit} alt="" className="w-5 h-5" />
               </button>
             </Link>
           </div>

@@ -720,6 +720,7 @@ const resources = {
 };
 const defaultLanguage = localStorage.getItem("lng"); 
 
+
 i18n
   .use(initReactI18next) 
   .init({

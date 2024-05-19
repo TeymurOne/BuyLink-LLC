@@ -8,6 +8,7 @@ import  partnerFormMap  from '../../features/map/MapSlice';
 import membersSlice from '../../features/members/membersSlice';
 import partnerSlice from '../../features/partner/partnerSlice';
 import  productSlice  from '../../features/product/productSlice';
+import paginationSlice from '../../features/pagination/paginationSlice';
 export const store = configureStore({
   
   reducer: {
@@ -17,6 +18,7 @@ export const store = configureStore({
     editSlice:editSlice,
     productSlice:productSlice,
     partnerMap:partnerFormMap,
+    PaginationSlice:paginationSlice,
     [apiSlice.reducerPath]:apiSlice.reducer,
 
     auth: authSlice,

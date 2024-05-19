@@ -61,23 +61,23 @@ const Tbody: React.FC<TbodyProps> = ({ item }) => {
             />
           </div>
         </td>
-        <td className=" border-gray py-1 px-4 dark:border-strokedark">
+        <td className="  border-gray border-0 text-xs  px-4 dark:border-strokedark">
           <p className="inline-flex rounded-full bg-opacity-10 py-1 px-3 text-sm font-medium  ">
             {item?.member_type?.name}
           </p>
         </td>
-        <td className=" border-gray py-1 px-4 dark:border-strokedark">
+        <td className="  border-gray border-0 text-xs  px-4 dark:border-strokedark">
           <p className="inline-flex rounded-full bg-opacity-10 py-1 px-3 text-sm font-medium ">
             {item?.full_name.slice(0,10)}{item?.full_name.length>10?`.....`:""}
           </p>
         </td>
-        <td className=" border-gray py-1 px-4 dark:border-strokedark">
+        <td className="  border-gray border-0 text-xs  px-4 dark:border-strokedark">
           <p className="inline-flex rounded-full bg-opacity-10 py-1 px-3 text-sm font-medium ">
             {item?.position.slice(0, 10)}{item?.position.length>10?`.....`:""}
           </p>
         </td>
 
-        <td className=" border-gray py-1 px-4 dark:border-strokedark">
+        <td className="  border-gray border-0 text-xs  px-4 dark:border-strokedark">
           <div className="flex items-center space-x-2">
             <Link
               to={`/admin/member/details/${item.id}`}

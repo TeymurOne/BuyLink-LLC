@@ -2,5 +2,5 @@ import  * as  yup from 'yup';
 
 
 export const basicSchemas=yup.object().shape({
-    fullname:yup.string().required('Fullname girmke zorunlu')
+    price:yup.string().required('Price yaz').max(10)
 })

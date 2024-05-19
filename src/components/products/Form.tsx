@@ -6,7 +6,6 @@ import {
   usePostProductTypeMutation,
 } from '../../features/product/apiSlice';
 import { useNavigate, useParams } from 'react-router-dom';
-import { data } from '../Member/Form';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -18,25 +17,22 @@ import {
   setName,
   setDesc,
   setReset,
-
 } from '../../features/product/productSlice';
+
 
 const Form = () => {
   const params = useParams();
+
   const dispatch = useDispatch();
 
-  const { active, load, categoryId, error, name, desc, price, discount } =
-    useSelector((store: any) => store.productSlice);
-  const btnDisabled = !categoryId || !name;
-
+  const { active, load, filesImg, categoryId, name, desc, price, discount } = useSelector( (store: any) => store.productSlice,
+  );
   const { isSuccess, data, isError } = useFetchProducttypeQuery('');
   const language = ['az', 'en', 'ru'];
   const [showimg, setShowimg] = useState<string>();
   const [images, setImages] = useState('');
-
   const postData = new FormData();
   const navigate = useNavigate();
-
   useEffect(() => {
     const id = params?.id;
 
@@ -61,10 +57,11 @@ const Form = () => {
   const handlePrice = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     dispatch(setPrice(value));
+  
   };
 
   const handleImg = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let files = e.target.files;
+    let files:any = e.target.files;
 
     if (files) {
       setImages(files[0]);
@@ -94,7 +91,9 @@ const Form = () => {
     console.error('Error fetching data', 'Products Types');
   }
 
-  const postSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    if (btnDisabled) alert("Form melumatlari tam doldurlmalidr")
     dispatch(setLoad(true));
     e.preventDefault();
 
@@ -128,9 +127,14 @@ const Form = () => {
       dispatch(setLoad(false));
     }
   };
+
+  const btnDisabled=categoryId==':id' && categoryId  || !price  || !images
+
+  
+
   return (
     <>
-      <form className="h-auto" onSubmit={postSubmit}>
+      <form className="h-auto"   >
         <h2 className="text-3xl font-semibold ">Product Details</h2>
 
         <div>
@@ -142,7 +146,7 @@ const Form = () => {
           </label>
           <div className=" flex flex-wrap  py-2 items-center gap-x-3">
             <img
-              className="h-full mb-4 object-cover py-4 rounded-xl  w-26 "
+              className="h-30 mb-4 object-cover py-4 rounded-xl   w-26 "
               src={showimg || addImg}
               alt="asas"
             />
@@ -165,12 +169,10 @@ const Form = () => {
 
         <select
           onChange={(e: any) => dispatch(setActive(e.target.value))}
-          
           className="w-21 border-black border-opacity-20 border h-10 pl-4 rounded-md shadow-1"
         >
           {language.map((item, index) => (
             <option
-            
               className="me-2"
               key={index}
               onClick={() => dispatch(setActive(item))}
@@ -215,7 +217,6 @@ const Form = () => {
                     name={`description-${lang}`}
                     id={`description-${lang}`}
                     rows={3}
-                    
                     className="block  px-4 w-full rounded-lg border-1 py-1.5  shadow-md"
                     value={desc[lang]}
                     onChange={(e) => handleDesc(e, lang)}
@@ -236,10 +237,10 @@ const Form = () => {
             </label>
             <div className="mt-2">
               <select
+
                 id="category"
                 onChange={(e: any) =>
-                  dispatch(setcategoryId(Number(e.target.value)))
-                }
+                  dispatch(setcategoryId(Number(e.target.value)))}
                 name="category"
                 required
                 className=" w-full  h-10 pl-4 rounded-xl shadow-md"
@@ -268,10 +269,10 @@ const Form = () => {
                 id="Price"
                 onChange={handlePrice}
                 value={price}
-                required
                 autoComplete="given-name"
-                className={`w-full   h-10 pl-4 rounded-xl shadow-md`}
+                className={`w-full   'border-danger border  h-10 pl-4 rounded-xl shadow-md`}
               />
+            
             </div>
           </div>
 
@@ -317,17 +318,18 @@ const Form = () => {
             </div>
           ) : (
             <>
-              <input
-               
+              <button
+                disabled={btnDisabled}
+                onClick={onSubmit}
                 type="submit"
                 className={` ${
-                  btnDisabled ? ' opacity-65' : 'opacity-100'
+                  btnDisabled ? ' opacity-65 cursor-not-allowed' : 'opacity-100'
                 }  bg-btnBgColor rounded-md  h-10 w-27  text-sm font-normal text-white
                   focus-visible:outline 
                  focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
-              />
-                
-             
+              >
+                Save
+              </button>
             </>
           )}
         </div>
