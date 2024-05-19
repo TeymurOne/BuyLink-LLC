@@ -249,7 +249,7 @@ const Form = () => {
                 Logo
               </label>
               <div className="mt-6 flex h-20 items-center gap-x-3">
-                <div className="w-19  rounded-md h-16 bg-starrating">
+                <div className="w-19  rounded-md h-16 ">
                   <img
                     className="h-16 mb-4  object-cover rounded-md  w-20 "
                     src={imglogo || img_ ? imglogo || img_ : addImg}

@@ -19,6 +19,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "src/lib.d.ts", "i18n"],
+  "include": ["src", "src/lib.d.ts", "i18n", "src/data/mock/enviroments.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

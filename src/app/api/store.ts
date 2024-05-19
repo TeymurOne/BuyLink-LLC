@@ -7,6 +7,7 @@ import editSlice from '../../features/members/editSlice';
 import  partnerFormMap  from '../../features/map/MapSlice';
 import membersSlice from '../../features/members/membersSlice';
 import partnerSlice from '../../features/partner/partnerSlice';
+import  productSlice  from '../../features/product/productSlice';
 export const store = configureStore({
   
   reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
     memberSlice:membersSlice,
     partnerSlice:partnerSlice,
     editSlice:editSlice,
+    productSlice:productSlice,
     partnerMap:partnerFormMap,
     [apiSlice.reducerPath]:apiSlice.reducer,
 

@@ -46,7 +46,7 @@ export const Input: React.FC<InputProps> = ({
           required={required}
           className={`block ${classname} w-full px-2 rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset sm:text-sm sm:leading-6 ${error ? 'ring-red-500' : ''}`}
         />
-        {error && <p className="mt-1 text-danger  text-sm text-red-600">{error}</p>}
+        {error && <p className="mt-1 text-danger  text-sm ">{error}</p>}
       </div>
     </div>
   );

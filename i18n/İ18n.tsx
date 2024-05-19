@@ -523,7 +523,6 @@ const resources = {
         Additionally, Buylink's affiliate marketing model based on referrals allows users to attract more people to the platform and earn increased revenue based on their volume.`,
         '5': 'How to get cash??',
         '6': 'Posts shared on the Buylink platform allow users to promote places, share experiences and offer promotions. This allows them to take advantage of their social networks to earn income and benefit other users.',
-
       },
       footer: {
         '0': 'Finance helps companies manage payments easily.',
@@ -730,7 +729,7 @@ i18n
   .init({
     resources,
 
-    lng: localStorage.getItem('lng') || 'az',
+    lng: 'az',
   });
 
 export default i18n;
