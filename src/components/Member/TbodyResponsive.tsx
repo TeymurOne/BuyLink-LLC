@@ -45,7 +45,7 @@ const TbodyResponsive = ({ item }:any) => {
 
   return (
     <>
-      <div className="max-w-full md:hidden block w-full">
+      <div className="max-w-full md:hidden block ">
         <h2>
           <button
             onClick={() => setShow(!show)}

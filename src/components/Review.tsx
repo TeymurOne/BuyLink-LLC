@@ -13,10 +13,10 @@ interface Item {
   };
 }
 
-const Review: React.FC<{ item ?: Item }> = ({ item }) => {
+const Review: React.FC<{ item?: Item }> = ({ item }) => {
   if (!item) {
     return (
-      <div className="max-w-[250px] w-full py-10  shadow-6 rounded-lg mx-auto  ">
+      <div className="max-w-[329px] bg-white w-full py-4 px-4  shadow-6 rounded-xl  ">
         <div className="flex justify-between items-center">
           <span className="flex items-center space-x-2">
             <img
@@ -27,8 +27,8 @@ const Review: React.FC<{ item ?: Item }> = ({ item }) => {
             <h2>User Name</h2>
             <h2></h2>
           </span>
-
-          <Star average_rating={0} size={10} /> {/* Assuming average_rating is used */}
+          <Star average_rating={0} size={10} />{' '}
+          {/* Assuming average_rating is used */}
         </div>
 
         <div>
@@ -42,25 +42,27 @@ const Review: React.FC<{ item ?: Item }> = ({ item }) => {
     );
   } else {
     return (
-      <div className=" py-6  w-[290px] px-4   rounded-lg  ">
-        <div className="flex justify-between items-center">
-          <span className="flex items-center space-x-2">
-            <img
-              className="w-[34px] h-[34px] rounded-2xl"
-              src={item.user?.image || ''}
-              alt={item.user?.name || ''}
-            />
-            <h2>{item.user?.name}</h2>
-            <h2></h2>
-          </span>
+      <>
+        <div className=" py-6 bg-white  max-w-[329px] w-full px-4   rounded-lg  ">
+          <div className="flex justify-between items-center">
+            <span className="flex items-center space-x-2">
+              <img
+                className="w-[34px] h-[34px] rounded-2xl"
+                src={item.user?.image || ''}
+                alt={item.user?.name || ''}
+              />
+              <h2>{item.user?.name}</h2>
+              <h2></h2>
+            </span>
 
-          <Star average_rating={item.rating || 0} size={10} /> 
-        </div>
+            <Star average_rating={item.rating || 0} size={20} />
+          </div>
 
-        <div>
-          <p className="text-[13px] leading-5">{item.description || ''}</p>
+          <div>
+            <p className="text-[13px] leading-5">{item.description || ''}</p>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 };

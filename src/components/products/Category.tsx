@@ -1,44 +1,37 @@
 import { useState, useEffect } from 'react';
-import { IoIosAddCircleOutline } from 'react-icons/io';
+import create from '../../images/action-icon/create.svg';
+
 import { Link } from 'react-router-dom';
 import { useFetchProducttypeQuery } from '../../features/product/apiSlice';
 import Loader from '../../common/Loader';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  setFilterData,
+  setLanguage,
+  setSearch,
+} from '../../features/category/categorySlice';
+import { RootState } from '../../app/api/store';
 
 const Category = () => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const { language, filteredData } = useSelector(
+    (store: RootState) => store.categorySlice,
+  );
+
   const local = t('default.0');
-  console.log(local, 'local');
-  
-
   const { isSuccess, isLoading, data } = useFetchProducttypeQuery('');
-  const [language, setLanguage] = useState<any>(local);
-  const [filteredData, setFilteredData] = useState([]);
-  const [search, setSearchText] = useState('');
 
-
-  
   useEffect(() => {
-    setLanguage(local);
+    dispatch(setLanguage(local));
   }, [local]);
 
   useEffect(() => {
     if (isSuccess && data) {
-      setFilteredData(data?.data);
+      dispatch(setFilterData(data?.data));
     }
   }, [isSuccess, data]);
-
-  useEffect(() => {
-    let filteredData = data?.data;
-    if (search.trim() !== '') {
-      filteredData = filteredData.filter((item: any) => {
-        return item.name[language]
-          ?.toLocaleLowerCase()
-          .includes(search.toLocaleLowerCase());
-      });
-    }
-    setFilteredData(filteredData);
-  }, [search]);
 
   if (isLoading) {
     return (
@@ -53,36 +46,54 @@ const Category = () => {
     <>
       <input
         type="text"
-        placeholder=" search..."
-        onChange={(e) => setSearchText(e.target.value)}
+        placeholder="Search..."
+        onChange={(e) => dispatch(setSearch(e.target.value))}
         className="max-w-[243px] w-full py-2 my-4  pr-4 pl-9 focus:outline-none rounded-md   "
       />
-
-      <div className="rounded-sm w-[60%]   shadow-default dark:border-strokedark dark:bg-boxdark ">
-        <div className="max-w-full overflow-x-auto">
-          <table className="w-full table-auto">
-            <thead>
-              <tr className="bg-gray-2 text-[14px] text-left dark:bg-meta-4">
-                <th className="min-w-[20px] py-4 px-4 font-medium text-black dark:text-white">
-                  ID
-                </th>
-                <th className="min-w-[20px] py-4 px-4  font-medium text-black dark:text-white xl:pl-11">
-                  Name
-                </th>
-
-                <th className="py-4 px-4  font-medium text-black dark:text-white">
-                  Actions
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredData?.map((item: any, index: number) => (
-                <Tbody item={item} key={index} language={language} />
-              ))}
-            </tbody>
-          </table>
+      {window.innerWidth > 768 && (
+        <div className="rounded-sm  md:block  hidden  shadow-default  dark:border-strokedark dark:bg-boxdark ">
+          <div className="max-w-full  border  rounded-lg border-tborder overflow-hidden   overflow-x-auto   ">
+            <table className="w-full table-auto bg-white    ">
+              <thead>
+                <tr className=" bg-white text-title-2xsm font-poppins text-black text-left dark:bg-meta-4">
+                  <th className="w-14.5 h-10  border-b border-r  border-tborder px-4  font-medium ">
+                    ID
+                  </th>
+                  <th className="min-w-24.5 py-2 border-b border-r dark:text-white  border-tborder px-4  lg:pl-10  md:pl-4  sm:pl-0 font-medium  ">
+                    Name
+                  </th>
+                  <th className="min-w-24.5 py-2 border-b border-r dark:text-white   border-tborder px-4 font-medium ">
+                    Action
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {filteredData?.map((item: any, index: number) => (
+                  <Tbody
+                    item={item}
+                    key={index}
+                    id={index}
+                    language={language}
+                  />
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
+      )}
+
+      {window.innerWidth < 768 && (
+        <>
+          {filteredData?.map((item: any, index: number) => (
+            <TbodyResponsive
+              item={item}
+              id={index}
+              key={index}
+              language={language}
+            />
+          ))}
+        </>
+      )}
     </>
   );
 };
@@ -95,32 +106,60 @@ interface Item {
 interface TbodyProps {
   item: Item;
   language: string | null;
+  id: number;
 }
 
-function Tbody({ item, language }: TbodyProps) {
+function Tbody({ item, language, id }: TbodyProps) {
+  const rowClassName = id % 2 === 0 ? 'bg-[#F8F8F8]' : '';
   return (
-    <tr className="text-sm ">
-      <td className="border-b border-[#eee] text-[16px] py-5 px-4 dark:border-strokedark">
-        {item.id}
-      </td>
-
-      <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-        <p className="inline-flex rounded-full bg-opacity-10 py-1 px-3 text-sm font-medium ">
+    <>
+      <tr
+        className={` w-full dark:bg-boxdark border-0   hover:bg-tborderHover ${rowClassName}`}
+      >
+        <td className="  border-gray dark:text-white border-0 text-xs  px-4 dark:border-strokedark">
+          {item?.id}
+        </td>
+        <td className=" border-gray py-1 px-10 dark:text-white  dark:border-strokedark xl:pl-11">
           {language && item.name[language]}
-        </p>
-      </td>
+        </td>
 
-      <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-        <div className="flex items-center space-x-3.5 ">
-          <Link to={`/admin/productForm/${item.id}`}>
-            <button className="hover:text-white flex items-center space-x-2 rounded-md shadow-3  p-2 dark:bg-[#0ab39c26]  hover:bg-success">
-              <IoIosAddCircleOutline />
-              <p> Create Products</p>
-            </button>
+        <td className="  py-3 px-4 dark:border-strokedark">
+          <Link
+            to={`/admin/productForm/${item.id}`}
+            className="bg-white text-xs font-medium shadow-sm  mb-4 lg:mb-0 md:mb-0 sm:mb-0 space-x-2  rounded-md  justify-center flex items-center h-10 w-full max-w-35"
+          >
+            <img src={create} alt="Create icon" />
+            <p> Create Product</p>
           </Link>
-        </div>
-      </td>
-    </tr>
+        </td>
+      </tr>
+    </>
+  );
+}
+function TbodyResponsive({ item, language, id }: TbodyProps) {
+
+  const rowClassName = id % 2 === 0 ? 'bg-[#F8F8F8]' : '';
+  return (
+    <div className="max-w-full md:hidden block w-full">
+      <h2>
+        <button
+          type="button"
+          className={`flex items-center justify-between w-full  p-5 font-medium rtl:text-right  rounded-t-xl ${rowClassName}  bg-white`}
+        >
+          <div className="w-35 flex space-x-4 ">
+            <p>{item?.id}</p>
+            <span className='dark:text-white'> {language && item.name[language]}</span>
+          </div>
+          <Link
+            to={`/admin/productForm/${item.id}`}
+            className="bg-white text-xs shadow-md font-medium  mb-4 lg:mb-0 md:mb-0 sm:mb-0 space-x-2  rounded-md  justify-center flex items-center h-9 w-full max-w-35"
+          >
+            <img src={create} alt="Create icon" />
+            Create
+          </Link>
+        </button>
+      </h2>
+    </div>
   );
 }
 

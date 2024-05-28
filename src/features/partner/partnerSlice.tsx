@@ -22,6 +22,7 @@ interface PartnerSlice {
   active:string;
 }
 
+
 const initialState: PartnerSlice = {
   title_: '',
   about: '',

@@ -8,7 +8,7 @@ module.exports = {
     extend: {
       colors: {
         slate: defaultTheme.colors.slate,
-        // Add your custom colors here if needed
+        white300:"#E1EBFF",
         tborder: '#DFDFDF',
         border2: '#C4C4C4',
         white: '#FFFFFF',
@@ -23,12 +23,16 @@ module.exports = {
         inputColor: '#ced4da',
         gray700: '#F3F4F6',
         gray200: '#F3F2F2',
+        gray900:"#D9D9D9",
         black700: '#000000ad',
+        black200:"#1C274C",
         starrating: '#4C5DF5',
         current: 'currentColor',
         transparent: 'transparent',
         gray: '#eee',
+        darkgray:"#797979",
         black: '#1C2434',
+        "black-3":"#222222",
         'black-2': '#010101',
         body: '#64748B',
         bodydark: '#AEB7C0',
@@ -43,6 +47,8 @@ module.exports = {
         whiten: '#F1F5F9',
         whiter: '#F5F7FD',
         boxdark: '#24303F',
+        'meta-6': '#FF9D42',
+        'meta-8': '#FCD34D',
         'boxdark-2': '#1A222C',
         strokedark: '#2E3A47',
         'form-strokedark': '#3d4d60',
@@ -52,16 +58,19 @@ module.exports = {
         'meta-3': '#10B981',
         'meta-4': '#313D4A',
         'meta-5': '#259AE6',
-        'meta-6': '#FFBA00',
+       
         'meta-7': '#FF6766',
-        'meta-8': '#F0950C',
+      
         'meta-9': '#E5E7EB',
         success: '#219653',
         danger: '#D34053',
         warning: '#FFA70B',
-        menuBorder: '#405189',
+        menuBorder: '#1A518E',
         searchTopBar: '#f3f3f9',
         titleColor: '#838fb9',
+
+
+        
         successOpacity: '#daf4f0',
       },
       fontFamily: {
@@ -216,8 +225,10 @@ module.exports = {
         44: '11rem',
         45: '11.25rem',
         70: '17.5rem',
+        80:"20.75rem",
         90: '22.5rem',
         94: '23.5rem',
+        95:"29.6875rem",
         125: '31.25rem',
         132.5: '33.125rem',
         142.5: '35.625rem',

@@ -4,7 +4,7 @@ import eye from '../../images/action-icon/details.svg';
 import Swal from 'sweetalert2';
 import {useRemoveProductMutation,} from '../../features/product/apiSlice';
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 interface IproductResponse {
   id: number;
@@ -25,7 +25,6 @@ const Tbody: React.FC<itemAllData> = ({ item }) => {
   const [deletePost] = useRemoveProductMutation();
 
   const handleDelete = async (id: number) => {
-    console.log(id);
     
     const result = await Swal.fire({
       title: 'Are you sure?',
@@ -57,12 +56,13 @@ const Tbody: React.FC<itemAllData> = ({ item }) => {
 
   useEffect(() => {}, [handleDelete]);
 
-  const { image, discount_price, price, title, id } = item;
+  const { image, discount_price, price, category, title,  id } = item;
+  
   
 
   return (
     <>
-      <tr className=" dark:bg-boxdark border-0 bg-white hover:bg-tborderHover">
+      <tr className="   w-full dark:bg-boxdark border-0 bg-white hover:bg-tborderHover">
         <td className="  border-gray border-0 text-xs  px-4 dark:border-strokedark">
           {id}
         </td>
@@ -85,7 +85,7 @@ const Tbody: React.FC<itemAllData> = ({ item }) => {
           <p className="text-black dark:text-white">{discount_price}</p>
         </td>
         <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-           <p className="text-black dark:text-white ">{item.category?.name}</p> 
+           <p className="text-black dark:text-white ">{category?.name}</p> 
         </td>
 
         <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
@@ -109,6 +109,10 @@ const Tbody: React.FC<itemAllData> = ({ item }) => {
           </div>
         </td>
       </tr>
+  
+     
+
+   
     </>
   );
 };

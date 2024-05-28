@@ -9,6 +9,8 @@ import membersSlice from '../../features/members/membersSlice';
 import partnerSlice from '../../features/partner/partnerSlice';
 import  productSlice  from '../../features/product/productSlice';
 import paginationSlice from '../../features/pagination/paginationSlice';
+import categorySlice from '../../features/category/categorySlice';
+import balanceSlice from '../../features/balance/balanceSlice';
 export const store = configureStore({
   
   reducer: {
@@ -19,12 +21,16 @@ export const store = configureStore({
     productSlice:productSlice,
     partnerMap:partnerFormMap,
     PaginationSlice:paginationSlice,
+    categorySlice:categorySlice,
+    balance:balanceSlice,
     [apiSlice.reducerPath]:apiSlice.reducer,
 
     auth: authSlice,
     
   },
-  middleware:(getDefaultMiddleware)=>getDefaultMiddleware().concat(apiSlice.middleware),
+  middleware:(getDefaultMiddleware)=>getDefaultMiddleware({
+    serializableCheck: false,
+  }).concat(apiSlice.middleware),
 
   devTools: true,
 });

@@ -1,6 +1,6 @@
 import { apiSlice } from '../../app/api/apiSlice';
 
-export const branchSlice = apiSlice
+export const statisticSlice = apiSlice
   .enhanceEndpoints({ addTagTypes: ['transactions'] })
   .injectEndpoints({
     endpoints: (builder) => ({
@@ -39,4 +39,4 @@ export const {
   useGetBalanceQuery,
   useGetReviewQuery,
   useGetTransactionsQuery,
-} = branchSlice;
+} = statisticSlice;

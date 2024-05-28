@@ -44,7 +44,7 @@ export const Input: React.FC<InputProps> = ({
           name={id}
           autoComplete={id}
           required={required}
-          className={`block ${classname} w-full px-2 rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset sm:text-sm sm:leading-6 ${error ? 'ring-red-500' : ''}`}
+          className={`block ${classname} block w-full pl-4 rounded-lg outline-none h-8 shadow-md border-inputColor sm:text-sm sm:leading-6 ${error ? 'ring-red-500' : ''}`}
         />
         {error && <p className="mt-1 text-danger  text-sm ">{error}</p>}
       </div>
@@ -84,7 +84,7 @@ type RenderSelectProps = {
           name={id}
           defaultValue={defaultValue}
           onChange={onChange}
-          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+          className="block w-full   pl-4 rounded-lg outline-none h-10 shadow-md border-inputColor sm:text-sm sm:leading-6"
         >
           {children}
         </select>

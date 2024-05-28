@@ -40,13 +40,7 @@ export const branchSlice = apiSlice.enhanceEndpoints({ addTagTypes: ['branch'] }
           invalidatesTags:['branch']
         }),
       }),
-      getStatistics:builder.query({
-        query:()=>({
-          url: `/statistics`,
-          method: 'GET',
-        
-        })
-      })
+  
      
      
      
@@ -59,7 +53,6 @@ export const {
   usePostBranchMutation,
   usePostUpdateMutation,
   useLazyGetUpdateQuery,
-  useGetStatisticsQuery
   
   
 } = branchSlice;

@@ -1,7 +1,6 @@
 import { Star } from "./RatingStar";
 
 export function RevieItem({ item }: any) {
-    console.log(item, 'item');
     
     
     return (

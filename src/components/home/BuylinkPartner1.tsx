@@ -52,7 +52,7 @@ export function BuyLinkPartner1() {
             </p>
           </div>
           <div className="grid  lg:grid-cols-12 mb-10   gap-10     ">
-            <div className="w-full p-6  lg:col-span-4 md:col-span-6 col-span-full bg-white border border-gray700 rounded-lg shadow-3">
+            <div className="w-full p-6  lg:col-span-4 md:col-span-6 col-span-full bg-white border border-gray700 rounded-lg shadow-md">
               <span className="flex pt-3 justify-center space-x-2">
                 <img src={p_icon1} alt="Icon" className="w-6" />
                 <h2 className="font-manrope text-lg        text-black font-bold">
@@ -68,7 +68,7 @@ export function BuyLinkPartner1() {
             <div className="w-full p-6 lg:col-span-4 md:col-span-6 col-span-full bg-white border border-gray700  rounded-lg shadow-md ">
               <span className="flex pt-2 justify-center space-x-2">
                 <img src={p_icon2} alt="Icon" className="w-6" />
-                <h2 className="font-manropetext-lg       text-black font-bold">
+                <h2 className="font-manrope text-lg       text-black font-bold">
                   {t('partnyor.6')}
                 </h2>
               </span>

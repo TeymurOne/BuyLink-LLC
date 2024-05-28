@@ -65,7 +65,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
     >
       <div className="flex items-center justify-center gap-2 px-6 pt-5.5 lg:pt-6.5">
         <NavLink to="/">
-          <img className="w-[90px] h-[77px] rounded-xl" src={Logo} alt="Logo" />
+          <img className="w-19 h-19 " src={Logo} alt="Logo" />
         </NavLink>
 
         <button
@@ -138,7 +138,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           </li>
                           <li className="my-1">
                             <NavLink
-                              to="/admin/createForm"
+                              to="/admin/member"
                               className={`group ${[`/admin/createForm`].includes(pathname) ?"text-white":"text-[#abb9e8]"} relative flex items-center gap-2.5 rounded-md text-[16px]  font-medium text-[#abb9e8] duration-300 ease-in-out hover:text-white`}
                             >
                               <p className="ml-[-13px]">-</p>

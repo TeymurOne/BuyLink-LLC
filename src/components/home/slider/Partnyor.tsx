@@ -2,15 +2,27 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useEffect, useState } from 'react';
-import s1 from '../../../images/Pages-index/slider/slider1.svg';
-import s2 from '../../../images/Pages-index/slider/slider2.svg';
-import s3 from '../../../images/Pages-index/slider/slider3.svg';
-import s4 from '../../../images/Pages-index/slider/slider4.svg';
-import s5 from '../../../images/Pages-index/slider/slider5.svg';
-import s6 from '../../../images/Pages-index/slider/slider6.svg';
-import s7 from '../../../images/Pages-index/slider/slider7.svg';
-import s8 from '../../../images/Pages-index/slider/slider8.svg';
-import s9 from '../../../images/Pages-index/slider/slider9.svg';
+import s1 from '../../../images/Pages-index/slider/s1.svg';
+import s2 from '../../../images/Pages-index/slider/s2.svg';
+import s3 from '../../../images/Pages-index/slider/s3.svg';
+import s4 from '../../../images/Pages-index/slider/s4.svg';
+import s5 from '../../../images/Pages-index/slider/s5.svg';
+import s6 from '../../../images/Pages-index/slider/s6.svg';
+import s7 from '../../../images/Pages-index/slider/s7.svg';
+import s8 from '../../../images/Pages-index/slider/s8.svg';
+import s9 from '../../../images/Pages-index/slider/s9.svg';
+import s10 from '../../../images/Pages-index/slider/s10.svg';
+
+import s11 from '../../../images/Pages-index/slider/s11.svg';
+import s12 from '../../../images/Pages-index/slider/s12.svg';
+import s13 from '../../../images/Pages-index/slider/s13.svg';
+import s14 from '../../../images/Pages-index/slider/s14.svg';
+import s15 from '../../../images/Pages-index/slider/s15.svg';
+import s16 from '../../../images/Pages-index/slider/s16.svg';
+import s17 from '../../../images/Pages-index/slider/s17.svg';
+import s18 from '../../../images/Pages-index/slider/s18.svg';
+import s19 from '../../../images/Pages-index/slider/s19.svg';
+import s20 from '../../../images/Pages-index/slider/s20.svg';
 
 interface Partner {
   id: number;
@@ -32,15 +44,18 @@ function Partnyor() {
       { id: 7, image: s7 },
       { id: 8, image: s8 },
       { id: 9, image: s9 },
-      { id: 10, image: s1 },
-      { id: 11, image: s2 },
-      { id: 12, image: s3 },
-      { id: 13, image: s4 },
-      { id: 14, image: s5 },
-      { id: 15, image: s6 },
-      { id: 16, image: s7 },
-      { id: 17, image: s8 },
-      { id: 18, image: s9 },
+      { id: 10, image: s10 },
+      { id: 11, image: s11 },
+      { id: 12, image: s12 },
+      { id: 13, image: s13 },
+      { id: 14, image: s14 },
+      { id: 15, image: s15 },
+      { id: 16, image: s16 },
+      { id: 17, image: s17 },
+      { id: 18, image: s18 },
+      { id: 19, image: s19 },
+      { id: 20, image: s20 },
+  
     ];
     setPartners(partnersData);
   }, []);
@@ -48,12 +63,11 @@ function Partnyor() {
   const settings = {
     dots: false,
     infinite: true,
-    speed:3000,
-    autoplay: true,
-    autoplaySpeed: 700,
+    speed:4000,
     slidesToShow: 9,
     slidesToScroll: 4,
     initialSlide: 0,
+    autoplay:true,
     responsive: [
       {
         breakpoint: 1024,
@@ -69,7 +83,6 @@ function Partnyor() {
         settings: {
           slidesToShow: 6,
           slidesToScroll: 5,
-          infinite: true,
           dots: true,
         },
       },
@@ -91,12 +104,14 @@ function Partnyor() {
     ],
   };
 
+
+
   return (
-    <div className="slider-container border-t border-opacity-40 overflow-hidden pt-10"  >
+    <div className="slider-container border-t border-black border-opacity-20 overflow-hidden pt-10">
       <Slider {...settings}>
         {partners.map((partner: Partner, index: number) => (
-          <div key={index}  >
-            <img className="lg:h-19 lg:w-19 h-18 w-18 " src={partner.image} alt={`Partner ${index}`} />
+          <div key={index} className=' '>
+            <img className="h-17.5 w-auto mx-auto  "  src={partner.image} alt={`Partner ${index}`} />
           </div>
         ))}
       </Slider>

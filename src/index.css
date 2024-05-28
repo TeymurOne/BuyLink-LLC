@@ -15,7 +15,20 @@ body {
 
 @layer base {
   body {
-    @apply   bg-whiten relative z-1;
+    @apply   bg-whiter relative z-1;
   }
 }
 
+/* index.css */
+
+#chat::-webkit-scrollbar {
+  width: 7px !important;
+}
+#chat::-webkit-scrollbar-track {
+  background-color: #D9D9D9 !important;
+}
+#chat::-webkit-scrollbar-thumb {
+  border-radius: 20px !important;
+  background-color: #1A518E !important;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
+}

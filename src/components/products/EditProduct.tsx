@@ -18,7 +18,6 @@ import {
   setimgUrl,
 } from '../../features/product/productSlice';
 import { RootState } from '../../app/api/store';
-import TableSkeleton from '../../skeleton/TableSkeleton';
 
 type Data = {
   id: number;
@@ -27,8 +26,8 @@ type Data = {
 
 const EditProduct = () => {
   const { id } = useParams();
-  const idUrl=id
-  
+  const idUrl = id;
+
   const [showimg, setShowimg] = useState('');
   const dispatch = useDispatch();
   const language = ['az', 'en', 'ru'];
@@ -37,7 +36,7 @@ const EditProduct = () => {
   const local: any = t('default.0');
   const navigate = useNavigate();
   const [dataEdit] = useUpdateProductMutation();
-  const { name, active, load, desc, categoryId, price, discount, imgurl } = useSelector(
+  const { name, active, desc, categoryId, price, discount, imgurl } = useSelector(
     (store: RootState) => store.productSlice
   );
 
@@ -63,11 +62,11 @@ const EditProduct = () => {
   };
 
   const handleImg = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let files: any = e.target.files;
-
-    if (files) {
-      dispatch(setimgUrl(files[0]));
-      setShowimg(URL.createObjectURL(files[0]));
+    const file:File | any = e.target.files[0];
+    
+    if (file) {
+      dispatch(setimgUrl(file));
+      setShowimg(URL.createObjectURL(file));
     }
   };
 
@@ -76,6 +75,7 @@ const EditProduct = () => {
       const response = await editProduct(id);
       if (response) {
         const data = response.data?.data;
+
 
         dispatch(setName(data?.title));
         dispatch(setDesc(data?.description));
@@ -87,10 +87,8 @@ const EditProduct = () => {
     } catch (error) {}
   }
 
-
   const handleUpdate = async (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    
 
     const postData = new FormData();
     postData.append('image', imgurl);
@@ -112,7 +110,7 @@ const EditProduct = () => {
       if (postData) {
         await dataEdit({ postData, idUrl });
         navigate('/admin/productCreate');
-        dispatch(setReset())
+        dispatch(setReset());
       }
     } catch (error) {}
   };
@@ -127,7 +125,7 @@ const EditProduct = () => {
   if (isSuccess) {
     content = data?.data?.map((item: Data, index: number) => {
       return (
-        <option key={index} value={item.id} selected={item.id == categoryId}>
+        <option key={index} value={item.id}>
           {item.name[local]}
         </option>
       );
@@ -138,21 +136,19 @@ const EditProduct = () => {
 
   return (
     <>
-  
-
       <form className="h-auto">
-        <h2 className="text-3xl font-semibold ">Product Edit {idUrl}</h2>
+        <h2 className="text-3xl font-semibold">Product Edit {idUrl}</h2>
 
         <div>
           <label
             htmlFor="photo"
-            className="block text-tdColor pt-10 text-base font-normal "
+            className="block text-tdColor pt-10 text-base font-normal"
           >
             Photo
           </label>
-          <div className=" flex flex-wrap  py-2 items-center gap-x-3">
+          <div className="flex flex-wrap py-2 items-center gap-x-3">
             <img
-              className="h-30  mb-4 object-cover py-4 rounded-2xl  w-26 "
+              className="h-30 mb-4 object-cover py-4 rounded-2xl w-26"
               src={showimg || imgurl}
               alt="Edit Product Image"
             />
@@ -160,13 +156,12 @@ const EditProduct = () => {
               id="file-upload"
               name="file-upload"
               type="file"
-              className="py-2 sr-only  "
+              className="py-2 sr-only"
               onChange={handleImg}
             />
             <label
               htmlFor="file-upload"
-              className="rounded-md bg-white px-13 border py-2.5   text-sm
-           font-semibold shadow-sm  border-black border-opacity-20  h-10"
+              className="rounded-md bg-white px-13 border py-2.5 text-sm font-semibold shadow-sm border-black border-opacity-20 h-10"
             >
               Add Image
             </label>
@@ -176,22 +171,18 @@ const EditProduct = () => {
         <select
           onChange={(e: any) => dispatch(setActive(e.target.value))}
           className="w-21 border-black border-opacity-20 border h-10 pl-4 rounded-md shadow-1"
+          value={active}
         >
           {language.map((item, index) => (
-            <option
-              className="me-2"
-              key={index}
-              onClick={() => dispatch(setActive(item))}
-            >
+            <option className="me-2" key={index} value={item}>
               {item}
             </option>
           ))}
         </select>
         <div>
-          {language.map((lang, index) => (
-            <div className="py-3">
+          {language.map((lang) => (
+            <div className="py-3" key={lang}>
               <div
-                key={index}
                 className={`grid gap-4 place-content-between lg:grid-cols-2 grid-cols-1 w-full items-start ${
                   active !== lang ? 'hidden' : ''
                 }`}
@@ -206,16 +197,16 @@ const EditProduct = () => {
                   <input
                     name={`title-${lang}`}
                     id={`title-${lang}`}
-                    className="block w-full  px-2 rounded-lg border-1 py-1.5 shadow-md    "
-                    value={name[lang]}
+                    className="block w-full px-2 rounded-lg border-1 py-1.5 shadow-md"
+                    value={name[lang] || ''}
                     onChange={(e) => handleTitle(e, lang)}
-                  ></input>
+                  />
                 </div>
 
                 <div className="w-full">
                   <label
-                    htmlFor="description"
-                    className="block text-sm text-tdColor font-medium font-works mb-2 "
+                    htmlFor={`description-${lang}`}
+                    className="block text-sm text-tdColor font-medium font-works mb-2"
                   >
                     Description {lang.toUpperCase()}
                   </label>
@@ -223,20 +214,20 @@ const EditProduct = () => {
                     name={`description-${lang}`}
                     id={`description-${lang}`}
                     rows={3}
-                    className="block  px-4 w-full rounded-lg border-1 py-1.5  shadow-md"
-                    value={desc[lang]}
+                    className="block px-4 w-full rounded-lg border-1 py-1.5 shadow-md"
+                    value={desc[lang] || ''}
                     onChange={(e) => handleDesc(e, lang)}
-                  ></textarea>
+                  />
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        <div className=" grid grid-cols-6 gap-x-6 gap-y-4 sm:grid-cols-6">
+        <div className="grid grid-cols-6 gap-x-6 gap-y-4 sm:grid-cols-6">
           <div className="sm:col-span-2 col-span-6">
             <label
-              htmlFor="country"
+              htmlFor="category"
               className="block text-sm text-tdColor font-medium font-works mb-2"
             >
               Category*
@@ -244,17 +235,17 @@ const EditProduct = () => {
             <div className="mt-2">
               <select
                 id="category"
+                value={categoryId}
                 onChange={(e: any) =>
                   dispatch(setcategoryId(Number(e.target.value)))
                 }
                 name="category"
                 required
-                className=" w-full  h-10 pl-4 rounded-xl shadow-md"
+                className="w-full h-10 pl-4 rounded-xl shadow-md"
               >
-                <option disabled value="default">
+                <option disabled value="">
                   Category seçin
                 </option>
-
                 {content}
               </select>
             </div>
@@ -262,7 +253,6 @@ const EditProduct = () => {
           <div className="sm:col-span-2 col-span-6">
             <label
               htmlFor="Price"
-              title="Price"
               className="block text-sm text-tdColor font-medium font-works mb-2"
             >
               Price
@@ -271,39 +261,38 @@ const EditProduct = () => {
               <input
                 type="text"
                 name="Price"
-                placeholder=" Price"
+                placeholder="Price"
                 id="Price"
                 onChange={handlePrice}
                 value={price}
                 autoComplete="given-name"
-                className={`w-full   'border-danger border  h-10 pl-4 rounded-xl shadow-md`}
+                className="w-full border border-gray-300 h-10 px-4 rounded-xl shadow-md"
               />
             </div>
           </div>
 
           <div className="sm:col-span-2 col-span-6">
             <label
-              title="Discount Price"
-              htmlFor="Price"
-              className="block text-sm text-tdColor font-medium font-works mb-2 "
+              htmlFor="DiscountPrice"
+              className="block text-sm text-tdColor font-medium font-works mb-2"
             >
               Discount Price
             </label>
             <div className="mt-2">
               <input
-                value={discount}
-                onChange={(e) => dispatch(setDiscount(e.target.value))}
                 type="text"
                 name="DiscountPrice"
                 id="DiscountPrice"
                 placeholder="Discount Price"
                 autoComplete="given-name"
-                className=" max-w-full w-full h-10 pl-4 rounded-xl shadow-md  "
+                className="w-full border border-gray-300 h-10 px-4 rounded-xl shadow-md"
+                value={discount}
+                onChange={(e) => dispatch(setDiscount(e.target.value))}
               />
             </div>
           </div>
         </div>
-        <div className=" flex items-center justify-end gap-x-6 my-3">
+        <div className="flex items-center justify-end gap-x-6 my-3">
           <button
             onClick={() => navigate(-1)}
             type="button"
@@ -315,10 +304,7 @@ const EditProduct = () => {
           <button
             onClick={handleUpdate}
             type="submit"
-            className=" 
-                bg-[#4f46e5] px-3 py-2 text-sm font-semibold text-white
-            shadow-sm hover:bg-opacity-90 rounded-md 
-           "
+            className="bg-[#4f46e5] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-opacity-90 rounded-md"
           >
             Update
           </button>

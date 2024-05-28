@@ -3,6 +3,7 @@ import { FaArrowLeft } from 'react-icons/fa6';
 import { useParams } from 'react-router-dom';
 import { useFetchProducAllQuery } from '../../features/product/apiSlice';
 import Loader from '../../common/Loader';
+import TableSkeleton from '../../skeleton/TableSkeleton';
 
 const Details = () => {
   const { id } = useParams();
@@ -24,7 +25,7 @@ const Details = () => {
         <>
           <h2 className="mb-2 flex items-center space-x-4 font-semibold italic">
             {t('product.0')} {t('product.12')} : <span>{id}</span>{' '}
-            <FaArrowLeft onClick={() => window.history.back()} />
+            <FaArrowLeft onClick={() => window.history.back()} style={{cursor:'pointer'}} />
           </h2>
 
           <div className="rounded-sm    shadow-default  dark:border-strokedark dark:bg-boxdark ">
@@ -93,7 +94,7 @@ const Details = () => {
           </div>
         </>
       ) : (
-        <Loader />
+       <TableSkeleton count="1" height="1"/>
       )}
     </>
   );

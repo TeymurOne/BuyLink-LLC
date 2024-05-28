@@ -4,7 +4,7 @@ import {
   usePostMemberMutation,
 } from '../../features/members/apiSlice';
 import { useNavigate } from 'react-router-dom';
-import addImg from '../../images/icon/addImg.png';
+import addImg from '../../images/partnyor/addimg.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   resetMembersState,
@@ -17,6 +17,7 @@ import {
 import renderInput, { RenderSelect } from '../../data/helpers/Fields';
 import CancelSaveButton from '../../data/helpers/Button';
 import { RootState } from '../../app/api/store';
+import { Title } from '../ui/Title';
 
 export type Titem = {
   id: number;
@@ -68,7 +69,7 @@ const Form = () => {
           .unwrap()
           .then((response) => {
             if (response.success) {
-              navigate('/admin/createForm');
+              navigate('/admin/member');
               dispatch(resetMembersState());
             }
           })
@@ -84,23 +85,19 @@ const Form = () => {
   };
 
   const { showimg, fullname, position, membertypes, load } = useSelector(
-    (store:RootState) => store.memberSlice,
+    (store: RootState) => store.memberSlice,
   );
 
-
-  const btnDisabled: boolean = !fullname || !position || !membertypes || !images;
+  const btnDisabled: boolean =
+    !fullname || !position || !membertypes || !images;
 
   return (
     <>
       <form>
         <div className="space-y-12">
           <div className=" pb-12">
-            <h2 className="text-base font-semibold leading-7 ">
-              Personal Information
-            </h2>
-            <p className="mt-1 text-sm leading-6 ">
-              Use a permanent address where you can receive mail.
-            </p>
+            <Title>Personal Information</Title>
+
             <div className=" col-span-full">
               <label
                 htmlFor="photo"
@@ -110,35 +107,43 @@ const Form = () => {
               </label>
               <div className="mt-6 flex h-20 items-center gap-x-3">
                 <img
-                  className="h-20 mb-4 object-cover rounded-[6px]  w-20 "
+                  className="h-15 mb-4 object-cover rounded-xl bg-white   w-20 "
                   src={showimg || addImg}
                   alt="Member Photo "
                 />
-
-                {renderInput({
-                  id: 'Add-img',
-                  label: 'Add-img',
-                  classname: 'sr-only bg-danger',
-                  type: 'file',
-                  onChange: handleImg,
-                  required: true,
-                })}
+                <input
+                  id="file-upload"
+                  name="file-upload"
+                  type="file"
+                  className="py-2 sr-only"
+                  onChange={handleImg}
+                />
+                <label
+                  htmlFor="file-upload"
+                  className="rounded-md bg-white lg:px-13 md:px-10 px-6 mb-3 border py-2.5   text-sm
+                     font-semibold shadow-sm   border-black border-opacity-20  h-10"
+                >
+                  Add Image
+                </label>
+                <input
+                  type="hidden"
+                  placeholder="Add-img"
+                  onChange={handleImg}
+                />
               </div>
             </div>
 
-            <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="sm:col-span-3">
                 {renderInput({
-                  id: 'fullname',
-                  label: 'fullname',
+                  id: 'Fullname',
+                  label: 'Fullname',
                   value: fullname,
                   onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
                     dispatch(setFullName(e.target.value)),
                   required: true,
                 })}
               </div>
-            </div>
-            <div className="mt-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="sm:col-span-3">
                 {renderInput({
                   id: 'position',
@@ -150,6 +155,7 @@ const Form = () => {
                 })}
               </div>
             </div>
+
             <div className="mt-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="sm:col-span-3">
                 <RenderSelect

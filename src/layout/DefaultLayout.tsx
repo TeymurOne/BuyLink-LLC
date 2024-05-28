@@ -18,7 +18,7 @@ const DefaultLayout = () => {
           <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
 
           <main>
-            <div className="mx-auto bg-whiter  max-w-screen-2xl p-2 md:p-8 2xl:p-10">
+            <div className="mx-auto dark:bg-boxdark-2 bg-whiter  max-w-screen-2xl p-2 md:p-8 2xl:p-10">
               <Outlet />
             </div>
           </main>

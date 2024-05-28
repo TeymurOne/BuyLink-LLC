@@ -69,7 +69,7 @@ export function BuyLinkPartner2() {
                 {t('partnyor2.6')}
               </p>
             </div>
-            <div className="w-full p-6 lg:col-span-4 md:col-span-12 bg-white border border-gray700  rounded-xl shadow-5 ">
+            <div className="w-full p-6 lg:col-span-4 md:col-span-12 bg-white border border-gray700  rounded-xl shadow-md ">
               <span className="flex  justify-center space-x-2">
                 <img src={s_icon3} alt="Icon" className="w-6" />
                 <h2 className="font-manrope text-lg         text-black font-bold">

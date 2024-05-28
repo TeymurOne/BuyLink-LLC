@@ -12,7 +12,7 @@ interface ChartOneState {
   }[];
 }
 
-const ChartOne: React.FC = () => {
+const ChartTwo: React.FC = () => {
   const [categories, setCategories] = useState<string[]>([]);
   const [chartData, setChartData] = useState<ChartOneState>({ series: [] });
   const { data } = useGetStatisticsQuery('');
@@ -74,8 +74,8 @@ const ChartOne: React.FC = () => {
       height: height,
       toolbar: { show: false },
       zoom: { enabled: false },
-      width: '100%', // Grafik genişliğini maksimum ekran genişliğine uyacak şekilde ayarlar
-      style: { maxWidth: '475px' }, // Grafik maksimum genişliği 475 piksel olacak şekilde ayarlar
+      width: '100%',
+    
     },
     xaxis: { categories: categories },
     yaxis: [
@@ -101,84 +101,7 @@ const ChartOne: React.FC = () => {
     plotOptions: {
       bar: { horizontal: false, columnWidth: '85%', borderRadius: 0,  },
     },
-    responsive: [
-      {
-        breakpoint: 2600,
-        options: {
-          chart: {
-            width: 425,
-            
-            
-          },
-        },
-      },
-      {
-        breakpoint: 1740,
-        options: {
-          chart: {
-            width: 470,
-                 },
-        },
-      },
-      {
-        breakpoint: 1340,
-        options: {
-          chart: {
-            width: 405,
-                  },
-        },
-      },
-      {
-        breakpoint: 1200,
-        options: {
-          chart: {
-            width: 405,
-                 },
-        },
-      },
-      {
-        breakpoint: 768,
-        options: {
-          chart: {
-            width: 400,
-          
-          },
-        },
-      },
-      {
-        breakpoint: 600,
-        options: {
-          chart: {
-            width: 400,
-        
-          },
-        },
-      },
-      {
-        breakpoint: 500,
-        options: {
-          chart: {
-            width: 320,
-          },
-        },
-      },
-      {
-        breakpoint: 400,
-        options: {
-          chart: {
-            width: 320,
-          },
-        },
-      },
-      {
-        breakpoint: 992,
-        options: {
-          chart: {
-            width: 326,
-          },
-        },
-      },
-    ],
+  
   };
 
   return (
@@ -191,10 +114,11 @@ const ChartOne: React.FC = () => {
         </div>
       </div>
       <div>
-        <div id="chartTwo" className="-ml-5 -mb-9">
+        <div id="chartTwo" className="-ml-5 -mb-9 w-full" >
           <ReactApexChart
             options={options}
             series={chartData.series}
+            width="100%"
             type="bar"
             height={260}
           />
@@ -204,4 +128,4 @@ const ChartOne: React.FC = () => {
   );
 };
 
-export default ChartOne;
+export default ChartTwo;

@@ -1,23 +1,22 @@
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import Loader from '../../common/Loader';
 import create from '../../images/action-icon/create.svg';
-import Pagination from './Pagination';
+import Pagination from '../../core/pagination/Pagination';
 import Tbody from './Tbody';
-import TbodyResponsive from './TbodyResponsive';
 import { useFetchProducPaginationQuery } from '../../features/product/apiSlice';
 import { pageLength } from '../../features/pagination/paginationSlice';
 import { RootState } from '../../app/api/store';
 import TableSkeleton from '../../skeleton/TableSkeleton';
+import TbodyResponsive from './TbodyResponsive';
 
 const CreateForm = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const { page } = useSelector((store:RootState) => store.PaginationSlice);
+  const { page } = useSelector((store: RootState) => store.PaginationSlice);
   const { isSuccess, isLoading, data } = useFetchProducPaginationQuery(page);
-  
+
   useEffect(() => {
     if (isSuccess && data) {
       const currentpage = Math.ceil(data.meta.total / data.meta.per_page);
@@ -25,13 +24,16 @@ const CreateForm = () => {
     }
   }, [isSuccess, data, dispatch]);
 
-  const content =
-    isSuccess && data &&
-    data.data.map((item:any, index:number) => <Tbody item={item} key={index} />);
-    
+  const content =isSuccess  && data && data.data.map((item: any, index: number) => ( <Tbody item={item} key={index} />));
 
-  const responsiveContent = data && data.data.map((item:any, index:number) => <TbodyResponsive key={index} item={item} />);
-
+  const responsiveContent = useMemo(() => {
+    if (isSuccess && data) {
+      return data.data.map((item: any, index: number) => (
+        <TbodyResponsive key={index} item={item} />
+      ));
+    }
+    return null;
+  }, [isSuccess, data]);
   return (
     <>
       <div className="flex">
@@ -55,8 +57,7 @@ const CreateForm = () => {
       />
 
       {isLoading ? (
-          <TableSkeleton count="10" height="40"/>
-
+        <TableSkeleton count="10" height="40" />
       ) : (
         <>
           <div className="rounded-sm  md:block hidden  shadow-default  dark:border-strokedark dark:bg-boxdark ">
@@ -64,7 +65,7 @@ const CreateForm = () => {
               <table className="w-full table-auto bg-white    ">
                 <thead>
                   <tr className=" bg-white text-title-2xsm font-poppins text-black text-left dark:bg-meta-4">
-                    <th className="w-14.5 h-10  border-b border-r  border-tborder px-4  font-medium ">
+                    <th className="w-14.5 h-10  border-b border-r   border-tborder px-4  font-medium ">
                       ID
                     </th>
                     <th className="min-w-24.5 py-2 border-b border-r  border-tborder px-4  lg:pl-10  md:pl-4  sm:pl-0 font-medium  ">

@@ -150,6 +150,7 @@ const EditForm = () => {
                     required
                     className="block w-full px-2 rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1   placeholder:text-gray-400  border-[#ced4da] sm:text-sm sm:leading-6"
                   />
+                
                 </div>
               </div>
 
@@ -217,7 +218,7 @@ const EditForm = () => {
                 <label
                   htmlFor="file-upload"
                   className="rounded-md cursor-pointer bg-white  px-2.5 py-1.5 text-sm
-     font-semibold  shadow-sm ring-1 ring-inset mb-4  hover:bg-gray-3"
+                   font-semibold  shadow-sm ring-1 ring-inset mb-4  hover:bg-gray-3"
                 >
                   {t('member.7')}
                 </label>
@@ -238,9 +239,9 @@ const EditForm = () => {
               type="submit"
               onClick={handleUpdate}
               className=" 
-      bg-[#4f46e5] px-3 py-2 text-sm font-semibold text-white
-  shadow-sm hover:bg-opacity-90 rounded-md 
- "
+              bg-[#4f46e5] px-3 py-2 text-sm font-semibold text-white
+            shadow-sm hover:bg-opacity-90 rounded-md 
+                 "
             >
               {t('member.10')}
             </button>

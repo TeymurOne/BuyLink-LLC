@@ -3,9 +3,6 @@ import Map from './Map';
 
 const App = (props: any) => {
   const { lat, lng } = props;
-  console.log(props, 'props');
-  
-  
 
   const [cordinat, setCoordinat] = useState<any>({ lat: lat, lng: lng });
 
@@ -30,7 +27,7 @@ const App = (props: any) => {
         <input
           type="text"
           id="coordinates"
-          placeholder='nnasasaaaaaaaaa'
+          placeholder="nnasasaaaaaaaaa"
           className="lg:max-w-90 outline-none sm:max-w-full w-full pl-4 mb-4 rounded-lg border-0 py-1.5 shadow-md sm:text-sm sm:leading-6"
           value={`${cordinat.lat}, ${cordinat.lng}`}
           onChange={handleCoordinateChange}

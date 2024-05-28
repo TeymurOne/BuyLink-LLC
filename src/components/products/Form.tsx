@@ -25,7 +25,7 @@ const Form = () => {
 
   const dispatch = useDispatch();
 
-  const { active, load, filesImg, categoryId, name, desc, price, discount } = useSelector( (store: any) => store.productSlice,
+  const { active, load, categoryId, name, desc, price, discount } = useSelector( (store: any) => store.productSlice,
   );
   const { isSuccess, data, isError } = useFetchProducttypeQuery('');
   const language = ['az', 'en', 'ru'];

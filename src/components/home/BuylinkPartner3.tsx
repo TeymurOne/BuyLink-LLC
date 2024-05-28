@@ -45,7 +45,7 @@ export function BuyLinkPartner3() {
             <div className="w-full px-6  grid place-items-center  lg:col-span-4 md:col-span-6 bg-white border border-gray700 rounded-lg shadow-md ">
               <span className="flex pt-4  items-center  ">
                 <img src={d_icon1} alt="Icon" className="lg:w-9 w-6  ml-2" />
-                <h2 className="font-manrope xl:text-lg  lg:text-base text-lg       text-black font-bold">
+                <h2 className="font-manrope  text-lg       text-black font-bold">
                   {t('partnyor3.3')}
                 </h2>
               </span>

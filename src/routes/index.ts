@@ -4,7 +4,7 @@ import { lazy } from 'react';
 
 const privacypolicy = lazy(() => import('../components/home/PrivacyPolicy/Index.tsx'));
 
-const balance = lazy(() => import('../components/Balance/Balanc.tsx'));
+const balance = lazy(() => import('../pages/Dashboard/Balance.tsx'));
 
 const branchcreate = lazy(() => import('../components/Branch/CreateForm'));
 // const productform = lazy(() => import('../components/Branch/Form'));
@@ -45,9 +45,15 @@ const operatorEdit = lazy(
 const partnerform = lazy(() => import('../components/Partnerr/Form.tsx'));
 
 const category = lazy(() => import('../components/products/Category.tsx'));
+const myProfile = lazy(() => import('../pages/settings/MyProfile.tsx'));
+
 
 const coreRoutes = [
-
+  {
+    path: '/admin/settings',
+    title: 'myProfile',
+    component: myProfile,
+  },
 
   {
     path: '/admin/branchdetails/:id',
@@ -66,7 +72,7 @@ const coreRoutes = [
   },
 
   {
-    path: '/admin/createForm',
+    path: '/admin/member',
     title: 'createForm',
     component: CreateForm,
   },
@@ -86,7 +92,7 @@ const coreRoutes = [
     component: details,
   },
   {
-    path: '/admin/Form',
+    path: '/admin/member/create',
     title: 'Form',
     component: Form,
   },
