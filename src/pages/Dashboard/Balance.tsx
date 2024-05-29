@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import CardDataStats from '../../components/Balanc/CardDataStats';
-import CardDataTime from '../../components/Balanc/CardDataTime';
+import CardDataStats from '../../components/Balance/CardDataStats';
+import CardDataTime from '../../components/Balance/CardDataTime';
 import { Title } from '../../components/ui/Title';
 import {
   useGetBalanceQuery,
@@ -16,7 +16,7 @@ import {
 } from '../../features/balance/balanceSlice';
 import { TbCurrencyManat } from 'react-icons/tb';
 import { useEffect } from 'react';
-import Transactions from '../../components/Balanc/Transactions';
+import Transactions from '../../components/Balance/Transactions';
 import TableSkeleton from '../../skeleton/TableSkeleton';
 
 export default function Balance() {

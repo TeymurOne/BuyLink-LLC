@@ -22,7 +22,7 @@ export const Title: React.FC<TitleProps> = ({ children }) => {
   );
 };
 
-export const Input: React.FC<TitleProps> = () => {
+export const Search: React.FC<TitleProps> = () => {
   return (
     <>
       <input

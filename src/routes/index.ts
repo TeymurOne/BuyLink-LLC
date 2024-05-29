@@ -6,17 +6,17 @@ const privacypolicy = lazy(() => import('../components/home/PrivacyPolicy/Index.
 
 const balance = lazy(() => import('../pages/Dashboard/Balance.tsx'));
 
-const branchcreate = lazy(() => import('../components/Branch/CreateForm'));
+const branchcreate = lazy(() => import('../components/Branch/All.tsx'));
 // const productform = lazy(() => import('../components/Branch/Form'));
 const servicesCreate = lazy( () => import('../components/operator/CreateForm.tsx'),
 );
 const servicesForm = lazy(() => import('../components/operator/Form.tsx'));
 // edit routes
 
-const editMember = lazy(() => import('../components/Member/EditForm'));
+const editMember = lazy(() => import('../components/Member/Edit.tsx'));
 const details = lazy(() => import('../components/Member/Details'));
-const CreateForm = lazy(() => import('../components/Member/CreateForm'));
-const Form = lazy(() => import('../components/Member/Form'));
+const CreateForm = lazy(() => import('../components/Member/All.tsx'));
+const Form = lazy(() => import('../components/Member/Create.tsx'));
 // product routes
 
 const editProduct = lazy(() => import('../components/products/EditProduct'));
@@ -27,7 +27,7 @@ const detailsProduct = lazy(() => import('../components/products/Details'));
 // branches
 
 const branchDetails = lazy(() => import('../components/Branch/Details'));
-const branchEdit = lazy(() => import('../components/Branch/EditBranches.tsx'));
+const branchEdit = lazy(() => import('../components/Branch/Edit.tsx'));
 const branchform = lazy(() => import('../components/Branch/Form.tsx'));
 
 //  operatore
@@ -56,12 +56,12 @@ const coreRoutes = [
   },
 
   {
-    path: '/admin/branchdetails/:id',
+    path: '/admin/details/:id',
     title: 'branchDetails',
     component: branchDetails,
   },
   {
-    path: '/admin/branchform',
+    path: '/admin/branch/create',
     title: 'branchform',
     component: branchform,
   },

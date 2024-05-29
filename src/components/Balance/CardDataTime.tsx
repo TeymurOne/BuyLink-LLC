@@ -8,6 +8,15 @@ interface CardDataTimeProps {
   rate?: string | null; // rate değeri null olabilir
 }
 
+// const filterDataValue = [
+//   'today',
+//   'yesterday',
+//   'last_7_days',
+//   'last_15_days',
+//   'last_month',
+//   'last_6_month',
+//   'last_12_month',
+// ];
 const CardDataTime: React.FC<CardDataTimeProps> = ({ rate }) => {
   if (!rate) {
     return (

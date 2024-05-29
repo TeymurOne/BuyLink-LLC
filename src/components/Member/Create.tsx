@@ -4,7 +4,6 @@ import {
   usePostMemberMutation,
 } from '../../features/members/apiSlice';
 import { useNavigate } from 'react-router-dom';
-import addImg from '../../images/partnyor/addimg.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   resetMembersState,
@@ -14,10 +13,12 @@ import {
   setMembersType,
   setPosition,
 } from '../../features/members/membersSlice';
-import renderInput, { RenderSelect } from '../../data/helpers/Fields';
 import CancelSaveButton from '../../data/helpers/Button';
 import { RootState } from '../../app/api/store';
 import { Title } from '../ui/Title';
+import Input from '../../common/Form/Input';
+import Select from '../../common/Form/Select';
+import InputImg from '../../common/Form/InputImg';
 
 export type Titem = {
   id: number;
@@ -88,8 +89,7 @@ const Form = () => {
     (store: RootState) => store.memberSlice,
   );
 
-  const btnDisabled: boolean =
-    !fullname || !position || !membertypes || !images;
+  const btnDisabled: boolean = !fullname || !position || !membertypes || !images;
 
   return (
     <>
@@ -98,77 +98,48 @@ const Form = () => {
           <div className=" pb-12">
             <Title>Personal Information</Title>
 
-            <div className=" col-span-full">
-              <label
-                htmlFor="photo"
-                className="block text-sm font-medium leading-6"
-              >
-                Photo
-              </label>
-              <div className="mt-6 flex h-20 items-center gap-x-3">
-                <img
-                  className="h-15 mb-4 object-cover rounded-xl bg-white   w-20 "
-                  src={showimg || addImg}
-                  alt="Member Photo "
-                />
-                <input
-                  id="file-upload"
-                  name="file-upload"
-                  type="file"
-                  className="py-2 sr-only"
-                  onChange={handleImg}
-                />
-                <label
-                  htmlFor="file-upload"
-                  className="rounded-md bg-white lg:px-13 md:px-10 px-6 mb-3 border py-2.5   text-sm
-                     font-semibold shadow-sm   border-black border-opacity-20  h-10"
-                >
-                  Add Image
-                </label>
-                <input
-                  type="hidden"
-                  placeholder="Add-img"
-                  onChange={handleImg}
-                />
-              </div>
-            </div>
+            <InputImg img={showimg} onChange={handleImg} />
 
             <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="sm:col-span-3">
-                {renderInput({
-                  id: 'Fullname',
-                  label: 'Fullname',
-                  value: fullname,
-                  onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
-                    dispatch(setFullName(e.target.value)),
-                  required: true,
-                })}
+                <Input
+                  id="Fullname"
+                  label="Fullname"
+                  value={fullname}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    dispatch(setFullName(e.target.value))
+                  }
+                  required={true}
+                />
               </div>
               <div className="sm:col-span-3">
-                {renderInput({
-                  id: 'position',
-                  label: 'Position',
-                  value: position,
-                  onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
-                    dispatch(setPosition(String(e.target.value))),
-                  required: true,
-                })}
+                <Input
+                  id="position"
+                  label="Position"
+                  value={position}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    dispatch(setPosition(String(e.target.value)))
+                  }
+                  required={true}
+                />
               </div>
             </div>
 
             <div className="mt-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="sm:col-span-3">
-                <RenderSelect
+                <Select
                   id="memberType"
                   label="Member Type*"
                   defaultValue="default"
-                  onChange={(e) => dispatch(setMembersType(e.target.value))}
+                  onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                    dispatch(setMembersType(String(e.target.value)))
+                  }
                 >
                   <option disabled value="default">
                     Partner Secin
                   </option>
                   {content}
-                </RenderSelect>
+                </Select>
               </div>
             </div>
           </div>

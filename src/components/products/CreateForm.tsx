@@ -24,7 +24,7 @@ const CreateForm = () => {
     }
   }, [isSuccess, data, dispatch]);
 
-  const content =isSuccess  && data && data.data.map((item: any, index: number) => ( <Tbody item={item} key={index} />));
+  const content=isSuccess  && data && data.data.map((item: any, index: number) => ( <Tbody item={item} key={index} />));
 
   const responsiveContent = useMemo(() => {
     if (isSuccess && data) {

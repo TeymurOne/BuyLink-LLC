@@ -55,7 +55,7 @@ export default function Pagination() {
               <button
                 disabled={page === 1}
                 onClick={()=>dispatch(setDecrement())}
-                className={`relative ${page === 1 ? 'opacity-40' : 'opacity-100'} inline-flex items-center rounded-l-md px-2 py-2 ring-1 ring-inset ring-gray-300 hover:bg-gray-2 focus:z-20 focus:outline-offset-0`}
+                className={`relative ${page == 1 ? 'opacity-40' : 'opacity-100'} inline-flex items-center rounded-l-md px-2 py-2 ring-1 ring-inset ring-gray-300 hover:bg-gray-2 focus:z-20 focus:outline-offset-0`}
               >
                 <span className="sr-only">Previous</span>
                 <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
@@ -64,7 +64,7 @@ export default function Pagination() {
               <button
                 disabled={page === allPages}
                 onClick={()=>dispatch(setDecrement())}
-                className={`relative ${page === allPages ? 'opacity-40' : 'opacity-100'} inline-flex items-center rounded-r-md px-2 py-2 ring-1 ring-inset`}
+                className={`relative ${page == allPages ? 'opacity-40' : 'opacity-100'} inline-flex items-center rounded-r-md px-2 py-2 ring-1 ring-inset`}
               >
                 <span className="sr-only">Next</span>
                 <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />

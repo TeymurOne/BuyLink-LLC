@@ -25,7 +25,7 @@ const Details = () => {
 
       <TableLayout>
         <Thead titles={titles} />
-        <Tbody item={member} />
+        {member && <Tbody item={member} />}
       </TableLayout>
     </>
   );

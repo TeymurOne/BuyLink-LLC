@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import App from '../../Map/App';
 import { useSelector } from 'react-redux';
 import { selectLat, selectLng } from '../../features/map/MapSlice';
+import CancelSaveButton from '../../data/helpers/Button';
 
 interface IpostData {
   id?: any;
@@ -180,6 +181,7 @@ const Form: React.FC = () => {
             </button>
           )}
         </div>
+     
       </form>
     </>
   );

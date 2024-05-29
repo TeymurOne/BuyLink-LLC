@@ -2,7 +2,7 @@ import { Suspense, useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import ECommerce from './pages/Dashboard/ECommerce';
+import ECommerce from './pages/Dashboard/Statistics';
 
 import Loader from './common/Loader';
 import axiosInstance from './core/lib/axios.config';

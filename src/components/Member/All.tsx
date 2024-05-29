@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import create from '../../images/action-icon/create.svg';
 import TbodyResponsive from './TbodyResponsive';
 import Pagination from '../../core/pagination/Pagination';
-import { CreateBtn, Title, Input, Thead, TableLayout } from '../ui/Title';
+import { CreateBtn, Title, Thead, TableLayout, Search } from '../ui/Title';
 import TableSkeleton from '../../skeleton/TableSkeleton';
 import { useDispatch, useSelector } from 'react-redux';
 import { pageLength } from '../../features/pagination/paginationSlice';
@@ -24,8 +24,6 @@ const CreateForm: React.FC = () => {
 
   useEffect(() => {
     if (isSuccess && data) {
-      console.log('curren pagination');
-
       const currentpage = Math.ceil(data.meta.total / data.meta.per_page);
       dispatch(pageLength(currentpage));
     }
@@ -48,16 +46,15 @@ const CreateForm: React.FC = () => {
     return null;
   }, [data, isSuccess]);
 
-  if (isLoading) {
-    return <TableSkeleton count="10" />;
-  }
+  if (isLoading)  return <TableSkeleton count="10" />;
+  
 
   return (
-    <div>
+    <>
       <div className="flex justify-between flex-wrap">
         <div className="flex flex-col w-60">
           <Title>{t('member.0')}</Title>
-          <Input />
+          <Search />
         </div>
 
         <CreateBtn img={create} link="member/create">
@@ -72,7 +69,7 @@ const CreateForm: React.FC = () => {
       {responsiveContent}
 
       <Pagination />
-    </div>
+    </>
   );
 };
 

@@ -3,17 +3,13 @@ import React, { useEffect } from 'react';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 
-import { IpostData } from './Form';
 import { useRemovebranchMutation } from '../../features/branch/apiSlice';
 import edit from '../../images/action-icon/edit.svg';
 import rubbish from '../../images/action-icon/rubish.svg';
 import eye from '../../images/action-icon/details.svg';
 
-interface TbodyProps {
-  item: IpostData;
-}
 
-const Tbody: React.FC<TbodyProps> = ({ item }) => {
+const Tbody: React.FC<any> = ({ item }) => {
   const [deletePost] = useRemovebranchMutation();
 
   const handleRemove = async (id: number) => {
@@ -62,31 +58,34 @@ const Tbody: React.FC<TbodyProps> = ({ item }) => {
           <p className="text-black dark:text-white">{item.address}</p>
         </td>
         <td className="  border-gray border-0 text-xs  px-4 dark:border-strokedark">
-          <p className="text-black dark:text-white">{item.phone}</p>
+          <p className="text-black dark:text-white">{item.lat}</p>
         </td>
-
         <td className="  border-gray border-0 text-xs  px-4 dark:border-strokedark">
-          <div className="flex items-center space-x-3.5">
-            <Link to={`/admin/branchdetails/${item.id}`}>
-              <button className="hover:text-primary">
-              <img src={eye} alt="" className="w-5 h-5" />
-              </button>
-            </Link>
-            <button
-              className="hover:text-primary"
-              onClick={() => handleRemove(item.id)}
-            >
-               <img src={rubbish} alt="" className="w-5 h-5" />
-            </button>
-            <Link
-              to={`/admin/branchEdit/${item.id}`}
-              className="hover:text-primary"
-            >
-                <img src={edit} alt="" className="w-5 h-5" />
-               
-            </Link>
-          </div>
+          <p className="text-black dark:text-white">{item.lng}</p>
         </td>
+        {!window.location.pathname.includes('details') && (
+          <td className="  border-gray border-0 text-xs  px-4 dark:border-strokedark">
+            <div className="flex items-center space-x-3.5">
+              <Link to={`/admin/details/${item.id}`}>
+                <button className="hover:text-primary">
+                  <img src={eye} alt="" className="w-5 h-5" />
+                </button>
+              </Link>
+              <button
+                className="hover:text-primary"
+                onClick={() => handleRemove(item.id)}
+              >
+                <img src={rubbish} alt="" className="w-5 h-5" />
+              </button>
+              <Link
+                to={`/admin/branchEdit/${item.id}`}
+                className="hover:text-primary"
+              >
+                <img src={edit} alt="" className="w-5 h-5" />
+              </Link>
+            </div>
+          </td>
+        )}
       </tr>
     </>
   );

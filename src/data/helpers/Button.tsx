@@ -1,10 +1,10 @@
 import React from 'react';
 
 type CancelSaveButtonProps = {
-  onCancel: () => void;
-  onSave: (e: React.FormEvent<HTMLButtonElement>) => void;
-  btnDisabled: boolean;
-  loading: boolean;
+  onCancel?: () => void;
+  onSave?: (e: React.FormEvent<HTMLButtonElement>) => void;
+  btnDisabled?: boolean;
+  loading?: boolean;
 };
 
 const CancelSaveButton: React.FC<CancelSaveButtonProps> = ({
