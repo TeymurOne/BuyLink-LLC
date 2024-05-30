@@ -33,7 +33,6 @@ export default function Balance() {
 
   const { data, isSuccess, isLoading } = useGetBalanceQuery('');
   const transactions = useGetTransactionsQuery(filter);
-  console.log(transactions, 'tra');
   
 
   useEffect(() => {

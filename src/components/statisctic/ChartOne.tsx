@@ -14,7 +14,7 @@ const options: ApexOptions = {
     height: 335,
     type: 'area',
     dropShadow: {
-      enabled: true,
+      enabled: false,
       color: '#fff',
       top: 10,
       blur: 80,
@@ -55,13 +55,17 @@ const options: ApexOptions = {
   grid: {
     xaxis: {
       lines: {
-        show: true,
+        show: false,
       },
     },
     yaxis: {
       lines: {
         show: true,
       },
+    },
+    padding: {
+      top:0, // Adjust left padding as needed
+      bottom: 0, // Adjust right padding as needed
     },
   },
   dataLabels: {
@@ -110,8 +114,9 @@ const options: ApexOptions = {
         fontSize: '0px',
       },
     },
-    min: 0,
-    max: 100,
+    min: 0.0,
+    max: 2.0,
+    tickAmount: 6, 
   },
 };
 

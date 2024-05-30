@@ -173,6 +173,13 @@ const resources = {
         '5': 'Necə işləyirik?',
         '6': `Buylink platformunda paylaşılan postlar, istifadəçilərin mekanları tanıtmalarını, təcrübələrini paylaşmalarını və promosyonlar təklif etmələrini təmin edir. Bu, onların öz sosial şəbəkələrindən faydalanaraq gəlir qazanmalarına və digər istifadəçilərə fayda vermələrinə imkan verir.`,
       },
+      become:{
+        '0': 'Buylink',
+        '1': 'tətbiqini yüklə',
+        '2':"Hər yerdə mövcuddur",
+        '3':"Yükləmək üçün Scan QR"
+
+      },
       footer: {
         '0': 'İndi ödənişlərdən daha çox keşbek və qazanclar əldə et.',
         '1': 'Şirkət',
@@ -512,14 +519,21 @@ const resources = {
         '2': 'Will send you weekly updates for your better finance management.',
         '3': 'Join  now',
       },
+      become:{
+        '0': ' Download',
+        '1': 'Buylink',
+        '2':"Available everywhere",
+        '3':"For download Scan QR "
+
+      },
       accordion: {
         '0': 'Frequently Asked Questions',
         '1': 'What is the BUYLINK?',
         '2': `Our mission is to connect people and businesses under one referral social network to ensure they benefit from the benefits and benefits.`,
-        '3': 'Why do we use it??',
+        '3': 'Why do we use it?',
         '4': `The advantages of Buylink are many. First, this platform provides users with a network where they can both earn money and take advantage of discounts. This brings together the opportunity for users to get quality products and generate income.
         Additionally, Buylink's affiliate marketing model based on referrals allows users to attract more people to the platform and earn increased revenue based on their volume.`,
-        '5': 'How to get cash??',
+        '5': 'How to get cash?',
         '6': 'Posts shared on the Buylink platform allow users to promote places, share experiences and offer promotions. This allows them to take advantage of their social networks to earn income and benefit other users.',
       },
       footer: {

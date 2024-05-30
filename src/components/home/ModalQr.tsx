@@ -4,19 +4,21 @@ import apple from '../../images/Pages-index/head-main/apple-icon.svg';
 import qr from '../../images/Pages-index/modal/qr.svg';
 import './Main.css';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const ModalQr = () => {
+  const {t}=useTranslation()
   return (
     <div className='w-full  bg-tborderHover ' id='buylinkdownload'>
       <div className="  lg:flex hidden items-center   ">
           <div className=" text-center ml-auto pr-10  space-x-3">
             <span className="text-starrating xl:text-5xl lg:text-4xl font-inter font-semibold">
-              Buylink
+             {t('become.0')}
             </span>
             <span className="text-starrating xl:text-5xl lg:text-4xl font-inter font-medium">
-              tətbiqini yüklə
+            {t('become.1')}
             </span>
-            <h4 className=" text-4xl">Hər yerdə mövcuddur</h4>
+            <h4 className=" text-4xl">  {t('become.2')}</h4>
             <img src={partnerleft} alt="Partner left" />
           </div>
           <div className=" py-40 gradient grid place-items-center max-w-3xl w-full rounded-tl-[320px]  bg-textPrimary ">
@@ -24,8 +26,8 @@ const ModalQr = () => {
               <div className="rounded-3xl p-6 border-2 border-starrating  bg-white grid place-items-center max-w-90 w-full ">
                 <img className="w-55 h-full" src={qr} alt=" Qr" />
               </div>
-              <h2 className="text-starrating py-4  text-title-lg font-semibold   ">
-                For download Scan QR
+              <h2 className="text-starrating py-4  text-title-md2 font-semibold   ">
+              {t('become.3')}
               </h2>
               <div className="flex mt-6    h-34   ">
                 <Link

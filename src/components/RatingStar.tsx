@@ -62,7 +62,7 @@ const RatingStar = () => {
 export default RatingStar;
 
 interface StarProps {
-  average_rating: number;
+  average_rating: any;
   size?: number;
 }
 export function Star({ average_rating, size }: StarProps) {

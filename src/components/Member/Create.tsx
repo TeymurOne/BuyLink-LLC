@@ -33,6 +33,7 @@ const Form = () => {
   const [postForm] = usePostMemberMutation();
   const dispatch = useDispatch();
   const [images, setImages] = useState<any>('');
+  const [showimg, setShowimg] = useState<any>('');
 
   let content;
   if (isSuccess) {
@@ -52,7 +53,8 @@ const Form = () => {
 
     if (files) {
       setImages(files[0]);
-      dispatch(setImageUrl(URL.createObjectURL(files[0])));
+      setShowimg(URL.createObjectURL(files[0]));
+      // dispatch(setImageUrl(URL.createObjectURL(files[0])));
     }
   };
 
@@ -85,11 +87,12 @@ const Form = () => {
     }
   };
 
-  const { showimg, fullname, position, membertypes, load } = useSelector(
+  const { fullname, position, membertypes, load } = useSelector(
     (store: RootState) => store.memberSlice,
   );
 
-  const btnDisabled: boolean = !fullname || !position || !membertypes || !images;
+  const btnDisabled: boolean =
+    !fullname || !position || !membertypes || !images;
 
   return (
     <>
@@ -98,7 +101,7 @@ const Form = () => {
           <div className=" pb-12">
             <Title>Personal Information</Title>
 
-            <InputImg img={showimg} onChange={handleImg} />
+            <InputImg showimg={showimg} onChange={handleImg} />
 
             <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="sm:col-span-3">

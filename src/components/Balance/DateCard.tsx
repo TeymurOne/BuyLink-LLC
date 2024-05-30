@@ -11,7 +11,7 @@ interface Date{
 const DateCard:React.FC<Date> = ({svg,month, desc, day}) => {
   return (
     <>
-      <div className="flex space-x-4 pl-4 items-center py-3 w-full rounded-xl shadow dark:bg-boxdark border bg-transparent border-black border-opacity-60">
+      <div className="flex space-x-4 pl-4 items-center py-5 w-full rounded-xl shadow dark:bg-boxdark border bg-transparent border-black border-opacity-60">
       <div>
         <svg
           width="60"

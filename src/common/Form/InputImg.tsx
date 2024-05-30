@@ -5,7 +5,7 @@ interface ImgInput {
   showimg?:any
 }
 const InputImg: React.FC<ImgInput> = ({ img, onChange, showimg }) => {
-  console.log(img, 'imagesnknk');
+  console.log(showimg, 'images');
   
   return (
     <>

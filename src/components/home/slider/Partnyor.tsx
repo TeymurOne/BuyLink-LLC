@@ -61,13 +61,17 @@ function Partnyor() {
   }, []);
 
   const settings = {
-    dots: false,
-    infinite: true,
-    speed:4000,
     slidesToShow: 9,
-    slidesToScroll: 4,
     initialSlide: 0,
-    autoplay:true,
+    autoplay: true, 
+    infinite: true, 
+    speed: 1000,
+    autoplaySpeed: 100,
+    focusOnSelect: true,
+  
+  
+  
+  
     responsive: [
       {
         breakpoint: 1024,

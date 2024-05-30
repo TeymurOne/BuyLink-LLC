@@ -28,17 +28,17 @@ const Translate = () => {
         onClick={() => setDropdownOpen(!dropdownOpen)}
         className="relative flex h-8.5 w-8.5 items-center justify-center rounded-full border-[0.5px] border-stroke bg-gray hover:text-primary dark:border-strokedark dark:bg-meta-4 dark:text-white"
       >
-        <span className="relative  right-0 z-1 h-2 w-4 rounded-full top-[-5px]">
+        <span className="relative  grid place-items-center  z-1 h-2 w-4 rounded-full">
         {localStorage.getItem("lng")=='az'?(
                <img
-               className="absolute  h-[24px] w-[24px] rounded-md"
+               className="absolute  h-6 w-6 rounded-md"
                src={aze}
    
                alt="Usa Flag"
              />
           ):(
             <img
-            className="absolute  w-[24px] rounded-md"
+            className="absolute  h-6 w-6 rounded-md"
             src={us}
 
             alt="Usa Flag"
@@ -52,7 +52,7 @@ const Translate = () => {
         ref={dropdown}
         onFocus={() => setDropdownOpen(true)}
         onBlur={() => setDropdownOpen(false)}
-        className={`absolute  mt-2.5 flex h-auto w-[200px]  flex-col rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark sm:right-0  ${
+        className={`absolute  mt-2.5 flex h-auto w-50  flex-col rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark sm:right-0  ${
           dropdownOpen === true ? 'block' : 'hidden'
         }`}
       >
@@ -77,7 +77,7 @@ const Translate = () => {
             >
               <p className="text-sm flex space-x-2">
                 <img
-                  className=" w-[24px] rounded-md"
+                  className=" w-6 rounded-md"
                   src={aze}
                   alt="AZE Flag"
                 />
