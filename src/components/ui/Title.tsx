@@ -1,10 +1,12 @@
 import React, { ReactNode } from 'react';
+import { FaArrowLeft } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 
 type TitleProps = {
   children?: ReactNode;
   link?: string;
   img?: string;
+  onchange?: any;
 };
 type TheadProps = {
   titles: string[];
@@ -15,18 +17,24 @@ type TableProps = {
 export const Title: React.FC<TitleProps> = ({ children }) => {
   return (
     <>
-      <h4 className=" text-xl font-semibold text-black dark:text-white">
+      
+      <h4 className=" flex items-center  text-xl font-semibold text-black dark:text-white">
         {children}
+        <FaArrowLeft
+        onClick={() => window.history.back()}
+        style={{ cursor: 'pointer' }}
+      />
       </h4>
     </>
   );
 };
 
-export const Search: React.FC<TitleProps> = () => {
+export const Search: React.FC<TitleProps> = ({ onchange }) => {
   return (
     <>
       <input
         type="text"
+        onChange={onchange}
         placeholder=" search..."
         className="max-w-70 w-full shadow-2 rounded-xl py-2 my-4   pl-9 focus:outline-none   "
       />
@@ -51,7 +59,7 @@ export const CreateBtn: React.FC<TitleProps> = ({ link, children, img }) => {
 export const Thead: React.FC<TheadProps> = ({ titles }) => {
   return (
     <>
-      <thead className='md:contents hidden'>
+      <thead className="md:contents hidden">
         <tr className=" bg-white  text-title-2xsm font-poppins text-black text-left dark:bg-meta-4">
           <th className="w-14.5 h-10  border-b border-r  border-tborder px-4  font-medium ">
             ID

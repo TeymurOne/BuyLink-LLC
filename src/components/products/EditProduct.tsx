@@ -19,6 +19,10 @@ import {
 } from '../../features/product/productSlice';
 import { RootState } from '../../app/api/store';
 import TableSkeleton from '../../skeleton/TableSkeleton';
+import { Title } from '../ui/Title';
+import Input from '../../common/Form/Input';
+import Select from '../../common/Form/Select';
+import CancelSaveButton from '../../data/helpers/Button';
 
 type Data = {
   id: number;
@@ -39,7 +43,6 @@ const EditProduct = () => {
   const [dataEdit] = useUpdateProductMutation();
   const { name, active, desc, categoryId, price, discount, imgurl } =
     useSelector((store: RootState) => store.productSlice);
-    
 
   const handleTitle = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -55,11 +58,6 @@ const EditProduct = () => {
   ) => {
     const value = e.target.value;
     dispatch(setDesc({ language, value }));
-  };
-
-  const handlePrice = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    dispatch(setPrice(value));
   };
 
   const handleImg = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -86,6 +84,7 @@ const EditProduct = () => {
       }
     } catch (error) {}
   }
+  console.log(categoryId, 'categro');
 
   const handleUpdate = async (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -109,7 +108,7 @@ const EditProduct = () => {
     try {
       if (postData) {
         await dataEdit({ postData, idUrl });
-        navigate('/admin/productCreate');
+        navigate('/admin/products');
         dispatch(setReset());
       }
     } catch (error) {}
@@ -125,7 +124,7 @@ const EditProduct = () => {
   if (isSuccess) {
     content = data?.data?.map((item: Data, index: number) => {
       return (
-        <option key={index} value={item.id}>
+        <option key={index} value={item.id} selected={item?.id == categoryId}>
           {item.name[local]}
         </option>
       );
@@ -139,9 +138,8 @@ const EditProduct = () => {
       {!idUrl ? (
         <TableSkeleton count="10" />
       ) : (
-
         <form className="h-auto">
-          <h2 className="text-3xl font-semibold">Product Edit {idUrl}</h2>
+          <Title>Product Edit {idUrl}</Title>
 
           <div>
             <label
@@ -183,9 +181,9 @@ const EditProduct = () => {
               </option>
             ))}
           </select>
-          <div>
+          <div className="py-4">
             {language.map((lang) => (
-              <div className="py-3" key={lang}>
+              <div className="" key={lang}>
                 <div
                   className={`grid gap-4 place-content-between lg:grid-cols-2 grid-cols-1 w-full items-start ${
                     active !== lang ? 'hidden' : ''
@@ -227,91 +225,45 @@ const EditProduct = () => {
               </div>
             ))}
           </div>
-
-          <div className="grid grid-cols-6 gap-x-6 gap-y-4 sm:grid-cols-6">
-            <div className="sm:col-span-2 col-span-6">
-              <label
-                htmlFor="category"
-                className="block text-sm text-tdColor font-medium font-works mb-2"
-              >
-                Category*
-              </label>
-              <div className="mt-2">
-                <select
-                  id="category"
-                  value={categoryId}
-                  onChange={(e: any) =>
-                    dispatch(setcategoryId(Number(e.target.value)))
-                  }
-                  name="category"
-                  required
-                  className="w-full h-10 pl-4 rounded-xl shadow-md"
-                >
-                  <option disabled value="">
-                    Category seçin
-                  </option>
-                  {content}
-                </select>
-              </div>
-            </div>
-            <div className="sm:col-span-2 col-span-6">
-              <label
-                htmlFor="Price"
-                className="block text-sm text-tdColor font-medium font-works mb-2"
-              >
-                Price
-              </label>
-              <div className="mt-2">
-                <input
-                  type="text"
-                  name="Price"
-                  placeholder="Price"
-                  id="Price"
-                  onChange={handlePrice}
-                  value={price}
-                  autoComplete="given-name"
-                  className="w-full border border-gray-300 h-10 px-4 rounded-xl shadow-md"
-                />
-              </div>
-            </div>
-
-            <div className="sm:col-span-2 col-span-6">
-              <label
-                htmlFor="DiscountPrice"
-                className="block text-sm text-tdColor font-medium font-works mb-2"
-              >
-                Discount Price
-              </label>
-              <div className="mt-2">
-                <input
-                  type="text"
-                  name="DiscountPrice"
-                  id="DiscountPrice"
-                  placeholder="Discount Price"
-                  autoComplete="given-name"
-                  className="w-full border border-gray-300 h-10 px-4 rounded-xl shadow-md"
-                  value={discount}
-                  onChange={(e) => dispatch(setDiscount(e.target.value))}
-                />
-              </div>
-            </div>
-          </div>
-          <div className="flex items-center justify-end gap-x-6 my-3">
-            <button
-              onClick={() => navigate(-1)}
-              type="button"
-              className="text-sm font-semibold leading-6 text-gray-900"
+          <div className="grid lg:grid-cols-3 gap-4 grid-cols-1 ">
+            <Select
+              id="category"
+              onChange={(e: any) =>
+                dispatch(setcategoryId(Number(e.target.value)))
+              }
+              value={categoryId}
+              label="Category"
+              option=" Category seçin"
             >
-              Cancel
-            </button>
+              {content}
+            </Select>
+            <Input
+              id="Price"
+              label="Price"
+              onChange={(e) => dispatch(setPrice(e.target.value))}
+              value={price}
+              option=""
+              placeholder="Price"
+              required
+            />
+            <Input
+              id="Discount Price"
+              label="Discount Price"
+              onChange={(e) => dispatch(setDiscount(e.target.value))}
+              value={discount}
+              placeholder="Discount Price"
+              required
+            />
+          </div>
 
-            <button
-              onClick={handleUpdate}
-              type="submit"
-              className="bg-[#4f46e5] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-opacity-90 rounded-md"
+          <div className='mt-10'>
+            <CancelSaveButton
+              onSave={handleUpdate}
+              onCancel={() => navigate(-1)}
+              
             >
               Update
-            </button>
+            </CancelSaveButton>
           </div>
         </form>
       )}

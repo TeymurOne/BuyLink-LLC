@@ -1,6 +1,7 @@
 import React from "react";
 
 interface InputProps {
+
     id: string;
     label?: string;
     value?: string;
@@ -8,23 +9,29 @@ interface InputProps {
     children?:any
     onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
     required?: boolean;
+    option:string
   }
+
   
-const Select:React.FC<InputProps> = ({id, label, defaultValue, onChange, children}) => {
+  
+const Select:React.FC<InputProps> = ({id, label, value, option, onChange, children}) => {
   return (
     <>
-       <div className="sm:col-span-3">
+       <div className="w-full">
       <label htmlFor={id} className="block text-sm font-medium leading-6 text-gray-900">
         {label}
       </label>
-      <div className="mt-2">
+      <div >
         <select
           id={id}
           name={id}
-          defaultValue={defaultValue}
+          value={value}
+          defaultValue='defaultValue'
+      
           onChange={onChange}
-          className="block w-full   pl-4 rounded-lg outline-none h-10 shadow-md border-inputColor sm:text-sm sm:leading-6"
+          className="block w-full pl-4 rounded-lg outline-none h-8 shadow-md border-inputColor sm:text-sm sm:leading-6"
         >
+
           {children}
         </select>
       </div>
@@ -34,4 +41,10 @@ const Select:React.FC<InputProps> = ({id, label, defaultValue, onChange, childre
   )
 }
 
+
+
+
+
+
 export default Select
+ 

@@ -2,13 +2,14 @@ import React from 'react';
 
 type CancelSaveButtonProps = {
   onCancel?: () => void;
-  onSave?: (e: React.FormEvent<HTMLButtonElement>) => void;
-  btnDisabled?: boolean;
+  onSave?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;  btnDisabled?: boolean;
   loading?: boolean;
+  children?:React.ReactNode
 };
 
 const CancelSaveButton: React.FC<CancelSaveButtonProps> = ({
   onCancel,
+  children,
   onSave,
   btnDisabled,
   loading,
@@ -36,11 +37,11 @@ const CancelSaveButton: React.FC<CancelSaveButtonProps> = ({
           disabled={btnDisabled}
           onClick={onSave}
           type="submit"
-          className={`rounded-sm ${
+          className={`rounded-md ${
             btnDisabled ? 'opacity-65' : 'opacity-100'
-          } bg-[#2D83B6] px-6 py-2 text-sm font-semibold text-white shadow-sm`}
+          } bg-[#2D83B6] px-6 py-2   text-sm font-semibold text-white shadow-sm`}
         >
-          Save
+          {children || 'Save'}
         </button>
       )}
     </div>

@@ -16,8 +16,8 @@ const Input: React.FC<InputProps> = ({
   required = false,
 }) => {
   return (
-    <>
-      <label htmlFor={id} className="block text-sm font-medium leading-5">
+    <div className="w-full">
+      <label htmlFor={id} className="block w-full text-tdColor text-sm font-medium leading-5">
         {label}
         {required && <span className="text-red-600">*</span>}
       </label>
@@ -32,7 +32,7 @@ const Input: React.FC<InputProps> = ({
           placeholder={placeholder}
         />
       </div>
-    </>
+    </div>
   );
 };
 

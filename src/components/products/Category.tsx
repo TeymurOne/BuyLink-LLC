@@ -9,9 +9,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   setFilterData,
   setLanguage,
-  
 } from '../../features/category/categorySlice';
 import { RootState } from '../../app/api/store';
+import { Search } from '../ui/Title';
 
 const Category = () => {
   const { t } = useTranslation();
@@ -52,12 +52,8 @@ const Category = () => {
 
   return (
     <>
-      <input
-        type="text"
-        placeholder="Search..."
-        onChange={(e) => setSearch(e.target.value)}
-        className="max-w-[243px] w-full py-2 my-4  pr-4 pl-9 focus:outline-none rounded-md   "
-      />
+      <Search onchange={(e: any) => setSearch(e.target.value)} />
+
       {window.innerWidth > 768 && (
         <div className="rounded-sm  md:block  hidden  shadow-default  dark:border-strokedark dark:bg-boxdark ">
           <div className="max-w-full  border  rounded-lg border-tborder overflow-hidden   overflow-x-auto   ">
