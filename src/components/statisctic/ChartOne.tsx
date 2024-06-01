@@ -1,6 +1,7 @@
 import { ApexOptions } from 'apexcharts';
 import React, { useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
+import { useTranslation } from 'react-i18next';
 
 const options: ApexOptions = {
   legend: {
@@ -23,7 +24,7 @@ const options: ApexOptions = {
     },
 
     toolbar: {
-      show: true,
+      show: false,
     },
   },
   responsive: [
@@ -64,8 +65,8 @@ const options: ApexOptions = {
       },
     },
     padding: {
-      top:0, // Adjust left padding as needed
-      bottom: 0, // Adjust right padding as needed
+      top: 0, 
+      bottom: 0, 
     },
   },
   dataLabels: {
@@ -116,7 +117,8 @@ const options: ApexOptions = {
     },
     min: 0.0,
     max: 2.0,
-    tickAmount: 6, 
+    tickAmount: 5,
+   
   },
 };
 
@@ -134,13 +136,14 @@ interface ChartOneProps {
 const ChartOne: React.FC<ChartOneProps> = ({ data }) => {
   const transactionsArray = Object.entries(data);
   const seriesData = transactionsArray.map(([key, value]) => value);
-  
+
+  const { t } = useTranslation();
 
   const [state, setState] = useState<ChartOneState>({
     series: [
       {
         name: 'Product One',
-        data: seriesData
+        data: seriesData,
       },
     ],
   });
@@ -155,23 +158,16 @@ const ChartOne: React.FC<ChartOneProps> = ({ data }) => {
   return (
     <div className="col-span-12  border rounded-2xl shadow-sm border-stroke bg-white px-5 pt-7.5 pb-5 dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:col-span-6">
       <div className="flex flex-wrap items-start justify-between gap-3 sm:flex-nowrap">
-        <div className="flex w-full flex-wrap gap-3 sm:gap-5">
-          <div className="flex min-w-47.5">
-            <span className="mt-1 mr-2 flex h-4 w-full max-w-4 items-center justify-center rounded-full border border-primary">
-              <span className="block h-2.5 w-full max-w-2.5 rounded-full bg-primary"></span>
-            </span>
-            <div className="w-full">
-              <p className="font-semibold text-primary">Total Revenue</p>
-              <p className="text-sm font-medium">12.04.2022 - 12.05.2022</p>
+        <div className="flex flex-col w-full   sm:gap-5">
+          <h2 className='text-xl font-inter dark:text-white font-medium'>{t('statistic.7')}</h2>
+          <div className='flex space-x-4'>
+            <div className="flex items-center  space-x-2">
+              <div className="bg-primary w-2 h-2  rounded-full"></div>
+              <p className='dark:text-white'>{t('statistic.8')}</p>
             </div>
-          </div>
-          <div className="flex min-w-47.5">
-            <span className="mt-1 mr-2 flex h-4 w-full max-w-4 items-center justify-center rounded-full border border-secondary">
-              <span className="block h-2.5 w-full max-w-2.5 rounded-full bg-secondary"></span>
-            </span>
-            <div className="w-full">
-              <p className="font-semibold text-secondary">Total Sales</p>
-              <p className="text-sm font-medium">12.04.2022 - 12.05.2022</p>
+            <div className="flex items-center space-x-2">
+              <div className="bg-[#F31F1F] w-2 h-2  rounded-full"></div>
+              <p className='dark:text-white'>{t('statistic.9')}</p>
             </div>
           </div>
         </div>

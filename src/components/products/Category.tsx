@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import create from '../../images/action-icon/create.svg';
 
 import { Link } from 'react-router-dom';
@@ -9,13 +9,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   setFilterData,
   setLanguage,
-  setSearch,
+  
 } from '../../features/category/categorySlice';
 import { RootState } from '../../app/api/store';
 
 const Category = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  const [search, setSearch] = useState('');
   const { language, filteredData } = useSelector(
     (store: RootState) => store.categorySlice,
   );
@@ -33,6 +34,13 @@ const Category = () => {
     }
   }, [isSuccess, data]);
 
+  const filteredItems = filteredData.filter(
+    (item) =>
+      item.name[language]
+        ?.toLocaleLowerCase()
+        .includes(search.trim().toLocaleLowerCase()),
+  );
+
   if (isLoading) {
     return (
       <div>
@@ -47,7 +55,7 @@ const Category = () => {
       <input
         type="text"
         placeholder="Search..."
-        onChange={(e) => dispatch(setSearch(e.target.value))}
+        onChange={(e) => setSearch(e.target.value)}
         className="max-w-[243px] w-full py-2 my-4  pr-4 pl-9 focus:outline-none rounded-md   "
       />
       {window.innerWidth > 768 && (
@@ -68,7 +76,7 @@ const Category = () => {
                 </tr>
               </thead>
               <tbody>
-                {filteredData?.map((item: any, index: number) => (
+                {filteredItems?.map((item: any, index: number) => (
                   <Tbody
                     item={item}
                     key={index}
@@ -84,7 +92,7 @@ const Category = () => {
 
       {window.innerWidth < 768 && (
         <>
-          {filteredData?.map((item: any, index: number) => (
+          {filteredItems?.map((item: any, index: number) => (
             <TbodyResponsive
               item={item}
               id={index}
@@ -125,7 +133,7 @@ function Tbody({ item, language, id }: TbodyProps) {
 
         <td className="  py-3 px-4 dark:border-strokedark">
           <Link
-            to={`/admin/productForm/${item.id}`}
+            to={`/admin/product/${item.id}`}
             className="bg-white text-xs font-medium shadow-sm  mb-4 lg:mb-0 md:mb-0 sm:mb-0 space-x-2  rounded-md  justify-center flex items-center h-10 w-full max-w-35"
           >
             <img src={create} alt="Create icon" />
@@ -137,7 +145,6 @@ function Tbody({ item, language, id }: TbodyProps) {
   );
 }
 function TbodyResponsive({ item, language, id }: TbodyProps) {
-
   const rowClassName = id % 2 === 0 ? 'bg-[#F8F8F8]' : '';
   return (
     <div className="max-w-full md:hidden block w-full">
@@ -148,10 +155,13 @@ function TbodyResponsive({ item, language, id }: TbodyProps) {
         >
           <div className="w-35 flex space-x-4 ">
             <p>{item?.id}</p>
-            <span className='dark:text-white'> {language && item.name[language]}</span>
+            <span className="dark:text-white">
+              {' '}
+              {language && item.name[language]}
+            </span>
           </div>
           <Link
-            to={`/admin/productForm/${item.id}`}
+            to={`/admin/products/${item.id}`}
             className="bg-white text-xs shadow-md font-medium  mb-4 lg:mb-0 md:mb-0 sm:mb-0 space-x-2  rounded-md  justify-center flex items-center h-9 w-full max-w-35"
           >
             <img src={create} alt="Create icon" />

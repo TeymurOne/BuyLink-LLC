@@ -41,20 +41,20 @@ export function BuyLinkPartner1() {
       <section className=" lg:pt-20 lg:py-30 md:py-10 py-4 md:pt-10 pt-2" >
         <div className="flex flex-col lg:items-center  items-stretch text-center">
           <div className="space-y-4  max-w-5xl mx-auto ">
-            <h2 className="font-manrope  lg:text-title-xxl text-title-lg   leading-0    sm:leading-8  text-black font-bold">
+            <h2 className="font-manrope  lg:text-title-xxl   text-black font-bold">
               {t('partnyor.0')}
               <span className="text-starrating"> {t('partnyor.1')}</span>
 
               {t('partnyor.2')}
             </h2>
-            <p className="lg:text-title-md text-center  text-sm font-poppins opacity-70 font-normal pb-[2em] ">
+            <p className="text-2xl text-center  font-poppins opacity-70 font-normal pb-10 ">
               {t('partnyor.3')}
             </p>
           </div>
           <div className="grid  lg:grid-cols-12 mb-10   gap-10     ">
-            <div className="w-full p-6  lg:col-span-4 md:col-span-6 col-span-full bg-white border border-gray700 rounded-lg shadow-md">
-              <span className="flex pt-3 justify-center space-x-2">
-                <img src={p_icon1} alt="Icon" className="w-6" />
+            <div className="w-full p-6  lg:col-span-4 md:col-span-6 col-span-full bg-white shadow-2  rounded-xl border border-opacity-10 border-graydark">
+              <span className="flex pt-3 justify-center items-center ">
+                <img src={p_icon1} alt="Icon" className="w-8 mr-1 h-8" />
                 <h2 className="font-manrope text-lg        text-black font-bold">
                   {t('partnyor.4')}
                 </h2>
@@ -65,9 +65,9 @@ export function BuyLinkPartner1() {
               </p>
             </div>
 
-            <div className="w-full p-6 lg:col-span-4 md:col-span-6 col-span-full bg-white border border-gray700  rounded-lg shadow-md ">
-              <span className="flex pt-2 justify-center space-x-2">
-                <img src={p_icon2} alt="Icon" className="w-6" />
+            <div className="w-full p-6 lg:col-span-4 md:col-span-6 col-span-full bg-white shadow-2  rounded-xl border border-opacity-10 border-graydark ">
+              <span className="flex pt-2 justify-center ">
+                <img src={p_icon2} alt="Icon" className="w-8 mr-1 h-8" />
                 <h2 className="font-manrope text-lg       text-black font-bold">
                   {t('partnyor.6')}
                 </h2>
@@ -77,9 +77,9 @@ export function BuyLinkPartner1() {
                 {t('partnyor.7')}
               </p>
             </div>
-            <div className="w-full p-6 lg:col-span-4 md:col-span-12 col-span-full bg-white border border-gray700  rounded-lg shadow-md">
-              <span className="flex pt-2  justify-center space-x-2">
-                <img src={p_icon3} alt="Icon" className="w-6" />
+            <div className="w-full p-6 lg:col-span-4 md:col-span-12 col-span-full bg-white shadow-2  rounded-xl border border-opacity-10 border-graydark">
+              <span className="flex pt-2  justify-center ">
+                <img src={p_icon3} alt="Icon" className="w-8 h-8 mr-1" />
                 <h2 className="font-manrope text-lg         text-black font-bold">
                   {t('partnyor.8')}
                 </h2>
@@ -89,6 +89,7 @@ export function BuyLinkPartner1() {
                 {t('partnyor.9')}
               </p>
             </div>
+            
           </div>
         </div>
 

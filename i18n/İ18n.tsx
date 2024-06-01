@@ -125,7 +125,7 @@ const resources = {
         '4': 'Partnyorlarımızla tanış ol',
         '5': 'Ana səhifədəki partynor siyahımızı kəşf et',
         '6': 'Şəbəkəni genişləndir',
-        '7': 'Axtarış bölməsindən dostlarını və ya yeni istifadəçiləri axtar. Onları öz dost siyahına əlavə edərək istinad prosesinə başla.',
+        '7': 'Axtarış bölməsindən dostlarını və ya yeni istifadəçiləri axtar. Onları öz dost siyahına əlavə edərək referal prosesinə başla.',
         '8': 'Müxtəlif kateqoriyaları kəşf et',
         '9': 'Maraqlandığın biznesləri burada kəşf edərək onların endirim və qazanc dərəcələri ilə tanış ola bilərsən. ',
       },
@@ -135,20 +135,20 @@ const resources = {
         '2': 'Öz şəbəkənə istədiyin biznesi tövsiyə et və qazan.',
         '3': 'Partnyor səhifəsinə daxil ol',
         '4': 'Tərəfdaşın kataloqunu araşdırın:məhsul və ya xidmətlərin siyahısı, qiymətlər, endirimlər və referal keşbekləri.',
-        '5': 'İstinad linkini öz şəbəkən ilə bölüş',
+        '5': 'Referal linkini öz şəbəkən ilə bölüş',
         '6': 'Partnyor səhifəsində sən bu biznesi söhbət vasitəsilə şəbəkənə tövsiyə edə və ya poçtla paylaşa bilərsən.',
         '7': 'Pul kisəsinə keçid et və balansını yoxla',
-        '8': 'Şəbəkən istinad linkindən istifadə etdikdən sonra səm  mükafatlar qazanırsan. Sonda pul kisəsi səhifəsində balansını yoxlaya bilərsən.',
+        '8': 'Şəbəkən referal linkindən istifadə etdikdən sonra səm  mükafatlar qazanırsan. Sonda pul kisəsi səhifəsində balansını yoxlaya bilərsən.',
         '9': ' əldə et',
       },
       partnyor3: {
         '0': 'Endirim  ',
         '1': 'necə əldə etmək olar?',
-        '2': 'İstinad linklərindən istifadə edərək endirimlər qazan.',
-        '3': 'İstinad səhifəsində dostlarının tövsiyələrini nəzərdən keç',
+        '2': 'Referal linklərindən istifadə edərək endirimlər qazan.',
+        '3': 'Referal səhifəsində dostlarının tövsiyələrini nəzərdən keç',
         '4': 'Şəbəkənin paylaşdığı bütün yazılara bax və səni  maraqlandıran birini seç.',
-        '5': 'QR səbətinə istinad linklərini əlavə et',
-        '6': 'Burada tərəfdaşlar üçün müxtəlif istifadəçilərin bütün istinad bağlantılarını görə bilərsən.',
+        '5': 'QR səbətinə referal linklərini əlavə et',
+        '6': 'Burada tərəfdaşlar üçün müxtəlif istifadəçilərin bütün referal bağlantılarını görə bilərsən.',
         '7': 'QR kodu gör və endirim əldə et',
         '8': 'Qr kodu alış-veriş zamanı partnyora göstər və endirim əldə et.',
       },
@@ -173,12 +173,11 @@ const resources = {
         '5': 'Necə işləyirik?',
         '6': `Buylink platformunda paylaşılan postlar, istifadəçilərin mekanları tanıtmalarını, təcrübələrini paylaşmalarını və promosyonlar təklif etmələrini təmin edir. Bu, onların öz sosial şəbəkələrindən faydalanaraq gəlir qazanmalarına və digər istifadəçilərə fayda vermələrinə imkan verir.`,
       },
-      become:{
+      become: {
         '0': 'Buylink',
         '1': 'tətbiqini yüklə',
-        '2':"Hər yerdə mövcuddur",
-        '3':"Yükləmək üçün Scan QR"
-
+        '2': 'Hər yerdə mövcuddur',
+        '3': 'Yükləmək üçün Scan QR',
       },
       footer: {
         '0': 'İndi ödənişlərdən daha çox keşbek və qazanclar əldə et.',
@@ -204,11 +203,11 @@ const resources = {
     
         “BuyLink” mobil tətbiqinin Məxfilik Siyasəti
         Məzmun
-        Şərhlər və hüquqi istinadlar
+        Şərhlər və hüquqi referallar
         Fərdi Məlumat (və ya Məlumat)
         Mobil Tətbiq İstifadəçisinin birbaşa, dolayı yolla və ya digər məlumatlarla əlaqəli hər hansı bir məlumat, fərdi identifikasiya nömrəsi daxil olmaqla, fiziki şəxsin kimliyini müəyyənləşdirməyə imkan verən məlumat.
         Məlumatdan istifadə
-        Cari Tətbiq vasitəsilə avtomatik olaraq toplanan məlumatlar (və ya bu Tətbiqdə istifadə olunan üçüncü tərəf xidmətləri), bunlara aşağıdakılar daxil ola bilər: cari Tətbiqdən istifadə edən İstifadəçilər vasitəsilə istifadə olunan cihazların IP ünvanları və ya domen adları, URI ünvanları (Uniform Resource İdentifier), mənşə ölkəsi, İstifadəçinin istifadə etdiyi brauzerin və əməliyyat sisteminin xüsusiyyətləri, hər ziyarət başına gələn müxtəlif vaxt təfərrüatları (məsələn, Tətbiq daxilində hər səhifədə sərf olunan vaxt) və ziyarət edilən səhifələrin ardıcıllığına xüsusi istinadla Tətbiq daxili izlənilən trayektoriya barədə məlumatlar və cihazın əməliyyat sistemi və / və ya İstifadəçinin İT mühiti barədə digər parametrlər.
+        Cari Tətbiq vasitəsilə avtomatik olaraq toplanan məlumatlar (və ya bu Tətbiqdə istifadə olunan üçüncü tərəf xidmətləri), bunlara aşağıdakılar daxil ola bilər: cari Tətbiqdən istifadə edən İstifadəçilər vasitəsilə istifadə olunan cihazların IP ünvanları və ya domen adları, URI ünvanları (Uniform Resource İdentifier), mənşə ölkəsi, İstifadəçinin istifadə etdiyi brauzerin və əməliyyat sisteminin xüsusiyyətləri, hər ziyarət başına gələn müxtəlif vaxt təfərrüatları (məsələn, Tətbiq daxilində hər səhifədə sərf olunan vaxt) və ziyarət edilən səhifələrin ardıcıllığına xüsusi referalla Tətbiq daxili izlənilən trayektoriya barədə məlumatlar və cihazın əməliyyat sistemi və / və ya İstifadəçinin İT mühiti barədə digər parametrlər.
         İstifadəçi
         Başqa cür göstərilmədiyi təqdirdə Məlumat Mövzusuna uyğun Bu Tətbiqdən istifadə edən şəxs.
         Məlumatı İşləyən (və ya Məlumat Supervayzeri)
@@ -276,7 +275,7 @@ const resources = {
         Məlumat Sahibkarın fəaliyyət göstərən ofislərində və işlənmədə iştirak edən tərəflərin yerləşdiyi digər məkanlarda işlənir. İstifadəçinin məkanından asılı olaraq məlumat ötürülməsi, İstifadəçinin məlumatlarını onların öz ölkələrindən başqa bir ölkəyə köçürməyi özünə daxil edə bilər. 
         Fərdi Məlumat girişi üçün Cihaz İcazəsi
         İstifadəçinin xüsusi cihazından asılı olaraq, cari Tətbiq İstifadəçinin cihaz məlumatlarına daxil olmağa izn verən aşağıda təsvir olunmuş müəyyən icazələr tələb edə bilər.
-        Standart olaraq, bu icazələr, müvafiq məlumatlar əldə olunmazdan öncə İstifadəçi tərəfindən verilməlidir. İcazə verildikdən sonra İstifadəçi tərəfindən istənilən vaxt ləğv edilə bilər. Bu icazələrin ləğv edilməsi üçün İstifadəçilər cihaz ayarlarına istinad edə bilərlər və ya cari sənəddə göstərilən əlaqə məlumatları vasitəsilə dəstək almaq məqsədilə Sahibkara müraciət edə bilərlər. Tətbiq icazələrini idarə etmək üçün dəqiq prosedur İstifadəçinin cihaz və proqramından asılı ola bilər.
+        Standart olaraq, bu icazələr, müvafiq məlumatlar əldə olunmazdan öncə İstifadəçi tərəfindən verilməlidir. İcazə verildikdən sonra İstifadəçi tərəfindən istənilən vaxt ləğv edilə bilər. Bu icazələrin ləğv edilməsi üçün İstifadəçilər cihaz ayarlarına referal edə bilərlər və ya cari sənəddə göstərilən əlaqə məlumatları vasitəsilə dəstək almaq məqsədilə Sahibkara müraciət edə bilərlər. Tətbiq icazələrini idarə etmək üçün dəqiq prosedur İstifadəçinin cihaz və proqramından asılı ola bilər.
         Nəzərə alın ki, bu cür icazələrin ləğvi bu Tətbiqin düzgün işləməməsinə səbəb ola bilər. İstifadəçi aşağıda sadalanan istənilən icazəni verərsə, müvafiq Fərdi Məlumat cari Tətbiq tərəfindən işlənə bilər (yəni həmin məlumata daxil olmaq, dəyişdirmək və ya çıxarmaq olar).
         Xatırlatma icazəsi
         Daxiledilmələri oxumaq, əlavə etmək və silmək də daxil olmaqla İstifadəçinin cihazında Xatırlatmalara giriş üçün istifadə olunur.
@@ -320,7 +319,7 @@ const resources = {
         Şikayət irəli sürmə. İstifadəçilər onların məlumatlarını qoruma səlahiyyətinə malik orqana qarşı iddia qaldırmaq hüququna malikdirlər.
         
         İşlənməyə etiraz hüququ
-        Fərdi Məlumat ictimai maraqlar, Mobil Tətbiq Sahibinə verilmiş rəsmi səlahiyyətin həyata keçirilməsi və ya Mobil Tətbiq Sahibinin həyata keçirdiyi qanuni maraqlar məqsədilə işlənildiyi təqdirdə, İstifadəçilər öz etirazlarını lazımi şəkildə əsaslandırmaqla bu işlənməyə etiraz edə bilərlər. İstifadəçilər bilməlidirlər ki, onların Fərdi Məlumatları birbaşa marketinq məqsədilə işlənilərsə, onların istənilən zaman heç bir əsaslandırma irəli sürmədən bu işlənməyə etiraz etmək hüququ var. Sahibkarın Fərdi Məlumatı birbaşa marketinq məqsədilə işlədiyini öyrənmək üçün İstifadəçilər cari sənədin müvafiq bölmələrinə istinad edə bilərlər.
+        Fərdi Məlumat ictimai maraqlar, Mobil Tətbiq Sahibinə verilmiş rəsmi səlahiyyətin həyata keçirilməsi və ya Mobil Tətbiq Sahibinin həyata keçirdiyi qanuni maraqlar məqsədilə işlənildiyi təqdirdə, İstifadəçilər öz etirazlarını lazımi şəkildə əsaslandırmaqla bu işlənməyə etiraz edə bilərlər. İstifadəçilər bilməlidirlər ki, onların Fərdi Məlumatları birbaşa marketinq məqsədilə işlənilərsə, onların istənilən zaman heç bir əsaslandırma irəli sürmədən bu işlənməyə etiraz etmək hüququ var. Sahibkarın Fərdi Məlumatı birbaşa marketinq məqsədilə işlədiyini öyrənmək üçün İstifadəçilər cari sənədin müvafiq bölmələrinə referal edə bilərlər.
         Hüquqlarından istifadə
         İstifadəçi hüquqlarını həyata keçirmək üçün istənilən müraciət, cari sənəddə göstərilən əlaqə məlumatları vasitəsilə Sahibkara yönləndirilə bilər. Bu istəklər Sahibkar tərəfindən pulsuz, mümkün qədər tez və həmişə bir ay ərzində yerinə yetirilməlidir.
         Hüquqi fəaliyyət
@@ -335,25 +334,43 @@ const resources = {
       },
       statistic: {
         '0': 'Məhsul sayı',
-        '1': 'Bugün tövsiyyə olunanlar',
+        '1': 'Ümumi satış',
         '2': 'Ümumi tövsiyyələr',
-        '3': 'Bugün ki əməliyyatlar',
-        '4': 'Ümumi əməliyyatlar',
-        '5': 'Ümumi əməliyyatlaın məbləği',
-        '6': 'Aylıq gəlir',
-        '7': 'Ümumi məsləhətlər',
-        '8': 'Rəy əsasında',
-        '9': 'Ulduz',
-        '10': 'Ümumi tövsiyyələr',
-        '11': 'İstifadə olunan tövsiyyələr',
+        '3': 'Ümumi əməliyyatlar',
+     
+         '4':'Ümumi tövsiyələr',
+         '5':'Referal olunan tövsiyələr',
+         '6':'Tövsiyələr  ',
+         '7':'Aylıq gəlir',
+         '8':' Satış',
+         '9':'Trend'
+  
+      
       },
       balance: {
         '0': ' Ümumi satış',
-        '1': ' BuyLinkə  borc',
+        '1': ' BuyLinkə  öhdəlik',
 
         '2': 'Kassadan əməliyyatlar',
         '3': 'BuyLink balansdan',
-        '4': 'Net məbləğ',
+        '4': 'Xalis məbləğ',
+        '5': '3 gün gecikmədən sonra cərimələr hesablanmağa başlayır',
+        '6': 'Cərimələr tutulmağa başlayır (ümumi məbləğin 0,1%-i)',
+        '7': 'Ödəniş gecikdirildikdə, cərimələr olacaq',
+
+        '8': ' Ödəniş tarixi! ',
+        '9': 'Gecikdirilmiş ödəniş!',
+        '10': ' Gün sonra ödəniş',
+      },
+      balanceTable: {
+        '0': ' Hesab məbləği',
+        '1': '   Endirim  %',
+        '2': ' Endirimli məbləğ',
+        '3': ' Komissiya %',
+        '4': ' Komissiya məbləği',
+        '5': '   Tarix',
+        '6': ' Xalis Məbləğ',
+        '7':'İstifadəçi adı'
       },
     },
   },
@@ -519,12 +536,11 @@ const resources = {
         '2': 'Will send you weekly updates for your better finance management.',
         '3': 'Join  now',
       },
-      become:{
+      become: {
         '0': ' Download',
         '1': 'Buylink',
-        '2':"Available everywhere",
-        '3':"For download Scan QR "
-
+        '2': 'Available everywhere',
+        '3': 'For download Scan QR ',
       },
       accordion: {
         '0': 'Frequently Asked Questions',
@@ -708,19 +724,18 @@ const resources = {
         If the changes affect the processing activities performed on the basis of the User's consent, the Owner must obtain a new consent from the user, if necessary.`,
       },
       statistic: {
-        '0': 'Product count',
-        '1': 'Today referer ',
-        '2': 'Total Refers  ',
-        '3': 'Today Transactions',
-        '4': 'Total Transactions',
-        '5': 'Total sales   ',
-        '6': 'Revenue per Month',
-        '7': 'Total Referers',
-        '8': 'Based on  reviews',
-        '9': 'Star',
-        '10': 'Total recommended',
-        '11': 'Used recommendations',
-        '12': '   ',
+        '0': 'Product Count',
+        '1': 'Total Sales',
+        '2': 'Total Refers',
+        '3': 'Total Transactions',
+        '4':'Total reccommended',
+        '5':'Used recoommendation',
+        '6':'Recoommendations',
+        '7':'Revenue per Month  ',
+        '8':'Sales',
+        '9':'Trend',
+     
+      
       },
       balance: {
         '0': 'Total Revenue',
@@ -728,20 +743,33 @@ const resources = {
         '2': 'Cash Till',
         '3': 'Buylink  Wallet',
         '4': 'Net amount',
+        '5': 'Payment date! After 3 days of delay, penalties start to charge ',
+        '6': 'Penalties start to charge (0.1% of total amount)',
+        '7': 'In case of late payment, there will be penalties',
+
+        '8': '  Days Left Until Payment ',
+        '9': 'Overdue Payment!',
+        '10': '  Days Payment Date! ',
+      },
+      balanceTable: {
+        '0': ' Bill amount',
+        '1': '   Discount %',
+        '2': '   Discounted amount',
+        '3': 'Commission %',
+        '4': '  Commission Amount',
+        '5': '   Date',
+        '6': ' Net Amount',
+        '7':'User ID'
       },
     },
   },
 };
-const defaultLanguage = localStorage.getItem("lng"); 
+const defaultLanguage = localStorage.getItem('lng');
 
+i18n.use(initReactI18next).init({
+  resources,
 
-i18n
-  .use(initReactI18next) 
-  .init({
-    resources, 
-
-    lng: defaultLanguage ? defaultLanguage : 'az', 
-  });
-
+  lng: defaultLanguage ? defaultLanguage : 'az',
+});
 
 export default i18n;

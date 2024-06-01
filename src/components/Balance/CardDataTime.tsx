@@ -1,26 +1,17 @@
-import { ReactNode } from 'react';
-import React from 'react';
+import React, { ReactNode } from 'react';
 import DateCard from './DateCard';
+import { useTranslation } from 'react-i18next';
 
 interface CardDataTimeProps {
   children: ReactNode;
   title: string;
-  rate?: string | null; // rate değeri null olabilir
+  rate?: string | null; // rate peut être null
 }
 
-// const filterDataValue = [
-//   'today',
-//   'yesterday',
-//   'last_7_days',
-//   'last_15_days',
-//   'last_month',
-//   'last_6_month',
-//   'last_12_month',
-// ];
 const CardDataTime: React.FC<CardDataTimeProps> = ({ rate }) => {
   if (!rate) {
     return (
-      <DateCard desc="No date time" svg="#FF0000"/>
+      <DateCard desc="Pas de date et heure" svg="#FF0000"/> // Utilisation de chaînes de caractères anglaises, puisqu'il semble que vous n'utilisiez pas de traduction ici
     );
   }
 
@@ -41,17 +32,24 @@ const CardDataTime: React.FC<CardDataTimeProps> = ({ rate }) => {
   ];
   const [month, day] = date.split('-');
   const monthName = months[parseInt(month) - 1];
+  const { t } = useTranslation(); 
 
   const svgColor = parseInt(day) > 0 ? '#39B554' : parseInt(day) === 0 ? '#FF8D24' : '#FF0000';
   const desc =
     parseInt(day) > 0
-      ? 'In case of late payment, there will be penalties'
+      ? t('balance.7')
       : parseInt(day) === 0
-      ? 'Penalties start to charge (0.1% of total amount)'
-      : 'Penalties start to charge (0.1% of total amount)';
+      ? t('balance.6')
+      : t('balance.5');
 
+      const daytext= 
+      parseInt(day) > 0
+        ? t('balance.10')
+        : parseInt(day) === 0
+        ? t('balance.8')
+        : t('balance.9');
   return (
-    <DateCard desc={desc} day={day} month={monthName} svg={svgColor}/>
+    <DateCard desc={desc} day={day} daytext={daytext} month={monthName} svg={svgColor}/>
   );
 };
 

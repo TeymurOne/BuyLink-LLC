@@ -4,13 +4,12 @@ import { Star } from '../RatingStar';
 
 const ChatCard = () => {
   const { data, isSuccess } = useGetReviewQuery('');
-  console.log(data?.data, 'a');
   if (!isSuccess) return;
 
 
 
   return (
-    <div className=" rounded-sm xl:border-l   col-span-full  mt-3  bg-white   dark:border-strokedark dark:bg-boxdark  xl:col-span-7">
+    <div className=" rounded-sm xl:border-l dark:border-white   col-span-full  mt-3  bg-white    dark:bg-boxdark  xl:col-span-7">
       <div id="chat" className="h-75  overflow-y-auto">
         {data?.data.map((chat: any, key: number) => (
           <Link
@@ -31,11 +30,11 @@ const ChatCard = () => {
 
             <div className="flex flex-1  items-start justify-between">
               <div>
-                <h5 className="font-medium text-black dark:text-white">
+                <h5 className="font-medium text-black  dark:text-white">
                   {chat.user==null ? "":chat?.user.name}
                 </h5>
                 <p>
-                  <span className="text-sm text-black dark:text-white">
+                  <span className="text-sm   text-black dark:text-white">
                     {chat?.description==null ? "":chat?.description}
                   </span>
                 </p>

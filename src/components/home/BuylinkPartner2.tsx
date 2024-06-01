@@ -44,9 +44,9 @@ export function BuyLinkPartner2() {
             </p>
           </div>
           <div className="grid lg:grid-cols-12 mb-10   gap-10     ">
-            <div className="w-full p-6 lg:col-span-4 md:col-span-6 bg-white border border-gray700 rounded-lg shadow-md ">
-              <span className="flex justify-center space-x-2">
-                <img src={s_icon1} alt="Icon" className="w-6" />
+            <div className="w-full p-6 lg:col-span-4 md:col-span-6 bg-white shadow-2 border-graydark  rounded-xl border border-opacity-10">
+              <span className="flex justify-center ">
+                <img src={s_icon1} alt="Icon" className="w-8 h-8 mr-1" />
                 <h2 className="font-manrope text-lg        text-black font-bold">
                   {t('partnyor2.3')}
                 </h2>
@@ -57,9 +57,9 @@ export function BuyLinkPartner2() {
               </p>
             </div>
 
-            <div className="w-full p-6 lg:col-span-4 md:col-span-6 bg-white border border-gray700  rounded-2xl shadow-md ">
+            <div className="w-full p-6 lg:col-span-4 md:col-span-6 bg-white shadow-2  rounded-xl border-graydark border border-opacity-10 ">
               <span className="flex justify-center space-x-2">
-                <img src={s_icon2} alt="Icon" className="w-6" />
+                <img src={s_icon2} alt="Icon" className="w-9 h-9" />
                 <h2 className="font-manrope text-lg       text-black font-bold">
                   {t('partnyor2.5')}
                 </h2>
@@ -69,9 +69,9 @@ export function BuyLinkPartner2() {
                 {t('partnyor2.6')}
               </p>
             </div>
-            <div className="w-full p-6 lg:col-span-4 md:col-span-12 bg-white border border-gray700  rounded-xl shadow-md ">
+            <div className="w-full p-6 lg:col-span-4 md:col-span-12 bg-white shadow-2  rounded-xl  border-graydark border border-opacity-10 ">
               <span className="flex  justify-center space-x-2">
-                <img src={s_icon3} alt="Icon" className="w-6" />
+                <img src={s_icon3} alt="Icon" className="w-9 h-9" />
                 <h2 className="font-manrope text-lg         text-black font-bold">
                   {t('partnyor2.7')}
                 </h2>

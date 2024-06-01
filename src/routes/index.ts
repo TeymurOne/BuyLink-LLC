@@ -20,7 +20,7 @@ const Form = lazy(() => import('../components/Member/Create.tsx'));
 // product routes
 
 const editProduct = lazy(() => import('../components/products/EditProduct'));
-const productCreate = lazy(() => import('../components/products/CreateForm'));
+const productCreate = lazy(() => import('../components/products/All.tsx'));
 const productForm = lazy(() => import('../components/products/Form'));
 const detailsProduct = lazy(() => import('../components/products/Details'));
 
@@ -97,13 +97,13 @@ const coreRoutes = [
     component: Form,
   },
   {
-    path: '/admin/productCreate',
+    path: '/admin/products',
     title: 'productCreate',
     component: productCreate,
   },
 
   {
-    path: '/admin/productForm/:id',
+    path: '/admin/product/:id',
     title: 'productForm',
     component: productForm,
   },

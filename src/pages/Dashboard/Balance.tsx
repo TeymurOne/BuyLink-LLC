@@ -18,6 +18,7 @@ import { TbCurrencyManat } from 'react-icons/tb';
 import { useEffect } from 'react';
 import Transactions from '../../components/Balance/Transactions';
 import TableSkeleton from '../../skeleton/TableSkeleton';
+import { useTranslation } from 'react-i18next';
 
 export default function Balance() {
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ export default function Balance() {
   const { data, isSuccess, isLoading } = useGetBalanceQuery('');
   const transactions = useGetTransactionsQuery(filter);
   
-
+const {t}=useTranslation()
   useEffect(() => {
     if (isSuccess) {
       dispatch(setTotalRevenue(data?.total_revenue));
@@ -52,12 +53,12 @@ export default function Balance() {
 
   return (
     <>
-      <Title>Actions</Title>
+      <Title>   {t('member.13')}</Title>
 
       <div className=" flex-col mt-4 lg:flex-row  flex justify-between  gap-x-4 lg:gap-y-0 gap-y-4  w-full  ">
         <div className=" lg:w-1/2 w-full">
           <CardDataStats
-            title="Total Revenue"
+            title={t("balance.0")}
             apiData="all"
             rate={total_revenue}
             icon={<TbCurrencyManat />}
@@ -78,7 +79,7 @@ export default function Balance() {
           </CardDataStats>
         </div>
         <div className="flex gap-4  sm:flex-row flex-col  lg:w-1/2 w-full">
-          <CardDataStats title="Due to BuyLink" rate={due_buyLink}>
+          <CardDataStats title={t("balance.1")} rate={due_buyLink}>
             <svg
               width="60"
               height="61"
@@ -138,7 +139,7 @@ export default function Balance() {
               />
             </svg>
           </CardDataStats>
-          <CardDataStats title="Net Amount" rate={net_amount}>
+          <CardDataStats title={t("balance.4")} rate={net_amount}>
             <svg
               width="60"
               height="61"
@@ -159,7 +160,7 @@ export default function Balance() {
       </div>
       <div className=" flex-col mt-4 lg:flex-row  flex justify-between  gap-x-4 lg:gap-y-0 gap-y-4  w-full  ">
         <div className="flex gap-4 sm:flex-row flex-col  lg:w-1/2 w-full">
-          <CardDataStats title="Cash Till" rate={cash_till} apiData="cash_till">
+          <CardDataStats title={t("balance.3")} rate={cash_till} apiData="cash_till">
             <svg
               width="60"
               height="61"
@@ -175,7 +176,7 @@ export default function Balance() {
             </svg>
           </CardDataStats>
           <CardDataStats
-            title="Buylink Wallet"
+           title={t("balance.2")}
             rate={buylink_wallet}
             apiData="wallet"
           >
@@ -228,25 +229,33 @@ export default function Balance() {
                 <td className="w-14.5 h-10  border-b border-r  border-tborder px-4  font-medium ">
                   ID
                 </td>
-                <td className="min-w-24. dark:text-white5 py-2 border-b border-r  border-tborder px-4  lg:pl-10  md:pl-4  sm:pl-0 font-medium  ">
-                  Bill amount
+                <td className="min-w-24.5 dark:text-white5 py-2 border-b border-r  border-tborder    md:pl-4  sm:pl-0 font-medium  ">
+                {t("balanceTable.0")}
                 </td>
-                <td className="min-w-24.5 dark:text-white py-2 border-b border-r  border-tborder px-4 font-medium ">
-                  Discount %
+                <td className="min-w-24.5 dark:text-white py-2 border-b border-r  border-tborder px-2 font-medium ">
+                {t("balanceTable.1")}
                 </td>
-                <td className="min-w-24.5 dark:text-white border-b border-r  border-tborder py-2 px-4 font-medium ">
-                  Discounted amount
+                <td className="min-w-25.5 dark:text-white border-b border-r  border-tborder py-2 px-1 font-medium ">
+                {t("balanceTable.2")}
+                </td>
+
+                <td className="min-w-20.5 dark:text-white border-b border-r  border-tborder py-2 px-4 font-medium ">
+                {t("balanceTable.3")}
+                </td>
+                <td className="min-w-20.5  dark:text-white border-b border-r  border-tborder py-2 px-2 font-medium ">
+                {t("balanceTable.4")}
+                </td>
+
+                <td className=" min-w-24.5 border-b border-r  border-tborder  py-2 px-4  font-medium ">
+                {t("balanceTable.5")}
                 </td>
 
                 <td className="min-w-24.5 dark:text-white border-b border-r  border-tborder py-2 px-4 font-medium ">
-                  Date
-                </td>
-                <td className="min-w-24.5 dark:text-white border-b border-r  border-tborder py-2 px-4 font-medium ">
-                  Net Amount
+                {t("balanceTable.6")}
                 </td>
 
                 <td className=" min-w-24.5 border-b border-l  border-tborder  py-2 px-4  font-medium ">
-                  User ID
+                {t("balanceTable.7")}
                 </td>
               </tr>
             </thead>

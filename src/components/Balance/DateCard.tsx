@@ -5,10 +5,11 @@ interface Date{
     month?:string,
     desc?:string,
     day?:string
+    daytext?:string
 }
 
 
-const DateCard:React.FC<Date> = ({svg,month, desc, day}) => {
+const DateCard:React.FC<Date> = ({svg,month, desc, day, daytext}) => {
   return (
     <>
       <div className="flex space-x-4 pl-4 items-center py-5 w-full rounded-xl shadow dark:bg-boxdark border bg-transparent border-black border-opacity-60">
@@ -46,7 +47,7 @@ const DateCard:React.FC<Date> = ({svg,month, desc, day}) => {
           {month}
         </div>
         <span className="xl:text-2xl text-xl dark:text-white font-medium font-roboto">
-          {day}
+          {day} {daytext}
         </span>
         <span>{desc}</span>
       </div>

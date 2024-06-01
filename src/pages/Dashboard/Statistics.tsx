@@ -5,9 +5,11 @@ import ChartTwo from '../../components/statisctic/ChartTwo';
 import ChatCard from '../../components/statisctic/ChatCard';
 import RatingStar from '../../components/RatingStar';
 import { useGetStatisticsQuery } from '../../features/statistcs/apiSlice';
+import { useTranslation } from 'react-i18next';
 
 const ECommerce: React.FC = () => {
   const { data, isSuccess } = useGetStatisticsQuery('');
+  const {t}=useTranslation()
 
   if (!isSuccess) return;
 
@@ -15,7 +17,7 @@ const ECommerce: React.FC = () => {
     <>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
         <CardDataStats
-          title="Product Count"
+          title={t("statistic.0")}
           total={data?.products_count}
           rate="0.43%"
           levelUp
@@ -57,7 +59,7 @@ const ECommerce: React.FC = () => {
           </svg>
         </CardDataStats>
         <CardDataStats
-          title="Total Sales"
+          title={t("statistic.1")}
           total={data?.total_transactions}
           rate="4.35%"
           levelUp
@@ -78,8 +80,8 @@ const ECommerce: React.FC = () => {
           </svg>
         </CardDataStats>
         <CardDataStats
-          title="Total Refers"
-          total={data?.today_referer_claims}
+   title={t("statistic.2")}    
+         total={data?.today_referer_claims}
           rate="2.59%"
           levelUp
         >
@@ -111,7 +113,7 @@ const ECommerce: React.FC = () => {
           </svg>
         </CardDataStats>
         <CardDataStats
-          title="Total Transactions"
+          title={t("statistic.3")}
           total={data?.total_transactions}
           rate="0.95%"
           levelDown
@@ -148,7 +150,7 @@ const ECommerce: React.FC = () => {
         />
         <ChartOne data={data?.transactions_by_month} />
       </div>
-      <div className="mt-2 bg-white rounded-2xl shadow-sm  py-2 pr-4   grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-6.5 2xl:gap-6.5 ">
+      <div className="mt-2 bg-white rounded-2xl  dark:bg-boxdark  shadow-sm  py-2 pr-4   grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-6.5 2xl:gap-6.5 ">
         <RatingStar />
         <ChatCard />
       </div>
