@@ -19,19 +19,16 @@ const Details = () => {
   const { isSuccess, data } = useFetchProducAllQuery('');
 
   let content;
-  if (isSuccess && id) {
-    console.log(data, 'data');
-    
-    content = data?.data.find((item: any) => item.id == id);
-  }
-  console.log(content);
+  if (isSuccess && id)  content = data?.data.find((item: any) => item.id == id);
+  
 
   return (
     <>
       {content && (
         <>
-         
-          <Title>{t('product.0')} {t('product.12')} {id}</Title>
+          <Title>
+            {t('product.0')} {t('product.12')} {id}
+          </Title>
 
           <TableLayout>
             <Thead titles={titles} />

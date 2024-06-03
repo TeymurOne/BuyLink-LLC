@@ -6,15 +6,23 @@ import ChatCard from '../../components/statisctic/ChatCard';
 import RatingStar from '../../components/RatingStar';
 import { useGetStatisticsQuery } from '../../features/statistcs/apiSlice';
 import { useTranslation } from 'react-i18next';
+import Card from '../../skeleton/Card';
 
 const ECommerce: React.FC = () => {
-  const { data, isSuccess } = useGetStatisticsQuery('');
+  const { data, isLoading } = useGetStatisticsQuery('');
   const {t}=useTranslation()
 
-  if (!isSuccess) return;
+
+
+  if (isLoading) {
+    return <Card/>
+    
+  }
+
 
   return (
     <>
+    
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
         <CardDataStats
           title={t("statistic.0")}

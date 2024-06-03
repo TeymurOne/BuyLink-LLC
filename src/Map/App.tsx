@@ -18,7 +18,7 @@ const App = (props: any) => {
 
   return (
     <>
-      <div className="w-full h-[500px] rounded-md shadow-2xl">
+      <div className="w-full h-125 rounded-md shadow-2xl">
         <Map cordinat={cordinat} setCoordinat={setCoordinat} />
       </div>
 

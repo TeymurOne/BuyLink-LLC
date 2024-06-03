@@ -84,7 +84,6 @@ const EditProduct = () => {
       }
     } catch (error) {}
   }
-  console.log(categoryId, 'categro');
 
   const handleUpdate = async (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();

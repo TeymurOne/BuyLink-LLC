@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { partnerFormMap } from '../features/map/MapSlice';
 import placeholder from '../../public/placeholder.png';
+import Swal from 'sweetalert2';
 
 function ResetCenterWiew(props: any) {
   const { cordinat, setClickPosition } = props;
@@ -39,13 +40,28 @@ const Map = (props: any) => {
     }
   }, [clickedPosition, dispatch]);
 
-  const handleMapClick = (e) => {
+  const handleMapClick = async (e) => {
     const { lat, lng } = e.latlng;
 
-    setClickPosition({ lat, lng });
-    setCoordinat({ lat, lng });
 
-    alert(`Clicked at: ${lat}, ${lng}`);
+    Swal.fire({
+      title: "Do you want to save the changes?",
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: "Save",
+      denyButtonText: `Don't save`
+    }).then((result) => {
+    
+      if (result.isConfirmed) {
+        setClickPosition({ lat, lng });
+        setCoordinat({ lat, lng });
+        Swal.fire("Saved!", "", "success");
+      } else if (result.isDenied) {
+        Swal.fire("Changes are not saved", "", "info");
+      }
+    });
+
+  
   };
 
   const position = [40.34720432727009, 49.81097458154038];

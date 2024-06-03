@@ -19,6 +19,7 @@ import { useEffect } from 'react';
 import Transactions from '../../components/Balance/Transactions';
 import TableSkeleton from '../../skeleton/TableSkeleton';
 import { useTranslation } from 'react-i18next';
+import Card from '../../skeleton/Card';
 
 export default function Balance() {
   const dispatch = useDispatch();
@@ -50,6 +51,7 @@ const {t}=useTranslation()
   if (transactions.isLoading, isLoading) return <TableSkeleton count="20" />;
 
   if (!transactions.isSuccess) return;
+
 
   return (
     <>

@@ -3,7 +3,6 @@ import { BrowserRouter, BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
 import store from './app/api/store';
 import './index.css';
-import './satoshi.css';
 
 import { Provider } from 'react-redux';
 

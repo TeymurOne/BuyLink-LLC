@@ -361,6 +361,7 @@ const resources = {
         '8': ' Ödəniş tarixi! ',
         '9': 'Gecikdirilmiş ödəniş!',
         '10': ' Gün sonra ödəniş',
+        '11':"Hal hazirda tarix ve data yoxdur"
       },
       balanceTable: {
         '0': ' Hesab məbləği',
@@ -370,7 +371,8 @@ const resources = {
         '4': ' Komissiya məbləği',
         '5': '   Tarix',
         '6': ' Xalis Məbləğ',
-        '7':'İstifadəçi adı'
+        '7':'İstifadəçi adı',
+        
       },
     },
   },
@@ -750,6 +752,7 @@ const resources = {
         '8': '  Days Left Until Payment ',
         '9': 'Overdue Payment!',
         '10': '  Days Payment Date! ',
+        '11':"Currently there is no date and data  "
       },
       balanceTable: {
         '0': ' Bill amount',

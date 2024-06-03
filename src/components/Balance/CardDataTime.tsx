@@ -5,13 +5,13 @@ import { useTranslation } from 'react-i18next';
 interface CardDataTimeProps {
   children: ReactNode;
   title: string;
-  rate?: string | null; // rate peut être null
+  rate?: string | null; 
 }
 
 const CardDataTime: React.FC<CardDataTimeProps> = ({ rate }) => {
   if (!rate) {
     return (
-      <DateCard desc="Pas de date et heure" svg="#FF0000"/> // Utilisation de chaînes de caractères anglaises, puisqu'il semble que vous n'utilisiez pas de traduction ici
+      <DateCard desc="Pas de date et heure" svg="#FF0000"/> 
     );
   }
 
@@ -38,16 +38,13 @@ const CardDataTime: React.FC<CardDataTimeProps> = ({ rate }) => {
   const desc =
     parseInt(day) > 0
       ? t('balance.7')
-      : parseInt(day) === 0
+      : parseInt(day) == 0
       ? t('balance.6')
       : t('balance.5');
+     
+      
 
-      const daytext= 
-      parseInt(day) > 0
-        ? t('balance.10')
-        : parseInt(day) === 0
-        ? t('balance.8')
-        : t('balance.9');
+      const daytext= parseInt(day) > 0 ? t('balance.10') : parseInt(day) === 0 ? t('balance.8') : t('balance.9');
   return (
     <DateCard desc={desc} day={day} daytext={daytext} month={monthName} svg={svgColor}/>
   );
