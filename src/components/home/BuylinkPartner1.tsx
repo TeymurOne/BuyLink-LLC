@@ -21,6 +21,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import './Main.css';
 import { Pagination } from 'swiper/modules';
+import PartnerUi from './ui/PartnerUi';
 
 export function BuyLinkPartner1() {
   const isMobile = window.innerWidth <= 600;
@@ -28,17 +29,15 @@ export function BuyLinkPartner1() {
   const { t } = useTranslation();
   const [language, setLanguage] = useState<string | null>('');
 
-
   useEffect(() => {
-    if (localStorage.getItem("lng")) {
+    if (localStorage.getItem('lng')) {
       setLanguage(localStorage.getItem('lng'));
-
     }
   }, [localStorage.getItem('lng'), language]);
 
   return (
     <>
-      <section className=" lg:pt-20 lg:py-30 md:py-10 py-4 md:pt-10 pt-2" >
+      <section className=" lg:pt-20 lg:py-30 md:py-10 py-4 md:pt-10 pt-2">
         <div className="flex flex-col lg:items-center  items-stretch text-center">
           <div className="space-y-4  max-w-5xl mx-auto ">
             <h2 className="font-manrope  lg:text-title-xxl   text-black font-bold">
@@ -51,45 +50,22 @@ export function BuyLinkPartner1() {
               {t('partnyor.3')}
             </p>
           </div>
-          <div className="grid  lg:grid-cols-12 mb-10   gap-10     ">
-            <div className="w-full p-6  lg:col-span-4 md:col-span-6 col-span-full bg-white shadow-2  rounded-xl border border-opacity-10 border-graydark">
-              <span className="flex pt-3 justify-center items-center ">
-                <img src={p_icon1} alt="Icon" className="w-8 mr-1 h-8" />
-                <h2 className="font-manrope text-lg        text-black font-bold">
-                  {t('partnyor.4')}
-                </h2>
-              </span>
-
-              <p className="mb-3 font-normal pt-2 opacity-70 font-poppins  text-xs">
-                {t('partnyor.5')}
-              </p>
-            </div>
-
-            <div className="w-full p-6 lg:col-span-4 md:col-span-6 col-span-full bg-white shadow-2  rounded-xl border border-opacity-10 border-graydark ">
-              <span className="flex pt-2 justify-center ">
-                <img src={p_icon2} alt="Icon" className="w-8 mr-1 h-8" />
-                <h2 className="font-manrope text-lg       text-black font-bold">
-                  {t('partnyor.6')}
-                </h2>
-              </span>
-
-              <p className="mb-3 font-normal text-xs opacity-70 font-poppins pt-2">
-                {t('partnyor.7')}
-              </p>
-            </div>
-            <div className="w-full p-6 lg:col-span-4 md:col-span-12 col-span-full bg-white shadow-2  rounded-xl border border-opacity-10 border-graydark">
-              <span className="flex pt-2  justify-center ">
-                <img src={p_icon3} alt="Icon" className="w-8 h-8 mr-1" />
-                <h2 className="font-manrope text-lg         text-black font-bold">
-                  {t('partnyor.8')}
-                </h2>
-              </span>
-
-              <p className="mb-3 font-normal pt-2 opacity-70 font-poppins text-xs ">
-                {t('partnyor.9')}
-              </p>
-            </div>
-            
+          <div className=" flex lg:flex-row flex-col gap-4 w-full">
+            <PartnerUi
+              title={t('partnyor.4')}
+              img={p_icon1}
+              desc={t('partnyor.5')}
+            />
+            <PartnerUi
+              title={t('partnyor.6')}
+              img={p_icon2}
+              desc={t('partnyor.7')}
+            />
+            <PartnerUi
+              title={t('partnyor.8')}
+              img={p_icon3}
+              desc={t('partnyor.9')}
+            />
           </div>
         </div>
 

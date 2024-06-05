@@ -138,7 +138,7 @@ const resources = {
         '5': 'Referal linkini öz şəbəkən ilə bölüş',
         '6': 'Partnyor səhifəsində sən bu biznesi söhbət vasitəsilə şəbəkənə tövsiyə edə və ya poçtla paylaşa bilərsən.',
         '7': 'Pul kisəsinə keçid et və balansını yoxla',
-        '8': 'Şəbəkən referal linkindən istifadə etdikdən sonra səm  mükafatlar qazanırsan. Sonda pul kisəsi səhifəsində balansını yoxlaya bilərsən.',
+        '8': 'Şəbəkə referal linkindən istifadə etdikdən sonra  mükafatlar qazanırsan. Sonda pul kisəsi səhifəsində balansını yoxlaya bilərsən.',
         '9': ' əldə et',
       },
       partnyor3: {

@@ -1,14 +1,15 @@
 import { lazy } from 'react';
 
-
-
-const privacypolicy = lazy(() => import('../components/home/PrivacyPolicy/Index.tsx'));
+const privacypolicy = lazy(
+  () => import('../components/home/PrivacyPolicy/Index.tsx'),
+);
 
 const balance = lazy(() => import('../pages/Dashboard/Balance.tsx'));
 
 const branchcreate = lazy(() => import('../components/Branch/All.tsx'));
 // const productform = lazy(() => import('../components/Branch/Form'));
-const servicesCreate = lazy( () => import('../components/operator/CreateForm.tsx'),
+const servicesCreate = lazy(
+  () => import('../components/operator/CreateForm.tsx'),
 );
 const servicesForm = lazy(() => import('../components/operator/Form.tsx'));
 // edit routes
@@ -35,7 +36,6 @@ const operatorDetails = lazy(
   () => import('../components/operator/Details.tsx'),
 );
 
-
 const operatorEdit = lazy(
   () => import('../components/operator/EditOperator.tsx'),
 );
@@ -46,7 +46,6 @@ const partnerform = lazy(() => import('../components/Partnerr/Form.tsx'));
 
 const category = lazy(() => import('../components/products/Category.tsx'));
 const myProfile = lazy(() => import('../pages/settings/MyProfile.tsx'));
-
 
 const coreRoutes = [
   {
@@ -158,7 +157,7 @@ const coreRoutes = [
     title: 'balance',
     component: balance,
   },
-
+ 
 ];
 
 const routes = [...coreRoutes];

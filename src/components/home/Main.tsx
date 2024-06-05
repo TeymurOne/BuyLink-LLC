@@ -2,9 +2,9 @@ import { useTranslation } from 'react-i18next';
 import apple from '../../images/Pages-index/head-main/apple-icon.svg';
 import play from '../../images/Pages-index/head-main/store-icon.svg';
 import main from '../../images/main/main.svg';
-import people from '../../images/main/people.svg';
-import star from '../../images/main/star.svg';
-import money from '../../images/main/money.svg';
+import people from '../../images/main/people.png';
+import star from '../../images/main/star.png';
+import money from '../../images/main/money.png';
 import { Link } from 'react-router-dom';
 
 export function Main() {

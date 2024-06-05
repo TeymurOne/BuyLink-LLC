@@ -1,7 +1,7 @@
 
 
 
-import Header from '../layout/Header';
+import Header from '../../../layout/Header';
 import PrivacyText from './PrivacyLayout';
 
 const PrivacyPolicy = () => {

@@ -17,6 +17,7 @@ import 'swiper/css/pagination';
 import './Main.css';
 import { Pagination } from 'swiper/modules';
 import { useTranslation } from 'react-i18next';
+import PartnerUi from './ui/PartnerUi';
 export function BuyLinkPartner2() {
   const { t } = useTranslation();
   const isMobile = window.innerWidth <= 600;
@@ -43,44 +44,23 @@ export function BuyLinkPartner2() {
               {t('partnyor2.2')}
             </p>
           </div>
-          <div className="grid lg:grid-cols-12 mb-10   gap-10     ">
-            <div className="w-full p-6 lg:col-span-4 md:col-span-6 bg-white shadow-2 border-graydark  rounded-xl border border-opacity-10">
-              <span className="flex justify-center ">
-                <img src={s_icon1} alt="Icon" className="w-8 h-8 mr-1" />
-                <h2 className="font-manrope text-lg        text-black font-bold">
-                  {t('partnyor2.3')}
-                </h2>
-              </span>
-
-              <p className="mb-3 font-normal font-poppins text-xs opacity-70 pt-2 text-black700 ">
-                {t('partnyor2.4')}
-              </p>
-            </div>
-
-            <div className="w-full p-6 lg:col-span-4 md:col-span-6 bg-white shadow-2  rounded-xl border-graydark border border-opacity-10 ">
-              <span className="flex justify-center space-x-2">
-                <img src={s_icon2} alt="Icon" className="w-9 h-9" />
-                <h2 className="font-manrope text-lg       text-black font-bold">
-                  {t('partnyor2.5')}
-                </h2>
-              </span>
-
-              <p className="mb-3 font-normal font-poppins text-xs opacity-70 pt-2 text-black700 ">
-                {t('partnyor2.6')}
-              </p>
-            </div>
-            <div className="w-full p-6 lg:col-span-4 md:col-span-12 bg-white shadow-2  rounded-xl  border-graydark border border-opacity-10 ">
-              <span className="flex  justify-center space-x-2">
-                <img src={s_icon3} alt="Icon" className="w-9 h-9" />
-                <h2 className="font-manrope text-lg         text-black font-bold">
-                  {t('partnyor2.7')}
-                </h2>
-              </span>
-
-              <p className="mb-3 font-normal font-poppins text-xs opacity-70 pt-2 text-black700 ">
-                {t('partnyor2.8')}
-              </p>
-            </div>
+        
+          <div className=" flex lg:flex-row flex-col gap-4 w-full">
+            <PartnerUi
+              title={t('partnyor2.3')}
+              img={s_icon1}
+              desc={t('partnyor2.4')}
+            />
+            <PartnerUi
+              title={t('partnyor2.5')}
+              img={s_icon2}
+              desc={t('partnyor2.6')}
+            />
+            <PartnerUi
+              title={t('partnyor2.7')}
+              img={s_icon3}
+              desc={t('partnyor2.8')}
+            />
           </div>
         </div>
         {isMobile ? (

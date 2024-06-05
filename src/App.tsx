@@ -14,6 +14,7 @@ import routes from './routes';
 import PrivacyPolicy from './components/home/PrivacyPolicy/Index';
 import getState from './core/helpers/cookie';
 import DefaultLayout from './layout/DefaultLayout';
+import About from './pages/About/About';
 
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Index />} />
+        <Route path="/about" element={<About />} />
 
         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
 

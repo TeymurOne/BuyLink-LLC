@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
-import logo from '../../../images/Pages-index/head-main/logo.svg';
-import vector from '../../../images/Pages-index/head-main/vector.svg';
+import logo from '../images/Pages-index/head-main/logo.svg';
+import vector from '../images/Pages-index/head-main/vector.svg';
 
 import { Link, useLocation } from 'react-router-dom';
-import SignModal from '../../../pages/Authentication/SignModal';
-import getState from '../../../core/helpers/cookie';
-import i18n from '../../../../i18n/İ18n';
+import SignModal from '../pages/Authentication/SignModal';
+import getState from '../core/helpers/cookie';
+import i18n from '../../i18n/İ18n';
 import { useTranslation } from 'react-i18next';
 
 export default function Header() {
@@ -46,7 +46,8 @@ export default function Header() {
   const useparams = useLocation();
 
   return (
-    <header
+    <div className='container lg:px-16 md:px-10 px-4 mx-auto bg-white  '>
+      <header
       className={` ${
         useparams.pathname == '/privacypolicy' ? 'bg-gray2' : 'bg-white'
       }   font-roboto  pb-6   pt-3  `}
@@ -121,7 +122,7 @@ export default function Header() {
         </div>
         <ul className="hidden   space-x-6  text-center  lg:flex  text-black font-roboto   font-normal text-lg">
           <li className="px-3">
-            <a href="/#about">{t('header.0')}</a>
+            <Link to="/about">{t('header.0')}</Link>
           </li>
           <li className="px-3">
             <a href="/#features">{t('header.1')}</a>
@@ -302,5 +303,7 @@ export default function Header() {
       </Dialog>
       <SignModal showModal={showModal} setShowModal={setShowModal} />
     </header>
+    </div>
+  
   );
 }

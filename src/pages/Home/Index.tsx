@@ -1,4 +1,4 @@
-import Header from '../../components/home/layout/Header';
+import Header from '../../layout/Header';
 import './main.css';
 import VideoSection from '../../components/home/VideoSection';
 import Accordion from '../../components/home/Accordion';
@@ -9,18 +9,17 @@ import { BuyLinkPartner2 } from '../../components/home/BuylinkPartner2';
 import { BuyLinkPartner3 } from '../../components/home/BuylinkPartner3';
 import { NewsLetter } from '../../components/home/NewsLetter';
 import { Partner } from '../../components/home/Partner';
-import Footer from '../../components/home/layout/Footer';
 import ModalQr from '../../components/home/ModalQr';
 import Partnyor from '../../components/home/slider/Partnyor';
+import PagesLayout from '../../layout/PagesLayout';
 
 export const isMobile = window.innerWidth <= 555;
 
 const Index = () => {
   return (
-    <>
+    <PagesLayout>
       <div className="bg-white  w-full cursor-default   ">
         <div className="bg-white pb-10  container lg:px-16 md:px-10 px-4 mx-auto   h-auto  cursor-default">
-          <Header />
           <Main />
         </div>
       </div>
@@ -57,15 +56,11 @@ const Index = () => {
 
       <ModalQr />
       <div className=" py-20 bg-white   ">
-        <div className='container mx-auto'>
-        <Accordion />
+        <div className="container mx-auto">
+          <Accordion />
         </div>
-      
       </div>
-      <div className="bg-black w-full  py-12">
-        <Footer />
-      </div>
-    </>
+    </PagesLayout>
   );
 };
 

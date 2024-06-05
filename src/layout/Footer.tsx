@@ -1,8 +1,5 @@
-import logo from '../../../images/Pages-index/head-main/logo.svg';
-import linkedln from '../../../images/Pages-index/footer/linked.svg';
-import envolede from '../../../images/Pages-index/footer/msj.svg';
-import facebook from '../../../images/Pages-index/footer/fb.svg';
-import instagram from '../../../images/Pages-index/footer/insta.svg';
+import logo from '../images/Pages-index/head-main/logo.svg';
+
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 const Footer = () => {
@@ -10,8 +7,8 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="  custom-con  " id="footer">
-        <div className="  h-full">
+      <footer className='bg-black  w-full  py-12'>
+        <div className=" container mx-auto  h-full">
           <div className="grid lg:grid-cols-4 gap-10   grid-cols-1  w-[70%] pb-10 pt-10 xsm:px-4   ">
             <div className=" flex flex-col justify-between px-2 lg:h-[190px]  h-auto   ">
               <img className="w-17 h-19" src={logo} alt="Logo-footer" />

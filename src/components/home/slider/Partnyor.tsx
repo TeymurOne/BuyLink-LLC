@@ -23,6 +23,7 @@ import s17 from '../../../images/Pages-index/slider/s17.svg';
 import s18 from '../../../images/Pages-index/slider/s18.svg';
 import s19 from '../../../images/Pages-index/slider/s19.svg';
 import s20 from '../../../images/Pages-index/slider/s20.svg';
+import { Autoplay } from 'swiper/modules';
 
 interface Partner {
   id: number;
@@ -65,9 +66,10 @@ function Partnyor() {
     initialSlide: 0,
     autoplay: true, 
     infinite: true, 
-    speed: 1000,
-    autoplaySpeed: 100,
+    speed:"700",
+    autoplaySpeed: Autoplay,
     focusOnSelect: true,
+    cssEase:'linear',
   
   
   

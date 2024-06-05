@@ -74,7 +74,7 @@ const SignModal: React.FC<State> = ({ showModal, setShowModal }) => {
       {showModal ? (
         <>
           <div className="justify-center  items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-            <div className="relative min-w-[200px] min-h-[300px] py-20  w-full mx-4 max-w-[600px] grid place-items-center bg-[#F3F4F6]   px-4  my-6  ">
+            <div className="relative min-w-47.5 min-h-[300px] py-20  w-full mx-4 max-w-[600px] grid place-items-center rounded-lg bg-white   px-4  my-6  ">
               {load ? (
                 <div className="h-full">
                   <Loader />
@@ -84,17 +84,17 @@ const SignModal: React.FC<State> = ({ showModal, setShowModal }) => {
                   <button className="absolute top-4 right-4">
                     <IoCloseOutline
                       onClick={() => setShowModal(false)}
-                      style={{ width: '20px' }}
+                      style={{ fontSize: '30px', color:"black" }}
                     />
                   </button>
 
                   <div>
-                    <h3 className="text-[36px] w-full pb-8 text-[#0C1421]  font-roboto">
+                    <h3 className="text-4xl w-full font-normal pb-8   font-roboto">
                       Log in as Partner
                     </h3>
                     <form onSubmit={handleSubmit}>
                         <div>
-                          <label className="mb-2.5 block text-[#0C1421] font-roboto text-[16px] normal font-normal  dark:text-white">
+                          <label className="mb-2.5 block  font-roboto text-[16px] normal font-normal  dark:text-white">
                             Email
                           </label>
                           <div className=" relative h-[48px] lg:w-[388px]">
@@ -128,18 +128,12 @@ const SignModal: React.FC<State> = ({ showModal, setShowModal }) => {
                         </div>
 
                         <div>
-                          <a
-                            href="#"
-                            onClick={() => setShow(!show)}
-                            className="pb-10"
-                          >
-                            Change Password
-                          </a>
+                        
                           <input
                             type="submit"
                             value="Sign In"
                             data-bs-dismiss="modal"
-                            className="w-full cursor-pointer rounded-lg border h-[52px] border-primary bg-primary  text-white transition hover:bg-opacity-90"
+                            className="w-full cursor-pointer mt-4 rounded-lg border h-13 border-primary bg-primary  text-white transition hover:bg-opacity-90"
                           />
                         </div>
                       </form>
@@ -148,7 +142,7 @@ const SignModal: React.FC<State> = ({ showModal, setShowModal }) => {
               )}
             </div>
           </div>
-          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+          <div className="opacity-40 fixed inset-0 z-40 bg-black"></div>
         </>
       ) : null}
     </div>
