@@ -1,17 +1,17 @@
 
 
 
-const PartnerSelect = () => {
+// const PartnerSelect = () => {
   
   
-  return (
-    <>
-    <div className="bg-black mx-auto w-[700px] h-[500px]  "> 
+//   return (
+//     <>
+//     <div className="bg-black mx-auto w-[700px] h-[500px]  "> 
 
-    </div>
+//     </div>
 
-    </>
-  );
-};
+//     </>
+//   );
+// };
 
-export default PartnerSelect;
+// export default PartnerSelect;

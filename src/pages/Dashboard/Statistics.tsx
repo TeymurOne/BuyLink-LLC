@@ -10,22 +10,18 @@ import Card from '../../skeleton/Card';
 
 const ECommerce: React.FC = () => {
   const { data, isLoading } = useGetStatisticsQuery('');
-  const {t}=useTranslation()
-
-
+  const { t } = useTranslation();
 
   if (isLoading) {
-    return <Card/>
-    
+    return <Card />;
   }
-
 
   return (
     <>
-    
+   
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
         <CardDataStats
-          title={t("statistic.0")}
+          title={t('statistic.0')}
           total={data?.products_count}
           rate="0.43%"
           levelUp
@@ -67,7 +63,7 @@ const ECommerce: React.FC = () => {
           </svg>
         </CardDataStats>
         <CardDataStats
-          title={t("statistic.1")}
+          title={t('statistic.1')}
           total={data?.total_transactions}
           rate="4.35%"
           levelUp
@@ -88,8 +84,8 @@ const ECommerce: React.FC = () => {
           </svg>
         </CardDataStats>
         <CardDataStats
-   title={t("statistic.2")}    
-         total={data?.today_referer_claims}
+          title={t('statistic.2')}
+          total={data?.today_referer_claims}
           rate="2.59%"
           levelUp
         >
@@ -121,7 +117,7 @@ const ECommerce: React.FC = () => {
           </svg>
         </CardDataStats>
         <CardDataStats
-          title={t("statistic.3")}
+          title={t('statistic.3')}
           total={data?.total_transactions}
           rate="0.95%"
           levelDown

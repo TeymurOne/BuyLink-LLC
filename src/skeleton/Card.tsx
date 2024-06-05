@@ -4,9 +4,14 @@ const Card = () => {
   return (
     <>
       <div className="grid grid-cols-1 -mt-10 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
-        <Box sx={{ width: '100%', borderRadius: '100px', border: '1px' }}>
-          <Skeleton variant="text" height={220} sx={{ fontSize: '1rem' }} />
-        </Box>
+        <Box sx={{ width: '100%', position:"relative",  borderRadius: '100px', border: '1px' }}>
+          <Skeleton variant="text" height={220} sx={{ fontSize: '1rem' }}/>
+      
+     </Box>
+
+
+     
+  
         <Box sx={{ width: '100%', borderRadius: '100px', border: '1px' }}>
           <Skeleton variant="text" height={220} sx={{ fontSize: '1rem' }} />
         </Box>

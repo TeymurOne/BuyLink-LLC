@@ -9,7 +9,7 @@ const ChatCard = () => {
 
 
   return (
-    <div className=" rounded-sm xl:border-l dark:border-white   col-span-full  mt-3  bg-white    dark:bg-boxdark  xl:col-span-7">
+    <div className=" rounded-sm xl:border-l dark:border-white border-black border-opacity-40  col-span-full  mt-3  bg-white    dark:bg-boxdark  xl:col-span-7">
       <div id="chat" className="h-75  overflow-y-auto">
         {data?.data.map((chat: any, key: number) => (
           <Link

@@ -37,11 +37,7 @@ const CreateForm = () => {
           <h4 className="mb-6 text-xl font-semibold text-black dark:text-white">
             Operator
           </h4>
-          <input
-            type="text"
-            placeholder=" search..."
-            className="w-full py-2 my-4  pr-4 pl-9 focus:outline-none rounded-md   "
-          />
+        
         </div>
         <Link
           to="/admin/servicesForm"

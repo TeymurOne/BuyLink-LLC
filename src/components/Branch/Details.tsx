@@ -21,7 +21,7 @@ const Details = () => {
       {content ? (
         <>
           <Title>
-            Branch <FaArrowLeft onClick={() => window.history.back()} />{' '}
+            Branch
           </Title>
 
           <TableLayout>

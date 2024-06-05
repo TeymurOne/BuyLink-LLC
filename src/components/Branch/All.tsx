@@ -54,9 +54,9 @@ const CreateForm = () => {
   return (
     <>
       <div className="flex   justify-between flex-wrap">
-        <div className="flex flex-col w-60">
+        <div className="flex flex-col w-60 mb-10">
           <Title>{t('branch.0')}</Title>
-          <Search />
+       
         </div>
         <CreateBtn img={create} link="branch/create">
           {t('branch.1')}

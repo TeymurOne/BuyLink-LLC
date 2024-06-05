@@ -66,7 +66,7 @@ function Partnyor() {
     initialSlide: 0,
     autoplay: true, 
     infinite: true, 
-    speed:"700",
+    speed:"1100",
     autoplaySpeed: Autoplay,
     focusOnSelect: true,
     cssEase:'linear',

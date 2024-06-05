@@ -145,7 +145,7 @@ const resources = {
         '0': 'Endirim  ',
         '1': 'necə əldə etmək olar?',
         '2': 'Referal linklərindən istifadə edərək endirimlər qazan.',
-        '3': 'Referal səhifəsində dostlarının tövsiyələrini nəzərdən keç',
+        '3': ' Dostlarının referallarını incələ',
         '4': 'Şəbəkənin paylaşdığı bütün yazılara bax və səni  maraqlandıran birini seç.',
         '5': 'QR səbətinə referal linklərini əlavə et',
         '6': 'Burada tərəfdaşlar üçün müxtəlif istifadəçilərin bütün referal bağlantılarını görə bilərsən.',
@@ -154,7 +154,9 @@ const resources = {
       },
       partner: {
         '0': 'Partnyor ol',
-        '1': 'Partnyor şəbəkəmizə qoşularaq satışlarını, həmçinin müştəri bazanı artıra bilərsən.',
+        '1': `Bizim tərəfdaşımız olun və rəqabət 
+        qabiliyyətinizi, bazarda tanınmağınızı və 
+        gəlirinizi, "BuyLink" ilə artırın!`,
         '2': 'Elə indi qoşul',
       },
       letters: {
@@ -529,7 +531,9 @@ const resources = {
       },
       partner: {
         '0': 'Become a partner',
-        '1': 'Risus habitant leo egestas mauris diam eget morbi tempus vulputate.',
+        '1': `Become our partner and compete
+        your ability, your market recognition and
+        increase your income with "BuyLink"!`,
         '2': 'Join now',
       },
       letters: {

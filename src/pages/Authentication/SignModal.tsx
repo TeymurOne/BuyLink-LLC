@@ -41,7 +41,7 @@ const SignModal: React.FC<State> = ({ showModal, setShowModal }) => {
     e.preventDefault();
     setPwd(e.target.value);
   }
- 
+
   const [error, setError] = useState<string>('');
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -84,7 +84,7 @@ const SignModal: React.FC<State> = ({ showModal, setShowModal }) => {
                   <button className="absolute top-4 right-4">
                     <IoCloseOutline
                       onClick={() => setShowModal(false)}
-                      style={{ fontSize: '30px', color:"black" }}
+                      style={{ fontSize: '30px', color: 'black' }}
                     />
                   </button>
 
@@ -93,50 +93,50 @@ const SignModal: React.FC<State> = ({ showModal, setShowModal }) => {
                       Log in as Partner
                     </h3>
                     <form onSubmit={handleSubmit}>
-                        <div>
-                          <label className="mb-2.5 block  font-roboto text-[16px] normal font-normal  dark:text-white">
-                            Email
-                          </label>
-                          <div className=" relative h-[48px] lg:w-[388px]">
-                            <input
-                              value={email}
-                              onChange={handleUser}
-                              ref={useref}
-                              type="email"
-                              placeholder="Enter your email"
-                              className=" border-2 border-opacity-65 p-4 border-[#D4D7E3] w-full bg-white h-[48px] rounded-md"
-                            />
-                          </div>
-                        </div>
-
-                        <div className="mb-2">
-                          <label className="mb-2.5 block font-medium text-black dark:text-white">
-                            Password
-                          </label>
-                          <div className="relative">
-                            <input
-                              value={password}
-                              onChange={handlePwd}
-                              type="password"
-                              placeholder=""
-                              className="border-2 border-opacity-65 p-4 border-[#D4D7E3] w-full bg-white h-[48px] rounded-md"
-                            />
-                          </div>
-                          {error && (
-                            <p className="font-normal  text-danger">{error}</p>
-                          )}
-                        </div>
-
-                        <div>
-                        
+                      <div>
+                        <label className="mb-2.5 block  font-roboto text-[16px] normal font-normal  dark:text-white">
+                          Email
+                        </label>
+                        <div className=" relative h-[48px] lg:w-[388px]">
                           <input
-                            type="submit"
-                            value="Sign In"
-                            data-bs-dismiss="modal"
-                            className="w-full cursor-pointer mt-4 rounded-lg border h-13 border-primary bg-primary  text-white transition hover:bg-opacity-90"
+                            value={email}
+                            onChange={handleUser}
+                            ref={useref}
+                            type="email"
+                            placeholder="Enter your email"
+                            className=" border-2 border-opacity-65 p-4 border-[#D4D7E3] w-full bg-white h-[48px] rounded-md"
                           />
                         </div>
-                      </form>
+                      </div>
+
+                      <div className="mb-2">
+                        <label className="mb-2.5 mt-2 block font-medium text-black dark:text-white">
+                          Password
+                        </label>
+                        <div className="relative">
+                          <input
+                            value={password}
+                            onChange={handlePwd}
+                            type="password"
+                            placeholder=""
+                            className="border-2 border-opacity-65 p-4 border-[#D4D7E3] w-full bg-white h-[48px] rounded-md"
+                          />
+                        </div>
+                        {error && (
+                          <p className="font-normal  text-danger">{error}</p>
+                        )}
+                      </div>
+
+                      <div>
+                        <input
+                          type="submit"
+                          value="Sign In"
+                          
+                          data-bs-dismiss="modal"
+                          className="w-full cursor-pointer mt-4 rounded-lg border h-13 border-primary bg-primary  text-white transition hover:bg-opacity-90"
+                        />
+                      </div>
+                    </form>
                   </div>
                 </>
               )}
