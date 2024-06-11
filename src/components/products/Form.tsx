@@ -129,7 +129,7 @@ const Form = () => {
   return (
     <>
       <form className="h-auto">
-        <Title>Product Details</Title>
+        <Title>   {t('product.1')}</Title>
         <InputImg showimg={showimg} onChange={handleImg} />
 
         <select
@@ -158,7 +158,8 @@ const Form = () => {
                   htmlFor={`title-${lang}`}
                   className="block text-sm text-tdColor font-medium font-works mb-2"
                 >
-                  Partner Name {lang.toUpperCase()}
+                   {t('product.0')} {t('product.14') }
+                   {lang.toUpperCase()}
                 </label>
                 <input
                   name={`title-${lang}`}
@@ -174,7 +175,7 @@ const Form = () => {
                   htmlFor="description"
                   className="block text-sm text-tdColor font-medium font-works mb-2 "
                 >
-                  Description {lang.toUpperCase()}
+                  {t('product.4') }{lang.toUpperCase()}
                 </label>
                 <textarea
                   name={`description-${lang}`}
@@ -195,14 +196,14 @@ const Form = () => {
             onChange={(e: any) =>
               dispatch(setcategoryId(Number(e.target.value)))
             }
-            label="Category"
+            label={t('product.7') }
             option=" Category seçin"
           >
             {content}
           </Select>
           <Input
             id="Price"
-            label="Price"
+            label={t('product.5') }
             onChange={(e) => dispatch(setPrice(e.target.value))}
             value={price}
             placeholder="Price"
@@ -210,7 +211,7 @@ const Form = () => {
           />
           <Input
             id="Discount Price"
-            label="Discount Price"
+            label={t('product.6') }
             onChange={(e) => dispatch(setDiscount(e.target.value))}
             value={discount}
             placeholder="Discount Price"

@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import TableSkeleton from '../../skeleton/TableSkeleton';
 import Map from './Map';
 import MapSkeleton from '../../skeleton/Map';
-import { CreateBtn, Search, TableLayout, Thead, Title } from '../ui/Title';
+import { CreateBtn, TableLayout, Thead, Title } from '../ui/Title';
 import TbodyResponsive from './TbodyResponsive';
 import { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';

@@ -136,15 +136,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                               {t('member.12')}
                             </NavLink>
                           </li>
-                          <li className="my-1">
-                            <NavLink
-                              to="/admin/member"
-                              className={`group ${[`/admin/createForm`].includes(pathname) ?"text-white":"text-[#abb9e8]"} relative flex items-center gap-2.5 rounded-md text-[16px]  font-medium text-[#abb9e8] duration-300 ease-in-out hover:text-white`}
-                            >
-                              <p className="ml-[-13px]">-</p>
-                              {t('member.0')}
-                            </NavLink>
-                          </li>
+                         
                           <li className="my-1">
                             <NavLink
                               to="/admin/branchcreate"

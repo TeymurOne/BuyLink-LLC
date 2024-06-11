@@ -34,11 +34,11 @@ export function BuyLinkPartner3() {
           id="buylinkpartner"
         >
           <div className="space-y-4 ">
-            <h2 className="font-manrope  lg:text-title-xxl text-3xl    text-black font-bold">
+            <h2 className="font-manrope lg:text-title-xxl   text-title-lg     text-black font-bold">
               <span className="text-starrating"> {t('partnyor3.0')} </span>{' '}
               {t('partnyor3.1')}
             </h2>
-            <p className="lg:text-xl text-base pb-10 ">
+            <p className="lg:text-xl text-base text-center  font-poppins opacity-70 font-normal pb-10 ">
               {t('partnyor3.2')}
             </p>
           </div>

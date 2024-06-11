@@ -8,18 +8,6 @@ const resources = {
         '0': 'az',
       },
       member: {
-        '0': 'Üzvlər',
-        '1': 'Üzv yarat',
-        '2': 'Şəkil',
-        '3': 'Üzv tipləri',
-        '4': 'Ad',
-        '5': 'Vəzifə ',
-        '6': 'Hərəkətlər ',
-        '7': 'Dəyiş ',
-        '8': 'Ləğv et ',
-        '9': 'Saxla ',
-        '10': 'Dəyiş',
-        '11': 'Üzv Tipləri',
         '12': 'Statistika',
         '13': 'Balans',
       },
@@ -44,9 +32,9 @@ const resources = {
         '1': ' Məhsul Yarat',
         '2': 'Şəkil',
         '3': 'Başlıq',
-        '4': 'Məzmun',
+        '4': 'Məzmun     ',
         '5': 'Qiymət ',
-        '6': 'Endirilmiş Price ',
+        '6': 'Endirimli qiymət ',
         '7': 'Kateqoriya ',
         '8': 'Hərəkətlət ',
         '9': 'Ləgv et ',
@@ -54,6 +42,7 @@ const resources = {
         '11': 'Dəyış',
         '12': 'Haqqında',
         '13': 'Kateqoriya',
+        '14': 'adı        ',
       },
       operator: {
         '0': 'Operator ',
@@ -70,7 +59,7 @@ const resources = {
         '10': 'Seçin',
       },
       partnerinfo: {
-        '0': 'Partnyor Məlumat ',
+        '0': 'Partnyor Məlumatları ',
         '1': 'Logo',
         '3': 'Cover Şəkil',
         '4': 'Ad',
@@ -108,14 +97,16 @@ const resources = {
         '6': 'BuyLinki  yüklə',
       },
       wallet: {
-        '0': 'BuyLink Pul kisəsi   ',
-        '1': ' bonus və mükafatlar.',
+        '0': '   saxlayın    ',
+        '1': ' Bonus ve mukafatlarinizi  ',
         '2': 'qazanaraq xərclərinə qanaət et.',
-        '3': 'Bizim pul kisəsi sayəsində ödənişlər etməklə bir sıra üstünlüklərdən yararlanacaqsan:',
-        '4': 'Nağdlaşdırma',
-        '5': 'Mükafatlara qənaət',
-        '6': 'Partnyorumuzda pul kisəsi vasitəsilə ödəniş',
-        '7': 'Yeni funksiya çox yaxında!',
+        '3': 'BuyLink balansı sizə bonuslarınızı və mükafatlarınızı saxlamağa və istənilən vaxt balansdaki məbləği bank hesabınıza köçürmə   imkanı verən rəqəmsal pul kisəsidir.',
+        '4': 'Köçürmə',
+        '5': 'Qazancları toplamaq',
+        '6': 'Balans ilə partnyorlarda ödəniş',
+        '7': 'Tarixçə',
+        '8': ' ',
+        '9': '  ',
       },
       partnyor: {
         '0': 'Yeni',
@@ -339,15 +330,13 @@ const resources = {
         '1': 'Ümumi satış',
         '2': 'Ümumi tövsiyyələr',
         '3': 'Ümumi əməliyyatlar',
-     
-         '4':'Ümumi tövsiyələr',
-         '5':'Referal olunan tövsiyələr',
-         '6':'Tövsiyələr  ',
-         '7':'Aylıq gəlir',
-         '8':' Satış',
-         '9':'Trend'
-  
-      
+
+        '4': 'Ümumi tövsiyələr',
+        '5': 'Referal olunan tövsiyələr',
+        '6': 'Tövsiyələr  ',
+        '7': 'Aylıq gəlir',
+        '8': ' Satış',
+        '9': 'Trend',
       },
       balance: {
         '0': ' Ümumi satış',
@@ -363,7 +352,7 @@ const resources = {
         '8': ' Ödəniş tarixi! ',
         '9': 'Gecikdirilmiş ödəniş!',
         '10': ' Gün sonra ödəniş',
-        '11':"Hal hazirda tarix ve data yoxdur"
+        '11': 'Hal hazirda tarix ve data yoxdur',
       },
       balanceTable: {
         '0': ' Hesab məbləği',
@@ -373,18 +362,15 @@ const resources = {
         '4': ' Komissiya məbləği',
         '5': '   Tarix',
         '6': ' Xalis Məbləğ',
-        '7':'İstifadəçi adı',
-        
+        '7': 'İstifadəçi adı',
       },
-      settingDashboard:{
-        '1':"Parametrlər",
-        '2':"Partnyorun adı  ",
-        '3':"Köhnə Şifrə  ",
-        '4':'E-poçt ',
-        "5":"Yeni şifrə "
-
-
-      }
+      settingDashboard: {
+        '1': 'Parametrlər',
+        '2': 'Partnyorun adı  ',
+        '3': 'Köhnə Şifrə  ',
+        '4': 'E-poçt ',
+        '5': 'Yeni şifrə ',
+      },
     },
   },
 
@@ -426,11 +412,11 @@ const resources = {
         '13': 'Search by name',
       },
       product: {
-        '0': 'Products ',
+        '0': 'Product ',
         '1': 'Create Products',
         '2': 'Image',
         '3': 'Title',
-        '4': 'Description',
+        '4': 'Description   ',
         '5': 'Price ',
         '6': 'Discount Price ',
         '7': 'Category ',
@@ -440,6 +426,7 @@ const resources = {
         '11': 'Update',
         '12': 'Details',
         '13': 'Category',
+        '14': 'name    ',
       },
       operator: {
         '0': 'Operator ',
@@ -456,7 +443,7 @@ const resources = {
         '10': 'Select',
       },
       partnerinfo: {
-        '0': 'Partner Info ',
+        '0': 'Partner information',
         '1': 'Logo',
         '3': 'Cover Photo',
         '4': 'Title',
@@ -494,14 +481,16 @@ const resources = {
         '6': 'Download BuyLink',
       },
       wallet: {
-        '0': '  Save your  ',
-        '1': 'bonuses and rewards ',
+        '0': '   ',
+        '1': '  ',
         '2': 'a savings for your',
-        '3': 'BuyLink Wallet is a digital wallet that allows you to store your bonuses and rewards and use them to make purchases on the BuyLink platform.',
-        '4': 'Cash withdrawals',
-        '5': 'Saving of rewerads',
+        '3': 'BuyLink is a digital wallet that allows you to store your bonuses and rewards in your balance and transfer funds from your balance to a bank account at any time.',
+        '4': 'Transver',
+        '5': 'Savings of rewards ',
         '6': 'Payment via wallet at our partner',
-        '7': 'New feature is in progress!',
+        '7': 'History',
+        '8': 'Save your',
+        '9': 'bonuses and rewards ',
       },
       partnyor: {
         '0': 'Explore new',
@@ -743,14 +732,12 @@ const resources = {
         '1': 'Total Sales',
         '2': 'Total Refers',
         '3': 'Total Transactions',
-        '4':'Total reccommended',
-        '5':'Used recommendation',
-        '6':'Recommendations',
-        '7':'Revenue per Month  ',
-        '8':'Sales',
-        '9':'Trend',
-     
-      
+        '4': 'Total reccommended',
+        '5': 'Used recommendation',
+        '6': 'Recommendations',
+        '7': 'Revenue per Month  ',
+        '8': 'Sales',
+        '9': 'Trend',
       },
       balance: {
         '0': 'Total Revenue',
@@ -765,7 +752,7 @@ const resources = {
         '8': '  Days Left Until Payment ',
         '9': 'Overdue Payment!',
         '10': '  Days Payment Date! ',
-        '11':"Currently there is no date and data  "
+        '11': 'Currently there is no date and data  ',
       },
       balanceTable: {
         '0': ' Bill amount',
@@ -775,17 +762,15 @@ const resources = {
         '4': '  Commission Amount',
         '5': '   Date',
         '6': ' Net Amount',
-        '7':'User ID'
+        '7': 'User ID',
       },
-      settingDashboard:{
-        '1':"Settings",
-        '2':"Partner   Name  ",
-        '3':"Old Password  ",
-        '4':'E-mail  ',
-        "5":"New Password "
-
-
-      }
+      settingDashboard: {
+        '1': 'Settings',
+        '2': 'Partner   Name  ',
+        '3': 'Old Password  ',
+        '4': 'E-mail  ',
+        '5': 'New Password ',
+      },
     },
   },
 };

@@ -6,6 +6,8 @@ function VideoSection() {
 
   const [language, setLanguage] = useState<any>('');
   const currentLanguage=t('default.0')
+  console.log(currentLanguage, 'currentlanguyage');
+  
 
 
   useEffect(() => {

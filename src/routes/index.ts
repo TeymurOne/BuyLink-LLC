@@ -14,10 +14,6 @@ const servicesCreate = lazy(
 const servicesForm = lazy(() => import('../components/operator/Form.tsx'));
 // edit routes
 
-const editMember = lazy(() => import('../components/Member/Edit.tsx'));
-const details = lazy(() => import('../components/Member/Details'));
-const CreateForm = lazy(() => import('../components/Member/All.tsx'));
-const Form = lazy(() => import('../components/Member/Create.tsx'));
 // product routes
 
 const editProduct = lazy(() => import('../components/products/EditProduct'));
@@ -70,31 +66,13 @@ const coreRoutes = [
     component: branchEdit,
   },
 
-  {
-    path: '/admin/member',
-    title: 'createForm',
-    component: CreateForm,
-  },
-  {
-    path: '/admin/editMember/:id',
-    title: 'editMember',
-    component: editMember,
-  },
+  
   {
     path: '/admin/editproduct/:id',
     title: 'editProduct',
     component: editProduct,
   },
-  {
-    path: '/admin/member/details/:id',
-    title: 'details',
-    component: details,
-  },
-  {
-    path: '/admin/member/create',
-    title: 'Form',
-    component: Form,
-  },
+
   {
     path: '/admin/products',
     title: 'productCreate',
