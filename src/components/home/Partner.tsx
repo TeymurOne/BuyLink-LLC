@@ -6,8 +6,8 @@ export function Partner() {
   const { t } = useTranslation();
   return (
     <>
-      <div className=" w-full flex  lg:py-0 md:py-20 py-20  pl-20   items-center justify-between     ">
-        <div className="flex flex-col md:items-start justify-center md:justify-normal  items-center md:space-y-6 pr-14  space-y-4 w-150  ">
+      <div className=" w-full flex  lg:py-0 md:py-20 py-20  lg:pl-20 md:pl-10 pl-8   items-center justify-between     ">
+        <div className="flex flex-col  md:items-start justify-center md:justify-normal  items-center md:space-y-6 pr-14  space-y-4 w-150  ">
           <h2 className="font-manrope text-center lg:text-start lg:text-6xl text-3xl normal font-bold text-gray200">
             {t('partner.0')}
           </h2>

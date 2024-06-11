@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import {
   useFetchMemberTypeQuery,
   useLazyUpdateGetMemberQuery,
@@ -6,16 +6,16 @@ import {
 } from '../../features/members/apiSlice';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { FaArrowLeft } from 'react-icons/fa6';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  resetMembersState,
+  resetState,
   setFullName,
   setId,
-  setImageUrl,
+  setImage,
   setLoad,
   setMembersType,
   setPosition,
+  setShowImg,
 } from '../../features/members/membersSlice';
 import { RootState } from '../../app/api/store';
 import TableSkeleton from '../../skeleton/TableSkeleton';
@@ -23,6 +23,7 @@ import InputImg from '../../common/Form/InputImg';
 import Input from '../../common/Form/Input';
 import Select from '../../common/Form/Select';
 import CancelSaveButton from '../../data/helpers/Button';
+import { Title } from '../ui/Title';
 
 type item = {
   id: number;
@@ -30,8 +31,7 @@ type item = {
 };
 
 const EditForm = () => {
-  const { showimg, fullname, position, membertypes, memberId, load } =
-    useSelector((store: RootState) => store.memberSlice);
+  const { showimg, images, fullname, position, membertypes, memberId } =useSelector((store: RootState) => store.memberSlice);
 
   const [updatePost] = useLazyUpdateGetMemberQuery();
 
@@ -45,7 +45,7 @@ const EditForm = () => {
       if (response) {
         const data = response.data?.data;
         if (data) {
-          dispatch(setImageUrl(data?.image));
+          dispatch(setShowImg(data?.image));
 
           dispatch(setFullName(data?.full_name));
           dispatch(setId(data?.id));
@@ -67,7 +67,6 @@ const EditForm = () => {
   const { isSuccess, data, isError } = useFetchMemberTypeQuery();
   const [dataEdit] = useUpdateMemberMutation();
   const postData = new FormData();
-  const [image, setImages] = useState<string>('');
   const navigate = useNavigate();
   if (isSuccess) {
     content = data?.map((item: item, index: number) => {
@@ -84,7 +83,7 @@ const EditForm = () => {
   } else if (isError) {
     console.error('Error fetching data', 'Member Types');
   }
- 
+
   const handleMember = (e: React.ChangeEvent<HTMLSelectElement>) => {
     dispatch(setMembersType(e.target.value));
   };
@@ -93,8 +92,11 @@ const EditForm = () => {
     let files: FileList | null = e.target.files;
 
     if (files && files?.length > 0) {
-      setImages(files[0]);
-      dispatch(setImageUrl(URL.createObjectURL(files[0])));
+     
+
+      const imageUrl = URL.createObjectURL(files[0]);
+      dispatch(setImage(files[0]));
+      dispatch(setShowImg(imageUrl));
     }
   };
 
@@ -105,31 +107,30 @@ const EditForm = () => {
     postData.append('full_name', fullname);
     postData.append('position', position);
 
-    if (image instanceof File) {
-      postData.append('image', image || showimg);
+    if (images instanceof File) {
+      postData.append('image', images || showimg);
     }
 
     try {
       if (postData && memberId) {
         await dataEdit({ postData, memberId });
-        dispatch(resetMembersState());
+        dispatch(resetState());
         navigate('/admin/member');
       }
     } catch (error) {}
   };
-  const btnDisabled = !fullname;
+  const btnDisabled: boolean = !fullname ;
 
   return (
     <>
-      {!load ? (
+      {!updatePost.length ? (
         <TableSkeleton />
       ) : (
         <form>
           <div className="space-y-12">
-            <h2 className="mb-2 flex items-center space-x-4 font-semibold italic">
+            <Title>
               {t('member.0')} {t('member.7')}{' '}
-              <FaArrowLeft onClick={() => window.history.back()} />
-            </h2>
+            </Title>
             <InputImg showimg={showimg} onChange={handleImg} />
 
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -157,14 +158,16 @@ const EditForm = () => {
                 />
               </div>
 
-              <Select
-                onChange={handleMember}
-                id="memberType"
-                label="memberType"
-                required={true}
-              >
-                {content}
-              </Select>
+              <div className="sm:col-span-3">
+                <Select
+                  onChange={handleMember}
+                  id="memberType"
+                  label="MemberType"
+                  required={true}
+                >
+                  {content}
+                </Select>
+              </div>
             </div>
           </div>
 

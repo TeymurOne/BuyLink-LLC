@@ -42,7 +42,7 @@ export function BuyLinkPartner3() {
               {t('partnyor3.2')}
             </p>
           </div>
-          <div className=" flex lg:flex-row flex-col gap-4 w-full">
+          <div className=" flex lg:mb-0  mb-10  lg:flex-row flex-col gap-4 w-full">
             <PartnerUi
               title={t('partnyor3.3')}
               img={d_icon1}
@@ -70,18 +70,18 @@ export function BuyLinkPartner3() {
             modules={[Pagination]}
             className="mySwiper"
           >
-            <div className="flex items-center w-auto pb-2  justify-center ">
+            <div className="flex mb-20  items-center w-auto  pb-20  justify-center ">
               <SwiperSlide>
-                <div className="max-w-70 h-auto w-full ">
+                <div className="max-w-70 pb-10 h-full w-full ">
                   <img
-                    className="w-full h-full object-contain"
+                    className="w-full h-full"
                     src={language == 'az' ? d1az : d1en}
                     alt="Iphone2"
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="max-w-70 h-auto w-full  ">
+                <div className="max-w-70  w-full  ">
                   <img
                     className="w-full h-full object-contain"
                     src={language == 'az' ? d2az : d2en}
@@ -90,7 +90,7 @@ export function BuyLinkPartner3() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="max-w-70 h-auto w-full  ">
+                <div className="max-w-70  w-full  ">
                   <img
                     className="w-full h-full object-contain"
                     src={language == 'az' ? d3az : d3en}
@@ -101,7 +101,7 @@ export function BuyLinkPartner3() {
             </div>
           </Swiper>
         ) : (
-          <div className="flex items-center pt-10  space-x-10 justify-center ">
+          <div className="flex items-center pt-10  lg:mb-10 mb-3 space-x-10 justify-center ">
             <div className="w-73 ">
               <img
                 className="w-full h-full "

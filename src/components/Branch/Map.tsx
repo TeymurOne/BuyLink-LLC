@@ -8,7 +8,7 @@ const Map = ({ allCoordinates }:any) => {
     iconSize: [38, 38],
   });
   
-  const position = allCoordinates.length > 0 ? [allCoordinates[0].lat, allCoordinates[0].lng] : [0, 0]; // Use the first coordinate as the initial position
+  const position = allCoordinates.length > 0 ? [allCoordinates[0].lat, allCoordinates[0].lng] : [0, 0]; 
 
   return (
     <>

@@ -1,6 +1,8 @@
 import React, { ReactNode } from 'react';
 import { FaArrowLeft } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
+import create from '../../images/action-icon/create.svg';
+
 
 type TitleProps = {
   children?: ReactNode;
@@ -22,7 +24,7 @@ export const Title: React.FC<TitleProps> = ({ children }) => {
         {children}
         <FaArrowLeft
         onClick={() => window.history.back()}
-        style={{ cursor: 'pointer' }}
+        style={{ cursor: 'pointer', marginLeft:'20px' }}
       />
       </h4>
     </>
@@ -43,13 +45,14 @@ export const Search: React.FC<TitleProps> = ({ onchange }) => {
 };
 
 export const CreateBtn: React.FC<TitleProps> = ({ link, children, img }) => {
+
   return (
     <>
       <Link
         to={`/admin/${link}`}
-        className="bg-white text-xs font-medium  mb-4 lg:mb-0 md:mb-0 sm:mb-0 space-x-2  rounded-md  justify-center flex items-center h-9 w-full max-w-35 "
+        className="bg-white text-xs dark:bg-meta-4 dark:text-white font-medium  mb-4 lg:mb-0 md:mb-0 sm:mb-0 space-x-2  rounded-md  justify-center flex items-center h-9 w-full max-w-35 "
       >
-        <img src={img} alt="Create icon" />
+        <img src={create} className='mr-2' alt="Create icon" />
         {children}
       </Link>
     </>
@@ -61,13 +64,13 @@ export const Thead: React.FC<TheadProps> = ({ titles }) => {
     <>
       <thead className="md:contents hidden">
         <tr className=" bg-white  text-title-2xsm font-poppins text-black text-left dark:bg-meta-4">
-          <th className="w-14.5 h-10  border-b border-r  border-tborder px-4  font-medium ">
+          <th className="w-14.5 h-10  border-b border-r dark:text-white  border-tborder px-4  font-medium ">
             ID
           </th>
           {titles.map((title: string, index: number) => (
             <th
               key={index}
-              className="min-w-24.5 py-2 border-b border-r  border-tborder px-4  font-medium"
+              className="min-w-24.5 py-2 border-b dark:text-white border-r  border-tborder px-4  font-medium"
             >
               {title}
             </th>

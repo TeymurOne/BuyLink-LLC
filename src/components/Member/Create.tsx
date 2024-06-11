@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useTransition } from 'react';
 import {
   useFetchMemberTypeQuery,
   usePostMemberMutation,
@@ -6,12 +6,13 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  resetMembersState,
+  resetState,
   setFullName,
-  setImageUrl,
+  setImage,
   setLoad,
   setMembersType,
   setPosition,
+  setShowImg,
 } from '../../features/members/membersSlice';
 import CancelSaveButton from '../../data/helpers/Button';
 import { RootState } from '../../app/api/store';
@@ -19,6 +20,7 @@ import { Title } from '../ui/Title';
 import Input from '../../common/Form/Input';
 import Select from '../../common/Form/Select';
 import InputImg from '../../common/Form/InputImg';
+import { useTranslation } from 'react-i18next';
 
 export type Titem = {
   id: number;
@@ -28,12 +30,11 @@ export type Titem = {
 const Form = () => {
   const postData = new FormData();
   const navigate = useNavigate();
+  const {t}=useTranslation()
 
   const { isSuccess, data, isError } = useFetchMemberTypeQuery();
   const [postForm] = usePostMemberMutation();
   const dispatch = useDispatch();
-  const [images, setImages] = useState<any>('');
-  const [showimg, setShowimg] = useState<any>('');
 
   let content;
   if (isSuccess) {
@@ -50,11 +51,10 @@ const Form = () => {
 
   const handleImg = (e: React.ChangeEvent<HTMLInputElement>): void => {
     let files: FileList | null = e.target.files;
-
     if (files) {
-      setImages(files[0]);
-      setShowimg(URL.createObjectURL(files[0]));
-      // dispatch(setImageUrl(URL.createObjectURL(files[0])));
+      const imageUrl = URL.createObjectURL(files[0]);
+      dispatch(setImage(files[0]));
+      dispatch(setShowImg(imageUrl));
     }
   };
 
@@ -73,7 +73,7 @@ const Form = () => {
           .then((response) => {
             if (response.success) {
               navigate('/admin/member');
-              dispatch(resetMembersState());
+              dispatch(resetState());
             }
           })
           .catch((error) => {
@@ -87,19 +87,16 @@ const Form = () => {
     }
   };
 
-  const { fullname, position, membertypes, load } = useSelector(
-    (store: RootState) => store.memberSlice,
-  );
+  const { fullname, position, membertypes, load, images, showimg } = useSelector((store: RootState) => store.memberSlice);
 
-  const btnDisabled: boolean =
-    !fullname || !position || !membertypes || !images;
+  const btnDisabled: boolean = !fullname || !position || !membertypes || !images;
 
   return (
     <>
       <form>
         <div className="space-y-12">
           <div className=" pb-12">
-            <Title>Personal Information</Title>
+            <Title>{t("member.1")}</Title>
 
             <InputImg showimg={showimg} onChange={handleImg} />
 

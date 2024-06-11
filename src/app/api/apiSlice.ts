@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 import { BASAE_URL } from '../../data/mock/enviroments';
 import { RootState } from './store';
-import getState from '../../core/helpers/cookie';
+import getState from '../../data/helpers/cookie';
 
 const getCookieToken = getState();
 

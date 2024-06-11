@@ -41,7 +41,7 @@ const resources = {
       },
       product: {
         '0': 'Məhsul ',
-        '1': 'Yarat Məhsul',
+        '1': ' Məhsul Yarat',
         '2': 'Şəkil',
         '3': 'Başlıq',
         '4': 'Məzmun',
@@ -376,6 +376,15 @@ const resources = {
         '7':'İstifadəçi adı',
         
       },
+      settingDashboard:{
+        '1':"Parametrlər",
+        '2':"Partnyorun adı  ",
+        '3':"Köhnə Şifrə  ",
+        '4':'E-poçt ',
+        "5":"Yeni şifrə "
+
+
+      }
     },
   },
 
@@ -735,8 +744,8 @@ const resources = {
         '2': 'Total Refers',
         '3': 'Total Transactions',
         '4':'Total reccommended',
-        '5':'Used recoommendation',
-        '6':'Recoommendations',
+        '5':'Used recommendation',
+        '6':'Recommendations',
         '7':'Revenue per Month  ',
         '8':'Sales',
         '9':'Trend',
@@ -768,6 +777,15 @@ const resources = {
         '6': ' Net Amount',
         '7':'User ID'
       },
+      settingDashboard:{
+        '1':"Settings",
+        '2':"Partner   Name  ",
+        '3':"Old Password  ",
+        '4':'E-mail  ',
+        "5":"New Password "
+
+
+      }
     },
   },
 };

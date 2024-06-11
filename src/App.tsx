@@ -12,7 +12,7 @@ import ErrorPage from './components/ErrorPage';
 import Index from './pages/Home/Index';
 import routes from './routes';
 import PrivacyPolicy from './components/home/PrivacyPolicy/Index';
-import getState from './core/helpers/cookie';
+import getState from './data/helpers/cookie';
 import DefaultLayout from './layout/DefaultLayout';
 import About from './pages/About/About';
 

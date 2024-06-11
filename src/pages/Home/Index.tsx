@@ -18,7 +18,7 @@ export const isMobile = window.innerWidth <= 555;
 const Index = () => {
   return (
     <PagesLayout>
-      <div className="bg-white  w-full cursor-default   ">
+      <div className="  w-full cursor-default bg-white   ">
         <div className="bg-white pb-10  container lg:px-16 md:px-10 px-4 mx-auto   h-auto  cursor-default">
           <Main />
         </div>
@@ -40,7 +40,7 @@ const Index = () => {
           <BuyLinkPartner2 />{' '}
         </div>
       </div>
-      <div className="bg-white py-20 ">
+      <div className="bg-white pt-20 ">
         <div className="  container  ">
           {' '}
           <BuyLinkPartner3 />{' '}
@@ -53,9 +53,9 @@ const Index = () => {
       <div className="bg-white py-10">
         <NewsLetter />
       </div>
-
       <ModalQr />
-      <div className=" py-20 bg-white   ">
+
+      <div className=" lg:py-20 md:py-10 py-6 bg-white   ">
         <div className="container mx-auto">
           <Accordion />
         </div>

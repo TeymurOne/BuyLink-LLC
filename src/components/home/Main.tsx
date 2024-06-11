@@ -1,14 +1,20 @@
 import { useTranslation } from 'react-i18next';
 import apple from '../../images/Pages-index/head-main/apple-icon.svg';
 import play from '../../images/Pages-index/head-main/store-icon.svg';
-import main from '../../images/main/main.svg';
 import people from '../../images/main/people.png';
 import star from '../../images/main/star.png';
+import mainAz from '../../images/main/mainAz.png';
+import mainEn from '../../images/main/mainEn.png';
 import money from '../../images/main/money.png';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 export function Main() {
   const { t } = useTranslation();
+  const [language, setLanguage]=useState<any>('')
+  useEffect(() => {
+    setLanguage(localStorage.getItem('lng'));
+  }, [localStorage.getItem('lng'), language]);
 
   return (
     <>
@@ -65,7 +71,7 @@ export function Main() {
 
         <div className="  max-w-150 w-full">
           <img
-            src={main}
+              src={language == 'az' ? mainAz : mainEn}
             className="  w-full h-full     "
             alt="Main"
           />

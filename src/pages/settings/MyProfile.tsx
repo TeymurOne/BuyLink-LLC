@@ -2,6 +2,10 @@ import  { useState } from 'react';
 import axiosInstance from '../../core/lib/axios.config';
 import CancelSaveButton from '../../data/helpers/Button';
 import { FaEye, FaRegEyeSlash } from 'react-icons/fa6';
+import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import { setNewPwd, setoldPwd } from '../../features/auth/settingsSlice';
+import { Title } from '../../components/ui/Title';
 
 const SignModal = () => {
 
@@ -9,24 +13,28 @@ const SignModal = () => {
   const [newPassword, setNewPassword] = useState('');
   const [showOldPassword, setShowOldPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
+  const dispatch=useDispatch()
+  const {oldPwd, newPwd}=useSelector((state:any)=>state.settings)
 
+
+  const { t } = useTranslation();
   const handleSubmit = async (e:any) => {
     e.preventDefault();
-    if (!oldPassword || !newPassword) {
+    if (!oldPwd || !newPwd) {
       alert('Password is required');
       return;
     }
 
     try {
       const response = await axiosInstance.post('/auth/change-password', {
-        current_password: oldPassword,
-        new_password: newPassword,
+        current_password: oldPwd,
+        new_password: newPwd,
       });
 
       if (response.status === 200) {
         alert(response.data.message);
-        setOldPassword('');
-        setNewPassword('');
+        dispatch(setoldPwd(""));
+        dispatch(setoldPwd(""));
       } else {
         console.error('Password change failed:', response.data.message);
       }
@@ -45,37 +53,37 @@ const SignModal = () => {
 
   return (
     <form>
-      <h2 className="lg:text-5xl md:text-4xl text-2xl font-inter font-medium">
-        Setting
-      </h2>
-      <div className="grid md:grid-cols-2 grid-cols-1  gap-10 mt-20">
+      <Title>
+      {t("settingDashboard.1")}
+      </Title>
+      {/* <div className="grid md:grid-cols-2 grid-cols-1  gap-10 mt-20">
         <div className="w-full">
-          <label htmlFor="partner-name" className="text-tdColor font-works text-base">Partner Name</label>
+          <label htmlFor="partner-name"  className="text-tdColor font-works text-base">  {t("settingDashboard.2")}as</label>
           <input type="text" id="partner-name" title="Partner Name" className="w-full mt-2 shadow-md rounded-lg py-1" />
         </div>
         <div>
-          <label htmlFor="email">E-mail</label>
+          <label htmlFor="email">  {t("settingDashboard.4")}</label>
           <input type="email" id="email" title="e-mail" className="w-full shadow-md  mt-2 rounded-lg py-1"  />
         </div>
-      </div>
+      </div> */}
       <div className="grid md:grid-cols-2 grid-cols-1 mt-4 gap-10">
         <div className="w-full relative">
-          <label htmlFor="old-password" className="text-tdColor font-works text-base">Old Password</label>
-          <input type={showOldPassword ? 'text' : 'password'} id="old-password" title="Old Password" className="w-full mt-2 shadow-md rounded-lg py-3 px-4" value={oldPassword} onChange={(e) => setOldPassword(e.target.value)} />
-          <button type="button" onClick={() => toggleShowPassword('old')} className="absolute top-9 pl-2 end-0 p-3.5 rounded-e-md">
+          <label htmlFor="old-password" className="text-tdColor font-works text-base">  {t("settingDashboard.3")}</label>
+          <input type={showOldPassword ? 'text' : 'password'} id="old-password" title="Old Password" className="w-full mt-2 shadow-md rounded-lg py-2 px-4" value={oldPwd} onChange={(e) => dispatch(setoldPwd(e.target.value))} />
+          <button type="button" onClick={() => toggleShowPassword('old')} className="absolute top-8 pl-2 end-0 p-3.5 rounded-e-md">
             {showOldPassword ? <FaEye /> : <FaRegEyeSlash />}
           </button>
         </div>
-        <div className='relative'>
-          <label htmlFor="new-password">New Password</label>
-          <input type={showNewPassword ? 'text' : 'password'} id="new-password" title="New Password" className="w-full shadow-md pl-3 mt-2 rounded-lg py-2" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
-          <button type="button" onClick={() => toggleShowPassword('new')} className="absolute top-8  end-0 p-3.5 rounded-e-md">
+        <div className='relative w-full'>
+          <label htmlFor="new-password">  {t("settingDashboard.5")}</label>
+          <input type={showNewPassword ? 'text' : 'password'} id="new-password" title="New Password" className="w-full shadow-md pl-3 mt-2 rounded-lg px-4 py-2" value={newPwd} onChange={(e) => dispatch(setNewPwd(e.target.value))} />
+          <button type="button" onClick={() => toggleShowPassword('new')} className="absolute top-8 pl-2  end-0 p-3.5 rounded-e-md">
             {showNewPassword ? <FaEye /> : <FaRegEyeSlash />}
           </button>
         </div>
       </div>
       <div className="mt-20">
-        <CancelSaveButton onCancel={() => window.history.back()} onSave={handleSubmit} btnDisabled={!oldPassword || !newPassword} loading={false} />
+        <CancelSaveButton onCancel={() => window.history.back()} onSave={handleSubmit} btnDisabled={!oldPwd || !newPwd} loading={false} />
       </div>
     </form>
   );

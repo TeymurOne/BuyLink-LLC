@@ -12,14 +12,12 @@ interface CardDataStatsProps {
 const CardDataStats: React.FC<CardDataStatsProps> = ({
   title,
   total,
-  rate,
-  levelUp,
-  levelDown,
+ 
   children,
 }) => {
   return (
-    <div className=" border rounded-2xl shadow-sm border-stroke bg-white py-6 px-7.5  dark:border-strokedark dark:bg-boxdark">
-      <div className="flex h-11.5 w-11.5 items-center justify-center dark:rounded-full   bg-white300 dark:bg-white">
+    <div className=" border  rounded-2xl shadow-sm border-stroke bg-white py-6 px-7.5  dark:border-strokedark dark:bg-boxdark">
+      <div className="flex rounded-md h-11.5 w-11.5 items-center justify-center dark:rounded-full   bg-white300 dark:bg-white">
         {children}
       </div>
 

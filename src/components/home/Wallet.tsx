@@ -35,19 +35,19 @@ export function WalletBuylink() {
             </div>
             <div className=" grid lg:grid-cols-2 2xsm:mx-auto w-full lg:mx-0 lg:pt-0 pt-6   lg:w-full sm:grid-cols-2 grid-cols-1  place-content-center   lg:gap-y-8  md:gap-y-3  gap-y-2   font-manrope normal font-medium text-black700">
               <div className="flex space-x-4    items-center w-full max-w-70  ">
-                <img className="w-9 h-9 " src={icon1} alt="Group 155" />
+                <img className="w-10.5 h-10.5 " src={icon1} alt="Group 155" />
                 <p>{t('wallet.4')}</p>
               </div>
               <div className="flex items-center  space-x-4">
-                <img className="w-8 h-9" src={icon2} alt="Group 155" />
+                <img className="w-10.5 h-10.5" src={icon2} alt="Group 155" />
                 <p>{t('wallet.5')}</p>
               </div>
               <div className="flex items-center  space-x-4">
-                <img className="w-8 h-9" src={icon3} alt="Group 155" />
+                <img className="w-10.5 h-10.5" src={icon3} alt="Group 155" />
                 <p>{t('wallet.6')} </p>
               </div>
               <div className="flex items-center space-x-4">
-                <img className="w-8 h-9" src={icon4} alt="Group 155" />
+                <img className="w-10.5 h-10.5" src={icon4} alt="Group 155" />
                 <p>{t('wallet.7')}</p>
               </div>
             </div>

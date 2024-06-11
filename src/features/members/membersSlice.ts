@@ -7,7 +7,7 @@ interface MembersSlice {
   membertypes: any;
   images: any;
   load: boolean;
-  memberId:any
+  memberId: any;
 }
 
 const initialState: MembersSlice = {
@@ -17,20 +17,18 @@ const initialState: MembersSlice = {
   membertypes: '',
   images: '',
   load: false,
-  memberId:""
+  memberId: '',
 };
 
 const membersSlice = createSlice({
   name: 'memberSlice',
   initialState,
   reducers: {
-   
-    setImageUrl(state, action: PayloadAction<any>) {
-      console.log(action.payload, 'action');
-      
-      return {...state, showimg:action.payload}
-      
-        
+    setShowImg(state, action: PayloadAction<any>) {
+      return { ...state, showimg: action.payload };
+    },
+    setImage(state, action: PayloadAction<any>) {
+      return { ...state, images: action.payload };
     },
     setFullName(state, action: PayloadAction<string>) {
       return { ...state, fullname: action.payload };
@@ -41,23 +39,32 @@ const membersSlice = createSlice({
     setMembersType(state, action: PayloadAction<string>) {
       return { ...state, membertypes: action.payload };
     },
-    setLoad(state, action){
-        return {...state, load:action.payload}
+    setLoad(state, action) {
+      return { ...state, load: action.payload };
     },
-    setId(state, action){
-      return {...state, memberId:action.payload}
-  },
-    resetMembersState: (state) => initialState
+    setId(state, action) {
+      return { ...state, memberId: action.payload };
+    },
+
+    resetState: (state) => {
+      state.fullname = '';
+      state.position = '';
+      state.membertypes = '';
+      state.load = false;
+      state.images="";
+      state.showimg=''
+    },
   },
 });
 
 export const {
-  setImageUrl,
+  setShowImg,
   setFullName,
   setPosition,
   setMembersType,
   setLoad,
+  setImage,
   setId,
-  resetMembersState
+  resetState,
 } = membersSlice.actions;
 export default membersSlice.reducer;

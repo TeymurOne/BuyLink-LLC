@@ -163,11 +163,11 @@ const ChartOne: React.FC<ChartOneProps> = ({ data }) => {
           <div className='flex space-x-4'>
             <div className="flex items-center  space-x-2">
               <div className="bg-primary w-2 h-2  rounded-full"></div>
-              <p className='dark:text-white'>{t('statistic.8')}</p>
+              <p className='dark:text-white  text-[#5B5B5B] text-xs font-normal font-inter'>{t('statistic.8')}</p>
             </div>
             <div className="flex items-center space-x-2">
               <div className="bg-[#F31F1F] w-2 h-2  rounded-full"></div>
-              <p className='dark:text-white'>{t('statistic.9')}</p>
+              <p className='dark:text-white  text-[#5B5B5B] text-xs font-normal font-inter'>{t('statistic.9')}</p>
             </div>
           </div>
         </div>

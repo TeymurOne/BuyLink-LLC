@@ -11,6 +11,8 @@ import  productSlice  from '../../features/product/productSlice';
 import paginationSlice from '../../features/pagination/paginationSlice';
 import categorySlice from '../../features/category/categorySlice';
 import balanceSlice from '../../features/balance/balanceSlice';
+import settingsSlice from '../../features/auth/settingsSlice';
+import branchSlice from '../../features/branch/branchSlice';
 export const store = configureStore({
   
   reducer: {
@@ -23,6 +25,8 @@ export const store = configureStore({
     PaginationSlice:paginationSlice,
     categorySlice:categorySlice,
     balance:balanceSlice,
+    settings:settingsSlice,
+    branch:branchSlice,
     [apiSlice.reducerPath]:apiSlice.reducer,
 
     auth: authSlice,

@@ -1,19 +1,19 @@
 import defaultSelectedImg from '../../images/partnyor/addimg.svg';
 interface ImgInput {
   img?: any;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   showimg?:any
 }
-const InputImg: React.FC<ImgInput> = ({ img, onChange, showimg }) => {
+const InputImg: React.FC<ImgInput> = ({  onChange, showimg }) => {
   console.log(showimg, 'images');
   
   return (
     <>
       <div className=" col-span-full">
-        <label htmlFor="photo" className="block text-sm font-medium leading-6">
+        <label htmlFor="photo" className="block mt-6 ml-1 text-sm font-medium leading-6">
           Photo
         </label>
-        <div className="mt-6 flex h-20 items-center gap-x-3">
+        <div className="mt-2 flex h-20 items-center gap-x-3">
           <img
             className="h-15 mb-4 object-cover rounded-xl bg-white   w-20 "
             src={ showimg || defaultSelectedImg}
@@ -28,7 +28,7 @@ const InputImg: React.FC<ImgInput> = ({ img, onChange, showimg }) => {
           />
           <label
             htmlFor="file-upload"
-            className="rounded-md bg-white lg:px-13 md:px-10 px-6 mb-3 border py-2.5   text-sm
+            className="rounded-md dark:text-black bg-white lg:px-13 md:px-10 px-6 mb-3 border py-2.5   text-sm
                      font-semibold shadow-sm   border-black border-opacity-20  h-10"
           >
             Add Image

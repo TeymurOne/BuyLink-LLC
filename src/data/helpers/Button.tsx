@@ -39,7 +39,7 @@ const CancelSaveButton: React.FC<CancelSaveButtonProps> = ({
           type="submit"
           className={`rounded-md ${
             btnDisabled ? 'opacity-65' : 'opacity-100'
-          } bg-[#2D83B6] px-6 py-2   text-sm font-semibold text-white shadow-sm`}
+          } bg-[#2D83B6] px-6 py-2  dark:text-white  text-sm font-semibold text-white shadow-sm`}
         >
           {children || 'Save'}
         </button>

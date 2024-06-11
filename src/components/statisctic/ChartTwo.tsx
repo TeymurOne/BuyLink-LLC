@@ -45,13 +45,25 @@ const options: ApexOptions = {
   },
 
   xaxis: {
-    categories: ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr'],
+    categories: [
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+    ],
   },
-  yaxis:{
+  yaxis: {
     min: 0.0,
     max: 2.0,
     tickAmount: 5,
-    
   },
   legend: {
     position: 'top',
@@ -68,7 +80,6 @@ const options: ApexOptions = {
     opacity: 1,
   },
 };
-
 
 interface ChartTwoState {
   series: {
@@ -93,15 +104,21 @@ const ChartTwo: React.FC<ChartTwoProps> = ({ transactions, referral }) => {
 
     const transactionsData = transaction.map(([key, value]) => value);
     const referralData = referraldata.map(([key, value]) => value);
+    const nameText = (
+      <p className="text-xs dark:text-white font-inter font-normal">{t('statistic.4')}</p>
+    );
+    const nameDesc = (
+      <p className="text-xs dark:text-white font-inter font-normal">{t('statistic.5')}</p>
+    );
 
     setState({
       series: [
         {
-          name: t('statistic.4'),
+          name: nameText.props.children,
           data: referralData,
         },
         {
-          name: t('statistic.5'),
+          name: nameDesc.props.children,
           data: transactionsData,
         },
       ],
@@ -112,13 +129,20 @@ const ChartTwo: React.FC<ChartTwoProps> = ({ transactions, referral }) => {
     <div className="col-span-12  border rounded-2xl shadow-sm border-stroke bg-white p-7.5  dark:border-strokedark dark:bg-boxdark xl:col-span-6">
       <div className="mb-4 justify-between gap-4 sm:flex">
         <div>
-          <h4 className="text-xl font-semibold text-black dark:text-white">{t('statistic.6')}</h4>
+          <h4 className="text-xl font-semibold font-inter text-black dark:text-white">
+            {t('statistic.6')}
+          </h4>
         </div>
       </div>
 
       <div>
         <div id="chartTwo" className="-ml-5 -mb-9">
-          <ReactApexChart options={options} series={state.series} type="bar" height={350}  />
+          <ReactApexChart
+            options={options}
+            series={state.series}
+            type="bar"
+            height={350}
+          />
         </div>
       </div>
     </div>

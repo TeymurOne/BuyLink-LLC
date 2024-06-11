@@ -1,82 +1,69 @@
-import React, { useEffect, useState } from 'react';
-import edit from '../../images/action-icon/edit.svg';
-import rubbish from '../../images/action-icon/rubish.svg';
-import eye from '../../images/action-icon/details.svg';
+import { useState } from 'react';
 
-import Swal from 'sweetalert2';
-import { Link } from 'react-router-dom';
-
-import { IpostData } from './Form';
 import { useRemovebranchMutation } from '../../features/branch/apiSlice';
 import { IoIosArrowDown } from 'react-icons/io';
 import { useTranslation } from 'react-i18next';
+import {
+  showConfirmation,
+  showDeletedMessage,
+  showError,
+} from '../../data/helpers/SweatAlert';
+import ActionLink from '../ui/ActionLink';
+import { Delete, Details, Edit } from '../../data/helpers/Svg';
 
 interface TbodyProps {
-  item: IpostData;
+  address: any;
+  id: any;
+  lat: any;
+  lng: any;
+  name: any;
+  phone: any;
 }
 
-const TbodyResponsive: React.FC<TbodyProps> = ({ item }) => {
+const TbodyResponsive = ({ item }: TbodyProps) => {
   const [deletePost] = useRemovebranchMutation();
   const [show, setShow] = useState(false);
   const { t } = useTranslation();
 
   const handleRemove = async (id: number) => {
-    const result = await Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!',
-    });
+    const confirmed = await showConfirmation();
 
-    if (result.isConfirmed) {
+    if (confirmed) {
       try {
-        const dele = await deletePost(id);
-        window.location.reload();
+        await deletePost(id);
 
-        Swal.fire({
-          title: 'Deleted!',
-          text: 'Your file has been deleted.',
-          icon: 'success',
-        });
+        showDeletedMessage();
       } catch (error) {
-        Swal.fire({
-          title: 'Error!',
-          text: 'An error occurred while deleting.',
-          icon: 'error',
-        });
+        showError();
       }
     }
   };
-  useEffect(() => {}, [handleRemove]);
 
   return (
     <>
-      <div className="max-w-full md:hidden block w-full">
+      <div className="max-w-full md:hidden block ">
         <h2>
           <button
             onClick={() => setShow(!show)}
             type="button"
-            className="flex items-center justify-between w-full p-5 font-medium rtl:text-right  rounded-t-xl  bg-white"
+            className="flex items-center justify-between w-full p-5 font-medium rtl:text-right  rounded-t-xl dark:bg-boxdark  bg-white"
           >
-            <div className="w-[140px] flex space-x-2 ">
-              <div className="bg-[#2D83B6] w-[30px] h-[30px] rounded-xl grid place-items-center">
+            <div className="w-35 flex space-x-2 ">
+              <div className="bg-btnBgColor w-7.5 h-7.5 rounded-xl grid place-items-center">
                 {' '}
                 <IoIosArrowDown style={{ color: 'white' }} />
               </div>
-              <span>{item.id}</span>
+              <span className="dark:text-white300">{item.id}</span>
             </div>
           </button>
         </h2>
         <div
-          className={`text-[20px] w-full   h-0 duration-700 overflow-hidden font-poppins ${
-            show && 'h-[200px]  duration-500'
+          className={`text-5 w-full   h-0 duration-700 overflow-hidden font-poppins ${
+            show && 'h-50  duration-500'
           }`}
         >
           <div className="flex pt-5 px-2">
-            <ul className="  mx-2 text-[0.800em] w-full   text-black">
+            <ul className="  mx-2 text-xs w-full dark:text-white space-y-2   text-black">
               <li className="flex justify-between">
                 <p>Name</p>
                 <p>{item?.name}</p>
@@ -92,25 +79,21 @@ const TbodyResponsive: React.FC<TbodyProps> = ({ item }) => {
             </ul>
           </div>
           <div className="flex justify-end mt-2 px-5 items-center space-x-4">
-            <Link
-              className="bg-[#DFE8FA] rounded-[60px] w-[34px] h-[34px] grid place-items-center"
+            <ActionLink
+              bg="#DFE8FA"
+              icon={Details()}
               to={`/admin/branchdetails/${item.id}`}
-            >
-              <img src={eye} alt="" className="w-[20px] h-[20px]" />
-            </Link>
-            <Link
+            />
+            <ActionLink
+              bg="#E5FDEF"
+              icon={Delete()}
+              onClick={() => handleRemove(item?.id)}
+            />
+            <ActionLink
+              bg="#FFECEC"
+              icon={Edit()}
               to={`/admin/branchEdit/${item.id}`}
-              className=" bg-[#E5FDEF] rounded-[60px] w-[34px] h-[34px] grid place-items-center"
-            >
-              <img src={edit} alt="" className="w-[20px] h-[20px]" />
-            </Link>
-            <Link
-              to=""
-              onClick={() => handleRemove(item.id)}
-              className=" bg-[#FFECEC] rounded-[60px] w-[34px] h-[34px] grid place-items-center"
-            >
-              <img src={rubbish} alt="" className="w-[20px] h-[20px]" />
-            </Link>
+            />
           </div>
         </div>
       </div>

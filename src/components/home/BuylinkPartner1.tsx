@@ -40,17 +40,17 @@ export function BuyLinkPartner1() {
       <section className=" lg:pt-20 lg:py-30 md:py-10 py-4 md:pt-10 pt-2">
         <div className="flex flex-col lg:items-center  items-stretch text-center">
           <div className="space-y-4  max-w-5xl mx-auto ">
-            <h2 className="font-manrope  lg:text-title-xxl   text-black font-bold">
+            <h2 className="font-manrope text-title-lg     text-black font-bold">
               {t('partnyor.0')}
               <span className="text-starrating"> {t('partnyor.1')}</span>
 
               {t('partnyor.2')}
             </h2>
-            <p className="text-2xl text-center  font-poppins opacity-70 font-normal pb-10 ">
+            <p className="lg:text-2xl text-sm text-center  font-poppins opacity-70 font-normal pb-10 ">
               {t('partnyor.3')}
             </p>
           </div>
-          <div className=" flex lg:flex-row flex-col gap-4 w-full">
+          <div className=" flex lg:flex-row lg:mb-2 mb-10 flex-col gap-4 w-full">
             <PartnerUi
               title={t('partnyor.4')}
               img={p_icon1}

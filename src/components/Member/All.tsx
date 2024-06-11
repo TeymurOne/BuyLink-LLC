@@ -1,7 +1,6 @@
 import { useFetchMemberDataQuery } from '../../features/members/apiSlice';
 import Tbody from './Tbody';
 import { useTranslation } from 'react-i18next';
-import create from '../../images/action-icon/create.svg';
 import TbodyResponsive from './TbodyResponsive';
 import Pagination from '../../core/pagination/Pagination';
 import { CreateBtn, Title, Thead, TableLayout, Search } from '../ui/Title';
@@ -36,8 +35,6 @@ const CreateForm: React.FC = () => {
     ));
 
   const responsiveContent = useMemo(() => {
-    console.log('resposince');
-
     if (isSuccess && data) {
       return data.data.map((item: any, index: number) => (
         <TbodyResponsive key={index} item={item} />
@@ -46,8 +43,7 @@ const CreateForm: React.FC = () => {
     return null;
   }, [data, isSuccess]);
 
-  if (isLoading)  return <TableSkeleton count="10" />;
-  
+  if (isLoading) return <TableSkeleton count="10" />;
 
   return (
     <>
@@ -57,9 +53,7 @@ const CreateForm: React.FC = () => {
           <Search />
         </div>
 
-        <CreateBtn img={create} link="member/create">
-          {t('member.1')}
-        </CreateBtn>
+        <CreateBtn link="member/create">{t('member.1')}</CreateBtn>
       </div>
 
       <TableLayout>

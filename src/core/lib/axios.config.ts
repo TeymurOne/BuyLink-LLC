@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { BASAE_URL } from '../../data/mock/enviroments';
-import { getState } from '../helpers/cookie';
+import { getState } from '../../data/helpers/cookie';
 
 const token = getState();
 

@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -25,7 +24,10 @@ const CreateForm = () => {
     }
   }, [isSuccess, data, dispatch]);
 
-  const content =isSuccess && data && data.data.map((item: any, index: number) => (
+  const content =
+    isSuccess &&
+    data &&
+    data.data.map((item: any, index: number) => (
       <Tbody item={item} key={index} />
     ));
 

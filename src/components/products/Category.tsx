@@ -11,7 +11,7 @@ import {
   setLanguage,
 } from '../../features/category/categorySlice';
 import { RootState } from '../../app/api/store';
-import { Search } from '../ui/Title';
+import { Search, Title } from '../ui/Title';
 
 const Category = () => {
   const { t } = useTranslation();
@@ -52,6 +52,7 @@ const Category = () => {
 
   return (
     <>
+      <Title> {t('product.7')}</Title>
       <Search onchange={(e: any) => setSearch(e.target.value)} />
 
       {window.innerWidth > 768 && (
@@ -86,18 +87,14 @@ const Category = () => {
         </div>
       )}
 
-      {window.innerWidth < 768 && (
-        <>
-          {filteredItems?.map((item: any, index: number) => (
-            <TbodyResponsive
-              item={item}
-              id={index}
-              key={index}
-              language={language}
-            />
-          ))}
-        </>
-      )}
+      {filteredItems?.map((item: any, index: number) => (
+        <TbodyResponsive
+          item={item}
+          id={index}
+          key={index}
+          language={language}
+        />
+      ))}
     </>
   );
 };
@@ -114,6 +111,7 @@ interface TbodyProps {
 }
 
 function Tbody({ item, language, id }: TbodyProps) {
+  const { t } = useTranslation();
   const rowClassName = id % 2 === 0 ? 'bg-[#F8F8F8]' : '';
   return (
     <>
@@ -133,7 +131,7 @@ function Tbody({ item, language, id }: TbodyProps) {
             className="bg-white text-xs font-medium shadow-sm  mb-4 lg:mb-0 md:mb-0 sm:mb-0 space-x-2  rounded-md  justify-center flex items-center h-10 w-full max-w-35"
           >
             <img src={create} alt="Create icon" />
-            <p> Create Product</p>
+            <p>{t('product.1')}</p>
           </Link>
         </td>
       </tr>
@@ -142,6 +140,8 @@ function Tbody({ item, language, id }: TbodyProps) {
 }
 function TbodyResponsive({ item, language, id }: TbodyProps) {
   const rowClassName = id % 2 === 0 ? 'bg-[#F8F8F8]' : '';
+  const { t } = useTranslation();
+
   return (
     <div className="max-w-full md:hidden block w-full">
       <h2>
@@ -157,11 +157,11 @@ function TbodyResponsive({ item, language, id }: TbodyProps) {
             </span>
           </div>
           <Link
-            to={`/admin/products/${item.id}`}
+            to={`/admin/product/${item.id}`}
             className="bg-white text-xs shadow-md font-medium  mb-4 lg:mb-0 md:mb-0 sm:mb-0 space-x-2  rounded-md  justify-center flex items-center h-9 w-full max-w-35"
           >
             <img src={create} alt="Create icon" />
-            Create
+            <p>{t('product.1')}</p>
           </Link>
         </button>
       </h2>

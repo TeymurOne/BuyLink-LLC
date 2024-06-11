@@ -8,7 +8,8 @@ import axiosInstance from '../../core/lib/axios.config';
 
 import { IoCloseOutline } from 'react-icons/io5';
 import Loader from '../../common/Loader';
-import { setCokkie } from '../../core/helpers/cookie';
+import { setCokkie } from '../../data/helpers/cookie';
+import { FaEye, FaRegEyeSlash } from 'react-icons/fa6';
 
 type State = {
   showModal: boolean;
@@ -19,7 +20,7 @@ const SignModal: React.FC<State> = ({ showModal, setShowModal }) => {
   const [load, setLoad] = useState<boolean>(false);
   const [email, setEmail] = useState<any>('');
   const [password, setPwd] = useState<any>('');
-  const [show, setShow] = useState<boolean>(true);
+  const [show, setShow] = useState<boolean>(false);
 
   const useref = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
@@ -69,6 +70,9 @@ const SignModal: React.FC<State> = ({ showModal, setShowModal }) => {
     }
   };
 
+  const toggleShowPassword = () => {
+    setShow(!show);
+  };
   return (
     <div>
       {showModal ? (
@@ -94,10 +98,10 @@ const SignModal: React.FC<State> = ({ showModal, setShowModal }) => {
                     </h3>
                     <form onSubmit={handleSubmit}>
                       <div>
-                        <label className="mb-2.5 block  font-roboto text-[16px] normal font-normal  dark:text-white">
+                        <label className="mb-2.5 block  font-roboto text-xs normal font-normal  dark:text-white">
                           Email
                         </label>
-                        <div className=" relative h-[48px] lg:w-[388px]">
+                        <div className=" relative h-12 lg:w-96">
                           <input
                             value={email}
                             onChange={handleUser}
@@ -110,17 +114,24 @@ const SignModal: React.FC<State> = ({ showModal, setShowModal }) => {
                       </div>
 
                       <div className="mb-2">
-                        <label className="mb-2.5 mt-2 block font-medium text-black dark:text-white">
+                        <label className="mb-2.5 mt-2 block font-roboto text-xs font-medium text-black dark:text-white">
                           Password
                         </label>
                         <div className="relative">
                           <input
                             value={password}
                             onChange={handlePwd}
-                            type="password"
-                            placeholder=""
-                            className="border-2 border-opacity-65 p-4 border-[#D4D7E3] w-full bg-white h-[48px] rounded-md"
+                            type={`${show ? 'text' : 'password'}`}
+                            placeholder="Password"
+                            className="border-2 border-opacity-65 p-4 border-[#D4D7E3] w-full bg-white h-12 rounded-md"
                           />
+                          <button
+                            type="button"
+                            onClick={toggleShowPassword}
+                            className="absolute top-0 pl-2  end-0 p-3.5 rounded-e-md"
+                          >
+                            {show ? <FaEye /> : <FaRegEyeSlash />}
+                          </button>
                         </div>
                         {error && (
                           <p className="font-normal  text-danger">{error}</p>
@@ -131,7 +142,6 @@ const SignModal: React.FC<State> = ({ showModal, setShowModal }) => {
                         <input
                           type="submit"
                           value="Sign In"
-                          
                           data-bs-dismiss="modal"
                           className="w-full cursor-pointer mt-4 rounded-lg border h-13 border-primary bg-primary  text-white transition hover:bg-opacity-90"
                         />

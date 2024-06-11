@@ -7,7 +7,7 @@ import vector from '../images/Pages-index/head-main/vector.svg';
 
 import { Link, useLocation } from 'react-router-dom';
 import SignModal from '../pages/Authentication/SignModal';
-import getState from '../core/helpers/cookie';
+import getState from '../data/helpers/cookie';
 import i18n from '../../i18n/İ18n';
 import { useTranslation } from 'react-i18next';
 

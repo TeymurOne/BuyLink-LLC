@@ -29,7 +29,7 @@ const detailsProduct = lazy(() => import('../components/products/Details'));
 
 const branchDetails = lazy(() => import('../components/Branch/Details'));
 const branchEdit = lazy(() => import('../components/Branch/Edit.tsx'));
-const branchform = lazy(() => import('../components/Branch/Form.tsx'));
+const branchform = lazy(() => import('../components/Branch/Create.tsx'));
 
 //  operatore
 const operatorDetails = lazy(

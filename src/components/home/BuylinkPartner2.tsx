@@ -29,7 +29,7 @@ export function BuyLinkPartner2() {
   }, [localStorage.getItem('lng'), language]);
   return (
     <>
-      <section>
+      <section >
         <div
           className="flex flex-col lg:items-center  items-stretch text-center"
           id="buylinkpartner"
@@ -45,7 +45,7 @@ export function BuyLinkPartner2() {
             </p>
           </div>
         
-          <div className=" flex lg:flex-row flex-col gap-4 w-full">
+          <div className=" flex mb-10 lg:flex-row flex-col gap-4 w-full">
             <PartnerUi
               title={t('partnyor2.3')}
               img={s_icon1}
@@ -75,7 +75,7 @@ export function BuyLinkPartner2() {
           >
             <div className="flex items-center  w-100 justify-center ">
               <SwiperSlide>
-                <div className="max-w-70 h-125 w-full pb-2 ">
+                <div className="max-w-70 bg-transparent h-125 w-full pb-2 ">
                   <img
                     className="w-full h-full object-contain"
                     src={language == 'az' ? s1az : s1en}
@@ -84,7 +84,7 @@ export function BuyLinkPartner2() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="max-w-70 mb-10 h-125 w-full  ">
+                <div className="max-w-70 bg-transparent mb-10 h-125 w-full  ">
                   <img
                     className="w-full h-full object-contain"
                     src={language == 'az' ? s2az : s2en}
@@ -93,7 +93,7 @@ export function BuyLinkPartner2() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="max-w-70 h-125 w-full  ">
+                <div className="max-w-70 bg-transparent h-125 w-full  ">
                   <img
                     className="w-full h-full object-contain"
                     src={language == 'az' ? s3az : s3en}

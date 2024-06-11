@@ -1,7 +1,6 @@
 import {  useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useFetchMemberDataQuery } from '../../features/members/apiSlice';
-import { FaArrowLeft } from 'react-icons/fa6';
 import { TableLayout, Thead, Title } from '../ui/Title';
 import Tbody from './Tbody';
 
@@ -19,14 +18,17 @@ const Details = () => {
 
   return (
     <>
-      <Title>
-        Member <FaArrowLeft onClick={() => window.history.back()} />{' '}
+    <div className='mb-4'>
+    <Title>
+        Member {' '}
       </Title>
+    </div>
 
-      <TableLayout>
+       <TableLayout>
         <Thead titles={titles} />
         {member && <Tbody item={member} />}
-      </TableLayout>
+      </TableLayout> 
+      
     </>
   );
 };
