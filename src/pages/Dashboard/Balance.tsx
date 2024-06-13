@@ -216,7 +216,7 @@ export default function Balance() {
           </CardDataStats>
         </div>
         <div className=" lg:w-1/2 w-full">
-          <CardDataTime title="Total Revenue" rate={debt_date}/>
+          {debt_date && <CardDataTime title="Total Revenue" rate={debt_date} />}
         </div>
       </div>
 
@@ -240,26 +240,26 @@ export default function Balance() {
                 <td className="min-w-25.5 dark:text-white border-b border-r  border-tborder py-2 px-1 font-medium ">
                   {t('balanceTable.2')}
                 </td>
-
-                <td className=" min-w-24.5 border-b border-r  border-tborder  py-2 px-4  font-medium ">
-                  {t('balanceTable.5')}
+                <td className="min-w-20.5 dark:text-white border-b border-r  border-tborder py-2 px-4 font-medium ">
+                  {t('balanceTable.3')}
                 </td>
+                
+              
                 <td className="min-w-20.5  dark:text-white border-b border-r  border-tborder py-2 px-2 font-medium ">
                   {t('balanceTable.4')}
                 </td>
 
-              
-                <td className="min-w-20.5 dark:text-white border-b border-r  border-tborder py-2 px-4 font-medium ">
-                  {t('balanceTable.3')}
+               
+                <td className=" min-w-24.5 border-b border-r  border-tborder  py-2 px-4  font-medium ">
+                  {t('balanceTable.5')}
                 </td>
-{/* 
                 <td className="min-w-24.5 dark:text-white border-b border-r  border-tborder py-2 px-4 font-medium ">
                   {t('balanceTable.6')}
                 </td>
 
                 <td className=" min-w-24.5 border-b border-l  border-tborder  py-2 px-4  font-medium ">
                   {t('balanceTable.7')}
-                </td> */}
+                </td> 
               </tr>
             </thead>
             <tbody>

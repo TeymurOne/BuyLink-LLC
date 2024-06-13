@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import DateCard from './DateCard';
 import { useTranslation } from 'react-i18next';
 
@@ -8,11 +8,7 @@ interface CardDataTimeProps {
 }
 
 const CardDataTime: React.FC<CardDataTimeProps> = ({ rate }) => {
-  if (!rate) {
-    return (
-      <DateCard desc="Pas de date et heure" svg="#FF0000"/> 
-    );
-  }
+  if (!rate) return
 
   const [date] = rate.split(' ');
   const months = [
