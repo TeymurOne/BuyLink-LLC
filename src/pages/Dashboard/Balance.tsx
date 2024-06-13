@@ -240,7 +240,7 @@ export default function Balance() {
                 <td className="min-w-25.5 dark:text-white border-b border-r  border-tborder py-2 px-1 font-medium ">
                   {t('balanceTable.2')}
                 </td>
-                <td className="min-w-20.5 dark:text-white border-b border-r  border-tborder py-2 px-4 font-medium ">
+                <td className="min-w-22.5 dark:text-white border-b border-r  border-tborder py-2 px-3 font-medium ">
                   {t('balanceTable.3')}
                 </td>
                 
