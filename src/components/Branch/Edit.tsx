@@ -1,4 +1,4 @@
-import React, { FormEvent, useEffect } from 'react';
+import React, { FormEvent, useEffect, useTransition } from 'react';
 import {
   useLazyGetUpdateQuery,
   usePostUpdateMutation,
@@ -34,10 +34,10 @@ interface IpostData {
 
 const Form: React.FC = () => {
   const { id } = useParams();
-  const { t } = useTranslation();
   const dispatch = useDispatch();
   const [updatePost] = useLazyGetUpdateQuery();
   const [postBranches] = usePostUpdateMutation();
+  const { t } = useTranslation();
   const handleEdit = async (id: any) => {
     try {
       const response = await updatePost(id);
@@ -107,14 +107,14 @@ const Form: React.FC = () => {
           <div>
             <div className=" gap-4  grid lg:grid-cols-2  grid-cols-1">
               <Input
-                label="Address"
+                label={t('branch.5')}
                 value={address}
                 onChange={(e) => dispatch(setAddress(e.target.value))}
                 id="Address"
                 placeholder="Enter your address"
               />
               <Input
-                label="Phone"
+                label={t('branch.14')}
                 value={phone}
                 onChange={(e) => dispatch(setPhone(e.target.value))}
                 id="Phone"
@@ -123,7 +123,7 @@ const Form: React.FC = () => {
             </div>
             <div className="grid lg:grid-cols-2 grid-cols-1 lg:pt-10 pt-4">
               <Input
-                label="Name"
+                label={t('branch.2')}
                 value={name}
                 onChange={(e) => dispatch(setName(e.target.value))}
                 id="Name"
@@ -143,7 +143,7 @@ const Form: React.FC = () => {
             btnDisabled={btnDisabled}
             loading={load}
           >
-            Update
+            {t('branch.10')}
           </CancelSaveButton>
         </div>
       </form>

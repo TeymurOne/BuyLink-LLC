@@ -12,8 +12,8 @@ const resources = {
         '13': 'Balans',
       },
       branch: {
-        '0': 'Filial',
-        '1': 'Yarat Filial',
+        '0': 'Filiallar',
+        '1': 'Filial yarat ',
         '2': ' Adı',
         '3': 'Lat',
         '4': 'Lng',
@@ -26,6 +26,9 @@ const resources = {
         '11': 'Haqqında',
         '12': 'Xəritə',
         '13': 'Adına görə axtarış',
+        '14':"Nömrə",
+        '15':"Koordinatlar ",
+
       },
       product: {
         '0': 'Məhsul ',
@@ -42,7 +45,9 @@ const resources = {
         '11': 'Dəyış',
         '12': 'Haqqında',
         '13': 'Kateqoriya',
-        '14': 'adı        ',
+        '14': 'adı     ',
+        '15':'Şəkil əlave et'
+       
       },
       operator: {
         '0': 'Operator ',
@@ -77,6 +82,7 @@ const resources = {
         '15': 'Instagram',
         '16': 'Ləgv et',
         '17': 'Saxla',
+        '18':"Partnyor adı"
       },
       header: {
         '0': 'Haqqımızda',
@@ -388,7 +394,7 @@ const resources = {
         '5': 'Position ',
         '6': 'Actions ',
         '7': 'Change ',
-        '8': 'Cancal ',
+        '8': 'Cancel ',
         '9': 'Save ',
         '10': 'Update',
         '11': 'MemberType',
@@ -396,12 +402,12 @@ const resources = {
         '13': 'Balance',
       },
       branch: {
-        '0': 'Branch ',
+        '0': 'Branches',
         '1': 'Create Branch',
         '2': ' Name',
         '3': 'Lat',
         '4': 'Lng',
-        '5': 'ADDRESS ',
+        '5': 'Address ',
         '6': 'Actions ',
         '7': 'Change ',
         '8': 'Cancal ',
@@ -410,10 +416,13 @@ const resources = {
         '11': 'Details',
         '12': 'Map',
         '13': 'Search by name',
+        '14':"Phone",
+        '15':"Coordinates ",
+
       },
       product: {
         '0': 'Product ',
-        '1': 'Create Products',
+        '1': 'Create Product',
         '2': 'Image',
         '3': 'Title',
         '4': 'Description   ',
@@ -427,6 +436,7 @@ const resources = {
         '12': 'Details',
         '13': 'Category',
         '14': 'name    ',
+        "15":"Add image"
       },
       operator: {
         '0': 'Operator ',
@@ -461,6 +471,7 @@ const resources = {
         '15': 'Instagram',
         '16': 'Cancel',
         '17': 'Save',
+        '18':"Partner name"
       },
       header: {
         '0': 'About',

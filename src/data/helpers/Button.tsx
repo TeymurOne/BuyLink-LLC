@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 type CancelSaveButtonProps = {
   onCancel?: () => void;
@@ -7,6 +8,7 @@ type CancelSaveButtonProps = {
   children?:React.ReactNode
 };
 
+
 const CancelSaveButton: React.FC<CancelSaveButtonProps> = ({
   onCancel,
   children,
@@ -14,6 +16,7 @@ const CancelSaveButton: React.FC<CancelSaveButtonProps> = ({
   btnDisabled,
   loading,
 }) => {
+  const {t}=useTranslation()
   return (
     <div className="flex items-center justify-end gap-x-6">
       <button
@@ -21,7 +24,7 @@ const CancelSaveButton: React.FC<CancelSaveButtonProps> = ({
         type="button"
         className="text-sm font-semibold leading-6"
       >
-        Cancel
+        {t('product.9')}
       </button>
       {loading ? (
         <div
@@ -38,10 +41,10 @@ const CancelSaveButton: React.FC<CancelSaveButtonProps> = ({
           onClick={onSave}
           type="submit"
           className={`rounded-md ${
-            btnDisabled ? 'opacity-65' : 'opacity-100'
-          } bg-[#2D83B6] px-6 py-2  dark:text-white  text-sm font-semibold text-white shadow-sm`}
+            btnDisabled ? 'opacity-65 cursor-not-allowed' : 'opacity-100'
+          } bg-btnBgColor px-6 py-2  dark:text-white cursor-pointer  text-sm font-semibold text-white shadow-sm`}
         >
-          {children || 'Save'}
+          {children || t("product.10")}
         </button>
       )}
     </div>

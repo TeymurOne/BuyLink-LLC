@@ -12,6 +12,7 @@ import {
   setName,
   setPhone,
 } from '../../features/branch/branchSlice';
+import { useTranslation } from 'react-i18next';
 
 interface IpostData {
   id?: any;
@@ -26,7 +27,9 @@ interface IpostData {
 const Form: React.FC = () => {
   const dispatch = useDispatch();
 
-  const { address, phone, name, load } = useSelector((state: any) => state.branch,);
+  const { address, phone, name, load } = useSelector(
+    (state: any) => state.branch,
+  );
   const navigate = useNavigate();
   const [postBranches] = usePostBranchMutation();
   const latData = useSelector(selectLat);
@@ -59,6 +62,7 @@ const Form: React.FC = () => {
     }
   };
 
+  const { t } = useTranslation();
   const btnDisabled = !latData || !lngData || !address || !name || !phone;
 
   return (
@@ -67,14 +71,14 @@ const Form: React.FC = () => {
         <div className="pb-12">
           <div className="mt-10 gap-4  grid lg:grid-cols-2  grid-cols-1">
             <Input
-              label="Address"
+              label={t('branch.5')}
               value={address}
               onChange={(e) => dispatch(setAddress(e.target.value))}
               id="Address"
               placeholder="Enter your address"
             />
             <Input
-              label="Phone"
+              label={t('branch.14')}
               value={phone}
               onChange={(e) => dispatch(setPhone(e.target.value))}
               id="Phone"
@@ -83,7 +87,7 @@ const Form: React.FC = () => {
           </div>
           <div className="grid lg:grid-cols-2 grid-cols-1 lg:pt-10 pt-4">
             <Input
-              label="Name"
+              label={t('branch.2')}
               value={name}
               onChange={(e) => dispatch(setName(e.target.value))}
               id="Name"

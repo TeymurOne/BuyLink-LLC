@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import Map from './Map';
+import { useTranslation } from 'react-i18next';
 
 const App = (props: any) => {
   const { lat, lng } = props;
+  const {t}=useTranslation()
 
   const [cordinat, setCoordinat] = useState<any>({ lat: lat, lng: lng });
 
@@ -23,7 +25,7 @@ const App = (props: any) => {
       </div>
 
       <div className="mt-10">
-        <label htmlFor="coordinates">Coordinates (Lat, Lng)</label>
+        <label htmlFor="coordinates">{t('branch.15')}</label>
         <input
           type="text"
           id="coordinates"

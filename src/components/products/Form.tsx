@@ -96,7 +96,7 @@ const Form = () => {
     postData.append('category_id', categoryId!.toString());
     postData.append('price', price!.toString());
 
-    language.forEach((key: any) => {
+    language.forEach((key: any) =>  {
       const value = desc[key];
       postData.append(`description[${key}]`, value || '');
     });
@@ -156,7 +156,7 @@ const Form = () => {
               <div className="w-full">
                 <label
                   htmlFor={`title-${lang}`}
-                  className="block text-sm text-tdColor font-medium font-works mb-2"
+                  className="block text-sm dark:text-white300 text-tdColor font-medium font-works mb-2"
                 >
                    {t('product.0')} {t('product.14') }
                    {lang.toUpperCase()}
@@ -173,7 +173,7 @@ const Form = () => {
               <div className="w-full">
                 <label
                   htmlFor="description"
-                  className="block text-sm text-tdColor font-medium font-works mb-2 "
+                  className="block text-sm dark:text-white300 text-tdColor font-medium font-works mb-2 "
                 >
                   {t('product.4') }{lang.toUpperCase()}
                 </label>

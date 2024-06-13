@@ -36,6 +36,7 @@ const Tbody: React.FC<any> = ({ item }) => {
         <TD>{item.address}</TD>
         <TD>{item.lat}</TD>
         <TD>{item.lng}</TD>
+        <TD>{item.phone}</TD>
 
         <TD>
           <div className="flex items-center ">

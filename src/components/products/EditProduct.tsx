@@ -138,12 +138,15 @@ const EditProduct = () => {
         <TableSkeleton count="10" />
       ) : (
         <form className="h-auto">
-          <Title>Product Edit {idUrl}</Title>
+          <Title>
+            {' '}
+            {t('product.0')} {t('product.11')} {idUrl}
+          </Title>
 
           <div>
             <label
               htmlFor="photo"
-              className="block text-tdColor pt-10 text-base font-normal"
+              className="block dark:text-white300 text-tdColor pt-10 text-base font-normal"
             >
               Photo
             </label>
@@ -164,7 +167,7 @@ const EditProduct = () => {
                 htmlFor="file-upload"
                 className="rounded-md bg-white px-13 border py-2.5 text-sm font-semibold shadow-sm border-black border-opacity-20 h-10"
               >
-                Add Image
+                {t('product.15')}
               </label>
             </div>
           </div>
@@ -191,9 +194,9 @@ const EditProduct = () => {
                   <div className="w-full">
                     <label
                       htmlFor={`title-${lang}`}
-                      className="block text-sm text-tdColor font-medium font-works mb-2"
+                      className="block text-sm dark:text-white300 text-tdColor font-medium font-works mb-2"
                     >
-                      Partner Name {lang.toUpperCase()}
+                      {t('product.0')} {lang.toUpperCase()}
                     </label>
                     <input
                       name={`title-${lang}`}
@@ -207,9 +210,9 @@ const EditProduct = () => {
                   <div className="w-full">
                     <label
                       htmlFor={`description-${lang}`}
-                      className="block text-sm text-tdColor font-medium font-works mb-2"
+                      className="block text-sm dark:text-white300 text-tdColor font-medium font-works mb-2"
                     >
-                      Description {lang.toUpperCase()}
+                      {t('product.4')} {lang.toUpperCase()}
                     </label>
                     <textarea
                       name={`description-${lang}`}
@@ -231,14 +234,14 @@ const EditProduct = () => {
                 dispatch(setcategoryId(Number(e.target.value)))
               }
               value={categoryId}
-              label="Category"
+              label={t('product.7')}
               option=" Category seçin"
             >
               {content}
             </Select>
             <Input
               id="Price"
-              label="Price"
+              label={t('product.5')}
               onChange={(e) => dispatch(setPrice(e.target.value))}
               value={price}
               option=""
@@ -247,7 +250,7 @@ const EditProduct = () => {
             />
             <Input
               id="Discount Price"
-              label="Discount Price"
+              label={t('product.6')}
               onChange={(e) => dispatch(setDiscount(e.target.value))}
               value={discount}
               placeholder="Discount Price"
@@ -255,11 +258,10 @@ const EditProduct = () => {
             />
           </div>
 
-          <div className='mt-10'>
+          <div className="mt-10">
             <CancelSaveButton
               onSave={handleUpdate}
               onCancel={() => navigate(-1)}
-              
             >
               Update
             </CancelSaveButton>

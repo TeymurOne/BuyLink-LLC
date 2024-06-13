@@ -38,7 +38,7 @@ export const Search: React.FC<TitleProps> = ({ onchange }) => {
         type="text"
         onChange={onchange}
         placeholder=" search..."
-        className="max-w-70 w-full shadow-2 rounded-xl py-2 my-4   pl-9 focus:outline-none   "
+        className="max-w-70 dark:bg-boxdark w-full shadow-2 rounded-xl py-2 my-4   pl-9 focus:outline-none   "
       />
     </>
   );
@@ -68,6 +68,8 @@ export const Thead: React.FC<TheadProps> = ({ titles }) => {
             ID
           </th>
           {titles.map((title: string, index: number) => (
+            
+            
             <th
               key={index}
               className="min-w-24.5 py-2 border-b dark:text-white border-r  border-tborder px-4  font-medium"

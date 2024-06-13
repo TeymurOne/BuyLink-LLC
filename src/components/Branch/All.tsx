@@ -47,9 +47,12 @@ const CreateForm = () => {
   const titles = [
     t('branch.2'),
     t('branch.5'),
+    t('branch.3'),
+    t('branch.4'),
+    t('branch.14'),
     t('branch.6'),
-    t('branch.6'),
-    t('branch.6'),
+    
+   
   ];
 
   return (

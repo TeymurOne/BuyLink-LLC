@@ -12,6 +12,8 @@ import { useSelector } from 'react-redux';
 import { selectLat, selectLng } from '../../features/map/MapSlice';
 import MapSkeleton from '../../skeleton/Map';
 import TableSkeleton from '../../skeleton/TableSkeleton';
+import { useTranslation } from 'react-i18next';
+import CancelSaveButton from '../../data/helpers/Button';
 
 interface Initial {
   title_: any;
@@ -223,6 +225,7 @@ const Form = () => {
       setLoad(false);
     }
   };
+  const { t } = useTranslation();
   const handleTab = (item: string) => {
     setActive(item);
   };
@@ -277,7 +280,7 @@ const Form = () => {
                 htmlFor="cover-photo"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
-                Cover Photo
+                {t('partnerinfo.3')}
               </label>
               <div className="mt-6 flex h-20 items-center gap-x-3">
                 <div className="w-26 h-16  rounded-md ">
@@ -309,7 +312,7 @@ const Form = () => {
                 htmlFor="title"
                 className="flex items-center text-sm font-normal text-[#5B5B5B] leading-6 "
               >
-                <LuAsterisk style={{ color: 'red' }} /> <p>Partner Name</p>
+                <LuAsterisk style={{ color: 'red' }} /> <p className='dark:text-white'>   {t('partnerinfo.18')}</p>
               </label>
               <div className="mt-2 mb-4">
                 <input
@@ -319,6 +322,7 @@ const Form = () => {
                   id="text"
                   name="text"
                   type="text"
+
                   className="block outline-none  pl-4 w-full rounded-lg border-0 py-1.5  shadow-md   sm:text-sm sm:leading-6"
                 />
               </div>
@@ -361,7 +365,7 @@ const Form = () => {
                     htmlFor={`description-${lang}`}
                     className="block text-sm font-medium leading-6 mb-4"
                   >
-                    Description {lang.toUpperCase()}
+                    {t('partnerinfo.7')} {lang.toUpperCase()}
                   </label>
                   <textarea
                     name={`description-${lang}`}
@@ -376,7 +380,7 @@ const Form = () => {
                     htmlFor={`address-${lang}`}
                     className="block text-sm font-medium leading-6 mb-4"
                   >
-                    Address {lang.toUpperCase()}
+                        {t('partnerinfo.6')} {lang.toUpperCase()}
                   </label>
                   <textarea
                     name={`address-${lang}`}
@@ -415,7 +419,7 @@ const Form = () => {
                   className="flex items-center text-sm font-medium leading-6 "
                 >
                   <LuAsterisk style={{ color: 'red' }} />
-                  <p>Phone</p>
+                  <p className='dark:text-white300'>    {t('partnerinfo.9')}</p>
                 </label>
                 <div className="mt-2">
                   <input
@@ -494,40 +498,8 @@ const Form = () => {
           </div>
         </div>
 
-        <div className="mt-6 flex items-center justify-end gap-x-6">
-          <button
-            onClick={() => history.back()}
-            type="button"
-            className="text-sm font-semibold leading-6 text-gray-900"
-          >
-            Cancel
-          </button>
-          {load ? (
-            <div
-              className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-              role="status"
-            >
-              <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
-                Loading...
-              </span>
-            </div>
-          ) : (
-            <>
-              <button
-                disabled={btnDisabled}
-                onClick={postSubmit}
-                type="submit"
-                className={` ${
-                  btnDisabled ? ' opacity-65' : 'opacity-100'
-                }  bg-btnBgColor rounded-md  h-10 w-27  text-sm font-normal text-white
-                  focus-visible:outline 
-                 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
-              >
-                Save
-              </button>
-            </>
-          )}
-        </div>
+        <CancelSaveButton btnDisabled={btnDisabled}
+          onSave={postSubmit} onCancel={()=>history.back()} loading={load}/>
       </div>
     </>
   );

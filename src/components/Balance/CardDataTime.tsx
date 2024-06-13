@@ -3,7 +3,6 @@ import DateCard from './DateCard';
 import { useTranslation } from 'react-i18next';
 
 interface CardDataTimeProps {
-  children: ReactNode;
   title: string;
   rate?: string | null; 
 }

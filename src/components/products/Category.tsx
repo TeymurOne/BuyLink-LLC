@@ -41,6 +41,7 @@ const Category = () => {
         .includes(search.trim().toLocaleLowerCase()),
   );
 
+
   if (isLoading) {
     return (
       <div>
@@ -60,15 +61,15 @@ const Category = () => {
           <div className="max-w-full  border  rounded-lg border-tborder overflow-hidden   overflow-x-auto   ">
             <table className="w-full table-auto bg-white    ">
               <thead>
-                <tr className=" bg-white text-title-2xsm font-poppins text-black text-left dark:bg-meta-4">
+                <tr className=" bg-white text-title-2xsm font-poppins dark:text-white text-black text-left dark:bg-meta-4">
                   <th className="w-14.5 h-10  border-b border-r  border-tborder px-4  font-medium ">
                     ID
                   </th>
                   <th className="min-w-24.5 py-2 border-b border-r dark:text-white  border-tborder px-4  lg:pl-10  md:pl-4  sm:pl-0 font-medium  ">
-                    Name
+                    {t("branch.2")}
                   </th>
                   <th className="min-w-24.5 py-2 border-b border-r dark:text-white   border-tborder px-4 font-medium ">
-                    Action
+                  {t("branch.6")}
                   </th>
                 </tr>
               </thead>
@@ -128,7 +129,7 @@ function Tbody({ item, language, id }: TbodyProps) {
         <td className="  py-3 px-4 dark:border-strokedark">
           <Link
             to={`/admin/product/${item.id}`}
-            className="bg-white text-xs font-medium shadow-sm  mb-4 lg:mb-0 md:mb-0 sm:mb-0 space-x-2  rounded-md  justify-center flex items-center h-10 w-full max-w-35"
+            className="bg-white dark:bg-boxdark dark:shadow-8 dark:hover:bg-zinc-900 dark:text-white text-xs font-medium shadow-sm  mb-4 lg:mb-0 md:mb-0 sm:mb-0 space-x-2  rounded-md  justify-center flex items-center h-10 w-full max-w-35"
           >
             <img src={create} alt="Create icon" />
             <p>{t('product.1')}</p>
