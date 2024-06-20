@@ -43,7 +43,7 @@ const Tbody: React.FC<any> = ({ item }) => {
             <ActionLink
               bg=""
               icon={Details()}
-              to={`/admin/details/${item.id}`}
+              to={`/admin/branch/details/${item.id}`}
             />
             <ActionLink
               bg=""
@@ -53,7 +53,7 @@ const Tbody: React.FC<any> = ({ item }) => {
             <ActionLink
               bg=""
               icon={Edit()}
-              to={`/admin/branchEdit/${item.id}`}
+              to={`/admin/branch/edit/${item.id}`}
             />
           </div>
         </TD>

@@ -128,7 +128,7 @@ function Tbody({ item, language, id }: TbodyProps) {
 
         <td className="  py-3 px-4 dark:border-strokedark">
           <Link
-            to={`/admin/product/${item.id}`}
+            to={`/admin/product/create/${item.id}`}
             className="bg-white dark:bg-boxdark dark:shadow-8 dark:hover:bg-zinc-900 dark:text-white text-xs font-medium shadow-sm  mb-4 lg:mb-0 md:mb-0 sm:mb-0 space-x-2  rounded-md  justify-center flex items-center h-10 w-full max-w-35"
           >
             <img src={create} alt="Create icon" />
@@ -158,7 +158,7 @@ function TbodyResponsive({ item, language, id }: TbodyProps) {
             </span>
           </div>
           <Link
-            to={`/admin/product/${item.id}`}
+            to={`/admin/product/create/${item.id}`}
             className="bg-white text-xs shadow-md font-medium  mb-4 lg:mb-0 md:mb-0 sm:mb-0 space-x-2  rounded-md  justify-center flex items-center h-9 w-full max-w-35"
           >
             <img src={create} alt="Create icon" />

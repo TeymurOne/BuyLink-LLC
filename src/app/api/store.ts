@@ -12,6 +12,7 @@ import categorySlice from '../../features/category/categorySlice';
 import balanceSlice from '../../features/balance/balanceSlice';
 import settingsSlice from '../../features/auth/settingsSlice';
 import branchSlice from '../../features/branch/branchSlice';
+import operatoreSlice from '../../features/operator/operatoreSlice';
 export const store = configureStore({
   
   reducer: {
@@ -25,6 +26,7 @@ export const store = configureStore({
     balance:balanceSlice,
     settings:settingsSlice,
     branch:branchSlice,
+    operator:operatoreSlice,
     [apiSlice.reducerPath]:apiSlice.reducer,
 
     auth: authSlice,

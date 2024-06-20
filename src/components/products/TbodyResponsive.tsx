@@ -85,12 +85,12 @@ const TbodyResponsive = ({ item }: any) => {
             <ActionLink
             bg="#DFE8FA"
               icon={Details()}
-              to={`/admin/detailsproduct/${item?.id}`}
+              to={`/admin/product/details/${item?.id}`}
             />
             <ActionLink
            bg="#E5FDEF"
               icon={Edit()}
-              to={`/admin/editproduct/${item?.id}`}
+              to={`/admin/product/edit/${item?.id}`}
             />
             <ActionLink
             bg="#FFECEC"

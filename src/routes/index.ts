@@ -8,16 +8,16 @@ const balance = lazy(() => import('../pages/Dashboard/Balance.tsx'));
 
 const branchcreate = lazy(() => import('../components/Branch/All.tsx'));
 // const productform = lazy(() => import('../components/Branch/Form'));
-const servicesCreate = lazy(
+const operatorAll = lazy(
   () => import('../components/operator/CreateForm.tsx'),
 );
-const servicesForm = lazy(() => import('../components/operator/Form.tsx'));
+const operatorCreate = lazy(() => import('../components/operator/Form.tsx'));
 // edit routes
 
 // product routes
 
 const editProduct = lazy(() => import('../components/products/EditProduct'));
-const productCreate = lazy(() => import('../components/products/All.tsx'));
+const productsAll = lazy(() => import('../components/products/All.tsx'));
 const productForm = lazy(() => import('../components/products/Form'));
 const detailsProduct = lazy(() => import('../components/products/Details'));
 
@@ -51,7 +51,7 @@ const coreRoutes = [
   },
 
   {
-    path: '/admin/details/:id',
+    path: '/admin/branch/details/:id',
     title: 'branchDetails',
     component: branchDetails,
   },
@@ -61,67 +61,67 @@ const coreRoutes = [
     component: branchform,
   },
   {
-    path: '/admin/branchEdit/:id',
+    path: '/admin/branch/edit/:id',
     title: 'branchEdit',
     component: branchEdit,
   },
 
   
   {
-    path: '/admin/editproduct/:id',
+    path: '/admin/product/edit/:id',
     title: 'editProduct',
     component: editProduct,
   },
 
   {
-    path: '/admin/products',
-    title: 'productCreate',
-    component: productCreate,
+    path: '/admin/product/all',
+    title: 'productsAll',
+    component: productsAll,
   },
 
   {
-    path: '/admin/product/:id',
+    path: '/admin/product/create/:id',
     title: 'productForm',
     component: productForm,
   },
   {
-    path: '/admin/category',
+    path: '/admin/category/all',
     title: 'category',
     component: category,
   },
   {
-    path: '/admin/detailsproduct/:id',
+    path: '/admin/product/details/:id',
     title: 'detailsProduct',
     component: detailsProduct,
   },
   {
-    path: '/admin/branchcreate',
+    path: '/admin/branch/all',
     title: 'branchcreate',
     component: branchcreate,
   },
 
   {
-    path: '/admin/servicesCreate',
-    title: 'servicesCreate',
-    component: servicesCreate,
+    path: '/admin/operator/all',
+    title: 'operatorAll',
+    component: operatorAll,
   },
   {
-    path: '/admin/servicesForm',
-    title: 'servicesForm',
-    component: servicesForm,
+    path: '/admin/operator/create',
+    title: 'operatorCreate',
+    component: operatorCreate,
   },
   {
     path: '/admin/pageland',
     title: 'pageland',
-    component: servicesForm,
+    component: operatorCreate,
   },
   {
-    path: '/admin/operatoredit/:id',
+    path: '/admin/operator/edit/:id',
     title: 'operatorEdit',
     component: operatorEdit,
   },
   {
-    path: '/admin/operatordetails/:id',
+    path: '/admin/operator/details/:id',
     title: 'operatorDetails',
     component: operatorDetails,
   },

@@ -1,8 +1,11 @@
-const Transactions: React.FC<any> = ({ item }) => (
- 
+
+
+const Transactions = ({item}:any) => {
+  console.log(item, 'item');
   
-  <>
-    <tr className="dark:bg-boxdark border-0 bg-white hover:bg-tborderHover">
+  return (
+    <>
+       <tr className="dark:bg-boxdark border-0 bg-white hover:bg-tborderHover">
       <td className="dark:text-white border-gray border-0 text-xs px-4 dark:border-strokedark">
         {item?.id}
       </td>
@@ -27,28 +30,31 @@ const Transactions: React.FC<any> = ({ item }) => (
       </td>
       <td className="border-gray border-0 text-xs px-4 dark:border-strokedark">
         <p className="inline-flex rounded-full bg-opacity-10 py-1 px-3 text-sm font-medium">
-          {item?.amount}
+          {item?.commission_amount}   {/* comisssion */}
         </p>
       </td>
 
       <td className="border-gray border-0 text-xs px-4 dark:border-strokedark">
         <p className="inline-flex rounded-full bg-opacity-10 py-1 px-3 text-sm font-medium">
-          {item?.created_at.slice(0, 10)} /  {item?.created_at.slice(11, 16)}
+          {item?.created_at.slice(0, 10)} / {item?.created_at.slice(11, 16)}
         </p>
       </td>
 
       <td className="border-gray border-0 text-xs px-4 dark:border-strokedark">
         <p className="inline-flex rounded-full bg-opacity-10 py-1 px-3 text-sm font-medium">
-          {item?.amount - item?.partner.total_commission}
+          {item?.net_amount}
         </p>
       </td>
       <td className="border-gray border-0 text-xs px-4 dark:border-strokedark">
         <p className="inline-flex rounded-full bg-opacity-10 py-1 px-3 text-sm font-medium">
-          {item?.user.id}
+          {item?.user?.id}
         </p>
       </td>
     </tr>
-  </>
-);
+      
+    </>
+  )
+}
 
-export default Transactions;
+export default Transactions
+

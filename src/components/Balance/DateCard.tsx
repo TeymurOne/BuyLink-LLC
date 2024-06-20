@@ -10,7 +10,6 @@ interface Date{
 
 
 const DateCard:React.FC<Date> = ({svg,month, desc, day, daytext}) => {
-  console.log(desc, 'desc');
   
   return (
     <>

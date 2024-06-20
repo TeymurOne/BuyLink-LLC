@@ -61,9 +61,9 @@ const Tbody: React.FC<itemAllData> = ({ item }) => {
 
         <TD>
           <div className="flex items-center  ">
-            <ActionLink bg="" icon={Details()} to={`/admin/detailsproduct/${id}`} />
+            <ActionLink bg="" icon={Details()} to={`/admin/product/details/${id}`} />
             <ActionLink bg="" icon={Delete()} onClick={() => handleDelete(id)}  />
-            <ActionLink bg="" icon={Edit()} to={`/admin/editproduct/${id}`}  />
+            <ActionLink bg="" icon={Edit()} to={`/admin/product/edit/${id}`}  />
           </div>
         </TD>
       </TR>

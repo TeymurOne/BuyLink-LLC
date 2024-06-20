@@ -56,7 +56,7 @@ const CreateForm = () => {
           <Search />
         </div>
 
-        <CreateBtn img={create} link="product/:id">
+        <CreateBtn img={create} link="product/create/:id">
           {t('product.1')}
         </CreateBtn>
       </div>

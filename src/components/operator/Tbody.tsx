@@ -3,11 +3,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AiOutlineDelete } from 'react-icons/ai';
 import { FiEdit2, FiEye } from 'react-icons/fi';
 import Swal from 'sweetalert2';
-import {
-  useDeleteOperatorMutation,
-  
-} from '../../features/operator/apiSlice';
+import { useDeleteOperatorMutation } from '../../features/operator/apiSlice';
 import { IitemApiOperator } from './CreateForm';
+import { TD, TR } from '../../common/Table/Table';
+import ActionLink from '../ui/ActionLink';
+import { Delete, Details, Edit } from '../../data/helpers/Svg';
 
 export interface TbodyProps {
   item: IitemApiOperator;
@@ -17,8 +17,6 @@ const Tbody: React.FC<TbodyProps> = ({ item }) => {
   const [deletePost] = useDeleteOperatorMutation();
 
   const navigate = useNavigate();
-
- 
 
   const handleRemove = async (id: number) => {
     const result = await Swal.fire({
@@ -49,44 +47,34 @@ const Tbody: React.FC<TbodyProps> = ({ item }) => {
     }
   };
 
-
   return (
     <>
-      <tr>
-        <td className="border-b border-[#eee] py-5 px-4 pl-9 dark:border-strokedark xl:pl-11">
-          <div className="font-medium w-10 dark:text-white">{item.id}</div>
-        </td>
-        <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-          <p className="text-black dark:text-white">{item?.branch?.name}</p>
-        </td>
-        <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-          <p className="text-black dark:text-white">{item.name}</p>
-        </td>
-        <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-          <p className="text-black dark:text-white">{item?.email}</p>
-        </td>
-        <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-          <div className="flex items-center space-x-3.5">
-            <Link to={`/admin/operatordetails/${item.id}`}>
-            <button className="hover:text-primary" >
-              <FiEye />
-            </button>
-            </Link>
-          
-            <button
-              className="hover:text-primary"
-              onClick={() => handleRemove(item.id)}
-            >
-              <AiOutlineDelete />
-            </button>
-            <Link to={`/admin/operatoredit/${item.id}`}
-              className="hover:text-primary"
-            >
-              <FiEdit2 />
-            </Link>
+      <TR>
+        <TD>{item.id}</TD>
+        <TD>{item?.branch?.name}</TD>
+        <TD>{item.name}</TD>
+        <TD>{item.email}</TD>
+
+        <TD>
+          <div className="flex items-center  ">
+            <ActionLink
+              bg=""
+              icon={Details()}
+              to={`/admin/operator/details/${item?.id}`}
+            />
+            <ActionLink
+              bg=""
+              icon={Delete()}
+              onClick={() => handleRemove(item?.id)}
+            />
+            <ActionLink
+              bg=""
+              icon={Edit()}
+              to={`/admin/operator/edit/${item?.id}`}
+            />
           </div>
-        </td>
-      </tr>
+        </TD>
+      </TR>
     </>
   );
 };

@@ -111,7 +111,7 @@ const Form = () => {
           .unwrap()
           .then((response) => {
             if (response.data) {
-              navigate('/admin/products');
+              navigate('/admin/product/all');
               dispatch(setReset());
             }
           });

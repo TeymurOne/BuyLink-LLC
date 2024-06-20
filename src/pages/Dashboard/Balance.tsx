@@ -162,7 +162,7 @@ export default function Balance() {
         <div className="flex gap-4 sm:flex-row flex-col  lg:w-1/2 w-full">
           <CardDataStats
             title={t('balance.3')}
-            rate={cash_till}
+            rate={ buylink_wallet}
             apiData="cash_till"
           >
             <svg
@@ -181,7 +181,7 @@ export default function Balance() {
           </CardDataStats>
           <CardDataStats
             title={t('balance.2')}
-            rate={buylink_wallet}
+            rate={cash_till}
             apiData="wallet"
           >
             <svg

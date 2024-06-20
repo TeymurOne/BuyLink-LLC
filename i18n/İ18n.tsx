@@ -752,7 +752,7 @@ const resources = {
       },
       balance: {
         '0': 'Total Revenue',
-        '1': 'Duo to BuyLink',
+        '1': 'Due to BuyLink',
         '2': 'Cash Till',
         '3': 'Buylink  Wallet',
         '4': 'Net amount',
