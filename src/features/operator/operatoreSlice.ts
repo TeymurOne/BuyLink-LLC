@@ -24,6 +24,8 @@ const operatorSlice = createSlice({
       return { ...state, name: action.payload };
     },
     setPwd(state, action) {
+  
+      
       return { ...state, password: action.payload };
     },
     setEmail(state, action) {

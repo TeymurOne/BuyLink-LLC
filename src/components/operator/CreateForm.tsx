@@ -31,21 +31,21 @@ const CreateForm = () => {
   }
 
   const titles = [
-    t('branch.5'),
-    t('branch.2'),
-    t('branch.3'),
-    t('branch.4'),
-    t('branch.14'),
+    t('operator.3'),
+    t('operator.4'),
+    t('operator.5'),
+
   ];
 
   return (
     <>
       <div className="flex justify-between  flex-wrap">
         <div className="flex flex-col w-60 mb-10">
-          <Title>Operator</Title>
+          <Title>{ t('operator.0')}</Title>
         </div>
         <CreateBtn img={create} link="operator/create">
-          {t('branch.1')}
+        { t('operator.1')}
+
         </CreateBtn>
       </div>
       {isLoading ? (

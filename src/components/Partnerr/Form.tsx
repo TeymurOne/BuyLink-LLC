@@ -271,7 +271,7 @@ const Form = () => {
                   className="rounded-md bg-white  pl-10.5 py-1.5 text-sm
                     font-normal   shadow-sm  w-40  mb-4  hover:bg-gray-3"
                 >
-                  Change
+                  {t("branch.7")}
                 </label>
               </div>
             </div>
@@ -302,7 +302,7 @@ const Form = () => {
                   className="rounded-md bg-white  pl-10.5 py-1.5 text-sm
                     font-normal   shadow-sm  w-40  mb-4  hover:bg-gray-3"
                 >
-                  Change
+                      {t("branch.7")}
                 </label>
               </div>
             </div>

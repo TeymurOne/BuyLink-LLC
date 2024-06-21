@@ -35,7 +35,8 @@ const RatingStar = () => {
         <>
           <div className=" bg-white  dark:bg-boxdark  pl-10  py-8 xl:col-span-5 col-span-full   ">
             <h2 className="text-4xl  dark:text-white  font-medium font-inter    text-black">
-              Rating and Reviews
+              
+              {t("statistic.10")}
             </h2>
 
             <div className="flex py-6 space-x-4 ">

@@ -87,7 +87,7 @@ const Form = () => {
           .unwrap()
           .then((response) => {
             if (response) {
-              navigate('/admin/servicesCreate');
+              navigate('/admin/operator/all');
             }
           });
       }
@@ -127,19 +127,7 @@ const Form = () => {
                 />
               </div>
 
-              <div className="sm:col-span-2 col-span-6">
-                <Select
-                  id="branch"
-                  onChange={handleBranch}
-                  label={t('operator.2')}
-                  option=" Branch seçin"
-                >
-                  <option disabled value="default">
-                    {t('operator.2')} {t('operator.10')}
-                  </option>
-                  {content}
-                </Select>
-              </div>
+         
             </div>
           </div>
         </div>

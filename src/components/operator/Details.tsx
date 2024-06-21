@@ -16,18 +16,18 @@ const Details = () => {
   }
 
   const titles = [
-    t('branch.5'),
-    t('branch.2'),
-    t('branch.3'),
-    t('branch.4'),
-    t('branch.14'),
+    t('operator.3'),
+    t('operator.4'),
+
+
   ];
+
   return (
     <>
       {content ? (
         <>
           <Title>
-            Operator Details: <span>{id}</span>{' '}
+           { t('operator.0')}     <span>  {id}</span>{' '}
           </Title>
 
           {content && (
@@ -59,9 +59,7 @@ const Details = () => {
                 <li className="py-4 px-3 lg:text-sm text-xs  pl-5 ">
                   {content?.email}
                 </li>
-                <li className="py-4 px-3 lg:text-sm text-xs  pl-5  bg-[#F8F8F8]">
-                  {content?.branch.name}
-                </li>
+            
               </ul>
             </div>
           )}

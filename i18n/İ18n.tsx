@@ -34,12 +34,12 @@ const resources = {
         '0': 'Məhsul ',
         '1': ' Məhsul Yarat',
         '2': 'Şəkil',
-        '3': 'Başlıq',
+        '3': 'Ad',
         '4': 'Məzmun     ',
         '5': 'Qiymət ',
         '6': 'Endirimli qiymət ',
         '7': 'Kateqoriya ',
-        '8': 'Hərəkətlət ',
+        '8': 'Redakt ',
         '9': 'Ləgv et ',
         '10': 'Saxla',
         '11': 'Dəyış',
@@ -51,7 +51,7 @@ const resources = {
       },
       operator: {
         '0': 'Operator ',
-        '1': 'Yarat Operator',
+        '1': ' Operator yarat',
         '2': 'Filiali',
         '3': 'Ad',
         '4': 'Email',
@@ -338,11 +338,12 @@ const resources = {
         '3': 'Ümumi əməliyyatlar',
 
         '4': 'Ümumi tövsiyələr',
-        '5': 'Referal olunan tövsiyələr',
+        '5': 'İstifadə olunmuş tövsiyələr',
         '6': 'Tövsiyələr  ',
         '7': 'Aylıq gəlir',
         '8': ' Satış',
         '9': 'Trend',
+        '10':"Reytinq və rəylər "
       },
       balance: {
         '0': ' Ümumi satış',
@@ -749,6 +750,7 @@ const resources = {
         '7': 'Revenue per Month  ',
         '8': 'Sales',
         '9': 'Trend',
+        '10':"Rating and Reviews"
       },
       balance: {
         '0': 'Total Revenue',

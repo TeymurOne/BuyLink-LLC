@@ -32,7 +32,7 @@ const Details = () => {
             <div className="max-w-full font-poppins text-sm font-normal mt-4  flex w-full 0  border-gray  overflow-hidden rounded-tl-xl   border ">
               <ul className="max-w-25 w-full bg-white dark:bg-boxdark dark:text-white">
                 <li className="py-4 px-3 h-20 border-gray border-r border-b lg:text-sm text-xs ">
-                  İd
+                  Sıra nömrəsi
                 </li>
 
                 {titles.map((item, index) => {

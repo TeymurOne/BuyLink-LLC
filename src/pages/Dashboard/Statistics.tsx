@@ -64,7 +64,7 @@ const ECommerce: React.FC = () => {
         </CardDataStats>
         <CardDataStats
           title={t('statistic.1')}
-          total={data?.total_transactions}
+          total={data?.total_transactions_amount}
           rate="4.35%"
           levelUp
         >

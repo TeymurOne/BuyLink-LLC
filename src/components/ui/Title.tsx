@@ -65,7 +65,7 @@ export const Thead: React.FC<TheadProps> = ({ titles }) => {
       <thead className="md:contents hidden">
         <tr className=" bg-white  text-title-2xsm font-poppins text-black text-left dark:bg-meta-4">
           <th className="w-14.5 h-10  border-b border-r dark:text-white  border-tborder px-4  font-medium ">
-            ID
+            Sıra sayı
           </th>
           {titles.map((title: string, index: number) => (
             
