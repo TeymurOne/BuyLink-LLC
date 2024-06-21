@@ -343,7 +343,9 @@ const resources = {
         '7': 'Aylıq gəlir',
         '8': ' Satış',
         '9': 'Trend',
-        '10':"Reytinq və rəylər "
+        '10':"Reytinq və rəylər ",
+        '11':" Qiymətləndirmə sayı"
+        
       },
       balance: {
         '0': ' Ümumi satış',
@@ -750,7 +752,8 @@ const resources = {
         '7': 'Revenue per Month  ',
         '8': 'Sales',
         '9': 'Trend',
-        '10':"Rating and Reviews"
+        '10':"Rating and Reviews",
+        '11':"Review count"
       },
       balance: {
         '0': 'Total Revenue',

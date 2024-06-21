@@ -84,7 +84,7 @@ const Form: React.FC = () => {
         };
         const response = await postBranches({ postData, id }).unwrap();
         if (response) {
-          navigate('/admin/branchcreate');
+          navigate('/admin/branhc/all');
           dispatch(resetState());
         }
       }

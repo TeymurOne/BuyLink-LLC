@@ -5,7 +5,7 @@ interface OperatoreT {
   name: string;
   email: string;
   password: string;
-  branchID?: string;
+
 }
 
 const initialState: OperatoreT = {
@@ -13,7 +13,7 @@ const initialState: OperatoreT = {
   name: '',
   email: '',
   password: '',
-  branchID: '',
+
 };
 
 const operatorSlice = createSlice({
@@ -31,14 +31,15 @@ const operatorSlice = createSlice({
     setEmail(state, action) {
       return { ...state, email: action.payload };
     },
-    setBranch(state, action) {
-      return { ...state, branchID: action.payload };
-    },
+  
     setLoad(state, action) {
       return { ...state, load: action.payload };
     },
+    resetState(state){
+      return {...state, name:"", email:"", password:"",}
+    }
   },
 });
 
-export const { setName, setLoad, setBranch, setEmail, setPwd } = operatorSlice.actions;
+export const { setName, setLoad, resetState, setEmail, setPwd } = operatorSlice.actions;
 export default operatorSlice.reducer;

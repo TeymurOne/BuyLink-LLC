@@ -117,7 +117,7 @@ const ECommerce: React.FC = () => {
           </svg>
         </CardDataStats>
         <CardDataStats
-          title={t('statistic.3')}
+          title={t('statistic.5')}
           total={data?.total_transactions}
           rate="0.95%"
           levelDown

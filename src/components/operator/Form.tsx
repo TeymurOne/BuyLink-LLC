@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import Input from '../../common/Form/Input';
 import { useDispatch, useSelector } from 'react-redux';
 import {
+  resetState,
   setEmail,
   setLoad,
   setName,
@@ -58,6 +59,7 @@ const Form = () => {
           .then((response) => {
             if (response) {
               navigate('/admin/operator/all');
+              dispatch(resetState())
             }
           });
       }

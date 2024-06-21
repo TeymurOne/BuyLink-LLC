@@ -51,7 +51,7 @@ const Form: React.FC = () => {
 
         const response = await postBranches(postData).unwrap();
         if (response.success) {
-          navigate('/admin/branchcreate');
+          navigate('/admin/branch/all');
           dispatch(resetState());
         }
       }

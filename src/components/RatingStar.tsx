@@ -4,25 +4,29 @@ import { useGetStatisticsQuery } from '../features/statistcs/apiSlice';
 
 const RatingStar = () => {
   const { data, isSuccess, isLoading } = useGetStatisticsQuery('');
-  console.log(data, 'star');
-  
+
   const average_rating: any = data?.rating.rounded_average_rating;
   const { t } = useTranslation();
   let content;
-  const stardata = ['0', '1', '2', '3', '4'];
+  const stardata = Object.entries(data?.rating.rating_counts);
 
   if (isSuccess) {
     content = stardata.map((rate: any, index: number) => {
       return (
-        <div className="flex items-center xl:pr-10  my-1" key={index}>
-          <Star average_rating={rate[0]} size={10} />
-          <div className="max-w-full w-full h-1 mx-4 bg-gray900 rounded ">
-            <div
-              className="h-1 bg-meta-6   rounded"
-              style={{ width: `${rate[1]}%` }}
-            />
+        <>
+          <div className="flex group items-center  xl:pr-10  my-1" key={index}>
+            <Star average_rating={rate[0]} size={10} />
+
+            <div className={`max-w-full  w-full  h-1 mx-4 bg-gray900 rounded `}>
+              <div
+                className={`h-1 bg-meta-6   rounded`}
+                style={{ width: `${rate[1] * 2}0%` }}
+              />
+            </div>
+            <p className='group-hover:opacity-100  opacity-0'>  {rate[1]}</p>
+          
           </div>
-        </div>
+        </>
       );
     });
   }
@@ -35,8 +39,7 @@ const RatingStar = () => {
         <>
           <div className=" bg-white  dark:bg-boxdark  pl-10  py-8 xl:col-span-5 col-span-full   ">
             <h2 className="text-4xl  dark:text-white  font-medium font-inter    text-black">
-              
-              {t("statistic.10")}
+              {t('statistic.10')}
             </h2>
 
             <div className="flex py-6 space-x-4 ">
@@ -46,14 +49,12 @@ const RatingStar = () => {
               <span>
                 <Star average_rating={average_rating} size={20} />
                 <p className="text-tdColor dark:text-white  text-xs font-inter font-400 ">
-                  {data?.rating?.total_review_count} {t('statistic.8')}
+                  {data?.rating?.total_review_count} {t('statistic.11')}
                 </p>
               </span>
             </div>
             {content}
           </div>
-           
-       
         </>
       )}
     </>

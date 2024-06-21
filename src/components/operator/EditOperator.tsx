@@ -11,14 +11,13 @@ import { useTranslation } from 'react-i18next';
 import Input from '../../common/Form/Input';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  setBranch,
+
   setEmail,
   setName,
   setLoad,
 } from '../../features/operator/operatoreSlice';
 import CancelSaveButton from '../../data/helpers/Button';
 import { Title } from '../ui/Title';
-import Select from '../../common/Form/Select';
 
 const Form = () => {
   const { id }: any = useParams();
@@ -37,7 +36,7 @@ const Form = () => {
         const data = resUpdate.data?.data;
         dispatch(setName(data?.name));
         dispatch(setEmail(data?.email));
-        dispatch(setBranch(data?.branch.id));
+     
       }
     } catch (error) {}
   };
@@ -67,17 +66,13 @@ const Form = () => {
     console.error('Error fetching data', 'Products Types');
   }
 
-  const handleBranch = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const branchNum = Number(e.target.value);
-    dispatch(setBranch(branchNum));
-  };
+ 
 
   const postSubmit = async (e: React.FormEvent<HTMLButtonElement>) => {
     dispatch(setLoad(true));
     setLoad(true);
     e.preventDefault();
 
-    postData.append('branch_id', branchID!.toString());
     postData.append('name', name);
     postData.append('email', email);
 
