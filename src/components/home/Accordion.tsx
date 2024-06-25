@@ -28,7 +28,6 @@ const Accordion = () => {
       question: t("accordion.5"),
       answer: t("accordion.6"),
     },
-  
   ];
 
   const [curOpen, setCurOpen] = useState<any>(null);
@@ -83,10 +82,9 @@ function AccordionItem({ num, question, answer, curOpen, setCurOpen }: any) {
             )}
           </button>
         </div>
-
         <p
           id="transition"
-          className={`text-xl h-0 overflow-hidden font-poppins ${isOpen && 'h-auto  py-2'}`}
+          className={`text-xl h-0 overflow-hidden font-poppins ${isOpen && 'h-auto py-2'}`}
         >
           {answer}
         </p>
