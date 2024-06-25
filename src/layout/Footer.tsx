@@ -2,21 +2,25 @@ import logo from '../images/Pages-index/head-main/logo.svg';
 
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+
 const Footer = () => {
   const { t } = useTranslation();
 
   return (
     <>
-      <footer className='bg-black  w-full  py-12'>
+      <footer className="w-full  bg-black  py-12">
         <div className=" container mx-auto  h-full">
-          <div className="grid lg:grid-cols-4 gap-10   grid-cols-1  w-[70%] pb-10 pt-10 xsm:px-4   ">
-            <div className=" flex flex-col justify-between px-2 lg:h-[190px]  h-auto   ">
-              <img className="w-17 h-19" src={logo} alt="Logo-footer" />
-              <p className="text-white text-[16px] normal font-light">
+          <div className="grid w-[70%] grid-cols-1   gap-10  pb-10 pt-10 xsm:px-4 lg:grid-cols-4   ">
+            <div className=" flex h-auto flex-col justify-between px-2  lg:h-[190px]   ">
+              <img className="h-19 w-17" src={logo} alt="Logo-footer" />
+              <p className="normal text-[16px] font-light text-white">
                 {t('footer.0')}
               </p>
-              <div className="flex space-x-3 items-center  max-w-[100px]">
-                <a href="https://www.facebook.com/buylinkapp?locale=ru_RU" target='_blank'>
+              <div className="flex max-w-[100px] items-center  space-x-3">
+                <a
+                  href="https://www.facebook.com/buylinkapp?locale=ru_RU"
+                  target="_blank"
+                >
                   <svg
                     width="32"
                     height="32"
@@ -31,7 +35,11 @@ const Footer = () => {
                   </svg>
                 </a>
 
-                <a className="w-8 h-8" href='mailto:partnership@buylink.info'  target='_blank'>
+                <a
+                  className="h-8 w-8"
+                  href="mailto:partnership@buylink.info"
+                  target="_blank"
+                >
                   <svg
                     width="32"
                     height="32"
@@ -46,7 +54,10 @@ const Footer = () => {
                   </svg>
                 </a>
 
-                <a href="https://www.instagram.com/buylinkapp?igsh=MXhsdXgybmlibGcybA=="  target='_blank' >
+                <a
+                  href="https://www.instagram.com/buylinkapp?igsh=MXhsdXgybmlibGcybA=="
+                  target="_blank"
+                >
                   <svg
                     width="32"
                     height="32"
@@ -61,7 +72,10 @@ const Footer = () => {
                   </svg>
                 </a>
 
-                <a href="https://www.linkedin.com/company/buylink.info/?viewAsMember=true"  target='_blank'>
+                <a
+                  href="https://www.linkedin.com/company/buylink.info/?viewAsMember=true"
+                  target="_blank"
+                >
                   <svg
                     width="32"
                     height="32"
@@ -77,58 +91,58 @@ const Footer = () => {
                 </a>
               </div>
             </div>
-            <div className="px-2 w-full max-w-25">
-              <h2 className=" text-xl normal font-bold font-Space Grotesk text-white">
+            <div className="w-full max-w-25 px-2">
+              <h2 className=" normal font-Space Grotesk text-xl font-bold text-white">
                 {t('footer.1')}
               </h2>
               <ul>
-                <li className="text-base my-2 normal font-light text-white">
+                <li className="normal my-2 text-base font-light text-white">
                   <a href="#about">{t('footer.2')}</a>
                 </li>
-                <li className="text-base normal my-2 font-light text-white">
+                <li className="normal my-2 text-base font-light text-white">
                   <Link to="">{t('footer.3')}</Link>
                 </li>
-                <li className="text-base normal my-2 font-light text-white">
+                <li className="normal my-2 text-base font-light text-white">
                   <Link to=""> {t('footer.4')}</Link>
                 </li>
               </ul>
             </div>
-            <div className="px-2  w-full max-w-25">
-              <h2 className=" text-xl normal font-bold font-Space Grotesk text-white">
+            <div className="w-full  max-w-25 px-2">
+              <h2 className=" normal font-Space Grotesk text-xl font-bold text-white">
                 {t('footer.5')}
               </h2>
               <ul>
-                <li className="text-base my-2 normal font-light text-white">
+                <li className="normal my-2 text-base font-light text-white">
                   <Link to="">{t('footer.6')} </Link>
                 </li>
-                <li className="text-base normal my-2 font-light text-white">
+                <li className="normal my-2 text-base font-light text-white">
                   <Link to="">{t('footer.7')}</Link>
                 </li>
-                <li className="text-base normal my-2 font-light text-white">
+                <li className="normal my-2 text-base font-light text-white">
                   <Link to=""> {t('footer.8')}</Link>
                 </li>
               </ul>
             </div>
-            <div className="px-2  w-full max-w-42.5">
-              <h2 className=" text-xl normal font-bold font-Space Grotesk text-white">
+            <div className="w-full  max-w-42.5 px-2">
+              <h2 className=" normal font-Space Grotesk text-xl font-bold text-white">
                 Resources
               </h2>
               <ul>
-                <li className="text-base my-2 normal font-light text-white">
+                <li className="normal my-2 text-base font-light text-white">
                   <Link to="/privacypolicy">{t('footer.9')}</Link>
                 </li>
-                <li className="text-base normal my-2 font-light text-white">
+                <li className="normal my-2 text-base font-light text-white">
                   <Link to="">{t('footer.10')}</Link>
                 </li>
-                <li className="text-base normal my-2 font-light text-white">
+                <li className="normal my-2 text-base font-light text-white">
                   <Link to=""> {t('footer.11')}</Link>
                 </li>
               </ul>
             </div>
           </div>
-          <div className="flex flex-col  border-t-[3px] border-starrating   items-center justify-center">
+          <div className="flex flex-col  items-center justify-center   border-t-[3px] border-starrating">
             <div className="py-4">
-              <ul className="text-border2 text-sm font-medium flex xl:flex-row flex-col space-x-0 xl:space-x-9 justify-between">
+              <ul className="flex flex-col justify-between space-x-0 text-sm font-medium text-border2 xl:flex-row xl:space-x-9">
                 <li className="divide-x divide-blue-200">{t('footer.13')}</li>
                 <li className="">{t('footer.14')}</li>
                 <li>051-411-84-44</li>

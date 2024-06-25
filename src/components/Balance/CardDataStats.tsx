@@ -35,45 +35,71 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
         onClick={handleClick}
         className={` hover:bg-[#DAE2F4]  ${
           show ? 'rounded-t-xl ' : 'rounded-xl'
-        }     py-5 w-full cursor-pointer  shadow dark:bg-boxdark bg-white `}
+        }     w-full cursor-pointer bg-white  py-5 shadow dark:bg-boxdark `}
       >
-        <div className="flex space-x-4 relative w-full">
+        <div className="relative flex w-full space-x-4">
           <div className="pl-4">{children}</div>
-          <div className="flex flex-col  w-full ">
-            <span className="font-inter text-darkgray dark:text-white xl:text-lg text-base font-normal">
+          <div className="flex w-full  flex-col ">
+            <span className="font-inter text-base font-normal text-darkgray dark:text-white xl:text-lg">
               {title}
             </span>
-            <span className="xl:text-3xl flex text-xl dark:text-white font-medium font-inter">
+            <span className="flex font-inter text-xl font-medium dark:text-white xl:text-3xl">
               {rate} {icon}
             </span>
             {show && (
-              <div id='chat' className="bg-white pt-4 pb-2 overflow-y-scroll px-3 shadow shadow-top-none rounded-b-xl rounded-bl-xl  absolute top-20 left-0 h-50 w-full  right-0">
+              <div
+                id="chat"
+                className="shadow-top-none absolute left-0 right-0 top-20 h-50 w-full overflow-y-scroll rounded-b-xl  rounded-bl-xl bg-white px-3 pb-2 pt-4  shadow"
+              >
                 <ul>
-                  <li className="border-b flex pb-2 justify-between border-black border-opacity-20 ">
-                    <p className='font-normal text-lg font-inter text-black'>Buylink Wallet</p>
-                    <p className='text-menuBorder font-medium text-lg font-inter'>120 <sub>Azn</sub></p>
+                  <li className="flex justify-between border-b border-black border-opacity-20 pb-2 ">
+                    <p className="font-inter text-lg font-normal text-black">
+                      Buylink Wallet
+                    </p>
+                    <p className="font-inter text-lg font-medium text-menuBorder">
+                      120 <sub>Azn</sub>
+                    </p>
                   </li>
-                  <li className="border-b    py-2 flex justify-between border-black border-opacity-20 ">
-                    <p className='font-normal text-lg font-inter text-black'>Buylink Wallet</p>
-                    <p className='text-menuBorder font-medium text-lg font-inter'>120 <sub>Azn</sub></p>
+                  <li className="flex    justify-between border-b border-black border-opacity-20 py-2 ">
+                    <p className="font-inter text-lg font-normal text-black">
+                      Buylink Wallet
+                    </p>
+                    <p className="font-inter text-lg font-medium text-menuBorder">
+                      120 <sub>Azn</sub>
+                    </p>
                   </li>
-                  <li className="  py-2 flex justify-between border-black border-opacity-20 ">
-                    <p className='font-normal text-lg font-inter text-black'>Buylink Wallet</p>
-                    <p className='text-menuBorder font-medium text-lg font-inter'>120 <sub>Azn</sub></p>
+                  <li className="  flex justify-between border-black border-opacity-20 py-2 ">
+                    <p className="font-inter text-lg font-normal text-black">
+                      Buylink Wallet
+                    </p>
+                    <p className="font-inter text-lg font-medium text-menuBorder">
+                      120 <sub>Azn</sub>
+                    </p>
                   </li>
-                  <li className="border-b flex pb-2 justify-between border-black border-opacity-20 ">
-                    <p className='font-normal text-lg font-inter text-black'>Buylink Wallet</p>
-                    <p className='text-menuBorder font-medium text-lg font-inter'>120 <sub>Azn</sub></p>
+                  <li className="flex justify-between border-b border-black border-opacity-20 pb-2 ">
+                    <p className="font-inter text-lg font-normal text-black">
+                      Buylink Wallet
+                    </p>
+                    <p className="font-inter text-lg font-medium text-menuBorder">
+                      120 <sub>Azn</sub>
+                    </p>
                   </li>
-                  <li className="border-b    py-2 flex justify-between border-black border-opacity-20 ">
-                    <p className='font-normal text-lg font-inter text-black'>Buylink Wallet</p>
-                    <p className='text-menuBorder font-medium text-lg font-inter'>120 <sub>Azn</sub></p>
+                  <li className="flex    justify-between border-b border-black border-opacity-20 py-2 ">
+                    <p className="font-inter text-lg font-normal text-black">
+                      Buylink Wallet
+                    </p>
+                    <p className="font-inter text-lg font-medium text-menuBorder">
+                      120 <sub>Azn</sub>
+                    </p>
                   </li>
-                  <li className="  py-2 flex justify-between border-black border-opacity-20 ">
-                    <p className='font-normal text-lg font-inter text-black'>Buylink Wallet</p>
-                    <p className='text-menuBorder font-medium text-lg font-inter'>120 <sub>Azn</sub></p>
+                  <li className="  flex justify-between border-black border-opacity-20 py-2 ">
+                    <p className="font-inter text-lg font-normal text-black">
+                      Buylink Wallet
+                    </p>
+                    <p className="font-inter text-lg font-medium text-menuBorder">
+                      120 <sub>Azn</sub>
+                    </p>
                   </li>
-                  
                 </ul>
               </div>
             )}

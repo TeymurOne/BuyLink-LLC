@@ -1,5 +1,3 @@
-
-
 import { useRemovebranchMutation } from '../../features/branch/apiSlice';
 
 import { TD, TR } from '../../common/Table/Table';

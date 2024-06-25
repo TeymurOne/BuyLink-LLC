@@ -87,6 +87,7 @@ interface ChartTwoState {
     data: number[];
   }[];
 }
+
 interface ChartTwoProps {
   transactions: { [key: string]: number };
   referral: { [key: string]: number };
@@ -105,10 +106,14 @@ const ChartTwo: React.FC<ChartTwoProps> = ({ transactions, referral }) => {
     const transactionsData = transaction.map(([key, value]) => value);
     const referralData = referraldata.map(([key, value]) => value);
     const nameText = (
-      <p className="text-xs dark:text-white font-inter font-normal">{t('statistic.4')}</p>
+      <p className="font-inter text-xs font-normal dark:text-white">
+        {t('statistic.4')}
+      </p>
     );
     const nameDesc = (
-      <p className="text-xs dark:text-white font-inter font-normal">{t('statistic.5')}</p>
+      <p className="font-inter text-xs font-normal dark:text-white">
+        {t('statistic.5')}
+      </p>
     );
 
     setState({
@@ -126,17 +131,17 @@ const ChartTwo: React.FC<ChartTwoProps> = ({ transactions, referral }) => {
   }, [transactions, referral, t, i18n.language]);
 
   return (
-    <div className="col-span-12  border rounded-2xl shadow-sm border-stroke bg-white p-7.5  dark:border-strokedark dark:bg-boxdark xl:col-span-6">
+    <div className="col-span-12  rounded-2xl border border-stroke bg-white p-7.5 shadow-sm  dark:border-strokedark dark:bg-boxdark xl:col-span-6">
       <div className="mb-4 justify-between gap-4 sm:flex">
         <div>
-          <h4 className="text-xl font-semibold font-inter text-black dark:text-white">
+          <h4 className="font-inter text-xl font-semibold text-black dark:text-white">
             {t('statistic.6')}
           </h4>
         </div>
       </div>
 
       <div>
-        <div id="chartTwo" className="-ml-5 -mb-9">
+        <div id="chartTwo" className="-mb-9 -ml-5">
           <ReactApexChart
             options={options}
             series={state.series}

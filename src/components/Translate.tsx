@@ -14,13 +14,11 @@ const Translate = () => {
 
   const { t } = useTranslation();
   const handleClick = (lang: string) => {
-    setDropdownOpen(false)
+    setDropdownOpen(false);
     i18n.changeLanguage(lang);
     localStorage.setItem('lng', lang);
   };
 
-
-  
   return (
     <li className="relative">
       <button
@@ -28,23 +26,20 @@ const Translate = () => {
         onClick={() => setDropdownOpen(!dropdownOpen)}
         className="relative flex h-8.5 w-8.5 items-center justify-center rounded-full border-[0.5px] border-stroke bg-gray hover:text-primary dark:border-strokedark dark:bg-meta-4 dark:text-white"
       >
-        <span className="relative  grid place-items-center  z-1 h-2 w-4 rounded-full">
-        {localStorage.getItem("lng")=='az'?(
-               <img
-               className="absolute  h-6 w-6 rounded-md"
-               src={aze}
-   
-               alt="Usa Flag"
-             />
-          ):(
+        <span className="relative  z-1 grid  h-2 w-4 place-items-center rounded-full">
+          {localStorage.getItem('lng') == 'az' ? (
             <img
-            className="absolute  h-6 w-6 rounded-md"
-            src={us}
-
-            alt="Usa Flag"
-          />
+              className="absolute  h-6 w-6 rounded-md"
+              src={aze}
+              alt="Usa Flag"
+            />
+          ) : (
+            <img
+              className="absolute  h-6 w-6 rounded-md"
+              src={us}
+              alt="Usa Flag"
+            />
           )}
-         
         </span>
       </button>
 
@@ -63,7 +58,7 @@ const Translate = () => {
               className="flex flex-col gap-2.5 border-t border-stroke px-4.5 py-3 hover:bg-gray-2 dark:border-strokedark dark:hover:bg-meta-4"
               to="#"
             >
-              <p className="text-sm flex space-x-2">
+              <p className="flex space-x-2 text-sm">
                 <img className=" w-[24px] rounded-md" src={us} alt="Usa Flag" />
                 <span className="text-black dark:text-white">EN</span>
               </p>
@@ -75,12 +70,8 @@ const Translate = () => {
               className="flex flex-col gap-2.5 border-t border-stroke px-4.5 py-3 hover:bg-gray-2 dark:border-strokedark dark:hover:bg-meta-4"
               to="#"
             >
-              <p className="text-sm flex space-x-2">
-                <img
-                  className=" w-6 rounded-md"
-                  src={aze}
-                  alt="AZE Flag"
-                />
+              <p className="flex space-x-2 text-sm">
+                <img className=" w-6 rounded-md" src={aze} alt="AZE Flag" />
                 <span className="text-black dark:text-white">AZE </span>
               </p>
             </Link>

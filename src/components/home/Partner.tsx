@@ -6,15 +6,15 @@ export function Partner() {
   const { t } = useTranslation();
   return (
     <>
-      <div className=" w-full flex  lg:py-0 md:py-20 py-20  lg:pl-20 md:pl-10 pl-8   items-center justify-between     ">
-        <div className="flex flex-col  md:items-start justify-center md:justify-normal  items-center md:space-y-6 pr-14  space-y-4 w-150  ">
-          <h2 className="font-manrope text-center lg:text-start lg:text-6xl text-3xl normal font-bold text-gray200">
+      <div className=" flex w-full  items-center justify-between py-20  pl-8 md:py-20 md:pl-10   lg:py-0 lg:pl-20     ">
+        <div className="flex w-150  flex-col items-center justify-center  space-y-4 pr-14 md:items-start  md:justify-normal md:space-y-6  ">
+          <h2 className="normal text-center font-manrope text-3xl font-bold text-gray200 lg:text-start lg:text-6xl">
             {t('partner.0')}
           </h2>
-          <p className="text-gray200 my-4  md:text-left text-center text-sm    lg:text-2xl font-poppins font-light">
+          <p className="my-4 text-center  font-poppins text-sm font-light    text-gray200 md:text-left lg:text-2xl">
             {t('partner.1')}
           </p>
-          <button className="rounded-md text-starrating font-bold bg-whiten w-39 h-17">
+          <button className="h-17 w-39 rounded-md bg-whiten font-bold text-starrating">
             <Link
               to="https://47gk82mq.forms.app/terefdashliq-formasi"
               target="_blank"
@@ -27,7 +27,7 @@ export function Partner() {
         <div className="hidden lg:block ">
           <img
             src={partnerlogo}
-            className=" w-auto mt-1 h-115"
+            className=" mt-1 h-115 w-auto"
             alt="Partner Logo"
           />
         </div>

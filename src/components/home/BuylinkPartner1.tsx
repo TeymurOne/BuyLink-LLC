@@ -37,20 +37,20 @@ export function BuyLinkPartner1() {
 
   return (
     <>
-      <section className=" lg:pt-20 lg:py-30 md:py-10 py-4 md:pt-10 pt-2">
-        <div className="flex flex-col lg:items-center  items-stretch text-center">
-          <div className="space-y-4  max-w-5xl mx-auto ">
-            <h2 className="font-manrope lg:text-title-xxl   text-title-lg     text-black font-bold">
+      <section className=" py-4 pt-2 md:py-10 md:pt-10 lg:py-30 lg:pt-20">
+        <div className="flex flex-col items-stretch  text-center lg:items-center">
+          <div className="mx-auto  max-w-5xl space-y-4 ">
+            <h2 className="font-manrope text-title-lg   font-bold     text-black lg:text-title-xxl">
               {t('partnyor.0')}
               <span className="text-starrating"> {t('partnyor.1')}</span>
 
               {t('partnyor.2')}
             </h2>
-            <p className="lg:text-xl text-base text-center  font-poppins opacity-70 font-normal pb-10 ">
+            <p className="pb-10 text-center font-poppins  text-base font-normal opacity-70 lg:text-xl ">
               {t('partnyor.3')}
             </p>
           </div>
-          <div className=" flex lg:flex-row lg:mb-2 mb-10 flex-col gap-4 w-full">
+          <div className=" mb-10 flex w-full flex-col gap-4 lg:mb-2 lg:flex-row">
             <PartnerUi
               title={t('partnyor.4')}
               img={p_icon1}
@@ -79,29 +79,29 @@ export function BuyLinkPartner1() {
             loop={true}
             className="mySwiper"
           >
-            <div className="flex items-center    w-100 justify-center ">
+            <div className="flex w-100    items-center justify-center ">
               <SwiperSlide>
-                <div className="  max-w-70  w-full pb-2  ">
+                <div className="  w-full  max-w-70 pb-2  ">
                   <img
-                    className="w-full h-94 object-contain"
+                    className="h-94 w-full object-contain"
                     src={language == 'Aze' ? p1aze : p1en}
                     alt="Iphone2"
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="    max-w-70 mb-10  w-full ">
+                <div className="    mb-10 w-full  max-w-70 ">
                   <img
-                    className="w-full h-94 object-contain"
+                    className="h-94 w-full object-contain"
                     src={language == 'Aze' ? p2aze : p2en}
                     alt="Iphone4"
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className=" pb-2 max-w-70  w-full  ">
+                <div className=" w-full max-w-70  pb-2  ">
                   <img
-                    className="w-full h-94 object-contain"
+                    className="h-94 w-full object-contain"
                     src={language == 'Aze' ? p3aze : p3en}
                     alt="Iphone2"
                   />
@@ -111,26 +111,26 @@ export function BuyLinkPartner1() {
           </Swiper>
         ) : (
           <div
-            className="flex items-center pt-10   space-x-10
-             justify-center "
+            className="flex items-center justify-center   space-x-10
+             pt-10 "
           >
             <div className=" h-115">
               <img
-                className="w-full h-full object-contain"
+                className="h-full w-full object-contain"
                 src={language == 'az' ? p1aze : p1en}
                 alt="Iphone2"
               />
             </div>
             <div className="h-115">
               <img
-                className="w-full h-full object-contain"
+                className="h-full w-full object-contain"
                 src={language == 'az' ? p2aze : p2en}
                 alt="Iphone4"
               />
             </div>
             <div className=" h-115">
               <img
-                className="w-full h-full object-contain"
+                className="h-full w-full object-contain"
                 src={language == 'az' ? p3aze : p3en}
                 alt="Iphone2"
               />

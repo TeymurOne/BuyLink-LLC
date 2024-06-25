@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 interface productSlice {
   name: any | {};
   desc: any | {};
   price: string | number;
   discount: string | number;
-  categoryId: string | number ;
+  categoryId: string | number;
   load: boolean;
   imgurl: string;
   filesImg: any;

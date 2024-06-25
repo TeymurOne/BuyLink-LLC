@@ -28,25 +28,25 @@ function VideoSection() {
 
   return (
     <>
-      <section className="bg-white lg:pt-14 md:pt-10 pt-2">
-        <div className="flex lg:flex-row flex-col items-center justify-between h-full">
-          <div className="h-full space-y-10 text-center lg:text-start max-w-94 w-full">
+      <section className="bg-white pt-2 md:pt-10 lg:pt-14">
+        <div className="flex h-full flex-col items-center justify-between lg:flex-row">
+          <div className="h-full w-full max-w-94 space-y-10 text-center lg:text-start">
             <div>
-              <h2 className="text-4xl font-manrope h-full text-starrating font-bold">
+              <h2 className="h-full font-manrope text-4xl font-bold text-starrating">
                 {t('main.3')}
               </h2>
-              <p className="lg:text-title-sm mt-2 text-sm font-poppins font-normal">
+              <p className="mt-2 font-poppins text-sm font-normal lg:text-title-sm">
                 {t('main.4')}
               </p>
-              <p className="lg:text-title-sm text-sm font-poppins font-normal">
+              <p className="font-poppins text-sm font-normal lg:text-title-sm">
                 {t('main.5')}
               </p>
             </div>
-            <button className="bg-starrating rounded text-white font-medium max-w-40 w-full text-base h-15">
+            <button className="h-15 w-full max-w-40 rounded bg-starrating text-base font-medium text-white">
               <a href="#buylinkdownload">{t('main.6')}</a>
             </button>
           </div>
-          <div className="mt-10 max-w-4xl w-full h-auto md:h-75 lg:h-100">
+          <div className="mt-10 h-auto w-full max-w-4xl md:h-75 lg:h-100">
             <video
               id="myVideo"
               width="100%"
@@ -54,7 +54,7 @@ function VideoSection() {
               preload="true"
               autoPlay
               muted
-              className="w-full h-full"
+              className="h-full w-full"
               controls={true}
               key={language}
             >

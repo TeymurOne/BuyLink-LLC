@@ -11,32 +11,32 @@ import { useEffect, useState } from 'react';
 
 export function Main() {
   const { t } = useTranslation();
-  const [language, setLanguage]=useState<any>('')
+  const [language, setLanguage] = useState<any>('');
   useEffect(() => {
     setLanguage(localStorage.getItem('lng'));
   }, [localStorage.getItem('lng'), language]);
 
   return (
     <>
-      <div className='flex lg:flex-row flex-col items-center justify-between '>
-        <div className=" max-w-180 pr-2 w-full  ">
-          <h2 className=" lg:text-title-xxl md:text-title-xl2 text-3xl lg:text-left text-center   font-bold font-manrope      text-black-2">
+      <div className="flex flex-col items-center justify-between lg:flex-row ">
+        <div className=" w-full max-w-180 pr-2  ">
+          <h2 className=" text-center font-manrope text-3xl font-bold text-black-2   md:text-title-xl2 lg:text-left      lg:text-title-xxl">
             <a className="text-primary">{t('main.0')}</a> {t('main.1')}
           </h2>
-          <p className=" lg:text-xl md:text-base text-sm lg:text-left text-center  font-poppins py-2 font-normal  text-black-2 ">
+          <p className=" py-2 text-center font-poppins text-sm font-normal  text-black-2 md:text-base lg:text-left  lg:text-xl ">
             {t('main.2')}
           </p>
 
-          <div className="flex   h-34  flex-wrap items-center space-x-0 xsm:space-x-4  lg:justify-start justify-center  ">
+          <div className="flex   h-34  flex-wrap items-center justify-center space-x-0  xsm:space-x-4 lg:justify-start  ">
             <Link
               to="#"
-              className="bg-black-2  h-15 grid place-items-center   w-46"
+              className="grid  h-15 w-46 place-items-center   bg-black-2"
             >
-              <div className="h-15 flex items-center space-x-1  ">
-                <img src={apple} alt="Apple icon" className="w-5 h-7" />
-                <span className="flex flex-col mb-3  text-white">
+              <div className="flex h-15 items-center space-x-1  ">
+                <img src={apple} alt="Apple icon" className="h-7 w-5" />
+                <span className="mb-3 flex flex-col  text-white">
                   <p className="text-title-2xsm">Download on the</p>
-                  <p className="text-title-xsm  -mt-1.5 font-medium">
+                  <p className="-mt-1.5  text-title-xsm font-medium">
                     App Store
                   </p>
                 </span>
@@ -44,35 +44,33 @@ export function Main() {
             </Link>
             <Link
               to="#"
-              className="bg-black-2 h-15  grid place-items-center   w-46"
+              className="grid h-15  w-46 place-items-center   bg-black-2"
             >
-              <div className="h-14 flex items-center space-x-1  ">
-                <img src={play} alt="Apple icon" className="w-5 h-8" />
-                <span className="flex flex-col mb-3   text-white">
+              <div className="flex h-14 items-center space-x-1  ">
+                <img src={play} alt="Apple icon" className="h-8 w-5" />
+                <span className="mb-3 flex flex-col   text-white">
                   <p className="text-title-2xsm  font-thin">Get it on</p>
-                  <p className="text-lg  -mt-1.5 font-medium">
-                    Google Play
-                  </p>
+                  <p className="-mt-1.5  text-lg font-medium">Google Play</p>
                 </span>
               </div>
             </Link>
           </div>
-          <div className="flex  md:flex-row flex-col  items-center space-y-4 md:space-y-0 ">
+          <div className="flex  flex-col items-center  space-y-4 md:flex-row md:space-y-0 ">
             <img src={people} alt="People" />
             <div className="mx-2  ">
-              <span className="font-manrope flex font-bold text-lg">
+              <span className="flex font-manrope text-lg font-bold">
                 <p> 300+ costumer saved money</p>
                 <img src={money} alt="Money" />
               </span>
-              <img className='mx-auto lg:mx-0 md:mx-0' src={star} alt="Stars" />
+              <img className="mx-auto md:mx-0 lg:mx-0" src={star} alt="Stars" />
             </div>
           </div>
         </div>
 
-        <div className="  max-w-150 w-full">
+        <div className="  w-full max-w-150">
           <img
-              src={language == 'az' ? mainAz : mainEn}
-            className="  w-full h-full     "
+            src={language == 'az' ? mainAz : mainEn}
+            className="  h-full w-full     "
             alt="Main"
           />
         </div>

@@ -5,11 +5,11 @@ import PagesLayout from '../../layout/PagesLayout';
 
 const About = () => {
   return (
-    <div className='w-full h-full bg-white'>
+    <div className="h-full w-full bg-white">
       <PagesLayout>
         <Main />
         <Mission />
-        <TeamMember/>
+        <TeamMember />
       </PagesLayout>
     </div>
   );

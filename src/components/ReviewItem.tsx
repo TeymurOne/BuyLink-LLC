@@ -3,11 +3,11 @@ import { Star } from './RatingStar';
 export function RevieItem({ item }: any) {
   return (
     <>
-      <div className=" pr-10    py-6  p-3  rounded-lg  ">
-        <div className="flex flex-wrap justify-between items-center">
+      <div className=" rounded-lg    p-3  py-6  pr-10  ">
+        <div className="flex flex-wrap items-center justify-between">
           <span className="flex items-center space-x-2">
             <img
-              className="w-8 h-8 rounded-2xl"
+              className="h-8 w-8 rounded-2xl"
               src={item.user?.image || ''}
               alt={item.user?.name || ''}
             />

@@ -146,13 +146,13 @@ const EditProduct = () => {
           <div>
             <label
               htmlFor="photo"
-              className="block dark:text-white300 text-tdColor pt-10 text-base font-normal"
+              className="block pt-10 text-base font-normal text-tdColor dark:text-white300"
             >
               Photo
             </label>
-            <div className="flex flex-wrap py-2 items-center gap-x-3">
+            <div className="flex flex-wrap items-center gap-x-3 py-2">
               <img
-                className="h-30 mb-4 object-cover py-4 rounded-2xl w-26"
+                className="mb-4 h-30 w-26 rounded-2xl object-cover py-4"
                 src={showimg || imgurl}
                 alt="Edit Product Image"
               />
@@ -160,12 +160,12 @@ const EditProduct = () => {
                 id="file-upload"
                 name="file-upload"
                 type="file"
-                className="py-2 sr-only"
+                className="sr-only py-2"
                 onChange={handleImg}
               />
               <label
                 htmlFor="file-upload"
-                className="rounded-md bg-white px-13 border py-2.5 text-sm font-semibold shadow-sm border-black border-opacity-20 h-10"
+                className="h-10 rounded-md border border-black border-opacity-20 bg-white px-13 py-2.5 text-sm font-semibold shadow-sm"
               >
                 {t('product.15')}
               </label>
@@ -174,7 +174,7 @@ const EditProduct = () => {
 
           <select
             onChange={(e: any) => dispatch(setActive(e.target.value))}
-            className="w-21 border-black border-opacity-20 border h-10 pl-4 rounded-md shadow-1"
+            className="h-10 w-21 rounded-md border border-black border-opacity-20 pl-4 shadow-1"
             value={active}
           >
             {language.map((item, index) => (
@@ -187,21 +187,21 @@ const EditProduct = () => {
             {language.map((lang) => (
               <div className="" key={lang}>
                 <div
-                  className={`grid gap-4 place-content-between lg:grid-cols-2 grid-cols-1 w-full items-start ${
+                  className={`grid w-full grid-cols-1 place-content-between items-start gap-4 lg:grid-cols-2 ${
                     active !== lang ? 'hidden' : ''
                   }`}
                 >
                   <div className="w-full">
                     <label
                       htmlFor={`title-${lang}`}
-                      className="block text-sm dark:text-white300 text-tdColor font-medium font-works mb-2"
+                      className="mb-2 block font-works text-sm font-medium text-tdColor dark:text-white300"
                     >
                       {t('product.0')} {lang.toUpperCase()}
                     </label>
                     <input
                       name={`title-${lang}`}
                       id={`title-${lang}`}
-                      className="block w-full px-2 rounded-lg border-1 py-1.5 shadow-md"
+                      className="border-1 block w-full rounded-lg px-2 py-1.5 shadow-md"
                       value={name[lang] || ''}
                       onChange={(e) => handleTitle(e, lang)}
                     />
@@ -210,7 +210,7 @@ const EditProduct = () => {
                   <div className="w-full">
                     <label
                       htmlFor={`description-${lang}`}
-                      className="block text-sm dark:text-white300 text-tdColor font-medium font-works mb-2"
+                      className="mb-2 block font-works text-sm font-medium text-tdColor dark:text-white300"
                     >
                       {t('product.4')} {lang.toUpperCase()}
                     </label>
@@ -218,7 +218,7 @@ const EditProduct = () => {
                       name={`description-${lang}`}
                       id={`description-${lang}`}
                       rows={3}
-                      className="block px-4 w-full rounded-lg border-1 py-1.5 shadow-md"
+                      className="border-1 block w-full rounded-lg px-4 py-1.5 shadow-md"
                       value={desc[lang] || ''}
                       onChange={(e) => handleDesc(e, lang)}
                     />
@@ -227,7 +227,7 @@ const EditProduct = () => {
               </div>
             ))}
           </div>
-          <div className="grid lg:grid-cols-3 gap-4 grid-cols-1 ">
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 ">
             <Select
               id="category"
               onChange={(e: any) =>

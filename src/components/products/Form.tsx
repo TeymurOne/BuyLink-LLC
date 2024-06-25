@@ -96,7 +96,7 @@ const Form = () => {
     postData.append('category_id', categoryId!.toString());
     postData.append('price', price!.toString());
 
-    language.forEach((key: any) =>  {
+    language.forEach((key: any) => {
       const value = desc[key];
       postData.append(`description[${key}]`, value || '');
     });
@@ -129,12 +129,12 @@ const Form = () => {
   return (
     <>
       <form className="h-auto">
-        <Title>   {t('product.1')}</Title>
+        <Title> {t('product.1')}</Title>
         <InputImg showimg={showimg} onChange={handleImg} />
 
         <select
           onChange={(e: any) => dispatch(setActive(e.target.value))}
-          className="w-21 border-black border-opacity-20 border h-10 pl-4 rounded-md shadow-1"
+          className="h-10 w-21 rounded-md border border-black border-opacity-20 pl-4 shadow-1"
         >
           {language.map((item, index) => (
             <option
@@ -149,22 +149,22 @@ const Form = () => {
         {language.map((lang, index) => (
           <div className="py-3" key={index}>
             <div
-              className={`grid gap-4 place-content-between lg:grid-cols-2 grid-cols-1 w-full items-start ${
+              className={`grid w-full grid-cols-1 place-content-between items-start gap-4 lg:grid-cols-2 ${
                 active !== lang ? 'hidden' : ''
               }`}
             >
               <div className="w-full">
                 <label
                   htmlFor={`title-${lang}`}
-                  className="block text-sm dark:text-white300 text-tdColor font-medium font-works mb-2"
+                  className="mb-2 block font-works text-sm font-medium text-tdColor dark:text-white300"
                 >
-                   {t('product.0')} {t('product.14') }
-                   {lang.toUpperCase()}
+                  {t('product.0')} {t('product.14')}
+                  {lang.toUpperCase()}
                 </label>
                 <input
                   name={`title-${lang}`}
                   id={`title-${lang}`}
-                  className="block w-full  px-2 rounded-lg border-1 py-1.5 shadow-md    "
+                  className="border-1 block  w-full rounded-lg px-2 py-1.5 shadow-md    "
                   value={name[lang]}
                   onChange={(e) => handleTitle(e, lang)}
                 ></input>
@@ -173,15 +173,16 @@ const Form = () => {
               <div className="w-full">
                 <label
                   htmlFor="description"
-                  className="block text-sm dark:text-white300 text-tdColor font-medium font-works mb-2 "
+                  className="mb-2 block font-works text-sm font-medium text-tdColor dark:text-white300 "
                 >
-                  {t('product.4') }{lang.toUpperCase()}
+                  {t('product.4')}
+                  {lang.toUpperCase()}
                 </label>
                 <textarea
                   name={`description-${lang}`}
                   id={`description-${lang}`}
                   rows={3}
-                  className="block  px-4 w-full rounded-lg border-1 py-1.5  shadow-md"
+                  className="border-1  block w-full rounded-lg px-4 py-1.5  shadow-md"
                   value={desc[lang]}
                   onChange={(e) => handleDesc(e, lang)}
                 ></textarea>
@@ -190,20 +191,20 @@ const Form = () => {
           </div>
         ))}
 
-        <div className="grid lg:grid-cols-3 gap-4 grid-cols-1 ">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 ">
           <Select
             id="category"
             onChange={(e: any) =>
               dispatch(setcategoryId(Number(e.target.value)))
             }
-            label={t('product.7') }
+            label={t('product.7')}
             option=" Category seçin"
           >
             {content}
           </Select>
           <Input
             id="Price"
-            label={t('product.5') }
+            label={t('product.5')}
             onChange={(e) => dispatch(setPrice(e.target.value))}
             value={price}
             placeholder="Price"
@@ -211,7 +212,7 @@ const Form = () => {
           />
           <Input
             id="Discount Price"
-            label={t('product.6') }
+            label={t('product.6')}
             onChange={(e) => dispatch(setDiscount(e.target.value))}
             value={discount}
             placeholder="Discount Price"
