@@ -7,17 +7,17 @@ const CardOne = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="rounded-2xl px-6 pt-4  pb-6  mr-auto   w-full max-w-80   border-black border-opacity-10 border         bg-white    shadow-sm dark:border-strokedark dark:bg-boxdark">
-      <div className="flex h-12.5 w-12.5   rounded  items-center justify-center  bg-white300 dark:bg-meta-4">
+    <div className="mr-auto w-full max-w-80  rounded-2xl  border   border-black border-opacity-10   bg-white px-6 pb-6         pt-4    shadow-sm dark:border-strokedark dark:bg-boxdark">
+      <div className="flex h-12.5 w-12.5   items-center  justify-center rounded  bg-white300 dark:bg-meta-4">
         <img src={product} alt="Total Icon " />
       </div>
 
-      <div className="flex pt-3    flex-wrap font-normal    text-black200 dark:text-white    ">
-        <p className=" lg:text-lg   mr-auto   text-black200  font-inter        font-normal">
+      <div className="flex flex-wrap    pt-3 font-normal    text-black200 dark:text-white    ">
+        <p className=" mr-auto   font-inter   font-normal  text-black200        lg:text-lg">
           {t('statistic.0')} &nbsp;
         </p>
 
-        <h4 className=" lg:text-3xl       font-medium dark:text-white">
+        <h4 className=" font-medium       dark:text-white lg:text-3xl">
           {data?.products_count}
         </h4>
       </div>

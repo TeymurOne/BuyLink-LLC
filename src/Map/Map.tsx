@@ -1,9 +1,9 @@
 import {
   MapContainer,
-  TileLayer,
   Marker,
-  useMapEvents,
+  TileLayer,
   useMap,
+  useMapEvents,
 } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useEffect, useState } from 'react';
@@ -43,25 +43,21 @@ const Map = (props: any) => {
   const handleMapClick = async (e) => {
     const { lat, lng } = e.latlng;
 
-
     Swal.fire({
-      title: "Do you want to save the changes?",
+      title: 'Do you want to save the changes?',
       showDenyButton: true,
       showCancelButton: true,
-      confirmButtonText: "Save",
-      denyButtonText: `Don't save`
+      confirmButtonText: 'Save',
+      denyButtonText: `Don't save`,
     }).then((result) => {
-    
       if (result.isConfirmed) {
         setClickPosition({ lat, lng });
         setCoordinat({ lat, lng });
-        Swal.fire("Saved!", "", "success");
+        Swal.fire('Saved!', '', 'success');
       } else if (result.isDenied) {
-        Swal.fire("Changes are not saved", "", "info");
+        Swal.fire('Changes are not saved', '', 'info');
       }
     });
-
-  
   };
 
   const position = [40.34720432727009, 49.81097458154038];

@@ -18,7 +18,6 @@ import CancelSaveButton from '../../data/helpers/Button';
 const Form = () => {
   const { name, password, email } = useSelector((state: any) => state.operator);
   const dispatch = useDispatch();
-  
 
   const { isSuccess, data, isError } = useFetchBranchAllQuery('');
 
@@ -59,7 +58,7 @@ const Form = () => {
           .then((response) => {
             if (response) {
               navigate('/admin/operator/all');
-              dispatch(resetState())
+              dispatch(resetState());
             }
           });
       }
@@ -76,10 +75,10 @@ const Form = () => {
       <form>
         <div className="space-y-12">
           <div className=" pb-12">
-            <Title>{t("operator.1")}</Title>
+            <Title>{t('operator.1')}</Title>
 
             <div className="mt-10 grid grid-cols-6 gap-x-6 gap-y-8 sm:grid-cols-6">
-              <div className="lg:col-span-3 col-span-6 ">
+              <div className="col-span-6 lg:col-span-3 ">
                 <Input
                   label={t('operator.3')}
                   value={name}
@@ -88,7 +87,7 @@ const Form = () => {
                   placeholder="Enter your name"
                 />
               </div>
-              <div className="lg:col-span-3 col-span-6 ">
+              <div className="col-span-6 lg:col-span-3 ">
                 <Input
                   label="E-mail"
                   value={email}
@@ -97,9 +96,9 @@ const Form = () => {
                   placeholder="Enter your Email"
                 />
               </div>
-              <div className="lg:col-span-3 col-span-6 ">
+              <div className="col-span-6 lg:col-span-3 ">
                 <Input
-                type='password'
+                  type="password"
                   label={t('operator.9')}
                   value={password}
                   onChange={(e) => dispatch(setPwd(String(e.target.value)))}

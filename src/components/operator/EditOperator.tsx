@@ -11,7 +11,6 @@ import { useTranslation } from 'react-i18next';
 import Input from '../../common/Form/Input';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-
   setEmail,
   setName,
   setLoad,
@@ -36,7 +35,6 @@ const Form = () => {
         const data = resUpdate.data?.data;
         dispatch(setName(data?.name));
         dispatch(setEmail(data?.email));
-     
       }
     } catch (error) {}
   };
@@ -65,8 +63,6 @@ const Form = () => {
   } else if (isError) {
     console.error('Error fetching data', 'Products Types');
   }
-
- 
 
   const postSubmit = async (e: React.FormEvent<HTMLButtonElement>) => {
     dispatch(setLoad(true));
@@ -102,7 +98,7 @@ const Form = () => {
             </Title>
 
             <div className="mt-10 grid grid-cols-6 gap-x-6 gap-y-8 sm:grid-cols-6">
-              <div className="lg:col-span-3 col-span-6 ">
+              <div className="col-span-6 lg:col-span-3 ">
                 <Input
                   label={t('operator.3')}
                   value={name}
@@ -112,7 +108,7 @@ const Form = () => {
                 />
               </div>
 
-              <div className="lg:col-span-3 col-span-6 ">
+              <div className="col-span-6 lg:col-span-3 ">
                 <Input
                   label="E-mail"
                   value={email}
@@ -121,8 +117,6 @@ const Form = () => {
                   placeholder="Enter your Email"
                 />
               </div>
-
-         
             </div>
           </div>
         </div>

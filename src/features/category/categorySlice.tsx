@@ -22,7 +22,6 @@ const categorySlice = createSlice({
     setFilterData(state, action: PayloadAction<any[]>) {
       state.filteredData = action.payload;
     },
-  
   },
 });
 

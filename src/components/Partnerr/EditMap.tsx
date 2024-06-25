@@ -9,10 +9,6 @@ interface Props {
 }
 
 const EditMap = ({ lat, lng, onLat, onLng }: Props) => {
-
-
-  
-  
   const [selectedLat, setSelectedLat] = useState<number>(Number(lat));
   const [selectedLng, setSelectedLng] = useState<number>(Number(lng));
 
@@ -37,12 +33,12 @@ const EditMap = ({ lat, lng, onLat, onLng }: Props) => {
 
   return (
     <>
-     <Map
-          selectedLat={selectedLat}
-          selectedLng={selectedLng}
-          onLatChange={handleLatChange}
-          onLngChange={handleLngChange}
-        />
+      <Map
+        selectedLat={selectedLat}
+        selectedLng={selectedLng}
+        onLatChange={handleLatChange}
+        onLngChange={handleLngChange}
+      />
     </>
   );
 };

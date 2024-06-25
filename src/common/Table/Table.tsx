@@ -1,11 +1,12 @@
 import React, { ReactNode } from 'react';
+
 interface Type {
   children: ReactNode;
 }
 
 export const TR: React.FC<Type> = ({ children }) => {
   return (
-    <tr className="         dark:bg-boxdark border-0 bg-white hover:bg-tborderHover">
+    <tr className="         border-0 bg-white hover:bg-tborderHover dark:bg-boxdark">
       {children}
     </tr>
   );
@@ -14,7 +15,7 @@ export const TR: React.FC<Type> = ({ children }) => {
 export const TD: React.FC<Type> = ({ children }) => {
   return (
     <>
-      <td className="  dark:text-white300 border-gray border-0 py-2 text-xs  px-4 dark:border-strokedark">
+      <td className="  border-0 border-gray px-4 py-2 text-xs  dark:border-strokedark dark:text-white300">
         {children}
       </td>
     </>

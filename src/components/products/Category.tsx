@@ -34,13 +34,11 @@ const Category = () => {
     }
   }, [isSuccess, data]);
 
-  const filteredItems = filteredData.filter(
-    (item) =>
-      item.name[language]
-        ?.toLocaleLowerCase()
-        .includes(search.trim().toLocaleLowerCase()),
+  const filteredItems = filteredData.filter((item) =>
+    item.name[language]
+      ?.toLocaleLowerCase()
+      .includes(search.trim().toLocaleLowerCase()),
   );
-
 
   if (isLoading) {
     return (
@@ -57,19 +55,19 @@ const Category = () => {
       <Search onchange={(e: any) => setSearch(e.target.value)} />
 
       {window.innerWidth > 768 && (
-        <div className="rounded-sm  md:block  hidden  shadow-default  dark:border-strokedark dark:bg-boxdark ">
-          <div className="max-w-full  border  rounded-lg border-tborder overflow-hidden   overflow-x-auto   ">
+        <div className="hidden  rounded-sm  shadow-default  dark:border-strokedark  dark:bg-boxdark md:block ">
+          <div className="max-w-full  overflow-hidden  overflow-x-auto rounded-lg border   border-tborder   ">
             <table className="w-full table-auto bg-white    ">
               <thead>
-                <tr className=" bg-white text-title-2xsm font-poppins dark:text-white text-black text-left dark:bg-meta-4">
-                  <th className="w-14.5 h-10  border-b border-r  border-tborder px-4  font-medium ">
+                <tr className=" bg-white text-left font-poppins text-title-2xsm text-black dark:bg-meta-4 dark:text-white">
+                  <th className="h-10 w-14.5  border-b border-r  border-tborder px-4  font-medium ">
                     ID
                   </th>
-                  <th className="min-w-24.5 py-2 border-b border-r dark:text-white  border-tborder px-4  lg:pl-10  md:pl-4  sm:pl-0 font-medium  ">
-                    {t("branch.2")}
+                  <th className="min-w-24.5 border-b border-r border-tborder px-4  py-2 font-medium  dark:text-white  sm:pl-0  md:pl-4 lg:pl-10  ">
+                    {t('branch.2')}
                   </th>
-                  <th className="min-w-24.5 py-2 border-b border-r dark:text-white   border-tborder px-4 font-medium ">
-                  {t("branch.6")}
+                  <th className="min-w-24.5 border-b border-r border-tborder px-4   py-2 font-medium dark:text-white ">
+                    {t('branch.6')}
                   </th>
                 </tr>
               </thead>
@@ -117,19 +115,19 @@ function Tbody({ item, language, id }: TbodyProps) {
   return (
     <>
       <tr
-        className={` w-full dark:bg-boxdark border-0   hover:bg-tborderHover ${rowClassName}`}
+        className={` w-full border-0 hover:bg-tborderHover   dark:bg-boxdark ${rowClassName}`}
       >
-        <td className="  border-gray dark:text-white border-0 text-xs  px-4 dark:border-strokedark">
+        <td className="  border-0 border-gray px-4 text-xs  dark:border-strokedark dark:text-white">
           {item?.id}
         </td>
-        <td className=" border-gray py-1 px-10 dark:text-white  dark:border-strokedark xl:pl-11">
+        <td className=" border-gray px-10 py-1 dark:border-strokedark  dark:text-white xl:pl-11">
           {language && item.name[language]}
         </td>
 
-        <td className="  py-3 px-4 dark:border-strokedark">
+        <td className="  px-4 py-3 dark:border-strokedark">
           <Link
             to={`/admin/product/create/${item.id}`}
-            className="bg-white dark:bg-boxdark dark:shadow-8 dark:hover:bg-zinc-900 dark:text-white text-xs font-medium shadow-sm  mb-4 lg:mb-0 md:mb-0 sm:mb-0 space-x-2  rounded-md  justify-center flex items-center h-10 w-full max-w-35"
+            className="mb-4 flex h-10 w-full max-w-35 items-center justify-center space-x-2  rounded-md bg-white text-xs font-medium shadow-sm  dark:bg-boxdark  dark:text-white dark:shadow-8 dark:hover:bg-zinc-900 sm:mb-0 md:mb-0 lg:mb-0"
           >
             <img src={create} alt="Create icon" />
             <p>{t('product.1')}</p>
@@ -139,18 +137,19 @@ function Tbody({ item, language, id }: TbodyProps) {
     </>
   );
 }
+
 function TbodyResponsive({ item, language, id }: TbodyProps) {
   const rowClassName = id % 2 === 0 ? 'bg-[#F8F8F8]' : '';
   const { t } = useTranslation();
 
   return (
-    <div className="max-w-full md:hidden block w-full">
+    <div className="block w-full max-w-full md:hidden">
       <h2>
         <button
           type="button"
-          className={`flex items-center justify-between w-full  p-5 font-medium rtl:text-right  rounded-t-xl ${rowClassName}  bg-white`}
+          className={`flex w-full items-center justify-between  rounded-t-xl p-5 font-medium  rtl:text-right ${rowClassName}  bg-white`}
         >
-          <div className="w-35 flex space-x-4 ">
+          <div className="flex w-35 space-x-4 ">
             <p>{item?.id}</p>
             <span className="dark:text-white">
               {' '}
@@ -159,7 +158,7 @@ function TbodyResponsive({ item, language, id }: TbodyProps) {
           </div>
           <Link
             to={`/admin/product/create/${item.id}`}
-            className="bg-white text-xs shadow-md font-medium  mb-4 lg:mb-0 md:mb-0 sm:mb-0 space-x-2  rounded-md  justify-center flex items-center h-9 w-full max-w-35"
+            className="mb-4 flex h-9 w-full  max-w-35 items-center justify-center space-x-2 rounded-md  bg-white  text-xs font-medium shadow-md sm:mb-0 md:mb-0 lg:mb-0"
           >
             <img src={create} alt="Create icon" />
             <p>{t('product.1')}</p>

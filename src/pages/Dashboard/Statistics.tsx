@@ -18,7 +18,6 @@ const ECommerce: React.FC = () => {
 
   return (
     <>
-   
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
         <CardDataStats
           title={t('statistic.0')}
@@ -154,7 +153,7 @@ const ECommerce: React.FC = () => {
         />
         <ChartOne data={data?.transactions_by_month} />
       </div>
-      <div className="mt-2 bg-white rounded-2xl  dark:bg-boxdark  shadow-sm  py-2 pr-4   grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-6.5 2xl:gap-6.5 ">
+      <div className="mt-2 grid grid-cols-12  gap-4  rounded-2xl  bg-white py-2   pr-4 shadow-sm dark:bg-boxdark md:mt-6 md:gap-6 2xl:mt-6.5 2xl:gap-6.5 ">
         <RatingStar />
         <ChatCard />
       </div>

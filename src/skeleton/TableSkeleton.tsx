@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
 
-export default function TableSkeleton({ count, height }:any) {
+export default function TableSkeleton({ count, height }: any) {
   return (
     <>
       {Array.from({ length: count }, (_, index) => (
@@ -16,4 +16,3 @@ export default function TableSkeleton({ count, height }:any) {
     </>
   );
 }
-

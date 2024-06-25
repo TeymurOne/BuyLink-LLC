@@ -1,9 +1,9 @@
 import Review from '../Review';
-import './index.css'
+import './index.css';
 
 export default function RevieAll() {
   return (
-    <div className="flex flex-col md:space-y-4 space-y-0 pr-10  overflow-auto  custom-scroll">
+    <div className="custom-scroll flex flex-col space-y-0 overflow-auto  pr-10  md:space-y-4">
       <Review />
       <Review />
       <Review />

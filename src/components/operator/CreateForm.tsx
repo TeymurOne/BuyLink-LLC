@@ -5,12 +5,14 @@ import Tbody from './Tbody';
 import Loader from '../../common/Loader';
 import { CreateBtn, TableLayout, Thead, Title } from '../ui/Title';
 import { useTranslation } from 'react-i18next';
+
 export interface IitemApiOperator {
   branch: IitemBranch;
   email: string;
   id: number;
   name: string;
 }
+
 export interface IitemBranch {
   id: number;
   name: string;
@@ -18,6 +20,7 @@ export interface IitemBranch {
   lat: string;
   lng: string;
 }
+
 const CreateForm = () => {
   let content;
   const { t } = useTranslation();
@@ -30,22 +33,16 @@ const CreateForm = () => {
     });
   }
 
-  const titles = [
-    t('operator.3'),
-    t('operator.4'),
-    t('operator.5'),
-
-  ];
+  const titles = [t('operator.3'), t('operator.4'), t('operator.5')];
 
   return (
     <>
-      <div className="flex justify-between  flex-wrap">
-        <div className="flex flex-col w-60 mb-10">
-          <Title>{ t('operator.0')}</Title>
+      <div className="flex flex-wrap  justify-between">
+        <div className="mb-10 flex w-60 flex-col">
+          <Title>{t('operator.0')}</Title>
         </div>
         <CreateBtn img={create} link="operator/create">
-        { t('operator.1')}
-
+          {t('operator.1')}
         </CreateBtn>
       </div>
       {isLoading ? (

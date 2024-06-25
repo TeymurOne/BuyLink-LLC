@@ -34,7 +34,6 @@ function Partnyor() {
   const [partners, setPartners] = useState<Partner[]>([]);
 
   useEffect(() => {
-  
     const partnersData: Partner[] = [
       { id: 1, image: s1 },
       { id: 2, image: s2 },
@@ -56,7 +55,6 @@ function Partnyor() {
       { id: 18, image: s18 },
       { id: 19, image: s19 },
       { id: 20, image: s20 },
-  
     ];
     setPartners(partnersData);
   }, []);
@@ -64,16 +62,13 @@ function Partnyor() {
   const settings = {
     slidesToShow: 9,
     initialSlide: 0,
-    autoplay: true, 
-    infinite: true, 
-    speed:"1100",
+    autoplay: true,
+    infinite: true,
+    speed: '1100',
     autoplaySpeed: Autoplay,
     focusOnSelect: true,
-    cssEase:'linear',
-  
-  
-  
-  
+    cssEase: 'linear',
+
     responsive: [
       {
         breakpoint: 1024,
@@ -110,14 +105,16 @@ function Partnyor() {
     ],
   };
 
-
-
   return (
-    <div className="slider-container border-t border-black border-opacity-20 overflow-hidden pt-10">
+    <div className="slider-container overflow-hidden border-t border-black border-opacity-20 pt-10">
       <Slider {...settings}>
         {partners.map((partner: Partner, index: number) => (
-          <div key={index} className=' '>
-            <img className="h-17.5 w-auto mx-auto  "  src={partner.image} alt={`Partner ${index}`} />
+          <div key={index} className=" ">
+            <img
+              className="mx-auto h-17.5 w-auto  "
+              src={partner.image}
+              alt={`Partner ${index}`}
+            />
           </div>
         ))}
       </Slider>

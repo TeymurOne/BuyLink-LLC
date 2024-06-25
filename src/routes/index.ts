@@ -8,9 +8,7 @@ const balance = lazy(() => import('../pages/Dashboard/Balance.tsx'));
 
 const branchcreate = lazy(() => import('../components/Branch/All.tsx'));
 // const productform = lazy(() => import('../components/Branch/Form'));
-const operatorAll = lazy(
-  () => import('../components/operator/CreateForm.tsx'),
-);
+const operatorAll = lazy(() => import('../components/operator/CreateForm.tsx'));
 const operatorCreate = lazy(() => import('../components/operator/Form.tsx'));
 // edit routes
 
@@ -66,7 +64,6 @@ const coreRoutes = [
     component: branchEdit,
   },
 
-  
   {
     path: '/admin/product/edit/:id',
     title: 'editProduct',
@@ -135,7 +132,6 @@ const coreRoutes = [
     title: 'balance',
     component: balance,
   },
- 
 ];
 
 const routes = [...coreRoutes];

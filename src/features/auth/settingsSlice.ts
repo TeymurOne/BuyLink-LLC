@@ -35,5 +35,5 @@ const settingSlice = createSlice({
   },
 });
 
-export const {setoldPwd, setNewPwd} = settingSlice.actions;
+export const { setoldPwd, setNewPwd } = settingSlice.actions;
 export default settingSlice.reducer;

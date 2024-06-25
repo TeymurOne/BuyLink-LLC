@@ -34,6 +34,7 @@ interface Initial {
   lat: string;
   lng: string;
 }
+
 const Form = () => {
   const latData = useSelector(selectLat);
   const lngData = useSelector(selectLng);
@@ -247,14 +248,14 @@ const Form = () => {
             <div className=" col-span-full mr-10 inline-block">
               <label
                 htmlFor="logo"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="text-gray-900 block text-sm font-medium leading-6"
               >
                 Logo
               </label>
               <div className="mt-6 flex h-20 items-center gap-x-3">
-                <div className="w-19  rounded-md h-16 ">
+                <div className="h-16  w-19 rounded-md ">
                   <img
-                    className="h-16 mb-4  object-cover rounded-md  w-20 "
+                    className="mb-4 h-16  w-20 rounded-md  object-cover "
                     src={imglogo || img_ ? imglogo || img_ : addImg}
                     alt="Logo"
                   />
@@ -263,29 +264,29 @@ const Form = () => {
                   id="file-upload-logo"
                   name="file-upload-logo"
                   type="file"
-                  className="py-2 sr-only b"
+                  className="b sr-only py-2"
                   onChange={handleImgLogo}
                 />
                 <label
                   htmlFor="file-upload-logo"
-                  className="rounded-md bg-white  pl-10.5 py-1.5 text-sm
-                    font-normal   shadow-sm  w-40  mb-4  hover:bg-gray-3"
+                  className="mb-4 w-40  rounded-md bg-white py-1.5
+                    pl-10.5   text-sm  font-normal  shadow-sm  hover:bg-gray-3"
                 >
-                  {t("branch.7")}
+                  {t('branch.7')}
                 </label>
               </div>
             </div>
             <div className=" col-span-full inline-block">
               <label
                 htmlFor="cover-photo"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="text-gray-900 block text-sm font-medium leading-6"
               >
                 {t('partnerinfo.3')}
               </label>
               <div className="mt-6 flex h-20 items-center gap-x-3">
-                <div className="w-26 h-16  rounded-md ">
+                <div className="h-16 w-26  rounded-md ">
                   <img
-                    className="mb-4 w-full h-full object-cover rounded-[6px]   "
+                    className="mb-4 h-full w-full rounded-[6px] object-cover   "
                     src={imgcover || cover_ ? imgcover || cover_ : addImg}
                   />
                 </div>
@@ -294,27 +295,28 @@ const Form = () => {
                   id="file-upload-cover"
                   name="file-upload-cover"
                   type="file"
-                  className="py-2 sr-only outline-none"
+                  className="sr-only py-2 outline-none"
                   onChange={handleImgCover}
                 />
                 <label
                   htmlFor="file-upload-cover"
-                  className="rounded-md bg-white  pl-10.5 py-1.5 text-sm
-                    font-normal   shadow-sm  w-40  mb-4  hover:bg-gray-3"
+                  className="mb-4 w-40  rounded-md bg-white py-1.5
+                    pl-10.5   text-sm  font-normal  shadow-sm  hover:bg-gray-3"
                 >
-                      {t("branch.7")}
+                  {t('branch.7')}
                 </label>
               </div>
             </div>
 
-            <div className="max-w-150 w-full ">
+            <div className="w-full max-w-150 ">
               <label
                 htmlFor="title"
-                className="flex items-center text-sm font-normal text-[#5B5B5B] leading-6 "
+                className="flex items-center text-sm font-normal leading-6 text-[#5B5B5B] "
               >
-                <LuAsterisk style={{ color: 'red' }} /> <p className='dark:text-white'>   {t('partnerinfo.18')}</p>
+                <LuAsterisk style={{ color: 'red' }} />{' '}
+                <p className="dark:text-white"> {t('partnerinfo.18')}</p>
               </label>
-              <div className="mt-2 mb-4">
+              <div className="mb-4 mt-2">
                 <input
                   onChange={handleTitle}
                   value={title_}
@@ -322,8 +324,7 @@ const Form = () => {
                   id="text"
                   name="text"
                   type="text"
-
-                  className="block outline-none  pl-4 w-full rounded-lg border-0 py-1.5  shadow-md   sm:text-sm sm:leading-6"
+                  className="block w-full  rounded-lg border-0 py-1.5 pl-4 shadow-md  outline-none   sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -338,14 +339,14 @@ const Form = () => {
             )}
             <select
               name="language"
-              className="w-20 bg-white outline-none h-10 text-center my-4 rounded-md shadow-md"
+              className="my-4 h-10 w-20 rounded-md bg-white text-center shadow-md outline-none"
               id="language"
               onChange={(e) => handleTab(e.target.value)}
             >
               {language.map((item, index) => (
                 <option
                   key={index}
-                  className={`shadow-2 me-2 inline-block px-4 mt-10 py-3  hover:text-white rounded-lg ${
+                  className={`me-2 mt-10 inline-block rounded-lg px-4 py-3  shadow-2 hover:text-white ${
                     active === item ? 'active' : ''
                   }`}
                   aria-current={active === item ? 'page' : undefined}
@@ -357,20 +358,20 @@ const Form = () => {
 
             {language.map((lang, index) => (
               <div
-                className="grid lg:grid-cols-2 grid-cols-1 gap-4"
+                className="grid grid-cols-1 gap-4 lg:grid-cols-2"
                 key={index}
               >
                 <div className={`my-1 ${active !== lang ? 'hidden' : ''}`}>
                   <label
                     htmlFor={`description-${lang}`}
-                    className="block text-sm font-medium leading-6 mb-4"
+                    className="mb-4 block text-sm font-medium leading-6"
                   >
                     {t('partnerinfo.7')} {lang.toUpperCase()}
                   </label>
                   <textarea
                     name={`description-${lang}`}
                     id={`description-${lang}`}
-                    className="w-full rounded-lg outline-none shadow-md h-25 pl-4 pt-2"
+                    className="h-25 w-full rounded-lg pl-4 pt-2 shadow-md outline-none"
                     value={description_[lang]}
                     onChange={(e) => handleDesc(e, lang)}
                   ></textarea>
@@ -378,21 +379,21 @@ const Form = () => {
                 <div className={`my-1  ${active !== lang ? 'hidden' : ''}`}>
                   <label
                     htmlFor={`address-${lang}`}
-                    className="block text-sm font-medium leading-6 mb-4"
+                    className="mb-4 block text-sm font-medium leading-6"
                   >
-                        {t('partnerinfo.6')} {lang.toUpperCase()}
+                    {t('partnerinfo.6')} {lang.toUpperCase()}
                   </label>
                   <textarea
                     name={`address-${lang}`}
                     id={`address-${lang}`}
-                    className="w-full rounded-lg outline-none h-25 shadow-md pl-4 pt-2"
+                    className="h-25 w-full rounded-lg pl-4 pt-2 shadow-md outline-none"
                     value={address_[lang]}
                     onChange={(e) => handleAddress(e, lang)}
                   ></textarea>
                 </div>
               </div>
             ))}
-            <div className="grid lg:grid-cols-2 gap-4 grod-cols-1 ">
+            <div className="grod-cols-1 grid gap-4 lg:grid-cols-2 ">
               <div className="max-w-full">
                 <label
                   htmlFor="email"
@@ -408,18 +409,18 @@ const Form = () => {
                     id="text"
                     name="text"
                     type="email"
-                    className="block  pl-4 w-full rounded-md border-0 py-1.5  shadow-md sm:text-sm sm:leading-6"
+                    className="block  w-full rounded-md border-0 py-1.5 pl-4  shadow-md sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
-              <div className="max-w-full w-full">
+              <div className="w-full max-w-full">
                 <label
                   htmlFor="phone"
                   title="phone"
                   className="flex items-center text-sm font-medium leading-6 "
                 >
                   <LuAsterisk style={{ color: 'red' }} />
-                  <p className='dark:text-white300'>    {t('partnerinfo.9')}</p>
+                  <p className="dark:text-white300"> {t('partnerinfo.9')}</p>
                 </label>
                 <div className="mt-2">
                   <input
@@ -429,16 +430,16 @@ const Form = () => {
                     id="Phone"
                     onChange={handlePhone}
                     autoComplete="given-name"
-                    className="block w-full px-2 rounded-md border-1 py-1.5
-                   shadow-md  
-                    sm:text-sm sm:leading-6 outline-none  appearance-none "
+                    className="border-1 block w-full appearance-none rounded-md px-2
+                   py-1.5  
+                    shadow-md outline-none sm:text-sm  sm:leading-6 "
                   />
                 </div>
               </div>
             </div>
 
             <div className="mt-10 grid grid-cols-6 gap-x-6 gap-y-8 sm:grid-cols-6">
-              <div className="lg:col-span-3 col-span-6 ">
+              <div className="col-span-6 lg:col-span-3 ">
                 <label
                   htmlFor="facebook"
                   className="block text-sm font-medium leading-6 "
@@ -452,12 +453,12 @@ const Form = () => {
                     id="facebook"
                     name="facebook_"
                     type="text"
-                    className="block  pl-4 w-full outline-none rounded-md border-0 py-1.5  shadow-md sm:text-sm sm:leading-6"
+                    className="block  w-full rounded-md border-0 py-1.5 pl-4 shadow-md  outline-none sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
 
-              <div className="lg:col-span-3 col-span-6 ">
+              <div className="col-span-6 lg:col-span-3 ">
                 <label
                   htmlFor="title"
                   className="block text-sm font-medium leading-6 "
@@ -471,11 +472,11 @@ const Form = () => {
                     id="instagram"
                     name="instagram_"
                     type="text"
-                    className="block  pl-4 w-full outline-none rounded-md border-0 py-1.5  shadow-md   sm:text-sm sm:leading-6"
+                    className="block  w-full rounded-md border-0 py-1.5 pl-4 shadow-md  outline-none   sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
-              <div className="lg:col-span-3 col-span-6 ">
+              <div className="col-span-6 lg:col-span-3 ">
                 <label
                   htmlFor="title"
                   className="block text-sm font-medium leading-6 "
@@ -490,7 +491,7 @@ const Form = () => {
                     id="website"
                     name="website_"
                     type="text"
-                    className="block  pl-4 w-full outline-none rounded-md border-0 py-1.5  shadow-md  sm:text-sm sm:leading-6"
+                    className="block  w-full rounded-md border-0 py-1.5 pl-4 shadow-md  outline-none  sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -498,8 +499,12 @@ const Form = () => {
           </div>
         </div>
 
-        <CancelSaveButton btnDisabled={btnDisabled}
-          onSave={postSubmit} onCancel={()=>history.back()} loading={load}/>
+        <CancelSaveButton
+          btnDisabled={btnDisabled}
+          onSave={postSubmit}
+          onCancel={() => history.back()}
+          loading={load}
+        />
       </div>
     </>
   );

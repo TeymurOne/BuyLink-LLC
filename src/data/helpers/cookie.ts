@@ -1,12 +1,7 @@
-
-
-
- 
- export const getState = () => {
+export const getState = () => {
   let myToken: string | null = null;
 
   const cookieString: string = document.cookie;
-
 
   const cookies: string[] = cookieString.split('; ');
 
@@ -17,18 +12,13 @@
     }
   }
   if (myToken) {
-    return myToken
+    return myToken;
   }
- 
-
 };
-export default getState
+export default getState;
 
-
-export const setCokkie=(token:any)=>{
-  
+export const setCokkie = (token: any) => {
   const expires = new Date();
   expires.setTime(expires.getTime() + 7 * 24 * 60 * 60 * 1000);
-  document.cookie = `token=${token
-  };expires=${expires.toUTCString()};path=/`;
-}
+  document.cookie = `token=${token};expires=${expires.toUTCString()};path=/`;
+};

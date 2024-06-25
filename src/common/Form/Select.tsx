@@ -35,7 +35,7 @@ const Select: React.FC<InputProps> = ({
             value={value}
             defaultValue={value}
             onChange={onChange}
-            className="block w-full pl-4 rounded-lg outline-none h-8 shadow-md border-inputColor sm:text-sm sm:leading-6"
+            className="block h-8 w-full rounded-lg border-inputColor pl-4 shadow-md outline-none sm:text-sm sm:leading-6"
           >
             <option value="" disabled selected>
               {option}

@@ -17,7 +17,7 @@ export const Input: React.FC<InputProps> = ({
   onChange,
   type = 'text',
   required = false,
-  classname = ''
+  classname = '',
 }) => {
   const [error, setError] = useState('');
 
@@ -31,7 +31,10 @@ export const Input: React.FC<InputProps> = ({
 
   return (
     <div className="sm:col-span-3">
-      <label htmlFor={id} className="block text-sm font-medium leading-6 text-gray-900">
+      <label
+        htmlFor={id}
+        className="text-gray-900 block text-sm font-medium leading-6"
+      >
         {label}
       </label>
       <div className="mt-2">
@@ -44,19 +47,17 @@ export const Input: React.FC<InputProps> = ({
           name={id}
           autoComplete={id}
           required={required}
-          className={`block ${classname} block w-full pl-4 rounded-lg outline-none h-8 shadow-md border-inputColor sm:text-sm sm:leading-6 ${error ? 'ring-red-500' : ''}`}
+          className={`block ${classname} block h-8 w-full rounded-lg border-inputColor pl-4 shadow-md outline-none sm:text-sm sm:leading-6 ${error ? 'ring-red-500' : ''}`}
         />
-        {error && <p className="mt-1 text-danger  text-sm ">{error}</p>}
+        {error && <p className="mt-1 text-sm  text-danger ">{error}</p>}
       </div>
     </div>
   );
 };
 
 export default Input;
- 
 
 // RenderSelect.tsx
-
 
 type RenderSelectProps = {
   id: string;
@@ -66,16 +67,19 @@ type RenderSelectProps = {
   children: React.ReactNode;
 };
 
- export const RenderSelect: React.FC<RenderSelectProps> = ({
+export const RenderSelect: React.FC<RenderSelectProps> = ({
   id,
   label,
-  defaultValue = "default",
+  defaultValue = 'default',
   onChange,
   children,
 }) => {
   return (
     <div className="sm:col-span-3">
-      <label htmlFor={id} className="block text-sm font-medium leading-6 text-gray-900">
+      <label
+        htmlFor={id}
+        className="text-gray-900 block text-sm font-medium leading-6"
+      >
         {label}
       </label>
       <div className="mt-2">
@@ -84,7 +88,7 @@ type RenderSelectProps = {
           name={id}
           defaultValue={defaultValue}
           onChange={onChange}
-          className="block w-full   pl-4 rounded-lg outline-none h-10 shadow-md border-inputColor sm:text-sm sm:leading-6"
+          className="block h-10   w-full rounded-lg border-inputColor pl-4 shadow-md outline-none sm:text-sm sm:leading-6"
         >
           {children}
         </select>
@@ -92,5 +96,3 @@ type RenderSelectProps = {
     </div>
   );
 };
-
-
