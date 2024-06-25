@@ -1,17 +1,15 @@
-import { useTranslation } from "react-i18next";
-import { useGetBalanceQuery } from "../../features/statistcs/apiSlice";
+import { useTranslation } from 'react-i18next';
+import { useGetBalanceQuery } from '../../features/statistcs/apiSlice';
 
 const CardFour = () => {
-  const { data, isSuccess } = useGetBalanceQuery('')
-  const {t}=useTranslation()
+  const { data, isSuccess } = useGetBalanceQuery('');
+  const { t } = useTranslation();
   let content;
 
-  if(isSuccess) content=data?.balance
-
-
+  if (isSuccess) content = data?.balance;
 
   return (
-    <div className="rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-default dark:border-strokedark dark:bg-boxdark">
+    <div className="rounded-sm border border-stroke bg-white px-7.5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark">
       <div className="flex h-11.5 w-11.5 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4">
         <svg
           className="fill-primary dark:fill-white"
@@ -41,10 +39,8 @@ const CardFour = () => {
           <h4 className="text-title-md font-bold text-black dark:text-white">
             {content}
           </h4>
-          <span className="text-sm font-medium">{t("statistic.5")}</span>
+          <span className="text-sm font-medium">{t('statistic.5')}</span>
         </div>
-
-      
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 import { Navigate, Outlet } from 'react-router-dom';
 import { selectCurrentToken } from '../features/auth/authSlice';
-const cookieString = document.cookie;
 
+const cookieString = document.cookie;
 
 const cookies = cookieString.split(';');
 let myToken: any = null;
@@ -14,9 +14,8 @@ for (const cookie of cookies) {
   }
 }
 
-
-  const ProtectedRoutes = () => {
-    const token=useSelector(selectCurrentToken)
+const ProtectedRoutes = () => {
+  const token = useSelector(selectCurrentToken);
 
   return token || myToken ? <Outlet /> : <Navigate to="/" />;
 };

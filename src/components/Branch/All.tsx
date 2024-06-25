@@ -13,6 +13,7 @@ import { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { pageLength } from '../../features/pagination/paginationSlice';
 import Pagination from '../../core/pagination/Pagination';
+
 const CreateForm = () => {
   let content: any;
 
@@ -51,14 +52,12 @@ const CreateForm = () => {
     t('branch.4'),
     t('branch.14'),
     t('branch.6'),
-    
-   
   ];
 
   return (
     <>
-      <div className="flex   justify-between flex-wrap">
-        <div className="flex flex-col w-60 mb-10">
+      <div className="flex flex-wrap justify-between">
+        <div className="mb-10 flex w-60 flex-col">
           <Title>{t('branch.0')}</Title>
         </div>
         <CreateBtn img={create} link="branch/create">
@@ -72,7 +71,7 @@ const CreateForm = () => {
         </>
       ) : (
         <>
-          <div className="w-full h-auto mb-8 ">
+          <div className="mb-8 h-auto w-full ">
             <Map allCoordinates={allCoordinates} />
             {/*  butun kordinatlari Map gonderib orda hamisini gostermek */}
           </div>

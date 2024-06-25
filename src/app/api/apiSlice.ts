@@ -13,7 +13,6 @@ export const apiSlice = createApi({
     prepareHeaders: (headers, { getState }) => {
       const state = getState() as RootState;
       console.log(state, 'state');
-      
 
       const token = state.auth.token || getCookieToken;
 

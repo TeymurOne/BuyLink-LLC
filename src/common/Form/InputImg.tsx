@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import defaultSelectedImg from '../../images/partnyor/addimg.svg';
+
 interface ImgInput {
   img?: any;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -13,13 +14,13 @@ const InputImg: React.FC<ImgInput> = ({ onChange, showimg }) => {
       <div className=" col-span-full">
         <label
           htmlFor="photo"
-          className="block dark:text-white300 mt-6 ml-1 text-sm font-medium leading-6"
+          className="ml-1 mt-6 block text-sm font-medium leading-6 dark:text-white300"
         >
-          {t("partnerinfo.3")}
+          {t('partnerinfo.3')}
         </label>
         <div className="mt-2 flex h-20 items-center gap-x-3">
           <img
-            className="h-15 mb-4 object-cover rounded-xl bg-white   w-20 "
+            className="mb-4 h-15 w-20 rounded-xl bg-white   object-cover "
             src={showimg || defaultSelectedImg}
             alt="Member Photo "
           />
@@ -27,13 +28,13 @@ const InputImg: React.FC<ImgInput> = ({ onChange, showimg }) => {
             id="file-upload"
             name="file-upload"
             type="file"
-            className="py-2 sr-only"
+            className="sr-only py-2"
             onChange={onChange}
           />
           <label
             htmlFor="file-upload"
-            className="rounded-md dark:text-black bg-white lg:px-13 md:px-10 px-6 mb-3 border py-2.5   text-sm
-                     font-semibold shadow-sm   border-black border-opacity-20  h-10"
+            className="mb-3 h-10 rounded-md border border-black border-opacity-20 bg-white px-6 py-2.5   text-sm
+                     font-semibold shadow-sm   dark:text-black md:px-10  lg:px-13"
           >
             {t('product.15')}
           </label>

@@ -3,11 +3,11 @@ import { useTranslation } from 'react-i18next';
 
 type CancelSaveButtonProps = {
   onCancel?: () => void;
-  onSave?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;  btnDisabled?: boolean;
+  onSave?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  btnDisabled?: boolean;
   loading?: boolean;
-  children?:React.ReactNode
+  children?: React.ReactNode;
 };
-
 
 const CancelSaveButton: React.FC<CancelSaveButtonProps> = ({
   onCancel,
@@ -16,7 +16,7 @@ const CancelSaveButton: React.FC<CancelSaveButtonProps> = ({
   btnDisabled,
   loading,
 }) => {
-  const {t}=useTranslation()
+  const { t } = useTranslation();
   return (
     <div className="flex items-center justify-end gap-x-6">
       <button
@@ -41,10 +41,10 @@ const CancelSaveButton: React.FC<CancelSaveButtonProps> = ({
           onClick={onSave}
           type="submit"
           className={`rounded-md ${
-            btnDisabled ? 'opacity-65 cursor-not-allowed' : 'opacity-100'
-          } bg-btnBgColor px-6 py-2  dark:text-white cursor-pointer  text-sm font-semibold text-white shadow-sm`}
+            btnDisabled ? 'cursor-not-allowed opacity-65' : 'opacity-100'
+          } cursor-pointer bg-btnBgColor px-6  py-2 text-sm  font-semibold text-white shadow-sm dark:text-white`}
         >
-          {children || t("product.10")}
+          {children || t('product.10')}
         </button>
       )}
     </div>

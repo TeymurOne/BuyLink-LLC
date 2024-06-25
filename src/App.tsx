@@ -16,7 +16,6 @@ import getState from './data/helpers/cookie';
 import DefaultLayout from './layout/DefaultLayout';
 import About from './pages/About/About';
 
-
 function App() {
   const userState = useSelector(selectCurrentUser);
 
@@ -50,8 +49,6 @@ function App() {
     <Loader />
   ) : (
     <>
-    
-
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/about" element={<About />} />

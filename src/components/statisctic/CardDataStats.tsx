@@ -12,12 +12,12 @@ interface CardDataStatsProps {
 const CardDataStats: React.FC<CardDataStatsProps> = ({
   title,
   total,
- 
+
   children,
 }) => {
   return (
-    <div className=" border  rounded-2xl shadow-sm border-stroke bg-white py-6 px-7.5  dark:border-strokedark dark:bg-boxdark">
-      <div className="flex rounded-md h-11.5 w-11.5 items-center justify-center dark:rounded-full   bg-white300 dark:bg-white">
+    <div className=" rounded-2xl  border border-stroke bg-white px-7.5 py-6 shadow-sm  dark:border-strokedark dark:bg-boxdark">
+      <div className="flex h-11.5 w-11.5 items-center justify-center rounded-md bg-white300   dark:rounded-full dark:bg-white">
         {children}
       </div>
 
@@ -28,8 +28,8 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
           </h4>
         </div>
 
-        <span className="flex items-center font-inter dark:text-white text-black200 gap-1 text-sm font-medium ">
-         {title}
+        <span className="flex items-center gap-1 font-inter text-sm font-medium text-black200 dark:text-white ">
+          {title}
         </span>
       </div>
     </div>

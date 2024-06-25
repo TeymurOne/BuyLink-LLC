@@ -105,7 +105,7 @@ const Form: React.FC = () => {
             {t('branch.10')} {id}
           </Title>
           <div>
-            <div className=" gap-4  grid lg:grid-cols-2  grid-cols-1">
+            <div className=" grid  grid-cols-1 gap-4  lg:grid-cols-2">
               <Input
                 label={t('branch.5')}
                 value={address}
@@ -121,7 +121,7 @@ const Form: React.FC = () => {
                 placeholder="+994"
               />
             </div>
-            <div className="grid lg:grid-cols-2 grid-cols-1 lg:pt-10 pt-4">
+            <div className="grid grid-cols-1 pt-4 lg:grid-cols-2 lg:pt-10">
               <Input
                 label={t('branch.2')}
                 value={name}
@@ -130,7 +130,7 @@ const Form: React.FC = () => {
                 placeholder="Enter your name"
               />
             </div>
-            <div className="w-full my-4">
+            <div className="my-4 w-full">
               {lat && lng ? <App lat={lat} lng={lng} /> : <Loader />}
             </div>
           </div>

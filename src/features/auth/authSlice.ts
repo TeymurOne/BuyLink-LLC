@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 interface Iuser {
   id: number;
   email: string;
@@ -30,7 +31,6 @@ const authSlice = createSlice({
       state.image = action.payload.image;
     },
     setToken: (state, action) => {
-
       state.token = action.payload;
     },
     logOut: (state) => {

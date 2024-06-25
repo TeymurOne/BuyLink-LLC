@@ -7,7 +7,6 @@ export default function MapSkeleton() {
       <Box sx={{ width: '100%' }}>
         <Skeleton variant="text" height={220} sx={{ fontSize: '1rem' }} />
       </Box>
-  
     </>
   );
 }

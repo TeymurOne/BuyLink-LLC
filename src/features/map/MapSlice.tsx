@@ -22,5 +22,5 @@ export const partnerMap = createSlice({
 export default partnerMap.reducer;
 
 export const { partnerFormMap } = partnerMap.actions;
-export const selectLat = (state:any) => state.partnerMap.lat;
-export const selectLng = (state:any) => state.partnerMap.lng;
+export const selectLat = (state: any) => state.partnerMap.lat;
+export const selectLng = (state: any) => state.partnerMap.lng;

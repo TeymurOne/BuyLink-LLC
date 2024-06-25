@@ -29,9 +29,9 @@ const Details = () => {
         <>
           <Title>Branch Details</Title>
           {content && (
-            <div className="max-w-full font-poppins text-sm font-normal mt-4  flex w-full 0  border-gray  overflow-hidden rounded-tl-xl   border ">
-              <ul className="max-w-25 w-full bg-white dark:bg-boxdark dark:text-white">
-                <li className="py-4 px-3 h-20 border-gray border-r border-b lg:text-sm text-xs ">
+            <div className="0 mt-4 flex w-full max-w-full  overflow-hidden rounded-tl-xl border  border-gray  font-poppins text-sm   font-normal ">
+              <ul className="w-full max-w-25 bg-white dark:bg-boxdark dark:text-white">
+                <li className="h-20 border-b border-r border-gray px-3 py-4 text-xs lg:text-sm ">
                   Sıra nömrəsi
                 </li>
 
@@ -40,36 +40,34 @@ const Details = () => {
                     <li
                       key={index}
                       id="details_border"
-                      className="py-4 font-poppins h-20 lg:text-sm text-xs  font-normal px-3 border-gray border-r "
+                      className="h-20 border-r border-gray px-3 py-4  font-poppins text-xs font-normal lg:text-sm "
                     >
                       {item}
                     </li>
                   );
                 })}
               </ul>
-              <ul className="max-w-full  w-full bg-white">
-                <li className="py-4 px-3 h-20 lg:text-sm text-xs pl-5  bg-[#F8F8F8] dark:bg-boxdark dark:text-white ">
+              <ul className="w-full  max-w-full bg-white">
+                <li className="h-20 bg-[#F8F8F8] px-3 py-4 pl-5 text-xs  dark:bg-boxdark dark:text-white lg:text-sm ">
                   {content?.id}
                 </li>
-                <li className="py-4 px-3 h-20 lg:text-sm text-xs  pl-5 bg-white  dark:bg-boxdark-2 dark:text-white ">
+                <li className="h-20 bg-white px-3 py-4 pl-5  text-xs dark:bg-boxdark-2  dark:text-white lg:text-sm ">
                   {content?.title}
                 </li>
 
-                <li className="py-4 px-3 h-20 lg:text-sm text-xs  pl-5 bg-[#F8F8F8]  dark:bg-boxdark dark:text-white  ">
-                  {content?.price} 
+                <li className="h-20 bg-[#F8F8F8] px-3 py-4 pl-5  text-xs dark:bg-boxdark  dark:text-white lg:text-sm  ">
+                  {content?.price}
                 </li>
 
-              
-                <li className="py-4 px-3 h-20 lg:text-sm text-xs  pl-5  bg-white  dark:bg-boxdark-2 dark:text-white ">
+                <li className="h-20 bg-white px-3 py-4 pl-5  text-xs  dark:bg-boxdark-2  dark:text-white lg:text-sm ">
                   {content?.discount_price}
                 </li>
-                <li className="py-4 px-3 h-20 lg:text-sm text-xs  pl-5 bg-[#F8F8F8]   dark:bg-boxdark dark:text-white ">
+                <li className="h-20 bg-[#F8F8F8] px-3 py-4 pl-5  text-xs dark:bg-boxdark   dark:text-white lg:text-sm ">
                   {content?.category.name}
                 </li>
-                
-             
-                <li className="py-4 h-20   lg:text-sm text-xs px-3  pl-5  dark:bg-boxdark-2 dark:text-white ">
-                  <div className="w-10.5  h-10">
+
+                <li className="h-20 px-3   py-4 pl-5 text-xs  dark:bg-boxdark-2  dark:text-white lg:text-sm ">
+                  <div className="h-10  w-10.5">
                     <img
                       src={content?.image}
                       alt=""

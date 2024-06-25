@@ -35,11 +35,11 @@ const BranchSlice = createSlice({
     setLoad(state, action) {
       return { ...state, load: action.payload };
     },
-    setLat(state, action){
-        return {...state, lat:action.payload}
+    setLat(state, action) {
+      return { ...state, lat: action.payload };
     },
-    setLng(state, action){
-        return {...state, lng:action.payload}
+    setLng(state, action) {
+      return { ...state, lng: action.payload };
     },
     resetState(state) {
       return {
@@ -55,6 +55,13 @@ const BranchSlice = createSlice({
   },
 });
 
-export const { setAddress, setLat, setLng, resetState, setLoad, setName, setPhone } =
-  BranchSlice.actions;
+export const {
+  setAddress,
+  setLat,
+  setLng,
+  resetState,
+  setLoad,
+  setName,
+  setPhone,
+} = BranchSlice.actions;
 export default BranchSlice.reducer;

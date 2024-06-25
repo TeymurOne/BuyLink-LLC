@@ -15,25 +15,20 @@ const Details = () => {
     content = items.find((item: any) => item.id == id);
   }
 
-  const titles = [
-    t('operator.3'),
-    t('operator.4'),
-
-
-  ];
+  const titles = [t('operator.3'), t('operator.4')];
 
   return (
     <>
       {content ? (
         <>
           <Title>
-           { t('operator.0')}     <span>  {id}</span>{' '}
+            {t('operator.0')} <span> {id}</span>{' '}
           </Title>
 
           {content && (
-            <div className="max-w-full font-poppins text-sm font-normal mt-4  flex w-full 0  border-gray  overflow-hidden rounded-tl-xl   border ">
-              <ul className="max-w-25 w-full bg-white">
-                <li className="py-4 px-3 border-gray border-r border-b lg:text-sm text-xs ">
+            <div className="0 mt-4 flex w-full max-w-full  overflow-hidden rounded-tl-xl border  border-gray  font-poppins text-sm   font-normal ">
+              <ul className="w-full max-w-25 bg-white">
+                <li className="border-b border-r border-gray px-3 py-4 text-xs lg:text-sm ">
                   İd
                 </li>
 
@@ -42,24 +37,23 @@ const Details = () => {
                     <li
                       key={index}
                       id="details_border"
-                      className="py-4 font-poppins lg:text-sm text-xs  font-normal px-3 border-gray border-r "
+                      className="border-r border-gray px-3 py-4  font-poppins text-xs font-normal lg:text-sm "
                     >
                       {item}
                     </li>
                   );
                 })}
               </ul>
-              <ul className="max-w-full  w-full bg-white">
-                <li className="py-4 px-3 lg:text-sm text-xs pl-5  ">
+              <ul className="w-full  max-w-full bg-white">
+                <li className="px-3 py-4 pl-5 text-xs lg:text-sm  ">
                   {content?.id}
                 </li>
-                <li className="py-4 px-3 lg:text-sm text-xs pl-5 bg-[#F8F8F8] ">
+                <li className="bg-[#F8F8F8] px-3 py-4 pl-5 text-xs lg:text-sm ">
                   {content?.name}
                 </li>
-                <li className="py-4 px-3 lg:text-sm text-xs  pl-5 ">
+                <li className="px-3 py-4 pl-5 text-xs  lg:text-sm ">
                   {content?.email}
                 </li>
-            
               </ul>
             </div>
           )}

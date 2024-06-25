@@ -69,7 +69,7 @@ const Form: React.FC = () => {
     <>
       <form onSubmit={postSubmit}>
         <div className="pb-12">
-          <div className="mt-10 gap-4  grid lg:grid-cols-2  grid-cols-1">
+          <div className="mt-10 grid  grid-cols-1 gap-4  lg:grid-cols-2">
             <Input
               label={t('branch.5')}
               value={address}
@@ -85,7 +85,7 @@ const Form: React.FC = () => {
               placeholder="+994"
             />
           </div>
-          <div className="grid lg:grid-cols-2 grid-cols-1 lg:pt-10 pt-4">
+          <div className="grid grid-cols-1 pt-4 lg:grid-cols-2 lg:pt-10">
             <Input
               label={t('branch.2')}
               value={name}
@@ -95,7 +95,7 @@ const Form: React.FC = () => {
             />
           </div>
 
-          <div className="w-full my-4">
+          <div className="my-4 w-full">
             <App lat="" lng="" />
           </div>
         </div>
