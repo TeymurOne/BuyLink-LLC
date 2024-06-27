@@ -124,9 +124,7 @@ export default function Header() {
             <li className="px-3">
               <Link to="/about">{t('header.0')}</Link>
             </li>
-            <li className="px-3">
-              <a href="/#features">{t('header.1')}</a>
-            </li>
+        
             <li className=" w-32 px-3 ">
               <a href="/#how-use">{t('header.2')}</a>
             </li>

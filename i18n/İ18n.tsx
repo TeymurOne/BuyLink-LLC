@@ -478,7 +478,6 @@ const resources = {
       },
       header: {
         '0': 'About',
-        '1': 'Features',
         '2': 'How to use',
         '3': 'FAQ',
         '4': 'Contact us',

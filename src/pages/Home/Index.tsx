@@ -54,7 +54,7 @@ const Index = () => {
       </div>
       <ModalQr />
 
-      <div className=" bg-white py-6 md:py-10 lg:py-20   ">
+      <div id='faq' className=" bg-white py-6 md:py-10 lg:py-20   ">
         <div className="container mx-auto">
           <Accordion />
         </div>

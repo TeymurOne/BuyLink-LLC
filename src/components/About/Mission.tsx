@@ -54,7 +54,7 @@ const MissionCard: React.FC<TMission> = ({ img, title, desc }) => {
           alt="Mission2 Target"
           className="h-full  w-full  object-cover"
         />
-        <div className="absolute bottom-0     h-full translate-y-100 overflow-hidden  rounded-[33px]  p-10  duration-1000 hover:transition-all	 hover:duration-1000  group-hover:translate-y-0 group-hover:bg-black/50 ">
+        <div className="absolute bottom-0 h-full translate-y-100 overflow-hidden  rounded-[33px]  p-10  duration-1000 hover:transition-all	 hover:duration-1000  group-hover:translate-y-0 group-hover:bg-black/50 ">
           <div>
             <h2 className="  font-poppins text-xl font-bold text-white lg:text-3xl">
               {title}

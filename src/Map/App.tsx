@@ -7,15 +7,29 @@ const App = (props: any) => {
   const { t } = useTranslation();
 
   const [cordinat, setCoordinat] = useState<any>({ lat: lat, lng: lng });
+  const [inputValue, setInputValue] = useState<string>(`${lat}, ${lng}`);
 
   const handleCoordinateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    const [newLat, newLng] = value.split(',');
+    setInputValue(value);
 
-    setCoordinat({
-      lat: newLat || ' ',
-      lng: newLng || ' ',
-    });
+    const [newLat, newLng] = value.split(',').map(coord => coord.trim());
+
+    const isValidCoordinate = (coord: string) => /^-?\d+(\.\d+)?$/.test(coord);
+
+    if (isValidCoordinate(newLat) && isValidCoordinate(newLng)) {
+      setCoordinat({
+        lat: parseFloat(newLat),
+        lng: parseFloat(newLng),
+      });
+    }
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const allowedChars = '0123456789.,-';
+    if (!allowedChars.includes(e.key)) {
+      e.preventDefault();
+    }
   };
 
   return (
@@ -29,10 +43,11 @@ const App = (props: any) => {
         <input
           type="text"
           id="coordinates"
-          placeholder="nnasasaaaaaaaaa"
+          placeholder="Enter your coordinates"
           className="mb-4 w-full rounded-lg border-0 py-1.5 pl-4 shadow-md outline-none sm:max-w-full sm:text-sm sm:leading-6 lg:max-w-90"
-          value={`${cordinat.lat}, ${cordinat.lng}`}
+          value={inputValue}
           onChange={handleCoordinateChange}
+          onKeyPress={handleKeyPress}
         />
       </div>
     </>
