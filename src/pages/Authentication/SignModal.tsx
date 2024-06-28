@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useState, useRef, useEffect } from 'react';
 
 import { useDispatch } from 'react-redux';
 import { setCredentials, setToken } from '../../features/auth/authSlice';
@@ -77,15 +76,15 @@ const SignModal: React.FC<State> = ({ showModal, setShowModal }) => {
     <div>
       {showModal ? (
         <>
-          <div className="justify-center  items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-            <div className="relative min-w-47.5 min-h-[300px] py-20  w-full mx-4 max-w-[600px] grid place-items-center rounded-lg bg-white   px-4  my-6  ">
+          <div className="fixed  inset-0 z-50 flex items-center justify-center overflow-y-auto overflow-x-hidden outline-none focus:outline-none">
+            <div className="relative mx-4 my-6 grid  min-h-[300px] w-full min-w-47.5 max-w-[600px] place-items-center rounded-lg bg-white   px-4  py-20  ">
               {load ? (
                 <div className="h-full">
                   <Loader />
                 </div>
               ) : (
                 <>
-                  <button className="absolute top-4 right-4">
+                  <button className="absolute right-4 top-4">
                     <IoCloseOutline
                       onClick={() => setShowModal(false)}
                       style={{ fontSize: '30px', color: 'black' }}
@@ -93,12 +92,12 @@ const SignModal: React.FC<State> = ({ showModal, setShowModal }) => {
                   </button>
 
                   <div>
-                    <h3 className="text-4xl w-full font-normal pb-8   font-roboto">
+                    <h3 className="w-full pb-8 font-roboto text-4xl   font-normal">
                       Log in as Partner
                     </h3>
                     <form onSubmit={handleSubmit}>
                       <div>
-                        <label className="mb-2.5 block  font-roboto text-xs normal font-normal  dark:text-white">
+                        <label className="normal mb-2.5  block font-roboto text-xs font-normal  dark:text-white">
                           Email
                         </label>
                         <div className=" relative h-12 lg:w-96">
@@ -108,7 +107,7 @@ const SignModal: React.FC<State> = ({ showModal, setShowModal }) => {
                             ref={useref}
                             type="email"
                             placeholder="Enter your email"
-                            className=" border-2 border-opacity-65 p-4 border-[#D4D7E3] w-full bg-white h-[48px] rounded-md"
+                            className=" h-[48px] w-full rounded-md border-2 border-[#D4D7E3] border-opacity-65 bg-white p-4"
                           />
                         </div>
                       </div>
@@ -123,12 +122,12 @@ const SignModal: React.FC<State> = ({ showModal, setShowModal }) => {
                             onChange={handlePwd}
                             type={`${show ? 'text' : 'password'}`}
                             placeholder="Password"
-                            className="border-2 border-opacity-65 p-4 border-[#D4D7E3] w-full bg-white h-12 rounded-md"
+                            className="h-12 w-full rounded-md border-2 border-[#D4D7E3] border-opacity-65 bg-white p-4"
                           />
                           <button
                             type="button"
                             onClick={toggleShowPassword}
-                            className="absolute top-0 pl-2  end-0 p-3.5 rounded-e-md"
+                            className="absolute end-0 top-0  rounded-e-md p-3.5 pl-2"
                           >
                             {show ? <FaEye /> : <FaRegEyeSlash />}
                           </button>
@@ -143,7 +142,7 @@ const SignModal: React.FC<State> = ({ showModal, setShowModal }) => {
                           type="submit"
                           value="Sign In"
                           data-bs-dismiss="modal"
-                          className="w-full cursor-pointer mt-4 rounded-lg border h-13 border-primary bg-primary  text-white transition hover:bg-opacity-90"
+                          className="mt-4 h-13 w-full cursor-pointer rounded-lg border border-primary bg-primary  text-white transition hover:bg-opacity-90"
                         />
                       </div>
                     </form>
@@ -152,7 +151,7 @@ const SignModal: React.FC<State> = ({ showModal, setShowModal }) => {
               )}
             </div>
           </div>
-          <div className="opacity-40 fixed inset-0 z-40 bg-black"></div>
+          <div className="fixed inset-0 z-40 bg-black opacity-40"></div>
         </>
       ) : null}
     </div>

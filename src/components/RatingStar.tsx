@@ -14,17 +14,16 @@ const RatingStar = () => {
     content = stardata.map((rate: any, index: number) => {
       return (
         <>
-          <div className="flex group items-center  xl:pr-10  my-1" key={index}>
+          <div className="group my-1 flex  items-center  xl:pr-10" key={index}>
             <Star average_rating={rate[0]} size={10} />
 
-            <div className={`max-w-full  w-full  h-1 mx-4 bg-gray900 rounded `}>
+            <div className={`mx-4  h-1  w-full max-w-full rounded bg-gray900 `}>
               <div
-                className={`h-1 bg-meta-6   rounded`}
+                className={`h-1 rounded   bg-meta-6`}
                 style={{ width: `${rate[1] * 2}0%` }}
               />
             </div>
-            <p className='group-hover:opacity-100  opacity-0'>  {rate[1]}</p>
-          
+            <p className="opacity-0  group-hover:opacity-100"> {rate[1]}</p>
           </div>
         </>
       );
@@ -37,18 +36,18 @@ const RatingStar = () => {
         <Loader />
       ) : (
         <>
-          <div className=" bg-white  dark:bg-boxdark  pl-10  py-8 xl:col-span-5 col-span-full   ">
-            <h2 className="text-4xl  dark:text-white  font-medium font-inter    text-black">
+          <div className=" col-span-full  bg-white  py-8  pl-10 dark:bg-boxdark xl:col-span-5   ">
+            <h2 className="font-inter  text-4xl  font-medium text-black    dark:text-white">
               {t('statistic.10')}
             </h2>
 
-            <div className="flex py-6 space-x-4 ">
-              <h2 className="text-black-3 dark:text-white   text-3xl font-bold">
+            <div className="flex space-x-4 py-6 ">
+              <h2 className="text-3xl font-bold   text-black-3 dark:text-white">
                 {data?.rating?.average_rating}/ 5
               </h2>
               <span>
                 <Star average_rating={average_rating} size={20} />
-                <p className="text-tdColor dark:text-white  text-xs font-inter font-400 ">
+                <p className="font-400 font-inter  text-xs text-tdColor dark:text-white ">
                   {data?.rating?.total_review_count} {t('statistic.11')}
                 </p>
               </span>
@@ -67,14 +66,15 @@ interface StarProps {
   average_rating: any;
   size?: number;
 }
+
 export function Star({ average_rating, size }: StarProps) {
   return (
     <>
-      <div className="flex items-center mb-2">
+      <div className="mb-2 flex items-center">
         {Array.from({ length: 5 }, (_, index) => (
           <svg
             key={index}
-            className={`w-2.5 h-2.5 ${
+            className={`h-2.5 w-2.5 ${
               average_rating > index ? 'text-meta-8' : 'text-border2'
             } me-1`}
             aria-hidden="true"

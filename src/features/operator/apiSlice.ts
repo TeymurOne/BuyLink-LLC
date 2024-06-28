@@ -6,64 +6,61 @@ export interface Post {
   meta?: any;
 }
 
- export interface Idata {
+export interface Idata {
   id: number;
   name: string;
   email: string;
   password: number;
 }
 
-export const operatorApi = apiSlice.enhanceEndpoints({addTagTypes:['Branch']}).injectEndpoints({
-  endpoints: (builder) => ({
-    fetchOperator: builder.query<Post, any>({
-      query: () => ({
-        url: '/operator/all',
-        method: 'GET',
-  
+export const operatorApi = apiSlice
+  .enhanceEndpoints({ addTagTypes: ['Branch'] })
+  .injectEndpoints({
+    endpoints: (builder) => ({
+      fetchOperator: builder.query<Post, any>({
+        query: () => ({
+          url: '/operator/all',
+          method: 'GET',
+        }),
+        providesTags: ['Branch'],
       }),
-      providesTags:['Branch']
-    }),
-    postOperator: builder.mutation({
-      query: (formdata) => ({
-        url: '/operator/store',
-        method: 'POST',
-        body: formdata,
+      postOperator: builder.mutation({
+        query: (formdata) => ({
+          url: '/operator/store',
+          method: 'POST',
+          body: formdata,
+        }),
+        invalidatesTags: ['Branch'],
       }),
-      invalidatesTags:['Branch']
-    }),
-    updateOperator: builder.mutation({
-      query: ({ postData, id }) => ({
-        url: `/operator/update/${id}`,
-        method: 'POST',
-        body:postData,
+      updateOperator: builder.mutation({
+        query: ({ postData, id }) => ({
+          url: `/operator/update/${id}`,
+          method: 'POST',
+          body: postData,
+        }),
+        invalidatesTags: ['Branch'],
       }),
-      invalidatesTags:['Branch']
-
-    }),
-    updateOperatorGet: builder.query({
-      query: (id:number) => ({
-        url: `/operator/get/${id}`,
-        method: 'GET',
+      updateOperatorGet: builder.query({
+        query: (id: number) => ({
+          url: `/operator/get/${id}`,
+          method: 'GET',
+        }),
+      }),
+      deleteOperator: builder.mutation({
+        query: (id) => ({
+          url: `/operator/delete/${id}`,
+          method: 'DELETE',
+        }),
+        invalidatesTags: ['Branch'],
+      }),
+      fetchBranchAll: builder.query({
+        query: () => ({
+          url: `/branch/all`,
+          method: 'GET',
+        }),
       }),
     }),
-    deleteOperator: builder.mutation({
-      query: (id) => ({
-        url: `/operator/delete/${id}`,
-        method: 'DELETE',
-      }),
-      invalidatesTags:['Branch']
-    }),
-    fetchBranchAll: builder.query({
-      query: () => ({
-        url: `/branch/all`,
-        method: 'GET',
-        
-      }),
-
-    
-    }),
-  }),
-});
+  });
 
 export const {
   useDeleteOperatorMutation,
@@ -72,6 +69,5 @@ export const {
   usePostOperatorMutation,
   useFetchOperatorQuery,
   useLazyFetchOperatorQuery,
-  useFetchBranchAllQuery
-  
+  useFetchBranchAllQuery,
 } = operatorApi;

@@ -4,16 +4,20 @@ export interface IfetchMemberType {
   id: number;
   name: string;
 }
+
 export interface IMemberApiResponse {
   id: number;
   full_name: string;
   position: string;
   image: string;
 }
+
 export interface IMemberAll {
   data: IfetchMemberType[];
 }
-export const productSlice = apiSlice.enhanceEndpoints({ addTagTypes: ['Post'] })
+
+export const productSlice = apiSlice
+  .enhanceEndpoints({ addTagTypes: ['Post'] })
   .injectEndpoints({
     endpoints: (builder) => ({
       fetchProducttype: builder.query({
@@ -25,20 +29,19 @@ export const productSlice = apiSlice.enhanceEndpoints({ addTagTypes: ['Post'] })
       }),
       fetchProducPagination: builder.query({
         query: (page) => ({
-          url:`/product/all?page=${page}`,
+          url: `/product/all?page=${page}`,
           method: 'GET',
         }),
         providesTags: ['Post'],
-      
       }),
       fetchProducAll: builder.query({
         query: () => ({
-          url:`/product/all`,
+          url: `/product/all`,
           method: 'GET',
         }),
         providesTags: ['Post'],
       }),
-    
+
       removeProduct: builder.mutation({
         query: (id) => ({
           url: `/product/delete/${id}`,
@@ -51,7 +54,6 @@ export const productSlice = apiSlice.enhanceEndpoints({ addTagTypes: ['Post'] })
           url: '/product/store',
           method: 'POST',
           body: dataPost,
- 
         }),
         invalidatesTags: ['Post'],
       }),
@@ -63,7 +65,7 @@ export const productSlice = apiSlice.enhanceEndpoints({ addTagTypes: ['Post'] })
         }),
       }),
       updateProduct: builder.mutation({
-        query: ({postData, idUrl}) => ({
+        query: ({ postData, idUrl }) => ({
           url: `/product/update/${idUrl}`,
           method: 'POST',
           body: postData,
@@ -80,5 +82,5 @@ export const {
   usePostProductTypeMutation,
   useLazyEditProductQuery,
   useUpdateProductMutation,
-  useFetchProducAllQuery
+  useFetchProducAllQuery,
 } = productSlice;

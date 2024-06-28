@@ -29,12 +29,17 @@ const paginations = createSlice({
     setPaginationCurrent(state, action) {
       return { ...state, page: action.payload };
     },
-     resetPagination(state) {
+    resetPagination(state) {
       return initialState;
     },
   },
 });
 
-export const { pageLength, resetPagination, setPaginationCurrent, setIncrement, setDecrement } =
-  paginations.actions;
+export const {
+  pageLength,
+  resetPagination,
+  setPaginationCurrent,
+  setIncrement,
+  setDecrement,
+} = paginations.actions;
 export default paginations.reducer;

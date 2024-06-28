@@ -50,8 +50,8 @@ const CreateForm = () => {
   ];
   return (
     <>
-      <div className="flex justify-between flex-wrap">
-        <div className="flex flex-col w-60">
+      <div className="flex flex-wrap justify-between">
+        <div className="flex w-60 flex-col">
           <Title>{t('product.0')}</Title>
           <Search />
         </div>

@@ -24,6 +24,7 @@ interface IproductResponse {
 interface itemAllData {
   item: IproductResponse;
 }
+
 const Tbody: React.FC<itemAllData> = ({ item }) => {
   const [deletePost] = useRemoveProductMutation();
 
@@ -49,8 +50,8 @@ const Tbody: React.FC<itemAllData> = ({ item }) => {
       <TR>
         <TD> {id}</TD>
         <TD>
-          <div className="font-medium w-10.5 h-10  dark:text-white">
-            <img src={image} className="w-full h-full rounded-full" alt="" />
+          <div className="h-10 w-10.5 font-medium  dark:text-white">
+            <img src={image} className="h-full w-full rounded-full" alt="" />
           </div>
         </TD>
 
@@ -61,9 +62,17 @@ const Tbody: React.FC<itemAllData> = ({ item }) => {
 
         <TD>
           <div className="flex items-center  ">
-            <ActionLink bg="" icon={Details()} to={`/admin/product/details/${id}`} />
-            <ActionLink bg="" icon={Delete()} onClick={() => handleDelete(id)}  />
-            <ActionLink bg="" icon={Edit()} to={`/admin/product/edit/${id}`}  />
+            <ActionLink
+              bg=""
+              icon={Details()}
+              to={`/admin/product/details/${id}`}
+            />
+            <ActionLink
+              bg=""
+              icon={Delete()}
+              onClick={() => handleDelete(id)}
+            />
+            <ActionLink bg="" icon={Edit()} to={`/admin/product/edit/${id}`} />
           </div>
         </TD>
       </TR>

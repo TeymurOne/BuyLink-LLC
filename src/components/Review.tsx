@@ -16,11 +16,11 @@ interface Item {
 const Review: React.FC<{ item?: Item }> = ({ item }) => {
   if (!item) {
     return (
-      <div className="max-w-[329px] bg-white w-full py-4 px-4  shadow-6 rounded-xl  ">
-        <div className="flex justify-between items-center">
+      <div className="w-full max-w-[329px] rounded-xl bg-white px-4  py-4 shadow-6  ">
+        <div className="flex items-center justify-between">
           <span className="flex items-center space-x-2">
             <img
-              className="w-[34px] h-[34px] rounded-2xl"
+              className="h-[34px] w-[34px] rounded-2xl"
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSX9xsNtAFzjZFBzLzTQyIAOfzLC0EyYsHoQ&usqp=CAU"
               alt="Photo"
             />
@@ -32,7 +32,7 @@ const Review: React.FC<{ item?: Item }> = ({ item }) => {
         </div>
 
         <div>
-          <p className="text-[13px] leading-5 py-2">
+          <p className="py-2 text-[13px] leading-5">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem
             similique laudantium accusantium doloremque nobis culpa eos sequi
             ....
@@ -43,11 +43,11 @@ const Review: React.FC<{ item?: Item }> = ({ item }) => {
   } else {
     return (
       <>
-        <div className=" py-6 bg-white  max-w-[329px] w-full px-4   rounded-lg  ">
-          <div className="flex justify-between items-center">
+        <div className=" w-full max-w-[329px]  rounded-lg bg-white px-4   py-6  ">
+          <div className="flex items-center justify-between">
             <span className="flex items-center space-x-2">
               <img
-                className="w-[34px] h-[34px] rounded-2xl"
+                className="h-[34px] w-[34px] rounded-2xl"
                 src={item.user?.image || ''}
                 alt={item.user?.name || ''}
               />

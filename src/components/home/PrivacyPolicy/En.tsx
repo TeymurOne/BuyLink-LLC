@@ -1,13 +1,11 @@
 import React from 'react';
 
-import './en.css'
+import './en.css';
 
 export default function Entext() {
   return (
     <>
-      <div className="WordSection1 max-w-[1300px] mx-auto py-10">
-   
-     
+      <div className="WordSection1 mx-auto max-w-[1300px] py-10">
         <p className="MsoNormal" style={{ textAlign: 'justify' }}>
           <b>
             <span
@@ -659,7 +657,6 @@ export default function Entext() {
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </span>
           </span>
-     
         </p>
         <p
           className="MsoListParagraphCxSpMiddle"
@@ -2687,7 +2684,7 @@ export default function Entext() {
                 fontFamily: '"Palatino Linotype",serif',
               }}
             >
-           Changes to Privacy Policy
+              Changes to Privacy Policy
             </span>
           </b>
           <span

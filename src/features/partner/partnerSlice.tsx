@@ -6,7 +6,7 @@ interface PartnerSlice {
   description_: any;
   linkedln: string;
   phone_: string;
-  address_: any ;
+  address_: any;
   website_: any;
   load: boolean;
   facebook_: any;
@@ -19,9 +19,8 @@ interface PartnerSlice {
   youtube_: string;
   lat: any;
   lng: any;
-  active:string;
+  active: string;
 }
-
 
 const initialState: PartnerSlice = {
   title_: '',
@@ -42,7 +41,7 @@ const initialState: PartnerSlice = {
   youtube_: '',
   lat: '',
   lng: '',
-  active:"az"
+  active: 'az',
 };
 
 const PartnerSlice = createSlice({
@@ -67,7 +66,7 @@ const PartnerSlice = createSlice({
         linkedln,
         website,
         title,
-        active_
+        active_,
       } = action.payload;
 
       return {
@@ -75,7 +74,7 @@ const PartnerSlice = createSlice({
         lat: lat,
         lng: lng,
         about: about,
-        title_:title,
+        title_: title,
         description_: description,
         phone_: phone,
         address_: address,
@@ -88,7 +87,7 @@ const PartnerSlice = createSlice({
         youtube_: youtube,
         linkedln: linkedln,
         website_: website,
-        active:active_
+        active: active_,
       };
     },
   },

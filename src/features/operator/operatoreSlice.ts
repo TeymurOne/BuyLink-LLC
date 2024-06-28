@@ -5,7 +5,6 @@ interface OperatoreT {
   name: string;
   email: string;
   password: string;
-
 }
 
 const initialState: OperatoreT = {
@@ -13,7 +12,6 @@ const initialState: OperatoreT = {
   name: '',
   email: '',
   password: '',
-
 };
 
 const operatorSlice = createSlice({
@@ -24,22 +22,21 @@ const operatorSlice = createSlice({
       return { ...state, name: action.payload };
     },
     setPwd(state, action) {
-  
-      
       return { ...state, password: action.payload };
     },
     setEmail(state, action) {
       return { ...state, email: action.payload };
     },
-  
+
     setLoad(state, action) {
       return { ...state, load: action.payload };
     },
-    resetState(state){
-      return {...state, name:"", email:"", password:"",}
-    }
+    resetState(state) {
+      return { ...state, name: '', email: '', password: '' };
+    },
   },
 });
 
-export const { setName, setLoad, resetState, setEmail, setPwd } = operatorSlice.actions;
+export const { setName, setLoad, resetState, setEmail, setPwd } =
+  operatorSlice.actions;
 export default operatorSlice.reducer;

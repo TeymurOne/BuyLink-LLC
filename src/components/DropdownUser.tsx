@@ -2,18 +2,17 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { logOut, selectCurrentImage, selectCurrentUser } from '../features/auth/authSlice';
-
-
-
+import {
+  logOut,
+  selectCurrentImage,
+  selectCurrentUser,
+} from '../features/auth/authSlice';
 
 const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dispatch = useDispatch();
-  const user = useSelector(selectCurrentUser)
+  const user = useSelector(selectCurrentUser);
 
- 
-  
   const trigger = useRef<any>(null);
   const dropdown = useRef<any>(null);
   const navigate = useNavigate();
@@ -21,15 +20,13 @@ const DropdownUser = () => {
   const handleLogout = () => {
     dispatch(logOut());
     document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
- 
+
     navigate('/');
     setTimeout(() => {
-      window.location.reload()
-      
+      window.location.reload();
     }, 100);
   };
-   const userimage=useSelector(selectCurrentImage)
-
+  const userimage = useSelector(selectCurrentImage);
 
   useEffect(() => {
     const clickHandler = ({ target }: MouseEvent) => {
@@ -65,14 +62,18 @@ const DropdownUser = () => {
         to="#"
       >
         <span className="hidden text-right lg:block">
-              <span className="block text-sm font-medium text-black dark:text-white">
-                {user?.name}
-              </span>
-              <span className="block text-xs">{user?.phone}</span>
+          <span className="block text-sm font-medium text-black dark:text-white">
+            {user?.name}
+          </span>
+          <span className="block text-xs">{user?.phone}</span>
         </span>
 
         <span className="h-10 w-10 rounded-full">
-          <img src={userimage} className='w-full object-cover h-full rounded-[80px]' alt="User" />
+          <img
+            src={userimage}
+            className="h-full w-full rounded-[80px] object-cover"
+            alt="User"
+          />
         </span>
 
         <svg
@@ -104,7 +105,6 @@ const DropdownUser = () => {
         }`}
       >
         <ul className="flex flex-col gap-5 border-b border-stroke px-6 py-7.5 dark:border-strokedark">
-       
           <li>
             <Link
               to="/admin/settings"
@@ -126,11 +126,10 @@ const DropdownUser = () => {
               My Settings
             </Link>
           </li>
-        
         </ul>
         <button
           onClick={handleLogout}
-          className="flex items-center gap-3.5 py-4 px-6 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
+          className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
         >
           <svg
             className="fill-current"

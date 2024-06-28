@@ -23,13 +23,12 @@ export const statisticSlice = apiSlice
           url: `/balance`,
           method: 'GET',
         }),
-        
       }),
       getTransactions: builder.query({
-        query: (item) => ({ 
+        query: (item) => ({
           url: `/transactions?filter=${item}`,
           method: 'GET',
-          invalidatesTags:['transactions']
+          invalidatesTags: ['transactions'],
         }),
       }),
     }),

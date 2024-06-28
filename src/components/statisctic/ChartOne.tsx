@@ -65,8 +65,8 @@ const options: ApexOptions = {
       },
     },
     padding: {
-      top: 0, 
-      bottom: 0, 
+      top: 0,
+      bottom: 0,
     },
   },
   dataLabels: {
@@ -118,7 +118,6 @@ const options: ApexOptions = {
     min: 0.0,
     max: 2.0,
     tickAmount: 5,
-   
   },
 };
 
@@ -156,16 +155,19 @@ const ChartOne: React.FC<ChartOneProps> = ({ data }) => {
   handleReset;
 
   return (
-    <div className="col-span-12  border rounded-2xl shadow-sm border-stroke bg-white px-5 pt-7.5 pb-5 dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:col-span-6">
+    <div className="col-span-12  rounded-2xl border border-stroke bg-white px-5 pb-5 pt-7.5 shadow-sm dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:col-span-6">
       <div className="flex flex-wrap items-start justify-between gap-3 sm:flex-nowrap">
-        <div className="flex flex-col w-full   sm:gap-5">
-          <h2 className='text-xl font-inter dark:text-white font-medium'>{t('statistic.7')}</h2>
-          <div className='flex space-x-4'>
+        <div className="flex w-full flex-col   sm:gap-5">
+          <h2 className="font-inter text-xl font-medium dark:text-white">
+            {t('statistic.7')}
+          </h2>
+          <div className="flex space-x-4">
             <div className="flex items-center  space-x-2">
-              <div className="bg-primary w-2 h-2  rounded-full"></div>
-              <p className='dark:text-white  text-[#5B5B5B] text-xs font-normal font-inter'>{t('statistic.8')}</p>
+              <div className="h-2 w-2 rounded-full  bg-primary"></div>
+              <p className="font-inter  text-xs font-normal text-[#5B5B5B] dark:text-white">
+                {t('statistic.8')}
+              </p>
             </div>
-          
           </div>
         </div>
       </div>
