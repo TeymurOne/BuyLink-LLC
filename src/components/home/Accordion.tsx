@@ -15,18 +15,18 @@ const Accordion = () => {
   const faqItems: Ifaqitems[] = [
     {
       id: 1,
-      question: t('accordion.1'),
-      answer: t('accordion.2'),
+      question: t("accordion.1"),
+      answer: t("accordion.2"),
     },
     {
       id: 2,
-      question: t('accordion.3'),
-      answer: t('accordion.4'),
+      question: t("accordion.3"),
+      answer: t("accordion.4"),
     },
     {
       id: 3,
-      question: t('accordion.5'),
-      answer: t('accordion.6'),
+      question: t("accordion.5"),
+      answer: t("accordion.6"),
     },
   ];
 
@@ -34,11 +34,11 @@ const Accordion = () => {
 
   return (
     <section className="h-auto">
-      <h2 className="text-center font-manrope text-3xl font-bold leading-8 text-black lg:text-title-xxl">
+      <h2 className="text-center font-manrope lg:text-title-xxl text-3xl leading-8 text-black font-bold">
         Frequently Asked Questions
       </h2>
-      <div className="flex flex-wrap justify-between">
-        <div className="mt-10 w-full px-4">
+      <div className="flex justify-between flex-wrap">
+        <div className="w-full mt-10 px-4">
           {faqItems.map((item, index) => (
             <AccordionItem
               key={index}
@@ -67,11 +67,11 @@ function AccordionItem({ num, question, answer, curOpen, setCurOpen }: any) {
   return (
     <div
       onClick={handleToggle}
-      className="flex h-auto w-full cursor-pointer items-center justify-between border-b-[1px] border-border2 border-opacity-[20%] pb-2"
+      className="cursor-pointer h-auto border-b-[1px] border-border2 border-opacity-[20%] flex justify-between items-center w-full pb-2"
     >
       <div className="w-full">
-        <div className="flex h-20 items-center justify-between">
-          <h2 className="normal py-3 font-manrope text-xl font-semibold text-starrating lg:text-3xl">
+        <div className="flex items-center justify-between h-20">
+          <h2 className="lg:text-3xl py-3 font-manrope text-xl normal text-starrating font-semibold">
             {question}
           </h2>
           <button>
@@ -82,10 +82,9 @@ function AccordionItem({ num, question, answer, curOpen, setCurOpen }: any) {
             )}
           </button>
         </div>
-
         <p
           id="transition"
-          className={`h-0 overflow-hidden font-poppins text-xl ${isOpen && 'h-auto  py-2'}`}
+          className={`text-xl h-0 overflow-hidden font-poppins ${isOpen && 'h-auto py-2'}`}
         >
           {answer}
         </p>

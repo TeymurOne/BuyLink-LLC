@@ -17,7 +17,7 @@ export const isMobile = window.innerWidth <= 555;
 const Index = () => {
   return (
     <PagesLayout>
-      <div className="  w-full cursor-default bg-white   ">
+      <div className=" w-full cursor-default bg-white   ">
         <div className="container mx-auto  h-auto cursor-default bg-white px-4 pb-10   md:px-10  lg:px-16">
           <Main />
         </div>
@@ -54,7 +54,7 @@ const Index = () => {
       </div>
       <ModalQr />
 
-      <div className=" bg-white py-6 md:py-10 lg:py-20   ">
+      <div id="faq" className=" bg-white py-6 md:py-10 lg:py-20   ">
         <div className="container mx-auto">
           <Accordion />
         </div>

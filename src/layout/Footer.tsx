@@ -8,7 +8,7 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="w-full  bg-black  py-12">
+      <footer id='footer' className='bg-black  w-full  py-12'>
         <div className=" container mx-auto  h-full">
           <div className="grid w-[70%] grid-cols-1   gap-10  pb-10 pt-10 xsm:px-4 lg:grid-cols-4   ">
             <div className=" flex h-auto flex-col justify-between px-2  lg:h-[190px]   ">
@@ -35,11 +35,7 @@ const Footer = () => {
                   </svg>
                 </a>
 
-                <a
-                  className="h-8 w-8"
-                  href="mailto:partnership@buylink.info"
-                  target="_blank"
-                >
+                <a className="w-8 h-8" href='mailto:partnership@buylink.info' target='_blank'>
                   <svg
                     width="32"
                     height="32"
@@ -54,10 +50,7 @@ const Footer = () => {
                   </svg>
                 </a>
 
-                <a
-                  href="https://www.instagram.com/buylinkapp?igsh=MXhsdXgybmlibGcybA=="
-                  target="_blank"
-                >
+                <a href="https://www.instagram.com/buylinkapp?igsh=MXhsdXgybmlibGcybA==" target='_blank' >
                   <svg
                     width="32"
                     height="32"
@@ -72,10 +65,7 @@ const Footer = () => {
                   </svg>
                 </a>
 
-                <a
-                  href="https://www.linkedin.com/company/buylink.info/?viewAsMember=true"
-                  target="_blank"
-                >
+                <a href="https://www.linkedin.com/company/buylink.info/?viewAsMember=true" target='_blank'>
                   <svg
                     width="32"
                     height="32"
