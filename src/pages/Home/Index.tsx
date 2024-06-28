@@ -1,4 +1,3 @@
-import Header from '../../layout/Header';
 import './main.css';
 import VideoSection from '../../components/home/VideoSection';
 import Accordion from '../../components/home/Accordion';
@@ -18,16 +17,16 @@ export const isMobile = window.innerWidth <= 555;
 const Index = () => {
   return (
     <PagesLayout>
-      <div className="  w-full cursor-default bg-white   ">
-        <div className="bg-white pb-10  container lg:px-16 md:px-10 px-4 mx-auto   h-auto  cursor-default">
+      <div className=" w-full cursor-default bg-white   ">
+        <div className="container mx-auto  h-auto cursor-default bg-white px-4 pb-10   md:px-10  lg:px-16">
           <Main />
         </div>
       </div>
 
-      <div className="bg-white   w-full ">
+      <div className="w-full   bg-white ">
         <Partnyor />
 
-        <div className="  container  bg-white lg:px-16 md:px-4 px-4 mx-auto    h-auto  cursor-default    ">
+        <div className="  container  mx-auto h-auto cursor-default bg-white px-4    md:px-4  lg:px-16    ">
           <VideoSection />
 
           <WalletBuylink />
@@ -35,7 +34,7 @@ const Index = () => {
         </div>
       </div>
 
-      <div className="bg-tborderHover  lg:py-10 py-6">
+      <div className="bg-tborderHover  py-6 lg:py-10">
         <div className="  container   ">
           <BuyLinkPartner2 />{' '}
         </div>
@@ -55,7 +54,7 @@ const Index = () => {
       </div>
       <ModalQr />
 
-      <div className=" lg:py-20 md:py-10 py-6 bg-white   ">
+      <div id="faq" className=" bg-white py-6 md:py-10 lg:py-20   ">
         <div className="container mx-auto">
           <Accordion />
         </div>
