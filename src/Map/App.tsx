@@ -25,7 +25,7 @@ const App = (props: any) => {
     }
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const allowedChars = '0123456789.,-';
     if (!allowedChars.includes(e.key)) {
       e.preventDefault();
@@ -47,7 +47,7 @@ const App = (props: any) => {
           className="mb-4 w-full rounded-lg border-0 py-1.5 pl-4 shadow-md outline-none sm:max-w-full sm:text-sm sm:leading-6 lg:max-w-90"
           value={inputValue}
           onChange={handleCoordinateChange}
-          onKeyPress={handleKeyPress}
+          onKeyDown={handleKeyDown}
         />
       </div>
     </>
