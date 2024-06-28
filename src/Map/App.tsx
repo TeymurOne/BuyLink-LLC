@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Map from './Map';
 import { useTranslation } from 'react-i18next';
 
@@ -6,14 +6,14 @@ const App = (props: any) => {
   const { lat, lng } = props;
   const { t } = useTranslation();
 
-  const [cordinat, setCoordinat] = useState<any>({ lat: lat, lng: lng });
+  const [coordinate, setCoordinat] = useState<any>({ lat: lat, lng: lng });
   const [inputValue, setInputValue] = useState<string>(`${lat}, ${lng}`);
 
   const handleCoordinateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setInputValue(value);
 
-    const [newLat, newLng] = value.split(',').map(coord => coord.trim());
+    const [newLat, newLng] = value.split(',').map((coord) => coord.trim());
 
     const isValidCoordinate = (coord: string) => /^-?\d+(\.\d+)?$/.test(coord);
 
@@ -35,7 +35,7 @@ const App = (props: any) => {
   return (
     <>
       <div className="h-125 w-full rounded-md shadow-2xl">
-        <Map cordinat={cordinat} setCoordinat={setCoordinat} />
+        <Map cordinat={coordinate} setCoordinat={setCoordinat} />
       </div>
 
       <div className="mt-10">
