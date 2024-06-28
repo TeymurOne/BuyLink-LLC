@@ -27,7 +27,6 @@ const CreateForm = () => {
 
   const { isSuccess, isLoading, data } = useFetchOperatorQuery('');
   const items = isSuccess && Array.isArray(data?.data) ? data.data : [];
-  console.log(items);
 
   if (isSuccess) {
     content = items?.map((item: IitemApiOperator, index: number) => {
