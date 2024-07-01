@@ -26,9 +26,8 @@ const resources = {
         '11': 'Haqqında',
         '12': 'Xəritə',
         '13': 'Adına görə axtarış',
-        '14':"Nömrə",
-        '15':"Koordinatlar ",
-
+        '14': 'Nömrə',
+        '15': 'Koordinatlar ',
       },
       product: {
         '0': 'Məhsul ',
@@ -42,12 +41,11 @@ const resources = {
         '8': 'Redakt ',
         '9': 'Ləgv et ',
         '10': 'Saxla',
-        '11': 'Dəyış',
+        '11': 'Dəyiş',
         '12': 'Haqqında',
         '13': 'Kateqoriya',
         '14': 'adı     ',
-        '15':'Şəkil əlave et'
-       
+        '15': 'Şəkil əlave et',
       },
       operator: {
         '0': 'Operator ',
@@ -82,7 +80,7 @@ const resources = {
         '15': 'Instagram',
         '16': 'Ləgv et',
         '17': 'Saxla',
-        '18':"Partnyor adı"
+        '18': 'Partnyor adı',
       },
       header: {
         '0': 'Haqqımızda',
@@ -343,9 +341,8 @@ const resources = {
         '7': 'Aylıq gəlir',
         '8': ' Satış',
         '9': 'Trend',
-        '10':"Reytinq və rəylər ",
-        '11':" Qiymətləndirmə sayı"
-        
+        '10': 'Reytinq və rəylər ',
+        '11': ' Qiymətləndirmə sayı',
       },
       balance: {
         '0': ' Ümumi satış',
@@ -419,9 +416,8 @@ const resources = {
         '11': 'Details',
         '12': 'Map',
         '13': 'Search by name',
-        '14':"Phone",
-        '15':"Coordinates ",
-
+        '14': 'Phone',
+        '15': 'Coordinates ',
       },
       product: {
         '0': 'Product ',
@@ -439,7 +435,7 @@ const resources = {
         '12': 'Details',
         '13': 'Category',
         '14': 'name    ',
-        "15":"Add image"
+        '15': 'Add image',
       },
       operator: {
         '0': 'Operator ',
@@ -474,7 +470,7 @@ const resources = {
         '15': 'Instagram',
         '16': 'Cancel',
         '17': 'Save',
-        '18':"Partner name"
+        '18': 'Partner name',
       },
       header: {
         '0': 'About',
@@ -751,8 +747,8 @@ const resources = {
         '7': 'Revenue per Month  ',
         '8': 'Sales',
         '9': 'Trend',
-        '10':"Rating and Reviews",
-        '11':"Review count"
+        '10': 'Rating and Reviews',
+        '11': 'Review count',
       },
       balance: {
         '0': 'Total Revenue',

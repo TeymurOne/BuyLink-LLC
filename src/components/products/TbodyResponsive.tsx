@@ -26,7 +26,6 @@ const TbodyResponsive = ({ item }: any) => {
       }
     }
   };
-
   const [show, setShow] = useState(false);
   const { t } = useTranslation();
 
@@ -77,7 +76,7 @@ const TbodyResponsive = ({ item }: any) => {
               </li>
               <li className="flex justify-between">
                 <p>Description</p>
-                <p>{item?.description.az}</p>
+                <p>{item?.description?.az}</p>
               </li>
             </ul>
           </div>

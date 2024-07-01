@@ -9,13 +9,13 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   setActive,
+  setcategoryId,
   setDesc,
   setDiscount,
+  setimgUrl,
   setName,
   setPrice,
   setReset,
-  setcategoryId,
-  setimgUrl,
 } from '../../features/product/productSlice';
 import { RootState } from '../../app/api/store';
 import TableSkeleton from '../../skeleton/TableSkeleton';
@@ -107,7 +107,7 @@ const EditProduct = () => {
     try {
       if (postData) {
         await dataEdit({ postData, idUrl });
-        navigate('/admin/products');
+        navigate('/admin/product/all');
         dispatch(setReset());
       }
     } catch (error) {}
@@ -263,7 +263,7 @@ const EditProduct = () => {
               onSave={handleUpdate}
               onCancel={() => navigate(-1)}
             >
-              Update
+              {t('product.11')}
             </CancelSaveButton>
           </div>
         </form>

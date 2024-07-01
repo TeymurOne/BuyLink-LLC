@@ -17,7 +17,9 @@ const operatorCreate = lazy(() => import('../components/operator/Form.tsx'));
 const editProduct = lazy(() => import('../components/products/EditProduct'));
 const productsAll = lazy(() => import('../components/products/All.tsx'));
 const productForm = lazy(() => import('../components/products/Form'));
-const detailsProduct = lazy(() => import('../components/products/Details'));
+const detailsProduct = lazy(
+  () => import('../components/products/DetailsProduct'),
+);
 
 // branches
 

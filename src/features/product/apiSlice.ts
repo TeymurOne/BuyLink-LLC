@@ -34,7 +34,7 @@ export const productSlice = apiSlice
         }),
         providesTags: ['Post'],
       }),
-      fetchProducAll: builder.query({
+      fetchProductAll: builder.query({
         query: () => ({
           url: `/product/all`,
           method: 'GET',
@@ -82,5 +82,5 @@ export const {
   usePostProductTypeMutation,
   useLazyEditProductQuery,
   useUpdateProductMutation,
-  useFetchProducAllQuery,
+  useFetchProductAllQuery,
 } = productSlice;

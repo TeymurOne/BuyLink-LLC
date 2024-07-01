@@ -1,28 +1,25 @@
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { useFetchProducAllQuery } from '../../features/product/apiSlice';
+import { useFetchProductAllQuery } from '../../features/product/apiSlice';
 import { Title } from '../ui/Title';
 
-const Details = () => {
+const DetailsProduct = () => {
   const { id } = useParams();
   const { t } = useTranslation();
+  const { isSuccess, data } = useFetchProductAllQuery('');
 
   const titles = [
     t('product.3'),
-
     t('product.5'),
     t('product.6'),
     t('product.7'),
-
     t('product.2'),
   ];
 
-  const { isSuccess, data } = useFetchProducAllQuery('');
-
   let content;
-  if (isSuccess && id) content = data?.data.find((item: any) => item.id == id);
-  console.log(content, 'contemt');
-
+  if (isSuccess && id) {
+    content = data?.data.find((item: any) => item.id == id);
+  }
   return (
     <>
       {content && (
@@ -52,7 +49,7 @@ const Details = () => {
                   {content?.id}
                 </li>
                 <li className="h-20 bg-white px-3 py-4 pl-5  text-xs dark:bg-boxdark-2  dark:text-white lg:text-sm ">
-                  {content?.title}
+                  {content?.title?.en}
                 </li>
 
                 <li className="h-20 bg-[#F8F8F8] px-3 py-4 pl-5  text-xs dark:bg-boxdark  dark:text-white lg:text-sm  ">
@@ -84,4 +81,6 @@ const Details = () => {
   );
 };
 
-export default Details;
+export default DetailsProduct;
+
+
