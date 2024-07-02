@@ -1,7 +1,7 @@
 import partnerleft from '../../images/Pages-index/modal/partner-left.png';
 import play from '../../images/Pages-index/head-main/store-icon.svg';
 import apple from '../../images/Pages-index/head-main/apple-icon.svg';
-import qr from '../../images/Pages-index/modal/frame.png';
+import qr from '../../images/Pages-index/modal/frame.svg';
 import './Main.css';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -10,7 +10,7 @@ const ModalQr = () => {
   const { t } = useTranslation();
   return (
     <div className="w-full  bg-tborderHover " id="buylinkdownload">
-      <div className="  hidden items-center lg:flex   ">
+      <div className="hidden items-center lg:flex   ">
         <div className=" ml-auto space-x-3 pr-10  text-center">
           <span className="font-inter font-semibold text-starrating lg:text-4xl xl:text-5xl">
             {t('become.0')}
