@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import d_icon1 from '../../images/Pages-index/disocunt/icon-1.svg';
 import d_icon2 from '../../images/Pages-index/disocunt/icon-2.svg';

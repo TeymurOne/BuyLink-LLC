@@ -41,7 +41,7 @@ const resources = {
         '8': 'Redakt ',
         '9': 'Ləgv et ',
         '10': 'Saxla',
-        '11': 'Dəyış',
+        '11': 'Dəyiş',
         '12': 'Haqqında',
         '13': 'Kateqoriya',
         '14': 'adı     ',
@@ -474,7 +474,6 @@ const resources = {
       },
       header: {
         '0': 'About',
-        '1': 'Features',
         '2': 'How to use',
         '3': 'FAQ',
         '4': 'Contact us',

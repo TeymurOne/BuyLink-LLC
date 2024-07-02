@@ -1,4 +1,4 @@
-import React, { FormEvent, useEffect, useTransition } from 'react';
+import React, { FormEvent, useEffect } from 'react';
 import {
   useLazyGetUpdateQuery,
   usePostUpdateMutation,
@@ -21,6 +21,8 @@ import Input from '../../common/Form/Input';
 import CancelSaveButton from '../../data/helpers/Button';
 import { Title } from '../ui/Title';
 import { useTranslation } from 'react-i18next';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface IpostData {
   id?: any;
@@ -84,12 +86,13 @@ const Form: React.FC = () => {
         };
         const response = await postBranches({ postData, id }).unwrap();
         if (response) {
+          toast.success('Updated successfully!');
           navigate('/admin/branch/all');
           dispatch(resetState());
         }
       }
     } catch (error) {
-      console.error('Error while submitting form:', error);
+      toast.error('An error occurred. Please try again.');
     } finally {
       dispatch(setLoad(false));
     }
