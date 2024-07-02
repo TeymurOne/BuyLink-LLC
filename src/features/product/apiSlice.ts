@@ -10,6 +10,7 @@ export interface IMemberApiResponse {
   full_name: string;
   position: string;
   image: string;
+  keyword: string;
 }
 
 export interface IMemberAll {
@@ -24,24 +25,23 @@ export const productSlice = apiSlice
         query: () => ({
           url: '/product/categories',
           method: 'GET',
-          providesTags: ['Post'],
         }),
+        providesTags: ['Post'],
       }),
       fetchProducPagination: builder.query({
-        query: (page) => ({
-          url: `/product/all?page=${page}`,
+        query: ({ page, keyword }) => ({
+          url: `/product/all?page=${page}&keyword=${keyword}`,
           method: 'GET',
         }),
         providesTags: ['Post'],
       }),
       fetchProductAll: builder.query({
         query: () => ({
-          url: `/product/all`,
+          url: '/product/all',
           method: 'GET',
         }),
         providesTags: ['Post'],
       }),
-
       removeProduct: builder.mutation({
         query: (id) => ({
           url: `/product/delete/${id}`,
@@ -61,8 +61,8 @@ export const productSlice = apiSlice
         query: (id) => ({
           url: `/product/get/${id}`,
           method: 'GET',
-          invalidatesTags: ['Post'],
         }),
+        providesTags: ['Post'],
       }),
       updateProduct: builder.mutation({
         query: ({ postData, idUrl }) => ({

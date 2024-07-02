@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import create from '../../images/action-icon/create.svg';
 import Pagination from '../../core/pagination/Pagination';
@@ -15,7 +15,16 @@ const CreateForm = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const { page } = useSelector((store: RootState) => store.PaginationSlice);
-  const { isSuccess, isLoading, data } = useFetchProducPaginationQuery(page);
+
+  const [keyword, setKeyword] = useState('');
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setKeyword(e.target.value);
+  };
+
+  const { isSuccess, isLoading, data } = useFetchProducPaginationQuery({
+    page,
+    keyword,
+  });
 
   useEffect(() => {
     if (isSuccess && data) {
@@ -39,23 +48,23 @@ const CreateForm = () => {
     }
     return null;
   }, [isSuccess, data]);
+
   const titles = [
     t('product.2'),
     t('product.3'),
-
     t('product.5'),
     t('product.6'),
     t('product.7'),
     t('product.8'),
   ];
+
   return (
     <>
       <div className="flex flex-wrap justify-between">
         <div className="flex w-60 flex-col">
           <Title>{t('product.0')}</Title>
-          <Search />
+          <Search onchange={handleSearchChange} />
         </div>
-
         <CreateBtn img={create} link="product/create/:id">
           {t('product.1')}
         </CreateBtn>
@@ -69,9 +78,7 @@ const CreateForm = () => {
             <Thead titles={titles} />
             <tbody>{content}</tbody>
           </TableLayout>
-
           {responsiveContent}
-
           <Pagination />
         </>
       )}

@@ -1,9 +1,7 @@
 import { Suspense, useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-
 import ECommerce from './pages/Dashboard/Statistics';
-
 import Loader from './common/Loader';
 import axiosInstance from './core/lib/axios.config';
 import { selectCurrentUser, setCredentials } from './features/auth/authSlice';
@@ -15,14 +13,12 @@ import PrivacyPolicy from './components/home/PrivacyPolicy/Index';
 import getState from './data/helpers/cookie';
 import DefaultLayout from './layout/DefaultLayout';
 import About from './pages/About/About';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   const userState = useSelector(selectCurrentUser);
-
   const tokenget = getState();
-
   const dispatch = useDispatch();
-
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -49,6 +45,7 @@ function App() {
     <Loader />
   ) : (
     <>
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/about" element={<About />} />
@@ -60,7 +57,6 @@ function App() {
         <Route element={<ProtectedRoutes />}>
           <Route path="/admin" element={<DefaultLayout />}>
             <Route index element={<ECommerce />} />
-
             {routes.map((route: any, index) => (
               <Route
                 key={index}

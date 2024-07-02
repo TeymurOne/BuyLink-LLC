@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-
+import React, { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import {
   useLazyUpdateOperatorGetQuery,
@@ -12,25 +11,22 @@ import Input from '../../common/Form/Input';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   setEmail,
-  setName,
   setLoad,
+  setName,
 } from '../../features/operator/operatoreSlice';
 import CancelSaveButton from '../../data/helpers/Button';
 import { Title } from '../ui/Title';
+import { toast } from 'react-toastify';
 
 const Form = () => {
   const { id }: any = useParams();
   const { name, email, branchID } = useSelector((store: any) => store.operator);
-
   const [updateGet] = useLazyUpdateOperatorGetQuery();
   const [postOperator] = useUpdateOperatorMutation();
-
   const { t } = useTranslation();
-
   const handleEdit = async (id: number) => {
     try {
       const resUpdate = await updateGet(id);
-
       if (resUpdate) {
         const data = resUpdate.data?.data;
         dispatch(setName(data?.name));
@@ -44,16 +40,13 @@ const Form = () => {
   }, [id]);
   const { isSuccess, data, isError } = useFetchBranchAllQuery('');
   const dispatch = useDispatch();
-
   const postData = new FormData();
   const navigate = useNavigate();
 
   let content;
-
   if (isSuccess) {
     content = data?.data.map((item: IitemBranch, index: number) => {
       const isSelected = item.id === branchID;
-
       return (
         <option key={index} selected={isSelected} value={item.id}>
           {item.name}
@@ -68,16 +61,15 @@ const Form = () => {
     dispatch(setLoad(true));
     setLoad(true);
     e.preventDefault();
-
     postData.append('name', name);
     postData.append('email', email);
-
     try {
       if (postData) {
         await postOperator({ postData, id })
           .unwrap()
           .then((response) => {
             if (response) {
+              toast.success('Updated successfully!');
               navigate('/admin/operator/all');
             }
           });
@@ -96,7 +88,6 @@ const Form = () => {
             <Title>
               {t('operator.0')} {t('operator.8')} : <span>{id}</span>
             </Title>
-
             <div className="mt-10 grid grid-cols-6 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="col-span-6 lg:col-span-3 ">
                 <Input
@@ -120,7 +111,6 @@ const Form = () => {
             </div>
           </div>
         </div>
-
         <CancelSaveButton onCancel={() => history.back()} onSave={postSubmit} />
       </form>
     </>

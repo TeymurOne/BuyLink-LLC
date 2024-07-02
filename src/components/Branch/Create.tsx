@@ -1,6 +1,7 @@
 import { usePostBranchMutation } from '../../features/branch/apiSlice';
 import { useNavigate } from 'react-router-dom';
 import App from '../../Map/App';
+import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectLat, selectLng } from '../../features/map/MapSlice';
 import Input from '../../common/Form/Input';
@@ -26,7 +27,6 @@ interface IpostData {
 
 const Form: React.FC = () => {
   const dispatch = useDispatch();
-
   const { address, phone, name, load } = useSelector(
     (state: any) => state.branch,
   );
@@ -51,12 +51,13 @@ const Form: React.FC = () => {
 
         const response = await postBranches(postData).unwrap();
         if (response.success) {
+          toast.success('Added successfully!');
           navigate('/admin/branch/all');
           dispatch(resetState());
         }
       }
     } catch (error) {
-      console.error('Error while submitting form:', error);
+      toast.error('An error occurred. Please try again.');
     } finally {
       dispatch(setLoad(false));
     }
