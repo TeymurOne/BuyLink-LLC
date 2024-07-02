@@ -26,9 +26,8 @@ const resources = {
         '11': 'Haqqında',
         '12': 'Xəritə',
         '13': 'Adına görə axtarış',
-        '14':"Nömrə",
-        '15':"Koordinatlar ",
-
+        '14': 'Nömrə',
+        '15': 'Koordinatlar ',
       },
       product: {
         '0': 'Məhsul ',
@@ -46,8 +45,7 @@ const resources = {
         '12': 'Haqqında',
         '13': 'Kateqoriya',
         '14': 'adı     ',
-        '15':'Şəkil əlave et'
-       
+        '15': 'Şəkil əlave et',
       },
       operator: {
         '0': 'Operator ',
@@ -82,7 +80,7 @@ const resources = {
         '15': 'Instagram',
         '16': 'Ləgv et',
         '17': 'Saxla',
-        '18':"Partnyor adı"
+        '18': 'Partnyor adı',
       },
       header: {
         '0': 'Haqqımızda',
@@ -163,7 +161,7 @@ const resources = {
         '3': 'İndi qoşul',
       },
       accordion: {
-        '0': 'Ən çox soruşulanlar',
+        '0': 'Ən çox verilən suallar',
         '1': 'BuyLink nədir?',
         '2': 'Bizim missiyamız insanları və biznesləri bir referal sosial şəbəkəsi altında birləşdirərək onların müəyyən qazanc və üstünlüklərdən faydalanmasını təmin etməkdir.',
         '3': 'BuyLink-in üstünlükləri nələrdir?',
@@ -193,7 +191,7 @@ const resources = {
         '11': 'Müqavilə şablonu',
         '12': 'İzahedici video',
         '13': '2024 Bütün hüquqları qorunur',
-        '14': 'buylink@gmail.com',
+        '14': 'partnership@buylink.info',
         '15': '000-000-00',
       },
       privacy: {
@@ -343,9 +341,8 @@ const resources = {
         '7': 'Aylıq gəlir',
         '8': ' Satış',
         '9': 'Trend',
-        '10':"Reytinq və rəylər ",
-        '11':" Qiymətləndirmə sayı"
-        
+        '10': 'Reytinq və rəylər ',
+        '11': ' Qiymətləndirmə sayı',
       },
       balance: {
         '0': ' Ümumi satış',
@@ -419,9 +416,8 @@ const resources = {
         '11': 'Details',
         '12': 'Map',
         '13': 'Search by name',
-        '14':"Phone",
-        '15':"Coordinates ",
-
+        '14': 'Phone',
+        '15': 'Coordinates ',
       },
       product: {
         '0': 'Product ',
@@ -439,7 +435,7 @@ const resources = {
         '12': 'Details',
         '13': 'Category',
         '14': 'name    ',
-        "15":"Add image"
+        '15': 'Add image',
       },
       operator: {
         '0': 'Operator ',
@@ -474,7 +470,7 @@ const resources = {
         '15': 'Instagram',
         '16': 'Cancel',
         '17': 'Save',
-        '18':"Partner name"
+        '18': 'Partner name',
       },
       header: {
         '0': 'About',
@@ -585,7 +581,7 @@ const resources = {
         '11': 'Invoice Template',
         '12': 'Tuturoial',
         '13': '2024 All Rights Reserved',
-        '14': 'buylink@gmail.com',
+        '14': 'partnership@buylink.info',
         '15': '000-000-00',
       },
       privacy: {
@@ -752,8 +748,8 @@ const resources = {
         '7': 'Revenue per Month  ',
         '8': 'Sales',
         '9': 'Trend',
-        '10':"Rating and Reviews",
-        '11':"Review count"
+        '10': 'Rating and Reviews',
+        '11': 'Review count',
       },
       balance: {
         '0': 'Total Revenue',

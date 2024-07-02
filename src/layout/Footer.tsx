@@ -8,7 +8,7 @@ const Footer = () => {
 
   return (
     <>
-      <footer id='footer' className='bg-black  w-full  py-12'>
+      <footer id="footer" className="w-full  bg-black  py-12">
         <div className=" container mx-auto  h-full">
           <div className="grid w-[70%] grid-cols-1   gap-10  pb-10 pt-10 xsm:px-4 lg:grid-cols-4   ">
             <div className=" flex h-auto flex-col justify-between px-2  lg:h-[190px]   ">
@@ -34,23 +34,10 @@ const Footer = () => {
                     />
                   </svg>
                 </a>
-
-                <a className="w-8 h-8" href='mailto:partnership@buylink.info' target='_blank'>
-                  <svg
-                    width="32"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M28 6H4C3.73478 6 3.48043 6.10536 3.29289 6.29289C3.10536 6.48043 3 6.73478 3 7V24C3 24.5304 3.21071 25.0391 3.58579 25.4142C3.96086 25.7893 4.46957 26 5 26H27C27.5304 26 28.0391 25.7893 28.4142 25.4142C28.7893 25.0391 29 24.5304 29 24V7C29 6.73478 28.8946 6.48043 28.7071 6.29289C28.5196 6.10536 28.2652 6 28 6ZM16 16.6437L6.57125 8H25.4287L16 16.6437ZM12.3387 16L5 22.7262V9.27375L12.3387 16ZM13.8188 17.3563L15.3188 18.7375C15.5032 18.9069 15.7446 19.0008 15.995 19.0008C16.2454 19.0008 16.4868 18.9069 16.6712 18.7375L18.1712 17.3563L25.4212 24H6.57125L13.8188 17.3563ZM19.6612 16L27 9.2725V22.7275L19.6612 16Z"
-                      fill="#4C5DF5"
-                    />
-                  </svg>
-                </a>
-
-                <a href="https://www.instagram.com/buylinkapp?igsh=MXhsdXgybmlibGcybA==" target='_blank' >
+                <a
+                  href="https://www.instagram.com/buylinkapp?igsh=MXhsdXgybmlibGcybA=="
+                  target="_blank"
+                >
                   <svg
                     width="32"
                     height="32"
@@ -65,7 +52,10 @@ const Footer = () => {
                   </svg>
                 </a>
 
-                <a href="https://www.linkedin.com/company/buylink.info/?viewAsMember=true" target='_blank'>
+                <a
+                  href="https://www.linkedin.com/company/buylink.info/?viewAsMember=true"
+                  target="_blank"
+                >
                   <svg
                     width="32"
                     height="32"
@@ -135,7 +125,6 @@ const Footer = () => {
               <ul className="flex flex-col justify-between space-x-0 text-sm font-medium text-border2 xl:flex-row xl:space-x-9">
                 <li className="divide-x divide-blue-200">{t('footer.13')}</li>
                 <li className="">{t('footer.14')}</li>
-                <li>051-411-84-44</li>
               </ul>
             </div>
           </div>
