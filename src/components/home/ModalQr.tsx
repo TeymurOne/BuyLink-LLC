@@ -1,7 +1,7 @@
 import partnerleft from '../../images/Pages-index/modal/partner-left.png';
 import play from '../../images/Pages-index/head-main/store-icon.svg';
 import apple from '../../images/Pages-index/head-main/apple-icon.svg';
-import qr from '../../images/Pages-index/modal/qr.svg';
+import qr from '../../images/Pages-index/modal/frame.png';
 import './Main.css';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -23,8 +23,8 @@ const ModalQr = () => {
         </div>
         <div className=" gradient grid w-full max-w-3xl place-items-center rounded-tl-[320px] bg-textPrimary  py-40 ">
           <div className=" flex h-[219px]  w-75 flex-col items-center justify-center">
-            <div className="grid w-full max-w-90 place-items-center  rounded-3xl border-2 border-starrating bg-white p-6 ">
-              <img className="h-full w-55" src={qr} alt=" Qr" />
+            <div className="grid w-full max-w-90 place-items-center  rounded-3xl border-2 border-starrating bg-white p-5 ">
+              <img className="h-full w-60" src={qr} alt=" Qr" />
             </div>
             <h2 className="py-4 text-title-md2  font-semibold text-starrating   ">
               {t('become.3')}
