@@ -24,7 +24,7 @@ const DetailsProduct = () => {
     <>
       {content && (
         <>
-          <Title>Branch Details</Title>
+          <Title>Product Details</Title>
           {content && (
             <div className="0 mt-4 flex w-full max-w-full  overflow-hidden rounded-tl-xl border  border-gray  font-poppins text-sm   font-normal ">
               <ul className="w-full max-w-25 bg-white dark:bg-boxdark dark:text-white">
