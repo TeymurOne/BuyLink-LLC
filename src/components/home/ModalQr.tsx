@@ -3,7 +3,6 @@ import play from '../../images/Pages-index/head-main/store-icon.svg';
 import apple from '../../images/Pages-index/head-main/apple-icon.svg';
 import qr from '../../images/Pages-index/modal/frame.svg';
 import './Main.css';
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const ModalQr = () => {
@@ -30,9 +29,11 @@ const ModalQr = () => {
               {t('become.3')}
             </h2>
             <div className="mt-6 flex    h-34   ">
-              <Link
-                to="#"
+              <a
+                href="https://app.buylink.info/"
                 className="mr-2 grid  h-15 w-46 place-items-center   bg-black-2"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <div className="flex h-15 items-center space-x-1  ">
                   <img src={apple} alt="Apple icon" className="h-7 w-5" />
@@ -43,10 +44,12 @@ const ModalQr = () => {
                     </p>
                   </span>
                 </div>
-              </Link>
-              <Link
-                to="#"
+              </a>
+              <a
+                href="https://app.buylink.info/"
                 className="grid h-15  w-46 place-items-center   bg-black-2"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <div className="flex h-14 items-center space-x-1  ">
                   <img src={play} alt="Apple icon" className="h-8 w-5" />
@@ -55,7 +58,7 @@ const ModalQr = () => {
                     <p className="-mt-1.5  text-lg font-medium">Google Play</p>
                   </span>
                 </div>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
