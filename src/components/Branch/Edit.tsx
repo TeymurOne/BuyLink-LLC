@@ -19,7 +19,7 @@ import {
 } from '../../features/branch/branchSlice';
 import Input from '../../common/Form/Input';
 import CancelSaveButton from '../../data/helpers/Button';
-import { Title } from '../ui/Title';
+import { TitleArrow } from '../ui/Title';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -104,9 +104,9 @@ const Form: React.FC = () => {
     <>
       <form onSubmit={postSubmit}>
         <div className="space-y-10">
-          <Title>
+          <TitleArrow>
             {t('branch.10')} {id}
-          </Title>
+          </TitleArrow>
           <div>
             <div className=" grid  grid-cols-1 gap-4  lg:grid-cols-2">
               <Input

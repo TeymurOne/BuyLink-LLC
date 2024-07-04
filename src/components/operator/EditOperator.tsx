@@ -15,7 +15,7 @@ import {
   setName,
 } from '../../features/operator/operatoreSlice';
 import CancelSaveButton from '../../data/helpers/Button';
-import { Title } from '../ui/Title';
+import { TitleArrow } from '../ui/Title';
 import { toast } from 'react-toastify';
 
 const Form = () => {
@@ -85,9 +85,9 @@ const Form = () => {
       <form>
         <div className="space-y-12">
           <div className=" pb-12">
-            <Title>
+            <TitleArrow>
               {t('operator.0')} {t('operator.8')} : <span>{id}</span>
-            </Title>
+            </TitleArrow>
             <div className="mt-10 grid grid-cols-6 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="col-span-6 lg:col-span-3 ">
                 <Input

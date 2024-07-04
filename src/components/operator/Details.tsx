@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useFetchOperatorQuery } from '../../features/operator/apiSlice';
 import Loader from '../../common/Loader';
 import { useTranslation } from 'react-i18next';
-import { Title } from '../ui/Title';
+import { TitleArrow } from '../ui/Title';
 
 const Details = () => {
   const { id } = useParams();
@@ -21,9 +21,9 @@ const Details = () => {
     <>
       {content ? (
         <>
-          <Title>
+          <TitleArrow>
             {t('operator.0')} <span> {id}</span>{' '}
-          </Title>
+          </TitleArrow>
 
           {content && (
             <div className="0 mt-4 flex w-full max-w-full  overflow-hidden rounded-tl-xl border  border-gray  font-poppins text-sm   font-normal ">

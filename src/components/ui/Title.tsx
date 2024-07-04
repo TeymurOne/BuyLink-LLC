@@ -20,6 +20,15 @@ export const Title: React.FC<TitleProps> = ({ children }) => {
     <>
       <h4 className=" flex items-center  text-xl font-semibold text-black dark:text-white">
         {children}
+      </h4>
+    </>
+  );
+};
+export const TitleArrow: React.FC<TitleProps> = ({ children }) => {
+  return (
+    <>
+      <h4 className=" flex items-center  text-xl font-semibold text-black dark:text-white">
+        {children}
         <FaArrowLeft
           onClick={() => window.history.back()}
           style={{ cursor: 'pointer', marginLeft: '20px' }}
@@ -28,7 +37,6 @@ export const Title: React.FC<TitleProps> = ({ children }) => {
     </>
   );
 };
-
 export const Search: React.FC<TitleProps> = ({ onchange }) => {
   return (
     <>

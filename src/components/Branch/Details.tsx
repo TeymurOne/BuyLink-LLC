@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useFetchBranchAllQuery } from '../../features/branch/apiSlice';
-import { Title } from '../ui/Title';
+import { TitleArrow } from '../ui/Title';
 
 const Details = () => {
   const { id } = useParams();
@@ -23,7 +23,7 @@ const Details = () => {
 
   return (
     <>
-      <Title>Branch Details</Title>
+      <TitleArrow>Branch Details</TitleArrow>
       {content && (
         <div className="0 mt-4 flex w-full max-w-full  overflow-hidden rounded-tl-xl border  border-gray  font-poppins text-sm   font-normal ">
           <ul className="w-full max-w-25 bg-white">
