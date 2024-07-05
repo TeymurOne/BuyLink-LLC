@@ -15,18 +15,18 @@ const Accordion = () => {
   const faqItems: Ifaqitems[] = [
     {
       id: 1,
-      question: t("accordion.1"),
-      answer: t("accordion.2"),
+      question: t('accordion.1'),
+      answer: t('accordion.2'),
     },
     {
       id: 2,
-      question: t("accordion.3"),
-      answer: t("accordion.4"),
+      question: t('accordion.3'),
+      answer: t('accordion.4'),
     },
     {
       id: 3,
-      question: t("accordion.5"),
-      answer: t("accordion.6"),
+      question: t('accordion.5'),
+      answer: t('accordion.6'),
     },
   ];
 
@@ -34,11 +34,11 @@ const Accordion = () => {
 
   return (
     <section className="h-auto">
-      <h2 className="text-center font-manrope lg:text-title-xxl text-3xl leading-8 text-black font-bold">
-        Frequently Asked Questions
+      <h2 className="text-center font-manrope text-3xl font-bold leading-8 text-black lg:text-title-xxl">
+        {t('accordion.0')}
       </h2>
-      <div className="flex justify-between flex-wrap">
-        <div className="w-full mt-10 px-4">
+      <div className="flex flex-wrap justify-between">
+        <div className="mt-10 w-full px-4">
           {faqItems.map((item, index) => (
             <AccordionItem
               key={index}

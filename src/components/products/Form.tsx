@@ -7,13 +7,13 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  setPrice,
-  setcategoryId,
   setActive,
-  setLoad,
-  setDiscount,
-  setName,
+  setcategoryId,
   setDesc,
+  setDiscount,
+  setLoad,
+  setName,
+  setPrice,
   setReset,
 } from '../../features/product/productSlice';
 import InputImg from '../../common/Form/InputImg';
@@ -21,6 +21,8 @@ import { Title } from '../ui/Title';
 import Select from '../../common/Form/Select';
 import Input from '../../common/Form/Input';
 import CancelSaveButton from '../../data/helpers/Button';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Form = () => {
   const params = useParams();
@@ -56,7 +58,6 @@ const Form = () => {
 
   const handleImg = (e: React.ChangeEvent<HTMLInputElement>) => {
     let files: any = e.target.files;
-
     if (files) {
       setImages(files[0]);
       setShowimg(URL.createObjectURL(files[0]));
@@ -65,7 +66,6 @@ const Form = () => {
 
   useEffect(() => {
     const id = params?.id;
-
     id && dispatch(setcategoryId(id));
   }, [params]);
 
@@ -88,7 +88,10 @@ const Form = () => {
   }, [params.id, isSuccess, local, data]);
 
   const onSubmit = async (e: React.FormEvent<HTMLButtonElement>) => {
-    if (btnDisabled) alert('Form melumatlari tam doldurlmalidr');
+    if (btnDisabled) {
+      alert('Form melumatlari tam doldurlmalidr');
+      return;
+    }
     dispatch(setLoad(true));
     e.preventDefault();
 
@@ -113,11 +116,13 @@ const Form = () => {
             if (response.data) {
               navigate('/admin/product/all');
               dispatch(setReset());
+              toast.success('Added successfully!');
             }
           });
       }
     } catch (error) {
       console.error(error);
+      toast.error('An error occurred. Please try again.');
     } finally {
       dispatch(setLoad(false));
     }
@@ -164,7 +169,7 @@ const Form = () => {
                 <input
                   name={`title-${lang}`}
                   id={`title-${lang}`}
-                  className="border-1 block  w-full rounded-lg px-2 py-1.5 shadow-md    "
+                  className="border-1 block  w-full rounded-lg px-2 py-1.5 shadow-md"
                   value={name[lang]}
                   onChange={(e) => handleTitle(e, lang)}
                 ></input>
@@ -173,7 +178,7 @@ const Form = () => {
               <div className="w-full">
                 <label
                   htmlFor="description"
-                  className="mb-2 block font-works text-sm font-medium text-tdColor dark:text-white300 "
+                  className="mb-2 block font-works text-sm font-medium text-tdColor dark:text-white300"
                 >
                   {t('product.4')}
                   {lang.toUpperCase()}
@@ -182,7 +187,7 @@ const Form = () => {
                   name={`description-${lang}`}
                   id={`description-${lang}`}
                   rows={3}
-                  className="border-1  block w-full rounded-lg px-4 py-1.5  shadow-md"
+                  className="border-1  block w-full rounded-lg px-4 py-1.5 shadow-md"
                   value={desc[lang]}
                   onChange={(e) => handleDesc(e, lang)}
                 ></textarea>

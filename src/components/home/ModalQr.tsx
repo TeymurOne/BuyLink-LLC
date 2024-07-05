@@ -1,16 +1,15 @@
 import partnerleft from '../../images/Pages-index/modal/partner-left.png';
 import play from '../../images/Pages-index/head-main/store-icon.svg';
 import apple from '../../images/Pages-index/head-main/apple-icon.svg';
-import qr from '../../images/Pages-index/modal/qr.svg';
+import qr from '../../images/Pages-index/modal/frame.svg';
 import './Main.css';
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const ModalQr = () => {
   const { t } = useTranslation();
   return (
     <div className="w-full  bg-tborderHover " id="buylinkdownload">
-      <div className="  hidden items-center lg:flex   ">
+      <div className="hidden items-center lg:flex   ">
         <div className=" ml-auto space-x-3 pr-10  text-center">
           <span className="font-inter font-semibold text-starrating lg:text-4xl xl:text-5xl">
             {t('become.0')}
@@ -23,16 +22,18 @@ const ModalQr = () => {
         </div>
         <div className=" gradient grid w-full max-w-3xl place-items-center rounded-tl-[320px] bg-textPrimary  py-40 ">
           <div className=" flex h-[219px]  w-75 flex-col items-center justify-center">
-            <div className="grid w-full max-w-90 place-items-center  rounded-3xl border-2 border-starrating bg-white p-6 ">
-              <img className="h-full w-55" src={qr} alt=" Qr" />
+            <div className="grid w-full max-w-90 place-items-center  rounded-3xl border-2 border-starrating bg-white p-5 ">
+              <img className="h-full w-60" src={qr} alt=" Qr" />
             </div>
             <h2 className="py-4 text-title-md2  font-semibold text-starrating   ">
               {t('become.3')}
             </h2>
             <div className="mt-6 flex    h-34   ">
-              <Link
-                to="#"
+              <a
+                href="https://app.buylink.info/"
                 className="mr-2 grid  h-15 w-46 place-items-center   bg-black-2"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <div className="flex h-15 items-center space-x-1  ">
                   <img src={apple} alt="Apple icon" className="h-7 w-5" />
@@ -43,10 +44,12 @@ const ModalQr = () => {
                     </p>
                   </span>
                 </div>
-              </Link>
-              <Link
-                to="#"
+              </a>
+              <a
+                href="https://app.buylink.info/"
                 className="grid h-15  w-46 place-items-center   bg-black-2"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <div className="flex h-14 items-center space-x-1  ">
                   <img src={play} alt="Apple icon" className="h-8 w-5" />
@@ -55,7 +58,7 @@ const ModalQr = () => {
                     <p className="-mt-1.5  text-lg font-medium">Google Play</p>
                   </span>
                 </div>
-              </Link>
+              </a>
             </div>
           </div>
         </div>

@@ -123,7 +123,7 @@ const DropdownUser = () => {
                   fill=""
                 />
               </svg>
-              My Settings
+              Change Password
             </Link>
           </li>
         </ul>

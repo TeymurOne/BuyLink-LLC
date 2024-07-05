@@ -27,6 +27,7 @@ const CreateForm = () => {
 
   const { isSuccess, isLoading, data } = useFetchOperatorQuery('');
   const items = isSuccess && Array.isArray(data?.data) ? data.data : [];
+
   if (isSuccess) {
     content = items?.map((item: IitemApiOperator, index: number) => {
       return <Tbody item={item} key={index} />;

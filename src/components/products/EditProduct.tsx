@@ -9,13 +9,13 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   setActive,
+  setcategoryId,
   setDesc,
   setDiscount,
+  setimgUrl,
   setName,
   setPrice,
   setReset,
-  setcategoryId,
-  setimgUrl,
 } from '../../features/product/productSlice';
 import { RootState } from '../../app/api/store';
 import TableSkeleton from '../../skeleton/TableSkeleton';
@@ -23,6 +23,8 @@ import { Title } from '../ui/Title';
 import Input from '../../common/Form/Input';
 import Select from '../../common/Form/Select';
 import CancelSaveButton from '../../data/helpers/Button';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 type Data = {
   id: number;
@@ -32,7 +34,6 @@ type Data = {
 const EditProduct = () => {
   const { id } = useParams();
   const idUrl = id;
-
   const [showimg, setShowimg] = useState('');
   const dispatch = useDispatch();
   const language = ['az', 'en', 'ru'];
@@ -87,8 +88,8 @@ const EditProduct = () => {
 
   const handleUpdate = async (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
-
     const postData = new FormData();
+
     postData.append('image', imgurl);
     postData.append('category_id', categoryId.toString());
     postData.append('price', price.toString());
@@ -98,7 +99,6 @@ const EditProduct = () => {
       const value = desc[key];
       postData.append(`description[${key}]`, value || ' ');
     });
-
     language.forEach((key: any) => {
       const value = name[key];
       postData.append(`title[${key}]`, value || '');
@@ -107,10 +107,13 @@ const EditProduct = () => {
     try {
       if (postData) {
         await dataEdit({ postData, idUrl });
-        navigate('/admin/products');
+        toast.success('Updated successfully!');
+        navigate('/admin/product/all');
         dispatch(setReset());
       }
-    } catch (error) {}
+    } catch (error) {
+      toast.error('An error occurred. Please try again.');
+    }
   };
 
   useEffect(() => {
@@ -263,7 +266,7 @@ const EditProduct = () => {
               onSave={handleUpdate}
               onCancel={() => navigate(-1)}
             >
-              Update
+              {t('product.11')}
             </CancelSaveButton>
           </div>
         </form>
