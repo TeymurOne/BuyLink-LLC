@@ -13,6 +13,7 @@ type TheadProps = {
   titles: string[];
 };
 type TableProps = {
+  .
   children: any;
 };
 export const Title: React.FC<TitleProps> = ({ children }) => {
