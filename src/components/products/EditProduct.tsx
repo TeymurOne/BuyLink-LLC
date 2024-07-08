@@ -19,7 +19,7 @@ import {
 } from '../../features/product/productSlice';
 import { RootState } from '../../app/api/store';
 import TableSkeleton from '../../skeleton/TableSkeleton';
-import { Title } from '../ui/Title';
+import { TitleArrow } from '../ui/Title';
 import Input from '../../common/Form/Input';
 import Select from '../../common/Form/Select';
 import CancelSaveButton from '../../data/helpers/Button';
@@ -141,10 +141,10 @@ const EditProduct = () => {
         <TableSkeleton count="10" />
       ) : (
         <form className="h-auto">
-          <Title>
+          <TitleArrow>
             {' '}
             {t('product.0')} {t('product.11')} {idUrl}
-          </Title>
+          </TitleArrow>
 
           <div>
             <label

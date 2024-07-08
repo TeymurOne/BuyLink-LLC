@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { useFetchProductAllQuery } from '../../features/product/apiSlice';
-import { Title } from '../ui/Title';
+import { TitleArrow } from '../ui/Title';
 
 const DetailsProduct = () => {
   const { id } = useParams();
@@ -24,7 +24,7 @@ const DetailsProduct = () => {
     <>
       {content && (
         <>
-          <Title>Product Details</Title>
+          <TitleArrow>Product Details</TitleArrow>
           {content && (
             <div className="0 mt-4 flex w-full max-w-full  overflow-hidden rounded-tl-xl border  border-gray  font-poppins text-sm   font-normal ">
               <ul className="w-full max-w-25 bg-white dark:bg-boxdark dark:text-white">

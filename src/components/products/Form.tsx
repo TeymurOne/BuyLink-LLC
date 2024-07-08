@@ -17,7 +17,7 @@ import {
   setReset,
 } from '../../features/product/productSlice';
 import InputImg from '../../common/Form/InputImg';
-import { Title } from '../ui/Title';
+import { TitleArrow } from '../ui/Title';
 import Select from '../../common/Form/Select';
 import Input from '../../common/Form/Input';
 import CancelSaveButton from '../../data/helpers/Button';
@@ -134,7 +134,7 @@ const Form = () => {
   return (
     <>
       <form className="h-auto">
-        <Title> {t('product.1')}</Title>
+        <TitleArrow> {t('product.1')}</TitleArrow>
         <InputImg showimg={showimg} onChange={handleImg} />
 
         <select
