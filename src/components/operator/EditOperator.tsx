@@ -13,6 +13,7 @@ import {
   setEmail,
   setLoad,
   setName,
+  setPwd,
 } from '../../features/operator/operatoreSlice';
 import CancelSaveButton from '../../data/helpers/Button';
 import { TitleArrow } from '../ui/Title';
@@ -20,7 +21,9 @@ import { toast } from 'react-toastify';
 
 const Form = () => {
   const { id }: any = useParams();
-  const { name, email, branchID } = useSelector((store: any) => store.operator);
+  const { name, email, password, branchID } = useSelector(
+    (store: any) => store.operato,
+  );
   const [updateGet] = useLazyUpdateOperatorGetQuery();
   const [postOperator] = useUpdateOperatorMutation();
   const { t } = useTranslation();
@@ -63,6 +66,8 @@ const Form = () => {
     e.preventDefault();
     postData.append('name', name);
     postData.append('email', email);
+    postData.append('password', password);
+
     try {
       if (postData) {
         await postOperator({ postData, id })
@@ -84,7 +89,7 @@ const Form = () => {
     <>
       <form>
         <div className="space-y-12">
-          <div className=" pb-12">
+          <div className="pb-12">
             <TitleArrow>
               {t('operator.0')} {t('operator.8')} : <span>{id}</span>
             </TitleArrow>
@@ -106,6 +111,16 @@ const Form = () => {
                   onChange={(e) => dispatch(setEmail(e.target.value))}
                   id="email"
                   placeholder="Enter your Email"
+                />
+              </div>
+              <div className="col-span-6 lg:col-span-3 ">
+                <Input
+                  type="password"
+                  label={t('operator.11')}
+                  value={password}
+                  onChange={(e) => dispatch(setPwd(String(e.target.value)))}
+                  id="password"
+                  placeholder="Enter your password"
                 />
               </div>
             </div>

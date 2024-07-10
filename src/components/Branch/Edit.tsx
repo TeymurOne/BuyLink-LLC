@@ -22,7 +22,6 @@ import CancelSaveButton from '../../data/helpers/Button';
 import { TitleArrow } from '../ui/Title';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 interface IpostData {
   id?: any;
@@ -108,7 +107,7 @@ const Form: React.FC = () => {
             {t('branch.10')} {id}
           </TitleArrow>
           <div>
-            <div className=" grid  grid-cols-1 gap-4  lg:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
               <Input
                 label={t('branch.5')}
                 value={address}
