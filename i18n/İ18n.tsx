@@ -60,13 +60,13 @@ const resources = {
         '8': 'Dəyiş',
         '9': 'Şifrə',
         '10': 'Seçin',
+        '11': 'Şifrəni Dəyiş',
       },
       partnerinfo: {
         '0': 'Partnyor Məlumatları ',
         '1': 'Logo',
         '3': 'Cover Şəkil',
         '4': 'Ad',
-
         '5': 'Haqqında ',
         '6': 'Ünvan ',
         '7': 'Məzmun',
@@ -443,20 +443,19 @@ const resources = {
         '2': 'Branch',
         '3': 'Name',
         '4': 'Email',
-
         '5': 'Actions ',
         '6': 'Cancel ',
         '7': 'Save',
         '8': 'Update',
         '9': 'Password',
         '10': 'Select',
+        '11': 'Change Password,
       },
       partnerinfo: {
         '0': 'Partner information',
         '1': 'Logo',
         '3': 'Cover Photo',
         '4': 'Title',
-
         '5': 'About ',
         '6': 'Address ',
         '7': 'Description',

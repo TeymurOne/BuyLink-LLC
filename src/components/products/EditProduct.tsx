@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import {
   useFetchProducttypeQuery,
@@ -24,7 +24,6 @@ import Input from '../../common/Form/Input';
 import Select from '../../common/Form/Select';
 import CancelSaveButton from '../../data/helpers/Button';
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 type Data = {
   id: number;
@@ -44,7 +43,6 @@ const EditProduct = () => {
   const [dataEdit] = useUpdateProductMutation();
   const { name, active, desc, categoryId, price, discount, imgurl } =
     useSelector((store: RootState) => store.productSlice);
-
   const handleTitle = (
     e: React.ChangeEvent<HTMLInputElement>,
     language: string,
@@ -75,7 +73,6 @@ const EditProduct = () => {
       const response = await editProduct(id);
       if (response) {
         const data = response.data?.data;
-
         dispatch(setName(data?.title));
         dispatch(setDesc(data?.description));
         dispatch(setPrice(data?.price));
@@ -93,7 +90,7 @@ const EditProduct = () => {
     postData.append('image', imgurl);
     postData.append('category_id', categoryId.toString());
     postData.append('price', price.toString());
-    postData.append('discounted_price', discount.toString());
+    postData.append('discount_price', discount.toString());
 
     language.forEach((key: any) => {
       const value = desc[key];
@@ -230,15 +227,15 @@ const EditProduct = () => {
               </div>
             ))}
           </div>
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 ">
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
             <Select
               id="category"
               onChange={(e: any) =>
                 dispatch(setcategoryId(Number(e.target.value)))
               }
-              value={categoryId}
+              value={categoryId.toString()}
               label={t('product.7')}
-              option=" Category seçin"
+              option="Category seçin"
             >
               {content}
             </Select>
@@ -246,7 +243,7 @@ const EditProduct = () => {
               id="Price"
               label={t('product.5')}
               onChange={(e) => dispatch(setPrice(e.target.value))}
-              value={price}
+              value={price.toString()}
               option=""
               placeholder="Price"
               required
@@ -255,9 +252,10 @@ const EditProduct = () => {
               id="Discount Price"
               label={t('product.6')}
               onChange={(e) => dispatch(setDiscount(e.target.value))}
-              value={discount}
+              value={discount.toString()}
               placeholder="Discount Price"
               required
+              type="discount"
             />
           </div>
 
