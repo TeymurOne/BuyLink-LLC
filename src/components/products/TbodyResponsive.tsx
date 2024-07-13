@@ -36,7 +36,7 @@ const TbodyResponsive = ({ item }: any) => {
           <button
             onClick={() => setShow(!show)}
             type="button"
-            className="flex w-full items-center justify-between rounded-t-xl bg-white p-5  font-medium rtl:text-right  dark:bg-boxdark"
+            className="flex w-full items-center justify-between rounded-t-xl bg-white p-5  font-medium dark:bg-boxdark  rtl:text-right"
           >
             <div className="flex w-35 space-x-2 ">
               <div className="grid h-7.5 w-7.5 place-items-center rounded-xl bg-btnBgColor">
@@ -56,7 +56,7 @@ const TbodyResponsive = ({ item }: any) => {
           </button>
         </h2>
         <div
-          className={`h-0 w-full   overflow-hidden font-poppins text-lg duration-700 ${
+          className={`h-0 w-full overflow-hidden text-lg duration-700 ${
             show && 'h-50  duration-500'
           }`}
         >

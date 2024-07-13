@@ -8,15 +8,13 @@ const DefaultLayout = () => {
 
   return (
     <>
-      <div className="dark:bg-boxdark-2 dark:text-bodydark">
+      <div className="font-poppins dark:bg-boxdark-2 dark:text-bodydark">
         <div className="flex h-screen overflow-hidden">
           <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-
           <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
             <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-
             <main>
-              <div className="mx-auto max-w-screen-2xl bg-whiter  p-2 dark:bg-boxdark-2 md:p-8 2xl:p-10">
+              <div className="mx-auto max-w-screen-2xl bg-whiter p-2 dark:bg-boxdark-2 md:p-8 2xl:p-10">
                 <Outlet />
               </div>
             </main>

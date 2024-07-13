@@ -1,9 +1,7 @@
 import create from '../../images/action-icon/create.svg';
 import { useFetchBranchAllQuery } from '../../features/branch/apiSlice';
 import Tbody from './Tbody';
-
 import { useTranslation } from 'react-i18next';
-
 import TableSkeleton from '../../skeleton/TableSkeleton';
 import Map from './Map';
 import MapSkeleton from '../../skeleton/Map';
@@ -16,7 +14,6 @@ import Pagination from '../../core/pagination/Pagination';
 
 const CreateForm = () => {
   let content: any;
-
   let allCoordinates: { lat: number | string; lng: number | string }[] = []; // butun datanin kordinatlari
   const dispatch = useDispatch();
   const { page } = useSelector((store: any) => store.PaginationSlice);
@@ -45,14 +42,7 @@ const CreateForm = () => {
   }, [isSuccess, data, dispatch]);
 
   const { t } = useTranslation();
-  const titles = [
-    t('branch.2'),
-    t('branch.5'),
-    t('branch.3'),
-    t('branch.4'),
-    t('branch.14'),
-    t('branch.6'),
-  ];
+  const titles = [t('branch.2'), t('branch.5'), t('branch.14'), t('branch.6')];
 
   return (
     <>
@@ -71,11 +61,9 @@ const CreateForm = () => {
         </>
       ) : (
         <>
-          <div className="mb-8 h-auto w-full ">
+          <div className="mb-8 h-auto w-full">
             <Map allCoordinates={allCoordinates} />
-            {/*  butun kordinatlari Map gonderib orda hamisini gostermek */}
           </div>
-
           <TableLayout>
             <Thead titles={titles} />
             <tbody>{content}</tbody>
