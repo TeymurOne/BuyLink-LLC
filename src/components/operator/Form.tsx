@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { usePostOperatorMutation } from '../../features/operator/apiSlice';
 import { useFetchBranchAllQuery } from '../../features/branch/apiSlice';
@@ -30,6 +30,13 @@ interface ErrorResponse {
 }
 
 const Form: React.FC = () => {
+  const [attemptedSubmit, setAttemptedSubmit] = useState(false);
+  const [formErrors, setFormErrors] = useState<{ [key: string]: boolean }>({
+    name: false,
+    email: false,
+    password: false,
+  });
+
   const { name, password, email } = useSelector(
     (state: { operator: OperatorState }) => state.operator,
   );
@@ -50,8 +57,24 @@ const Form: React.FC = () => {
     console.error('Error fetching data', 'Products Types');
   }
 
-  const postSubmit = async (e: React.FormEvent<HTMLButtonElement>) => {
+  const validateForm = () => {
+    const errors: { [key: string]: boolean } = {};
+    errors.name = !name.trim();
+    errors.email = !email.trim();
+    errors.password = !password.trim();
+    setFormErrors(errors);
+    return !Object.values(errors).some((error) => error);
+  };
+
+  const postSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setAttemptedSubmit(true);
+
+    if (!validateForm()) {
+      toast.error('Please fill out all required fields.');
+      return;
+    }
+
     dispatch(setLoad(true));
     const postData = new FormData();
     postData.append('name', name);
@@ -84,52 +107,90 @@ const Form: React.FC = () => {
     const cleanedValue = value.replace(/[^a-zA-Z\s]/g, '');
     dispatch(setName(cleanedValue));
   };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(setEmail(e.target.value));
+  };
+
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(setPwd(String(e.target.value)));
+  };
+
+  const inputStyles = (isInvalid: boolean): React.CSSProperties => ({
+    backgroundColor: isInvalid ? '#FFEAEA' : '',
+    borderColor: isInvalid ? '#F31F1F' : '',
+    borderWidth: isInvalid ? '0.3px' : '',
+  });
+
   const { t } = useTranslation();
 
   return (
     <>
-      <form>
+      <form onSubmit={postSubmit}>
         <div className="space-y-12">
-          <div className=" pb-12">
+          <div className="pb-12">
             <TitleArrow>{t('operator.1')}</TitleArrow>
             <div className="mt-10 grid grid-cols-6 gap-x-6 gap-y-8 sm:grid-cols-6">
-              <div className="col-span-6 lg:col-span-3 ">
+              <div
+                className="col-span-6 lg:col-span-3"
+                style={{ position: 'relative' }}
+              >
                 <Input
                   label={t('operator.3')}
                   value={name}
                   onChange={handleNameChange}
                   id="name"
                   placeholder="Enter your name"
+                  style={inputStyles(attemptedSubmit && formErrors.name)}
                 />
+                {attemptedSubmit && formErrors.name && (
+                  <span style={{ color: '#F31F1F', fontSize: '10px' }}>
+                    *Please fill out this field
+                  </span>
+                )}
               </div>
-              <div className="col-span-6 lg:col-span-3 ">
+              <div
+                className="col-span-6 lg:col-span-3"
+                style={{ position: 'relative' }}
+              >
                 <Input
                   label="E-mail"
                   value={email}
-                  onChange={(e) => dispatch(setEmail(e.target.value))}
+                  onChange={handleEmailChange}
                   id="email"
                   placeholder="Enter your Email"
+                  style={inputStyles(attemptedSubmit && formErrors.email)}
                 />
+                {attemptedSubmit && formErrors.email && (
+                  <span style={{ color: '#F31F1F', fontSize: '10px' }}>
+                    *Please fill out this field
+                  </span>
+                )}
               </div>
-              <div className="col-span-6 lg:col-span-3">
+              <div
+                className="col-span-6 lg:col-span-3"
+                style={{ position: 'relative' }}
+              >
                 <Input
                   type="password"
                   label={t('operator.9')}
                   value={password}
-                  onChange={(e) => dispatch(setPwd(String(e.target.value)))}
+                  onChange={handlePasswordChange}
                   id="password"
                   placeholder="Enter your password"
+                  style={inputStyles(attemptedSubmit && formErrors.password)}
                 />
+                {attemptedSubmit && formErrors.password && (
+                  <span style={{ color: '#F31F1F', fontSize: '10px' }}>
+                    *Please fill out this field
+                  </span>
+                )}
               </div>
             </div>
           </div>
         </div>
 
-        <CancelSaveButton
-          btnDisabled={btnDisabled}
-          onCancel={() => history.back()}
-          onSave={postSubmit}
-        />
+        <CancelSaveButton onCancel={() => history.back()} onSave={postSubmit} />
       </form>
       <ToastContainer />
     </>

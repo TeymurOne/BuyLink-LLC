@@ -1,4 +1,5 @@
 import { MapContainer, Marker, TileLayer } from 'react-leaflet';
+import L from 'leaflet';
 import placeholder from '../../../public/placeholder.png';
 import 'leaflet/dist/leaflet.css';
 
@@ -8,30 +9,30 @@ const Map = ({ allCoordinates }: any) => {
     iconSize: [38, 38],
   });
 
+  const defaultPosition = [40.4093, 49.8671];
+
   const position =
-    allCoordinates.length > 0
+    allCoordinates && allCoordinates.length > 0
       ? [allCoordinates[0].lat, allCoordinates[0].lng]
-      : [0, 0];
+      : defaultPosition;
 
   return (
-    <>
-      {allCoordinates && (
-        <MapContainer
-          center={position}
-          zoom={8}
-          style={{ width: '100%', height: '400px' }}
-          scrollWheelZoom={false}
-        >
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://api.maptiler.com/maps/basic-v2/256/{z}/{x}/{y}.png?key=GS3gO4cT4n0iC6EE9teK"
-          />
-          {allCoordinates.map((item: any, index: any) => (
-            <Marker key={index} position={[item.lat, item.lng]} icon={icons} />
-          ))}
-        </MapContainer>
-      )}
-    </>
+    <MapContainer
+      center={position}
+      zoom={10}
+      style={{ width: '100%', height: '400px' }}
+      scrollWheelZoom={false}
+    >
+      <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url="https://api.maptiler.com/maps/basic-v2/256/{z}/{x}/{y}.png?key=GS3gO4cT4n0iC6EE9teK"
+      />
+      {allCoordinates &&
+        allCoordinates.length > 0 &&
+        allCoordinates.map((item: any, index: any) => (
+          <Marker key={index} position={[item.lat, item.lng]} icon={icons} />
+        ))}
+    </MapContainer>
   );
 };
 

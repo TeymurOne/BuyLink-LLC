@@ -9,12 +9,14 @@ interface InputProps {
   onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   required?: boolean;
   option?: string;
+  style?: React.CSSProperties;
 }
 
 const Select: React.FC<InputProps> = ({
   id,
   label,
   value,
+  style,
   option,
   onChange,
   children,
@@ -35,12 +37,12 @@ const Select: React.FC<InputProps> = ({
             value={value}
             defaultValue={value}
             onChange={onChange}
+            style={style}
             className="block h-8 w-full rounded-lg border-inputColor pl-4 shadow-md outline-none sm:text-sm sm:leading-6"
           >
             <option value="" disabled selected>
               {option}
             </option>
-
             {children}
           </select>
         </div>
