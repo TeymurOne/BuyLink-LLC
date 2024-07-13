@@ -55,18 +55,18 @@ const Category = () => {
       <Search onchange={(e: any) => setSearch(e.target.value)} />
 
       {window.innerWidth > 768 && (
-        <div className="hidden  rounded-sm  shadow-default  dark:border-strokedark  dark:bg-boxdark md:block ">
-          <div className="max-w-full  overflow-hidden  overflow-x-auto rounded-lg border   border-tborder   ">
-            <table className="w-full table-auto bg-white    ">
+        <div className="hidden rounded-sm  shadow-default  dark:border-strokedark dark:bg-boxdark md:block">
+          <div className="max-w-full  overflow-hidden  overflow-x-auto rounded-lg border border-tborder">
+            <table className="w-full table-auto bg-white">
               <thead>
-                <tr className=" bg-white text-left font-poppins text-title-2xsm text-black dark:bg-meta-4 dark:text-white">
-                  <th className="h-10 w-14.5  border-b border-r  border-tborder px-4  font-medium ">
+                <tr className="bg-white text-left text-title-2xsm text-black dark:bg-meta-4 dark:text-white">
+                  <th className="h-10 w-14.5  border-b border-r  border-tborder px-4  font-medium">
                     ID
                   </th>
-                  <th className="min-w-24.5 border-b border-r border-tborder px-4  py-2 font-medium  dark:text-white  sm:pl-0  md:pl-4 lg:pl-10  ">
+                  <th className="min-w-24.5 border-b border-r border-tborder px-4 py-2 font-medium  dark:text-white  sm:pl-0  md:pl-4 lg:pl-10">
                     {t('branch.2')}
                   </th>
-                  <th className="min-w-24.5 border-b border-r border-tborder px-4   py-2 font-medium dark:text-white ">
+                  <th className="min-w-24.5 border-b border-r border-tborder px-4 py-2 font-medium dark:text-white">
                     {t('branch.6')}
                   </th>
                 </tr>
@@ -115,16 +115,16 @@ function Tbody({ item, language, id }: TbodyProps) {
   return (
     <>
       <tr
-        className={` w-full border-0 hover:bg-tborderHover   dark:bg-boxdark ${rowClassName}`}
+        className={`w-full border-0 hover:bg-tborderHover dark:bg-boxdark ${rowClassName}`}
       >
-        <td className="  border-0 border-gray px-4 text-xs  dark:border-strokedark dark:text-white">
+        <td className="border-0 border-gray px-4 text-xs  dark:border-strokedark dark:text-white">
           {item?.id}
         </td>
-        <td className=" border-gray px-10 py-1 dark:border-strokedark  dark:text-white xl:pl-11">
+        <td className="border-gray px-10 py-1 dark:border-strokedark  dark:text-white xl:pl-11">
           {language && item.name[language]}
         </td>
 
-        <td className="  px-4 py-3 dark:border-strokedark">
+        <td className="px-4 py-3 dark:border-strokedark">
           <Link
             to={`/admin/product/create/${item.id}`}
             className="mb-4 flex h-10 w-full max-w-35 items-center justify-center space-x-2  rounded-md bg-white text-xs font-medium shadow-sm  dark:bg-boxdark  dark:text-white dark:shadow-8 dark:hover:bg-zinc-900 sm:mb-0 md:mb-0 lg:mb-0"

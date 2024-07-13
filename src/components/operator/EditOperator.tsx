@@ -22,7 +22,7 @@ import { toast } from 'react-toastify';
 const Form = () => {
   const { id }: any = useParams();
   const { name, email, password, branchID } = useSelector(
-    (store: any) => store.operato,
+    (store: any) => store.operator,
   );
   const [updateGet] = useLazyUpdateOperatorGetQuery();
   const [postOperator] = useUpdateOperatorMutation();

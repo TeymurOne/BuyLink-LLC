@@ -9,27 +9,27 @@ const CardTwo = () => {
 
   return (
     <>
-      <div className="w-full     max-w-full rounded-2xl border border-black         border-opacity-10 bg-white  p-4   dark:border-strokedark dark:bg-boxdark">
-        <div className="flex h-12.5 w-12.5   items-center  justify-center rounded  bg-white300 dark:bg-meta-4">
+      <div className="w-full max-w-full rounded-2xl border border-black border-opacity-10 bg-white  p-4 dark:border-strokedark dark:bg-boxdark">
+        <div className="flex h-12.5 w-12.5 items-center justify-center rounded bg-white300 dark:bg-meta-4">
           <img src={refers} alt="refers" />
         </div>
 
         <div className="grid grid-cols-2 place-items-start pt-4 lg:grid-cols-1">
           <div className="flex w-full flex-col lg:flex-row    ">
-            <span className=" mr-auto     font-normal  text-darkgray lg:text-lg">
+            <span className="mr-auto font-normal  text-darkgray lg:text-lg">
               {t('statistic.1')}
             </span>
 
-            <h4 className="text-3xl font-medium  text-black dark:text-white">
+            <h4 className="text-3xl font-medium text-black dark:text-white">
               {data?.today_referer_claims}
             </h4>
           </div>
-          <div className="flex w-full flex-wrap   items-end    justify-between py-4">
-            <span className=" mr-auto font-inter text-lg font-normal text-black200">
+          <div className="flex w-full flex-wrap items-end justify-between py-4">
+            <span className="mr-auto text-lg font-normal text-black200">
               {t('statistic.2')}
             </span>
 
-            <h4 className="font-inter text-3xl font-medium text-black dark:text-white">
+            <h4 className="text-3xl font-medium text-black dark:text-white">
               {data?.used_referer_claims_by_today}{' '}
             </h4>
           </div>

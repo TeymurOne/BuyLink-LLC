@@ -11,10 +11,8 @@ const Details = () => {
   let content;
   if (isSuccess && id) {
     const items = isSuccess && Array.isArray(data?.data) ? data.data : [];
-
     content = items.find((item: any) => item.id == id);
   }
-
   const titles = [t('operator.3'), t('operator.4')];
 
   return (
@@ -26,7 +24,7 @@ const Details = () => {
           </TitleArrow>
 
           {content && (
-            <div className="0 mt-4 flex w-full max-w-full  overflow-hidden rounded-tl-xl border  border-gray  font-poppins text-sm   font-normal ">
+            <div className="0 mt-4 flex w-full max-w-full  overflow-hidden rounded-tl-xl border border-gray text-sm font-normal">
               <ul className="w-full max-w-25 bg-white">
                 <li className="border-b border-r border-gray px-3 py-4 text-xs lg:text-sm ">
                   İd
@@ -37,7 +35,7 @@ const Details = () => {
                     <li
                       key={index}
                       id="details_border"
-                      className="border-r border-gray px-3 py-4  font-poppins text-xs font-normal lg:text-sm "
+                      className="border-r border-gray px-3 py-4 text-xs font-normal lg:text-sm"
                     >
                       {item}
                     </li>
@@ -45,13 +43,13 @@ const Details = () => {
                 })}
               </ul>
               <ul className="w-full  max-w-full bg-white">
-                <li className="px-3 py-4 pl-5 text-xs lg:text-sm  ">
+                <li className="px-3 py-4 pl-5 text-xs lg:text-sm">
                   {content?.id}
                 </li>
-                <li className="bg-[#F8F8F8] px-3 py-4 pl-5 text-xs lg:text-sm ">
+                <li className="bg-[#F8F8F8] px-3 py-4 pl-5 text-xs lg:text-sm">
                   {content?.name}
                 </li>
-                <li className="px-3 py-4 pl-5 text-xs  lg:text-sm ">
+                <li className="px-3 py-4 pl-5 text-xs  lg:text-sm">
                   {content?.email}
                 </li>
               </ul>

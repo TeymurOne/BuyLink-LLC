@@ -36,18 +36,18 @@ const RatingStar = () => {
         <Loader />
       ) : (
         <>
-          <div className=" col-span-full  bg-white  py-8  pl-10 dark:bg-boxdark xl:col-span-5   ">
-            <h2 className="font-inter  text-4xl  font-medium text-black    dark:text-white">
+          <div className="bg-white py-8 pl-10 dark:bg-boxdark xl:col-span-5">
+            <h2 className="text-4xl font-medium text-black dark:text-white">
               {t('statistic.10')}
             </h2>
 
             <div className="flex space-x-4 py-6 ">
-              <h2 className="text-3xl font-bold   text-black-3 dark:text-white">
+              <h2 className="text-3xl font-bold text-black-3 dark:text-white">
                 {data?.rating?.average_rating}/ 5
               </h2>
               <span>
                 <Star average_rating={average_rating} size={20} />
-                <p className="font-400 font-inter  text-xs text-tdColor dark:text-white ">
+                <p className="font-400 text-xs text-tdColor dark:text-white ">
                   {data?.rating?.total_review_count} {t('statistic.11')}
                 </p>
               </span>
