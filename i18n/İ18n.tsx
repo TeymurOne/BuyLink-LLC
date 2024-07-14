@@ -449,7 +449,7 @@ const resources = {
         '8': 'Update',
         '9': 'Password',
         '10': 'Select',
-        '11': 'Change Password,
+        '11': 'Change Password',
       },
       partnerinfo: {
         '0': 'Partner information',
