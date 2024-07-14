@@ -1,4 +1,6 @@
-import { ReactNode, useState } from 'react';
+import React, { ReactNode, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setFilter } from '../../features/balance/balanceSlice';
 
 interface CardDataStatsProps {
   children: ReactNode;
@@ -7,10 +9,6 @@ interface CardDataStatsProps {
   icon?: any;
   apiData?: string;
 }
-
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { setFilter } from '../../features/balance/balanceSlice';
 
 const CardDataStats: React.FC<CardDataStatsProps> = ({
   children,
@@ -40,63 +38,63 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
         <div className="relative flex w-full space-x-4">
           <div className="pl-4">{children}</div>
           <div className="flex w-full  flex-col ">
-            <span className="font-inter text-base font-normal text-darkgray dark:text-white xl:text-lg">
+            <span className="text-base font-normal text-darkgray dark:text-white xl:text-lg">
               {title}
             </span>
-            <span className="flex font-inter text-xl font-medium dark:text-white xl:text-3xl">
+            <span className="flex text-xl font-medium dark:text-white xl:text-3xl">
               {rate} {icon}
             </span>
             {show && (
               <div
                 id="chat"
-                className="shadow-top-none absolute left-0 right-0 top-20 h-50 w-full overflow-y-scroll rounded-b-xl  rounded-bl-xl bg-white px-3 pb-2 pt-4  shadow"
+                className="shadow-top-none absolute left-0 right-0 top-20 h-50 w-full overflow-y-scroll rounded-b-xl rounded-bl-xl bg-white px-3 pb-2 pt-4 shadow"
               >
                 <ul>
+                  <li className="flex justify-between border-b border-black border-opacity-20 pb-2">
+                    <p className="text-lg font-normal text-black">
+                      Buylink Wallet
+                    </p>
+                    <p className="text-lg font-medium text-menuBorder">
+                      120 <sub>Azn</sub>
+                    </p>
+                  </li>
+                  <li className="flex justify-between border-b border-black border-opacity-20 py-2 ">
+                    <p className="text-lg font-normal text-black">
+                      Buylink Wallet
+                    </p>
+                    <p className="text-lg font-medium text-menuBorder">
+                      120 <sub>Azn</sub>
+                    </p>
+                  </li>
+                  <li className="flex justify-between border-black border-opacity-20 py-2">
+                    <p className="text-lg font-normal text-black">
+                      Buylink Wallet
+                    </p>
+                    <p className="text-lg font-medium text-menuBorder">
+                      120 <sub>Azn</sub>
+                    </p>
+                  </li>
                   <li className="flex justify-between border-b border-black border-opacity-20 pb-2 ">
-                    <p className="font-inter text-lg font-normal text-black">
+                    <p className="text-lg font-normal text-black">
                       Buylink Wallet
                     </p>
-                    <p className="font-inter text-lg font-medium text-menuBorder">
+                    <p className="text-lg font-medium text-menuBorder">
                       120 <sub>Azn</sub>
                     </p>
                   </li>
-                  <li className="flex    justify-between border-b border-black border-opacity-20 py-2 ">
-                    <p className="font-inter text-lg font-normal text-black">
+                  <li className="flex justify-between border-b border-black border-opacity-20 py-2">
+                    <p className="text-lg font-normal text-black">
                       Buylink Wallet
                     </p>
-                    <p className="font-inter text-lg font-medium text-menuBorder">
+                    <p className="text-lg font-medium text-menuBorder">
                       120 <sub>Azn</sub>
                     </p>
                   </li>
-                  <li className="  flex justify-between border-black border-opacity-20 py-2 ">
-                    <p className="font-inter text-lg font-normal text-black">
+                  <li className="flex justify-between border-black border-opacity-20 py-2">
+                    <p className="text-lg font-normal text-black">
                       Buylink Wallet
                     </p>
-                    <p className="font-inter text-lg font-medium text-menuBorder">
-                      120 <sub>Azn</sub>
-                    </p>
-                  </li>
-                  <li className="flex justify-between border-b border-black border-opacity-20 pb-2 ">
-                    <p className="font-inter text-lg font-normal text-black">
-                      Buylink Wallet
-                    </p>
-                    <p className="font-inter text-lg font-medium text-menuBorder">
-                      120 <sub>Azn</sub>
-                    </p>
-                  </li>
-                  <li className="flex    justify-between border-b border-black border-opacity-20 py-2 ">
-                    <p className="font-inter text-lg font-normal text-black">
-                      Buylink Wallet
-                    </p>
-                    <p className="font-inter text-lg font-medium text-menuBorder">
-                      120 <sub>Azn</sub>
-                    </p>
-                  </li>
-                  <li className="  flex justify-between border-black border-opacity-20 py-2 ">
-                    <p className="font-inter text-lg font-normal text-black">
-                      Buylink Wallet
-                    </p>
-                    <p className="font-inter text-lg font-medium text-menuBorder">
+                    <p className="text-lg font-medium text-menuBorder">
                       120 <sub>Azn</sub>
                     </p>
                   </li>

@@ -14,6 +14,7 @@ import getState from './data/helpers/cookie';
 import DefaultLayout from './layout/DefaultLayout';
 import About from './pages/About/About';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const userState = useSelector(selectCurrentUser);
@@ -49,11 +50,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/about" element={<About />} />
-
         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
-
         <Route path="/*" element={<ErrorPage />} />
-
         <Route element={<ProtectedRoutes />}>
           <Route path="/admin" element={<DefaultLayout />}>
             <Route index element={<ECommerce />} />

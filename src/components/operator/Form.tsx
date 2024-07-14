@@ -13,10 +13,9 @@ import {
   setName,
   setPwd,
 } from '../../features/operator/operatoreSlice';
-import { Title } from '../ui/Title';
+import { TitleArrow } from '../ui/Title';
 import CancelSaveButton from '../../data/helpers/Button';
 import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 interface OperatorState {
   name: string;
@@ -80,6 +79,11 @@ const Form: React.FC = () => {
     }
   };
 
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    const cleanedValue = value.replace(/[^a-zA-Z\s]/g, '');
+    dispatch(setName(cleanedValue));
+  };
   const { t } = useTranslation();
 
   return (
@@ -87,15 +91,14 @@ const Form: React.FC = () => {
       <form>
         <div className="space-y-12">
           <div className=" pb-12">
-            <Title>{t('operator.1')}</Title>
-
+            <TitleArrow>{t('operator.1')}</TitleArrow>
             <div className="mt-10 grid grid-cols-6 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="col-span-6 lg:col-span-3 ">
                 <Input
                   label={t('operator.3')}
                   value={name}
-                  onChange={(e) => dispatch(setName(e.target.value))}
-                  id="Address"
+                  onChange={handleNameChange}
+                  id="name"
                   placeholder="Enter your name"
                 />
               </div>
@@ -108,7 +111,7 @@ const Form: React.FC = () => {
                   placeholder="Enter your Email"
                 />
               </div>
-              <div className="col-span-6 lg:col-span-3 ">
+              <div className="col-span-6 lg:col-span-3">
                 <Input
                   type="password"
                   label={t('operator.9')}

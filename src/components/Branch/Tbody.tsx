@@ -32,8 +32,6 @@ const Tbody: React.FC<any> = ({ item }) => {
         <TD>{item.id}</TD>
         <TD>{item.name}</TD>
         <TD>{item.address}</TD>
-        <TD>{item.lat}</TD>
-        <TD>{item.lng}</TD>
         <TD>{item.phone}</TD>
 
         <TD>

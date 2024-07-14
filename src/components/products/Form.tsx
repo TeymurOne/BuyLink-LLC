@@ -17,12 +17,11 @@ import {
   setReset,
 } from '../../features/product/productSlice';
 import InputImg from '../../common/Form/InputImg';
-import { Title } from '../ui/Title';
+import { TitleArrow } from '../ui/Title';
 import Select from '../../common/Form/Select';
 import Input from '../../common/Form/Input';
 import CancelSaveButton from '../../data/helpers/Button';
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const Form = () => {
   const params = useParams();
@@ -89,7 +88,7 @@ const Form = () => {
 
   const onSubmit = async (e: React.FormEvent<HTMLButtonElement>) => {
     if (btnDisabled) {
-      alert('Form melumatlari tam doldurlmalidr');
+      alert('Form melumatlari tam doldurlmalidir');
       return;
     }
     dispatch(setLoad(true));
@@ -98,6 +97,7 @@ const Form = () => {
     postData.append('image', images);
     postData.append('category_id', categoryId!.toString());
     postData.append('price', price!.toString());
+    postData.append('discount_price', discount!.toString());
 
     language.forEach((key: any) => {
       const value = desc[key];
@@ -107,7 +107,6 @@ const Form = () => {
       const value = name[key];
       postData.append(`title[${key}]`, value || ' ');
     });
-
     try {
       if (postData) {
         await postProduct(postData)
@@ -128,13 +127,23 @@ const Form = () => {
     }
   };
 
+  const handleNumberInput = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    setter: Function,
+  ) => {
+    const regex = /^[0-9\b]+$/;
+    if (e.target.value === '' || regex.test(e.target.value)) {
+      setter(e.target.value);
+    }
+  };
+
   const btnDisabled = (categoryId === ':id' && categoryId) || !price || !images;
   const [content, setContent] = useState<JSX.Element[]>([]);
 
   return (
     <>
       <form className="h-auto">
-        <Title> {t('product.1')}</Title>
+        <TitleArrow> {t('product.1')}</TitleArrow>
         <InputImg showimg={showimg} onChange={handleImg} />
 
         <select
@@ -187,7 +196,7 @@ const Form = () => {
                   name={`description-${lang}`}
                   id={`description-${lang}`}
                   rows={3}
-                  className="border-1  block w-full rounded-lg px-4 py-1.5 shadow-md"
+                  className="border-1 block w-full rounded-lg px-4 py-1.5 shadow-md"
                   value={desc[lang]}
                   onChange={(e) => handleDesc(e, lang)}
                 ></textarea>
@@ -196,35 +205,42 @@ const Form = () => {
           </div>
         ))}
 
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 ">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
           <Select
             id="category"
             onChange={(e: any) =>
               dispatch(setcategoryId(Number(e.target.value)))
             }
             label={t('product.7')}
-            option=" Category seçin"
+            option="Category seçin"
           >
             {content}
           </Select>
           <Input
             id="Price"
             label={t('product.5')}
-            onChange={(e) => dispatch(setPrice(e.target.value))}
+            onChange={(e) =>
+              handleNumberInput(e, (value: string) => dispatch(setPrice(value)))
+            }
             value={price}
             placeholder="Price"
+            type="number"
             required
           />
           <Input
             id="Discount Price"
             label={t('product.6')}
-            onChange={(e) => dispatch(setDiscount(e.target.value))}
+            onChange={(e) =>
+              handleNumberInput(e, (value: string) =>
+                dispatch(setDiscount(value)),
+              )
+            }
             value={discount}
             placeholder="Discount Price"
+            type="discount"
             required
           />
         </div>
-
         <div className="mt-10">
           <CancelSaveButton
             loading={load}
