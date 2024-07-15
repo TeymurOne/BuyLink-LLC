@@ -37,11 +37,8 @@ const App = (props: any) => {
     return isValidCoordinate(lat) && isValidCoordinate(lng);
   };
 
-  const inputStyles = (invalid: boolean) => ({
-    borderColor: invalid ? '#F31F1F' : '#D1D5DB',
-    backgroundColor: invalid ? '#FFEAEA' : '',
-    borderWidth: '1px',
-  });
+  const inputClassName = (isInvalid: boolean): string =>
+    isInvalid ? 'error-input' : '';
 
   return (
     <>
@@ -59,10 +56,9 @@ const App = (props: any) => {
           type="text"
           id="coordinates"
           placeholder="Enter your coordinates"
-          className="mb-4 w-full rounded-lg border-0 py-1.5 pl-4 shadow-md outline-none sm:max-w-full sm:text-sm sm:leading-6 lg:max-w-90"
           value={inputValue}
           onChange={handleCoordinateChange}
-          style={inputStyles(attemptedSubmit && !isCoordinateValid(inputValue))}
+          className={`${inputClassName(attemptedSubmit && !isCoordinateValid(inputValue))} mb-4 w-full rounded-lg border-0 py-1.5 pl-4 shadow-md outline-none sm:max-w-full sm:text-sm sm:leading-6 lg:max-w-90`}
         />
         {attemptedSubmit && !isCoordinateValid(inputValue) && (
           <span style={{ color: '#F31F1F', fontSize: '10px' }}>

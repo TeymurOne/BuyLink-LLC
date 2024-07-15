@@ -6,7 +6,7 @@ interface InputProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   required?: boolean;
   placeholder?: string;
-  style?: React.CSSProperties;
+  className?: string;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -17,7 +17,7 @@ const Input: React.FC<InputProps> = ({
   onChange,
   placeholder,
   required = false,
-  style,
+  className = '',
 }) => {
   return (
     <div className="w-full">
@@ -34,11 +34,10 @@ const Input: React.FC<InputProps> = ({
           type={type}
           value={value}
           onChange={onChange}
-          className={`block h-10 w-full rounded-lg border-inputColor pl-4 shadow-md outline-none sm:text-sm sm:leading-6`}
+          className={`block h-10 w-full rounded-lg border-inputColor pl-4 shadow-md outline-none sm:text-sm sm:leading-6 ${className}`}
           required={required}
           placeholder={placeholder}
           disabled={type === 'discount'}
-          style={style}
         />
       </div>
     </div>

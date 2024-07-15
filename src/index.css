@@ -46,3 +46,8 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
+.error-input {
+    background-color: #FFEAEA;
+    border: 1px solid #F31F1F;
+}
