@@ -116,7 +116,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           <li>
                             <NavLink
                               to="/admin/balance"
-                              className={`group relative flex items-center gap-2.5 rounded-md text-[16px] font-medium duration-300 ease-in-out hover:text-white ${
+                              className={`group relative flex items-center gap-2.5 rounded-md text-[16px] font-normal duration-300 ease-in-out hover:text-white ${
                                 ['/admin/balance'].includes(pathname)
                                   ? 'text-white'
                                   : 'text-[#abb9e8]'
@@ -129,7 +129,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           <li className="my-1">
                             <NavLink
                               to="/admin"
-                              className={`group relative  ${[`/admin`].includes(pathname) ? 'text-white' : 'text-[#abb9e8]'} flex items-center gap-2.5 rounded-md text-[16px]  font-medium  duration-300 ease-in-out hover:text-white`}
+                              className={`group relative  ${[`/admin`].includes(pathname) ? 'text-white' : 'text-[#abb9e8]'} flex items-center gap-2.5 rounded-md text-[16px]  font-normal  duration-300 ease-in-out hover:text-white`}
                             >
                               <p className="ml-[-13px]">-</p>
                               {t('member.12')}
@@ -139,7 +139,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           <li className="my-1">
                             <NavLink
                               to="/admin/branch/all"
-                              className={`group relative ${[`/admin/branch/all`].includes(pathname) ? 'text-white' : 'text-[#abb9e8]'} flex items-center gap-2.5 rounded-md  text-[16px]   font-medium text-[#abb9e8] duration-300 ease-in-out hover:text-white`}
+                              className={`group relative ${[`/admin/branch/all`].includes(pathname) ? 'text-white' : 'text-[#abb9e8]'} flex items-center gap-2.5 rounded-md  text-[16px]   font-normal text-[#abb9e8] duration-300 ease-in-out hover:text-white`}
                             >
                               <p className="ml-[-13px]">-</p>
                               {t('branch.0')}
@@ -148,7 +148,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           <li className="my-1">
                             <NavLink
                               to="/admin/category/all"
-                              className={`group ${[`/admin/category/all`].includes(pathname) ? 'text-white' : 'text-[#abb9e8]'} relative flex items-center gap-2.5 rounded-md  text-[16px]   font-medium text-[#abb9e8] duration-300 ease-in-out hover:text-white`}
+                              className={`group ${[`/admin/category/all`].includes(pathname) ? 'text-white' : 'text-[#abb9e8]'} relative flex items-center gap-2.5 rounded-md  text-[16px]   font-normal text-[#abb9e8] duration-300 ease-in-out hover:text-white`}
                             >
                               <p className="ml-[-13px]">-</p>
                               {t('product.13')}
@@ -157,7 +157,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           <li className="my-1">
                             <NavLink
                               to="/admin/product/all"
-                              className={`group relative flex items-center gap-2.5 rounded-md ${[`/admin/product/all`].includes(pathname) ? 'text-white' : 'text-[#abb9e8]'}  text-[16px]   font-medium text-[#abb9e8] duration-300 ease-in-out hover:text-white`}
+                              className={`group relative flex items-center gap-2.5 rounded-md ${[`/admin/product/all`].includes(pathname) ? 'text-white' : 'text-[#abb9e8]'}  text-[16px]   font-normal text-[#abb9e8] duration-300 ease-in-out hover:text-white`}
                             >
                               <p className="ml-[-13px]">-</p>
                               {t('product.0')}
@@ -166,7 +166,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           <li className="my-1">
                             <NavLink
                               to="/admin/operator/all"
-                              className={`group ${[`/admin/operator/all`].includes(pathname) ? 'text-white' : 'text-[#abb9e8]'} relative flex items-center gap-2.5 rounded-md  text-[16px]   font-medium text-[#abb9e8] duration-300 ease-in-out hover:text-white`}
+                              className={`group ${[`/admin/operator/all`].includes(pathname) ? 'text-white' : 'text-[#abb9e8]'} relative flex items-center gap-2.5 rounded-md  text-[16px]   font-normal text-[#abb9e8] duration-300 ease-in-out hover:text-white`}
                             >
                               <p className="ml-[-13px]">-</p>
                               {t('operator.0')}
@@ -175,7 +175,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           <li className="my-1">
                             <NavLink
                               to="/admin/partnerform"
-                              className={`group relative ${[`/admin/partnerform`].includes(pathname) ? 'text-white' : 'text-[#abb9e8]'} flex items-center gap-2.5 rounded-md  text-[16px]   font-medium text-[#abb9e8] duration-300 ease-in-out hover:text-white`}
+                              className={`group relative ${[`/admin/partnerform`].includes(pathname) ? 'text-white' : 'text-[#abb9e8]'} flex items-center gap-2.5 rounded-md  text-[16px]   font-normal text-[#abb9e8] duration-300 ease-in-out hover:text-white`}
                             >
                               <p className="ml-[-13px]">-</p>
                               {t('partnerinfo.0')}

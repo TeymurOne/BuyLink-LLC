@@ -43,6 +43,7 @@ const EditProduct = () => {
   const [dataEdit] = useUpdateProductMutation();
   const { name, active, desc, categoryId, price, discount, imgurl } =
     useSelector((store: RootState) => store.productSlice);
+
   const handleTitle = (
     e: React.ChangeEvent<HTMLInputElement>,
     language: string,
@@ -73,32 +74,34 @@ const EditProduct = () => {
       const response = await editProduct(id);
       if (response) {
         const data = response.data?.data;
-        dispatch(setName(data?.title));
-        dispatch(setDesc(data?.description));
-        dispatch(setPrice(data?.price));
-        dispatch(setcategoryId(data?.category.id));
-        dispatch(setDiscount(data?.discount_price));
-        dispatch(setimgUrl(data?.image));
+        dispatch(setName(data?.title || ''));
+        dispatch(setDesc(data?.description || {}));
+        dispatch(setPrice(data?.price || ''));
+        dispatch(setcategoryId(data?.category.id || ''));
+        dispatch(setDiscount(data?.discount_price || ''));
+        dispatch(setimgUrl(data?.image || ''));
       }
-    } catch (error) {}
+    } catch (error) {
+      console.error('Error fetching product data:', error);
+    }
   }
 
   const handleUpdate = async (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const postData = new FormData();
 
-    postData.append('image', imgurl);
-    postData.append('category_id', categoryId.toString());
-    postData.append('price', price.toString());
-    postData.append('discount_price', discount.toString());
+    postData.append('image', imgurl || '');
+    postData.append('category_id', categoryId?.toString() || '');
+    postData.append('price', price?.toString() || '');
+    postData.append('discount_price', discount?.toString() || '');
 
     language.forEach((key: any) => {
-      const value = desc[key];
-      postData.append(`description[${key}]`, value || ' ');
+      const value = desc[key] || ' ';
+      postData.append(`description[${key}]`, value);
     });
     language.forEach((key: any) => {
-      const value = name[key];
-      postData.append(`title[${key}]`, value || '');
+      const value = name[key] || '';
+      postData.append(`title[${key}]`, value);
     });
 
     try {
@@ -114,7 +117,7 @@ const EditProduct = () => {
   };
 
   useEffect(() => {
-    handleEdit(id);
+    if (id) handleEdit(id);
   }, [id]);
 
   let content;
@@ -153,7 +156,7 @@ const EditProduct = () => {
             <div className="flex flex-wrap items-center gap-x-3 py-2">
               <img
                 className="mb-4 h-30 w-26 rounded-2xl object-cover py-4"
-                src={showimg || imgurl}
+                src={showimg || imgurl || ''}
                 alt="Edit Product Image"
               />
               <input
@@ -233,7 +236,7 @@ const EditProduct = () => {
               onChange={(e: any) =>
                 dispatch(setcategoryId(Number(e.target.value)))
               }
-              value={categoryId.toString()}
+              value={categoryId?.toString() || ''}
               label={t('product.7')}
               option="Category seçin"
             >
@@ -243,7 +246,7 @@ const EditProduct = () => {
               id="Price"
               label={t('product.5')}
               onChange={(e) => dispatch(setPrice(e.target.value))}
-              value={price.toString()}
+              value={price || ''}
               option=""
               placeholder="Price"
               required
@@ -252,7 +255,7 @@ const EditProduct = () => {
               id="Discount Price"
               label={t('product.6')}
               onChange={(e) => dispatch(setDiscount(e.target.value))}
-              value={discount.toString()}
+              value={discount || ''}
               placeholder="Discount Price"
               required
               type="discount"

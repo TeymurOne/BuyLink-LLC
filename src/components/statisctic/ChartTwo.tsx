@@ -1,12 +1,11 @@
 import { ApexOptions } from 'apexcharts';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import { useTranslation } from 'react-i18next';
 
 const options: ApexOptions = {
   colors: ['#2d83b6', '#F31F1F'],
   chart: {
-    fontFamily: 'Satoshi, sans-serif',
     type: 'bar',
     height: 335,
     stacked: false,
@@ -68,10 +67,9 @@ const options: ApexOptions = {
   legend: {
     position: 'top',
     horizontalAlign: 'left',
-    fontFamily: 'Satoshi',
-    fontWeight: 500,
-    fontSize: '14px',
-
+    fontWeight: 400,
+    fontSize: '12px',
+    fontFamily: 'Poppins',
     markers: {
       radius: 99,
     },
@@ -102,18 +100,13 @@ const ChartTwo: React.FC<ChartTwoProps> = ({ transactions, referral }) => {
   useEffect(() => {
     const transaction = Object.entries(transactions);
     const referraldata = Object.entries(referral);
-
     const transactionsData = transaction.map(([key, value]) => value);
     const referralData = referraldata.map(([key, value]) => value);
     const nameText = (
-      <p className="font-inter text-xs font-normal dark:text-white">
-        {t('statistic.4')}
-      </p>
+      <p className="text-xs font-normal dark:text-white">{t('statistic.4')}</p>
     );
     const nameDesc = (
-      <p className="font-inter text-xs font-normal dark:text-white">
-        {t('statistic.5')}
-      </p>
+      <p className="text-xs font-normal dark:text-white">{t('statistic.5')}</p>
     );
 
     setState({
@@ -134,7 +127,7 @@ const ChartTwo: React.FC<ChartTwoProps> = ({ transactions, referral }) => {
     <div className="col-span-12  rounded-2xl border border-stroke bg-white p-7.5 shadow-sm  dark:border-strokedark dark:bg-boxdark xl:col-span-6">
       <div className="mb-4 justify-between gap-4 sm:flex">
         <div>
-          <h4 className="font-inter text-xl font-semibold text-black dark:text-white">
+          <h4 className="text-xl font-medium text-black dark:text-white">
             {t('statistic.6')}
           </h4>
         </div>

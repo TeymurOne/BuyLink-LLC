@@ -43,7 +43,7 @@ export const Search: React.FC<TitleProps> = ({ onchange }) => {
       <input
         type="text"
         onChange={onchange}
-        placeholder=" search..."
+        placeholder="search..."
         className="my-4 w-full max-w-70 rounded-xl py-2 pl-9 shadow-2 focus:outline-none dark:bg-boxdark   "
       />
     </>
@@ -68,7 +68,7 @@ export const Thead: React.FC<TheadProps> = ({ titles }) => {
   return (
     <>
       <thead className="hidden md:contents">
-        <tr className="bg-white text-left font-poppins text-title-2xsm text-black dark:bg-meta-4">
+        <tr className="bg-white text-left text-title-2xsm text-black dark:bg-meta-4">
           <th className="h-10 w-14.5 border-b border-r border-tborder px-4 font-medium dark:text-white ">
             Sıra sayı
           </th>
@@ -89,8 +89,8 @@ export const Thead: React.FC<TheadProps> = ({ titles }) => {
 export const TableLayout: React.FC<TableProps> = ({ children }) => {
   return (
     <>
-      <div className="hidden rounded-sm shadow-default dark:border-strokedark dark:bg-boxdark md:block ">
-        <div className="max-w-full overflow-hidden overflow-x-auto rounded-lg border border-tborder   ">
+      <div className="hidden rounded-sm shadow-default dark:border-strokedark dark:bg-boxdark md:block">
+        <div className="max-w-full overflow-hidden overflow-x-auto rounded-lg border border-tborder">
           <table className="w-full table-auto bg-white">{children}</table>
         </div>
       </div>

@@ -20,7 +20,7 @@ const InputImg: React.FC<ImgInput> = ({ onChange, showimg }) => {
         </label>
         <div className="mt-2 flex h-20 items-center gap-x-3">
           <img
-            className="mb-4 h-15 w-20 rounded-xl bg-white   object-cover "
+            className="mb-4 h-15 w-20 rounded-xl bg-white object-cover"
             src={showimg || defaultSelectedImg}
             alt="Member Photo "
           />
@@ -33,8 +33,8 @@ const InputImg: React.FC<ImgInput> = ({ onChange, showimg }) => {
           />
           <label
             htmlFor="file-upload"
-            className="mb-3 h-10 rounded-md border border-black border-opacity-20 bg-white px-6 py-2.5   text-sm
-                     font-semibold shadow-sm   dark:text-black md:px-10  lg:px-13"
+            className="mb-3 h-10 rounded-md border border-black border-opacity-20 bg-white px-6 py-2.5 text-sm
+                     font-semibold shadow-sm dark:text-black md:px-10 lg:px-13"
           >
             {t('product.15')}
           </label>
