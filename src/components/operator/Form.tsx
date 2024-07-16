@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { usePostOperatorMutation } from '../../features/operator/apiSlice';
 import { useFetchBranchAllQuery } from '../../features/branch/apiSlice';
@@ -47,7 +47,9 @@ const Form: React.FC = () => {
   const navigate = useNavigate();
   const [postOperator] = usePostOperatorMutation();
   let content: JSX.Element[] | undefined;
-
+  useEffect(() => {
+    dispatch(resetState());
+  }, [dispatch]);
   if (isSuccess && data) {
     content = data.data?.map((item: IitemBranch, index: number) => (
       <option key={index} value={item.id}>

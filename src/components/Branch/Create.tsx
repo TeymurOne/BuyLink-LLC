@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { usePostBranchMutation } from '../../features/branch/apiSlice';
 import { useNavigate } from 'react-router-dom';
 import App from '../../Map/App';
@@ -10,6 +10,8 @@ import CancelSaveButton from '../../data/helpers/Button';
 import {
   resetState,
   setAddress,
+  setLat,
+  setLng,
   setLoad,
   setName,
   setPhone,
@@ -36,6 +38,12 @@ const Form: React.FC = () => {
   const [postBranches] = usePostBranchMutation();
   const latData = useSelector(selectLat);
   const lngData = useSelector(selectLng);
+
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    dispatch(resetState());
+  }, [dispatch]);
 
   const postSubmit = async (e: any) => {
     e.preventDefault();
@@ -69,9 +77,6 @@ const Form: React.FC = () => {
       dispatch(setLoad(false));
     }
   };
-
-  const { t } = useTranslation();
-  const btnDisabled = false;
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -161,6 +166,10 @@ const Form: React.FC = () => {
               lat={latData}
               lng={lngData}
               attemptedSubmit={attemptedSubmit}
+              setCoordinate={(newLat: string, newLng: string) => {
+                dispatch(setLat(newLat));
+                dispatch(setLng(newLng));
+              }}
             />
           </div>
         </div>
@@ -168,7 +177,6 @@ const Form: React.FC = () => {
         <CancelSaveButton
           onCancel={() => history.back()}
           onSave={postSubmit}
-          btnDisabled={btnDisabled}
           loading={load}
         />
       </form>
