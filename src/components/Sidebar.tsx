@@ -194,8 +194,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
         </nav>
       </div>
       {/* Add the version text */}
-      <div className="mt-auto  justify-center bg-menuBorder p-4 text-sm text-white text-opacity-65">
-        v-{version}
+      <div className="mt-auto flex items-center  justify-center bg-menuBorder p-4 text-sm text-white text-opacity-65">
+        v {version}
       </div>
     </aside>
   );
