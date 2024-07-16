@@ -9,26 +9,27 @@ import 'leaflet/dist/leaflet.css';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { partnerFormMap } from '../features/map/MapSlice';
+import L from 'leaflet';
 import placeholder from '../../public/placeholder.png';
 
 function ResetCenterView(props: any) {
-  const { cordinat, setClickPosition } = props;
+  const { coordinate, setClickPosition } = props;
   const map = useMap();
 
   useEffect(() => {
-    if (cordinat && cordinat.lat && cordinat.lng) {
-      map.setView([cordinat.lat, cordinat.lng], map.getZoom(), {
+    if (coordinate && coordinate.lat && coordinate.lng) {
+      map.setView([coordinate.lat, coordinate.lng], map.getZoom(), {
         animate: true,
       });
-      setClickPosition({ lat: cordinat.lat, lng: cordinat.lng });
+      setClickPosition({ lat: coordinate.lat, lng: coordinate.lng });
     }
-  }, [cordinat]);
+  }, [coordinate]);
 
   return null;
 }
 
 const Map = (props: any) => {
-  const { cordinat, setCoordinat, setInputValue } = props;
+  const { coordinate, setCoordinate, setInputValue } = props;
   const dispatch = useDispatch();
   const [clickedPosition, setClickPosition] = useState(null);
 
@@ -42,9 +43,10 @@ const Map = (props: any) => {
     const { lat, lng } = e.latlng;
     const newCoordinates = { lat, lng };
     setClickPosition(newCoordinates);
-    setCoordinat(newCoordinates);
+    setCoordinate(newCoordinates);
     setInputValue(`${lat}, ${lng}`);
   };
+
   const position = [40.34720432727009, 49.81097458154038];
   const icons = L.icon({
     iconUrl: placeholder,
@@ -66,10 +68,10 @@ const Map = (props: any) => {
       {clickedPosition && (
         <Marker position={clickedPosition} icon={icons}></Marker>
       )}
-      {cordinat && (
+      {coordinate && (
         <ResetCenterView
           setClickPosition={setClickPosition}
-          cordinat={cordinat}
+          coordinate={coordinate}
         />
       )}
     </MapContainer>

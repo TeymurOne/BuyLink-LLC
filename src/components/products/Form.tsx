@@ -205,7 +205,7 @@ const Form = () => {
           </div>
         ))}
 
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 ">
           <Select
             id="category"
             onChange={(e: any) =>
@@ -241,6 +241,7 @@ const Form = () => {
             required
           />
         </div>
+
         <div className="mt-10">
           <CancelSaveButton
             loading={load}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { usePostOperatorMutation } from '../../features/operator/apiSlice';
 import { useFetchBranchAllQuery } from '../../features/branch/apiSlice';
@@ -24,12 +24,21 @@ interface OperatorState {
 }
 
 interface ErrorResponse {
-  error: {
-    [key: string]: string[];
+  data?: {
+    error: {
+      [key: string]: string[];
+    };
   };
 }
 
 const Form: React.FC = () => {
+  const [attemptedSubmit, setAttemptedSubmit] = useState(false);
+  const [formErrors, setFormErrors] = useState<{ [key: string]: boolean }>({
+    name: false,
+    email: false,
+    password: false,
+  });
+
   const { name, password, email } = useSelector(
     (state: { operator: OperatorState }) => state.operator,
   );
@@ -37,7 +46,6 @@ const Form: React.FC = () => {
   const { data, isSuccess, isError } = useFetchBranchAllQuery('');
   const navigate = useNavigate();
   const [postOperator] = usePostOperatorMutation();
-  const btnDisabled = !name || !email || !password;
   let content: JSX.Element[] | undefined;
 
   if (isSuccess && data) {
@@ -50,8 +58,24 @@ const Form: React.FC = () => {
     console.error('Error fetching data', 'Products Types');
   }
 
-  const postSubmit = async (e: React.FormEvent<HTMLButtonElement>) => {
+  const validateForm = () => {
+    const errors: { [key: string]: boolean } = {};
+    errors.name = !name.trim();
+    errors.email = !email.trim();
+    errors.password = !password.trim();
+    setFormErrors(errors);
+    return !Object.values(errors).some((error) => error);
+  };
+
+  const postSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setAttemptedSubmit(true);
+
+    if (!validateForm()) {
+      toast.error('Please fill out all required fields.');
+      return;
+    }
+
     dispatch(setLoad(true));
     const postData = new FormData();
     postData.append('name', name);
@@ -65,13 +89,12 @@ const Form: React.FC = () => {
       dispatch(resetState());
     } catch (error) {
       console.error(error);
-      if ((error as { data?: ErrorResponse }).data?.error) {
-        Object.keys((error as ErrorResponse).data!.error).forEach((key) => {
-          (error as ErrorResponse).data!.error[key].forEach(
-            (message: string) => {
-              toast.error(message);
-            },
-          );
+      const errorResponse = error as ErrorResponse;
+      if (errorResponse.data && errorResponse.data.error) {
+        Object.keys(errorResponse.data.error).forEach((key) => {
+          errorResponse.data.error[key].forEach((message: string) => {
+            toast.error(message);
+          });
         });
       }
     } finally {
@@ -83,53 +106,86 @@ const Form: React.FC = () => {
     const { value } = e.target;
     const cleanedValue = value.replace(/[^a-zA-Z\s]/g, '');
     dispatch(setName(cleanedValue));
+    setFormErrors((prevErrors) => ({ ...prevErrors, name: false }));
   };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(setEmail(e.target.value));
+    setFormErrors((prevErrors) => ({ ...prevErrors, email: false }));
+  };
+
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(setPwd(String(e.target.value)));
+    setFormErrors((prevErrors) => ({ ...prevErrors, password: false }));
+  };
+
+  const inputClassName = (isInvalid: boolean): string =>
+    isInvalid ? 'error-input' : '';
+
   const { t } = useTranslation();
 
   return (
     <>
-      <form>
+      <form onSubmit={postSubmit}>
         <div className="space-y-12">
-          <div className=" pb-12">
+          <div className="pb-12">
             <TitleArrow>{t('operator.1')}</TitleArrow>
             <div className="mt-10 grid grid-cols-6 gap-x-6 gap-y-8 sm:grid-cols-6">
-              <div className="col-span-6 lg:col-span-3 ">
+              <div className="relative col-span-6 lg:col-span-3">
                 <Input
                   label={t('operator.3')}
                   value={name}
                   onChange={handleNameChange}
                   id="name"
                   placeholder="Enter your name"
+                  className={inputClassName(attemptedSubmit && formErrors.name)}
                 />
+                {attemptedSubmit && formErrors.name && (
+                  <span className="text-xs text-errorMessage">
+                    *Please fill out this field
+                  </span>
+                )}
               </div>
-              <div className="col-span-6 lg:col-span-3 ">
+              <div className="relative col-span-6 lg:col-span-3">
                 <Input
                   label="E-mail"
                   value={email}
-                  onChange={(e) => dispatch(setEmail(e.target.value))}
+                  onChange={handleEmailChange}
                   id="email"
                   placeholder="Enter your Email"
+                  className={inputClassName(
+                    attemptedSubmit && formErrors.email,
+                  )}
                 />
+                {attemptedSubmit && formErrors.email && (
+                  <span className="text-xs text-errorMessage">
+                    *Please fill out this field
+                  </span>
+                )}
               </div>
-              <div className="col-span-6 lg:col-span-3">
+              <div className="relative col-span-6 lg:col-span-3">
                 <Input
                   type="password"
                   label={t('operator.9')}
                   value={password}
-                  onChange={(e) => dispatch(setPwd(String(e.target.value)))}
+                  onChange={handlePasswordChange}
                   id="password"
                   placeholder="Enter your password"
+                  className={inputClassName(
+                    attemptedSubmit && formErrors.password,
+                  )}
                 />
+                {attemptedSubmit && formErrors.password && (
+                  <span className="text-xs text-errorMessage">
+                    *Please fill out this field
+                  </span>
+                )}
               </div>
             </div>
           </div>
         </div>
 
-        <CancelSaveButton
-          btnDisabled={btnDisabled}
-          onCancel={() => history.back()}
-          onSave={postSubmit}
-        />
+        <CancelSaveButton onCancel={() => history.back()} onSave={postSubmit} />
       </form>
       <ToastContainer />
     </>

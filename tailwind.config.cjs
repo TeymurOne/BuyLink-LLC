@@ -46,7 +46,7 @@ module.exports = {
         'gray-3': '#FAFAFA',
         whiten: '#F1F5F9',
         whiter: '#F5F7FD',
-        gray10:"#FFFBFB",
+        gray10: '#FFFBFB',
         boxdark: '#24303F',
         'meta-6': '#FF9D42',
         'meta-8': '#FCD34D',
@@ -59,9 +59,7 @@ module.exports = {
         'meta-3': '#10B981',
         'meta-4': '#313D4A',
         'meta-5': '#259AE6',
-
         'meta-7': '#F8F7FE',
-
         'meta-9': '#E5E7EB',
         success: '#219653',
         danger: '#D34053',
@@ -69,8 +67,8 @@ module.exports = {
         menuBorder: '#1A518E',
         searchTopBar: '#f3f3f9',
         titleColor: '#838fb9',
-
-        successOpacity: '#daf4f0',
+        errorMessage: '#F31F1F',
+        successOpacity: '#daf4f0'
       },
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
@@ -78,7 +76,7 @@ module.exports = {
         poppins: ['Poppins', 'sans-serif'],
         manrope: ['Manrope', 'sans-serif'],
         roboto: ['Roboto', 'sans-serif'],
-        grotesk: ['Space Grotesk', 'sans-serif'],
+        grotesk: ['Space Grotesk', 'sans-serif']
       },
       screens: {
         '2xsm': '375px',
@@ -95,7 +93,7 @@ module.exports = {
         '1400px': '1400px',
         '1450px': '1450px',
         '2xl': '1536px',
-        ...defaultTheme.screens,
+        ...defaultTheme.screens
       },
       container: {
         center: true,
@@ -104,8 +102,8 @@ module.exports = {
           sm: '1rem',
           lg: '3.75rem',
           xl: '3.75rem',
-          '2xl': '3.75rem',
-        },
+          '2xl': '3.75rem'
+        }
       },
       borderOpacity: ['active'],
       fontSize: {
@@ -119,7 +117,7 @@ module.exports = {
         'title-md2': ['26px', '30px'],
         'title-sm': ['20px', '26px'],
         'title-xsm': ['18px', '24px'],
-        'title-2xsm': ['12px', '20px'],
+        'title-2xsm': ['12px', '20px']
       },
       spacing: {
         4.5: '1.125rem',
@@ -206,7 +204,7 @@ module.exports = {
         187.5: '46.875rem',
         203: '50.75rem',
         230: '57.5rem',
-        242.5: '60.625rem',
+        242.5: '60.625rem'
       },
       maxWidth: {
         2.5: '0.625rem',
@@ -241,14 +239,14 @@ module.exports = {
         242.5: '60.625rem',
         270: '67.5rem',
         280: '70rem',
-        292.5: '73.125rem',
+        292.5: '73.125rem'
       },
       maxHeight: {
         35: '8.75rem',
         70: '17.5rem',
         90: '22.5rem',
         550: '34.375rem',
-        300: '18.75rem',
+        300: '18.75rem'
       },
       minWidth: {
         20.5: '4.625rem',
@@ -257,7 +255,7 @@ module.exports = {
         25.5: '8.5rem',
         42.5: '10.625rem',
         47.5: '11.875rem',
-        75: '18.75rem',
+        75: '18.75rem'
       },
       zIndex: {
         999999: '999999',
@@ -266,22 +264,22 @@ module.exports = {
         999: '999',
         99: '99',
         9: '9',
-        1: '1',
+        1: '1'
       },
       opacity: {
-        65: '.65',
+        65: '.65'
       },
       backgroundImage: {
-        video: "url('../images/video/video.png')",
-        green: "url('../images/pageLand/ellips1.svg')",
-        blue: "url('../images/pageLand/ellips2.svg')",
+        video: 'url(\'../images/video/video.png\')',
+        green: 'url(\'../images/pageLand/ellips1.svg\')',
+        blue: 'url(\'../images/pageLand/ellips2.svg\')'
       },
       content: {
-        'icon-copy': 'url("../images/icon/icon-copy-alt.svg")',
+        'icon-copy': 'url("../images/icon/icon-copy-alt.svg")'
       },
       transitionProperty: { width: 'width', stroke: 'stroke' },
       borderWidth: {
-        6: '6px',
+        6: '6px'
       },
       boxShadow: {
         default: '0px 8px 13px -3px rgba(0, 0, 0, 0.07)',
@@ -294,30 +292,30 @@ module.exports = {
         5: '0px 1px 1px rgba(0, 0, 0, 0.15)',
         6: '0px 3px 15px rgba(0, 0, 0, 0.1)',
         7: '-5px 0 0 #313D4A, 5px 0 0 #313D4A',
-        8: '1px 0 0 #313D4A, -1px 0 0 #313D4A, 0 1px 0 #313D4A, 0 -1px 0 #313D4A, 0 3px 13px rgb(0 0 0 / 8%)',
+        8: '1px 0 0 #313D4A, -1px 0 0 #313D4A, 0 1px 0 #313D4A, 0 -1px 0 #313D4A, 0 3px 13px rgb(0 0 0 / 8%)'
       },
       keyframes: {
         rotating: {
           '0%, 100%': { transform: 'rotate(360deg)' },
-          '50%': { transform: 'rotate(0deg)' },
-        },
+          '50%': { transform: 'rotate(0deg)' }
+        }
       },
       animation: {
         'ping-once': 'ping 5s cubic-bezier(0, 0, 0.2, 1)',
         rotating: 'rotating 30s linear infinite',
         'spin-1.5': 'spin 1.5s linear infinite',
         'spin-2': 'spin 2s linear infinite',
-        'spin-3': 'spin 3s linear infinite',
+        'spin-3': 'spin 3s linear infinite'
       },
       flex: {
         '2': '1 0 58%',
-        '1': '2 2 60%',
+        '1': '2 2 60%'
       },
       gridTemplateColumns: {
         mission_lg: 'repeat(2, minmax(100px, 621px))',
-        mission_sm: 'repeat(1, minmax(120px, 621px))',
-      },
-    },
+        mission_sm: 'repeat(1, minmax(120px, 621px))'
+      }
+    }
   },
-  plugins: [],
+  plugins: []
 };
