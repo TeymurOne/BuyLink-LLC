@@ -3,6 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import Logo from '../images/logo/logo-buylink.jpg';
 import SidebarLinkGroup from './SidebarLinkGroup';
 import { useTranslation } from 'react-i18next';
+import { version } from '../../package.json';
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -191,6 +192,10 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
             </ul>
           </div>
         </nav>
+      </div>
+      {/* Add the version text */}
+      <div className="mt-auto  justify-center bg-menuBorder p-4 text-sm text-white text-opacity-65">
+        v-{version}
       </div>
     </aside>
   );
