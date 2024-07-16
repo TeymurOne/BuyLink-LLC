@@ -31,9 +31,9 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
     <>
       <div
         onClick={handleClick}
-        className={` hover:bg-[#DAE2F4] ${
+        className={` hover:bg-[#DAE2F4]  ${
           show ? 'rounded-t-xl ' : 'rounded-xl'
-        } w-full cursor-pointer bg-white  py-4.5 shadow dark:bg-boxdark `}
+        }     w-full cursor-pointer bg-white  py-5 shadow dark:bg-boxdark `}
       >
         <div className="relative flex w-full space-x-4">
           <div className="pl-4">{children}</div>
@@ -58,7 +58,7 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
                       120 <sub>Azn</sub>
                     </p>
                   </li>
-                  <li className="flex justify-between border-b border-black border-opacity-20 py-2">
+                  <li className="flex justify-between border-b border-black border-opacity-20 py-2 ">
                     <p className="text-lg font-normal text-black">
                       Buylink Wallet
                     </p>
