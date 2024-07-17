@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useFetchProducttypeQuery, usePostProductTypeMutation } from '../../features/product/apiSlice';
+import {
+  useFetchProducttypeQuery,
+  usePostProductTypeMutation,
+} from '../../features/product/apiSlice';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,7 +13,7 @@ import {
   setLoad,
   setName,
   setPrice,
-  setReset
+  setReset,
 } from '../../features/product/productSlice';
 import InputImg from '../../common/Form/InputImg';
 import { TitleArrow } from '../ui/Title';
@@ -255,8 +258,8 @@ const Form = () => {
                   id={`description-${lang}`}
                   rows={3}
                   className={`${inputClassName(
-                    attemptedSubmit && !desc[lang,
-                  )} border-1 block w-full rounded-lg border-0 bg-white px-4 py-5 shadow-md`}
+                    attemptedSubmit && !desc[lang],
+                  )}  border-1 block w-full rounded-lg border-0 bg-white px-4 py-5 shadow-md`}
                   value={desc[lang]}
                   onChange={(e) => handleDesc(e, lang)}
                 ></textarea>
