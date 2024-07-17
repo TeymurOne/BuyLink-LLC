@@ -64,7 +64,7 @@ const Form = () => {
       });
       setContent(options);
     } else if (isError) {
-      console.error('Error fetching data', 'Products Types');
+      toast.error('Error fetching data');
     }
   }, [params.id, isSuccess, local, data]);
 
@@ -143,7 +143,6 @@ const Form = () => {
           });
       }
     } catch (error) {
-      console.error(error);
       toast.error('An error occurred. Please try again.');
     } finally {
       dispatch(setLoad(false));
