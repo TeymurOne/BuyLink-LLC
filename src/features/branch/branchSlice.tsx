@@ -47,8 +47,8 @@ const BranchSlice = createSlice({
         address: '',
         phone: '',
         name: '',
-        lat: null,
-        lng: null,
+        lat: '',
+        lng: '',
         load: false,
       };
     },

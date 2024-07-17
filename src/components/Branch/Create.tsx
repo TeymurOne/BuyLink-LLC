@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { usePostBranchMutation } from '../../features/branch/apiSlice';
 import { useNavigate } from 'react-router-dom';
 import App from '../../Map/App';
@@ -10,6 +10,8 @@ import CancelSaveButton from '../../data/helpers/Button';
 import {
   resetState,
   setAddress,
+  setLat,
+  setLng,
   setLoad,
   setName,
   setPhone,
@@ -36,6 +38,12 @@ const Form: React.FC = () => {
   const [postBranches] = usePostBranchMutation();
   const latData = useSelector(selectLat);
   const lngData = useSelector(selectLng);
+
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    dispatch(resetState());
+  }, [dispatch]);
 
   const postSubmit = async (e: any) => {
     e.preventDefault();
@@ -70,9 +78,6 @@ const Form: React.FC = () => {
     }
   };
 
-  const { t } = useTranslation();
-  const btnDisabled = false;
-
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     if (/^\d*$/.test(value)) {
@@ -80,11 +85,8 @@ const Form: React.FC = () => {
     }
   };
 
-  const inputStyles = (isInvalid: boolean): React.CSSProperties => ({
-    backgroundColor: isInvalid ? '#FFEAEA' : '',
-    borderColor: isInvalid ? '#F31F1F' : '',
-    borderWidth: isInvalid ? '0.3px' : '',
-  });
+  const inputClassName = (isInvalid: boolean): string =>
+    isInvalid ? 'error-input' : '';
 
   return (
     <>
@@ -98,15 +100,15 @@ const Form: React.FC = () => {
                 onChange={(e) => dispatch(setAddress(e.target.value))}
                 id="Address"
                 placeholder="Enter your address"
-                style={inputStyles(attemptedSubmit && !address)}
+                className={inputClassName(attemptedSubmit && !address)}
               />
               {attemptedSubmit && !address && (
-                <span style={{ color: '#F31F1F', fontSize: '10px' }}>
+                <span className="text-xs text-errorMessage">
                   *Please fill out the form
                 </span>
               )}
             </div>
-            <div style={{ position: 'relative' }}>
+            <div className="relative">
               <div className="w-full">
                 <label
                   htmlFor="Phone"
@@ -118,7 +120,7 @@ const Form: React.FC = () => {
                   <select
                     id="Phone"
                     name="phone"
-                    className="bg-gray-50 text-gray500 rounded-l-lg border-transparent text-sm focus:outline-none"
+                    className={`${inputClassName(attemptedSubmit && !phone)} bg-gray-50 text-gray500 rounded-l-lg border-transparent text-sm focus:outline-none`}
                   >
                     <option>+994</option>
                     <option>012</option>
@@ -129,31 +131,30 @@ const Form: React.FC = () => {
                     onChange={handlePhoneChange}
                     id="Phone"
                     maxLength={9}
-                    style={inputStyles(attemptedSubmit && !phone)}
-                    className="block h-10 w-full rounded-r-lg border-inputColor pl-4 shadow-md outline-none sm:text-sm sm:leading-6"
+                    className={`${inputClassName(attemptedSubmit && !phone)} block h-10 w-full rounded-r-lg border-inputColor pl-4 shadow-md outline-none sm:text-sm sm:leading-6`}
                     placeholder="Enter phone number"
                   />
                 </div>
               </div>
               {attemptedSubmit && !phone && (
-                <span style={{ color: '#F31F1F', fontSize: '10px' }}>
+                <span className="text-xs text-errorMessage">
                   *Please fill out the form
                 </span>
               )}
             </div>
           </div>
           <div className="grid grid-cols-1 pt-4 lg:grid-cols-2 lg:pt-10">
-            <div style={{ position: 'relative' }}>
+            <div className="relative">
               <Input
                 label={t('branch.2')}
                 value={name}
                 onChange={(e) => dispatch(setName(e.target.value))}
                 id="Name"
                 placeholder="Enter your name"
-                style={inputStyles(attemptedSubmit && !name)}
+                className={inputClassName(attemptedSubmit && !name)}
               />
               {attemptedSubmit && !name && (
-                <span style={{ color: '#F31F1F', fontSize: '10px' }}>
+                <span className="text-xs text-errorMessage">
                   *Please fill out the form
                 </span>
               )}
@@ -165,7 +166,10 @@ const Form: React.FC = () => {
               lat={latData}
               lng={lngData}
               attemptedSubmit={attemptedSubmit}
-              inputStyles={inputStyles}
+              setCoordinate={(newLat: string, newLng: string) => {
+                dispatch(setLat(newLat));
+                dispatch(setLng(newLng));
+              }}
             />
           </div>
         </div>
@@ -173,7 +177,6 @@ const Form: React.FC = () => {
         <CancelSaveButton
           onCancel={() => history.back()}
           onSave={postSubmit}
-          btnDisabled={btnDisabled}
           loading={load}
         />
       </form>

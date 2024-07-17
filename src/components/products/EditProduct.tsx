@@ -208,6 +208,29 @@ const EditProduct = () => {
                       value={name[lang] || ''}
                       onChange={(e) => handleTitle(e, lang)}
                     />
+                    <div className="grid-cols-1 gap-4 lg:grid-cols-3">
+                      <div className="my-3 w-full">
+                        <Select
+                          id="category"
+                          onChange={(e: any) =>
+                            dispatch(setcategoryId(Number(e.target.value)))
+                          }
+                          value={categoryId?.toString() || ''}
+                          label={t('product.7')}
+                          option="Category seçin"
+                        >
+                          {content}
+                        </Select>
+                      </div>
+                      <Input
+                        id="Price"
+                        label={t('product.5')}
+                        onChange={(e) => dispatch(setPrice(e.target.value))}
+                        value={price || ''}
+                        option=""
+                        placeholder="Price"
+                      />
+                    </div>
                   </div>
 
                   <div className="w-full">
@@ -221,54 +244,22 @@ const EditProduct = () => {
                       name={`description-${lang}`}
                       id={`description-${lang}`}
                       rows={3}
-                      className="border-1 block w-full rounded-lg px-4 py-1.5 shadow-md"
+                      className="border-1 block w-full rounded-lg px-4 py-6 shadow-md"
                       value={desc[lang] || ''}
                       onChange={(e) => handleDesc(e, lang)}
                     />
+                    <div className="mt-10">
+                      <CancelSaveButton
+                        onSave={handleUpdate}
+                        onCancel={() => navigate(-1)}
+                      >
+                        {t('product.11')}
+                      </CancelSaveButton>
+                    </div>
                   </div>
                 </div>
               </div>
             ))}
-          </div>
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-            <Select
-              id="category"
-              onChange={(e: any) =>
-                dispatch(setcategoryId(Number(e.target.value)))
-              }
-              value={categoryId?.toString() || ''}
-              label={t('product.7')}
-              option="Category seçin"
-            >
-              {content}
-            </Select>
-            <Input
-              id="Price"
-              label={t('product.5')}
-              onChange={(e) => dispatch(setPrice(e.target.value))}
-              value={price || ''}
-              option=""
-              placeholder="Price"
-              required
-            />
-            <Input
-              id="Discount Price"
-              label={t('product.6')}
-              onChange={(e) => dispatch(setDiscount(e.target.value))}
-              value={discount || ''}
-              placeholder="Discount Price"
-              required
-              type="discount"
-            />
-          </div>
-
-          <div className="mt-10">
-            <CancelSaveButton
-              onSave={handleUpdate}
-              onCancel={() => navigate(-1)}
-            >
-              {t('product.11')}
-            </CancelSaveButton>
           </div>
         </form>
       )}

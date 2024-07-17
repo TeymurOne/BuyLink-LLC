@@ -10,7 +10,6 @@ import {
   setActive,
   setcategoryId,
   setDesc,
-  setDiscount,
   setLoad,
   setName,
   setPrice,
@@ -38,6 +37,35 @@ const Form = () => {
   const [postProduct] = usePostProductTypeMutation();
   const { t } = useTranslation();
   const local = t('default.0');
+  const [attemptedSubmit, setAttemptedSubmit] = useState(false);
+  const [content, setContent] = useState<JSX.Element[]>([]);
+
+  useEffect(() => {
+    dispatch(setReset());
+  }, [dispatch]);
+
+  useEffect(() => {
+    const id = params?.id;
+    id && dispatch(setcategoryId(id));
+  }, [params]);
+
+  useEffect(() => {
+    if (isSuccess) {
+      const selectedId = Number(params.id);
+      const options = data.data?.map((item: any) => {
+        const isSelected = item.id === selectedId;
+        if (isSelected) dispatch(setcategoryId(selectedId));
+        return (
+          <option key={item.id} value={item.id} selected={isSelected}>
+            {item.name[local]}
+          </option>
+        );
+      });
+      setContent(options);
+    } else if (isError) {
+      toast.error('Error fetching data');
+    }
+  }, [params.id, isSuccess, local, data]);
 
   const handleTitle = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -63,36 +91,29 @@ const Form = () => {
     }
   };
 
-  useEffect(() => {
-    const id = params?.id;
-    id && dispatch(setcategoryId(id));
-  }, [params]);
+  const inputClassName = (isInvalid: boolean): string =>
+    isInvalid ? 'error-input' : '';
 
-  useEffect(() => {
-    if (isSuccess) {
-      const selectedId = Number(params.id);
-      const options = data.data?.map((item: any) => {
-        const isSelected = item.id === selectedId;
-        if (isSelected) dispatch(setcategoryId(selectedId));
-        return (
-          <option key={item.id} value={item.id} selected={isSelected}>
-            {item.name[local]}
-          </option>
-        );
-      });
-      setContent(options);
-    } else if (isError) {
-      console.error('Error fetching data', 'Products Types');
+  const handleNumberInput = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    setter: Function,
+  ) => {
+    const regex = /^[0-9\b.]+$/;
+    if (e.target.value === '' || regex.test(e.target.value)) {
+      setter(e.target.value);
     }
-  }, [params.id, isSuccess, local, data]);
+  };
 
   const onSubmit = async (e: React.FormEvent<HTMLButtonElement>) => {
-    if (btnDisabled) {
-      alert('Form melumatlari tam doldurlmalidir');
+    e.preventDefault();
+    setAttemptedSubmit(true);
+
+    if (!categoryId || !price || !images || !name[active] || !desc[active]) {
+      toast.error('Please fill out the form completely.');
       return;
     }
+
     dispatch(setLoad(true));
-    e.preventDefault();
 
     postData.append('image', images);
     postData.append('category_id', categoryId!.toString());
@@ -107,6 +128,7 @@ const Form = () => {
       const value = name[key];
       postData.append(`title[${key}]`, value || ' ');
     });
+
     try {
       if (postData) {
         await postProduct(postData)
@@ -120,35 +142,27 @@ const Form = () => {
           });
       }
     } catch (error) {
-      console.error(error);
       toast.error('An error occurred. Please try again.');
     } finally {
       dispatch(setLoad(false));
     }
   };
 
-  const handleNumberInput = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    setter: Function,
-  ) => {
-    const regex = /^[0-9\b]+$/;
-    if (e.target.value === '' || regex.test(e.target.value)) {
-      setter(e.target.value);
-    }
-  };
-
-  const btnDisabled = (categoryId === ':id' && categoryId) || !price || !images;
-  const [content, setContent] = useState<JSX.Element[]>([]);
-
   return (
     <>
-      <form className="h-auto">
+      <form className="h-auto" onSubmit={onSubmit}>
         <TitleArrow> {t('product.1')}</TitleArrow>
-        <InputImg showimg={showimg} onChange={handleImg} />
-
+        <div className="flex items-center ">
+          <InputImg showimg={showimg} onChange={handleImg} />
+          {attemptedSubmit && !images && (
+            <span className="-ml-32 mb-8 text-xs text-errorMessage md:-ml-40">
+              *Please add the image
+            </span>
+          )}
+        </div>
         <select
           onChange={(e: any) => dispatch(setActive(e.target.value))}
-          className="h-10 w-21 rounded-md border border-black border-opacity-20 pl-4 shadow-1"
+          className="h-10 w-21 rounded-md  border-0 border-opacity-20 bg-white pl-4 shadow-1"
         >
           {language.map((item, index) => (
             <option
@@ -161,9 +175,9 @@ const Form = () => {
           ))}
         </select>
         {language.map((lang, index) => (
-          <div className="py-3" key={index}>
+          <div className="pb-2 pt-3" key={index}>
             <div
-              className={`grid w-full grid-cols-1 place-content-between items-start gap-4 lg:grid-cols-2 ${
+              className={`grid w-full grid-cols-1 place-content-between  items-start gap-4 lg:grid-cols-2 ${
                 active !== lang ? 'hidden' : ''
               }`}
             >
@@ -178,10 +192,57 @@ const Form = () => {
                 <input
                   name={`title-${lang}`}
                   id={`title-${lang}`}
-                  className="border-1 block  w-full rounded-lg px-2 py-1.5 shadow-md"
+                  className={`${inputClassName(
+                    attemptedSubmit && !name[lang],
+                  )} border-1 block w-full rounded-lg  border-0 bg-white px-2 py-1.5 shadow-md`}
                   value={name[lang]}
                   onChange={(e) => handleTitle(e, lang)}
                 ></input>
+                {attemptedSubmit && !name[lang] && (
+                  <span className="text-xs text-errorMessage">
+                    *Please fill out the form
+                  </span>
+                )}
+                <div className="grid-cols-1 gap-4 lg:grid-cols-3">
+                  <div className="my-3 w-full">
+                    <Select
+                      id="category"
+                      onChange={(e: any) =>
+                        dispatch(setcategoryId(Number(e.target.value)))
+                      }
+                      label={t('product.7')}
+                      option="Category seçin"
+                    >
+                      {content}
+                    </Select>
+                    {attemptedSubmit && !categoryId && (
+                      <span className="text-xs text-errorMessage">
+                        *Please fill out the form
+                      </span>
+                    )}
+                  </div>
+                  <div>
+                    <Input
+                      id="Price"
+                      label={t('product.5')}
+                      onChange={(e) =>
+                        handleNumberInput(e, (value: string) =>
+                          dispatch(setPrice(value)),
+                        )
+                      }
+                      value={price}
+                      placeholder="Price"
+                      type="text"
+                      required
+                      className={inputClassName(attemptedSubmit && !price)}
+                    />
+                    {attemptedSubmit && !price && (
+                      <span className="text-xs text-errorMessage">
+                        *Please fill out the form
+                      </span>
+                    )}
+                  </div>
+                </div>
               </div>
 
               <div className="w-full">
@@ -196,59 +257,28 @@ const Form = () => {
                   name={`description-${lang}`}
                   id={`description-${lang}`}
                   rows={3}
-                  className="border-1 block w-full rounded-lg px-4 py-1.5 shadow-md"
+                  className={`${inputClassName(
+                    attemptedSubmit && !desc[lang],
+                  )}  border-1 block w-full rounded-lg border-0 bg-white px-4 py-5 shadow-md`}
                   value={desc[lang]}
                   onChange={(e) => handleDesc(e, lang)}
                 ></textarea>
+                {attemptedSubmit && !desc[lang] && (
+                  <span className="text-xs text-errorMessage">
+                    *Please fill out the form
+                  </span>
+                )}
+                <div className="mt-12">
+                  <CancelSaveButton
+                    loading={load}
+                    onSave={onSubmit}
+                    onCancel={() => history.back()}
+                  />
+                </div>
               </div>
             </div>
           </div>
         ))}
-
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-          <Select
-            id="category"
-            onChange={(e: any) =>
-              dispatch(setcategoryId(Number(e.target.value)))
-            }
-            label={t('product.7')}
-            option="Category seçin"
-          >
-            {content}
-          </Select>
-          <Input
-            id="Price"
-            label={t('product.5')}
-            onChange={(e) =>
-              handleNumberInput(e, (value: string) => dispatch(setPrice(value)))
-            }
-            value={price}
-            placeholder="Price"
-            type="number"
-            required
-          />
-          <Input
-            id="Discount Price"
-            label={t('product.6')}
-            onChange={(e) =>
-              handleNumberInput(e, (value: string) =>
-                dispatch(setDiscount(value)),
-              )
-            }
-            value={discount}
-            placeholder="Discount Price"
-            type="discount"
-            required
-          />
-        </div>
-        <div className="mt-10">
-          <CancelSaveButton
-            loading={load}
-            btnDisabled={btnDisabled}
-            onSave={onSubmit}
-            onCancel={() => history.back()}
-          />
-        </div>
       </form>
     </>
   );
