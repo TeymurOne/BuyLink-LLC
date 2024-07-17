@@ -3,6 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import Logo from '../images/logo/logo-buylink.jpg';
 import SidebarLinkGroup from './SidebarLinkGroup';
 import { useTranslation } from 'react-i18next';
+import { version } from '../../package.json';
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -89,19 +90,15 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
           </svg>
         </button>
       </div>
-      {/* <!-- SIDEBAR HEADER --> */}
 
       <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
-        {/* <!-- Sidebar Menu --> */}
         <nav className=" px-4 py-4  lg:px-6">
-          {/* <!-- Menu Group --> */}
           <div>
             <h3 className=" ml-[-6px] text-[11px] font-semibold text-titleColor">
               MENU
             </h3>
 
             <ul className="mb-6 flex flex-col gap-1.5">
-              {/* <!-- Menu Item Dashboard --> */}
               <SidebarLinkGroup
                 activeCondition={
                   pathname === '/admin' || pathname.includes('dashboard')
@@ -110,7 +107,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 {() => {
                   return (
                     <>
-                      {/* <!-- Dropdown Menu Start --> */}
                       <div>
                         <ul className="mb-5.5 mt-4 flex flex-col gap-2.5 pl-3">
                           <li>
@@ -183,7 +179,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           </li>
                         </ul>
                       </div>
-                      {/* <!-- Dropdown Menu End --> */}
                     </>
                   );
                 }}
@@ -191,6 +186,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
             </ul>
           </div>
         </nav>
+      </div>
+      <div className="mt-auto flex items-center  justify-center bg-menuBorder p-4 text-sm text-white text-opacity-65">
+        v {version}
       </div>
     </aside>
   );
