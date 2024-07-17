@@ -53,7 +53,6 @@ const CreateForm = () => {
     t('product.2'),
     t('product.3'),
     t('product.5'),
-    t('product.6'),
     t('product.7'),
     t('product.8'),
   ];

@@ -10,7 +10,6 @@ import {
   setActive,
   setcategoryId,
   setDesc,
-  setDiscount,
   setLoad,
   setName,
   setPrice,
@@ -176,7 +175,7 @@ const Form = () => {
           ))}
         </select>
         {language.map((lang, index) => (
-          <div className="py-3" key={index}>
+          <div className="pb-2 pt-3" key={index}>
             <div
               className={`grid w-full grid-cols-1 place-content-between  items-start gap-4 lg:grid-cols-2 ${
                 active !== lang ? 'hidden' : ''
@@ -204,6 +203,46 @@ const Form = () => {
                     *Please fill out the form
                   </span>
                 )}
+                <div className="grid-cols-1 gap-4 lg:grid-cols-3">
+                  <div className="my-3 w-full">
+                    <Select
+                      id="category"
+                      onChange={(e: any) =>
+                        dispatch(setcategoryId(Number(e.target.value)))
+                      }
+                      label={t('product.7')}
+                      option="Category seçin"
+                    >
+                      {content}
+                    </Select>
+                    {attemptedSubmit && !categoryId && (
+                      <span className="text-xs text-errorMessage">
+                        *Please fill out the form
+                      </span>
+                    )}
+                  </div>
+                  <div>
+                    <Input
+                      id="Price"
+                      label={t('product.5')}
+                      onChange={(e) =>
+                        handleNumberInput(e, (value: string) =>
+                          dispatch(setPrice(value)),
+                        )
+                      }
+                      value={price}
+                      placeholder="Price"
+                      type="text"
+                      required
+                      className={inputClassName(attemptedSubmit && !price)}
+                    />
+                    {attemptedSubmit && !price && (
+                      <span className="text-xs text-errorMessage">
+                        *Please fill out the form
+                      </span>
+                    )}
+                  </div>
+                </div>
               </div>
 
               <div className="w-full">
@@ -220,7 +259,7 @@ const Form = () => {
                   rows={3}
                   className={`${inputClassName(
                     attemptedSubmit && !desc[lang],
-                  )} border-1 block w-full rounded-lg border-0 bg-white px-4 py-1.5 shadow-md`}
+                  )}  border-1 block w-full rounded-lg border-0 bg-white px-4 py-5 shadow-md`}
                   value={desc[lang]}
                   onChange={(e) => handleDesc(e, lang)}
                 ></textarea>
@@ -229,72 +268,17 @@ const Form = () => {
                     *Please fill out the form
                   </span>
                 )}
+                <div className="mt-12">
+                  <CancelSaveButton
+                    loading={load}
+                    onSave={onSubmit}
+                    onCancel={() => history.back()}
+                  />
+                </div>
               </div>
             </div>
           </div>
         ))}
-
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 ">
-          <div className="w-full">
-            <Select
-              id="category"
-              onChange={(e: any) =>
-                dispatch(setcategoryId(Number(e.target.value)))
-              }
-              label={t('product.7')}
-              option="Category seçin"
-            >
-              {content}
-            </Select>
-            {attemptedSubmit && !categoryId && (
-              <span className="text-xs text-errorMessage">
-                *Please fill out the form
-              </span>
-            )}
-          </div>
-          <div>
-            <Input
-              id="Price"
-              label={t('product.5')}
-              onChange={(e) =>
-                handleNumberInput(e, (value: string) =>
-                  dispatch(setPrice(value)),
-                )
-              }
-              value={price}
-              placeholder="Price"
-              type="text"
-              required
-              className={inputClassName(attemptedSubmit && !price)}
-            />
-            {attemptedSubmit && !price && (
-              <span className="text-xs text-errorMessage">
-                *Please fill out the form
-              </span>
-            )}
-          </div>
-          <Input
-            id="Discount Price"
-            label={t('product.6')}
-            onChange={(e) =>
-              handleNumberInput(e, (value: string) =>
-                dispatch(setDiscount(value)),
-              )
-            }
-            value={discount}
-            placeholder="Discount Price"
-            type="discount"
-            required
-          />
-        </div>
-
-        <div className="mt-10">
-          <CancelSaveButton
-            loading={load}
-            onSave={onSubmit}
-            onCancel={() => history.back()}
-          />
-        </div>
       </form>
     </>
   );
