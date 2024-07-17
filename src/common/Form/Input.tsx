@@ -34,7 +34,7 @@ const Input: React.FC<InputProps> = ({
           type={type}
           value={value}
           onChange={onChange}
-          className={`block h-10 w-full rounded-lg border-inputColor pl-4 shadow-md outline-none sm:text-sm sm:leading-6 ${className}`}
+          className={`block h-10 w-full rounded-lg border-0 border-inputColor pl-4 shadow-md  sm:text-sm sm:leading-6 ${className}`}
           required={required}
           placeholder={placeholder}
           disabled={type === 'discount'}

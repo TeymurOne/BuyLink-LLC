@@ -10,6 +10,8 @@ interface InputProps {
   required?: boolean;
   option?: string;
   style?: React.CSSProperties;
+  attemptedSubmit?: boolean;
+  categoryId?: string;
 }
 
 const Select: React.FC<InputProps> = ({
@@ -20,6 +22,8 @@ const Select: React.FC<InputProps> = ({
   option,
   onChange,
   children,
+  attemptedSubmit,
+  categoryId,
 }) => {
   return (
     <>
@@ -38,13 +42,18 @@ const Select: React.FC<InputProps> = ({
             defaultValue={value}
             onChange={onChange}
             style={style}
-            className="block h-8 w-full rounded-lg border-inputColor pl-4 shadow-md outline-none sm:text-sm sm:leading-6"
+            className="block h-10 w-full rounded-lg border-inputColor pl-4 shadow-md outline-none sm:text-sm sm:leading-6"
           >
             <option value="" disabled selected>
               {option}
             </option>
             {children}
           </select>
+          {attemptedSubmit && !categoryId && (
+            <span className="text-xs text-errorMessage">
+              *Please fill out the form
+            </span>
+          )}
         </div>
       </div>
     </>

@@ -38,8 +38,8 @@ export const branchSlice = apiSlice
         query: (id) => ({
           url: `/branch/get/${id}`,
           method: 'GET',
-          invalidatesTags: ['branch'],
         }),
+        providesTags: ['branch'],
       }),
     }),
   });
