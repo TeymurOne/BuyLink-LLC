@@ -30,7 +30,7 @@ const Select: React.FC<InputProps> = ({
       <div className="w-full">
         <label
           htmlFor={id}
-          className="block text-sm font-medium leading-6 dark:text-white300"
+          className="mb-2 block w-full font-works text-sm font-medium text-tdColor dark:text-white300"
         >
           {label}
         </label>

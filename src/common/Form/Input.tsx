@@ -23,7 +23,7 @@ const Input: React.FC<InputProps> = ({
     <div className="w-full">
       <label
         htmlFor={id}
-        className="block w-full text-sm font-medium leading-5 text-tdColor dark:text-white300"
+        className="mb-2 block w-full font-works text-sm font-medium text-tdColor dark:text-white300"
       >
         {label}
         {required && <span className="text-red-600">*</span>}
