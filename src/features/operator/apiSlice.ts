@@ -59,7 +59,7 @@ export const operatorApi = apiSlice
           url: `/branch/all`,
           method: 'GET',
         }),
-        providesTags: ['Branch',
+        providesTags: ['Branch'],
       }),
     }),
   });
