@@ -212,6 +212,7 @@ const Form = () => {
                       }
                       label={t('product.7')}
                       option="Category seçin"
+                      required
                     >
                       {content}
                     </Select>
