@@ -5,9 +5,10 @@ interface ImgInput {
   img?: any;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   showimg?: any;
+  required?: boolean;
 }
 
-const InputImg: React.FC<ImgInput> = ({ onChange, showimg }) => {
+const InputImg: React.FC<ImgInput> = ({ onChange, showimg, required }) => {
   const { t } = useTranslation();
   return (
     <>
@@ -17,6 +18,7 @@ const InputImg: React.FC<ImgInput> = ({ onChange, showimg }) => {
           className="ml-1 mt-6 block text-sm font-medium leading-6 dark:text-white300"
         >
           {t('partnerinfo.3')}
+          {required && <span className="pl-1 text-red-600">*</span>}
         </label>
         <div className="mt-2 flex h-20 items-center gap-x-3">
           <img
