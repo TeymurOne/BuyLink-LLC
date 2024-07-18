@@ -26,7 +26,6 @@ const Select: React.FC<InputProps> = ({
   attemptedSubmit,
   categoryId,
 }) => {
-  const isInvalid = attemptedSubmit && !categoryId;
   return (
     <>
       <div className="w-full">
@@ -45,16 +44,14 @@ const Select: React.FC<InputProps> = ({
             defaultValue={value}
             onChange={onChange}
             style={style}
-            className={`border-1 block h-10 w-full rounded-lg border-0 pl-4 shadow-md sm:text-sm sm:leading-6 ${
-              isInvalid ? 'border-errorMessage' : 'border-inputColor'
-            }`}
+            className="border-1 block h-10 w-full rounded-lg border-0 border-inputColor pl-4 shadow-md sm:text-sm sm:leading-6"
           >
             <option value="" disabled selected>
               {option}
             </option>
             {children}
           </select>
-          {isInvalid && (
+          {attemptedSubmit && !categoryId && (
             <span className="text-xs text-errorMessage">
               *Please fill out the form
             </span>

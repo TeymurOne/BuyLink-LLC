@@ -212,13 +212,14 @@ const Form = () => {
                       }
                       label={t('product.7')}
                       option="Category seçin"
-                      value={categoryId}
-                      attemptedSubmit={attemptedSubmit}
-                      categoryId={categoryId}
-                      required
                     >
                       {content}
                     </Select>
+                    {attemptedSubmit && !categoryId && (
+                      <span className="text-xs text-errorMessage">
+                        *Please fill out the form
+                      </span>
+                    )}
                   </div>
                   <div>
                     <Input
