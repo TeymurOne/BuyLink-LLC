@@ -109,33 +109,14 @@ const Form: React.FC = () => {
               )}
             </div>
             <div className="relative">
-              <div className="w-full">
-                <label
-                  htmlFor="Phone"
-                  className="block w-full text-sm font-medium leading-5 text-tdColor dark:text-white300"
-                >
-                  Phone
-                </label>
-                <div className="relative mt-1 flex rounded-md shadow-sm">
-                  <select
-                    id="Phone"
-                    name="phone"
-                    className={`${inputClassName(attemptedSubmit && !phone)} bg-gray-50 text-gray500 rounded-l-lg border-transparent text-sm focus:outline-none`}
-                  >
-                    <option>+994</option>
-                    <option>012</option>
-                  </select>
-                  <input
-                    type="text"
-                    value={phone}
-                    onChange={handlePhoneChange}
-                    id="Phone"
-                    maxLength={9}
-                    className={`${inputClassName(attemptedSubmit && !phone)} block h-10 w-full rounded-r-lg border-inputColor pl-4 shadow-md outline-none sm:text-sm sm:leading-6`}
-                    placeholder="Enter phone number"
-                  />
-                </div>
-              </div>
+              <Input
+                label={t('branch.14')}
+                value={phone}
+                onChange={handlePhoneChange}
+                id="Phone"
+                maxLength={13}
+                placeholder="+994553241765"
+              />
               {attemptedSubmit && !phone && (
                 <span className="text-xs text-errorMessage">
                   *Please fill out the form

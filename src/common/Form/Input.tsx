@@ -7,6 +7,7 @@ interface InputProps {
   required?: boolean;
   placeholder?: string;
   className?: string;
+  maxLength?: number;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -18,6 +19,7 @@ const Input: React.FC<InputProps> = ({
   placeholder,
   required = false,
   className = '',
+  maxLength,
 }) => {
   return (
     <div className="w-full">
@@ -36,6 +38,7 @@ const Input: React.FC<InputProps> = ({
           onChange={onChange}
           className={`block h-10 w-full rounded-lg border-0 border-inputColor pl-4 shadow-md  sm:text-sm sm:leading-6 ${className}`}
           required={required}
+          maxLength={maxLength}
           placeholder={placeholder}
           disabled={type === 'discount'}
         />

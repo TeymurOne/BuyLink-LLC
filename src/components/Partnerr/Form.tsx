@@ -401,40 +401,22 @@ const Form = () => {
                 <label
                   htmlFor="phone"
                   title="phone"
-                  className="flex items-center text-sm font-medium leading-6"
+                  className="flex items-center text-sm font-medium leading-6 "
                 >
                   <LuAsterisk style={{ color: 'red' }} />
                   <p className="dark:text-white300"> {t('partnerinfo.9')}</p>
                 </label>
                 <div className="mt-2">
-                  <div className="relative mt-1 flex rounded-md shadow-sm">
-                    <select
-                      id="Phone"
-                      name="phone"
-                      className="bg-gray-50 text-gray500 rounded-l-lg border-transparent text-sm focus:outline-none"
-                      defaultValue="+994"
-                      onChange={(e) =>
-                        setFormValue({
-                          ...formValue,
-                          phone_: `${e.target.value}${phone_.slice(4)}`,
-                        })
-                      }
-                    >
-                      <option value="+994">+994</option>
-                      <option value="012">012</option>
-                    </select>
-                    <input
-                      type="text"
-                      value={phone_.slice(3)}
-                      name="phone"
-                      id="Phone"
-                      maxLength={9}
-                      onChange={handlePhone}
-                      autoComplete="tel"
-                      className="border-1 block w-full appearance-none rounded-r-md px-2 py-1.5 shadow-md outline-none sm:text-sm sm:leading-6"
-                      inputMode="numeric"
-                    />
-                  </div>
+                  <input
+                    type="text"
+                    value={`+${phone_}`}
+                    name="phone"
+                    id="Phone"
+                    onChange={handlePhone}
+                    autoComplete="tel"
+                    className="border-1 block w-full appearance-none rounded-md px-2 py-1.5 shadow-md outline-none sm:text-sm sm:leading-6"
+                    inputMode="numeric"
+                  />
                 </div>
               </div>
             </div>
