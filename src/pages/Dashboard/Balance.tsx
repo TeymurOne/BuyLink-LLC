@@ -55,7 +55,7 @@ export default function Balance() {
     <>
       <Title> {t('member.13')}</Title>
 
-      <div className="mt-4 flex w-full flex-col justify-between gap-x-4 gap-y-4 lg:flex-row lg:gap-y-0 ">
+      <div className="mt-4 flex w-full flex-col justify-between gap-x-10 gap-y-4 lg:flex-row lg:gap-y-0 ">
         <div className="w-full lg:w-1/2">
           <CardDataStats
             title={t('balance.0')}
@@ -78,7 +78,7 @@ export default function Balance() {
             </svg>
           </CardDataStats>
         </div>
-        <div className="flex w-full flex-col gap-4 sm:flex-row lg:w-1/2">
+        <div className="flex w-full flex-col gap-8 sm:flex-row lg:w-1/2">
           <CardDataStats title={t('balance.1')} rate={due_buyLink}>
             <svg
               width="60"
@@ -158,8 +158,8 @@ export default function Balance() {
           </CardDataStats>
         </div>
       </div>
-      <div className="mt-4 flex w-full flex-col justify-between gap-x-4 gap-y-4 lg:flex-row lg:gap-y-0 ">
-        <div className="flex w-full flex-col gap-4 sm:flex-row lg:w-1/2">
+      <div className="mt-6 flex w-full flex-col justify-between gap-x-10 gap-y-4 lg:flex-row lg:gap-y-0 ">
+        <div className="flex w-full flex-col gap-8 sm:flex-row lg:w-1/2">
           <CardDataStats
             title={t('balance.3')}
             rate={buylink_wallet}
@@ -223,13 +223,16 @@ export default function Balance() {
       {!transactions.currentData?.data && (
         <TableSkeleton count="10" height="0.1" />
       )}
-      <div className="mt-4 rounded-sm shadow-default dark:border-strokedark dark:bg-boxdark lg:mt-10 xl:mt-20 ">
+      <div className="mt-4 rounded-sm shadow-default dark:border-strokedark dark:bg-boxdark lg:mt-10 xl:mt-14.5 ">
         <div className="max-w-full overflow-hidden overflow-x-auto rounded-lg border border-tborder dark:border-white">
           <table className="w-full table-auto bg-white">
             <thead>
               <tr className="bg-white text-left text-title-2xsm text-black dark:bg-meta-4 dark:text-white">
                 <td className="h-10 w-14.5 border-b border-r border-tborder px-4 font-medium ">
                   ID
+                </td>
+                <td className="dark:text-white5 min-w-24.5 border-b border-r border-tborder py-2 font-medium sm:pl-0 md:pl-4">
+                  {t('balanceTable.8')}
                 </td>
                 <td className="dark:text-white5 min-w-24.5 border-b border-r border-tborder py-2 font-medium sm:pl-0 md:pl-4">
                   {t('balanceTable.0')}

@@ -33,15 +33,15 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
         onClick={handleClick}
         className={` hover:bg-[#DAE2F4] ${
           show ? 'rounded-t-xl ' : 'rounded-xl'
-        } w-full cursor-pointer bg-white  py-4.5 shadow dark:bg-boxdark `}
+        } w-full cursor-pointer bg-white  py-4 shadow dark:bg-boxdark `}
       >
         <div className="relative flex w-full space-x-4">
           <div className="pl-4">{children}</div>
           <div className="flex w-full  flex-col ">
-            <span className="text-base font-normal text-darkgray dark:text-white xl:text-lg">
+            <span className="text-base font-normal text-darkgray dark:text-white xl:text-base">
               {title}
             </span>
-            <span className="flex text-xl font-medium dark:text-white xl:text-3xl">
+            <span className="flex text-xl font-medium dark:text-white xl:text-2xl">
               {rate} {icon}
             </span>
             {show && (
