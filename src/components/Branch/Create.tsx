@@ -115,7 +115,7 @@ const Form: React.FC = () => {
                 onChange={handlePhoneChange}
                 id="Phone"
                 maxLength={13}
-                placeholder="+994 55 324 17 65"
+                placeholder="+994553241765"
               />
               {attemptedSubmit && !phone && (
                 <span className="text-xs text-errorMessage">
