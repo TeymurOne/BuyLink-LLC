@@ -9,6 +9,7 @@ interface InputProps {
   onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   required?: boolean;
   option?: string;
+  className?: string;
   style?: React.CSSProperties;
   attemptedSubmit?: boolean;
   categoryId?: string;
@@ -22,6 +23,7 @@ const Select: React.FC<InputProps> = ({
   option,
   onChange,
   children,
+  className,
   required,
   attemptedSubmit,
   categoryId,
@@ -44,7 +46,9 @@ const Select: React.FC<InputProps> = ({
             defaultValue={value}
             onChange={onChange}
             style={style}
-            className="border-1 block h-10 w-full rounded-lg border-0 border-inputColor pl-4 shadow-md sm:text-sm sm:leading-6"
+            className={
+              'border-1 block h-10 w-'border-1 block h-10 w-full rounded-lg border-0 border-inputColor pl-4 shadow-md sm:text-sm sm:leading-6 'ame
+            }
           >
             <option value="" disabled selected>
               {option}
