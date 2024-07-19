@@ -45,12 +45,22 @@ const Form: React.FC = () => {
     dispatch(resetState());
   }, [dispatch]);
 
+  const validatePhoneNumber = (phone: string) => {
+    const phoneRegex = /^[+]?[\d\s]{10,15}$/;
+    return phoneRegex.test(phone);
+  };
+
   const postSubmit = async (e: any) => {
     e.preventDefault();
     setAttemptedSubmit(true);
 
     if (!address || !latData || !lngData || !name.trim() || !phone.trim()) {
       toast.error('Please fill out the form completely.');
+      return;
+    }
+
+    if (!validatePhoneNumber(phone)) {
+      toast.error('The phone format is invalid.');
       return;
     }
 
@@ -80,7 +90,7 @@ const Form: React.FC = () => {
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    if (/^\d*$/.test(value)) {
+    if (/^[+\d]*$/.test(value)) {
       dispatch(setPhone(value));
     }
   };
@@ -114,6 +124,7 @@ const Form: React.FC = () => {
                 value={phone}
                 onChange={handlePhoneChange}
                 id="Phone"
+                className={inputClassName(attemptedSubmit && !phone)}
                 maxLength={13}
                 placeholder="+994553241765"
               />

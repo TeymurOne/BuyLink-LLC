@@ -142,8 +142,7 @@ const Form = () => {
   };
 
   const handlePhone = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const inputVal = e.target.value.replace(/[^0-9]/g, '');
-    setFormValue({ ...formValue, phone_: inputVal });
+    setFormValue({ ...formValue, phone_: e.target.value });
   };
 
   const handleImgLogo = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -172,9 +171,20 @@ const Form = () => {
     setFormValue({ ...formValue, [name]: value });
   };
 
+  const validatePhone = (phone: string) => {
+    const phoneRegex = /^\+994\d{9}$/;
+    return phoneRegex.test(phone);
+  };
+
   const postSubmit = async (e: React.FormEvent<HTMLButtonElement>) => {
-    setLoad(true);
     e.preventDefault();
+
+    if (!validatePhone(formValue.phone_)) {
+      toast.error('The phone format is invalid.');
+      return;
+    }
+
+    setLoad(true);
     postData.append('image', img_);
     postData.append('cover', cover_);
     postData.append('facebook', facebook_);
@@ -206,14 +216,18 @@ const Form = () => {
       }
     } catch (error) {
       console.error(error);
+      toast.error('Something went wrong!');
     } finally {
       setLoad(false);
     }
   };
+
   const { t } = useTranslation();
+
   const handleTab = (item: string) => {
     setActive(item);
   };
+
   if (isLoading) {
     return (
       <>
@@ -222,6 +236,7 @@ const Form = () => {
       </>
     );
   }
+
   return (
     <>
       <div>
@@ -235,7 +250,7 @@ const Form = () => {
                 Logo
               </label>
               <div className="mt-6 flex h-20 items-center gap-x-3">
-                <div className="h-16  w-19 rounded-md">
+                <div className="h-16 w-19 rounded-md">
                   <img
                     className="mb-4 h-16 w-20 rounded-md object-cover"
                     src={imglogo || img_ ? imglogo || img_ : addImg}
@@ -360,7 +375,7 @@ const Form = () => {
                     onChange={(e) => handleDesc(e, lang)}
                   ></textarea>
                 </div>
-                <div className={`my-1  ${active !== lang ? 'hidden' : ''}`}>
+                <div className={`my-1 ${active !== lang ? 'hidden' : ''}`}>
                   <label
                     htmlFor={`address-${lang}`}
                     className="mb-4 block text-sm font-medium leading-6"
@@ -409,7 +424,7 @@ const Form = () => {
                 <div className="mt-2">
                   <input
                     type="text"
-                    value={`+${phone_}`}
+                    value={phone_}
                     name="phone"
                     id="Phone"
                     onChange={handlePhone}
