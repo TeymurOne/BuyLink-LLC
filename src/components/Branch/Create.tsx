@@ -46,7 +46,7 @@ const Form: React.FC = () => {
   }, [dispatch]);
 
   const validatePhoneNumber = (phone: string) => {
-    const phoneRegex = /^[+]?[\d\s]{10,15}$/;
+    const phoneRegex = /^\+994\d{9}$/;
     return phoneRegex.test(phone);
   };
 
@@ -87,14 +87,12 @@ const Form: React.FC = () => {
       dispatch(setLoad(false));
     }
   };
-
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     if (/^[+\d]*$/.test(value)) {
       dispatch(setPhone(value));
     }
   };
-
   const inputClassName = (isInvalid: boolean): string =>
     isInvalid ? 'error-input' : '';
 
@@ -165,7 +163,6 @@ const Form: React.FC = () => {
             />
           </div>
         </div>
-
         <CancelSaveButton
           onCancel={() => history.back()}
           onSave={postSubmit}
