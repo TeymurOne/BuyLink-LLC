@@ -64,7 +64,7 @@ const CreateForm = () => {
           <Title>{t('product.0')}</Title>
           <Search onchange={handleSearchChange} />
         </div>
-        <CreateBtn img={create} link="product/create/:id">
+        <CreateBtn img={create} link="product/create/">
           {t('product.1')}
         </CreateBtn>
       </div>
