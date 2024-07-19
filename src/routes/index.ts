@@ -79,7 +79,7 @@ const coreRoutes = [
   },
 
   {
-    path: '/admin/product/create/:id',
+    path: '/admin/product/create/',
     title: 'productForm',
     component: productForm,
   },
