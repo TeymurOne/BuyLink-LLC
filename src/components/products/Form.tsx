@@ -210,9 +210,9 @@ const Form = () => {
                       onChange={(e: any) =>
                         dispatch(setcategoryId(Number(e.target.value)))
                       }
+                      required
                       label={t('product.7')}
                       option="Category seçin"
-                      required
                     >
                       {content}
                     </Select>
