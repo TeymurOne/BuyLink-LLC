@@ -45,12 +45,22 @@ const Form: React.FC = () => {
     dispatch(resetState());
   }, [dispatch]);
 
+  const validatePhoneNumber = (phone: string) => {
+    const phoneRegex = /^\+994\d{9}$/;
+    return phoneRegex.test(phone);
+  };
+
   const postSubmit = async (e: any) => {
     e.preventDefault();
     setAttemptedSubmit(true);
 
     if (!address || !latData || !lngData || !name.trim() || !phone.trim()) {
       toast.error('Please fill out the form completely.');
+      return;
+    }
+
+    if (!validatePhoneNumber(phone)) {
+      toast.error('The phone format is invalid.');
       return;
     }
 
@@ -77,14 +87,12 @@ const Form: React.FC = () => {
       dispatch(setLoad(false));
     }
   };
-
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    if (/^\d*$/.test(value)) {
+    if (/^[+\d]*$/.test(value)) {
       dispatch(setPhone(value));
     }
   };
-
   const inputClassName = (isInvalid: boolean): string =>
     isInvalid ? 'error-input' : '';
 
@@ -109,33 +117,15 @@ const Form: React.FC = () => {
               )}
             </div>
             <div className="relative">
-              <div className="w-full">
-                <label
-                  htmlFor="Phone"
-                  className="block w-full text-sm font-medium leading-5 text-tdColor dark:text-white300"
-                >
-                  Phone
-                </label>
-                <div className="relative mt-1 flex rounded-md shadow-sm">
-                  <select
-                    id="Phone"
-                    name="phone"
-                    className={`${inputClassName(attemptedSubmit && !phone)} bg-gray-50 text-gray500 rounded-l-lg border-transparent text-sm focus:outline-none`}
-                  >
-                    <option>+994</option>
-                    <option>012</option>
-                  </select>
-                  <input
-                    type="text"
-                    value={phone}
-                    onChange={handlePhoneChange}
-                    id="Phone"
-                    maxLength={9}
-                    className={`${inputClassName(attemptedSubmit && !phone)} block h-10 w-full rounded-r-lg border-inputColor pl-4 shadow-md outline-none sm:text-sm sm:leading-6`}
-                    placeholder="Enter phone number"
-                  />
-                </div>
-              </div>
+              <Input
+                label={t('branch.14')}
+                value={phone}
+                onChange={handlePhoneChange}
+                id="Phone"
+                className={inputClassName(attemptedSubmit && !phone)}
+                maxLength={13}
+                placeholder="+994553241765"
+              />
               {attemptedSubmit && !phone && (
                 <span className="text-xs text-errorMessage">
                   *Please fill out the form
@@ -173,7 +163,6 @@ const Form: React.FC = () => {
             />
           </div>
         </div>
-
         <CancelSaveButton
           onCancel={() => history.back()}
           onSave={postSubmit}
