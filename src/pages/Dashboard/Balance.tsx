@@ -61,7 +61,7 @@ export default function Balance() {
     <>
       <Title>{t('member.13')}</Title>
 
-      <div className="grid w-full grid-cols-2 gap-[30px] px-4 py-4 xl:grid-cols-4">
+      <div className="grid w-full grid-cols-2 gap-8 px-4 py-4 xl:grid-cols-4">
         <div className="col-span-2 w-full">
           <CardDataStats
             title={t('balance.0')}
