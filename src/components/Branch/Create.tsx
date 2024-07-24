@@ -160,6 +160,7 @@ const Form: React.FC = () => {
                 dispatch(setLat(newLat));
                 dispatch(setLng(newLng));
               }}
+              resetCoordinates
             />
           </div>
         </div>

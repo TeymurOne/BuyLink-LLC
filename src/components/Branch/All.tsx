@@ -14,14 +14,14 @@ import Pagination from '../../core/pagination/Pagination';
 
 const CreateForm = () => {
   let content: any;
-  let allCoordinates: { lat: number | string; lng: number | string }[] = []; // butun datanin kordinatlari
+  let allCoordinates: { lat: number | string; lng: number | string }[] = [];
   const dispatch = useDispatch();
   const { page } = useSelector((store: any) => store.PaginationSlice);
   const { isSuccess, isLoading, data } = useFetchBranchAllQuery(page);
 
   if (isSuccess) {
     content = data.data?.map((item: any, index: number) => {
-      allCoordinates.push({ lat: item?.lat, lng: item?.lng }); // butun datanin lat ve lng almaq ucun
+      allCoordinates.push({ lat: item?.lat, lng: item?.lng });
       return <Tbody item={item} key={index} />;
     });
   }
