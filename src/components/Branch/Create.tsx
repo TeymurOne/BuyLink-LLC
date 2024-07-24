@@ -45,12 +45,22 @@ const Form: React.FC = () => {
     dispatch(resetState());
   }, [dispatch]);
 
+  const validatePhoneNumber = (phone: string) => {
+    const phoneRegex = /^\+994\d{9}$/;
+    return phoneRegex.test(phone);
+  };
+
   const postSubmit = async (e: any) => {
     e.preventDefault();
     setAttemptedSubmit(true);
 
     if (!address || !latData || !lngData || !name.trim() || !phone.trim()) {
       toast.error('Please fill out the form completely.');
+      return;
+    }
+
+    if (!validatePhoneNumber(phone)) {
+      toast.error('The phone format is invalid.');
       return;
     }
 
@@ -77,14 +87,12 @@ const Form: React.FC = () => {
       dispatch(setLoad(false));
     }
   };
-
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    if (/^\d*$/.test(value)) {
+    if (/^[+\d]*$/.test(value)) {
       dispatch(setPhone(value));
     }
   };
-
   const inputClassName = (isInvalid: boolean): string =>
     isInvalid ? 'error-input' : '';
 
@@ -114,6 +122,7 @@ const Form: React.FC = () => {
                 value={phone}
                 onChange={handlePhoneChange}
                 id="Phone"
+                className={inputClassName(attemptedSubmit && !phone)}
                 maxLength={13}
                 placeholder="+994553241765"
               />
@@ -154,7 +163,6 @@ const Form: React.FC = () => {
             />
           </div>
         </div>
-
         <CancelSaveButton
           onCancel={() => history.back()}
           onSave={postSubmit}

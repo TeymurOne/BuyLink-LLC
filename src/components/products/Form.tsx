@@ -211,6 +211,7 @@ const Form = () => {
                         dispatch(setcategoryId(Number(e.target.value)))
                       }
                       required
+                      className={inputClassName(attemptedSubmit && !categoryId)}
                       label={t('product.7')}
                       option="Category seçin"
                     >

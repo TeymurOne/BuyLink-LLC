@@ -345,11 +345,10 @@ const resources = {
         '11': ' Qiymətləndirmə sayı',
       },
       balance: {
-        '0': ' Ümumi satış',
-        '1': ' BuyLinkə  öhdəlik',
-
-        '2': 'Kassadan əməliyyatlar',
-        '3': 'BuyLink balansdan',
+        '0': 'Ümumi satış',
+        '1': 'BuyLinkə  öhdəlik',
+        '2': 'Kassadan',
+        '3': 'Balansdan',
         '4': 'Xalis məbləğ',
         '5': '3 gün gecikmədən sonra cərimələr hesablanmağa başlayır',
         '6': 'Cərimələr tutulmağa başlayır (ümumi məbləğin 0,1%-i)',
