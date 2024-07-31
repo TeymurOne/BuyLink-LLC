@@ -81,6 +81,8 @@ const resources = {
         '16': 'Ləgv et',
         '17': 'Saxla',
         '18': 'Partnyor adı',
+        '19': 'Ümumi Komissiya',
+        '20': 'Endirim',
       },
       header: {
         '0': 'Haqqımızda',
@@ -470,6 +472,8 @@ const resources = {
         '16': 'Cancel',
         '17': 'Save',
         '18': 'Partner name',
+        '19': 'Total Commission',
+        '20': 'Discount',
       },
       header: {
         '0': 'About',
