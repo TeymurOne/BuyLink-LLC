@@ -12,7 +12,11 @@ import { selectLat, selectLng } from '../../features/map/MapSlice';
 import MapSkeleton from '../../skeleton/Map';
 import TableSkeleton from '../../skeleton/TableSkeleton';
 import { useTranslation } from 'react-i18next';
+import basket from '../../images/icon/basket.png';
+import percent from '../../images/icon/percent.png';
 import CancelSaveButton from '../../data/helpers/Button';
+import { ProgressCircle } from '../ProgressCircle.tsx';
+import { useGetTransactionsQuery } from '../../features/statistcs/apiSlice.tsx';
 
 interface Initial {
   title: any;
@@ -38,6 +42,8 @@ const Form = () => {
   const lngData = useSelector(selectLng);
   const { data, isSuccess, isLoading, refetch } = useFetchPartnerrAllQuery('');
   const language = ['az', 'en', 'ru'];
+  const { filter } = useSelector((store: any) => store.balance);
+  const transactions = useGetTransactionsQuery(filter);
   const [active, setActive] = useState<string>('az');
   const [formValue, setFormValue] = useState<Initial>({
     title: '',
@@ -240,6 +246,56 @@ const Form = () => {
     <>
       <div>
         <div className="space-y-12 ">
+          <div className="flex w-full flex-col items-start  md:flex-row md:justify-between">
+            <h2 className="pb-4 text-3xl md:pb-0">Partner Info</h2>
+            <div className="flex w-full flex-col items-center md:w-115 md:flex-row md:justify-between">
+              <div className="mb-4 flex w-full items-center gap-2 md:mb-0 md:w-55">
+                <img className="h-8 w-8" src={percent} alt="Commission" />
+                <span className="text-sm font-medium text-[#1859A8]">
+                  {t('partnerinfo.19')}
+                </span>
+                {transactions.currentData?.data?.length > 0 && (
+                  <div>
+                    <ProgressCircle
+                      className="h-13 w-13"
+                      variant="default"
+                      value={
+                        transactions.currentData.data[0].partner
+                          .total_commission
+                      }
+                      radius={50}
+                    >
+                      <span className="text-gray-900 dark:text-gray-50 text-sm font-medium">
+                        {`${transactions.currentData.data[0].partner.total_commission}%`}
+                      </span>
+                    </ProgressCircle>
+                  </div>
+                )}
+              </div>
+              <div className="flex w-full items-center gap-2 md:w-55">
+                <img className="h-8 w-8" src={basket} alt="Discount" />
+                <span className="text-sm font-medium text-[#1859A8]">
+                  {t('partnerinfo.20')}
+                </span>
+                {transactions.currentData?.data?.length > 0 && (
+                  <div>
+                    <ProgressCircle
+                      className="h-13 w-13"
+                      variant="default"
+                      value={
+                        transactions.currentData.data[0].discounted_percent
+                      }
+                      radius={50}
+                    >
+                      <span className="text-gray-900 dark:text-gray-50 text-sm font-medium">
+                        {`${transactions.currentData.data[0].discounted_percent}%`}
+                      </span>
+                    </ProgressCircle>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
           <div className="pb-12">
             <div className="col-span-full mr-10 inline-block">
               <label
