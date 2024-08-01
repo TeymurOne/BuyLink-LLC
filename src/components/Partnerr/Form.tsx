@@ -12,23 +12,27 @@ import { selectLat, selectLng } from '../../features/map/MapSlice';
 import MapSkeleton from '../../skeleton/Map';
 import TableSkeleton from '../../skeleton/TableSkeleton';
 import { useTranslation } from 'react-i18next';
+import basket from '../../images/icon/basket.png';
+import percent from '../../images/icon/percent.png';
 import CancelSaveButton from '../../data/helpers/Button';
+import { ProgressCircle } from '../ProgressCircle.tsx';
+import { useGetTransactionsQuery } from '../../features/statistcs/apiSlice.tsx';
 
 interface Initial {
-  title_: any;
-  description_: any;
-  phone_: any;
-  address_: any;
-  email_: string;
-  cover_: any;
-  img_: any;
-  facebook_: string;
-  whatsapp_: string;
-  instagram_: string;
-  twitter_: string;
-  youtube_: string;
-  linkedln_: string;
-  website_: string;
+  title: any;
+  description: any;
+  phone: any;
+  address: any;
+  email: string;
+  cover: any;
+  img: any;
+  facebook: string;
+  whatsapp: string;
+  instagram: string;
+  twitter: string;
+  youtube: string;
+  linkedln: string;
+  website: string;
   lat: string;
   lng: string;
 }
@@ -38,22 +42,24 @@ const Form = () => {
   const lngData = useSelector(selectLng);
   const { data, isSuccess, isLoading, refetch } = useFetchPartnerrAllQuery('');
   const language = ['az', 'en', 'ru'];
+  const { filter } = useSelector((store: any) => store.balance);
+  const transactions = useGetTransactionsQuery(filter);
   const [active, setActive] = useState<string>('az');
   const [formValue, setFormValue] = useState<Initial>({
-    title_: '',
-    description_: {},
-    phone_: '',
-    address_: {},
-    email_: '',
-    cover_: '',
-    img_: '',
-    facebook_: '',
-    whatsapp_: '',
-    instagram_: '',
-    twitter_: '',
-    youtube_: '',
-    linkedln_: '',
-    website_: '',
+    title: '',
+    description: {},
+    phone: '',
+    address: {},
+    email: '',
+    cover: '',
+    img: '',
+    facebook: '',
+    whatsapp: '',
+    instagram: '',
+    twitter: '',
+    youtube: '',
+    linkedln: '',
+    website: '',
     lat: '',
     lng: '',
   });
@@ -62,21 +68,20 @@ const Form = () => {
     if (isSuccess) {
       setFormValue((prevFormValue) => ({
         ...prevFormValue,
-        title_: data?.data.title || '',
-        about_: data?.data.about || '',
-        description_: data?.data.description || '',
-        phone_: data?.data.phone || '',
-        address_: data?.data.address || '',
-        email_: data?.data.email || '',
-        cover_: data?.data.cover || '',
-        img_: data?.data.image || '',
-        facebook_: data?.data.socials?.facebook || '',
-        whatsapp_: data?.data.socials?.whatsapp || '',
-        instagram_: data?.data.socials?.instagram || '',
-        twitter_: data?.data.socials?.twitter || '',
-        youtube_: data?.data.socials?.youtube || '',
-        linkedln_: data?.data.socials?.linkedln || '',
-        website_: data?.data.website || '',
+        title: data?.data.title || '',
+        description: data?.data.description || {},
+        phone: data?.data.phone || '',
+        address: data?.data.address || {},
+        email: data?.data.email || '',
+        cover: data?.data.cover || '',
+        img: data?.data.image || '',
+        facebook: data?.data.socials?.facebook || '',
+        whatsapp: data?.data.socials?.whatsapp || '',
+        instagram: data?.data.socials?.instagram || '',
+        twitter: data?.data.socials?.twitter || '',
+        youtube: data?.data.socials?.youtube || '',
+        linkedln: data?.data.socials?.linkedln || '',
+        website: data?.data.website || '',
         lat: data?.data.location?.lat,
         lng: data?.data.location?.lng,
       }));
@@ -84,16 +89,16 @@ const Form = () => {
   }, [isSuccess, data]);
 
   const {
-    title_,
-    description_,
-    phone_,
-    address_,
-    website_,
-    facebook_,
-    instagram_,
-    cover_,
-    img_,
-    email_,
+    title,
+    description,
+    phone,
+    address,
+    website,
+    facebook,
+    instagram,
+    cover,
+    img,
+    email,
     lat,
     lng,
   } = formValue;
@@ -105,10 +110,10 @@ const Form = () => {
   const postData = new FormData();
 
   const handleTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormValue({ ...formValue, title_: e.target.value });
+    setFormValue({ ...formValue, title: e.target.value });
   };
   const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormValue({ ...formValue, email_: e.target.value });
+    setFormValue({ ...formValue, email: e.target.value });
   };
 
   const handleDesc = (
@@ -119,8 +124,8 @@ const Form = () => {
 
     setFormValue((prevFormValue) => ({
       ...prevFormValue,
-      description_: {
-        ...prevFormValue.description_,
+      description: {
+        ...prevFormValue.description,
         [language]: value,
       },
     }));
@@ -134,23 +139,22 @@ const Form = () => {
 
     setFormValue((prevFormValue) => ({
       ...prevFormValue,
-      address_: {
-        ...prevFormValue.address_,
+      address: {
+        ...prevFormValue.address,
         [language]: value,
       },
     }));
   };
 
   const handlePhone = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const inputVal = e.target.value.replace(/[^0-9]/g, '');
-    setFormValue({ ...formValue, phone_: inputVal });
+    setFormValue({ ...formValue, phone: e.target.value });
   };
 
   const handleImgLogo = (e: React.ChangeEvent<HTMLInputElement>) => {
     let files: any = e.target.files;
 
     if (files) {
-      setFormValue((prevFormValue) => ({ ...prevFormValue, img_: files[0] }));
+      setFormValue((prevFormValue) => ({ ...prevFormValue, img: files[0] }));
       setLogo(URL.createObjectURL(files[0]));
     }
   };
@@ -159,12 +163,12 @@ const Form = () => {
     let files: any = e.target.files;
 
     if (files) {
-      setFormValue((prevFormValue) => ({ ...prevFormValue, cover_: files[0] }));
+      setFormValue((prevFormValue) => ({ ...prevFormValue, cover: files[0] }));
       setCover(URL.createObjectURL(files[0]));
     }
   };
 
-  const btnDisabled = !title_ || !phone_;
+  const btnDisabled = !title || !phone;
   const [postProduct] = usePostPartnerrAllMutation();
 
   const handleFb = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -172,25 +176,36 @@ const Form = () => {
     setFormValue({ ...formValue, [name]: value });
   };
 
+  const validatePhone = (phone: string) => {
+    const phoneRegex = /^\+994\d{9}$/;
+    return phoneRegex.test(phone);
+  };
+
   const postSubmit = async (e: React.FormEvent<HTMLButtonElement>) => {
-    setLoad(true);
     e.preventDefault();
-    postData.append('image', img_);
-    postData.append('cover', cover_);
-    postData.append('facebook', facebook_);
-    postData.append('email', email_);
-    postData.append('instagram', instagram_);
-    postData.append('title', title_);
+
+    if (!validatePhone(formValue.phone)) {
+      toast.error('The phone format is invalid.');
+      return;
+    }
+
+    setLoad(true);
+    postData.append('image', img);
+    postData.append('cover', cover);
+    postData.append('facebook', facebook);
+    postData.append('email', email);
+    postData.append('instagram', instagram);
+    postData.append('title', title);
     language.forEach((key) => {
-      const value = description_[key];
+      const value = description[key];
       postData.append(`description[${key}]`, value || ' ');
     });
     language.forEach((key) => {
-      const value = address_[key];
+      const value = address[key];
       postData.append(`address[${key}]`, value || ' ');
     });
-    postData.append('phone', phone_);
-    postData.append('website', website_);
+    postData.append('phone', phone);
+    postData.append('website', website);
     postData.append('lat', latData);
     postData.append('lng', lngData);
     try {
@@ -205,15 +220,18 @@ const Form = () => {
           });
       }
     } catch (error) {
-      console.error(error);
+      toast.error('Something went wrong!');
     } finally {
       setLoad(false);
     }
   };
+
   const { t } = useTranslation();
+
   const handleTab = (item: string) => {
     setActive(item);
   };
+
   if (isLoading) {
     return (
       <>
@@ -222,10 +240,61 @@ const Form = () => {
       </>
     );
   }
+
   return (
     <>
       <div>
         <div className="space-y-12 ">
+          <div className="flex w-full flex-col items-start  md:flex-row md:justify-between">
+            <h2 className="pb-4 text-3xl md:pb-0">Partner Info</h2>
+            <div className="flex w-full flex-col items-center md:w-115 md:flex-row md:justify-between">
+              <div className="mb-4 flex w-full items-center gap-2 md:mb-0 md:w-55">
+                <img className="h-8 w-8" src={percent} alt="Commission" />
+                <span className="text-sm font-medium text-[#1859A8]">
+                  {t('partnerinfo.19')}
+                </span>
+                {transactions.currentData?.data?.length > 0 && (
+                  <div>
+                    <ProgressCircle
+                      className="h-13 w-13"
+                      variant="default"
+                      value={
+                        transactions.currentData.data[0].partner
+                          .total_commission
+                      }
+                      radius={50}
+                    >
+                      <span className="text-gray-900 dark:text-gray-50 text-sm font-medium">
+                        {`${transactions.currentData.data[0].partner.total_commission}%`}
+                      </span>
+                    </ProgressCircle>
+                  </div>
+                )}
+              </div>
+              <div className="flex w-full items-center gap-2 md:w-55">
+                <img className="h-8 w-8" src={basket} alt="Discount" />
+                <span className="text-sm font-medium text-[#1859A8]">
+                  {t('partnerinfo.20')}
+                </span>
+                {transactions.currentData?.data?.length > 0 && (
+                  <div>
+                    <ProgressCircle
+                      className="h-13 w-13"
+                      variant="default"
+                      value={
+                        transactions.currentData.data[0].discounted_percent
+                      }
+                      radius={50}
+                    >
+                      <span className="text-gray-900 dark:text-gray-50 text-sm font-medium">
+                        {`${transactions.currentData.data[0].discounted_percent}%`}
+                      </span>
+                    </ProgressCircle>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
           <div className="pb-12">
             <div className="col-span-full mr-10 inline-block">
               <label
@@ -235,10 +304,10 @@ const Form = () => {
                 Logo
               </label>
               <div className="mt-6 flex h-20 items-center gap-x-3">
-                <div className="h-16  w-19 rounded-md">
+                <div className="h-16 w-19 rounded-md">
                   <img
                     className="mb-4 h-16 w-20 rounded-md object-cover"
-                    src={imglogo || img_ ? imglogo || img_ : addImg}
+                    src={imglogo || img ? imglogo || img : addImg}
                     alt="Logo"
                   />
                 </div>
@@ -270,7 +339,7 @@ const Form = () => {
                   <img
                     alt="cover"
                     className="mb-4 h-full w-full rounded-[6px] object-cover"
-                    src={imgcover || cover_ ? imgcover || cover_ : addImg}
+                    src={imgcover || cover ? imgcover || cover : addImg}
                   />
                 </div>
 
@@ -302,7 +371,7 @@ const Form = () => {
               <div className="mb-4 mt-2">
                 <input
                   onChange={handleTitle}
-                  value={title_}
+                  value={title}
                   placeholder="Title"
                   id="text"
                   name="text"
@@ -356,11 +425,11 @@ const Form = () => {
                     name={`description-${lang}`}
                     id={`description-${lang}`}
                     className="h-25 w-full rounded-lg pl-4 pt-2 shadow-md outline-none"
-                    value={description_[lang]}
+                    value={description[lang]}
                     onChange={(e) => handleDesc(e, lang)}
                   ></textarea>
                 </div>
-                <div className={`my-1  ${active !== lang ? 'hidden' : ''}`}>
+                <div className={`my-1 ${active !== lang ? 'hidden' : ''}`}>
                   <label
                     htmlFor={`address-${lang}`}
                     className="mb-4 block text-sm font-medium leading-6"
@@ -371,13 +440,13 @@ const Form = () => {
                     name={`address-${lang}`}
                     id={`address-${lang}`}
                     className="h-25 w-full rounded-lg pl-4 pt-2 shadow-md outline-none"
-                    value={address_[lang]}
+                    value={address[lang]}
                     onChange={(e) => handleAddress(e, lang)}
                   ></textarea>
                 </div>
               </div>
             ))}
-            <div className="grod-cols-1 grid gap-4 lg:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
               <div className="max-w-full">
                 <label
                   htmlFor="email"
@@ -388,7 +457,7 @@ const Form = () => {
                 <div className="mt-2">
                   <input
                     onChange={handleEmail}
-                    value={email_}
+                    value={email}
                     placeholder="Email"
                     id="text"
                     name="text"
@@ -407,34 +476,16 @@ const Form = () => {
                   <p className="dark:text-white300"> {t('partnerinfo.9')}</p>
                 </label>
                 <div className="mt-2">
-                  <div className="relative mt-1 flex rounded-md shadow-sm">
-                    <select
-                      id="Phone"
-                      name="phone"
-                      className="bg-gray-50 text-gray500 rounded-l-lg border-transparent text-sm focus:outline-none"
-                      defaultValue="+994"
-                      onChange={(e) =>
-                        setFormValue({
-                          ...formValue,
-                          phone_: `${e.target.value}${phone_.slice(4)}`,
-                        })
-                      }
-                    >
-                      <option value="+994">+994</option>
-                      <option value="012">012</option>
-                    </select>
-                    <input
-                      type="text"
-                      value={phone_.slice(3)}
-                      name="phone"
-                      id="Phone"
-                      maxLength={9}
-                      onChange={handlePhone}
-                      autoComplete="tel"
-                      className="border-1 block w-full appearance-none rounded-r-md px-2 py-1.5 shadow-md outline-none sm:text-sm sm:leading-6"
-                      inputMode="numeric"
-                    />
-                  </div>
+                  <input
+                    type="text"
+                    value={phone}
+                    name="phone"
+                    id="Phone"
+                    onChange={handlePhone}
+                    autoComplete="tel"
+                    className="border-1 block w-full appearance-none rounded-md px-2 py-1.5 shadow-md outline-none sm:text-sm sm:leading-6"
+                    inputMode="numeric"
+                  />
                 </div>
               </div>
             </div>
@@ -449,9 +500,9 @@ const Form = () => {
                 <div className="mt-2">
                   <input
                     onChange={handleFb}
-                    value={facebook_}
+                    value={facebook}
                     id="facebook"
-                    name="facebook_"
+                    name="facebook"
                     type="text"
                     className="block w-full rounded-md border-0 py-1.5 pl-4 shadow-md outline-none sm:text-sm sm:leading-6"
                   />
@@ -460,7 +511,7 @@ const Form = () => {
 
               <div className="col-span-6 lg:col-span-3 ">
                 <label
-                  htmlFor="title"
+                  htmlFor="instagram"
                   className="block text-sm font-medium leading-6"
                 >
                   Instagram
@@ -468,9 +519,9 @@ const Form = () => {
                 <div className="mt-2">
                   <input
                     onChange={handleFb}
-                    value={instagram_}
+                    value={instagram}
                     id="instagram"
-                    name="instagram_"
+                    name="instagram"
                     type="text"
                     className="block w-full rounded-md border-0 py-1.5 pl-4 shadow-md outline-none sm:text-sm sm:leading-6"
                   />
@@ -478,7 +529,7 @@ const Form = () => {
               </div>
               <div className="col-span-6 lg:col-span-3">
                 <label
-                  htmlFor="title"
+                  htmlFor="website"
                   className="block text-sm font-medium leading-6"
                 >
                   Website
@@ -486,10 +537,10 @@ const Form = () => {
                 <div className="mt-2">
                   <input
                     onChange={handleFb}
-                    value={website_}
+                    value={website}
                     placeholder="https://www.example.com"
                     id="website"
-                    name="website_"
+                    name="website"
                     type="text"
                     className="block w-full rounded-md border-0 py-1.5 pl-4 shadow-md outline-none sm:text-sm sm:leading-6"
                   />
