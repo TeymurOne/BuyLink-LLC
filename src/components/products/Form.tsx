@@ -108,7 +108,7 @@ const Form = () => {
     e.preventDefault();
     setAttemptedSubmit(true);
 
-    if (!categoryId || !price || !images || !name[active] || !desc[active]) {
+    if (!categoryId || !price || !images || !name[active]) {
       toast.error('Please fill out the form completely.');
       return;
     }
@@ -119,7 +119,6 @@ const Form = () => {
     postData.append('category_id', categoryId!.toString());
     postData.append('price', price!.toString());
     postData.append('discount_price', discount!.toString());
-
     language.forEach((key: any) => {
       const value = desc[key];
       postData.append(`description[${key}]`, value || '');
@@ -153,7 +152,7 @@ const Form = () => {
       <form className="h-auto" onSubmit={onSubmit}>
         <TitleArrow> {t('product.1')}</TitleArrow>
         <div className="flex items-center ">
-          <InputImg showimg={showimg} onChange={handleImg} />
+          <InputImg required showimg={showimg} onChange={handleImg} />
           {attemptedSubmit && !images && (
             <span className="-ml-32 mb-8 text-xs text-errorMessage md:-ml-40">
               *Please add the image
@@ -188,6 +187,7 @@ const Form = () => {
                 >
                   {t('product.0')} {t('product.14')}
                   {lang.toUpperCase()}
+                  <span className="pl-1 text-red-600">*</span>
                 </label>
                 <input
                   name={`title-${lang}`}
@@ -210,6 +210,8 @@ const Form = () => {
                       onChange={(e: any) =>
                         dispatch(setcategoryId(Number(e.target.value)))
                       }
+                      required
+                      className={inputClassName(attemptedSubmit && !categoryId)}
                       label={t('product.7')}
                       option="Category seçin"
                     >
@@ -257,17 +259,10 @@ const Form = () => {
                   name={`description-${lang}`}
                   id={`description-${lang}`}
                   rows={3}
-                  className={`${inputClassName(
-                    attemptedSubmit && !desc[lang],
-                  )}  border-1 block w-full rounded-lg border-0 bg-white px-4 py-5 shadow-md`}
+                  className="border-1 block w-full rounded-lg border-0 bg-white px-4 py-5 shadow-md"
                   value={desc[lang]}
                   onChange={(e) => handleDesc(e, lang)}
                 ></textarea>
-                {attemptedSubmit && !desc[lang] && (
-                  <span className="text-xs text-errorMessage">
-                    *Please fill out the form
-                  </span>
-                )}
                 <div className="mt-12">
                   <CancelSaveButton
                     loading={load}

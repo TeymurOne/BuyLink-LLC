@@ -18,7 +18,7 @@ type TableProps = {
 export const Title: React.FC<TitleProps> = ({ children }) => {
   return (
     <>
-      <h4 className="flex items-center text-xl font-semibold text-black dark:text-white">
+      <h4 className="flex items-center  px-4 text-xl font-semibold text-black dark:text-white md:px-0">
         {children}
       </h4>
     </>
@@ -67,7 +67,7 @@ export const CreateBtn: React.FC<TitleProps> = ({ link, children, img }) => {
 export const Thead: React.FC<TheadProps> = ({ titles }) => {
   return (
     <>
-      <thead className="hidden md:contents">
+      <thead className="md:contents">
         <tr className="bg-white text-left text-title-2xsm text-black dark:bg-meta-4">
           <th className="h-10 w-14.5 border-b border-r border-tborder px-4 font-medium dark:text-white ">
             Sıra sayı
@@ -89,7 +89,7 @@ export const Thead: React.FC<TheadProps> = ({ titles }) => {
 export const TableLayout: React.FC<TableProps> = ({ children }) => {
   return (
     <>
-      <div className="hidden rounded-sm shadow-default dark:border-strokedark dark:bg-boxdark md:block">
+      <div className="rounded-sm shadow-default dark:border-strokedark dark:bg-boxdark md:block">
         <div className="max-w-full overflow-hidden overflow-x-auto rounded-lg border border-tborder">
           <table className="w-full table-auto bg-white">{children}</table>
         </div>
