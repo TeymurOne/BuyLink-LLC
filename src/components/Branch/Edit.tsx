@@ -42,18 +42,17 @@ const Form: React.FC = () => {
   const handleEdit = async (id: any) => {
     try {
       const response = await updatePost(id);
-
       if (response) {
         const dataToPass = response.data;
         dispatch(setAddress(dataToPass?.data.address));
         dispatch(setName(dataToPass?.data?.name));
         dispatch(setPhone(dataToPass?.data?.phone));
-        dispatch(setAddress(dataToPass?.data.address));
-        dispatch(setAddress(dataToPass?.data.address));
         dispatch(setLat(parseFloat(dataToPass?.data.lat)));
         dispatch(setLng(parseFloat(dataToPass?.data.lng)));
       }
-    } catch (error) {}
+    } catch (error) {
+      toast.error('Error fetching data');
+    }
   };
 
   useEffect(() => {
@@ -68,10 +67,20 @@ const Form: React.FC = () => {
   const latData = useSelector(selectLat);
   const lngData = useSelector(selectLng);
 
+  const validatePhone = (phone: string) => {
+    const phoneRegex = /^\+994\d{9}$/;
+    return phoneRegex.test(phone);
+  };
   const postSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
       dispatch(setLoad(true));
+
+      if (!validatePhone(phone)) {
+        toast.error('The phone format is invalid.');
+        return;
+      }
+
       const currentLat = latData || useSelector(selectLat);
       const currentLng = lngData || useSelector(selectLng);
 

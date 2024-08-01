@@ -45,6 +45,7 @@ export const operatorApi = apiSlice
           url: `/operator/get/${id}`,
           method: 'GET',
         }),
+        providesTags: ['Branch'],
       }),
       deleteOperator: builder.mutation({
         query: (id) => ({
@@ -58,6 +59,7 @@ export const operatorApi = apiSlice
           url: `/branch/all`,
           method: 'GET',
         }),
+        providesTags: ['Branch'],
       }),
     }),
   });

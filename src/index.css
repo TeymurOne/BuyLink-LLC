@@ -6,6 +6,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    [type='text'], input:where(:not([type])), [type='email'], [type='file'], [type='url'], [type='password'], [type='number'], [type='date'], [type='datetime-local'], [type='month'], [type='time'], [type='week'], [multiple], textarea, select {
+        @apply border-0 ;
+    }
+}
+
 html {
     font-size: 16px !important;
 }
@@ -20,7 +27,6 @@ body {
     }
 }
 
-/* index.css */
 
 #chat::-webkit-scrollbar {
     width: 7px !important;
@@ -45,4 +51,18 @@ body {
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+.error-input {
+    background-color: #FFEAEA;
+    border: 1px solid #F31F1F;
+}
+
+.leaflet-control-attribution {
+    display: none;
+}
+
+.error-input {
+    background-color: #FFEAEA;
+    border: 1px solid #F31F1F;
 }

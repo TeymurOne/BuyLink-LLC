@@ -57,7 +57,6 @@ const Tbody: React.FC<itemAllData> = ({ item }) => {
 
         <TD> {title?.az}</TD>
         <TD> {price}</TD>
-        <TD> {discount_price}</TD>
         <TD> {category?.name}</TD>
 
         <TD>
