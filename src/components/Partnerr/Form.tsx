@@ -69,10 +69,9 @@ const Form = () => {
       setFormValue((prevFormValue) => ({
         ...prevFormValue,
         title: data?.data.title || '',
-        about: data?.data.about || '',
-        description: data?.data.description || '',
+        description: data?.data.description || {},
         phone: data?.data.phone || '',
-        address: data?.data.address || '',
+        address: data?.data.address || {},
         email: data?.data.email || '',
         cover: data?.data.cover || '',
         img: data?.data.image || '',
@@ -125,7 +124,7 @@ const Form = () => {
 
     setFormValue((prevFormValue) => ({
       ...prevFormValue,
-      description_: {
+      description: {
         ...prevFormValue.description,
         [language]: value,
       },
@@ -447,7 +446,7 @@ const Form = () => {
                 </div>
               </div>
             ))}
-            <div className="grod-cols-1 grid gap-4 lg:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
               <div className="max-w-full">
                 <label
                   htmlFor="email"
@@ -471,7 +470,7 @@ const Form = () => {
                 <label
                   htmlFor="phone"
                   title="phone"
-                  className="flex items-center text-sm font-medium leading-6 "
+                  className="flex items-center text-sm font-medium leading-6"
                 >
                   <LuAsterisk style={{ color: 'red' }} />
                   <p className="dark:text-white300"> {t('partnerinfo.9')}</p>
@@ -503,7 +502,7 @@ const Form = () => {
                     onChange={handleFb}
                     value={facebook}
                     id="facebook"
-                    name="facebook_"
+                    name="facebook"
                     type="text"
                     className="block w-full rounded-md border-0 py-1.5 pl-4 shadow-md outline-none sm:text-sm sm:leading-6"
                   />
@@ -512,7 +511,7 @@ const Form = () => {
 
               <div className="col-span-6 lg:col-span-3 ">
                 <label
-                  htmlFor="title"
+                  htmlFor="instagram"
                   className="block text-sm font-medium leading-6"
                 >
                   Instagram
@@ -522,7 +521,7 @@ const Form = () => {
                     onChange={handleFb}
                     value={instagram}
                     id="instagram"
-                    name="instagram_"
+                    name="instagram"
                     type="text"
                     className="block w-full rounded-md border-0 py-1.5 pl-4 shadow-md outline-none sm:text-sm sm:leading-6"
                   />
@@ -530,7 +529,7 @@ const Form = () => {
               </div>
               <div className="col-span-6 lg:col-span-3">
                 <label
-                  htmlFor="title"
+                  htmlFor="website"
                   className="block text-sm font-medium leading-6"
                 >
                   Website
@@ -541,7 +540,7 @@ const Form = () => {
                     value={website}
                     placeholder="https://www.example.com"
                     id="website"
-                    name="website_"
+                    name="website"
                     type="text"
                     className="block w-full rounded-md border-0 py-1.5 pl-4 shadow-md outline-none sm:text-sm sm:leading-6"
                   />
