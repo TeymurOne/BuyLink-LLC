@@ -5,6 +5,8 @@ import Tbody from './Tbody';
 import Loader from '../../common/Loader';
 import { CreateBtn, TableLayout, Thead, Title } from '../ui/Title';
 import { useTranslation } from 'react-i18next';
+import { useMemo } from 'react';
+import TbodyResponsive from '../Branch/TbodyResponsive.tsx';
 
 export interface IitemApiOperator {
   branch: IitemBranch;
@@ -29,16 +31,25 @@ const CreateForm = () => {
   const items = isSuccess && Array.isArray(data?.data) ? data.data : [];
 
   if (isSuccess) {
-    content = items?.map((item: IitemApiOperator, index: number) => {
+    content = items.map((item: IitemApiOperator, index: number) => {
       return <Tbody item={item} key={index} />;
     });
   }
+
+  const responsiveContent = useMemo(() => {
+    if (isSuccess && data) {
+      return items.map((item: IitemApiOperator, index: number) => (
+        <TbodyResponsive key={index} item={item} />
+      ));
+    }
+    return null;
+  }, [items, isSuccess]);
 
   const titles = [t('operator.3'), t('operator.4'), t('operator.5')];
 
   return (
     <>
-      <div className="flex flex-wrap  justify-between">
+      <div className="flex flex-wrap justify-between">
         <div className="mb-10 flex w-60 flex-col">
           <Title>{t('operator.0')}</Title>
         </div>
@@ -49,10 +60,13 @@ const CreateForm = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <TableLayout>
-          <Thead titles={titles} />
-          <tbody>{content}</tbody>
-        </TableLayout>
+        <>
+          <TableLayout>
+            <Thead titles={titles} />
+            <tbody>{content}</tbody>
+          </TableLayout>
+          <div className="my-8">{responsiveContent}</div>
+        </>
       )}
     </>
   );
