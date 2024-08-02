@@ -10,6 +10,7 @@ const resources = {
       member: {
         '12': 'Statistika',
         '13': 'Balans',
+        '14': 'Due To Buylink'
       },
       branch: {
         '0': 'Filiallar',
@@ -95,24 +96,26 @@ const resources = {
       },
       main: {
         '0': 'BuyLink',
-        '1': `dünyanın ilk rəqəmsal referal platformasıdır`,
+        '1': `dünyanın ilk rəqəmsal tövsiyə platformasıdır!`,
         '2': `Bizim missiyamız insanları və biznesləri bir referal sosial şəbəkəsi altında birləşdirərək onların müəyyən qazanc və üstünlüklərdən faydalanmasını təmin etməkdir.`,
         '3': 'İzahedici video',
-        '4': 'Bu video ən sadə şəkildə bizim   biznesin necə işlədiyini göstərir.',
-        '5': 'Biz bir platformada müxtəlif sənaye sahələri əhatə edirik',
+        '4': 'Bu video ən sadə şəkildə Buylink-in necə işlədiyini göstərir.',
+        '5': 'Videonu izləyib mobil tətbiqimizlə ətraflı tanış ola bilərsiniz',
         '6': 'BuyLinki  yüklə',
+        '7': '300+ istifadəçi puluna qənaət etdi'
       },
       wallet: {
-        '0': '   saxlayın    ',
-        '1': ' Bonus ve mukafatlarinizi  ',
+        '0': 'qazan!',
+        '1': 'Bonus və mükafatlar',
         '2': 'qazanaraq xərclərinə qanaət et.',
-        '3': 'BuyLink balansı sizə bonuslarınızı və mükafatlarınızı saxlamağa və istənilən vaxt balansdaki məbləği bank hesabınıza köçürmə   imkanı verən rəqəmsal pul kisəsidir.',
+        '3': 'BuyLink balansı sənə mobil tətbiqimizdə bonus və mükafatlar qazanmağa, toplanan məbləği istənilən ölkədaxili bank kartına köçürməyə imkan verən rəqəmsal pul kisəsidir.',
         '4': 'Köçürmə',
         '5': 'Qazancları toplamaq',
         '6': 'Balans ilə partnyorlarda ödəniş',
         '7': 'Tarixçə',
         '8': ' ',
         '9': '  ',
+        '10': 'Balansı'
       },
       partnyor: {
         '0': 'Yeni',
@@ -131,7 +134,7 @@ const resources = {
         '1': 'qazanc',
         '2': 'Öz şəbəkənə istədiyin biznesi tövsiyə et və qazan.',
         '3': 'Partnyor səhifəsinə daxil ol',
-        '4': 'Tərəfdaşın kataloqunu araşdırın:məhsul və ya xidmətlərin siyahısı, qiymətlər, endirimlər və referal keşbekləri.',
+        '4': 'Tərəfdaşın kataloqunu gözdən keçir: məhsul və ya xidmətlər siyahısı, qiymətlər, endirim və referal keşbekləri.',
         '5': 'Referal linkini öz şəbəkən ilə bölüş',
         '6': 'Partnyor səhifəsində sən bu biznesi söhbət vasitəsilə şəbəkənə tövsiyə edə və ya poçtla paylaşa bilərsən.',
         '7': 'Pul kisəsinə keçid et və balansını yoxla',
@@ -150,11 +153,9 @@ const resources = {
         '8': 'Qr kodu alış-veriş zamanı partnyora göstər və endirim əldə et.',
       },
       partner: {
-        '0': 'Partnyor ol',
-        '1': `Bizim tərəfdaşımız olun və rəqabət 
-        qabiliyyətinizi, bazarda tanınmağınızı və 
-        gəlirinizi, "BuyLink" ilə artırın!`,
-        '2': 'Elə indi qoşul',
+        '0': 'Partnyor ol!',
+        '1': `Buylink mobil tətbiqində yer almaqla siz bazarda tanıtım, yüksək gəlir və rəqabət üstünlüyü əldə edəcəksiniz.`,
+        '2': 'Elə indi qoşulun'
       },
       letters: {
         '0': 'Jurnalımıza',
@@ -165,15 +166,14 @@ const resources = {
       accordion: {
         '0': 'Ən çox verilən suallar',
         '1': 'BuyLink nədir?',
-        '2': 'Bizim missiyamız insanları və biznesləri bir referal sosial şəbəkəsi altında birləşdirərək onların müəyyən qazanc və üstünlüklərdən faydalanmasını təmin etməkdir.',
+        '2': 'BuyLink dünyanın ilk rəqəmsal tövsiyə platformasıdır. Bizim missiyamız insanları və biznesləri bir referal sosial şəbəkəsi altında birləşdirərək onların müəyyən qazanc və üstünlüklərdən faydalanmasını təmin etməkdir.',
         '3': 'BuyLink-in üstünlükləri nələrdir?',
-        '4': `Buylink-in üstünlükləri bir çoxdur. İlk olaraq, bu platform istifadəçilərə hem pul qazanmaq, hem də endirimlərdən yararlana biləcəkləri bir şəbəkə təmin edir. Bu, istifadəçilərin həm keyfiyyətli məhsulları əldə etmək, həm də gəlir əldə etmək imkanını bir araya gətirir.
-        Əlavə olaraq, Buylink-in rəfərallar üzərində əsaslanan qarşılıqlı marketing modeli, istifadəçilərə daha çox insanı platforma cəlb etmək və onların həcmə bağlı olaraq artan gəlir əldə etmək imkanı verir.`,
+        '4': `BuyLink-in bir sıra üstünlükləri var. Bu platforma istifadəçilərə həm pul qazanmaq, həm də endirimlərdən yararlanmaq fürsəti yaradır. Mobil tətbiq vasitəsilə istifadəçilər endirimlərdən yararlanmaqla yanaşı, tövsiyələrdən gəlir əldə edə bilərlər. Həmçinin daha çox insanı platformaya cəlb edən istifadəçilər artan gəlir modeli sayəsində daha çox qazanc əldə edəcəklər.`,
         '5': 'Necə işləyirik?',
         '6': `Buylink platformunda paylaşılan postlar, istifadəçilərin mekanları tanıtmalarını, təcrübələrini paylaşmalarını və promosyonlar təklif etmələrini təmin edir. Bu, onların öz sosial şəbəkələrindən faydalanaraq gəlir qazanmalarına və digər istifadəçilərə fayda vermələrinə imkan verir.`,
       },
       become: {
-        '0': 'Buylink',
+        '0': 'BuyLink',
         '1': 'tətbiqini yüklə',
         '2': 'Hər yerdə mövcuddur',
         '3': 'Yükləmək üçün Scan QR',
@@ -355,11 +355,13 @@ const resources = {
         '5': '3 gün gecikmədən sonra cərimələr hesablanmağa başlayır',
         '6': 'Cərimələr tutulmağa başlayır (ümumi məbləğin 0,1%-i)',
         '7': 'Ödəniş gecikdirildikdə, cərimələr olacaq',
-
         '8': ' Ödəniş tarixi! ',
         '9': 'Gecikdirilmiş ödəniş!',
         '10': ' Gün sonra ödəniş',
         '11': 'Hal hazirda tarix ve data yoxdur',
+        '12': 'Ümumi borc',
+        '13': 'Ödənişlər',
+        '14': 'Xalis borc'
       },
       balanceTable: {
         '0': 'Hesab məbləği',
@@ -371,6 +373,8 @@ const resources = {
         '6': 'Xalis Məbləğ',
         '7': 'İstifadəçi adı',
         '8': 'Operator adı',
+        '9': 'Məbləğ',
+        '10': 'Ödəniş növü,
       },
       settingDashboard: {
         '1': 'Parametrlər',
@@ -402,6 +406,7 @@ const resources = {
         '11': 'MemberType',
         '12': 'Statistics',
         '13': 'Balance',
+        '14': 'Buylinkə öhdəlik'
       },
       branch: {
         '0': 'Branches',
@@ -488,68 +493,68 @@ const resources = {
         '1': 'is the world first digital referral network  .',
         '2': `Our mission is to connect people and businesses in one referral social network where they are able to get actual benefits from recommendations.`,
         '3': 'Explainer Video',
-        '4': 'The video shows in basic how the applications works .',
-        '5': ' We cover different industries in one platform',
+        '4': 'This video shows how BuyLink works in the simplest way.',
+        '5': 'You can watch the video and learn more about our mobile application.',
         '6': 'Download BuyLink',
+        '7': '300+ costumer saved money'
       },
       wallet: {
         '0': '   ',
         '1': '  ',
         '2': 'a savings for your',
-        '3': 'BuyLink is a digital wallet that allows you to store your bonuses and rewards in your balance and transfer funds from your balance to a bank account at any time.',
-        '4': 'Transver',
-        '5': 'Savings of rewards ',
-        '6': 'Payment via wallet at our partner',
-        '7': 'History',
-        '8': 'Save your',
-        '9': 'bonuses and rewards ',
+        '3': 'BuyLink is a digital wallet that allows you to easily save bonuses and rewards in your balance. You can also transfer funds from your balance to a bank account at any time.',
+        '4': 'Transfer',
+        '5': 'Save Rewards',
+        '6': 'Pay with Wallet at Our Partners',
+        '7': 'Transaction History',
+        '8': 'Save Your',
+        '9': 'Bonuses and Rewards ',
+        '10': 'Wallet'
       },
       partnyor: {
-        '0': 'Explore new',
-        '1': 'users and ',
-        '2': 'partners',
-        '3': 'Easy way to increase you network and to find businesses you want to recommend',
-        '4': 'Explore Our partners',
-        '5': 'Meet our list of partnes at our homepage',
-        '6': 'Add People to your Network',
-        '7': 'Use search to find your friends and new users. Add them, and start to recommend each other',
-        '8': 'Explore different categories',
-        '9': 'Here you can find different industries,choose any that you areasasa interested in ',
+        '0': 'Explore New',
+        '1': 'Users and ',
+        '2': 'Partners',
+        '3': 'An easy way to expand your network and find businesses you want to recommend',
+        '4': 'Our Partners',
+        '5': 'Discover our list of partners on our homepage',
+        '6': 'Add People to Your Network',
+        '7': 'Use the search feature to find your friends and new users. Add them and start recommending each other',
+        '8': 'Explore Different Categories',
+        '9': 'Here you can find various industries. Choose any that you are interested in '
       },
       partnyor2: {
-        '0': 'Get cash ',
-        '1': 'in 3 steps',
-        '2': 'End-to-end payments and financial management in a single solution. Meet the right platform to help realize.',
-        '3': 'Enter to partner page',
-        '4': 'Explore menu / catalogue of partner. With list of products of services, prices, discounts, and referral cashbacks',
-        '5': 'Share referral link to your network',
-        '6': 'In partner page you can recommend this business to your network via chat on share on post',
-        '7': 'Go to wallet and check you balance',
-        '8': 'After your network use your referral link , you again rewards , and can check your balance in wallet page',
+        '0': 'Get Cash',
+        '1': 'in 3 Steps',
+        '2': 'End-to-end payments and financial management in a single solution. Discover the right platform to help you achieve your financial goals.',
+        '3': 'Enter the Partner Page',
+        '4': 'Explore the menu/catalog of our partners, including a list of products and services, prices, discounts, and referral cashbacks',
+        '5': 'Share Referral Link with Your Network',
+        '6': 'On the partner page, you can recommend this business to your network via chat or by sharing a post',
+        '7': 'Go to Wallet and Check Your Balance',
+        '8': 'After your network uses your referral link, you earn rewards and can check your balance on the wallet page',
         '9': '',
       },
       partnyor3: {
-        '0': 'How to get',
-        '1': ' discount?',
-        '2': 'End-to-end payments and financial management in a single solution. Meet the right platform to help realize.',
-        '3': 'See you network recommendations in referral page',
-        '4': 'See all posts that you network share, and chooseone that interests you',
-        '5': 'Add referral link to Qr Basket',
-        '6': 'Here you can see all rederral links from different users for different partners',
-        '7': 'Show qr code and get discount',
-        '8': 'When you show you Qr code you get discount for you purchases ',
+        '0': 'How to Get',
+        '1': ' a Discount?',
+        '2': 'End-to-end payments and financial management in a single solution. Discover the right platform to help you achieve your goals.',
+        '3': 'See Your Network’s Recommendations on the Referral Page',
+        '4': 'View all the posts shared by your network and choose the ones that interest you',
+        '5': 'Add Referral Link to QR Basket',
+        '6': 'Here, you can see all referral links from different users for various partners',
+        '7': 'Show QR Code and Get a Discount',
+        '8': 'When you show your QR code, you receive a discount on your purchases'
       },
       partner: {
-        '0': 'Become a partner',
-        '1': `Become our partner and compete
-        your ability, your market recognition and
-        increase your income with "BuyLink"!`,
+        '0': 'Become a Partner',
+        '1': `We invite you to become our partner and enhance your capabilities, market recognition, and increase your income with “BuyLink”!`,
         '2': 'Join now',
       },
       letters: {
-        '0': ' Join our ',
-        '1': '  newsletter  ',
-        '2': 'Will send you weekly updates for your better finance management.',
+        '0': 'Join our',
+        '1': 'Newsletter',
+        '2': 'We will send you weekly updates to help you manage your finances better.',
         '3': 'Join  now',
       },
       become: {
@@ -560,13 +565,12 @@ const resources = {
       },
       accordion: {
         '0': 'Frequently Asked Questions',
-        '1': 'What is the BUYLINK?',
-        '2': `Our mission is to connect people and businesses under one referral social network to ensure they benefit from the benefits and benefits.`,
-        '3': 'Why do we use it?',
-        '4': `The advantages of Buylink are many. First, this platform provides users with a network where they can both earn money and take advantage of discounts. This brings together the opportunity for users to get quality products and generate income.
-        Additionally, Buylink's affiliate marketing model based on referrals allows users to attract more people to the platform and earn increased revenue based on their volume.`,
-        '5': 'How to get cash?',
-        '6': 'Posts shared on the Buylink platform allow users to promote places, share experiences and offer promotions. This allows them to take advantage of their social networks to earn income and benefit other users.',
+        '1': 'What is BuyLink?',
+        '2': `BuyLink is the world’s first digital referral platform and social network designed to connect people and businesses. Our mission is to create a space where users can benefit from mutual recommendations and earn rewards. By joining BuyLink, users can discover and recommend businesses, helping both themselves and others gain valuable benefits.`,
+        '3': 'Why do we use BuyLink?',
+        '4': `BuyLink offers numerous advantages. Firstly, this platform provides users with a network where they can earn money and take advantage of discounts. This allows users to access quality products while generating income. Additionally, BuyLink’s referral-based marketing model enables users to attract more people to the platform and earn increased revenue based on the volume of their referrals.`,
+        '5': 'How do I get cash on BuyLink?',
+        '6': 'On the BuyLink platform, users can share posts to promote businesses, share their experiences, and offer promotions. This allows them to leverage their social networks to earn income and provide benefits to other users. By sharing referral links, users can earn rewards based on the engagement and transactions generated by their network. This system helps users earn cash rewards while also helping others discover quality products and services.'
       },
       footer: {
         '0': 'Finance helps companies manage payments easily.',
@@ -762,11 +766,13 @@ const resources = {
         '5': 'Payment date! After 3 days of delay, penalties start to charge ',
         '6': 'Penalties start to charge (0.1% of total amount)',
         '7': 'In case of late payment, there will be penalties',
-
-        '8': '  Days Left Until Payment ',
+        '8': 'Days Left Until Payment',
         '9': 'Overdue Payment!',
-        '10': '  Days Payment Date! ',
+        '10': 'Days Payment Date!',
         '11': 'Currently there is no date and data  ',
+        '12': 'Total debt',
+        '13': 'Payments',
+        '14': 'Net debt'
       },
       balanceTable: {
         '0': 'Bill amount',
@@ -778,6 +784,8 @@ const resources = {
         '6': 'Net Amount',
         '7': 'User ID',
         '8': 'Operator Name',
+        '9': 'Amount',
+        '10': 'Payment Type'
       },
       settingDashboard: {
         '1': 'Settings',

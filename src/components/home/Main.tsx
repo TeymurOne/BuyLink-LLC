@@ -59,7 +59,7 @@ export function Main() {
             <img src={people} alt="People" />
             <div className="mx-2  ">
               <span className="flex font-manrope text-lg font-bold">
-                <p> 300+ costumer saved money</p>
+                <p> {t('main.7')}</p>
                 <img src={money} alt="Money" />
               </span>
               <img className="mx-auto md:mx-0 lg:mx-0" src={star} alt="Stars" />
