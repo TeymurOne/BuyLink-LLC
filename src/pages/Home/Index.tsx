@@ -45,10 +45,9 @@ const Index = () => {
         </div>
       </div>
 
-      <div className="bg-starrating">
+      <div className="mb-20 bg-starrating">
         <Partner />
       </div>
-      <div className="bg-white py-20"></div>
       <ModalQr />
 
       <div id="faq" className="bg-white py-6 md:py-10 lg:py-20">
