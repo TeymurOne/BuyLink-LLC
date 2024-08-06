@@ -6,7 +6,7 @@ import Loader from '../../common/Loader';
 import { CreateBtn, TableLayout, Thead, Title } from '../ui/Title';
 import { useTranslation } from 'react-i18next';
 import { useMemo } from 'react';
-import TbodyResponsive from '../Branch/TbodyResponsive.tsx';
+import TbodyResponsive from './TbodyResponsive.tsx';
 
 export interface IitemApiOperator {
   branch: IitemBranch;
