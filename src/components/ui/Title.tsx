@@ -89,7 +89,7 @@ export const Thead: React.FC<TheadProps> = ({ titles }) => {
 export const TableLayout: React.FC<TableProps> = ({ children }) => {
   return (
     <>
-      <div className="rounded-sm shadow-default dark:border-strokedark dark:bg-boxdark md:block">
+      <div className="hidden rounded-sm shadow-default dark:border-strokedark dark:bg-boxdark md:block">
         <div className="max-w-full overflow-hidden overflow-x-auto rounded-lg border border-tborder">
           <table className="w-full table-auto bg-white">{children}</table>
         </div>

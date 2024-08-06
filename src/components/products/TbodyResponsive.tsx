@@ -64,7 +64,7 @@ const TbodyResponsive = ({ item }: any) => {
             <ul className=" mx-2  w-full text-xs text-black   dark:text-white">
               <li className="flex justify-between">
                 <p>Title</p>
-                <p>{item?.name}</p>
+                <p>{item?.title?.az}</p>
               </li>
               <li className="flex justify-between">
                 <p>Price</p>
