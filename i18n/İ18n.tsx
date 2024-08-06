@@ -10,6 +10,7 @@ const resources = {
       member: {
         '12': 'Statistika',
         '13': 'Balans',
+        '14': 'BuyLinkə öhdəlik',
       },
       branch: {
         '0': 'Filiallar',
@@ -360,6 +361,9 @@ const resources = {
         '9': 'Gecikdirilmiş ödəniş!',
         '10': ' Gün sonra ödəniş',
         '11': 'Hal hazirda tarix ve data yoxdur',
+        '12': 'Ümumi borc',
+        '13': 'Ödənişlər',
+        '14': 'Xalis borc',
       },
       balanceTable: {
         '0': 'Hesab məbləği',
@@ -371,6 +375,8 @@ const resources = {
         '6': 'Xalis Məbləğ',
         '7': 'İstifadəçi adı',
         '8': 'Operator adı',
+        '9': 'Amount',
+        '10': 'Payments type',
       },
       settingDashboard: {
         '1': 'Parametrlər',
@@ -402,6 +408,7 @@ const resources = {
         '11': 'MemberType',
         '12': 'Statistics',
         '13': 'Balance',
+        '14': 'Due to Buylink,
       },
       branch: {
         '0': 'Branches',
@@ -767,6 +774,9 @@ const resources = {
         '9': 'Overdue Payment!',
         '10': '  Days Payment Date! ',
         '11': 'Currently there is no date and data  ',
+        '12': 'Total debt',
+        '13': 'Payments',
+        '14': 'Net Debt'
       },
       balanceTable: {
         '0': 'Bill amount',
@@ -778,6 +788,8 @@ const resources = {
         '6': 'Net Amount',
         '7': 'User ID',
         '8': 'Operator Name',
+        '9': 'Məbləğ',
+        '10': 'Ödəniş növü'
       },
       settingDashboard: {
         '1': 'Settings',
