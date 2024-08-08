@@ -3,7 +3,7 @@ import {
   useFetchProducttypeQuery,
   usePostProductTypeMutation,
 } from '../../features/product/apiSlice';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -23,7 +23,7 @@ import CancelSaveButton from '../../data/helpers/Button';
 import { toast } from 'react-toastify';
 
 const Form = () => {
-  const params = useParams();
+  const [searchParams] = useSearchParams();
   const dispatch = useDispatch();
   const { active, load, categoryId, name, desc, price, discount } = useSelector(
     (store: any) => store.productSlice,
@@ -45,13 +45,13 @@ const Form = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    const id = params?.id;
+    const id = searchParams.get('categoryid');
     id && dispatch(setcategoryId(id));
-  }, [params]);
+  }, [searchParams]);
 
   useEffect(() => {
     if (isSuccess) {
-      const selectedId = Number(params.id);
+      const selectedId = Number(searchParams.get('categoryid'));
       const options = data.data?.map((item: any) => {
         const isSelected = item.id === selectedId;
         if (isSelected) dispatch(setcategoryId(selectedId));
@@ -65,7 +65,7 @@ const Form = () => {
     } else if (isError) {
       toast.error('Error fetching data');
     }
-  }, [params.id, isSuccess, local, data]);
+  }, [isSuccess, data, local, dispatch, searchParams]);
 
   const handleTitle = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -104,7 +104,7 @@ const Form = () => {
     }
   };
 
-  const onSubmit = async (e: React.FormEvent<HTMLButtonElement>) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setAttemptedSubmit(true);
 
@@ -266,7 +266,7 @@ const Form = () => {
                 <div className="mt-12">
                   <CancelSaveButton
                     loading={load}
-                    onSave={onSubmit}
+                    onSave={onSubmit()}
                     onCancel={() => history.back()}
                   />
                 </div>
