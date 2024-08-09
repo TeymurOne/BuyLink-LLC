@@ -8,7 +8,7 @@ ARG APP=/app
 # Set up the working directory
 WORKDIR ${APP}
 
-COPY . .
+COPY ./ ./
 
 RUN yarn install \
   --prefer-offline \
