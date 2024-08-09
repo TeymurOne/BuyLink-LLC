@@ -2,7 +2,7 @@ services:
   front:
     container_name: front
     build:
-      context: .docker/develop/node
+      context: .docker/production/node
     volumes:
       - ./:/app
     tty: true
