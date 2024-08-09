@@ -1,44 +1,45 @@
-# Use Node.js 20 Alpine image as the base for the build stage
+# Serving image
 FROM node:20-alpine as builder
 
-# Set an ARG for the application directory
+ENV NODE_OPTIONS=--openssl-legacy-provider
+
 ARG APP=/app
 
 # Set up the working directory
 WORKDIR ${APP}
 
-# Copy all files from the current directory to the working directory in the container
 COPY . .
 
-# Install dependencies, disabling interactive mode and freezing lockfile for consistency
-RUN npm install --prefer-offline --frozen-lockfile --non-interactive
+RUN yarn install \
+  --prefer-offline \
+  --frozen-lockfile \
+  --non-interactive \
+  --production=false
 
-# Build the project
-RUN npm run build
+RUN yarn build
 
-# Clean up unnecessary files to reduce the image size
 RUN rm -rf node_modules && \
-    NODE_ENV=production npm install \
-    --prefer-offline --frozen-lockfile --non-interactive --production
+  NODE_ENV=production yarn install \
+  --prefer-offline \
+  --pure-lockfile \
+  --non-interactive \
+  --production=true
 
-# Use Node.js 20 Alpine image as the base for the production stage
 FROM node:20-alpine
 
-# Set an ARG for the application directory
 ARG APP=/app
 
-# Set up the working directory
 WORKDIR ${APP}
 
-# Copy the built application from the builder stage
-COPY --from=builder ${APP} .
+COPY --from=builder /app  .
 
-# Set environment variables
-ENV NODE_OPTIONS="--openssl-legacy-provider"
-ENV HOST="0.0.0.0"
+ENV NODE_OPTIONS=--openssl-legacy-provider
 
-# Expose the Nuxt.js application port
+# Specify the host variable
+ENV HOST 0.0.0.0
+
+# Expose the Nuxt port
 EXPOSE 3000
 
-# Start the application
-CMD ["npm", "run", "start"]
+# Init the command
+CMD ["yarn", "start"]
