@@ -1,9 +1,5 @@
 # Serving image
-FROM node:18-alpine as builder
-
-ENV NODE_OPTIONS=--openssl-legacy-provider
-
-ENV NUXT_TELEMETRY_DISABLED=1
+FROM node:20-alpine as builder
 
 ARG APP=/app
 
@@ -12,37 +8,30 @@ WORKDIR ${APP}
 
 COPY . .
 
-RUN yarn install \
+RUN npm install \
   --prefer-offline \
   --frozen-lockfile \
   --non-interactive \
   --production=false
 
-RUN yarn build:modern
+RUN npm build
 
 RUN rm -rf node_modules && \
-  NODE_ENV=production yarn install \
+  NODE_ENV=production npm install \
   --prefer-offline \
   --pure-lockfile \
   --non-interactive \
   --production=true
 
-FROM node:18-alpine
+FROM node:20-alpine
 
-ARG USER=hire
 ARG APP=/app
-
-RUN addgroup -S appgroup && adduser -u 1001 -S ${USER} -G appgroup
 
 WORKDIR ${APP}
 
-COPY --from=builder /app  .
+COPY --from=builder /app .
 
 ENV NODE_OPTIONS=--openssl-legacy-provider
-
-ENV NUXT_TELEMETRY_DISABLED=1
-
-USER ${USER}
 
 # Specify the host variable
 ENV HOST 0.0.0.0
@@ -51,4 +40,4 @@ ENV HOST 0.0.0.0
 EXPOSE 3000
 
 # Init the command
-CMD ["yarn", "start:modern"]
+CMD ["npm", "run", "start"]

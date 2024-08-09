@@ -7,7 +7,6 @@ services:
       - ./:/app
     tty: true
     hostname: front
-    command: npm run dev
     networks:
       - front
       - gateway
