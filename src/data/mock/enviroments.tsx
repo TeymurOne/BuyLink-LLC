@@ -1,1 +1,1 @@
-export const BASAE_URL='https://api.buylink.info/api/vendor'
+export const BASAE_URL = import.meta.env.VITE_URL;
