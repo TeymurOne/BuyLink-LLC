@@ -1,20 +1,20 @@
 services:
-  front:
-    container_name: front
+  front_dev:
+    container_name: front_dev
     build:
       context: .docker/develop/node
     volumes:
       - ./:/app
     tty: true
-    hostname: front
+    hostname: front_dev
     command: npm run dev
     networks:
-      - front
+      - front_dev
       - gateway
 
 networks:
-  front:
-    name: front
+  front_dev:
+    name: front_dev
 
   gateway:
     name: gateway
