@@ -48,12 +48,12 @@ const TbodyResponsive = ({ item }: TbodyProps) => {
             type="button"
             className="flex w-full items-center justify-between rounded-t-xl bg-white p-5  font-medium dark:bg-boxdark  rtl:text-right"
           >
-            <div className="flex w-35 space-x-2 ">
+            <div className="flex w-80 items-center space-x-2">
               <div className="grid h-7.5 w-7.5 place-items-center rounded-xl bg-btnBgColor">
                 {' '}
                 <IoIosArrowDown style={{ color: 'white' }} />
               </div>
-              <span className="dark:text-white300">{item.id}</span>
+              <span className="dark:text-white300">{item?.name}</span>
             </div>
           </button>
         </h2>
@@ -64,10 +64,6 @@ const TbodyResponsive = ({ item }: TbodyProps) => {
         >
           <div className="flex px-2 pt-5">
             <ul className="  mx-2 w-full space-y-2 text-xs text-black   dark:text-white">
-              <li className="flex justify-between">
-                <p>Name</p>
-                <p>{item?.name}</p>
-              </li>
               <li className="flex justify-between">
                 <p>Address</p>
                 <p>{item?.address}</p>

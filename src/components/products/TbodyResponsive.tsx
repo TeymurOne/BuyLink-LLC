@@ -38,7 +38,7 @@ const TbodyResponsive = ({ item }: any) => {
             type="button"
             className="flex w-full items-center justify-between rounded-t-xl bg-white p-5  font-medium dark:bg-boxdark  rtl:text-right"
           >
-            <div className="flex w-35 space-x-2 ">
+            <div className="flex w-80 items-center space-x-2">
               <div className="grid h-7.5 w-7.5 place-items-center rounded-xl bg-btnBgColor">
                 {show ? (
                   <IoIosArrowDown style={{ color: 'white' }} />
@@ -46,7 +46,7 @@ const TbodyResponsive = ({ item }: any) => {
                   <IoIosArrowUp style={{ color: 'white' }} />
                 )}
               </div>
-              <span>{item.id}</span>
+              <span>{item?.title?.az}</span>
             </div>
             <img
               className="h-8 w-8 rounded-full shadow-lg"
@@ -61,11 +61,7 @@ const TbodyResponsive = ({ item }: any) => {
           }`}
         >
           <div className="flex px-2 pt-5">
-            <ul className=" mx-2  w-full text-xs text-black   dark:text-white">
-              <li className="flex justify-between">
-                <p>Title</p>
-                <p>{item?.title?.az}</p>
-              </li>
+            <ul className=" mx-2 w-full text-xs text-black dark:text-white">
               <li className="flex justify-between">
                 <p>Price</p>
                 <p>{item?.price}</p>
