@@ -42,6 +42,14 @@ export default function Balance() {
   const transactions = useGetTransactionsQuery(filter);
   const { t } = useTranslation();
 
+  const sortedTransactions = transactions.currentData?.data
+    ? [...transactions.currentData.data].sort((a: any, b: any) => {
+        return (
+          new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+        );
+      })
+    : [];
+
   useEffect(() => {
     if (isSuccess) {
       dispatch(setTotalRevenue(data?.total_revenue));
@@ -168,12 +176,9 @@ export default function Balance() {
             </thead>
             <tbody>
               <>
-                {transactions.currentData?.data &&
-                  transactions.currentData?.data.map(
-                    (item: any, index: number) => {
-                      return <Transactions item={item} key={index} />;
-                    },
-                  )}
+                {sortedTransactions.map((item: any, index: number) => (
+                  <Transactions item={item} key={index} />
+                ))}
               </>
             </tbody>
           </table>
