@@ -46,8 +46,10 @@ const Form = () => {
 
   useEffect(() => {
     const id = searchParams.get('categoryid');
-    id && dispatch(setcategoryId(id));
-  }, [searchParams]);
+    if (id) {
+      dispatch(setcategoryId(id));
+    }
+  }, [searchParams, dispatch]);
 
   useEffect(() => {
     if (isSuccess) {
@@ -56,7 +58,7 @@ const Form = () => {
         const isSelected = item.id === selectedId;
         if (isSelected) dispatch(setcategoryId(selectedId));
         return (
-          <option key={item.id} value={item.id} selected={isSelected}>
+          <option key={item.id} value={item.id}>
             {item.name[local]}
           </option>
         );
@@ -96,7 +98,7 @@ const Form = () => {
 
   const handleNumberInput = (
     e: React.ChangeEvent<HTMLInputElement>,
-    setter: Function,
+    setter: (value: string) => void,
   ) => {
     const regex = /^[0-9\b.]+$/;
     if (e.target.value === '' || regex.test(e.target.value)) {
@@ -164,11 +166,7 @@ const Form = () => {
           className="h-10 w-21 rounded-md  border-0 border-opacity-20 bg-white pl-4 shadow-1"
         >
           {language.map((item, index) => (
-            <option
-              className="me-2"
-              key={index}
-              onClick={() => dispatch(setActive(item))}
-            >
+            <option className="me-2" key={index} value={item}>
               {item}
             </option>
           ))}
@@ -178,7 +176,7 @@ const Form = () => {
             <div
               key={index}
               className={`absolute w-full transition-opacity duration-500 ${
-                active === lang ? 'block opacity-100' : 'none opacity-0'
+                active === lang ? 'block opacity-100' : 'hidden opacity-0'
               }`}
             >
               <div className="pb-2 pt-3">
@@ -274,7 +272,7 @@ const Form = () => {
                       <CancelSaveButton
                         loading={load}
                         onSave={onSubmit}
-                        onCancel={() => history.back()}
+                        onCancel={() => navigate(-1)}
                       />
                     </div>
                   </div>
