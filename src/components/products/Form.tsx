@@ -195,8 +195,9 @@ const Form = () => {
                       id={`title-${lang}`}
                       className={`${inputClassName(
                         attemptedSubmit && !name[lang],
-                      )} border-1 block w-full rounded-lg border-0 bg-white px-2 py-1.5 shadow-md`}
+                      )} border-1 block w-full rounded-lg border-0 bg-white px-2 py-1.5 text-base shadow-md`}
                       value={name[lang]}
+                      placeholder="Shane Academy"
                       onChange={(e) => handleTitle(e, lang)}
                     ></input>
                     {attemptedSubmit && !name[lang] && (
@@ -238,7 +239,7 @@ const Form = () => {
                             )
                           }
                           value={price}
-                          placeholder="Price"
+                          placeholder="34"
                           type="text"
                           required
                           className={inputClassName(attemptedSubmit && !price)}
@@ -266,6 +267,7 @@ const Form = () => {
                       rows={3}
                       className="border-1 block w-full rounded-lg border-0 bg-white px-4 py-5 shadow-md"
                       value={desc[lang]}
+                      placeholder={t('product.16')}
                       onChange={(e) => handleDesc(e, lang)}
                     ></textarea>
                     <div className="mt-12">

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import React, { ReactNode } from 'react';
 import { FaArrowLeft } from 'react-icons/fa6';
 import create from '../../images/action-icon/create.svg';
+import { useTranslation } from 'react-i18next';
 
 type TitleProps = {
   children?: ReactNode;
@@ -38,12 +39,13 @@ export const TitleArrow: React.FC<TitleProps> = ({ children }) => {
   );
 };
 export const Search: React.FC<TitleProps> = ({ onchange }) => {
+  const { t } = useTranslation();
   return (
     <>
       <input
         type="text"
         onChange={onchange}
-        placeholder="search..."
+        placeholder={t('header.7')}
         className="my-4 w-full max-w-70 rounded-xl py-2 pl-9 shadow-2 focus:outline-none dark:bg-boxdark   "
       />
     </>

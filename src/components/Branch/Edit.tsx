@@ -112,9 +112,7 @@ const Form: React.FC = () => {
     <>
       <form onSubmit={postSubmit}>
         <div className="space-y-10">
-          <TitleArrow>
-            {t('branch.10')} {id}
-          </TitleArrow>
+          <TitleArrow>{t('branch.10')}</TitleArrow>
           <div>
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
               <Input
