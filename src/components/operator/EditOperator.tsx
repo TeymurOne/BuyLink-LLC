@@ -91,7 +91,7 @@ const Form = () => {
         <div className="space-y-12">
           <div className="pb-12">
             <TitleArrow>
-              {t('operator.0')} {t('operator.8')} : <span>{id}</span>
+              {t('operator.0')} {t('operator.8')}
             </TitleArrow>
             <div className="mt-10 grid grid-cols-6 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="col-span-6 lg:col-span-3 ">

@@ -11,6 +11,7 @@ const resources = {
         '12': 'Statistika',
         '13': 'Balans',
         '14': 'Due To Buylink',
+        '15': 'Çıxış Et',
       },
       branch: {
         '0': 'Filiallar',
@@ -23,12 +24,13 @@ const resources = {
         '7': 'Dəyiş ',
         '8': 'Ləğv et ',
         '9': 'Saxla ',
-        '10': 'Dəyiş',
+        '10': 'Filial Dəyiş',
         '11': 'Haqqında',
         '12': 'Xəritə',
         '13': 'Adına görə axtarış',
         '14': 'Nömrə',
         '15': 'Koordinatlar ',
+        '16': 'Bakı,Xatai ray.',
       },
       product: {
         '0': 'Məhsul ',
@@ -47,6 +49,7 @@ const resources = {
         '13': 'Kateqoriya',
         '14': 'adı     ',
         '15': 'Şəkil əlave et',
+        '16': 'Bura yaz...',
       },
       operator: {
         '0': 'Operator ',
@@ -93,6 +96,7 @@ const resources = {
         '4': 'Bizimlə əlaqə',
         '5': 'Giriş',
         '6': 'Partnyor ol',
+        '7': 'Axtar...',
       },
       main: {
         '0': 'BuyLink',
@@ -407,6 +411,7 @@ const resources = {
         '12': 'Statistics',
         '13': 'Balance',
         '14': 'Buylinkə öhdəlik',
+        '15': 'Log Out',
       },
       branch: {
         '0': 'Branches',
@@ -419,12 +424,13 @@ const resources = {
         '7': 'Change ',
         '8': 'Cancal ',
         '9': 'Save ',
-        '10': 'Update',
+        '10': 'Branch Update',
         '11': 'Details',
         '12': 'Map',
         '13': 'Search by name',
         '14': 'Phone',
         '15': 'Coordinates ',
+        '16': 'Baku,Khatai dist.',
       },
       product: {
         '0': 'Product ',
@@ -443,6 +449,7 @@ const resources = {
         '13': 'Category',
         '14': 'name    ',
         '15': 'Add image',
+        '16': 'Write here...',
       },
       operator: {
         '0': 'Operator ',
@@ -459,7 +466,7 @@ const resources = {
         '11': 'Change Password',
       },
       partnerinfo: {
-        '0': 'Partner information',
+        '0': 'Partner Info',
         '1': 'Logo',
         '3': 'Cover Photo',
         '4': 'Title',
@@ -487,6 +494,7 @@ const resources = {
         '4': 'Contact us',
         '5': 'Login',
         '6': 'Become a partner',
+        '7': 'Search...',
       },
       main: {
         '0': 'BuyLink',
@@ -805,6 +813,7 @@ const resources = {
         '12': 'Статистика',
         '13': 'Баланс',
         '14': 'Обязательство перед Buylink',
+        '15': 'Выйти',
       },
       branch: {
         '0': 'Филиалы',
@@ -823,6 +832,7 @@ const resources = {
         '13': 'Поиск по имени',
         '14': 'Номер телефона',
         '15': 'Координаты',
+        '16': 'Баку,Хатаинский район',
       },
       product: {
         '0': 'Продукт',
@@ -841,6 +851,7 @@ const resources = {
         '13': 'Категория',
         '14': 'Имя',
         '15': 'Добавить изображение',
+        '16': 'Напишите здесь...',
       },
       operator: {
         '0': 'Оператор',
@@ -886,6 +897,7 @@ const resources = {
         '4': 'Связаться с нами',
         '5': 'Вход',
         '6': 'Стать партнером',
+        '7': 'Поиск...',
       },
       main: {
         '0': 'BuyLink',
