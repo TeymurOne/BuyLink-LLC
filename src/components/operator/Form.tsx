@@ -106,8 +106,7 @@ const Form: React.FC = () => {
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    const cleanedValue = value.replace(/[^a-zA-Z\s]/g, '');
-    dispatch(setName(cleanedValue));
+    dispatch(setName(value));
     setFormErrors((prevErrors) => ({ ...prevErrors, name: false }));
   };
 
