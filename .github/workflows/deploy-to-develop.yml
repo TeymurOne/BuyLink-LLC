@@ -1,0 +1,30 @@
+name: Deploy to develop
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - develop
+
+jobs:
+  git-pull:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Pull latest changes in specific folder
+        if: github.ref == 'refs/heads/develop'
+        run: |
+          ssh -o StrictHostKeyChecking=no root@${{ secrets.SERVER_ADRESS }} << 'EOF'
+            cd /root/front/buylink_web_dev
+            git pull
+          EOF
