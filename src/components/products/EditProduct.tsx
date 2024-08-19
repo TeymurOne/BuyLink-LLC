@@ -143,7 +143,7 @@ const EditProduct = () => {
         <form className="h-auto">
           <TitleArrow>
             {' '}
-            {t('product.0')} {t('product.11')} {idUrl}
+            {t('product.0')} {t('product.11')}
           </TitleArrow>
 
           <div>
