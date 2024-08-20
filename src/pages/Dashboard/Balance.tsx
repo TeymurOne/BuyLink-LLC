@@ -20,11 +20,11 @@ import icon_card from '../../images/icon/Card.png';
 import icon_money from '../../images/icon/money.png';
 import icon_wallet from '../../images/icon/kaslok.png';
 import icon_cash from '../../images/icon/money2.png';
-
 import React, { useEffect } from 'react';
 import Transactions from '../../components/Balance/Transactions';
 import TableSkeleton from '../../skeleton/TableSkeleton';
 import { useTranslation } from 'react-i18next';
+import TbodyResponsive from '../../components/Balance/TbodyResponsive.tsx';
 
 export default function Balance() {
   const dispatch = useDispatch();
@@ -40,8 +40,16 @@ export default function Balance() {
 
   const { data, isSuccess, isLoading } = useGetBalanceQuery('');
   const transactions = useGetTransactionsQuery(filter);
-
   const { t } = useTranslation();
+
+  const sortedTransactions = transactions.currentData?.data
+    ? [...transactions.currentData.data].sort((a: any, b: any) => {
+        return (
+          new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+        );
+      })
+    : [];
+
   useEffect(() => {
     if (isSuccess) {
       dispatch(setTotalRevenue(data?.total_revenue));
@@ -54,13 +62,11 @@ export default function Balance() {
   }, [isSuccess]);
 
   if (isLoading || transactions.isLoading) return <TableSkeleton count="20" />;
-
   if (!transactions.isSuccess) return;
 
   return (
     <>
       <Title>{t('member.13')}</Title>
-
       <div className="grid w-full grid-cols-2 gap-8 px-4 py-4 xl:grid-cols-4">
         <div className="col-span-2 w-full">
           <CardDataStats
@@ -124,16 +130,18 @@ export default function Balance() {
           {debt_date && <CardDataTime title="Total Revenue" rate={debt_date} />}
         </div>
       </div>
-
       {!transactions.currentData?.data && (
         <TableSkeleton count="10" height="0.1" />
       )}
-      <div className="mt-4 rounded-sm shadow-default dark:border-strokedark dark:bg-boxdark lg:mt-10 xl:mt-8 ">
+      {sortedTransactions.map((item: any, index: number) => (
+        <TbodyResponsive item={item} key={index} />
+      ))}
+      <div className="mt-4 hidden rounded-sm shadow-default dark:border-strokedark dark:bg-boxdark md:block lg:mt-10 xl:mt-8 ">
         <div className="max-w-full overflow-hidden overflow-x-auto rounded-lg border border-tborder dark:border-white">
           <table className="w-full table-auto bg-white">
             <thead>
               <tr className="bg-white text-left text-title-2xsm text-black dark:bg-meta-4 dark:text-white">
-                <td className="h-10 w-14.5 border-b border-r border-tborder px-4 font-medium ">
+                <td className="h-10 w-14.5 border-b border-r border-tborder px-4 font-medium">
                   ID
                 </td>
                 <td className="dark:text-white5 min-w-24.5 border-b border-r border-tborder py-2 font-medium sm:pl-0 md:pl-4">
@@ -151,18 +159,15 @@ export default function Balance() {
                 <td className="min-w-22.5 border-b border-r border-tborder  px-3 py-2 font-medium dark:text-white">
                   {t('balanceTable.3')}
                 </td>
-
                 <td className="min-w-20.5 border-b border-r border-tborder px-2 py-2 font-medium dark:text-white ">
                   {t('balanceTable.4')}
                 </td>
-
                 <td className=" min-w-24.5 border-b border-r border-tborder px-4 py-2 font-medium">
                   {t('balanceTable.5')}
                 </td>
                 <td className="min-w-24.5 border-b border-r border-tborder px-4 py-2 font-medium dark:text-white">
                   {t('balanceTable.6')}
                 </td>
-
                 <td className="min-w-24.5 border-b border-l border-tborder px-4 py-2 font-medium">
                   {t('balanceTable.7')}
                 </td>
@@ -170,12 +175,9 @@ export default function Balance() {
             </thead>
             <tbody>
               <>
-                {transactions.currentData?.data &&
-                  transactions.currentData?.data.map(
-                    (item: any, index: number) => {
-                      return <Transactions item={item} key={index} />;
-                    },
-                  )}
+                {sortedTransactions.map((item: any, index: number) => (
+                  <Transactions item={item} key={index} />
+                ))}
               </>
             </tbody>
           </table>
