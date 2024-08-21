@@ -451,7 +451,7 @@ const resources = {
         '14': 'name    ',
         '15': 'Add image',
         '16': 'Write here...',
-        '17': 'Choose сategory,
+        '17': 'Choose сategory',
       },
       operator: {
         '0': 'Operator ',
@@ -854,7 +854,7 @@ const resources = {
         '14': 'Имя',
         '15': 'Добавить изображение',
         '16': 'Напишите здесь...',
-        '17': 'Выберите категорию'
+        '17': 'Выберите категорию',
       },
       operator: {
         '0': 'Оператор',
