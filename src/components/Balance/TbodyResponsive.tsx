@@ -35,7 +35,13 @@ const TbodyResponsive = ({ item }: TbodyProps) => {
       }
     }
   };
-
+  const truncateNumber = (value: any) => {
+    if (isNaN(value) || value === null) return '';
+    const numberStr = value.toString();
+    const dotIndex = numberStr.indexOf('.');
+    if (dotIndex === -1) return numberStr;
+    return numberStr.slice(0, dotIndex + 3);
+  };
   return (
     <>
       <div className="block max-w-full md:hidden ">
@@ -67,23 +73,23 @@ const TbodyResponsive = ({ item }: TbodyProps) => {
               </li>
               <li className="flex justify-between">
                 <p>{t('balanceTable.0')}</p>
-                <p>{item?.amount}</p>
+                <p>{truncateNumber(item?.amount)}</p>
               </li>
               <li className="flex justify-between">
                 <p>{t('balanceTable.1')}</p>
-                <p>{item?.discounted_percent}</p>
+                <p>{truncateNumber(item?.discounted_percent)}</p>
               </li>
               <li className="flex justify-between">
                 <p>{t('balanceTable.2')}</p>
-                <p>{item?.discounted_amount}</p>
+                <p>{truncateNumber(item?.discounted_amount)}</p>
               </li>
               <li className="flex justify-between">
                 <p>{t('balanceTable.3')}</p>
-                <p>{item?.partner.total_commission}</p>
+                <p>{truncateNumber(item?.partner.total_commission)}</p>
               </li>
               <li className="flex justify-between">
                 <p>{t('balanceTable.4')}</p>
-                <p>{item?.commission_amount}</p>
+                <p>{truncateNumber(item?.commission_amount)}</p>
               </li>
               <li className="flex justify-between">
                 <p>{t('balanceTable.5')}</p>
@@ -94,7 +100,7 @@ const TbodyResponsive = ({ item }: TbodyProps) => {
               </li>
               <li className="flex justify-between">
                 <p>{t('balanceTable.6')}</p>
-                <p> {item?.net_amount}</p>
+                <p> {truncateNumber(item?.net_amount)}</p>
               </li>
               <li className="flex justify-between">
                 <p>{t('balanceTable.7')}</p>
