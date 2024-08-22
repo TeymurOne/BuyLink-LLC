@@ -218,7 +218,7 @@ const Form = () => {
                             attemptedSubmit && !categoryId,
                           )}
                           label={t('product.7')}
-                          option="Category seçin"
+                          option={t('product.17')}
                         >
                           {content}
                         </Select>
