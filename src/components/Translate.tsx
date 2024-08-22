@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import us from '../images/flagTranslate/usa.svg';
 import aze from '../images/flagTranslate/aze.svg';
+import ru from '../images/flagTranslate/ru.svg';
 
 import { useTranslation } from 'react-i18next';
 import i18n from '../../i18n/İ18n';
@@ -29,15 +30,21 @@ const Translate = () => {
         <span className="relative  z-1 grid  h-2 w-4 place-items-center rounded-full">
           {localStorage.getItem('lng') == 'az' ? (
             <img
-              className="absolute  h-6 w-6 rounded-md"
+              className="absolute h-6 w-6 rounded-md"
               src={aze}
+              alt="Aze Flag"
+            />
+          ) : localStorage.getItem('lng') == 'en' ? (
+            <img
+              className="absolute h-6 w-6 rounded-md"
+              src={us}
               alt="Usa Flag"
             />
           ) : (
             <img
-              className="absolute  h-6 w-6 rounded-md"
-              src={us}
-              alt="Usa Flag"
+              className="absolute h-6 w-6 rounded-md"
+              src={ru}
+              alt="Ru Flag"
             />
           )}
         </span>
@@ -73,6 +80,18 @@ const Translate = () => {
               <p className="flex space-x-2 text-sm">
                 <img className=" w-6 rounded-md" src={aze} alt="AZE Flag" />
                 <span className="text-black dark:text-white">AZE </span>
+              </p>
+            </Link>
+          </li>
+          <li>
+            <Link
+              onClick={() => handleClick('ru')}
+              className="flex flex-col gap-2.5 border-t border-stroke px-4.5 py-3 hover:bg-gray-2 dark:border-strokedark dark:hover:bg-meta-4"
+              to="#"
+            >
+              <p className="flex space-x-2 text-sm">
+                <img className=" w-6 rounded-md" src={ru} alt="RU Flag" />
+                <span className="text-black dark:text-white">RU </span>
               </p>
             </Link>
           </li>

@@ -133,9 +133,10 @@ export default function Balance() {
       {!transactions.currentData?.data && (
         <TableSkeleton count="10" height="0.1" />
       )}
-      {sortedTransactions.map((item: any, index: number) => (
-        <TbodyResponsive item={item} key={index} />
-      ))}
+      {transactions.currentData?.data &&
+        transactions.currentData?.data.map((item: any, index: number) => (
+          <TbodyResponsive item={item} key={index} />
+        ))}
       <div className="mt-4 hidden rounded-sm shadow-default dark:border-strokedark dark:bg-boxdark md:block lg:mt-10 xl:mt-8 ">
         <div className="max-w-full overflow-hidden overflow-x-auto rounded-lg border border-tborder dark:border-white">
           <table className="w-full table-auto bg-white">

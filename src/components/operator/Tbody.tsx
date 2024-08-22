@@ -29,7 +29,6 @@ const Tbody: React.FC<TbodyProps> = ({ item }) => {
   return (
     <>
       <TR>
-        <TD>{item.id}</TD>
         <TD>{item.name}</TD>
         <TD>{item.email}</TD>
 

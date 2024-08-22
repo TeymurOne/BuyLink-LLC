@@ -107,7 +107,7 @@ const Form: React.FC = () => {
                 value={address}
                 onChange={(e) => dispatch(setAddress(e.target.value))}
                 id="Address"
-                placeholder="Enter your address"
+                placeholder={t('branch.16')}
                 className={inputClassName(attemptedSubmit && !address)}
               />
               {attemptedSubmit && !address && (
@@ -140,7 +140,7 @@ const Form: React.FC = () => {
                 value={name}
                 onChange={(e) => dispatch(setName(e.target.value))}
                 id="Name"
-                placeholder="Enter your name"
+                placeholder="Shane English School"
                 className={inputClassName(attemptedSubmit && !name)}
               />
               {attemptedSubmit && !name && (

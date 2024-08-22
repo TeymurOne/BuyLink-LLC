@@ -46,8 +46,10 @@ const Form = () => {
 
   useEffect(() => {
     const id = searchParams.get('categoryid');
-    id && dispatch(setcategoryId(id));
-  }, [searchParams]);
+    if (id) {
+      dispatch(setcategoryId(id));
+    }
+  }, [searchParams, dispatch]);
 
   useEffect(() => {
     if (isSuccess) {
@@ -56,7 +58,7 @@ const Form = () => {
         const isSelected = item.id === selectedId;
         if (isSelected) dispatch(setcategoryId(selectedId));
         return (
-          <option key={item.id} value={item.id} selected={isSelected}>
+          <option key={item.id} value={item.id}>
             {item.name[local]}
           </option>
         );
@@ -96,7 +98,7 @@ const Form = () => {
 
   const handleNumberInput = (
     e: React.ChangeEvent<HTMLInputElement>,
-    setter: Function,
+    setter: (value: string) => void,
   ) => {
     const regex = /^[0-9\b.]+$/;
     if (e.target.value === '' || regex.test(e.target.value)) {
@@ -164,116 +166,123 @@ const Form = () => {
           className="h-10 w-21 rounded-md  border-0 border-opacity-20 bg-white pl-4 shadow-1"
         >
           {language.map((item, index) => (
-            <option
-              className="me-2"
-              key={index}
-              onClick={() => dispatch(setActive(item))}
-            >
+            <option className="me-2" key={index} value={item}>
               {item}
             </option>
           ))}
         </select>
-        {language.map((lang, index) => (
-          <div className="pb-2 pt-3" key={index}>
+        <div className="relative">
+          {language.map((lang, index) => (
             <div
-              className={`grid w-full grid-cols-1 place-content-between  items-start gap-4 lg:grid-cols-2 ${
-                active !== lang ? 'hidden' : ''
+              key={index}
+              className={`absolute w-full transition-opacity duration-500 ${
+                active === lang ? 'block opacity-100' : 'hidden opacity-0'
               }`}
             >
-              <div className="w-full">
-                <label
-                  htmlFor={`title-${lang}`}
-                  className="mb-2 block font-works text-sm font-medium text-tdColor dark:text-white300"
-                >
-                  {t('product.0')} {t('product.14')}
-                  {lang.toUpperCase()}
-                  <span className="pl-1 text-red-600">*</span>
-                </label>
-                <input
-                  name={`title-${lang}`}
-                  id={`title-${lang}`}
-                  className={`${inputClassName(
-                    attemptedSubmit && !name[lang],
-                  )} border-1 block w-full rounded-lg  border-0 bg-white px-2 py-1.5 shadow-md`}
-                  value={name[lang]}
-                  onChange={(e) => handleTitle(e, lang)}
-                ></input>
-                {attemptedSubmit && !name[lang] && (
-                  <span className="text-xs text-errorMessage">
-                    *Please fill out the form
-                  </span>
-                )}
-                <div className="grid-cols-1 gap-4 lg:grid-cols-3">
-                  <div className="my-3 w-full">
-                    <Select
-                      id="category"
-                      onChange={(e: any) =>
-                        dispatch(setcategoryId(Number(e.target.value)))
-                      }
-                      required
-                      className={inputClassName(attemptedSubmit && !categoryId)}
-                      label={t('product.7')}
-                      option="Category seçin"
+              <div className="pb-2 pt-3">
+                <div className="grid w-full grid-cols-1 place-content-between items-start gap-4 lg:grid-cols-2">
+                  <div className="w-full">
+                    <label
+                      htmlFor={`title-${lang}`}
+                      className="mb-2 block font-works text-sm font-medium text-tdColor dark:text-white300"
                     >
-                      {content}
-                    </Select>
-                    {attemptedSubmit && !categoryId && (
+                      {t('product.0')} {t('product.14')}
+                      {lang.toUpperCase()}
+                      <span className="pl-1 text-red-600">*</span>
+                    </label>
+                    <input
+                      name={`title-${lang}`}
+                      id={`title-${lang}`}
+                      className={`${inputClassName(
+                        attemptedSubmit && !name[lang],
+                      )} border-1 block w-full rounded-lg border-0 bg-white px-2 py-1.5 text-base shadow-md`}
+                      value={name[lang]}
+                      placeholder="Shane Academy"
+                      onChange={(e) => handleTitle(e, lang)}
+                    ></input>
+                    {attemptedSubmit && !name[lang] && (
                       <span className="text-xs text-errorMessage">
                         *Please fill out the form
                       </span>
                     )}
-                  </div>
-                  <div>
-                    <Input
-                      id="Price"
-                      label={t('product.5')}
-                      onChange={(e) =>
-                        handleNumberInput(e, (value: string) =>
-                          dispatch(setPrice(value)),
-                        )
-                      }
-                      value={price}
-                      placeholder="Price"
-                      type="text"
-                      required
-                      className={inputClassName(attemptedSubmit && !price)}
-                    />
-                    {attemptedSubmit && !price && (
-                      <span className="text-xs text-errorMessage">
-                        *Please fill out the form
-                      </span>
-                    )}
-                  </div>
-                </div>
-              </div>
+                    <div className="grid-cols-1 gap-4 lg:grid-cols-3">
+                      <div className="my-3 w-full">
+                        <Select
+                          id="category"
+                          value={categoryId}
+                          onChange={(e) =>
+                            dispatch(setcategoryId(Number(e.target.value)))
+                          }
+                          required
+                          className={inputClassName(
+                            attemptedSubmit && !categoryId,
+                          )}
+                          label={t('product.7')}
+                          option={t('product.17')}
+                        >
+                          {content}
+                        </Select>
+                        {attemptedSubmit && !categoryId && (
+                          <span className="text-xs text-errorMessage">
+                            *Please fill out the form
+                          </span>
+                        )}
+                      </div>
 
-              <div className="w-full">
-                <label
-                  htmlFor="description"
-                  className="mb-2 block font-works text-sm font-medium text-tdColor dark:text-white300"
-                >
-                  {t('product.4')}
-                  {lang.toUpperCase()}
-                </label>
-                <textarea
-                  name={`description-${lang}`}
-                  id={`description-${lang}`}
-                  rows={3}
-                  className="border-1 block w-full rounded-lg border-0 bg-white px-4 py-5 shadow-md"
-                  value={desc[lang]}
-                  onChange={(e) => handleDesc(e, lang)}
-                ></textarea>
-                <div className="mt-12">
-                  <CancelSaveButton
-                    loading={load}
-                    onSave={onSubmit()}
-                    onCancel={() => history.back()}
-                  />
+                      <div>
+                        <Input
+                          id="Price"
+                          label={t('product.5')}
+                          onChange={(e) =>
+                            handleNumberInput(e, (value: string) =>
+                              dispatch(setPrice(value)),
+                            )
+                          }
+                          value={price}
+                          placeholder="34"
+                          type="text"
+                          required
+                          className={inputClassName(attemptedSubmit && !price)}
+                        />
+                        {attemptedSubmit && !price && (
+                          <span className="text-xs text-errorMessage">
+                            *Please fill out the form
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="w-full">
+                    <label
+                      htmlFor="description"
+                      className="mb-2 block font-works text-sm font-medium text-tdColor dark:text-white300"
+                    >
+                      {t('product.4')}
+                      {lang.toUpperCase()}
+                    </label>
+                    <textarea
+                      name={`description-${lang}`}
+                      id={`description-${lang}`}
+                      rows={3}
+                      className="border-1 block w-full rounded-lg border-0 bg-white px-4 py-5 shadow-md"
+                      value={desc[lang]}
+                      placeholder={t('product.16')}
+                      onChange={(e) => handleDesc(e, lang)}
+                    ></textarea>
+                    <div className="mt-12">
+                      <CancelSaveButton
+                        loading={load}
+                        onSave={onSubmit}
+                        onCancel={() => navigate(-1)}
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </form>
     </>
   );

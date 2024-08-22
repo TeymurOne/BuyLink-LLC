@@ -246,7 +246,7 @@ const Form = () => {
       <div>
         <div className="space-y-12 ">
           <div className="flex w-full flex-col items-start  md:flex-row md:justify-between">
-            <h2 className="pb-4 text-3xl md:pb-0">Partner Info</h2>
+            <h2 className="pb-4 text-3xl md:pb-0">{t('partnerinfo.0')}</h2>
             <div className="flex w-full flex-col items-center md:w-115 md:flex-row md:justify-between">
               <div className="mb-4 flex w-full items-center gap-2 md:mb-0 md:w-55">
                 <img className="h-8 w-8" src={percent} alt="Commission" />
@@ -372,7 +372,6 @@ const Form = () => {
                 <input
                   onChange={handleTitle}
                   value={title}
-                  placeholder="Title"
                   id="text"
                   name="text"
                   type="text"

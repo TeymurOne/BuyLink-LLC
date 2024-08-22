@@ -60,9 +60,6 @@ const Category = () => {
             <table className="w-full table-auto bg-white">
               <thead>
                 <tr className="bg-white text-left text-title-2xsm text-black dark:bg-meta-4 dark:text-white">
-                  <th className="h-10 w-14.5  border-b border-r  border-tborder px-4  font-medium">
-                    ID
-                  </th>
                   <th className="min-w-24.5 border-b border-r border-tborder px-4 py-2 font-medium  dark:text-white  sm:pl-0  md:pl-4 lg:pl-10">
                     {t('branch.2')}
                   </th>
@@ -117,9 +114,6 @@ function Tbody({ item, language, id }: TbodyProps) {
       <tr
         className={`w-full border-0 hover:bg-tborderHover dark:bg-boxdark ${rowClassName}`}
       >
-        <td className="border-0 border-gray px-4 text-xs  dark:border-strokedark dark:text-white">
-          {item?.id}
-        </td>
         <td className="border-gray px-10 py-1 dark:border-strokedark  dark:text-white xl:pl-11">
           {language && item.name[language]}
         </td>
