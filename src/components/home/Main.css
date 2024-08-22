@@ -12,16 +12,17 @@
     overflow: hidden;
 }
 
-.gradient {
-    background-image: linear-gradient(
-            to right top,
-            #fff,
-            #e4e7ff,
-            rgba(77, 93, 245, 0.9)
-    );
-    border-radius: 80px 0 0 0;
+@media (min-width: 1024px) {
+    .gradient {
+        background-image: linear-gradient(
+                to right top,
+                #fff,
+                #e4e7ff,
+                rgba(77, 93, 245, 0.9)
+        );
+        border-radius: 80px 0 0 0;
+    }
 }
-
 .qr-left {
     max-width: 40%;
 
