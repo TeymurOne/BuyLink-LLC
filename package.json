@@ -1,12 +1,13 @@
 {
   "name": "buylink.info",
   "private": true,
-  "version": "1.5.1",
+  "version": "1.6.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --port 3000",
+    "dev": "vite --port 3000 --host=localhost",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "development": "mix"
   },
   "author": {
     "name": "Buylink",
@@ -44,6 +45,7 @@
     "react-router-dom": "^6.14.2",
     "react-slick": "^0.30.2",
     "react-toastify": "^9.1.3",
+    "redux-persist": "^6.0.0",
     "slick-carousel": "^1.8.1",
     "sweetalert2": "^11.10.1",
     "swiper": "^11.0.5",
