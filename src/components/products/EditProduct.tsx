@@ -88,8 +88,13 @@ const EditProduct = () => {
 
   const handleUpdate = async (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    const postData = new FormData();
 
+    if (!price) {
+      toast.error('Price is required fields.');
+      return;
+    }
+
+    const postData = new FormData();
     postData.append('image', imgurl || '');
     postData.append('category_id', categoryId?.toString() || '');
     postData.append('price', price?.toString() || '');
