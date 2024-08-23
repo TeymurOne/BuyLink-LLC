@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { usePostBranchMutation } from '../../features/branch/apiSlice';
 import { useNavigate } from 'react-router-dom';
 import App from '../../Map/App';
@@ -17,6 +17,7 @@ import {
   setPhone,
 } from '../../features/branch/branchSlice';
 import { useTranslation } from 'react-i18next';
+import { TitleArrow } from '../ui/Title.tsx';
 
 interface IpostData {
   id?: any;
@@ -100,6 +101,7 @@ const Form: React.FC = () => {
     <>
       <form onSubmit={postSubmit}>
         <div className="pb-12 ">
+          <TitleArrow>{t('branch.1')}</TitleArrow>
           <div className="mt-10 grid grid-cols-1 items-center gap-4 lg:grid-cols-2">
             <div style={{ position: 'relative' }}>
               <Input
