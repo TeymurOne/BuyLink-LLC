@@ -25,7 +25,7 @@ axiosInstance.interceptors.response.use(
   (response) => response,
   async (error: AxiosError) => {
     const statusCode = error.response?.status;
-    const requestUrl = error.response?.config.url;
+    const requestUrl = error.response?.config.baseURL;
 
     if (statusCode === 401 && requestUrl?.startsWith(BASAE_URL)) {
       store.dispatch(logOut());
