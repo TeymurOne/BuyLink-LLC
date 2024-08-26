@@ -177,7 +177,7 @@ const Form = () => {
   };
 
   const validatePhone = (phone: string) => {
-    const phoneRegex = /^\+994\d{9}$/;
+    const phoneRegex = /^\+994[0-9]{9}$/;
     return phoneRegex.test(phone);
   };
 
