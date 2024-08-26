@@ -21,6 +21,14 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
 
+  const truncateNumber = (value: any) => {
+    if (isNaN(value) || value === null) return '';
+    const numberStr = value.toString();
+    const dotIndex = numberStr.indexOf('.');
+    if (dotIndex === -1) return numberStr;
+    return numberStr.slice(0, dotIndex + 3);
+  };
+
   const handleClick = () => {
     if (apiData) dispatch(setFilter(apiData));
     if (title === 'Due to BuyLink') {
@@ -44,7 +52,7 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
               {title}
             </span>
             <span className="flex text-xl font-medium dark:text-white xl:text-2xl">
-              {rate} {icon}
+              {truncateNumber(rate)} {icon}
             </span>
             {show && (
               <div
