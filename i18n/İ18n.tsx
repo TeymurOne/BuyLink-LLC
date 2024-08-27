@@ -58,7 +58,6 @@ const resources = {
         '2': 'Filiali',
         '3': 'Ad',
         '4': 'Email',
-
         '5': 'Hərəkətlər ',
         '6': 'Ləğv et ',
         '7': 'Saxla',
@@ -380,6 +379,7 @@ const resources = {
         '8': 'Operator adı',
         '9': 'Məbləğ',
         '10': 'Ödəniş növü',
+        '11': 'Qəbz',
       },
       settingDashboard: {
         '1': 'Parametrlər',
@@ -810,6 +810,7 @@ const resources = {
         '8': 'Operator Name',
         '9': 'Amount',
         '10': 'Payment Type',
+        '11': 'Bill,
       },
       settingDashboard: {
         '1': 'Settings',
@@ -1215,6 +1216,7 @@ const resources = {
         '8': 'Имя оператора',
         '9': 'Сумма',
         '10': 'Тип платежа',
+        '11': 'Счет'
       },
       settingDashboard: {
         '1': 'Настройки',
