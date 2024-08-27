@@ -810,7 +810,7 @@ const resources = {
         '8': 'Operator Name',
         '9': 'Amount',
         '10': 'Payment Type',
-        '11': 'Bill,
+        '11': 'Bill',
       },
       settingDashboard: {
         '1': 'Settings',
@@ -1216,7 +1216,7 @@ const resources = {
         '8': 'Имя оператора',
         '9': 'Сумма',
         '10': 'Тип платежа',
-        '11': 'Счет'
+        '11': 'Счет',
       },
       settingDashboard: {
         '1': 'Настройки',
