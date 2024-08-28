@@ -69,7 +69,7 @@ const resources = {
         '9': 'Şifrə',
         '10': 'Seçin',
         '11': 'Şifrəni Dəyiş',
-        '12': 'Operator Detalları,
+        '12': 'Operator Detalları',
       },
       partnerinfo: {
         '0': 'Partnyor Məlumatları ',
@@ -410,16 +410,16 @@ const resources = {
         '1': 'Əminsiniz?',
         '2': 'Bu əməliyyatı geri qaytarmaq mümkün olmayacaq!',
         '3': 'Bəli, silin!',
-        '4': 'Ləğv edin'
+        '4': 'Ləğv edin',
       },
       deleted: {
         '1': 'Silindi!',
-        '2': 'Faylınız silindi.'
+        '2': 'Faylınız silindi.',
       },
       error: {
         '1': 'Xəta!',
-        '2': 'Silinmə zamanı xəta baş verdi.'
-      }
+        '2': 'Silinmə zamanı xəta baş verdi.',
+      },
     },
   },
 
@@ -445,7 +445,7 @@ const resources = {
         '13': 'Balance',
         '14': 'Buylinkə öhdəlik',
         '15': 'Log Out',
-        '16': 'MENU'
+        '16': 'MENU',
       },
       branch: {
         '0': 'Branches',
@@ -465,7 +465,7 @@ const resources = {
         '14': 'Phone',
         '15': 'Coordinates ',
         '16': 'Baku,Khatai dist.',
-        '17': 'Branch Details'
+        '17': 'Branch Details',
       },
       product: {
         '0': 'Product ',
@@ -486,7 +486,7 @@ const resources = {
         '15': 'Add image',
         '16': 'Write here...',
         '17': 'Choose сategory',
-        '18': 'Product Details'
+        '18': 'Product Details',
       },
       operator: {
         '0': 'Operator ',
@@ -501,7 +501,7 @@ const resources = {
         '9': 'Password',
         '10': 'Select',
         '11': 'Change Password',
-        '12': 'Operator Details'
+        '12': 'Operator Details',
       },
       partnerinfo: {
         '0': 'Partner Info',
@@ -858,16 +858,16 @@ const resources = {
         '1': 'Are you sure?',
         '2': 'You will not be able to revert this!',
         '3': 'Yes, delete it!',
-        '4': 'Cancel'
+        '4': 'Cancel',
       },
       deleted: {
         '1': 'Deleted!',
-        '2': 'Your file has been deleted.'
+        '2': 'Your file has been deleted.',
       },
       error: {
         '1': 'Error!',
-        '2': 'An error occurred while deleting.'
-      }
+        '2': 'An error occurred while deleting.',
+      },
     },
   },
   ru: {
@@ -880,7 +880,7 @@ const resources = {
         '13': 'Баланс',
         '14': 'Обязательство перед Buylink',
         '15': 'Выйти',
-        '16': 'МЕНЮ'
+        '16': 'МЕНЮ',
       },
       branch: {
         '0': 'Филиалы',
@@ -900,7 +900,7 @@ const resources = {
         '14': 'Номер телефона',
         '15': 'Координаты',
         '16': 'Баку,Хатаинский район',
-        '17': 'Детали Филиала'
+        '17': 'Детали Филиала',
       },
       product: {
         '0': 'Продукт',
@@ -921,7 +921,7 @@ const resources = {
         '15': 'Добавить изображение',
         '16': 'Напишите здесь...',
         '17': 'Выберите категорию',
-        '18': 'Детали Продуктa'
+        '18': 'Детали Продуктa',
       },
       operator: {
         '0': 'Оператор',
@@ -936,7 +936,7 @@ const resources = {
         '9': 'Пароль',
         '10': 'Выбрать',
         '11': 'Изменить пароль',
-        '12': 'Детали Оператора'
+        '12': 'Детали Оператора',
       },
       partnerinfo: {
         '0': 'Информация о партнере',
@@ -1281,16 +1281,16 @@ const resources = {
         '1': 'Вы уверены?',
         '2': 'Это действие нельзя будет отменить!',
         '3': 'Да, удалить!',
-        '4': 'Отмена'
+        '4': 'Отмена',
       },
       deleted: {
         '1': 'Удалено!',
-        '2': 'Ваш файл был удален.'
+        '2': 'Ваш файл был удален.',
       },
       error: {
         '1': 'Ошибка!',
-        '2': 'Произошла ошибка при удалении.'
-      }
+        '2': 'Произошла ошибка при удалении.',
+      },
     },
   },
 };
