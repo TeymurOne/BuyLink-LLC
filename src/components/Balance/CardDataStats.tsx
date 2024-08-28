@@ -38,11 +38,14 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
           <div className="pl-4">{children}</div>
           <div className="flex w-full flex-col">
             <span className="flex items-center text-base font-normal text-darkgray dark:text-white xl:text-base">
-              {title === 'Balansdan' && (
+              {(title === 'Balansdan' ||
+                title === 'Баланса' ||
+                title === 'Wallet') && (
                 <img src={logo} alt="logo" className="mr-2" />
               )}
               {title}
             </span>
+
             <span className="flex text-xl font-medium dark:text-white xl:text-2xl">
               {rate} {icon}
             </span>

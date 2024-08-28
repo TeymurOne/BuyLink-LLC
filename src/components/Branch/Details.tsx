@@ -23,7 +23,7 @@ const Details = () => {
 
   return (
     <>
-      <TitleArrow>Branch Details</TitleArrow>
+      <TitleArrow>{t('branch.17')}</TitleArrow>
       {content && (
         <div className="0 mt-4 flex w-full max-w-full  overflow-hidden rounded-tl-xl border  border-gray text-sm   font-normal ">
           <ul className="w-full max-w-25 bg-white">

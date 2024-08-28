@@ -24,7 +24,7 @@ const DetailsProduct = () => {
     <>
       {content && (
         <>
-          <TitleArrow>Product Details</TitleArrow>
+          <TitleArrow>{t('product.18')}</TitleArrow>
           {content && (
             <div className="0 mt-4 flex w-full max-w-full  overflow-hidden rounded-tl-xl border border-gray text-sm font-normal">
               <ul className="w-full max-w-25 bg-white dark:bg-boxdark dark:text-white">
