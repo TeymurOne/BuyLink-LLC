@@ -151,6 +151,9 @@ export default function Balance() {
                 <td className="dark:text-white5 min-w-24.5 border-b border-r border-tborder py-2 font-medium sm:pl-0 md:pl-4">
                   {t('balanceTable.0')}
                 </td>
+                <td className="min-w-22.5 border-b border-r border-tborder px-3 py-2 font-medium dark:text-white">
+                  {t('balanceTable.11')}
+                </td>
                 <td className="min-w-24.5 border-b border-r border-tborder px-2  py-2 font-medium dark:text-white">
                   {t('balanceTable.1')}
                 </td>
