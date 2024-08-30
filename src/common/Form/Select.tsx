@@ -104,7 +104,7 @@ const Select: React.FC<InputProps> = ({
                   placeholder={t('header.7')}
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  className="mb-2 w-full  border-b border-inputColor p-2"
+                  className="mb-2 w-full  border-b border-inputColor p-2 text-sm"
                 />
                 <div className="max-h-60 overflow-y-auto">
                   {filteredItems.length > 0 ? (
