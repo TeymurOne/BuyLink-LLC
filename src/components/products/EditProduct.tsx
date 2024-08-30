@@ -93,7 +93,12 @@ const EditProduct = () => {
       toast.error('Price is required fields.');
       return;
     }
-
+    for (const lang of language) {
+      if (!name[lang]) {
+        toast.error(`Title is required in ${lang.toUpperCase()}.`);
+        return;
+      }
+    }
     const postData = new FormData();
     postData.append('image', imgurl || '');
     postData.append('category_id', categoryId?.toString() || '');
