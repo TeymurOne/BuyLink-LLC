@@ -106,7 +106,7 @@ export default function Balance() {
           <CardDataStats
             title={t('balance.3')}
             rate={buylink_wallet}
-            apiData="cash_till"
+            apiData="wallet"
             icon={<TbCurrencyManat />}
           >
             <div className="flex h-13.5 w-13.5 items-center justify-center rounded bg-[#F4F4F4]">
@@ -118,7 +118,7 @@ export default function Balance() {
           <CardDataStats
             title={t('balance.2')}
             rate={cash_till}
-            apiData="wallet"
+            apiData="cash_till"
             icon={<TbCurrencyManat />}
           >
             <div className="flex h-13.5 w-13.5 items-center justify-center rounded bg-[#F4F4F4]">
