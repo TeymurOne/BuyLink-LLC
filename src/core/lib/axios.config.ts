@@ -4,21 +4,26 @@ import { getState } from '../../data/helpers/cookie';
 import { logOut } from '../../features/auth/authSlice.ts';
 import store from '../../app/api/store.ts';
 
-const token = getState();
-
 const axiosInstance = axios.create({
   baseURL: BASAE_URL,
-  headers: {
-    Authorization: `Bearer ${token} `,
-  },
 });
 
-axiosInstance.interceptors.response.use(
-  function onSuccess(response) {
-    return response;
+axiosInstance.interceptors.request.use(
+  (config) => {
+    const token = getState();
+    if (token) {
+      config.headers['Authorization'] = `Bearer ${token}`;
+    }
+    return config;
   },
+  (error) => {
+    return Promise.reject(error);
+  },
+);
 
-  async function onError(error: AxiosError) {
+axiosInstance.interceptors.response.use(
+  (response) => response,
+  async (error: AxiosError) => {
     const statusCode = error.response?.status;
     const requestUrl = error.response?.config.baseURL;
 
