@@ -19,9 +19,7 @@ const Details = () => {
     <>
       {content ? (
         <>
-          <TitleArrow>
-            {t('operator.0')} <span> {id}</span>{' '}
-          </TitleArrow>
+          <TitleArrow>{t('operator.12')}</TitleArrow>
 
           {content && (
             <div className="0 mt-4 flex w-full max-w-full  overflow-hidden rounded-tl-xl border border-gray text-sm font-normal">
