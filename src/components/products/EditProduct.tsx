@@ -90,12 +90,12 @@ const EditProduct = () => {
     e.preventDefault();
 
     if (!price) {
-      toast.error('Price is required fields.');
+      toast.error('Price is required.');
       return;
     }
     for (const lang of language) {
       if (!name[lang]) {
-        toast.error(`Title is required in ${lang.toUpperCase()}.`);
+        toast.error(`Title is required.`);
         return;
       }
     }
