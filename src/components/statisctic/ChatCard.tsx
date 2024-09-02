@@ -17,6 +17,7 @@ interface Chat {
   description: string | null;
   created_at: string;
   timeDisplay: string;
+  rating: number;
 }
 
 const ChatCard = () => {
@@ -47,10 +48,10 @@ const ChatCard = () => {
       const timeDisplay = isWithinWeek
         ? formatDistanceToNow(createdAt, { addSuffix: true, locale })
         : createdAt.toLocaleDateString(i18n.language, {
-          day: 'numeric',
-          month: 'short',
-          year: 'numeric,
-        });
+            day: 'numeric',
+            month: 'short',
+            year: 'numeric',
+          });
 
       return { ...chat, timeDisplay };
     });
@@ -90,7 +91,7 @@ const ChatCard = () => {
                   </span>
                 </p>
               </div>
-              <Star average_rating="5" size={4} />
+              <Star average_rating={chat?.rating} size={4} />
             </div>
           </Link>
         ))}
