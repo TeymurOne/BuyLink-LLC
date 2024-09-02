@@ -48,11 +48,17 @@ const Select: React.FC<InputProps> = ({
     }
   }, [isSuccess, data]);
 
-  const filteredItems = filteredData.filter((item) =>
-    item.name[language]
-      ?.toLocaleLowerCase()
-      .includes(search.trim().toLocaleLowerCase()),
-  );
+  const filteredItems = filteredData
+    .filter((item) =>
+      item.name[language]
+        ?.toLocaleLowerCase()
+        .includes(search.trim().toLocaleLowerCase()),
+    )
+    .sort((a, b) =>
+      a.name[language].localeCompare(b.name[language], language, {
+        sensitivity: 'base',
+      }),
+    );
 
   const handleDropdownToggle = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -65,7 +71,7 @@ const Select: React.FC<InputProps> = ({
       } as React.ChangeEvent<HTMLSelectElement>);
     }
     setIsDropdownOpen(false);
-    setSearch(''); // Reset search on option select
+    setSearch('');
   };
 
   const selectedItem = filteredData.find((item) => item.id === value);
