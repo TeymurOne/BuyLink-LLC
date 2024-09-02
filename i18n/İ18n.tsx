@@ -353,6 +353,7 @@ const resources = {
         '9': 'Trend',
         '10': 'Reytinq və rəylər ',
         '11': ' Qiymətləndirmə sayı',
+        '12': 'Trend',
       },
       balance: {
         '0': 'Ümumi satış',
@@ -802,6 +803,7 @@ const resources = {
         '9': 'Trend',
         '10': 'Rating and Reviews',
         '11': 'Review count',
+        '12': 'Trend',
       },
       balance: {
         '0': 'Total Revenue',
@@ -1226,6 +1228,7 @@ const resources = {
         '9': 'Тренд',
         '10': 'Оценки и отзывы',
         '11': 'Количество оценок',
+        '12': 'Тренд',
       },
       balance: {
         '0': 'Общая выручка',
