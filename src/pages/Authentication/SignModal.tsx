@@ -52,18 +52,21 @@ const SignModal: React.FC<State> = ({ showModal, setShowModal }) => {
         password,
       });
 
-      setCokkie(userData?.data.token);
+      const token = userData?.data.token;
+      if (token) {
+        setCokkie(token);
+      }
 
       dispatch(setCredentials({ ...userData.data?.user }));
-      dispatch(setToken(userData.data?.token));
-      if (userData.status == 200) {
+      dispatch(setToken(token));
+
+      if (userData.status === 200) {
         setEmail('');
         setPwd('');
-        setLoad(false);
         navigate('/admin');
       }
     } catch (err) {
-      setError('Invalid  email or password.');
+      setError('Invalid email or password.');
     } finally {
       setLoad(false);
     }

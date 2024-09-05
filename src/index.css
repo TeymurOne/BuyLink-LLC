@@ -66,3 +66,13 @@ input::-webkit-inner-spin-button {
     background-color: #FFEAEA;
     border: 1px solid #F31F1F;
 }
+
+.apexcharts-tooltip-marker {
+    background-color: #2D83B6 !important;
+}
+
+.apexcharts-legend-marker {
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 100% !important;
+}

@@ -95,7 +95,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
         <nav className=" px-4 py-4  lg:px-6">
           <div>
             <h3 className=" ml-[-6px] text-[11px] font-semibold text-titleColor">
-              MENU
+              {t('member.16')}
             </h3>
 
             <ul className="mb-6 flex flex-col gap-1.5">

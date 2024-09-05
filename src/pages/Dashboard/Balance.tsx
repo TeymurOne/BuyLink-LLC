@@ -106,7 +106,7 @@ export default function Balance() {
           <CardDataStats
             title={t('balance.3')}
             rate={buylink_wallet}
-            apiData="cash_till"
+            apiData="wallet"
             icon={<TbCurrencyManat />}
           >
             <div className="flex h-13.5 w-13.5 items-center justify-center rounded bg-[#F4F4F4]">
@@ -118,7 +118,7 @@ export default function Balance() {
           <CardDataStats
             title={t('balance.2')}
             rate={cash_till}
-            apiData="wallet"
+            apiData="cash_till"
             icon={<TbCurrencyManat />}
           >
             <div className="flex h-13.5 w-13.5 items-center justify-center rounded bg-[#F4F4F4]">
@@ -150,6 +150,9 @@ export default function Balance() {
                 </td>
                 <td className="dark:text-white5 min-w-24.5 border-b border-r border-tborder py-2 font-medium sm:pl-0 md:pl-4">
                   {t('balanceTable.0')}
+                </td>
+                <td className="min-w-22.5 border-b border-r border-tborder px-3 py-2 font-medium dark:text-white">
+                  {t('balanceTable.11')}
                 </td>
                 <td className="min-w-24.5 border-b border-r border-tborder px-2  py-2 font-medium dark:text-white">
                   {t('balanceTable.1')}
