@@ -20,7 +20,6 @@ const ChartTwo: React.FC<ChartTwoProps> = ({ transactions, referral }) => {
     series: [],
   });
   const { t } = useTranslation();
-
   const getTranslatedOptions = (): ApexOptions => ({
     colors: ['#2d83b6', '#F31F1F'],
     chart: {

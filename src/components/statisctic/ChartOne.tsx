@@ -17,9 +17,7 @@ interface ChartOneProps {
 const ChartOne: React.FC<ChartOneProps> = ({ data }) => {
   const transactionsArray = Object.entries(data);
   const seriesData = transactionsArray.map(([key, value]) => value);
-
   const { t } = useTranslation();
-
   const getTranslatedOptions = (): ApexOptions => ({
     legend: {
       show: false,
@@ -145,7 +143,7 @@ const ChartOne: React.FC<ChartOneProps> = ({ data }) => {
     <div className="col-span-12  rounded-2xl border border-stroke bg-white px-5 pb-5 pt-7.5 shadow-sm dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:col-span-6">
       <div className="flex flex-wrap items-start justify-between gap-3 sm:flex-nowrap">
         <div className="flex w-full flex-col   sm:gap-5">
-          <h2 className="text-xl font-medium  font-medium dark:text-white">
+          <h2 className="mb-4 text-xl font-medium font-medium dark:text-white md:mb-0">
             {t('statistic.7')}
           </h2>
           <div className="flex space-x-4">
@@ -153,6 +151,10 @@ const ChartOne: React.FC<ChartOneProps> = ({ data }) => {
               <div className="h-2 w-2 rounded-full  bg-primary"></div>
               <p className="text-xs font-normal text-[#5B5B5B] dark:text-white">
                 {t('statistic.8')}
+              </p>
+              <div className="h-2 w-2 rounded-full bg-errorMessage "></div>
+              <p className="text-xs font-normal text-[#5B5B5B] dark:text-white">
+                {t('statistic.12')}
               </p>
             </div>
           </div>
