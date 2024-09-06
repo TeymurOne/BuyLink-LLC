@@ -4,6 +4,21 @@ import Logo from '../images/logo/logo-buylink.jpg';
 import SidebarLinkGroup from './SidebarLinkGroup';
 import { useTranslation } from 'react-i18next';
 import { version } from '../../package.json';
+import partner from '../../src/images/icon/Partner Info.png';
+import balance from '../../src/images/icon/balance.png';
+import product from '../../src/images/icon/Products.png';
+import statics from '../../src/images/icon/Statics.png';
+import branch from '../../src/images/icon/Branch.png';
+import operator from '../../src/images/icon/Operator.png';
+import category from '../../src/images/icon/Category.png';
+
+import partnerlight from '../../src/images/icon/partnerlight.png';
+import balancelight from '../../src/images/icon/balancelight.png';
+import productlight from '../../src/images/icon/productlight.png';
+import staticslight from '../../src/images/icon/staticslight.png';
+import branchlight from '../../src/images/icon/branchlight.png';
+import operatorlight from '../../src/images/icon/operatorlight.png';
+import categorylight from '../../src/images/icon/categorylight.png';
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -56,6 +71,14 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
     }
   }, [sidebarExpanded]);
 
+  const getImageSrc = (
+    defaultImage: string,
+    lightImage: string,
+    path: string,
+  ) => {
+    return pathname.startsWith(path) ? lightImage : defaultImage;
+  };
+
   return (
     <aside
       ref={sidebar}
@@ -73,7 +96,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
           onClick={() => setSidebarOpen(!sidebarOpen)}
           aria-controls="sidebar"
           aria-expanded={sidebarOpen}
-          className="block lg:hidden "
+          className="block lg:hidden"
         >
           <svg
             className="fill-current"
@@ -92,9 +115,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
       </div>
 
       <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
-        <nav className=" px-4 py-4  lg:px-6">
+        <nav className="px-4 py-4 lg:px-6">
           <div>
-            <h3 className=" ml-[-6px] text-[11px] font-semibold text-titleColor">
+            <h3 className="py-1 text-[14px] font-normal text-titleColor">
               {t('member.16')}
             </h3>
 
@@ -108,7 +131,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   return (
                     <>
                       <div>
-                        <ul className="mb-5.5 mt-4 flex flex-col gap-2.5 pl-3">
+                        <ul className="mb-5.5 mt-4 flex flex-col gap-2.5">
                           <li>
                             <NavLink
                               to="/admin/balance"
@@ -118,86 +141,142 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                                   : 'text-[#abb9e8]'
                               }`}
                             >
-                              <p className="ml-[-13px]">-</p>
+                              <img
+                                className="h-5 w-5"
+                                src={getImageSrc(
+                                  balance,
+                                  balancelight,
+                                  '/admin/balance',
+                                )}
+                                alt="Balance"
+                              />
                               {t('member.13')}
-                            </NavLink>
-                          </li>
-                          <li className="my-1">
-                            <NavLink
-                              to="/admin"
-                              className={`group relative  ${
-                                pathname === '/admin'
-                                  ? 'text-white'
-                                  : 'text-[#abb9e8]'
-                              } flex items-center gap-2.5 rounded-md text-[16px]  font-normal  duration-300 ease-in-out hover:text-white`}
-                            >
-                              <p className="ml-[-13px]">-</p>
-                              {t('member.12')}
                             </NavLink>
                           </li>
 
                           <li className="my-1">
                             <NavLink
+                              to="/admin"
+                              className={`group relative flex items-center gap-2.5 rounded-md text-[16px] font-normal duration-300 ease-in-out hover:text-white ${
+                                pathname === '/admin'
+                                  ? 'text-white'
+                                  : 'text-[#abb9e8]'
+                              }`}
+                            >
+                              <img
+                                className="h-5 w-5"
+                                src={getImageSrc(
+                                  statics,
+                                  staticslight,
+                                  '/admin',
+                                )}
+                                alt="Dashboard"
+                              />
+                              {t('member.12')}
+                            </NavLink>
+                          </li>
+                          <li className="my-1">
+                            <NavLink
                               to="/admin/branch/all"
-                              className={`group relative ${
+                              className={`group relative flex items-center gap-2.5 rounded-md text-[16px] font-normal duration-300 ease-in-out hover:text-white ${
                                 pathname.startsWith('/admin/branch')
                                   ? 'text-white'
                                   : 'text-[#abb9e8]'
-                              } flex items-center gap-2.5 rounded-md  text-[16px]   font-normal text-[#abb9e8] duration-300 ease-in-out hover:text-white`}
+                              }`}
                             >
-                              <p className="ml-[-13px]">-</p>
+                              <img
+                                className="h-5 w-5"
+                                src={getImageSrc(
+                                  branch,
+                                  branchlight,
+                                  '/admin/branch',
+                                )}
+                                alt="Branch"
+                              />
                               {t('branch.0')}
                             </NavLink>
                           </li>
                           <li className="my-1">
                             <NavLink
                               to="/admin/category/all"
-                              className={`group ${
+                              className={`group relative flex items-center gap-2.5 rounded-md text-[16px] font-normal duration-300 ease-in-out hover:text-white ${
                                 pathname.startsWith('/admin/category')
                                   ? 'text-white'
                                   : 'text-[#abb9e8]'
-                              } relative flex items-center gap-2.5 rounded-md  text-[16px]   font-normal text-[#abb9e8] duration-300 ease-in-out hover:text-white`}
+                              }`}
                             >
-                              <p className="ml-[-13px]">-</p>
+                              <img
+                                className="h-5 w-5"
+                                src={getImageSrc(
+                                  category,
+                                  categorylight,
+                                  '/admin/category',
+                                )}
+                                alt="Category"
+                              />
                               {t('product.13')}
                             </NavLink>
                           </li>
                           <li className="my-1">
                             <NavLink
                               to="/admin/product/all"
-                              className={`group relative flex items-center gap-2.5 rounded-md ${
+                              className={`group relative flex items-center gap-2.5 rounded-md text-[16px] font-normal duration-300 ease-in-out hover:text-white ${
                                 pathname.startsWith('/admin/product')
                                   ? 'text-white'
                                   : 'text-[#abb9e8]'
-                              }  text-[16px]   font-normal text-[#abb9e8] duration-300 ease-in-out hover:text-white`}
+                              }`}
                             >
-                              <p className="ml-[-13px]">-</p>
+                              <img
+                                className="h-5 w-5"
+                                src={getImageSrc(
+                                  product,
+                                  productlight,
+                                  '/admin/product',
+                                )}
+                                alt="Product"
+                              />
                               {t('product.0')}
                             </NavLink>
                           </li>
                           <li className="my-1">
                             <NavLink
                               to="/admin/operator/all"
-                              className={`group ${
+                              className={`group relative flex items-center gap-2.5 rounded-md text-[16px] font-normal duration-300 ease-in-out hover:text-white ${
                                 pathname.startsWith('/admin/operator')
                                   ? 'text-white'
                                   : 'text-[#abb9e8]'
-                              } relative flex items-center gap-2.5 rounded-md  text-[16px]   font-normal text-[#abb9e8] duration-300 ease-in-out hover:text-white`}
+                              }`}
                             >
-                              <p className="ml-[-13px]">-</p>
+                              <img
+                                className="h-5 w-5"
+                                src={getImageSrc(
+                                  operator,
+                                  operatorlight,
+                                  '/admin/operator',
+                                )}
+                                alt="Operator"
+                              />
                               {t('operator.0')}
                             </NavLink>
                           </li>
                           <li className="my-1">
                             <NavLink
                               to="/admin/partnerform"
-                              className={`group relative ${
+                              className={`group relative flex items-center gap-2.5 rounded-md text-[16px] font-normal duration-300 ease-in-out hover:text-white ${
                                 pathname.startsWith('/admin/partnerform')
                                   ? 'text-white'
                                   : 'text-[#abb9e8]'
-                              } flex items-center gap-2.5 rounded-md  text-[16px]   font-normal text-[#abb9e8] duration-300 ease-in-out hover:text-white`}
+                              }`}
                             >
-                              <p className="ml-[-13px]">-</p>
+                              <img
+                                className="h-5 w-5"
+                                src={getImageSrc(
+                                  partner,
+                                  partnerlight,
+                                  '/admin/partnerform',
+                                )}
+                                alt="Partner Info"
+                              />
                               {t('partnerinfo.0')}
                             </NavLink>
                           </li>
@@ -211,6 +290,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
           </div>
         </nav>
       </div>
+
       <div className="mt-auto flex items-center justify-center bg-menuBorder p-4 text-sm text-white text-opacity-65">
         v {version}
       </div>
