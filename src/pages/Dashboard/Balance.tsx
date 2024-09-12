@@ -54,7 +54,7 @@ export default function Balance() {
     if (isSuccess) {
       dispatch(setTotalRevenue(data?.total_revenue));
       dispatch(setCashTill(data?.cash_till));
-      dispatch(setDueBuyLink(data?.due_to_buylink));
+      dispatch(setDueBuyLink(Math.abs(data?.due_to_buylink)));
       dispatch(setNetAmount(data?.net_amount));
       dispatch(setBuylinkWallet(data?.wallet));
       dispatch(setDate(data?.debt_date));
@@ -127,7 +127,9 @@ export default function Balance() {
           </CardDataStats>
         </div>
         <div className="col-span-2 w-full sm:-mt-1">
-          {debt_date && <CardDataTime title="Total Revenue" rate={debt_date} />}
+          {due_buyLink > 0 && debt_date && (
+            <CardDataTime title="Total Revenue" rate={debt_date} />
+          )}
         </div>
       </div>
       {!transactions.currentData?.data && (
