@@ -74,7 +74,7 @@ const Form = () => {
           .unwrap()
           .then((response) => {
             if (response) {
-              toast.success('Updated successfully!');
+              toast.success(t('toast.5'));
               navigate('/admin/operator/all');
             }
           });

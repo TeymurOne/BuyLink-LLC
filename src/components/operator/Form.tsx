@@ -74,7 +74,7 @@ const Form: React.FC = () => {
     setAttemptedSubmit(true);
 
     if (!validateForm()) {
-      toast.error('Please fill out all required fields.');
+      toast.error(t('toast.11'));
       return;
     }
 
@@ -86,7 +86,7 @@ const Form: React.FC = () => {
 
     try {
       await postOperator(postData).unwrap();
-      toast.success('Added successfully!');
+      toast.success(t('toast.4'));
       navigate('/admin/operator/all');
       dispatch(resetState());
     } catch (error) {

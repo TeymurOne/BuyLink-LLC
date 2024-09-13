@@ -185,7 +185,7 @@ const Form = () => {
     e.preventDefault();
 
     if (!validatePhone(formValue.phone)) {
-      toast.error('The phone format is invalid.');
+      toast.error(t('toast.2'));
       return;
     }
 
@@ -214,13 +214,13 @@ const Form = () => {
           .unwrap()
           .then((response) => {
             if (response.success) {
-              toast.success('Success!');
+              toast.success(t('toast.7'));
               refetch();
             }
           });
       }
     } catch (error) {
-      toast.error('Something went wrong!');
+      toast.error(t('toast.8'));
     } finally {
       setLoad(false);
     }
