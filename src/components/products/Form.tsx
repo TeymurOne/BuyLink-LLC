@@ -65,7 +65,7 @@ const Form = () => {
       });
       setContent(options);
     } else if (isError) {
-      toast.error('Error fetching data');
+      toast.error(t('toast.1'));
     }
   }, [isSuccess, data, local, dispatch, searchParams]);
 
@@ -111,7 +111,7 @@ const Form = () => {
     setAttemptedSubmit(true);
 
     if (!categoryId || !price || !images || !name[active]) {
-      toast.error('Please fill out the form completely.');
+      toast.error(t('toast.3'));
       return;
     }
 
@@ -138,12 +138,12 @@ const Form = () => {
             if (response.data) {
               navigate('/admin/product/all');
               dispatch(setReset());
-              toast.success('Added successfully!');
+              toast.success(t('toast.4'));
             }
           });
       }
     } catch (error) {
-      toast.error('An error occurred. Please try again.');
+      toast.error(t('toast.6'));
     } finally {
       dispatch(setLoad(false));
     }

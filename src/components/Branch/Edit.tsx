@@ -51,7 +51,7 @@ const Form: React.FC = () => {
         dispatch(setLng(parseFloat(dataToPass?.data.lng)));
       }
     } catch (error) {
-      toast.error('Error fetching data');
+      toast.error(t('toast.1'));
     }
   };
 
@@ -77,7 +77,7 @@ const Form: React.FC = () => {
       dispatch(setLoad(true));
 
       if (!validatePhone(phone)) {
-        toast.error('The phone format is invalid.');
+        toast.error(t('toast.1'));
         return;
       }
 
@@ -94,13 +94,13 @@ const Form: React.FC = () => {
         };
         const response = await postBranches({ postData, id }).unwrap();
         if (response) {
-          toast.success('Updated successfully!');
+          toast.success(t('toast.5'));
           navigate('/admin/branch/all');
           dispatch(resetState());
         }
       }
     } catch (error) {
-      toast.error('An error occurred. Please try again.');
+      toast.error(t('toast.6'));
     } finally {
       dispatch(setLoad(false));
     }
