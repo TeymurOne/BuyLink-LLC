@@ -48,7 +48,7 @@ function ResetCenterView({
       });
       setClickPosition(null);
     } else if (coordinate) {
-      map.setView([coordinat.lat, coordinate.lng], map.getZoom(), {
+      map.setView([coordinate.lat, coordinate.lng], map.getZoom(), {
         animate: true,
       });
       setClickPosition({ lat: coordinate.lat, lng: coordinate.lng });
