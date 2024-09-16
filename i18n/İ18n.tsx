@@ -430,6 +430,9 @@ const resources = {
         '6': 'Xəta baş verdi. Yenidən cəhd edin.',
         '7': 'Uğurlu!',
         '8': 'Xəta baş verdi!',
+        '9': 'Qiymət tələb olunur!',
+        '10': 'Məzmun tələb olunur',
+        '11': 'Zəhmət olmasa bütün tələb olunan sahələri doldurun.',
       },
       pagination: {
         showing: 'Göstərilən {{page}} nəticə {{totalPages}} nəticədən',
