@@ -10,7 +10,9 @@ const resources = {
       member: {
         '12': 'Statistika',
         '13': 'Balans',
-        '14': 'BuyLinkə öhdəlik',
+        '14': 'Due To Buylink',
+        '15': 'Çıxış Et',
+        '16': 'MENYU',
       },
       branch: {
         '0': 'Filiallar',
@@ -23,12 +25,14 @@ const resources = {
         '7': 'Dəyiş ',
         '8': 'Ləğv et ',
         '9': 'Saxla ',
-        '10': 'Dəyiş',
+        '10': 'Filial Dəyiş',
         '11': 'Haqqında',
         '12': 'Xəritə',
         '13': 'Adına görə axtarış',
         '14': 'Nömrə',
         '15': 'Koordinatlar ',
+        '16': 'Bakı,Xatai ray.',
+        '17': 'Filial Detalları',
       },
       product: {
         '0': 'Məhsul ',
@@ -47,6 +51,9 @@ const resources = {
         '13': 'Kateqoriya',
         '14': 'adı     ',
         '15': 'Şəkil əlave et',
+        '16': 'Bura yaz...',
+        '17': 'Kateqoriya seçin',
+        '18': 'Məhsul Detalları,
       },
       operator: {
         '0': 'Operator ',
@@ -54,7 +61,6 @@ const resources = {
         '2': 'Filiali',
         '3': 'Ad',
         '4': 'Email',
-
         '5': 'Hərəkətlər ',
         '6': 'Ləğv et ',
         '7': 'Saxla',
@@ -62,6 +68,7 @@ const resources = {
         '9': 'Şifrə',
         '10': 'Seçin',
         '11': 'Şifrəni Dəyiş',
+        '12': 'Operator Detalları'
       },
       partnerinfo: {
         '0': 'Partnyor Məlumatları ',
@@ -93,27 +100,30 @@ const resources = {
         '4': 'Bizimlə əlaqə',
         '5': 'Giriş',
         '6': 'Partnyor ol',
+        '7': 'Axtar...'
       },
       main: {
         '0': 'BuyLink',
-        '1': `dünyanın ilk rəqəmsal referal platformasıdır`,
+        '1': `dünyanın ilk rəqəmsal tövsiyə platformasıdır!`,
         '2': `Bizim missiyamız insanları və biznesləri bir referal sosial şəbəkəsi altında birləşdirərək onların müəyyən qazanc və üstünlüklərdən faydalanmasını təmin etməkdir.`,
         '3': 'İzahedici video',
-        '4': 'Bu video ən sadə şəkildə bizim   biznesin necə işlədiyini göstərir.',
-        '5': 'Biz bir platformada müxtəlif sənaye sahələri əhatə edirik',
+        '4': 'Bu video ən sadə şəkildə Buylink-in necə işlədiyini göstərir.',
+        '5': 'Videonu izləyib mobil tətbiqimizlə ətraflı tanış ola bilərsiniz',
         '6': 'BuyLinki  yüklə',
+        '7': '300+ istifadəçi puluna qənaət etdi'
       },
       wallet: {
-        '0': '   saxlayın    ',
-        '1': ' Bonus ve mukafatlarinizi  ',
+        '0': 'qazan!',
+        '1': 'Bonus və mükafatlar',
         '2': 'qazanaraq xərclərinə qanaət et.',
-        '3': 'BuyLink balansı sizə bonuslarınızı və mükafatlarınızı saxlamağa və istənilən vaxt balansdaki məbləği bank hesabınıza köçürmə   imkanı verən rəqəmsal pul kisəsidir.',
+        '3': 'BuyLink balansı sənə mobil tətbiqimizdə bonus və mükafatlar qazanmağa, toplanan məbləği istənilən ölkədaxili bank kartına köçürməyə imkan verən rəqəmsal pul kisəsidir.',
         '4': 'Köçürmə',
         '5': 'Qazancları toplamaq',
         '6': 'Balans ilə partnyorlarda ödəniş',
         '7': 'Tarixçə',
         '8': ' ',
         '9': '  ',
+        '10': 'Balansı'
       },
       partnyor: {
         '0': 'Yeni',
@@ -132,7 +142,7 @@ const resources = {
         '1': 'qazanc',
         '2': 'Öz şəbəkənə istədiyin biznesi tövsiyə et və qazan.',
         '3': 'Partnyor səhifəsinə daxil ol',
-        '4': 'Tərəfdaşın kataloqunu araşdırın:məhsul və ya xidmətlərin siyahısı, qiymətlər, endirimlər və referal keşbekləri.',
+        '4': 'Tərəfdaşın kataloqunu gözdən keçir: məhsul və ya xidmətlər siyahısı, qiymətlər, endirim və referal keşbekləri.',
         '5': 'Referal linkini öz şəbəkən ilə bölüş',
         '6': 'Partnyor səhifəsində sən bu biznesi söhbət vasitəsilə şəbəkənə tövsiyə edə və ya poçtla paylaşa bilərsən.',
         '7': 'Pul kisəsinə keçid et və balansını yoxla',
@@ -151,11 +161,9 @@ const resources = {
         '8': 'Qr kodu alış-veriş zamanı partnyora göstər və endirim əldə et.',
       },
       partner: {
-        '0': 'Partnyor ol',
-        '1': `Bizim tərəfdaşımız olun və rəqabət 
-        qabiliyyətinizi, bazarda tanınmağınızı və 
-        gəlirinizi, "BuyLink" ilə artırın!`,
-        '2': 'Elə indi qoşul',
+        '0': 'Partnyor ol!',
+        '1': `Buylink mobil tətbiqində yer almaqla siz bazarda tanıtım, yüksək gəlir və rəqabət üstünlüyü əldə edəcəksiniz.`,
+        '2': 'Elə indi qoşulun'
       },
       letters: {
         '0': 'Jurnalımıza',
@@ -166,15 +174,14 @@ const resources = {
       accordion: {
         '0': 'Ən çox verilən suallar',
         '1': 'BuyLink nədir?',
-        '2': 'Bizim missiyamız insanları və biznesləri bir referal sosial şəbəkəsi altında birləşdirərək onların müəyyən qazanc və üstünlüklərdən faydalanmasını təmin etməkdir.',
+        '2': 'BuyLink dünyanın ilk rəqəmsal tövsiyə platformasıdır. Bizim missiyamız insanları və biznesləri bir referal sosial şəbəkəsi altında birləşdirərək onların müəyyən qazanc və üstünlüklərdən faydalanmasını təmin etməkdir.',
         '3': 'BuyLink-in üstünlükləri nələrdir?',
-        '4': `Buylink-in üstünlükləri bir çoxdur. İlk olaraq, bu platform istifadəçilərə hem pul qazanmaq, hem də endirimlərdən yararlana biləcəkləri bir şəbəkə təmin edir. Bu, istifadəçilərin həm keyfiyyətli məhsulları əldə etmək, həm də gəlir əldə etmək imkanını bir araya gətirir.
-        Əlavə olaraq, Buylink-in rəfərallar üzərində əsaslanan qarşılıqlı marketing modeli, istifadəçilərə daha çox insanı platforma cəlb etmək və onların həcmə bağlı olaraq artan gəlir əldə etmək imkanı verir.`,
+        '4': `BuyLink-in bir sıra üstünlükləri var. Bu platforma istifadəçilərə həm pul qazanmaq, həm də endirimlərdən yararlanmaq fürsəti yaradır. Mobil tətbiq vasitəsilə istifadəçilər endirimlərdən yararlanmaqla yanaşı, tövsiyələrdən gəlir əldə edə bilərlər. Həmçinin daha çox insanı platformaya cəlb edən istifadəçilər artan gəlir modeli sayəsində daha çox qazanc əldə edəcəklər.`,
         '5': 'Necə işləyirik?',
         '6': `Buylink platformunda paylaşılan postlar, istifadəçilərin mekanları tanıtmalarını, təcrübələrini paylaşmalarını və promosyonlar təklif etmələrini təmin edir. Bu, onların öz sosial şəbəkələrindən faydalanaraq gəlir qazanmalarına və digər istifadəçilərə fayda vermələrinə imkan verir.`,
       },
       become: {
-        '0': 'Buylink',
+        '0': 'BuyLink',
         '1': 'tətbiqini yüklə',
         '2': 'Hər yerdə mövcuddur',
         '3': 'Yükləmək üçün Scan QR',
@@ -346,6 +353,7 @@ const resources = {
         '9': 'Trend',
         '10': 'Reytinq və rəylər ',
         '11': ' Qiymətləndirmə sayı',
+        '12': 'Trend'
       },
       balance: {
         '0': 'Ümumi satış',
@@ -356,7 +364,6 @@ const resources = {
         '5': '3 gün gecikmədən sonra cərimələr hesablanmağa başlayır',
         '6': 'Cərimələr tutulmağa başlayır (ümumi məbləğin 0,1%-i)',
         '7': 'Ödəniş gecikdirildikdə, cərimələr olacaq',
-
         '8': ' Ödəniş tarixi! ',
         '9': 'Gecikdirilmiş ödəniş!',
         '10': ' Gün sonra ödəniş',
@@ -375,8 +382,9 @@ const resources = {
         '6': 'Xalis Məbləğ',
         '7': 'İstifadəçi adı',
         '8': 'Operator adı',
-        '9': 'Amount',
-        '10': 'Payments type',
+        '9': 'Məbləğ',
+        '10': 'Ödəniş növü',
+        '11': 'Qəbz'
       },
       settingDashboard: {
         '1': 'Parametrlər',
@@ -385,6 +393,47 @@ const resources = {
         '4': 'E-poçt ',
         '5': 'Yeni şifrə ',
       },
+      months: {
+        '1': 'May',
+        '2': 'İyun',
+        '3': 'İyul',
+        '4': 'Avq',
+        '5': 'Sent',
+        '6': 'Okt',
+        '7': 'Noy',
+        '8': 'Dek',
+        '9': 'Yanv',
+        '10': 'Fev',
+        '11': 'Mart',
+        '12': 'Apr'
+      },
+      confirmation: {
+        '1': 'Əminsiniz?',
+        '2': 'Bu əməliyyatı geri qaytarmaq mümkün olmayacaq!',
+        '3': 'Bəli, silin!',
+        '4': 'Ləğv edin'
+      },
+      deleted: {
+        '1': 'Silindi!',
+        '2': 'Faylınız silindi.'
+      },
+      error: {
+        '1': 'Xəta!',
+        '2': 'Silinmə zamanı xəta baş verdi.'
+      },
+      toast: {
+        '1': 'Datanın alınması xətası',
+        '2': 'Telefon formatı yanlışdır',
+        '3': 'Zəhmət olmasa formanı tam doldurun',
+        '4': 'Uğurla əlavə edildi!',
+        '5': 'Uğurla yeniləndi!',
+        '6': 'Xəta baş verdi. Yenidən cəhd edin.',
+        '7': 'Uğurlu!',
+        '8': 'Xəta baş verdi!'
+      },
+      pagination: {
+        showing: 'Göstərilən {{page}} nəticə {{totalPages}} nəticədən'
+      }
     },
   },
 
@@ -408,7 +457,9 @@ const resources = {
         '11': 'MemberType',
         '12': 'Statistics',
         '13': 'Balance',
-        '14': 'Due to Buylink,
+        '14': 'Buylinkə öhdəlik',
+        '15': 'Log Out',
+        '16': 'MENU'
       },
       branch: {
         '0': 'Branches',
@@ -421,12 +472,14 @@ const resources = {
         '7': 'Change ',
         '8': 'Cancal ',
         '9': 'Save ',
-        '10': 'Update',
+        '10': 'Branch Update',
         '11': 'Details',
         '12': 'Map',
         '13': 'Search by name',
         '14': 'Phone',
         '15': 'Coordinates ',
+        '16': 'Baku,Khatai dist.',
+        '17': 'Branch Details'
       },
       product: {
         '0': 'Product ',
@@ -445,6 +498,9 @@ const resources = {
         '13': 'Category',
         '14': 'name    ',
         '15': 'Add image',
+        '16': 'Write here...',
+        '17': 'Choose сategory',
+        '18': 'Product Details'
       },
       operator: {
         '0': 'Operator ',
@@ -459,9 +515,10 @@ const resources = {
         '9': 'Password',
         '10': 'Select',
         '11': 'Change Password',
+        '12': 'Operator Details'
       },
       partnerinfo: {
-        '0': 'Partner information',
+        '0': 'Partner Info',
         '1': 'Logo',
         '3': 'Cover Photo',
         '4': 'Title',
@@ -489,74 +546,75 @@ const resources = {
         '4': 'Contact us',
         '5': 'Login',
         '6': 'Become a partner',
+        '7': 'Search...'
       },
       main: {
         '0': 'BuyLink',
         '1': 'is the world first digital referral network  .',
         '2': `Our mission is to connect people and businesses in one referral social network where they are able to get actual benefits from recommendations.`,
         '3': 'Explainer Video',
-        '4': 'The video shows in basic how the applications works .',
-        '5': ' We cover different industries in one platform',
+        '4': 'This video shows how BuyLink works in the simplest way.',
+        '5': 'You can watch the video and learn more about our mobile application.',
         '6': 'Download BuyLink',
+        '7': '300+ costumer saved money'
       },
       wallet: {
         '0': '   ',
         '1': '  ',
         '2': 'a savings for your',
-        '3': 'BuyLink is a digital wallet that allows you to store your bonuses and rewards in your balance and transfer funds from your balance to a bank account at any time.',
-        '4': 'Transver',
-        '5': 'Savings of rewards ',
-        '6': 'Payment via wallet at our partner',
-        '7': 'History',
-        '8': 'Save your',
-        '9': 'bonuses and rewards ',
+        '3': 'BuyLink is a digital wallet that allows you to easily save bonuses and rewards in your balance. You can also transfer funds from your balance to a bank account at any time.',
+        '4': 'Transfer',
+        '5': 'Save Rewards',
+        '6': 'Pay with Wallet at Our Partners',
+        '7': 'Transaction History',
+        '8': 'Save Your',
+        '9': 'Bonuses and Rewards ',
+        '10': 'Wallet'
       },
       partnyor: {
-        '0': 'Explore new',
-        '1': 'users and ',
-        '2': 'partners',
-        '3': 'Easy way to increase you network and to find businesses you want to recommend',
-        '4': 'Explore Our partners',
-        '5': 'Meet our list of partnes at our homepage',
-        '6': 'Add People to your Network',
-        '7': 'Use search to find your friends and new users. Add them, and start to recommend each other',
-        '8': 'Explore different categories',
-        '9': 'Here you can find different industries,choose any that you areasasa interested in ',
+        '0': 'Explore New',
+        '1': 'Users and ',
+        '2': 'Partners',
+        '3': 'An easy way to expand your network and find businesses you want to recommend',
+        '4': 'Our Partners',
+        '5': 'Discover our list of partners on our homepage',
+        '6': 'Add People to Your Network',
+        '7': 'Use the search feature to find your friends and new users. Add them and start recommending each other',
+        '8': 'Explore Different Categories',
+        '9': 'Here you can find various industries. Choose any that you are interested in '
       },
       partnyor2: {
-        '0': 'Get cash ',
-        '1': 'in 3 steps',
-        '2': 'End-to-end payments and financial management in a single solution. Meet the right platform to help realize.',
-        '3': 'Enter to partner page',
-        '4': 'Explore menu / catalogue of partner. With list of products of services, prices, discounts, and referral cashbacks',
-        '5': 'Share referral link to your network',
-        '6': 'In partner page you can recommend this business to your network via chat on share on post',
-        '7': 'Go to wallet and check you balance',
-        '8': 'After your network use your referral link , you again rewards , and can check your balance in wallet page',
+        '0': 'Get Cash',
+        '1': 'in 3 Steps',
+        '2': 'End-to-end payments and financial management in a single solution. Discover the right platform to help you achieve your financial goals.',
+        '3': 'Enter the Partner Page',
+        '4': 'Explore the menu/catalog of our partners, including a list of products and services, prices, discounts, and referral cashbacks',
+        '5': 'Share Referral Link with Your Network',
+        '6': 'On the partner page, you can recommend this business to your network via chat or by sharing a post',
+        '7': 'Go to Wallet and Check Your Balance',
+        '8': 'After your network uses your referral link, you earn rewards and can check your balance on the wallet page',
         '9': '',
       },
       partnyor3: {
-        '0': 'How to get',
-        '1': ' discount?',
-        '2': 'End-to-end payments and financial management in a single solution. Meet the right platform to help realize.',
-        '3': 'See you network recommendations in referral page',
-        '4': 'See all posts that you network share, and chooseone that interests you',
-        '5': 'Add referral link to Qr Basket',
-        '6': 'Here you can see all rederral links from different users for different partners',
-        '7': 'Show qr code and get discount',
-        '8': 'When you show you Qr code you get discount for you purchases ',
+        '0': 'How to Get',
+        '1': ' a Discount?',
+        '2': 'End-to-end payments and financial management in a single solution. Discover the right platform to help you achieve your goals.',
+        '3': 'See Your Network’s Recommendations on the Referral Page',
+        '4': 'View all the posts shared by your network and choose the ones that interest you',
+        '5': 'Add Referral Link to QR Basket',
+        '6': 'Here, you can see all referral links from different users for various partners',
+        '7': 'Show QR Code and Get a Discount',
+        '8': 'When you show your QR code, you receive a discount on your purchases'
       },
       partner: {
-        '0': 'Become a partner',
-        '1': `Become our partner and compete
-        your ability, your market recognition and
-        increase your income with "BuyLink"!`,
+        '0': 'Become a Partner',
+        '1': `We invite you to become our partner and enhance your capabilities, market recognition, and increase your income with “BuyLink”!`,
         '2': 'Join now',
       },
       letters: {
-        '0': ' Join our ',
-        '1': '  newsletter  ',
-        '2': 'Will send you weekly updates for your better finance management.',
+        '0': 'Join our',
+        '1': 'Newsletter',
+        '2': 'We will send you weekly updates to help you manage your finances better.',
         '3': 'Join  now',
       },
       become: {
@@ -567,13 +625,12 @@ const resources = {
       },
       accordion: {
         '0': 'Frequently Asked Questions',
-        '1': 'What is the BUYLINK?',
-        '2': `Our mission is to connect people and businesses under one referral social network to ensure they benefit from the benefits and benefits.`,
-        '3': 'Why do we use it?',
-        '4': `The advantages of Buylink are many. First, this platform provides users with a network where they can both earn money and take advantage of discounts. This brings together the opportunity for users to get quality products and generate income.
-        Additionally, Buylink's affiliate marketing model based on referrals allows users to attract more people to the platform and earn increased revenue based on their volume.`,
-        '5': 'How to get cash?',
-        '6': 'Posts shared on the Buylink platform allow users to promote places, share experiences and offer promotions. This allows them to take advantage of their social networks to earn income and benefit other users.',
+        '1': 'What is BuyLink?',
+        '2': `BuyLink is the world’s first digital referral platform and social network designed to connect people and businesses. Our mission is to create a space where users can benefit from mutual recommendations and earn rewards. By joining BuyLink, users can discover and recommend businesses, helping both themselves and others gain valuable benefits.`,
+        '3': 'Why do we use BuyLink?',
+        '4': `BuyLink offers numerous advantages. Firstly, this platform provides users with a network where they can earn money and take advantage of discounts. This allows users to access quality products while generating income. Additionally, BuyLink’s referral-based marketing model enables users to attract more people to the platform and earn increased revenue based on the volume of their referrals.`,
+        '5': 'How do I get cash on BuyLink?',
+        '6': 'On the BuyLink platform, users can share posts to promote businesses, share their experiences, and offer promotions. This allows them to leverage their social networks to earn income and provide benefits to other users. By sharing referral links, users can earn rewards based on the engagement and transactions generated by their network. This system helps users earn cash rewards while also helping others discover quality products and services.'
       },
       footer: {
         '0': 'Finance helps companies manage payments easily.',
@@ -759,24 +816,24 @@ const resources = {
         '9': 'Trend',
         '10': 'Rating and Reviews',
         '11': 'Review count',
+        '12': 'Trend'
       },
       balance: {
         '0': 'Total Revenue',
         '1': 'Due to BuyLink',
         '2': 'Cash Till',
-        '3': 'Buylink  Wallet',
+        '3': 'Wallet',
         '4': 'Net amount',
         '5': 'Payment date! After 3 days of delay, penalties start to charge ',
         '6': 'Penalties start to charge (0.1% of total amount)',
         '7': 'In case of late payment, there will be penalties',
-
-        '8': '  Days Left Until Payment ',
+        '8': 'Days Left Until Payment',
         '9': 'Overdue Payment!',
-        '10': '  Days Payment Date! ',
+        '10': 'Days Payment Date!',
         '11': 'Currently there is no date and data  ',
         '12': 'Total debt',
         '13': 'Payments',
-        '14': 'Net Debt'
+        '14': 'Net debt'
       },
       balanceTable: {
         '0': 'Bill amount',
@@ -788,8 +845,9 @@ const resources = {
         '6': 'Net Amount',
         '7': 'User ID',
         '8': 'Operator Name',
-        '9': 'Məbləğ',
-        '10': 'Ödəniş növü'
+        '9': 'Amount',
+        '10': 'Payment Type',
+        '11': 'Bill'
       },
       settingDashboard: {
         '1': 'Settings',
@@ -798,6 +856,491 @@ const resources = {
         '4': 'E-mail  ',
         '5': 'New Password ',
       },
+      months: {
+        '1': 'May',
+        '2': 'Jun',
+        '3': 'Jul',
+        '4': 'Aug',
+        '5': 'Sep',
+        '6': 'Oct',
+        '7': 'Nov',
+        '8': 'Dec',
+        '9': 'Jan',
+        '10': 'Feb',
+        '11': 'Mar',
+        '12': 'Apr'
+      },
+      confirmation: {
+        '1': 'Are you sure?',
+        '2': 'You will not be able to revert this!',
+        '3': 'Yes, delete it!',
+        '4': 'Cancel'
+      },
+      deleted: {
+        '1': 'Deleted!',
+        '2': 'Your file has been deleted.'
+      },
+      error: {
+        '1': 'Error!',
+        '2': 'An error occurred while deleting.'
+      },
+      toast: {
+        '1': 'Error fetching data',
+        '2': 'Phone format is invalid',
+        '3': 'Please fill out the form completely',
+        '4': 'Added successfully!',
+        '5': 'Updated successfully!',
+        '6': 'An error occurred. Please try again.',
+        '7': 'Success!',
+        '8': 'Something went wrong!',
+        '9': 'Price is required!',
+        '10': 'Title is required',
+        '11': 'Please fill out all required fields.'
+      },
+      pagination: {
+        showing: 'Showing {{page}} of {{totalResults}} results'
+      }
+    },
+  },
+  ru: {
+    translation: {
+      default: {
+        '0': 'ru'
+      },
+      member: {
+        '12': 'Статистика',
+        '13': 'Баланс',
+        '14': 'Обязательство перед Buylink',
+        '15': 'Выйти',
+        '16': 'МЕНЮ'
+      },
+      branch: {
+        '0': 'Филиалы',
+        '1': 'Создать филиал',
+        '2': 'Название',
+        '3': 'Широта',
+        '4': 'Долгота',
+        '5': 'Адрес',
+        '6': 'Действия',
+        '7': 'Изменить',
+        '8': 'Отменить',
+        '9': 'Сохранить',
+        '10': 'Обновить Филиал',
+        '11': 'О филиале',
+        '12': 'Карта',
+        '13': 'Поиск по имени',
+        '14': 'Номер телефона',
+        '15': 'Координаты',
+        '16': 'Баку,Хатаинский район',
+        '17': 'Детали Филиала'
+      },
+      product: {
+        '0': 'Продукт',
+        '1': 'Создать продукт',
+        '2': 'Изображение',
+        '3': 'Название',
+        '4': 'Описание',
+        '5': 'Цена',
+        '6': 'Цена со скидкой',
+        '7': 'Категория',
+        '8': 'Редактировать',
+        '9': 'Отменить',
+        '10': 'Сохранить',
+        '11': 'Обновить',
+        '12': 'О продукте',
+        '13': 'Категория',
+        '14': 'Имя',
+        '15': 'Добавить изображение',
+        '16': 'Напишите здесь...',
+        '17': 'Выберите категорию',
+        '18': 'Детали Продуктa'
+      },
+      operator: {
+        '0': 'Оператор',
+        '1': 'Создать оператора',
+        '2': 'Филиал',
+        '3': 'Имя',
+        '4': 'Электронная почта',
+        '5': 'Действия',
+        '6': 'Отменить',
+        '7': 'Сохранить',
+        '8': 'Обновить',
+        '9': 'Пароль',
+        '10': 'Выбрать',
+        '11': 'Изменить пароль',
+        '12': 'Детали Оператора'
+      },
+      partnerinfo: {
+        '0': 'Информация о партнере',
+        '1': 'Логотип',
+        '3': 'Обложка',
+        '4': 'Название',
+        '5': 'О компании',
+        '6': 'Адрес',
+        '7': 'Описание',
+        '8': 'Электронная почта',
+        '9': 'Телефон',
+        '10': 'Facebook',
+        '11': 'WhatsApp',
+        '12': 'Twitter',
+        '13': 'LinkedIn',
+        '14': 'YouTube',
+        '15': 'Instagram',
+        '16': 'Отменить',
+        '17': 'Сохранить',
+        '18': 'Имя партнера',
+        '19': 'Общая комиссия',
+        '20': 'Скидка'
+      },
+      header: {
+        '0': 'О нас',
+        '1': 'Наши преимущества',
+        '2': 'Как это работает?',
+        '3': 'Часто задаваемые вопросы',
+        '4': 'Связаться с нами',
+        '5': 'Вход',
+        '6': 'Стать партнером',
+        '7': 'Поиск...'
+      },
+      main: {
+        '0': 'BuyLink',
+        '1': 'первая в мире цифровая реферальная платформа!',
+        '2': 'Наша миссия – объединять людей и бизнесы в одну социальную сеть рекомендаций, чтобы они могли получать реальные выгоды от рекомендаций.',
+        '3': 'Объясняющее видео',
+        '4': 'Это видео показывает, как работает BuyLink самым простым способом.',
+        '5': 'Вы можете посмотреть видео и узнать больше о нашем мобильном приложении.',
+        '6': 'Скачать BuyLink',
+        '7': '300+ пользователей сэкономили деньги'
+      },
+      wallet: {
+        '0': 'Зарабатывай!',
+        '1': 'Бонусы и награды',
+        '2': 'зарабатывай и экономь на своих расходах.',
+        '3': 'BuyLink – это цифровой кошелек, который позволяет вам зарабатывать бонусы и награды в вашем балансе, а также переводить собранную сумму на любую банковскую карту в вашей стране.',
+        '4': 'Перевод',
+        '5': 'Собрать доходы',
+        '6': 'Оплата партнерам с баланса',
+        '7': 'История транзакций',
+        '8': ' ',
+        '9': ' ',
+        '10': 'Баланс'
+      },
+      partnyor: {
+        '0': 'Исследуй',
+        '1': 'новых пользователей и партнеров',
+        '2': ' ',
+        '3': 'Расширяйте свою сеть и начните зарабатывать, рекомендуя бизнесы вместе с нами.',
+        '4': 'Знакомьтесь с нашими партнерами',
+        '5': 'Откройте список партнеров на главной странице',
+        '6': 'Расширяйте свою сеть',
+        '7': 'Используйте функцию поиска, чтобы найти друзей или новых пользователей. Добавляйте их в свой список друзей и начните процесс рекомендаций.',
+        '8': 'Откройте разные категории',
+        '9': 'Здесь вы можете найти интересующие вас бизнесы и ознакомиться с их скидками и процентами прибыли.'
+      },
+      partnyor2: {
+        '0': 'Заработай',
+        '1': 'в 3 шага',
+        '2': 'Рекомендуйте бизнесы в своей сети и зарабатывайте.',
+        '3': 'Перейдите на страницу партнера',
+        '4': 'Просмотрите каталог партнера: список продуктов или услуг, цены, скидки и реферальные кэшбеки.',
+        '5': 'Поделитесь реферальной ссылкой со своей сетью',
+        '6': 'На странице партнера вы можете рекомендовать этот бизнес через чат или поделиться по почте.',
+        '7': 'Перейдите в кошелек и проверьте свой баланс',
+        '8': 'После того как ваша сеть использует реферальную ссылку, вы заработаете награды. В конце концов, проверьте свой баланс на странице кошелька.',
+        '9': ' '
+      },
+      partnyor3: {
+        '0': 'Как получить',
+        '1': 'скидку?',
+        '2': 'Используйте реферальные ссылки для получения скидок.',
+        '3': 'Изучите рекомендации вашей сети',
+        '4': 'Просмотрите все записи, которые были опубликованы вашей сетью, и выберите те, которые вам интересны.',
+        '5': 'Добавьте реферальную ссылку в корзину QR',
+        '6': 'Здесь вы можете увидеть все реферальные ссылки разных пользователей для различных партнеров.',
+        '7': 'Покажите QR-код и получите скидку',
+        '8': 'Покажите QR-код во время покупок у партнера и получите скидку.'
+      },
+      partner: {
+        '0': 'Стань партнером!',
+        '1': 'Присоединившись к Buylink, вы получите рекламные возможности, высокий доход и конкурентные преимущества на рынке.',
+        '2': 'Присоединяйтесь сейчас'
+      },
+      letters: {
+        '0': 'Подпишитесь на',
+        '1': 'наш журнал',
+        '2': 'Мы будем отправлять вам последние новости и возможности Buylink по электронной почте.',
+        '3': 'Подписаться сейчас'
+      },
+      accordion: {
+        '0': 'Часто задаваемые вопросы',
+        '1': 'Что такое BuyLink?',
+        '2': 'BuyLink – это первая в мире цифровая реферальная платформа. Наша миссия – объединять людей и бизнесы в одну социальную сеть рекомендаций, чтобы они могли получать реальные выгоды от рекомендаций.',
+        '3': 'Какие преимущества у BuyLink?',
+        '4': 'У BuyLink есть ряд преимуществ. Эта платформа предоставляет пользователям возможность как зарабатывать деньги, так и получать скидки. Через мобильное приложение пользователи могут не только получать скидки, но и зарабатывать на рекомендациях. Кроме того, пользователи, привлекающие больше людей на платформу, благодаря растущей модели доходов смогут зарабатывать еще больше.',
+        '5': 'Как мы работаем?',
+        '6': 'Посты, опубликованные на платформе Buylink, позволяют пользователям делиться своими рекомендациями, опытом и предлагать акции. Это дает возможность зарабатывать, используя свои социальные сети, и приносить пользу другим пользователям.'
+      },
+      become: {
+        '0': 'Скачайте',
+        '1': 'BuyLink',
+        '2': 'Доступен везде',
+        '3': 'Сканируйте QR для скачивания'
+      },
+      footer: {
+        '0': 'Теперь получайте больше кэшбека и прибыли от платежей.',
+        '1': 'Компания',
+        '2': 'О нас',
+        '3': 'Карьера',
+        '4': 'Блог',
+        '5': 'Продукт',
+        '6': 'Отчеты',
+        '7': 'Контракты',
+        '8': 'Бухгалтерия',
+        '9': 'Политика конфиденциальности',
+        '10': 'Шаблон коммерческого предложения',
+        '11': 'Шаблон контракта',
+        '12': 'Объясняющее видео',
+        '13': '2024 Все права защищены',
+        '14': 'partnership@buylink.info',
+        '15': '000-000-00'
+      },
+      privacy: {
+        '0': `
+        
+    
+        Политика конфиденциальности мобильного приложения «BuyLink»
+        Содержание
+        Термины и определения
+        Персональные данные (или данные)
+        Любая информация, напрямую или косвенно связанная с Пользователем мобильного приложения, информация, позволяющая идентифицировать физическое лицо, включая личный идентификационный номер.
+        Использование данных
+        Информация, автоматически собираемая через текущее приложение (или сторонние службы, используемые в этом приложении), которая может включать: IP-адреса или доменные имена устройств, используемых Пользователями, использующими текущее приложение, URI-адреса (Унифицированный идентификатор ресурсов), страну происхождения, характеристики браузера и операционной системы, используемых Пользователем, различные временные данные за визит (например, время, проведенное на каждой странице в приложении) и информацию о траектории, которой следовали в приложении, с указанием порядка посещенных страниц и операционной системы устройства и/или других параметров ИТ-среды пользователя.
+        Пользователь
+        Лицо, использующее мобильное приложение в качестве субъекта данных.
+        Обработчик данных (или Супервайзер данных)
+        Физическое или юридическое лицо, государственное учреждение, посредник или другой орган, действующий от имени Контролера данных (Контролера), как описано в настоящей Политике конфиденциальности.
+        Контролер данных (или Владелец)
+        Физическое или юридическое лицо, государственное учреждение, посредник или другой орган, который самостоятельно или совместно определяет цели и средства обработки и использования Персональных данных, включая меры безопасности. Если не указано иное, Контролер данных является Владельцем текущего приложения.
+        Текущее приложение
+        Инструмент, используемый для сбора и обработки Персональных данных Пользователя.
+        Служба
+        Услуга, предоставляемая через приложение, как описано в применимых условиях (если таковые имеются) и на этой странице/в этом приложении.
+        Цель обработки
+        Персональные данные, предоставленные пользователями через мобильное приложение «BuyLink» (далее «Мобильное приложение»), будут использоваться для следующих целей:
+        Реклама
+        Контакт по телефону
+        Маркетинг по электронной почте
+        Маркетинг по SMS
+        Связь с пользователем
+        Прямая регистрация
+        Хостинг и бекенд работы
+        Услуги VDS (VDS TÜRKİYE)
+        Разрешения на доступ к устройству для использования мобильного приложения
+        Персональные данные
+        Мобильное приложение будет собирать следующие типы информации напрямую или через третьи стороны:
+        номер телефона;
+        имя, фамилия;
+        адрес электронной почты;
+        пол;
+        дата рождения;
+        адрес;
+        различные типы информации;
+        Разрешение на доступ к календарю;
+        Разрешение на использование камеры;
+        Разрешение на точное определение геолокации (непостоянное);
+        Разрешение на приблизительное определение геолокации (непостоянное);
+        Разрешение на использование телефона;
+        Разрешение на использование сенсоров;
+        Разрешение на отправку SMS;
+        Разрешение на уведомления;
+        Разрешение на использование датчиков движения;
+        имя пользователя;
+        пароль;
+        изображение;
+        префикс;
+        фотография профиля.
+        Настоящая политика конфиденциальности охватывает защиту любых Персональных данных, собранных через мобильное приложение, в соответствующих разделах или в предоставленном заранее специальном уведомлении о безопасности. Персональные данные могут быть предоставлены Пользователем свободно напрямую или автоматически во время использования. Вся информация, запрашиваемая мобильным приложением «BuyLink», необходима для правильного функционирования мобильного приложения и предоставления услуг пользователю, в противном случае мобильное приложение может не оказаться в состоянии обслуживать Пользователя. Пользователь может по своему усмотрению решить не предоставлять информацию, помеченную как ненужная в мобильном приложении.
+        Использование файлов cookie или других инструментов отслеживания текущим приложением или сторонними организациями, используемыми этим приложением, направлено на предоставление Услуги, запрошенной Пользователем, а также на другие цели, описанные в этом документе, если таковые имеются, в Политике использования файлов cookie.
+        Пользователи несут полную ответственность за любые Персональные данные, которые они или третьи стороны предоставляют, распространяют или делятся через мобильное приложение, и должны подтвердить, что третья сторона дала свое согласие на такое предоставление.
+        Правила обработки данных
+        Методы обработки
+        Владелец приложения принимает все необходимые меры для предотвращения несанкционированного доступа, раскрытия, изменения или уничтожения конфиденциальной информации, охватываемой настоящей Политикой конфиденциальности.
+        Данные обрабатываются в соответствии с целями текущей Политики конфиденциальности и организационными правилами и процедурами с эффективным использованием инструментов информационных технологий.
+        Помимо Владельца приложения, если это необходимо, Конфиденциальная информация может быть передана третьим лицам, включая внешние стороны (обслуживание, хостинг, поставщики ИТ-услуг) и стороны, участвующие в управлении, назначенные Владельцем приложения в соответствии с условиями и положениями настоящей Политики конфиденциальности.
+        Правовые основания
+        Личные данные могут обрабатываться Владельцем приложения, если применяются следующие условия:
+        • Если Пользователь дал свое однозначное согласие на обработку своих Персональных данных;
+        • Предоставление информации, если это необходимо для выполнения соглашения с Пользователем и/или выполнения любых преддоговорных обязательств;
+        • Если это необходимо для того, чтобы Владелец мобильного приложения выполнил юридическое обязательство, которому он подчиняется;
+        • Если обработка необходима для осуществления общественных интересов или служебных полномочий, возложенных на Владельца мобильного образования;
+        • Если обработка необходима для целей законных интересов, преследуемых Владельцем или третьей стороной.
+        Цели обработки
+        Информация, относящаяся к пользователю, собирается и обрабатывается для того, чтобы Предприниматель мог предоставлять свои услуги, соблюдать свои юридические обязательства, отвечать на запросы о правоприменении, защищать свои права и интересы (или права и интересы своих пользователей или третьих лиц), а также выявлять любые вредоносные или мошеннические действия.
+        Срок хранения
+        Персональные данные обрабатываются и хранятся в течение срока использования мобильного приложения пользователем с даты сбора. Персональные данные автоматически удаляются в течение 1 месяца, если пользователь не использует мобильное приложение в течение одного года. Если это произойдет, Пользователь может обратиться к Владельцу мобильного приложения для восстановления Персональных данных в течение 14 рабочих дней.
+        По истечении срока подачи заявки на восстановление Персональных данных и если в течение этого периода от Пользователя не поступило никаких заявок, Персональные данные полностью удаляются без возможности восстановления.
+        Разрешение на доступ к устройству
+        В зависимости от устройства, на котором установлено мобильное приложение, мобильное приложение может потребовать определенных разрешений от устройства Пользователя.
+        Эти разрешения необходимы до того, как Персональные данные будут введены Пользователем в мобильное приложение. Соответствующие разрешения, предоставленные Пользователем, могут быть отозваны Пользователем в любое время. В процессе отзыва предоставленных разрешений Пользователь может в любое время отозвать разрешения непосредственно в настройках устройства или связавшись с Владельцем мобильного приложения.
+        Отзыв разрешений может привести к сбою в работе мобильного приложения. Соответствующие Персональные данные могут быть обработаны текущим приложением, если Пользователь предоставил необходимые разрешения.
+        Место обработки данных
+        Данные обрабатываются в операционных офисах Предпринимателя и других местах, где находятся стороны, участвующие в обработке. В зависимости от местоположения Пользователя передача данных может включать передачу данных Пользователя из его страны в другую страну.
+        Разрешение на доступ к устройству для Персональных данных
+        В зависимости от конкретного устройства Пользователя текущее приложение может потребовать определенных разрешений, описанных ниже, которые позволяют получить доступ к данным устройства Пользователя.
+        По умолчанию эти разрешения должны быть предоставлены Пользователем до того, как будет предоставлен доступ к соответствующим данным. После предоставления разрешение может быть отозвано Пользователем в любое время. Чтобы отозвать эти разрешения, Пользователи могут обратиться к настройкам устройства или обратиться за поддержкой к Владельцу через контактную информацию, указанную в настоящем документе. Точный порядок управления разрешениями приложения может зависеть от устройства и приложения Пользователя.
+        Обратите внимание, что отзыв таких разрешений может привести к сбою в работе этого приложения. Если Пользователь предоставит любое из перечисленных ниже разрешений, соответствующие Персональные данные могут быть обработаны (т.е. доступ к ним, их изменение или удаление) текущим приложением.
+        Разрешение на уведомления
+        Используется для доступа к напоминаниям на устройстве Пользователя, включая чтение, добавление и удаление записей.
+        Подробная информация о обработке Персональных данных
+        Персональные данные собираются для следующих целей и используются для следующих услуг:
+        Связь с пользователем
+        Форма обратной связи (текущее приложение)
+        Заполнив форму обратной связи своими данными, Пользователь разрешает этому приложению использовать такую информацию в целях ответа на запросы о предоставлении информации, квот или других аналогичных запросов, указанных в заголовке формы.
+        Требуемые Персональные данные: адрес; город; название компании; страна; дата рождения; адрес электронной почты; имя; пол; фамилия; номер телефона;
+        Связь по электронной почте
+        Пользователи, предоставившие адрес электронной почты, могут быть связаны с поддержкой, связанной с текущей Промоакцией, в коммерческих или рекламных целях.
+        Требуемые Персональные данные: адрес электронной почты
+        Связь по номеру телефона
+        Пользователи, предоставившие номер телефона, могут быть связаны с поддержкой, связанной с текущим приложением, в коммерческих или рекламных целях.
+        Требуемые Персональные данные: номер телефона
+        Разрешение на доступ к устройству для Персональных данных
+        Приложение требует разрешений от Пользователей для доступа к данным их устройств, как указано ниже:
+        Разрешение на доступ к данным устройства для Персональных данных (текущее приложение)
+        Это приложение требует от Пользователей определенных разрешений для доступа к данным их устройств, как указано ниже и описано в настоящем документе.
+        Хостинг и инфраструктура бэкэнда
+        Цель этого типа услуги – размещение данных и файлов, которые обеспечивают работу и распространение этого приложения, а также предоставление инфраструктуры, готовой для запуска определенных функций или частей этого приложения.
+        VDS TÜRKİYE (VDS) (VDS GLOBAL YAZILIM ARGE GELİŞTİRME LİMİTED ŞİRKETİ)
+        VDS TÜRKİYE (VDS) предоставляет хостинг и услуги бэкэнда, предоставляемые VDS Global Yazilim Arge Geliştirme Limited Şirketi.
+        Обрабатываемые Персональные данные: различные данные, указанные в политике конфиденциальности услуги.
+        Место обработки: Турция.
+        Регистрация и аутентификация, предоставляемая напрямую через это приложение
+        Регистрируясь или предоставляя идентификацию, Пользователи позволяют текущему приложению идентифицировать их и предоставлять доступ к определенным услугам. Персональные данные собираются и хранятся только для целей регистрации или идентификации. Собранная информация является только той информацией, которая необходима для предоставления запрашиваемой Пользователями услуги.
+        Прямая регистрация (текущее приложение)
+        Пользователь регистрируется, заполнив регистрационную форму и предоставив Персональные данные напрямую в текущее приложение.
+        Обрабатываемые Персональные данные: адрес; город; название компании; страна; дата рождения; адрес электронной почты; имя; пол; фамилия; пароль; номер телефона; изображение; префикс; фотография профиля; Идентификатор Пользователя; имя пользователя; различные типы информации.
+        Права пользователя
+        Пользователи могут воспользоваться определенными правами в отношении своих данных, обрабатываемых Владельцем. Права регулируются применимым законодательством.
+        В частности, Пользователи имеют следующие права:
+        В любое время отозвать свое согласие. Пользователи имеют право отозвать свое согласие на обработку своих Персональных данных.
+        Возражение против обработки данных. Пользователи имеют право возражать против обработки их данных, если они были получены на законных основаниях, кроме согласия. Более подробная информация предоставлена в соответствующем разделе ниже.
+        Доступ к информации. Пользователи имеют право узнать, обрабатываются ли данные Владельцем, получить объяснение определенных аспектов обработки и получить копию обрабатываемых данных.
+        Проверка и исправление. Пользователи имеют право проверить точность своих данных и потребовать их обновления или исправления.
+        Ограничение обработки данных. Пользователи имеют право ограничить обработку своих данных в определенных условиях. В этом случае Владелец не имеет права обрабатывать их данные в каких-либо целях, он может только хранить эти данные.
+        Удаление или иное удаление Персональных данных. Пользователи имеют право потребовать от Владельца удалить их данные в определенных условиях.
+        Получение информации и передача ее другому контролеру. Пользователи имеют право получать свои данные в структурированном, широко используемом и машиночитаемом формате и передавать эти данные другому контролеру (контролеру) без каких-либо препятствий, если это технически возможно. Это положение применяется, когда информация обрабатывается автоматизированными средствами, и обработка основана на согласии Пользователя, на основе договора, в котором Пользователь является партнером, или на основе обязательств, ранее заключенных с ним.
+        Подать жалобу. Пользователи имеют право подать жалобу в орган, уполномоченный на защиту их данных.
+        
+        Право на возражение против обработки
+        Если Персональные данные обрабатываются в целях общественного интереса, осуществления служебных полномочий, предоставленных Владельцу мобильного приложения, или законных интересов, осуществляемых Владельцем мобильного приложения, Пользователи могут возразить против этой обработки, должным образом обосновав свое возражение. Пользователи должны знать, что если их Персональные данные обрабатываются для целей прямого маркетинга, они имеют право возражать против этой обработки в любое время без указания причин. Пользователи могут обратиться к соответствующим разделам текущего документа, чтобы узнать, обрабатывает ли Владелец Персональные данные в целях прямого маркетинга.
+        Реализация прав
+        Любой запрос на реализацию прав пользователя может быть направлен Владельцу через контактную информацию, указанную в настоящем документе. Эти запросы должны быть выполнены Предпринимателем бесплатно, как можно скорее и всегда в течение одного месяца.
+        Правовые действия
+        Персональные данные Пользователя могут использоваться Владельцем в юридических целях в суде или на стадиях возможных юридических действий, вызванных ненадлежащим использованием этого Приложения или связанных с ним Услуг.
+        Доступ к системе и обслуживание
+        В целях эксплуатации и обслуживания это Приложение и любые сторонние службы могут собирать файлы, которые фиксируют взаимодействия с этим Приложением (Системный вход), используя для этой цели другие Персональные данные (например, IP-адрес).
+        Изменения в Политике конфиденциальности
+        Владелец оставляет за собой право время от времени вносить изменения в текущую политику конфиденциальности.
+        Владелец уведомит Пользователя об изменениях в Политике конфиденциальности через Мобильное приложение.
+        Пользователь несет ответственность за проверку действующей Политики конфиденциальности и за осведомленность о любых внесенных в нее изменениях.
+        Если изменения затрагивают деятельность по обработке, осуществляемую на основании согласия Пользователя, Владелец должен получить новое согласие от пользователя, если это необходимо.`
+      },
+      statistic: {
+        '0': 'Кол-во товаров',
+        '1': 'Сумма продаж',
+        '2': 'Кол-во рекомендаций',
+        '3': 'Общее количество транзакций',
+        '4': 'Всего рекомендовано',
+        '5': 'Испол-ые рекомендации',
+        '6': 'Рекомендации',
+        '7': 'Доход за месяц',
+        '8': 'Продажи',
+        '9': 'Тренд',
+        '10': 'Оценки и отзывы',
+        '11': 'Количество оценок',
+        '12': 'Тренд'
+      },
+      balance: {
+        '0': 'Oбщая сумма',
+        '1': 'Расчёт с BuyLink',
+        '2': 'Из кассы',
+        '3': 'C Баланса',
+        '4': 'Чистая сумма',
+        '5': 'После 3 дней задержки начнут начисляться штрафы',
+        '6': 'Начинают начисляться штрафы (0,1% от общей суммы)',
+        '7': 'В случае задержки платежа будут штрафы',
+        '8': 'Дата платежа!',
+        '9': 'Просроченный платеж!',
+        '10': 'Осталось дней до платежа',
+        '11': 'На данный момент нет данных',
+        '12': 'Общий долг',
+        '13': 'Платежи',
+        '14': 'Чистый долг'
+      },
+      balanceTable: {
+        '0': 'Сумма счета',
+        '1': 'Скидка %',
+        '2': 'Сумма со скидкой',
+        '3': 'Комиссия %',
+        '4': 'Сумма комиссии',
+        '5': 'Дата',
+        '6': 'Чистая сумма',
+        '7': 'Имя пользователя',
+        '8': 'Имя оператора',
+        '9': 'Сумма',
+        '10': 'Тип платежа',
+        '11': 'Счет'
+      },
+      settingDashboard: {
+        '1': 'Настройки',
+        '2': 'Имя партнера',
+        '3': 'Старый пароль',
+        '4': 'Электронная почта',
+        '5': 'Новый пароль'
+      },
+      months: {
+        '1': 'Май',
+        '2': 'Июнь',
+        '3': 'Июль',
+        '4': 'Авг',
+        '5': 'Сент',
+        '6': 'Октб',
+        '7': 'Нояб',
+        '8': 'Дек',
+        '9': 'Янв',
+        '10': 'Февр',
+        '11': 'Март',
+        '12': 'Aпр'
+      },
+      confirmation: {
+        '1': 'Вы уверены?',
+        '2': 'Это действие нельзя будет отменить!',
+        '3': 'Да, удалить!',
+        '4': 'Отмена'
+      },
+      deleted: {
+        '1': 'Удалено!',
+        '2': 'Ваш файл был удален.'
+      },
+      error: {
+        '1': 'Ошибка!',
+        '2': 'Произошла ошибка при удалении.'
+      },
+      toast: {
+        '1': 'Ошибка получения данных.',
+        '2': 'Неверный формат телефона.',
+        '3': 'Пожалуйста, заполните форму полностью',
+        '4': 'Добавлено успешно!',
+        '5': 'Обновлено успешно!',
+        '6': 'Произошла ошибка. Пожалуйста, попробуйте еще раз.',
+        '7': 'Успешный!',
+        '8': 'Что-то пошло не так!',
+        '9': 'Требуется цена!',
+        '10': 'Требуется название',
+        '11': 'Пожалуйста, заполните все обязательные поля.'
+      },
+      pagination: {
+        showing: 'Показано  {{page}}  из {{totalResults}} результатов'
+      }
     },
   },
 };

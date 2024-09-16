@@ -88,7 +88,7 @@ export default function Balance() {
             </div>
           </CardDueTo>
         </div>
-        <div className="layout2 order-5 col-span-2 w-full sm:col-span-1 xl:order-none">
+        <div className="layout2 order-5 col-span-2 w-full sm:col-span-1  xl:order-none">
           <CardDueTo
             title={t('balance.14')}
             rate={net_amount}

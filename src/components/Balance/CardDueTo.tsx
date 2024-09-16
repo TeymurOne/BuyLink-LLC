@@ -11,7 +11,7 @@ interface CardDataStatsProps {
   className?: string;
 }
 
-const CardDueTo: React.FC<CardDataStatsProps> = ({
+const CardDataStats: React.FC<CardDataStatsProps> = ({
   children,
   title,
   rate,
@@ -46,4 +46,4 @@ const CardDueTo: React.FC<CardDataStatsProps> = ({
   );
 };
 
-export default CardDueTo;
+export default CardDataStats;

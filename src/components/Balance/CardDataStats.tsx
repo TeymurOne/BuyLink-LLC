@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setFilter } from '../../features/balance/balanceSlice';
 import logo from '../../images/icon/minilogo.png';
@@ -25,10 +25,23 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
   onClick,
 }) => {
   const dispatch = useDispatch();
+  const [show, setShow] = useState(false);
+
+  const truncateNumber = (value: any) => {
+    if (isNaN(value) || value === null) return '';
+    const numberStr = value.toString();
+    const dotIndex = numberStr.indexOf('.');
+    if (dotIndex === -1) return numberStr;
+    return numberStr.slice(0, dotIndex + 3);
+  };
+
   const handleClick = () => {
     if (apiData) dispatch(setFilter(apiData));
-    onClick();
+    if (title === 'Due to BuyLink') {
+      setShow(!show);
+    }
   };
+
   return (
     <div
       onClick={handleClick}
@@ -40,20 +53,21 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
           <span
             className={`flex items-center ${isActive ? 'text-white' : ''} text-sm font-normal text-darkgray dark:text-white xl:text-base`}
           >
-            {title === 'Balansdan' && (
+            {(title === 'Balansdan' ||
+              title === 'C Баланса' ||
+              title === 'Wallet') && (
               <img src={logo} alt="logo" className="mr-2" />
             )}
             {title}
-          </span>
+          </span>{' '}
           <span
             className={`flex items-center text-xl font-medium dark:text-white  ${isActive ? 'text-white' : ''} xl:text-xl`}
           >
-            {rate} {icon}
+            {truncateNumber(rate)} {icon}
           </span>
         </div>
       </div>
     </div>
   );
 };
-
 export default CardDataStats;
