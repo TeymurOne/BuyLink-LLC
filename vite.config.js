@@ -1,12 +1,23 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig, loadEnv } from 'vite';
+import react from '@vitejs/plugin-react';
 
-export default defineConfig({
-  plugins: [react()],
-  port: 3000,
-  build: {
-    rollupOptions: {
-      external: ['./axios'],
+export default ({ mode }) => {
+  process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
+
+  // import.meta.env.VITE_NAME available here with: process.env.VITE_NAME
+  // import.meta.env.VITE_PORT available here with: process.env.VITE_PORT
+
+  return defineConfig({
+    plugins: [react()],
+    port: 3000,
+    build: {
+      rollupOptions: {
+        external: ['./axios'],
+      },
     },
-  },
-});
+    server: {
+      port: 3000,
+      host: process.env.VITE_SERVER_HOST === 'true',
+    },
+  });
+};

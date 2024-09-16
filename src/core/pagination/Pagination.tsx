@@ -2,22 +2,30 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   setDecrement,
+  setIncrement,
   setPaginationCurrent,
 } from '../../features/pagination/paginationSlice';
+import { useTranslation } from 'react-i18next';
 
 export default function Pagination() {
   const { allPages, page } = useSelector((store: any) => store.PaginationSlice);
   const dispatch = useDispatch();
+
   const handlePagination = (id: number) => {
     dispatch(setPaginationCurrent(id));
   };
+  const { t } = useTranslation();
 
   const currentPages = Array.from({ length: allPages }).map((_, index) => (
     <button
       onClick={() => handlePagination(index + 1)}
       key={index}
-      aria-current="page"
-      className="text-gray-900 relative inline-flex items-center px-4 py-2 text-sm font-semibold ring-1 ring-inset hover:bg-gray-3 focus:bg-bodydark2 focus:text-white"
+      aria-current={page === index + 1 ? 'page' : undefined}
+      className={`relative inline-flex items-center px-4 py-2 text-sm font-semibold ring-1 ring-inset ${
+        page === index + 1
+          ? 'bg-form-strokedark text-white'
+          : 'text-gray-900 hover:bg-gray-3 focus:bg-bodydark2 focus:text-white'
+      }`}
     >
       {index + 1}
     </button>
@@ -29,15 +37,19 @@ export default function Pagination() {
         <button
           disabled={page === 1}
           onClick={() => dispatch(setDecrement())}
-          className={`relative ${page === 1 ? 'opacity-40' : 'opacity-100'} border-gray-300 text-gray-700 hover:bg-gray-50 relative inline-flex items-center rounded-md border bg-white px-4 py-2 text-sm font-medium`}
+          className={`relative ${
+            page === 1 ? 'opacity-40' : 'opacity-100'
+          } border-gray-300 text-gray-700 hover:bg-gray-50 relative inline-flex items-center rounded-md border bg-white px-4 py-2 text-sm font-medium`}
         >
           Previous
         </button>
 
         <button
           disabled={page === allPages}
-          onClick={() => dispatch(setDecrement())}
-          className={`relative ${page === allPages ? 'opacity-40' : 'opacity-100'} border-gray-300 text-gray-700 hover:bg-gray-50 relative ml-3 inline-flex items-center rounded-md border bg-white px-4 py-2 text-sm font-medium`}
+          onClick={() => dispatch(setIncrement())}
+          className={`relative ${
+            page === allPages ? 'opacity-40' : 'opacity-100'
+          } border-gray-300 text-gray-700 hover:bg-gray-50 relative ml-3 inline-flex items-center rounded-md border bg-white px-4 py-2 text-sm font-medium`}
         >
           Next
         </button>
@@ -46,9 +58,11 @@ export default function Pagination() {
         <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
           <div>
             <p className="text-gray-700 text-sm">
-              Showing <span className="font-medium">{page}</span> to{' '}
-              <span className="font-medium">{allPages}</span> of{' '}
-              <span className="font-medium">{allPages}</span> results
+              {t('pagination.showing', {
+                page: page,
+                totalPages: allPages,
+                totalResults: allPages,
+              })}
             </p>
           </div>
           <div>
@@ -59,7 +73,9 @@ export default function Pagination() {
               <button
                 disabled={page === 1}
                 onClick={() => dispatch(setDecrement())}
-                className={`relative ${page == 1 ? 'opacity-40' : 'opacity-100'} ring-gray-300 inline-flex items-center rounded-l-md px-2 py-2 ring-1 ring-inset hover:bg-gray-2 focus:z-20 focus:outline-offset-0`}
+                className={`relative ${
+                  page == 1 ? 'opacity-40' : 'opacity-100'
+                } ring-gray-300 inline-flex items-center rounded-l-md px-2 py-2 ring-1 ring-inset hover:bg-gray-2 focus:z-20 focus:outline-offset-0`}
               >
                 <span className="sr-only">Previous</span>
                 <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
@@ -67,8 +83,10 @@ export default function Pagination() {
               {currentPages}
               <button
                 disabled={page === allPages}
-                onClick={() => dispatch(setDecrement())}
-                className={`relative ${page == allPages ? 'opacity-40' : 'opacity-100'} inline-flex items-center rounded-r-md px-2 py-2 ring-1 ring-inset`}
+                onClick={() => dispatch(setIncrement())}
+                className={`relative ${
+                  page == allPages ? 'opacity-40' : 'opacity-100'
+                } inline-flex items-center rounded-r-md px-2 py-2 ring-1 ring-inset`}
               >
                 <span className="sr-only">Next</span>
                 <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />

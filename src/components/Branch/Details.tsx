@@ -23,14 +23,10 @@ const Details = () => {
 
   return (
     <>
-      <TitleArrow>Branch Details</TitleArrow>
+      <TitleArrow>{t('branch.17')}</TitleArrow>
       {content && (
         <div className="0 mt-4 flex w-full max-w-full  overflow-hidden rounded-tl-xl border  border-gray text-sm   font-normal ">
           <ul className="w-full max-w-25 bg-white">
-            <li className="h-20  border-b border-r border-gray px-3 py-4  text-xs dark:bg-boxdark dark:text-white lg:text-sm ">
-              İd
-            </li>
-
             {titles.map((item, index) => {
               return (
                 <li
@@ -44,9 +40,6 @@ const Details = () => {
             })}
           </ul>
           <ul className="w-full max-w-full bg-white">
-            <li className="h-20 px-3 py-4 pl-5 text-xs dark:bg-boxdark-2 dark:text-white lg:text-sm">
-              {content?.id}
-            </li>
             <li className="h-20 bg-[#F8F8F8] px-3 py-4 pl-5 text-xs dark:bg-boxdark dark:text-white lg:text-sm">
               {content?.address}
             </li>

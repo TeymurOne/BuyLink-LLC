@@ -3,7 +3,7 @@ import Map from './Map';
 import { useTranslation } from 'react-i18next';
 
 const App = (props: any) => {
-  const { lat, lng, attemptedSubmit } = props;
+  const { lat, lng, attemptedSubmit, resetCoordinates } = props;
   const { t } = useTranslation();
 
   const [coordinate, setCoordinate] = useState<any>({ lat, lng });
@@ -12,11 +12,18 @@ const App = (props: any) => {
   );
 
   useEffect(() => {
+    if (resetCoordinates) {
+      setCoordinate({ lat: '', lng: '' });
+      setInputValue('');
+    }
+  }, [resetCoordinates]);
+
+  useEffect(() => {
     setInputValue(`${coordinate.lat ?? ''},${coordinate.lng ?? ''}`);
   }, [coordinate]);
 
   const handleCoordinateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value.replace(/[^\d.,-]/g, ''); // only keep numbers, commas, and periods
+    const value = e.target.value.replace(/[^\d.,-]/g, '');
     setInputValue(value);
     const [newLat, newLng] = value.split(',').map((coord) => coord.trim());
     const isValidCoordinate = (coord: string) => /^-?\d+(\.\d+)?$/.test(coord);
@@ -47,6 +54,7 @@ const App = (props: any) => {
           coordinate={coordinate}
           setCoordinate={setCoordinate}
           setInputValue={setInputValue}
+          resetCoordinates={resetCoordinates}
         />
       </div>
 

@@ -41,7 +41,7 @@ const RatingStar = () => {
               {t('statistic.10')}
             </h2>
 
-            <div className="flex space-x-4 py-6 ">
+            <div className="flex w-100 space-x-4 py-6">
               <h2 className="text-3xl font-bold text-black-3 dark:text-white">
                 {data?.rating?.average_rating}/ 5
               </h2>

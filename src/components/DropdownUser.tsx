@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-
+import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   logOut,
@@ -12,7 +12,7 @@ const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dispatch = useDispatch();
   const user = useSelector(selectCurrentUser);
-
+  const { t } = useTranslation();
   const trigger = useRef<any>(null);
   const dropdown = useRef<any>(null);
   const navigate = useNavigate();
@@ -123,7 +123,7 @@ const DropdownUser = () => {
                   fill=""
                 />
               </svg>
-              Change Password
+              {t('operator.11')}
             </Link>
           </li>
         </ul>
@@ -148,7 +148,7 @@ const DropdownUser = () => {
               fill=""
             />
           </svg>
-          Log Out
+          {t('member.15')}
         </button>
       </div>
       {/* <!-- Dropdown End --> */}

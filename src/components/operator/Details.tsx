@@ -19,17 +19,11 @@ const Details = () => {
     <>
       {content ? (
         <>
-          <TitleArrow>
-            {t('operator.0')} <span> {id}</span>{' '}
-          </TitleArrow>
+          <TitleArrow>{t('operator.12')}</TitleArrow>
 
           {content && (
             <div className="0 mt-4 flex w-full max-w-full  overflow-hidden rounded-tl-xl border border-gray text-sm font-normal">
               <ul className="w-full max-w-25 bg-white">
-                <li className="border-b border-r border-gray px-3 py-4 text-xs lg:text-sm ">
-                  İd
-                </li>
-
                 {titles.map((item, index) => {
                   return (
                     <li
@@ -43,9 +37,6 @@ const Details = () => {
                 })}
               </ul>
               <ul className="w-full  max-w-full bg-white">
-                <li className="px-3 py-4 pl-5 text-xs lg:text-sm">
-                  {content?.id}
-                </li>
                 <li className="bg-[#F8F8F8] px-3 py-4 pl-5 text-xs lg:text-sm">
                   {content?.name}
                 </li>

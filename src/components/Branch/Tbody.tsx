@@ -29,7 +29,6 @@ const Tbody: React.FC<any> = ({ item }) => {
   return (
     <>
       <TR>
-        <TD>{item.id}</TD>
         <TD>{item.name}</TD>
         <TD>{item.address}</TD>
         <TD>{item.phone}</TD>

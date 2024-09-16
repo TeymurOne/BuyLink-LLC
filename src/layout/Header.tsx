@@ -120,9 +120,6 @@ export default function Header() {
             )}
           </div>
           <ul className="hidden space-x-6 text-center font-roboto text-lg font-normal text-black lg:flex">
-            <li className="px-3">
-              <Link to="/about">{t('header.0')}</Link>
-            </li>
             <li className="w-32 px-3">
               <a href="/#how-use">{t('header.2')}</a>
             </li>
@@ -216,13 +213,6 @@ export default function Header() {
             <div className="mt-6">
               <div className="-my-6 divide-y">
                 <div className="space-y-2 py-6">
-                  <a
-                    href="#about"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-lg font-normal leading-7"
-                  >
-                    {t('header.0')}
-                  </a>
                   <a
                     href="#how-use"
                     onClick={() => setMobileMenuOpen(false)}

@@ -24,14 +24,10 @@ const DetailsProduct = () => {
     <>
       {content && (
         <>
-          <TitleArrow>Product Details</TitleArrow>
+          <TitleArrow>{t('product.18')}</TitleArrow>
           {content && (
             <div className="0 mt-4 flex w-full max-w-full  overflow-hidden rounded-tl-xl border border-gray text-sm font-normal">
               <ul className="w-full max-w-25 bg-white dark:bg-boxdark dark:text-white">
-                <li className="h-20 border-b border-r border-gray px-3 py-4 text-xs lg:text-sm">
-                  Sıra nömrəsi
-                </li>
-
                 {titles.map((item, index) => {
                   return (
                     <li
@@ -45,9 +41,6 @@ const DetailsProduct = () => {
                 })}
               </ul>
               <ul className="w-full  max-w-full bg-white">
-                <li className="h-20 bg-[#F8F8F8] px-3 py-4 pl-5 text-xs  dark:bg-boxdark dark:text-white lg:text-sm ">
-                  {content?.id}
-                </li>
                 <li className="h-20 bg-white px-3 py-4 pl-5  text-xs dark:bg-boxdark-2  dark:text-white lg:text-sm ">
                   {content?.title?.en}
                 </li>

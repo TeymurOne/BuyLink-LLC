@@ -74,7 +74,7 @@ const Form: React.FC = () => {
     setAttemptedSubmit(true);
 
     if (!validateForm()) {
-      toast.error('Please fill out all required fields.');
+      toast.error(t('toast.11'));
       return;
     }
 
@@ -86,7 +86,7 @@ const Form: React.FC = () => {
 
     try {
       await postOperator(postData).unwrap();
-      toast.success('Added successfully!');
+      toast.success(t('toast.4'));
       navigate('/admin/operator/all');
       dispatch(resetState());
     } catch (error) {
@@ -106,8 +106,7 @@ const Form: React.FC = () => {
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    const cleanedValue = value.replace(/[^a-zA-Z\s]/g, '');
-    dispatch(setName(cleanedValue));
+    dispatch(setName(value));
     setFormErrors((prevErrors) => ({ ...prevErrors, name: false }));
   };
 
@@ -139,7 +138,7 @@ const Form: React.FC = () => {
                   value={name}
                   onChange={handleNameChange}
                   id="name"
-                  placeholder="Enter your name"
+                  placeholder="John Brown"
                   className={inputClassName(attemptedSubmit && formErrors.name)}
                 />
                 {attemptedSubmit && formErrors.name && (
@@ -154,7 +153,7 @@ const Form: React.FC = () => {
                   value={email}
                   onChange={handleEmailChange}
                   id="email"
-                  placeholder="Enter your Email"
+                  placeholder="john@example.com"
                   className={inputClassName(
                     attemptedSubmit && formErrors.email,
                   )}
@@ -172,7 +171,7 @@ const Form: React.FC = () => {
                   value={password}
                   onChange={handlePasswordChange}
                   id="password"
-                  placeholder="Enter your password"
+                  placeholder="***********"
                   className={inputClassName(
                     attemptedSubmit && formErrors.password,
                   )}

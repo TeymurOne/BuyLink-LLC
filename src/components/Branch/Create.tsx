@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { usePostBranchMutation } from '../../features/branch/apiSlice';
 import { useNavigate } from 'react-router-dom';
 import App from '../../Map/App';
@@ -17,6 +17,7 @@ import {
   setPhone,
 } from '../../features/branch/branchSlice';
 import { useTranslation } from 'react-i18next';
+import { TitleArrow } from '../ui/Title.tsx';
 
 interface IpostData {
   id?: any;
@@ -55,12 +56,12 @@ const Form: React.FC = () => {
     setAttemptedSubmit(true);
 
     if (!address || !latData || !lngData || !name.trim() || !phone.trim()) {
-      toast.error('Please fill out the form completely.');
+      toast.error(t('toast.3'));
       return;
     }
 
     if (!validatePhoneNumber(phone)) {
-      toast.error('The phone format is invalid.');
+      toast.error(t('toast.2'));
       return;
     }
 
@@ -77,12 +78,12 @@ const Form: React.FC = () => {
 
       const response = await postBranches(postData).unwrap();
       if (response.success) {
-        toast.success('Added successfully!');
+        toast.success(t('toast.4'));
         navigate('/admin/branch/all');
         dispatch(resetState());
       }
     } catch (error) {
-      toast.error('An error occurred. Please try again.');
+      toast.error(t('toast.6'));
     } finally {
       dispatch(setLoad(false));
     }
@@ -100,6 +101,7 @@ const Form: React.FC = () => {
     <>
       <form onSubmit={postSubmit}>
         <div className="pb-12 ">
+          <TitleArrow>{t('branch.1')}</TitleArrow>
           <div className="mt-10 grid grid-cols-1 items-center gap-4 lg:grid-cols-2">
             <div style={{ position: 'relative' }}>
               <Input
@@ -107,7 +109,7 @@ const Form: React.FC = () => {
                 value={address}
                 onChange={(e) => dispatch(setAddress(e.target.value))}
                 id="Address"
-                placeholder="Enter your address"
+                placeholder={t('branch.16')}
                 className={inputClassName(attemptedSubmit && !address)}
               />
               {attemptedSubmit && !address && (
@@ -140,7 +142,7 @@ const Form: React.FC = () => {
                 value={name}
                 onChange={(e) => dispatch(setName(e.target.value))}
                 id="Name"
-                placeholder="Enter your name"
+                placeholder="Shane English School"
                 className={inputClassName(attemptedSubmit && !name)}
               />
               {attemptedSubmit && !name && (
@@ -160,6 +162,7 @@ const Form: React.FC = () => {
                 dispatch(setLat(newLat));
                 dispatch(setLng(newLng));
               }}
+              resetCoordinates
             />
           </div>
         </div>
