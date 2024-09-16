@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import us from '../images/flagTranslate/usa.svg';
 import aze from '../images/flagTranslate/aze.svg';
@@ -9,16 +9,27 @@ import i18n from '../../i18n/İ18n';
 
 const Translate = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [currentLang, setCurrentLang] = useState(
+    localStorage.getItem('lng') || 'az',
+  );
 
   const trigger = useRef<any>(null);
   const dropdown = useRef<any>(null);
 
   const { t } = useTranslation();
+
   const handleClick = (lang: string) => {
     setDropdownOpen(false);
     i18n.changeLanguage(lang);
+    setCurrentLang(lang);
     localStorage.setItem('lng', lang);
   };
+
+  useEffect(() => {
+    const savedLang = localStorage.getItem('lng') || 'az';
+    i18n.changeLanguage(savedLang);
+    setCurrentLang(savedLang);
+  }, []);
 
   return (
     <li className="relative">
@@ -28,13 +39,13 @@ const Translate = () => {
         className="relative flex h-8.5 w-8.5 items-center justify-center rounded-full border-[0.5px] border-stroke bg-gray hover:text-primary dark:border-strokedark dark:bg-meta-4 dark:text-white"
       >
         <span className="relative  z-1 grid  h-2 w-4 place-items-center rounded-full">
-          {localStorage.getItem('lng') == 'az' ? (
+          {currentLang === 'az' ? (
             <img
               className="absolute h-6 w-6 rounded-md"
               src={aze}
               alt="Aze Flag"
             />
-          ) : localStorage.getItem('lng') == 'en' ? (
+          ) : currentLang === 'en' ? (
             <img
               className="absolute h-6 w-6 rounded-md"
               src={us}
