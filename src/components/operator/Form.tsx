@@ -149,7 +149,7 @@ const Form: React.FC = () => {
               </div>
               <div className="relative col-span-6 lg:col-span-3">
                 <Input
-                  label="E-mail"
+                  label={t('settingDashboard.4')}
                   value={email}
                   onChange={handleEmailChange}
                   id="email"

@@ -301,7 +301,7 @@ const Form = () => {
                 htmlFor="logo"
                 className="text-gray-900 block text-sm font-medium leading-6"
               >
-                Logo
+                {t('partnerinfo.1')}
               </label>
               <div className="mt-6 flex h-20 items-center gap-x-3">
                 <div className="h-16 w-19 rounded-md">
@@ -451,7 +451,7 @@ const Form = () => {
                   htmlFor="email"
                   className="block text-sm font-medium leading-6"
                 >
-                  Email
+                  {t('settingDashboard.4')}
                 </label>
                 <div className="mt-2">
                   <input
@@ -531,7 +531,7 @@ const Form = () => {
                   htmlFor="website"
                   className="block text-sm font-medium leading-6"
                 >
-                  Website
+                  {t('partnerinfo.21')}
                 </label>
                 <div className="mt-2">
                   <input
