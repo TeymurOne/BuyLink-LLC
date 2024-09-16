@@ -186,8 +186,8 @@ const Form = () => {
                       htmlFor={`title-${lang}`}
                       className="mb-2 block font-works text-sm font-medium text-tdColor dark:text-white300"
                     >
-                      {t('product.0')} {t('product.14')}
-                      {lang.toUpperCase()}
+                      {t('product.14')}
+                      <span className="pl-1">({lang.toUpperCase()})</span>
                       <span className="pl-1 text-red-600">*</span>
                     </label>
                     <input
@@ -259,7 +259,7 @@ const Form = () => {
                       className="mb-2 block font-works text-sm font-medium text-tdColor dark:text-white300"
                     >
                       {t('product.4')}
-                      {lang.toUpperCase()}
+                      <span className="pl-1">({lang.toUpperCase()})</span>
                     </label>
                     <textarea
                       name={`description-${lang}`}
