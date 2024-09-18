@@ -2,13 +2,12 @@ import React from 'react';
 
 interface Date {
   svg?: string;
-  month?: string;
   desc?: string;
-  day?: string;
+  day?: number;
   daytext?: string;
 }
 
-const DateCard: React.FC<Date> = ({ svg, month, desc, day, daytext }) => {
+const DateCard: React.FC<Date> = ({ svg, desc, day, daytext }) => {
   return (
     <>
       <div className="flex w-full items-center space-x-4 rounded-xl border border-black border-opacity-60 bg-transparent py-3 pl-4 shadow dark:bg-boxdark">
@@ -42,9 +41,6 @@ const DateCard: React.FC<Date> = ({ svg, month, desc, day, daytext }) => {
           </svg>
         </div>
         <div className="flex flex-col">
-          <div className="text-sm font-semibold text-black dark:text-white">
-            {month}
-          </div>
           <span className="font-roboto text-xl font-medium dark:text-white xl:text-lg">
             {day} {daytext}
           </span>
