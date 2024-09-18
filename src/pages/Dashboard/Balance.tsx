@@ -127,7 +127,7 @@ export default function Balance() {
           </CardDataStats>
         </div>
         <div className="col-span-2 w-full sm:-mt-1">
-          {due_buyLink > 30 && debt_date && (
+          {due_buyLink >= 30 && debt_date && (
             <CardDataTime title="Total Revenue" rate={debt_date} />
           )}
         </div>
