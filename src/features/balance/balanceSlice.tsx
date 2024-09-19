@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 interface TinitialState {
   total_revenue: string;
   cash_till: string;
-  due_buyLink: string;
+  due_to_buylink: string;
   net_amount: string;
   buylink_wallet: string;
   debt_date: string;
@@ -14,7 +14,7 @@ interface TinitialState {
 const initialState: TinitialState = {
   total_revenue: '',
   cash_till: '',
-  due_buyLink: '',
+  due_to_buylink: '',
   net_amount: '',
   buylink_wallet: '',
   debt_date: '',
@@ -33,7 +33,7 @@ const balanceSlice = createSlice({
       state.cash_till = action.payload;
     },
     setDueBuyLink: (state, action) => {
-      state.due_buyLink = action.payload;
+      state.due_to_buylink = action.payload;
     },
     setNetAmount: (state, action) => {
       state.net_amount = action.payload;
