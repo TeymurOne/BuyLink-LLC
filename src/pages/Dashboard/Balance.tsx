@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import CardDataStats from '../../components/Balance/CardDataStats';
-import CardDataTime from '../../components/Balance/CardDataTime';
+import DateCard from '../../components/Balance/DateCard.tsx';
 import { Title } from '../../components/ui/Title';
 import {
   useGetBalanceQuery,
@@ -31,13 +31,12 @@ export default function Balance() {
   const {
     total_revenue,
     cash_till,
-    due_buyLink,
+    due_to_buylink,
     net_amount,
     debt_date,
     buylink_wallet,
     filter,
   } = useSelector((store: any) => store.balance);
-
   const { data, isSuccess, isLoading } = useGetBalanceQuery('');
   const transactions = useGetTransactionsQuery(filter);
   const { t } = useTranslation();
@@ -83,7 +82,7 @@ export default function Balance() {
         <div className="col-span-2 w-full sm:col-span-1">
           <CardDataStats
             title={t('balance.1')}
-            rate={due_buyLink}
+            rate={due_to_buylink}
             icon={<TbCurrencyManat />}
           >
             <div className="flex h-13.5 w-13.5 items-center justify-center rounded bg-[#F4F4F4]">
@@ -127,8 +126,8 @@ export default function Balance() {
           </CardDataStats>
         </div>
         <div className="col-span-2 w-full sm:-mt-1">
-          {due_buyLink >= 30 && debt_date && (
-            <CardDataTime title="Total Revenue" rate={debt_date} />
+          {due_to_buylink >= 30 && debt_date && (
+            <DateCard title="Total Revenue" rate={debt_date} />
           )}
         </div>
       </div>
