@@ -54,7 +54,7 @@ export default function Balance() {
     if (isSuccess) {
       dispatch(setTotalRevenue(data?.total_revenue));
       dispatch(setCashTill(data?.cash_till));
-      dispatch(setDueBuyLink(Math.abs(data?.due_to_buylink)));
+      dispatch(setDueBuyLink(data?.due_to_buylink));
       dispatch(setNetAmount(data?.net_amount));
       dispatch(setBuylinkWallet(data?.wallet));
       dispatch(setDate(data?.debt_date));
