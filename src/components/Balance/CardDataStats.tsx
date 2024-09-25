@@ -40,18 +40,23 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
     if (title === 'Due to BuyLink') {
       setShow(!show);
     }
+    onClick();
   };
 
   return (
     <div
       onClick={handleClick}
-      className={`w-full cursor-pointer rounded-xl py-3 shadow transition hover:scale-95 dark:bg-boxdark ${className} ${isActive ? 'bg-[#4C5DF5]' : 'bg-white'}`}
+      className={`w-full cursor-pointer rounded-xl py-3 shadow transition hover:scale-95 dark:bg-boxdark ${className} ${
+        isActive ? 'bg-[#4C5DF5] text-white' : 'bg-white'
+      }`}
     >
       <div className="relative flex w-full space-x-4">
         <div className="pl-4">{children}</div>
         <div className="flex w-full flex-col">
           <span
-            className={`flex items-center ${isActive ? 'text-white' : ''} text-sm font-normal text-darkgray dark:text-white xl:text-base`}
+            className={`flex items-center text-sm font-normal text-darkgray xl:text-base ${
+              isActive ? 'text-white' : 'dark:text-white'
+            }`}
           >
             {(title === 'Balansdan' ||
               title === 'C Баланса' ||
@@ -61,7 +66,7 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
             {title}
           </span>{' '}
           <span
-            className={`flex items-center text-xl font-medium dark:text-white  ${isActive ? 'text-white' : ''} xl:text-xl`}
+            className={`flex items-center text-xl font-medium xl:text-xl ${isActive ? 'text-white' : 'dark:text-white'}`}
           >
             {truncateNumber(rate)} {icon}
           </span>
@@ -70,4 +75,5 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
     </div>
   );
 };
+
 export default CardDataStats;

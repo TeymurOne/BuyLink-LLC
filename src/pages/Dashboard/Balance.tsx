@@ -49,6 +49,7 @@ export default function Balance() {
         );
       })
     : [];
+
   useEffect(() => {
     if (isSuccess) {
       dispatch(setTotalRevenue(data?.total_revenue));
@@ -62,12 +63,14 @@ export default function Balance() {
       dispatch(setFilter('all'));
     }
   }, [isSuccess, activeCard, dispatch]);
-  if (isLoading || transactions.isLoading) return <TableSkeleton count="20" />;
   if (!transactions.isSuccess) return;
   const handleCardClick = (cardIndex: number, filterString: string) => {
     setActiveCard(cardIndex);
     dispatch(setFilter(filterString));
   };
+
+  if (isLoading || transactions.isLoading) return <TableSkeleton count="20" />;
+
   return (
     <>
       {' '}
@@ -109,8 +112,6 @@ export default function Balance() {
             rate={net_amount}
             className="amount_color cursor-auto hover:scale-100"
             icon={<TbCurrencyManat />}
-            isActive={activeCard === 2}
-            onClick={() => handleCardClick(2, 'net_amount')}
           >
             <div className="flex h-13.5 w-13.5 items-center justify-center rounded bg-[#F4F4F4]">
               <img src={icon_card} alt="icon" />
@@ -123,8 +124,6 @@ export default function Balance() {
             rate={buylink_wallet}
             apiData="wallet"
             icon={<TbCurrencyManat />}
-            isActive={activeCard === 3}
-            onClick={() => handleCardClick(3, 'cash_till')}
           >
             <div className="flex h-13.5 w-13.5 items-center justify-center rounded bg-[#F4F4F4]">
               <img src={icon_wallet} alt="icon" />

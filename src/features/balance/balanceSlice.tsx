@@ -3,23 +3,31 @@ import { createSlice } from '@reduxjs/toolkit';
 interface TinitialState {
   total_revenue: string;
   cash_till: string;
-  due_to_buylink: string;
+  due_buyLink: string;
   net_amount: string;
   buylink_wallet: string;
   debt_date: string;
   filtered_transactions: [];
   filter: string;
+  payments: string;
+  total_debts: string;
+  net_debts: string;
+  operator: string;
 }
 
 const initialState: TinitialState = {
   total_revenue: '',
   cash_till: '',
-  due_to_buylink: '',
+  payments: '',
+  total_debts: '',
+  net_debts: '',
+  due_buyLink: '',
   net_amount: '',
   buylink_wallet: '',
   debt_date: '',
   filtered_transactions: [],
   filter: '',
+  operator: '',
 };
 
 const balanceSlice = createSlice({
@@ -33,7 +41,7 @@ const balanceSlice = createSlice({
       state.cash_till = action.payload;
     },
     setDueBuyLink: (state, action) => {
-      state.due_to_buylink = action.payload;
+      state.due_buyLink = action.payload;
     },
     setNetAmount: (state, action) => {
       state.net_amount = action.payload;
@@ -47,8 +55,20 @@ const balanceSlice = createSlice({
     setFilter: (state, action) => {
       state.filter = action.payload;
     },
+    setOperator: (state, action) => {
+      state.operator = action.payload;
+    },
+    setPayment: (state, action) => {
+      state.payments = action.payload;
+    },
     setDate: (state, action) => {
       state.debt_date = action.payload;
+    },
+    setTotalDebt: (state, action) => {
+      state.total_debts = action.payload;
+    },
+    setNetDebt: (state, action) => {
+      state.net_debts = action.payload;
     },
   },
 });
@@ -62,5 +82,9 @@ export const {
   setDueBuyLink,
   setNetAmount,
   setBuylinkWallet,
+  setNetDebt,
+  setTotalDebt,
+  setPayment,
+  setOperator,
 } = balanceSlice.actions;
 export default balanceSlice.reducer;

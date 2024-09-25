@@ -1,16 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Title } from '../../components/ui/Title';
+import { useGetDueToQuery } from '../../features/statistcs/apiSlice';
 import {
-  useGetBalanceQuery,
-  useGetTransactionsQuery,
-} from '../../features/statistcs/apiSlice';
-import {
-  setBuylinkWallet,
-  setCashTill,
-  setDate,
-  setDueBuyLink,
-  setNetAmount,
-  setTotalRevenue,
+  setNetDebt,
+  setPayment,
+  setTotalDebt,
 } from '../../features/balance/balanceSlice';
 import { TbCurrencyManat } from 'react-icons/tb';
 import interest_rate from '../../images/icon/interest-rate.png';
@@ -24,22 +18,19 @@ import CardDueTo from './CardDueTo.tsx';
 
 export default function Balance() {
   const dispatch = useDispatch();
-  const { total_revenue, net_amount, filter } = useSelector(
+  const { net_debts, total_debts, payments } = useSelector(
     (store: any) => store.balance,
   );
 
-  const { data, isSuccess, isLoading } = useGetBalanceQuery('');
-  const transactions = useGetTransactionsQuery(filter);
+  const { data, isSuccess, isLoading } = useGetDueToQuery('');
+  const transactions = useGetDueToQuery('');
 
   const { t } = useTranslation();
   useEffect(() => {
     if (isSuccess) {
-      dispatch(setTotalRevenue(data?.total_revenue));
-      dispatch(setCashTill(data?.cash_till));
-      dispatch(setDueBuyLink(data?.due_to_buylink));
-      dispatch(setNetAmount(data?.net_amount));
-      dispatch(setBuylinkWallet(data?.wallet));
-      dispatch(setDate(data?.debt_date));
+      dispatch(setNetDebt(data?.net_debts));
+      dispatch(setPayment(data?.payments));
+      dispatch(setTotalDebt(data?.total_debts));
     }
   }, [isSuccess]);
 
@@ -68,7 +59,7 @@ export default function Balance() {
         <div className="layout2 order-5 col-span-2 w-full sm:col-span-1  xl:order-none">
           <CardDueTo
             title={t('balance.12')}
-            rate={net_amount}
+            rate={total_debts}
             icon={<TbCurrencyManat />}
           >
             <div className="flex h-13.5 w-13.5 items-center justify-center rounded bg-[#F4F4F4]">
@@ -80,7 +71,7 @@ export default function Balance() {
           <CardDueTo
             title={t('balance.13')}
             apiData="all"
-            rate={total_revenue}
+            rate={payments}
             icon={<TbCurrencyManat />}
           >
             <div className="flex h-13.5 w-13.5 items-center justify-center rounded bg-[#F4F4F4]">
@@ -91,7 +82,7 @@ export default function Balance() {
         <div className="layout2 order-5 col-span-2 w-full sm:col-span-1  xl:order-none">
           <CardDueTo
             title={t('balance.14')}
-            rate={net_amount}
+            rate={net_debts}
             icon={<TbCurrencyManat />}
           >
             <div className="flex h-13.5 w-13.5 items-center justify-center rounded bg-[#F4F4F4]">

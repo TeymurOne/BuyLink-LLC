@@ -49,11 +49,11 @@ const resources = {
         '11': 'Dəyiş',
         '12': 'Haqqında',
         '13': 'Kateqoriya',
-        '14': 'adı     ',
+        '14': 'Məhsul adı',
         '15': 'Şəkil əlave et',
         '16': 'Bura yaz...',
         '17': 'Kateqoriya seçin',
-        '18': 'Məhsul Detalları,
+        '18': 'Məhsul Detalları',
       },
       operator: {
         '0': 'Operator ',
@@ -68,11 +68,11 @@ const resources = {
         '9': 'Şifrə',
         '10': 'Seçin',
         '11': 'Şifrəni Dəyiş',
-        '12': 'Operator Detalları'
+        '12': 'Operator Detalları',
       },
       partnerinfo: {
         '0': 'Partnyor Məlumatları ',
-        '1': 'Logo',
+        '1': 'Loqo',
         '3': 'Cover Şəkil',
         '4': 'Ad',
         '5': 'Haqqında ',
@@ -91,6 +91,7 @@ const resources = {
         '18': 'Partnyor adı',
         '19': 'Ümumi Komissiya',
         '20': 'Endirim',
+        '21': 'Vebsayt',
       },
       header: {
         '0': 'Haqqımızda',
@@ -100,7 +101,7 @@ const resources = {
         '4': 'Bizimlə əlaqə',
         '5': 'Giriş',
         '6': 'Partnyor ol',
-        '7': 'Axtar...'
+        '7': 'Axtar...',
       },
       main: {
         '0': 'BuyLink',
@@ -110,7 +111,7 @@ const resources = {
         '4': 'Bu video ən sadə şəkildə Buylink-in necə işlədiyini göstərir.',
         '5': 'Videonu izləyib mobil tətbiqimizlə ətraflı tanış ola bilərsiniz',
         '6': 'BuyLinki  yüklə',
-        '7': '300+ istifadəçi puluna qənaət etdi'
+        '7': '300+ istifadəçi puluna qənaət etdi',
       },
       wallet: {
         '0': 'qazan!',
@@ -123,7 +124,7 @@ const resources = {
         '7': 'Tarixçə',
         '8': ' ',
         '9': '  ',
-        '10': 'Balansı'
+        '10': 'Balansı',
       },
       partnyor: {
         '0': 'Yeni',
@@ -163,7 +164,7 @@ const resources = {
       partner: {
         '0': 'Partnyor ol!',
         '1': `Buylink mobil tətbiqində yer almaqla siz bazarda tanıtım, yüksək gəlir və rəqabət üstünlüyü əldə edəcəksiniz.`,
-        '2': 'Elə indi qoşulun'
+        '2': 'Elə indi qoşulun',
       },
       letters: {
         '0': 'Jurnalımıza',
@@ -353,7 +354,7 @@ const resources = {
         '9': 'Trend',
         '10': 'Reytinq və rəylər ',
         '11': ' Qiymətləndirmə sayı',
-        '12': 'Trend'
+        '12': 'Trend',
       },
       balance: {
         '0': 'Ümumi satış',
@@ -384,7 +385,7 @@ const resources = {
         '8': 'Operator adı',
         '9': 'Məbləğ',
         '10': 'Ödəniş növü',
-        '11': 'Qəbz'
+        '11': 'Qəbz',
       },
       settingDashboard: {
         '1': 'Parametrlər',
@@ -405,21 +406,21 @@ const resources = {
         '9': 'Yanv',
         '10': 'Fev',
         '11': 'Mart',
-        '12': 'Apr'
+        '12': 'Apr',
       },
       confirmation: {
         '1': 'Əminsiniz?',
         '2': 'Bu əməliyyatı geri qaytarmaq mümkün olmayacaq!',
         '3': 'Bəli, silin!',
-        '4': 'Ləğv edin'
+        '4': 'Ləğv edin',
       },
       deleted: {
         '1': 'Silindi!',
-        '2': 'Faylınız silindi.'
+        '2': 'Faylınız silindi.',
       },
       error: {
         '1': 'Xəta!',
-        '2': 'Silinmə zamanı xəta baş verdi.'
+        '2': 'Silinmə zamanı xəta baş verdi.',
       },
       toast: {
         '1': 'Datanın alınması xətası',
@@ -429,11 +430,14 @@ const resources = {
         '5': 'Uğurla yeniləndi!',
         '6': 'Xəta baş verdi. Yenidən cəhd edin.',
         '7': 'Uğurlu!',
-        '8': 'Xəta baş verdi!'
+        '8': 'Xəta baş verdi!',
+        '9': 'Qiymət tələb olunur!',
+        '10': 'Məzmun tələb olunur',
+        '11': 'Zəhmət olmasa bütün tələb olunan sahələri doldurun.',
       },
       pagination: {
-        showing: 'Göstərilən {{page}} nəticə {{totalPages}} nəticədən'
-      }
+        showing: 'Göstərilən {{page}} nəticə {{totalPages}} nəticədən',
+      },
     },
   },
 
@@ -459,7 +463,7 @@ const resources = {
         '13': 'Balance',
         '14': 'Buylinkə öhdəlik',
         '15': 'Log Out',
-        '16': 'MENU'
+        '16': 'MENU',
       },
       branch: {
         '0': 'Branches',
@@ -479,7 +483,7 @@ const resources = {
         '14': 'Phone',
         '15': 'Coordinates ',
         '16': 'Baku,Khatai dist.',
-        '17': 'Branch Details'
+        '17': 'Branch Details',
       },
       product: {
         '0': 'Product ',
@@ -496,11 +500,12 @@ const resources = {
         '11': 'Update',
         '12': 'Details',
         '13': 'Category',
-        '14': 'name    ',
+        '14': 'Product name',
         '15': 'Add image',
         '16': 'Write here...',
         '17': 'Choose сategory',
-        '18': 'Product Details'
+        '18': 'Product Details',
+        '19': 'Product One',
       },
       operator: {
         '0': 'Operator ',
@@ -515,7 +520,7 @@ const resources = {
         '9': 'Password',
         '10': 'Select',
         '11': 'Change Password',
-        '12': 'Operator Details'
+        '12': 'Operator Details',
       },
       partnerinfo: {
         '0': 'Partner Info',
@@ -538,6 +543,7 @@ const resources = {
         '18': 'Partner name',
         '19': 'Total Commission',
         '20': 'Discount',
+        '21': 'Website',
       },
       header: {
         '0': 'About',
@@ -546,7 +552,7 @@ const resources = {
         '4': 'Contact us',
         '5': 'Login',
         '6': 'Become a partner',
-        '7': 'Search...'
+        '7': 'Search...',
       },
       main: {
         '0': 'BuyLink',
@@ -556,7 +562,7 @@ const resources = {
         '4': 'This video shows how BuyLink works in the simplest way.',
         '5': 'You can watch the video and learn more about our mobile application.',
         '6': 'Download BuyLink',
-        '7': '300+ costumer saved money'
+        '7': '300+ costumer saved money',
       },
       wallet: {
         '0': '   ',
@@ -569,7 +575,7 @@ const resources = {
         '7': 'Transaction History',
         '8': 'Save Your',
         '9': 'Bonuses and Rewards ',
-        '10': 'Wallet'
+        '10': 'Wallet',
       },
       partnyor: {
         '0': 'Explore New',
@@ -581,7 +587,7 @@ const resources = {
         '6': 'Add People to Your Network',
         '7': 'Use the search feature to find your friends and new users. Add them and start recommending each other',
         '8': 'Explore Different Categories',
-        '9': 'Here you can find various industries. Choose any that you are interested in '
+        '9': 'Here you can find various industries. Choose any that you are interested in ',
       },
       partnyor2: {
         '0': 'Get Cash',
@@ -604,7 +610,7 @@ const resources = {
         '5': 'Add Referral Link to QR Basket',
         '6': 'Here, you can see all referral links from different users for various partners',
         '7': 'Show QR Code and Get a Discount',
-        '8': 'When you show your QR code, you receive a discount on your purchases'
+        '8': 'When you show your QR code, you receive a discount on your purchases',
       },
       partner: {
         '0': 'Become a Partner',
@@ -630,7 +636,7 @@ const resources = {
         '3': 'Why do we use BuyLink?',
         '4': `BuyLink offers numerous advantages. Firstly, this platform provides users with a network where they can earn money and take advantage of discounts. This allows users to access quality products while generating income. Additionally, BuyLink’s referral-based marketing model enables users to attract more people to the platform and earn increased revenue based on the volume of their referrals.`,
         '5': 'How do I get cash on BuyLink?',
-        '6': 'On the BuyLink platform, users can share posts to promote businesses, share their experiences, and offer promotions. This allows them to leverage their social networks to earn income and provide benefits to other users. By sharing referral links, users can earn rewards based on the engagement and transactions generated by their network. This system helps users earn cash rewards while also helping others discover quality products and services.'
+        '6': 'On the BuyLink platform, users can share posts to promote businesses, share their experiences, and offer promotions. This allows them to leverage their social networks to earn income and provide benefits to other users. By sharing referral links, users can earn rewards based on the engagement and transactions generated by their network. This system helps users earn cash rewards while also helping others discover quality products and services.',
       },
       footer: {
         '0': 'Finance helps companies manage payments easily.',
@@ -808,7 +814,7 @@ const resources = {
         '1': 'Total Sales',
         '2': 'Total Refers',
         '3': 'Total Transactions',
-        '4': 'Total reccommended',
+        '4': 'Total recommended',
         '5': 'Used recommendation',
         '6': 'Recommendations',
         '7': 'Revenue per Month  ',
@@ -816,7 +822,7 @@ const resources = {
         '9': 'Trend',
         '10': 'Rating and Reviews',
         '11': 'Review count',
-        '12': 'Trend'
+        '12': 'Trend',
       },
       balance: {
         '0': 'Total Revenue',
@@ -833,7 +839,7 @@ const resources = {
         '11': 'Currently there is no date and data  ',
         '12': 'Total debt',
         '13': 'Payments',
-        '14': 'Net debt'
+        '14': 'Net debt',
       },
       balanceTable: {
         '0': 'Bill amount',
@@ -847,7 +853,7 @@ const resources = {
         '8': 'Operator Name',
         '9': 'Amount',
         '10': 'Payment Type',
-        '11': 'Bill'
+        '11': 'Bill',
       },
       settingDashboard: {
         '1': 'Settings',
@@ -868,21 +874,21 @@ const resources = {
         '9': 'Jan',
         '10': 'Feb',
         '11': 'Mar',
-        '12': 'Apr'
+        '12': 'Apr',
       },
       confirmation: {
         '1': 'Are you sure?',
         '2': 'You will not be able to revert this!',
         '3': 'Yes, delete it!',
-        '4': 'Cancel'
+        '4': 'Cancel',
       },
       deleted: {
         '1': 'Deleted!',
-        '2': 'Your file has been deleted.'
+        '2': 'Your file has been deleted.',
       },
       error: {
         '1': 'Error!',
-        '2': 'An error occurred while deleting.'
+        '2': 'An error occurred while deleting.',
       },
       toast: {
         '1': 'Error fetching data',
@@ -895,24 +901,24 @@ const resources = {
         '8': 'Something went wrong!',
         '9': 'Price is required!',
         '10': 'Title is required',
-        '11': 'Please fill out all required fields.'
+        '11': 'Please fill out all required fields.',
       },
       pagination: {
-        showing: 'Showing {{page}} of {{totalResults}} results'
-      }
+        showing: 'Showing {{page}} of {{totalResults}} results',
+      },
     },
   },
   ru: {
     translation: {
       default: {
-        '0': 'ru'
+        '0': 'ru',
       },
       member: {
         '12': 'Статистика',
         '13': 'Баланс',
         '14': 'Обязательство перед Buylink',
         '15': 'Выйти',
-        '16': 'МЕНЮ'
+        '16': 'МЕНЮ',
       },
       branch: {
         '0': 'Филиалы',
@@ -932,7 +938,7 @@ const resources = {
         '14': 'Номер телефона',
         '15': 'Координаты',
         '16': 'Баку,Хатаинский район',
-        '17': 'Детали Филиала'
+        '17': 'Детали Филиала',
       },
       product: {
         '0': 'Продукт',
@@ -949,11 +955,11 @@ const resources = {
         '11': 'Обновить',
         '12': 'О продукте',
         '13': 'Категория',
-        '14': 'Имя',
+        '14': 'Название продукт',
         '15': 'Добавить изображение',
         '16': 'Напишите здесь...',
         '17': 'Выберите категорию',
-        '18': 'Детали Продуктa'
+        '18': 'Детали Продуктa',
       },
       operator: {
         '0': 'Оператор',
@@ -968,7 +974,7 @@ const resources = {
         '9': 'Пароль',
         '10': 'Выбрать',
         '11': 'Изменить пароль',
-        '12': 'Детали Оператора'
+        '12': 'Детали Оператора',
       },
       partnerinfo: {
         '0': 'Информация о партнере',
@@ -990,7 +996,8 @@ const resources = {
         '17': 'Сохранить',
         '18': 'Имя партнера',
         '19': 'Общая комиссия',
-        '20': 'Скидка'
+        '20': 'Скидка',
+        '21': 'Веб-сайт',
       },
       header: {
         '0': 'О нас',
@@ -1000,7 +1007,7 @@ const resources = {
         '4': 'Связаться с нами',
         '5': 'Вход',
         '6': 'Стать партнером',
-        '7': 'Поиск...'
+        '7': 'Поиск...',
       },
       main: {
         '0': 'BuyLink',
@@ -1010,7 +1017,7 @@ const resources = {
         '4': 'Это видео показывает, как работает BuyLink самым простым способом.',
         '5': 'Вы можете посмотреть видео и узнать больше о нашем мобильном приложении.',
         '6': 'Скачать BuyLink',
-        '7': '300+ пользователей сэкономили деньги'
+        '7': '300+ пользователей сэкономили деньги',
       },
       wallet: {
         '0': 'Зарабатывай!',
@@ -1023,7 +1030,7 @@ const resources = {
         '7': 'История транзакций',
         '8': ' ',
         '9': ' ',
-        '10': 'Баланс'
+        '10': 'Баланс',
       },
       partnyor: {
         '0': 'Исследуй',
@@ -1035,7 +1042,7 @@ const resources = {
         '6': 'Расширяйте свою сеть',
         '7': 'Используйте функцию поиска, чтобы найти друзей или новых пользователей. Добавляйте их в свой список друзей и начните процесс рекомендаций.',
         '8': 'Откройте разные категории',
-        '9': 'Здесь вы можете найти интересующие вас бизнесы и ознакомиться с их скидками и процентами прибыли.'
+        '9': 'Здесь вы можете найти интересующие вас бизнесы и ознакомиться с их скидками и процентами прибыли.',
       },
       partnyor2: {
         '0': 'Заработай',
@@ -1047,7 +1054,7 @@ const resources = {
         '6': 'На странице партнера вы можете рекомендовать этот бизнес через чат или поделиться по почте.',
         '7': 'Перейдите в кошелек и проверьте свой баланс',
         '8': 'После того как ваша сеть использует реферальную ссылку, вы заработаете награды. В конце концов, проверьте свой баланс на странице кошелька.',
-        '9': ' '
+        '9': ' ',
       },
       partnyor3: {
         '0': 'Как получить',
@@ -1058,18 +1065,18 @@ const resources = {
         '5': 'Добавьте реферальную ссылку в корзину QR',
         '6': 'Здесь вы можете увидеть все реферальные ссылки разных пользователей для различных партнеров.',
         '7': 'Покажите QR-код и получите скидку',
-        '8': 'Покажите QR-код во время покупок у партнера и получите скидку.'
+        '8': 'Покажите QR-код во время покупок у партнера и получите скидку.',
       },
       partner: {
         '0': 'Стань партнером!',
         '1': 'Присоединившись к Buylink, вы получите рекламные возможности, высокий доход и конкурентные преимущества на рынке.',
-        '2': 'Присоединяйтесь сейчас'
+        '2': 'Присоединяйтесь сейчас',
       },
       letters: {
         '0': 'Подпишитесь на',
         '1': 'наш журнал',
         '2': 'Мы будем отправлять вам последние новости и возможности Buylink по электронной почте.',
-        '3': 'Подписаться сейчас'
+        '3': 'Подписаться сейчас',
       },
       accordion: {
         '0': 'Часто задаваемые вопросы',
@@ -1078,13 +1085,13 @@ const resources = {
         '3': 'Какие преимущества у BuyLink?',
         '4': 'У BuyLink есть ряд преимуществ. Эта платформа предоставляет пользователям возможность как зарабатывать деньги, так и получать скидки. Через мобильное приложение пользователи могут не только получать скидки, но и зарабатывать на рекомендациях. Кроме того, пользователи, привлекающие больше людей на платформу, благодаря растущей модели доходов смогут зарабатывать еще больше.',
         '5': 'Как мы работаем?',
-        '6': 'Посты, опубликованные на платформе Buylink, позволяют пользователям делиться своими рекомендациями, опытом и предлагать акции. Это дает возможность зарабатывать, используя свои социальные сети, и приносить пользу другим пользователям.'
+        '6': 'Посты, опубликованные на платформе Buylink, позволяют пользователям делиться своими рекомендациями, опытом и предлагать акции. Это дает возможность зарабатывать, используя свои социальные сети, и приносить пользу другим пользователям.',
       },
       become: {
         '0': 'Скачайте',
         '1': 'BuyLink',
         '2': 'Доступен везде',
-        '3': 'Сканируйте QR для скачивания'
+        '3': 'Сканируйте QR для скачивания',
       },
       footer: {
         '0': 'Теперь получайте больше кэшбека и прибыли от платежей.',
@@ -1102,7 +1109,7 @@ const resources = {
         '12': 'Объясняющее видео',
         '13': '2024 Все права защищены',
         '14': 'partnership@buylink.info',
-        '15': '000-000-00'
+        '15': '000-000-00',
       },
       privacy: {
         '0': `
@@ -1242,7 +1249,7 @@ const resources = {
         Владелец оставляет за собой право время от времени вносить изменения в текущую политику конфиденциальности.
         Владелец уведомит Пользователя об изменениях в Политике конфиденциальности через Мобильное приложение.
         Пользователь несет ответственность за проверку действующей Политики конфиденциальности и за осведомленность о любых внесенных в нее изменениях.
-        Если изменения затрагивают деятельность по обработке, осуществляемую на основании согласия Пользователя, Владелец должен получить новое согласие от пользователя, если это необходимо.`
+        Если изменения затрагивают деятельность по обработке, осуществляемую на основании согласия Пользователя, Владелец должен получить новое согласие от пользователя, если это необходимо.`,
       },
       statistic: {
         '0': 'Кол-во товаров',
@@ -1257,13 +1264,13 @@ const resources = {
         '9': 'Тренд',
         '10': 'Оценки и отзывы',
         '11': 'Количество оценок',
-        '12': 'Тренд'
+        '12': 'Тренд',
       },
       balance: {
         '0': 'Oбщая сумма',
         '1': 'Расчёт с BuyLink',
         '2': 'Из кассы',
-        '3': 'C Баланса',
+        '3': 'Кошелек',
         '4': 'Чистая сумма',
         '5': 'После 3 дней задержки начнут начисляться штрафы',
         '6': 'Начинают начисляться штрафы (0,1% от общей суммы)',
@@ -1274,7 +1281,7 @@ const resources = {
         '11': 'На данный момент нет данных',
         '12': 'Общий долг',
         '13': 'Платежи',
-        '14': 'Чистый долг'
+        '14': 'Чистый долг',
       },
       balanceTable: {
         '0': 'Сумма счета',
@@ -1288,14 +1295,14 @@ const resources = {
         '8': 'Имя оператора',
         '9': 'Сумма',
         '10': 'Тип платежа',
-        '11': 'Счет'
+        '11': 'Счет',
       },
       settingDashboard: {
         '1': 'Настройки',
         '2': 'Имя партнера',
         '3': 'Старый пароль',
         '4': 'Электронная почта',
-        '5': 'Новый пароль'
+        '5': 'Новый пароль',
       },
       months: {
         '1': 'Май',
@@ -1309,21 +1316,21 @@ const resources = {
         '9': 'Янв',
         '10': 'Февр',
         '11': 'Март',
-        '12': 'Aпр'
+        '12': 'Aпр',
       },
       confirmation: {
         '1': 'Вы уверены?',
         '2': 'Это действие нельзя будет отменить!',
         '3': 'Да, удалить!',
-        '4': 'Отмена'
+        '4': 'Отмена',
       },
       deleted: {
         '1': 'Удалено!',
-        '2': 'Ваш файл был удален.'
+        '2': 'Ваш файл был удален.',
       },
       error: {
         '1': 'Ошибка!',
-        '2': 'Произошла ошибка при удалении.'
+        '2': 'Произошла ошибка при удалении.',
       },
       toast: {
         '1': 'Ошибка получения данных.',
@@ -1336,11 +1343,11 @@ const resources = {
         '8': 'Что-то пошло не так!',
         '9': 'Требуется цена!',
         '10': 'Требуется название',
-        '11': 'Пожалуйста, заполните все обязательные поля.'
+        '11': 'Пожалуйста, заполните все обязательные поля.',
       },
       pagination: {
-        showing: 'Показано  {{page}}  из {{totalResults}} результатов'
-      }
+        showing: 'Показано  {{page}}  из {{totalResults}} результатов',
+      },
     },
   },
 };
