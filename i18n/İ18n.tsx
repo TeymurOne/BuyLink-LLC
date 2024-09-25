@@ -543,7 +543,7 @@ const resources = {
         '18': 'Partner name',
         '19': 'Total Commission',
         '20': 'Discount',
-        '21': 'Website,
+        '21': 'Website',
       },
       header: {
         '0': 'About',
@@ -997,7 +997,7 @@ const resources = {
         '18': 'Имя партнера',
         '19': 'Общая комиссия',
         '20': 'Скидка',
-        '21': 'Веб-сайт'
+        '21': 'Веб-сайт',
       },
       header: {
         '0': 'О нас',
