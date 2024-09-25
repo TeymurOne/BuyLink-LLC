@@ -41,10 +41,18 @@ export const branchSlice = apiSlice
         }),
         providesTags: ['branch'],
       }),
+      getDueTo: builder.query({
+        query: () => ({
+          url: `/payments`,
+          method: 'GET',
+        }),
+        providesTags: ['branch'],
+      }),
     }),
   });
 export const {
   useFetchBranchAllQuery,
+  useGetDueToQuery,
   useRemovebranchMutation,
   usePostBranchMutation,
   usePostUpdateMutation,
