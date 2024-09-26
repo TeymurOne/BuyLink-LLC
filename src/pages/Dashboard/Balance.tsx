@@ -147,7 +147,7 @@ export default function Balance() {
           <div className="absolute left-1/2 top-0 hidden h-8 w-4 -translate-x-1/2 -translate-y-8 transform border-l border-[#6D6D6D] sm:block"></div>
         </div>
         <div className="col-span-2 w-full sm:-mt-1">
-          {due_to_buyLink <= 30 && debt_date && (
+          {due_to_buyLink <= -30 && debt_date && (
             <DateCard title="Total Revenue" rate={debt_date} />
           )}
         </div>
