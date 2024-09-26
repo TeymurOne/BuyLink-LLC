@@ -41,7 +41,7 @@ export const branchSlice = apiSlice
         }),
         providesTags: ['branch'],
       }),
-      getDueTo: builder.query({
+      getPenalty: builder.query({
         query: () => ({
           url: `/payments`,
           method: 'GET',
@@ -52,7 +52,7 @@ export const branchSlice = apiSlice
   });
 export const {
   useFetchBranchAllQuery,
-  useGetDueToQuery,
+  useGetPenaltyQuery,
   useRemovebranchMutation,
   usePostBranchMutation,
   usePostUpdateMutation,

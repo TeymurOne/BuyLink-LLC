@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
 import { Outlet } from 'react-router-dom';
-import { useGetDueToQuery } from '../features/branch/apiSlice.tsx';
+import { useGetPenaltyQuery } from '../features/branch/apiSlice.tsx';
 
 interface DueItem {
   overdue_days: number;
@@ -13,8 +13,8 @@ interface DueItem {
 const DefaultLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
 
-  const { data }: { data?: { data: DueItem[] } } = useGetDueToQuery('');
-
+  const { data }: { data?: { data: DueItem[] } } = useGetPenaltyQuery('');
+  console.log(data);
   return (
     <>
       <div className="flex h-screen flex-col font-poppins dark:bg-boxdark-2 dark:text-bodydark">
