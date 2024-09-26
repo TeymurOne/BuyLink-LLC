@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import DateCard from '../../components/Balance/DateCard.tsx';
 import { Link } from 'react-router-dom';
 import {
   useGetBalanceQuery,
@@ -16,7 +17,6 @@ import {
   setTotalRevenue,
 } from '../../features/balance/balanceSlice';
 import CardDataStats from '../../components/Balance/CardDataStats';
-import CardDataTime from '../../components/Balance/CardDataTime';
 import Transactions from '../../components/Balance/Transactions';
 import TableSkeleton from '../../skeleton/TableSkeleton';
 import { Title } from '../../components/ui/Title';
@@ -33,7 +33,7 @@ export default function Balance() {
   const {
     total_revenue,
     cash_till,
-    due_buyLink,
+    due_to_buyLink,
     net_amount,
     debt_date,
     buylink_wallet,
@@ -95,7 +95,7 @@ export default function Balance() {
             {' '}
             <CardDataStats
               title={t('balance.1')}
-              rate={due_buyLink}
+              rate={due_to_buyLink}
               icon={<TbCurrencyManat />}
               isActive={activeCard === 1}
               onClick={() => handleCardClick(1, 'due_to_buylink')}
@@ -146,13 +146,11 @@ export default function Balance() {
           </CardDataStats>
           <div className="absolute left-1/2 top-0 hidden h-8 w-4 -translate-x-1/2 -translate-y-8 transform border-l border-[#6D6D6D] sm:block"></div>
         </div>
-        {debt_date && (
-          <div className="order-6 col-span-2 w-full sm:-mt-1 xl:order-none">
-            {debt_date && (
-              <CardDataTime title="Total Revenue" rate={debt_date} />
-            )}
-          </div>
-        )}
+        <div className="col-span-2 w-full sm:-mt-1">
+          {due_to_buyLink <= 30 && debt_date && (
+            <DateCard title="Total Revenue" rate={debt_date} />
+          )}
+        </div>
       </div>
       {!transactions.currentData?.data && (
         <TableSkeleton count="10" height="0.1" />
