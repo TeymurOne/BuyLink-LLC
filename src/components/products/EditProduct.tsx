@@ -90,10 +90,15 @@ const EditProduct = () => {
     e.preventDefault();
 
     if (!price) {
-      toast.error('Price is required fields.');
+      toast.error(t('toast.9'));
       return;
     }
-
+    for (const lang of language) {
+      if (!name[lang]) {
+        toast.error(t('toast.10'));
+        return;
+      }
+    }
     const postData = new FormData();
     postData.append('image', imgurl || '');
     postData.append('category_id', categoryId?.toString() || '');
@@ -112,12 +117,12 @@ const EditProduct = () => {
     try {
       if (postData) {
         await dataEdit({ postData, idUrl });
-        toast.success('Updated successfully!');
+        toast.success(t('toast.5'));
         navigate('/admin/product/all');
         dispatch(setReset());
       }
     } catch (error) {
-      toast.error('An error occurred. Please try again.');
+      toast.error(t('toast.6'));
     }
   };
 

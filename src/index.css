@@ -58,6 +58,10 @@ input::-webkit-inner-spin-button {
     border: 1px solid #F31F1F;
 }
 
+.amount_color {
+    background-color: #EAEAEA;
+}
+
 .leaflet-control-attribution {
     display: none;
 }
@@ -65,4 +69,14 @@ input::-webkit-inner-spin-button {
 .error-input {
     background-color: #FFEAEA;
     border: 1px solid #F31F1F;
+}
+
+.apexcharts-tooltip-marker {
+    background-color: #2D83B6 !important;
+}
+
+.apexcharts-legend-marker {
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 100% !important;
 }

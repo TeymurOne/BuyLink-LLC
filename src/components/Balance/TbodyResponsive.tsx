@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 import { useRemovebranchMutation } from '../../features/branch/apiSlice';
 import { IoIosArrowDown } from 'react-icons/io';
 import { useTranslation } from 'react-i18next';
@@ -8,8 +7,10 @@ import {
   showDeletedMessage,
   showError,
 } from '../../data/helpers/SweatAlert';
+import Modal from './Modal.tsx';
 
 interface TbodyProps {
+  item: any;
   address: any;
   id: any;
   lat: any;
@@ -22,6 +23,8 @@ const TbodyResponsive = ({ item }: TbodyProps) => {
   const [deletePost] = useRemovebranchMutation();
   const [show, setShow] = useState(false);
   const { t } = useTranslation();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalImage, setModalImage] = useState('');
 
   const handleRemove = async (id: number) => {
     const confirmed = await showConfirmation();
@@ -35,6 +38,7 @@ const TbodyResponsive = ({ item }: TbodyProps) => {
       }
     }
   };
+
   const truncateNumber = (value: any) => {
     if (isNaN(value) || value === null) return '';
     const numberStr = value.toString();
@@ -42,6 +46,17 @@ const TbodyResponsive = ({ item }: TbodyProps) => {
     if (dotIndex === -1) return numberStr;
     return numberStr.slice(0, dotIndex + 3);
   };
+
+  const handleImageClick = (imageSrc: string) => {
+    setModalImage(imageSrc);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setModalImage('');
+  };
+
   return (
     <>
       <div className="block max-w-full md:hidden ">
@@ -75,7 +90,16 @@ const TbodyResponsive = ({ item }: TbodyProps) => {
                 <p>{t('balanceTable.0')}</p>
                 <p>{truncateNumber(item?.amount)}</p>
               </li>
-              <li className="flex items-center justify-between">
+              <li className="flex justify-between">
+                <p>{t('balanceTable.11')}</p>
+                <img
+                  src={item?.bill_image}
+                  className="inline-flex w-5 cursor-pointer rounded"
+                  alt="Bill"
+                  onClick={() => handleImageClick(item?.bill_image)}
+                />
+              </li>
+              <li className="flex justify-between">
                 <p>{t('balanceTable.1')}</p>
                 <p>{truncateNumber(item?.discounted_percent)}</p>
               </li>
@@ -110,6 +134,7 @@ const TbodyResponsive = ({ item }: TbodyProps) => {
           </div>
         </div>
       </div>
+      <Modal isOpen={isModalOpen} imageSrc={modalImage} onClose={closeModal} />
     </>
   );
 };

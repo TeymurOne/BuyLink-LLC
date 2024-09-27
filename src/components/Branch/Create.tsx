@@ -56,12 +56,12 @@ const Form: React.FC = () => {
     setAttemptedSubmit(true);
 
     if (!address || !latData || !lngData || !name.trim() || !phone.trim()) {
-      toast.error('Please fill out the form completely.');
+      toast.error(t('toast.3'));
       return;
     }
 
     if (!validatePhoneNumber(phone)) {
-      toast.error('The phone format is invalid.');
+      toast.error(t('toast.2'));
       return;
     }
 
@@ -78,12 +78,12 @@ const Form: React.FC = () => {
 
       const response = await postBranches(postData).unwrap();
       if (response.success) {
-        toast.success('Added successfully!');
+        toast.success(t('toast.4'));
         navigate('/admin/branch/all');
         dispatch(resetState());
       }
     } catch (error) {
-      toast.error('An error occurred. Please try again.');
+      toast.error(t('toast.6'));
     } finally {
       dispatch(setLoad(false));
     }
@@ -162,6 +162,7 @@ const Form: React.FC = () => {
                 dispatch(setLat(newLat));
                 dispatch(setLng(newLng));
               }}
+              resetCoordinates
             />
           </div>
         </div>

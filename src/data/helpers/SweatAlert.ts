@@ -1,15 +1,16 @@
-// utils/swalUtils.js
 import Swal from 'sweetalert2';
+import { t } from 'i18next';
 
 export const showConfirmation = async () => {
   const result = await Swal.fire({
-    title: 'Are you sure?',
-    text: "You won't be able to revert this!",
+    title: t('confirmation.1'),
+    text: t('confirmation.2'),
     icon: 'warning',
     showCancelButton: true,
     confirmButtonColor: '#3085d6',
     cancelButtonColor: '#d33',
-    confirmButtonText: 'Yes, delete it!',
+    confirmButtonText: t('confirmation.3'),
+    cancelButtonText: t('confirmation.4'),
   });
 
   return result.isConfirmed;
@@ -17,16 +18,16 @@ export const showConfirmation = async () => {
 
 export const showDeletedMessage = () => {
   Swal.fire({
-    title: 'Deleted!',
-    text: 'Your file has been deleted.',
+    title: t('deleted.1'),
+    text: t('deleted.2'),
     icon: 'success',
   });
 };
 
 export const showError = () => {
   Swal.fire({
-    title: 'Error!',
-    text: 'An error occurred while deleting.',
+    title: t('error.1'),
+    text: t('error.2'),
     icon: 'error',
   });
 };

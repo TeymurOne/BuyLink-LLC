@@ -9,6 +9,9 @@ interface CardDataStatsProps {
   rate: string;
   icon?: any;
   apiData?: string;
+  className?: string;
+  isActive: boolean;
+  onClick: () => void;
 }
 
 const CardDataStats: React.FC<CardDataStatsProps> = ({
@@ -17,96 +20,59 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
   rate,
   apiData,
   icon,
+  className,
+  isActive,
+  onClick,
 }) => {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
+
+  const truncateNumber = (value: any) => {
+    if (isNaN(value) || value === null) return '';
+    const numberStr = value.toString();
+    const dotIndex = numberStr.indexOf('.');
+    if (dotIndex === -1) return numberStr;
+    return numberStr.slice(0, dotIndex + 3);
+  };
 
   const handleClick = () => {
     if (apiData) dispatch(setFilter(apiData));
     if (title === 'Due to BuyLink') {
       setShow(!show);
     }
+    onClick();
   };
 
   return (
-    <>
-      <div
-        onClick={handleClick}
-        className={`hover:bg-[#DAE2F4] ${show ? 'rounded-t-xl ' : 'rounded-xl'} w-full cursor-pointer bg-white py-3 shadow dark:bg-boxdark`}
-      >
-        <div className="relative flex w-full space-x-4">
-          <div className="pl-4">{children}</div>
-          <div className="flex w-full flex-col">
-            <span className="flex items-center text-base font-normal text-darkgray dark:text-white xl:text-base">
-              {title === 'Balansdan' && (
-                <img src={logo} alt="logo" className="mr-2" />
-              )}
-              {title}
-            </span>
-            <span className="flex text-xl font-medium dark:text-white xl:text-2xl">
-              {rate} {icon}
-            </span>
-            {show && (
-              <div
-                id="chat"
-                className="shadow-top-none absolute left-0 right-0 top-20 h-50 w-full overflow-y-scroll rounded-b-xl rounded-bl-xl bg-white px-3 pb-2 pt-4 shadow"
-              >
-                <ul>
-                  <li className="flex justify-between border-b border-black border-opacity-20 pb-2">
-                    <p className="text-lg font-normal text-black">
-                      Buylink Wallet
-                    </p>
-                    <p className="text-lg font-medium text-menuBorder">
-                      120 <sub>Azn</sub>
-                    </p>
-                  </li>
-                  <li className="flex justify-between border-b border-black border-opacity-20 py-2">
-                    <p className="text-lg font-normal text-black">
-                      Buylink Wallet
-                    </p>
-                    <p className="text-lg font-medium text-menuBorder">
-                      120 <sub>Azn</sub>
-                    </p>
-                  </li>
-                  <li className="flex justify-between border-black border-opacity-20 py-2">
-                    <p className="text-lg font-normal text-black">
-                      Buylink Wallet
-                    </p>
-                    <p className="text-lg font-medium text-menuBorder">
-                      120 <sub>Azn</sub>
-                    </p>
-                  </li>
-                  <li className="flex justify-between border-b border-black border-opacity-20 pb-2 ">
-                    <p className="text-lg font-normal text-black">
-                      Buylink Wallet
-                    </p>
-                    <p className="text-lg font-medium text-menuBorder">
-                      120 <sub>Azn</sub>
-                    </p>
-                  </li>
-                  <li className="flex justify-between border-b border-black border-opacity-20 py-2">
-                    <p className="text-lg font-normal text-black">
-                      Buylink Wallet
-                    </p>
-                    <p className="text-lg font-medium text-menuBorder">
-                      120 <sub>Azn</sub>
-                    </p>
-                  </li>
-                  <li className="flex justify-between border-black border-opacity-20 py-2">
-                    <p className="text-lg font-normal text-black">
-                      Buylink Wallet
-                    </p>
-                    <p className="text-lg font-medium text-menuBorder">
-                      120 <sub>Azn</sub>
-                    </p>
-                  </li>
-                </ul>
-              </div>
+    <div
+      onClick={handleClick}
+      className={`w-full cursor-pointer rounded-xl py-3 shadow transition hover:scale-95 dark:bg-boxdark ${className} ${
+        isActive ? 'bg-[#4C5DF5] text-white' : 'bg-white'
+      }`}
+    >
+      <div className="relative flex w-full space-x-4">
+        <div className="pl-4">{children}</div>
+        <div className="flex w-full flex-col">
+          <span
+            className={`flex items-center text-sm font-normal text-darkgray xl:text-base ${
+              isActive ? 'text-white' : 'dark:text-white'
+            }`}
+          >
+            {(title === 'Balansdan' ||
+              title === 'C Баланса' ||
+              title === 'Wallet') && (
+              <img src={logo} alt="logo" className="mr-2" />
             )}
-          </div>
+            {title}
+          </span>{' '}
+          <span
+            className={`flex items-center text-xl font-medium xl:text-xl ${isActive ? 'text-white' : 'dark:text-white'}`}
+          >
+            {truncateNumber(rate)} {icon}
+          </span>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

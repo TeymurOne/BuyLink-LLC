@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { useGetReviewQuery } from '../../features/statistcs/apiSlice';
 import { Star } from '../RatingStar';
 import { formatDistanceToNow, parseISO } from 'date-fns';
+import { az, enUS, ru } from 'date-fns/locale';
+import { useTranslation } from 'react-i18next';
 
 interface User {
   id: number;
@@ -15,14 +17,23 @@ interface Chat {
   description: string | null;
   created_at: string;
   timeDisplay: string;
+  rating: number;
 }
 
 const ChatCard = () => {
+  const { t, i18n } = useTranslation();
   const { data, isSuccess } = useGetReviewQuery('');
 
   if (!isSuccess) return null;
 
   const today = new Date();
+  const localeMap: Record<string, Locale> = {
+    en: enUS,
+    az: az,
+    ru: ru,
+  };
+
+  const locale = localeMap[i18n.language] || enUS;
 
   const sortedData = data?.data
     .slice()
@@ -35,8 +46,12 @@ const ChatCard = () => {
       const isWithinWeek =
         today.getTime() - createdAt.getTime() <= 7 * 24 * 60 * 60 * 1000;
       const timeDisplay = isWithinWeek
-        ? formatDistanceToNow(createdAt, { addSuffix: true })
-        : createdAt.toLocaleDateString();
+        ? formatDistanceToNow(createdAt, { addSuffix: true, locale })
+        : createdAt.toLocaleDateString(i18n.language, {
+            day: 'numeric',
+            month: 'short',
+            year: 'numeric',
+          });
 
       return { ...chat, timeDisplay };
     });
@@ -76,7 +91,7 @@ const ChatCard = () => {
                   </span>
                 </p>
               </div>
-              <Star average_rating="5" size={4} />
+              <Star average_rating={chat?.rating} size={4} />
             </div>
           </Link>
         ))}
