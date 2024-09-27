@@ -9,37 +9,80 @@ import 'leaflet/dist/leaflet.css';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { partnerFormMap } from '../features/map/MapSlice';
-import L from 'leaflet';
+import L, { LeafletMouseEvent } from 'leaflet';
 import placeholder from '../../public/placeholder.png';
 
-function ResetCenterView(props: any) {
-  const { coordinate, setClickPosition } = props;
+interface Coordinate {
+  lat: number;
+  lng: number;
+}
+
+interface ResetCenterViewProps {
+  coordinate: Coordinate | null;
+  setClickPosition: (position: Coordinate | null) => void;
+  resetCoordinates: boolean;
+}
+
+interface MapProps {
+  coordinate: Coordinate | null;
+  setCoordinate: (coordinate: Coordinate) => void;
+  setInputValue: (value: string) => void;
+  resetCoordinates: boolean;
+}
+
+interface MapEventsHandlerProps {
+  handleMapClick: (e: LeafletMouseEvent) => void;
+}
+
+function ResetCenterView({
+  coordinate,
+  setClickPosition,
+  resetCoordinates,
+}: ResetCenterViewProps) {
   const map = useMap();
 
   useEffect(() => {
-    if (coordinate && coordinate.lat && coordinate.lng) {
+    if (resetCoordinates) {
+      map.setView([40.34720432727009, 49.81097458154038], map.getZoom(), {
+        animate: true,
+      });
+      setClickPosition(null);
+    } else if (coordinate) {
       map.setView([coordinate.lat, coordinate.lng], map.getZoom(), {
         animate: true,
       });
       setClickPosition({ lat: coordinate.lat, lng: coordinate.lng });
     }
-  }, [coordinate]);
+  }, [coordinate, resetCoordinates, map, setClickPosition]);
 
   return null;
 }
 
-const Map = (props: any) => {
-  const { coordinate, setCoordinate, setInputValue } = props;
+const Map = ({
+  coordinate,
+  setCoordinate,
+  setInputValue,
+  resetCoordinates,
+}: MapProps) => {
   const dispatch = useDispatch();
-  const [clickedPosition, setClickPosition] = useState(null);
+  const [clickedPosition, setClickPosition] = useState<Coordinate | null>(null);
+  const [markedPosition, setMarkedPosition] = useState<Coordinate | null>(null);
 
   useEffect(() => {
     if (clickedPosition) {
       dispatch(partnerFormMap(clickedPosition));
+      setMarkedPosition(clickedPosition);
     }
   }, [clickedPosition, dispatch]);
 
-  const handleMapClick = (e) => {
+  useEffect(() => {
+    if (resetCoordinates) {
+      setClickPosition(null);
+      setMarkedPosition(null);
+    }
+  }, [resetCoordinates]);
+
+  const handleMapClick = (e: LeafletMouseEvent) => {
     const { lat, lng } = e.latlng;
     const newCoordinates = { lat, lng };
     setClickPosition(newCoordinates);
@@ -47,15 +90,14 @@ const Map = (props: any) => {
     setInputValue(`${lat}, ${lng}`);
   };
 
-  const position = [40.34720432727009, 49.81097458154038];
-  const icons = L.icon({
+  const icon = L.icon({
     iconUrl: placeholder,
     iconSize: [38, 38],
   });
 
   return (
     <MapContainer
-      center={position}
+      center={[40.34720432727009, 49.81097458154038]}
       zoom={13}
       style={{ width: '100%', height: '100%' }}
       scrollWheelZoom={false}
@@ -65,20 +107,21 @@ const Map = (props: any) => {
         url="https://api.maptiler.com/maps/basic-v2/256/{z}/{x}/{y}.png?key=GS3gO4cT4n0iC6EE9teK"
       />
       <MapEventsHandler handleMapClick={handleMapClick} />
-      {clickedPosition && (
-        <Marker position={clickedPosition} icon={icons}></Marker>
+      {markedPosition && (
+        <Marker position={markedPosition} icon={icon}></Marker>
       )}
       {coordinate && (
         <ResetCenterView
           setClickPosition={setClickPosition}
           coordinate={coordinate}
+          resetCoordinates={resetCoordinates}
         />
       )}
     </MapContainer>
   );
 };
 
-const MapEventsHandler = ({ handleMapClick }: any) => {
+const MapEventsHandler = ({ handleMapClick }: MapEventsHandlerProps) => {
   useMapEvents({
     click: (e) => handleMapClick(e),
   });

@@ -25,8 +25,16 @@ export const statisticSlice = apiSlice
         }),
       }),
       getTransactions: builder.query({
-        query: (item) => ({
-          url: `/transactions?filter=${item}`,
+        query: ({ filter, operator }) => ({
+          url: `/transactions?filter=${filter || ''}&operator=${operator || ''}`,
+          method: 'GET',
+        }),
+        providesTags: ['transactions'],
+      }),
+
+      getDueTo: builder.query({
+        query: () => ({
+          url: `/payment-transactions`,
           method: 'GET',
           invalidatesTags: ['transactions'],
         }),
@@ -38,4 +46,5 @@ export const {
   useGetBalanceQuery,
   useGetReviewQuery,
   useGetTransactionsQuery,
+  useGetDueToQuery,
 } = statisticSlice;

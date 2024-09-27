@@ -5,6 +5,7 @@ import {
   setIncrement,
   setPaginationCurrent,
 } from '../../features/pagination/paginationSlice';
+import { useTranslation } from 'react-i18next';
 
 export default function Pagination() {
   const { allPages, page } = useSelector((store: any) => store.PaginationSlice);
@@ -13,6 +14,7 @@ export default function Pagination() {
   const handlePagination = (id: number) => {
     dispatch(setPaginationCurrent(id));
   };
+  const { t } = useTranslation();
 
   const currentPages = Array.from({ length: allPages }).map((_, index) => (
     <button
@@ -56,9 +58,11 @@ export default function Pagination() {
         <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
           <div>
             <p className="text-gray-700 text-sm">
-              Showing <span className="font-medium">{page}</span> to{' '}
-              <span className="font-medium">{allPages}</span> of{' '}
-              <span className="font-medium">{allPages}</span> results
+              {t('pagination.showing', {
+                page: page,
+                totalPages: allPages,
+                totalResults: allPages,
+              })}
             </p>
           </div>
           <div>

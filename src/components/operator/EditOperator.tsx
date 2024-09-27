@@ -27,6 +27,10 @@ const Form = () => {
   const [updateGet] = useLazyUpdateOperatorGetQuery();
   const [postOperator] = useUpdateOperatorMutation();
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const postData = new FormData();
+
   const handleEdit = async (id: number) => {
     try {
       const resUpdate = await updateGet(id);
@@ -41,10 +45,8 @@ const Form = () => {
   useEffect(() => {
     handleEdit(id);
   }, [id]);
+
   const { isSuccess, data, isError } = useFetchBranchAllQuery('');
-  const dispatch = useDispatch();
-  const postData = new FormData();
-  const navigate = useNavigate();
 
   let content;
   if (isSuccess) {
@@ -74,7 +76,7 @@ const Form = () => {
           .unwrap()
           .then((response) => {
             if (response) {
-              toast.success('Updated successfully!');
+              toast.success(t('toast.5'));
               navigate('/admin/operator/all');
             }
           });
@@ -113,7 +115,7 @@ const Form = () => {
                   placeholder="Enter your Email"
                 />
               </div>
-              <div className="col-span-6 lg:col-span-3 ">
+              <div className="relative col-span-6 lg:col-span-3">
                 <Input
                   type="password"
                   label={t('operator.11')}
@@ -121,6 +123,7 @@ const Form = () => {
                   onChange={(e) => dispatch(setPwd(String(e.target.value)))}
                   id="password"
                   placeholder="Enter your password"
+                  showPasswordTooltip={true}
                 />
               </div>
             </div>

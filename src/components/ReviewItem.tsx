@@ -18,7 +18,7 @@ export function RevieItem({ item }: any) {
         </div>
 
         <div>
-          <p className="text-sm leading-5">{item.description || ''}</p>
+          <p className="text-sm leading-5">{item.description || ''} </p>
         </div>
       </div>
     </>
