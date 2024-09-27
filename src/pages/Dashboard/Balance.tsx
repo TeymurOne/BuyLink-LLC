@@ -1,7 +1,8 @@
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import CardDataStats from '../../components/Balance/CardDataStats';
-import CardDataTime from '../../components/Balance/CardDataTime';
-import { Title } from '../../components/ui/Title';
+import { useTranslation } from 'react-i18next';
+import DateCard from '../../components/Balance/DateCard.tsx';
+import { Link } from 'react-router-dom';
 import {
   useGetBalanceQuery,
   useGetTransactionsQuery,
@@ -11,37 +12,36 @@ import {
   setCashTill,
   setDate,
   setDueBuyLink,
+  setFilter,
   setNetAmount,
   setTotalRevenue,
 } from '../../features/balance/balanceSlice';
+import CardDataStats from '../../components/Balance/CardDataStats';
+import Transactions from '../../components/Balance/Transactions';
+import TableSkeleton from '../../skeleton/TableSkeleton';
+import { Title } from '../../components/ui/Title';
 import { TbCurrencyManat } from 'react-icons/tb';
 import icon_azn from '../../images/icon/azn.png';
 import icon_card from '../../images/icon/Card.png';
 import icon_money from '../../images/icon/money.png';
 import icon_wallet from '../../images/icon/kaslok.png';
 import icon_cash from '../../images/icon/money2.png';
-import React, { useEffect } from 'react';
-import Transactions from '../../components/Balance/Transactions';
-import TableSkeleton from '../../skeleton/TableSkeleton';
-import { useTranslation } from 'react-i18next';
-import TbodyResponsive from '../../components/Balance/TbodyResponsive.tsx';
 
 export default function Balance() {
+  const [activeCard, setActiveCard] = useState<number>(0);
   const dispatch = useDispatch();
   const {
     total_revenue,
     cash_till,
-    due_buyLink,
+    due_to_buyLink,
     net_amount,
     debt_date,
     buylink_wallet,
     filter,
   } = useSelector((store: any) => store.balance);
-
   const { data, isSuccess, isLoading } = useGetBalanceQuery('');
   const transactions = useGetTransactionsQuery(filter);
   const { t } = useTranslation();
-
   const sortedTransactions = transactions.currentData?.data
     ? [...transactions.currentData.data].sort((a: any, b: any) => {
         return (
@@ -59,13 +59,21 @@ export default function Balance() {
       dispatch(setBuylinkWallet(data?.wallet));
       dispatch(setDate(data?.debt_date));
     }
-  }, [isSuccess]);
+    if (activeCard === 0) {
+      dispatch(setFilter('all'));
+    }
+  }, [isSuccess, activeCard, dispatch]);
+  if (!transactions.isSuccess) return;
+  const handleCardClick = (cardIndex: number, filterString: string) => {
+    setActiveCard(cardIndex);
+    dispatch(setFilter(filterString));
+  };
 
   if (isLoading || transactions.isLoading) return <TableSkeleton count="20" />;
-  if (!transactions.isSuccess) return;
 
   return (
     <>
+      {' '}
       <Title>{t('member.13')}</Title>
       <div className="grid w-full grid-cols-2 gap-8 px-4 py-4 xl:grid-cols-4">
         <div className="col-span-2 w-full">
@@ -74,27 +82,35 @@ export default function Balance() {
             apiData="all"
             rate={total_revenue}
             icon={<TbCurrencyManat />}
+            isActive={activeCard === 0}
+            onClick={() => handleCardClick(0, 'all')}
           >
             <div className="flex h-13.5 w-13.5 items-center justify-center rounded bg-[#F4F4F4]">
               <img src={icon_azn} alt="icon" />
             </div>
           </CardDataStats>
         </div>
-        <div className="col-span-2 w-full sm:col-span-1">
-          <CardDataStats
-            title={t('balance.1')}
-            rate={due_buyLink}
-            icon={<TbCurrencyManat />}
-          >
-            <div className="flex h-13.5 w-13.5 items-center justify-center rounded bg-[#F4F4F4]">
-              <img src={icon_money} alt="icon" />
-            </div>
-          </CardDataStats>
+        <div className="layout1 order-4 col-span-2 w-full sm:col-span-1 xl:order-none">
+          <Link to="dueto">
+            {' '}
+            <CardDataStats
+              title={t('balance.1')}
+              rate={due_to_buyLink}
+              icon={<TbCurrencyManat />}
+              isActive={activeCard === 1}
+              onClick={() => handleCardClick(1, 'due_to_buylink')}
+            >
+              <div className="flex h-13.5 w-13.5 items-center justify-center rounded bg-[#F4F4F4]">
+                <img src={icon_money} alt="icon" />
+              </div>
+            </CardDataStats>{' '}
+          </Link>
         </div>
-        <div className="col-span-2 w-full sm:col-span-1">
+        <div className="layout2 order-5 col-span-2 w-full sm:col-span-1 xl:order-none">
           <CardDataStats
             title={t('balance.4')}
             rate={net_amount}
+            className="amount_color cursor-auto hover:scale-100"
             icon={<TbCurrencyManat />}
           >
             <div className="flex h-13.5 w-13.5 items-center justify-center rounded bg-[#F4F4F4]">
@@ -102,7 +118,7 @@ export default function Balance() {
             </div>
           </CardDataStats>
         </div>
-        <div className="sm-mt-1 col-span-2 w-full sm:col-span-1">
+        <div className="sm-mt-1 layout3 relative order-1 col-span-2 w-full sm:col-span-1 xl:order-none">
           <CardDataStats
             title={t('balance.3')}
             rate={buylink_wallet}
@@ -113,67 +129,76 @@ export default function Balance() {
               <img src={icon_wallet} alt="icon" />
             </div>
           </CardDataStats>
+          <div className="absolute left-1/2 top-0 hidden h-8 w-4 -translate-x-1/2 -translate-y-8 transform border-l border-[#6D6D6D] sm:block"></div>
         </div>
-        <div className="sm-mt-1 col-span-2 w-full sm:col-span-1">
+        <div className="sm-mt-1 layout-4 relative order-2 col-span-2 w-full sm:col-span-1 xl:order-none">
           <CardDataStats
             title={t('balance.2')}
             rate={cash_till}
             apiData="cash_till"
             icon={<TbCurrencyManat />}
+            isActive={activeCard === 4}
+            onClick={() => handleCardClick(4, 'wallet')}
           >
             <div className="flex h-13.5 w-13.5 items-center justify-center rounded bg-[#F4F4F4]">
               <img src={icon_cash} className="items-center" alt="icon" />
             </div>
           </CardDataStats>
+          <div className="absolute left-1/2 top-0 hidden h-8 w-4 -translate-x-1/2 -translate-y-8 transform border-l border-[#6D6D6D] sm:block"></div>
         </div>
         <div className="col-span-2 w-full sm:-mt-1">
-          {debt_date && <CardDataTime title="Total Revenue" rate={debt_date} />}
+          {due_to_buyLink <= -30 && debt_date && (
+            <DateCard title="Total Revenue" rate={debt_date} />
+          )}
         </div>
       </div>
       {!transactions.currentData?.data && (
         <TableSkeleton count="10" height="0.1" />
       )}
-      {transactions.currentData?.data &&
-        transactions.currentData?.data.map((item: any, index: number) => (
-          <TbodyResponsive item={item} key={index} />
-        ))}
-      <div className="mt-4 hidden rounded-sm shadow-default dark:border-strokedark dark:bg-boxdark md:block lg:mt-10 xl:mt-8 ">
+      <div className="mt-4 hidden rounded-sm shadow-default dark:border-strokedark dark:bg-boxdark md:block lg:mt-10 xl:mt-8">
         <div className="max-w-full overflow-hidden overflow-x-auto rounded-lg border border-tborder dark:border-white">
           <table className="w-full table-auto bg-white">
             <thead>
               <tr className="bg-white text-left text-title-2xsm text-black dark:bg-meta-4 dark:text-white">
                 <td className="h-10 w-14.5 border-b border-r border-tborder px-4 font-medium">
+                  {' '}
                   ID
                 </td>
                 <td className="dark:text-white5 min-w-24.5 border-b border-r border-tborder py-2 font-medium sm:pl-0 md:pl-4">
-                  {t('balanceTable.8')}
+                  {' '}
+                  {t('balanceTable.8')}{' '}
                 </td>
                 <td className="dark:text-white5 min-w-24.5 border-b border-r border-tborder py-2 font-medium sm:pl-0 md:pl-4">
-                  {t('balanceTable.0')}
+                  {' '}
+                  {t('balanceTable.0')}{' '}
+                </td>
+                <td className="min-w-24.5 border-b border-r border-tborder px-2 py-2 font-medium dark:text-white">
+                  {' '}
+                  {t('balanceTable.1')}{' '}
+                </td>
+                <td className="min-w-25.5 border-b border-r border-tborder px-1 py-2 font-medium dark:text-white">
+                  {' '}
+                  {t('balanceTable.2')}{' '}
                 </td>
                 <td className="min-w-22.5 border-b border-r border-tborder px-3 py-2 font-medium dark:text-white">
-                  {t('balanceTable.11')}
+                  {' '}
+                  {t('balanceTable.3')}{' '}
                 </td>
-                <td className="min-w-24.5 border-b border-r border-tborder px-2  py-2 font-medium dark:text-white">
-                  {t('balanceTable.1')}
+                <td className="min-w-20.5 border-b border-r border-tborder px-2 py-2 font-medium dark:text-white">
+                  {' '}
+                  {t('balanceTable.4')}{' '}
                 </td>
-                <td className="min-w-25.5 border-b border-r border-tborder  px-1 py-2 font-medium dark:text-white">
-                  {t('balanceTable.2')}
-                </td>
-                <td className="min-w-22.5 border-b border-r border-tborder  px-3 py-2 font-medium dark:text-white">
-                  {t('balanceTable.3')}
-                </td>
-                <td className="min-w-20.5 border-b border-r border-tborder px-2 py-2 font-medium dark:text-white ">
-                  {t('balanceTable.4')}
-                </td>
-                <td className=" min-w-24.5 border-b border-r border-tborder px-4 py-2 font-medium">
-                  {t('balanceTable.5')}
+                <td className="min-w-24.5 border-b border-r border-tborder px-4 py-2 font-medium">
+                  {' '}
+                  {t('balanceTable.5')}{' '}
                 </td>
                 <td className="min-w-24.5 border-b border-r border-tborder px-4 py-2 font-medium dark:text-white">
-                  {t('balanceTable.6')}
+                  {' '}
+                  {t('balanceTable.6')}{' '}
                 </td>
                 <td className="min-w-24.5 border-b border-l border-tborder px-4 py-2 font-medium">
-                  {t('balanceTable.7')}
+                  {' '}
+                  {t('balanceTable.7')}{' '}
                 </td>
               </tr>
             </thead>

@@ -58,6 +58,10 @@ input::-webkit-inner-spin-button {
     border: 1px solid #F31F1F;
 }
 
+.amount_color {
+    background-color: #EAEAEA;
+}
+
 .leaflet-control-attribution {
     display: none;
 }

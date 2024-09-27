@@ -4,7 +4,6 @@ import Modal from './Modal.tsx';
 const Transactions = ({ item }: any) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState('');
-
   const truncateNumber = (value: any) => {
     if (isNaN(value) || value === null) return '';
     const numberStr = value.toString();
@@ -36,7 +35,7 @@ const Transactions = ({ item }: any) => {
         <td className="border-gray px-4 py-1 text-xs dark:border-strokedark dark:text-white xl:pl-11">
           {truncateNumber(item?.amount)}
         </td>
-        <td className="border-gray px-4 px-7.5 py-1 text-xs dark:border-strokedark dark:text-white">
+        <td className="border-gray px-3 px-9.5 py-1 text-xs dark:border-strokedark dark:text-white">
           <img
             src={item?.bill_image}
             className="inline-flex cursor-pointer rounded"
@@ -56,7 +55,7 @@ const Transactions = ({ item }: any) => {
         </td>
         <td className="border-0 border-gray px-4 dark:border-strokedark dark:text-white">
           <p className="inline-flex rounded-full bg-opacity-10 px-3 py-1 text-xs font-medium">
-            {truncateNumber(item?.partner?.total_commission)}
+            {truncateNumber(item?.commission)}
           </p>
         </td>
         <td className="border-0 border-gray px-4 dark:border-strokedark">
