@@ -1,7 +1,4 @@
-import { Link } from 'react-router-dom';
-import Logo from '../images/logo/logo-icon.svg';
 import DarkModeSwitcher from './DarkModeSwitcher';
-
 import Translate from './Translate';
 import DropdownUser from './DropdownUser';
 
@@ -10,8 +7,8 @@ const Header = (props: {
   setSidebarOpen: (arg0: boolean) => void;
 }) => {
   return (
-    <header className="drop-shadow-1 sticky top-0 z-999 flex  w-full bg-white dark:bg-boxdark dark:drop-shadow-none">
-      <div className="flex flex-grow items-center justify-between px-4 py-4 shadow-2 md:px-6 2xl:px-11">
+    <header className="lg:drop-shadow-1 top-0 z-9999 flex w-full dark:bg-boxdark dark:drop-shadow-none lg:sticky lg:bg-white">
+      <div className="flex flex-grow items-center justify-between px-4 py-4 md:px-6 lg:shadow-2 2xl:px-11">
         <div className="flex items-center gap-2 sm:gap-4 lg:hidden">
           <button
             aria-controls="sidebar"
@@ -19,7 +16,9 @@ const Header = (props: {
               e.stopPropagation();
               props.setSidebarOpen(!props.sidebarOpen);
             }}
-            className="z-99999 block rounded-sm border border-stroke bg-white p-1.5 shadow-sm dark:border-strokedark dark:bg-boxdark lg:hidden"
+            className={`z-999 block rounded-sm p-1.5 dark:border-strokedark dark:bg-boxdark lg:hidden ${
+              props.sidebarOpen ? 'hidden' : ''
+            }`}
           >
             <span className="relative block h-5.5 w-5.5 cursor-pointer">
               <span className="du-block absolute right-0 h-full w-full">
@@ -53,28 +52,15 @@ const Header = (props: {
               </span>
             </span>
           </button>
-          {/* <!-- Hamburger Toggle BTN --> */}
-
-          <Link className="block flex-shrink-0 lg:hidden" to="/">
-            <img src={Logo} alt="Logo" />
-          </Link>
         </div>
 
         <div className="hidden opacity-0 sm:block"></div>
-
-        <div className="flex items-center gap-3 xl:gap-0">
+        <div className="flex items-center gap-3 2xsm:gap-7">
           <ul className="flex items-center gap-2 2xsm:gap-4">
-            {/* <!-- Dark Mode Toggler --> */}
             <DarkModeSwitcher />
-            {/* <!-- Dark Mode Toggler --> */}
-
-            {/* <!-- Notification Menu Area --> */}
             <Translate />
           </ul>
-
-          {/* <!-- User Area --> */}
           <DropdownUser />
-          {/* <!-- User Area --> */}
         </div>
       </div>
     </header>
