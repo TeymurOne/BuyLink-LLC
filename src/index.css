@@ -77,7 +77,6 @@ input::-webkit-inner-spin-button {
     border-radius: 100% !important;
 }
 
-/* Styles for the filter dropdown */
 .filter-container {
     display: inline-block;
     z-index: 1111 !important;
@@ -101,7 +100,7 @@ input::-webkit-inner-spin-button {
 }
 
 .filter-container:hover .filter-dropdown {
-    display: block; /* Shows dropdown when the container is hovered */
+    display: block;
 }
 
 .filter-dropdown input[type="checkbox"] {
