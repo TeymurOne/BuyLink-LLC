@@ -2,6 +2,7 @@ const DueTransactions = ({ item }: any) => {
 
   return (
     <>
+      <tr className="border-0 bg-white hover:bg-tborderHover dark:bg-boxdark">
       <td className="border-0 border-gray px-4 text-xs dark:border-strokedark dark:text-white">
         <p className="inline-flex rounded-full bg-opacity-10 px-3 py-1 text-sm font-medium">
           {item?.date}
@@ -17,6 +18,7 @@ const DueTransactions = ({ item }: any) => {
           {item?.payment_type}
         </p>
       </td>
+      </tr>
     </>
   );
 };

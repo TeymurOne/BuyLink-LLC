@@ -23,7 +23,7 @@ const DefaultLayout = () => {
           .map((item: DueItem, index: number) => (
             <div
               key={index}
-              className={`flex h-6 shrink-0 items-center justify-center ${
+              className={`flex h-6 shrink-0 items-center justify-center p-6 sm:p-5 md:p-0 ${
                 item.overdue_days < 3 ? 'bg-[#FF8D24]' : 'bg-[#FF0000]'
               }`}
             >
