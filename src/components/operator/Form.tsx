@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { usePostOperatorMutation } from '../../features/operator/apiSlice';
 import { useFetchBranchAllQuery } from '../../features/branch/apiSlice';
-import { IitemBranch } from './CreateForm';
 import { useTranslation } from 'react-i18next';
+import { IitemBranch } from './CreateForm';
 import Input from '../../common/Form/Input';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -16,6 +16,7 @@ import {
 import { TitleArrow } from '../ui/Title';
 import CancelSaveButton from '../../data/helpers/Button';
 import { toast, ToastContainer } from 'react-toastify';
+import CommonSelect from '../../common/Form/CommonSelect';
 
 interface OperatorState {
   name: string;
@@ -38,6 +39,7 @@ const Form: React.FC = () => {
     email: false,
     password: false,
   });
+  const [selectedBranchId, setSelectedBranchId] = useState<string>('');
 
   const { name, password, email } = useSelector(
     (state: { operator: OperatorState }) => state.operator,
@@ -47,6 +49,7 @@ const Form: React.FC = () => {
   const navigate = useNavigate();
   const [postOperator] = usePostOperatorMutation();
   let content: JSX.Element[] | undefined;
+
   useEffect(() => {
     dispatch(resetState());
   }, [dispatch]);
@@ -78,11 +81,17 @@ const Form: React.FC = () => {
       return;
     }
 
+    if (!selectedBranchId) {
+      toast.error(t('toast.11'));
+      return;
+    }
+
     dispatch(setLoad(true));
     const postData = new FormData();
     postData.append('name', name);
     postData.append('email', email);
     postData.append('password', password);
+    postData.append('branch_id', selectedBranchId);
 
     try {
       await postOperator(postData).unwrap();
@@ -90,7 +99,7 @@ const Form: React.FC = () => {
       navigate('/admin/operator/all');
       dispatch(resetState());
     } catch (error) {
-      console.error(error);
+      toast.error('An error occurred. Please try again.');
       const errorResponse = error as ErrorResponse;
       if (errorResponse.data && errorResponse.data.error) {
         Object.keys(errorResponse.data.error).forEach((key) => {
@@ -105,8 +114,7 @@ const Form: React.FC = () => {
   };
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-    dispatch(setName(value));
+    dispatch(setName(e.target.value));
     setFormErrors((prevErrors) => ({ ...prevErrors, name: false }));
   };
 
@@ -116,8 +124,12 @@ const Form: React.FC = () => {
   };
 
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(setPwd(String(e.target.value)));
+    dispatch(setPwd(e.target.value));
     setFormErrors((prevErrors) => ({ ...prevErrors, password: false }));
+  };
+
+  const handleBranchChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedBranchId(e.target.value); // Update the selected branch ID
   };
 
   const inputClassName = (isInvalid: boolean): string =>
@@ -181,6 +193,17 @@ const Form: React.FC = () => {
                     *Please fill out this field
                   </span>
                 )}
+              </div>
+
+              <div className="relative col-span-6 lg:col-span-3">
+                <CommonSelect
+                  label={t('operator.13')}
+                  value={selectedBranchId}
+                  onChange={handleBranchChange}
+                  option={t('branch.16')}
+                  required={true}
+                  attemptedSubmit={attemptedSubmit}
+                />
               </div>
             </div>
           </div>
