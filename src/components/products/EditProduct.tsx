@@ -89,16 +89,25 @@ const EditProduct = () => {
   const handleUpdate = async (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
+    const toastId = 'error-toast';
+    const successToastId = 'success-toast';
+
     if (!price) {
-      toast.error(t('toast.9'));
+      if (!toast.isActive(toastId)) {
+        toast.error(t('toast.9'), { toastId });
+      }
       return;
     }
+
     for (const lang of language) {
       if (!name[lang]) {
-        toast.error(t('toast.10'));
+        if (!toast.isActive(toastId)) {
+          toast.error(t('toast.10'), { toastId });
+        }
         return;
       }
     }
+
     const postData = new FormData();
     postData.append('image', imgurl || '');
     postData.append('category_id', categoryId?.toString() || '');
@@ -117,12 +126,16 @@ const EditProduct = () => {
     try {
       if (postData) {
         await dataEdit({ postData, idUrl });
-        toast.success(t('toast.5'));
+        if (!toast.isActive(successToastId)) {
+          toast.success(t('toast.5'), { toastId: successToastId });
+        }
         navigate('/admin/product/all');
         dispatch(setReset());
       }
     } catch (error) {
-      toast.error(t('toast.6'));
+      if (!toast.isActive(toastId)) {
+        toast.error(t('toast.6'), { toastId });
+      }
     }
   };
 

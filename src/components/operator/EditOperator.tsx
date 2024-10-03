@@ -33,13 +33,16 @@ const Form = () => {
 
   const handleEdit = async (id: number) => {
     try {
+      toast.dismiss();
       const resUpdate = await updateGet(id);
       if (resUpdate) {
         const data = resUpdate.data?.data;
         dispatch(setName(data?.name));
         dispatch(setEmail(data?.email));
       }
-    } catch (error) {}
+    } catch (error) {
+      toast.error(t('toast.errorFetching'));
+    }
   };
 
   useEffect(() => {
@@ -63,9 +66,16 @@ const Form = () => {
   }
 
   const postSubmit = async (e: React.FormEvent<HTMLButtonElement>) => {
-    dispatch(setLoad(true));
-    setLoad(true);
     e.preventDefault();
+
+    toast.dismiss();
+
+    if (!name || !email || !password) {
+      toast.error(t('toast.11'));
+      return;
+    }
+
+    dispatch(setLoad(true));
     postData.append('name', name);
     postData.append('email', email);
     postData.append('password', password);
@@ -82,11 +92,12 @@ const Form = () => {
           });
       }
     } catch (error) {
-      console.error(error);
+      toast.error(t('toast.errorSubmit'));
     } finally {
       dispatch(setLoad(false));
     }
   };
+
   return (
     <>
       <form>

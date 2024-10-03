@@ -65,7 +65,8 @@ const Form = () => {
       });
       setContent(options);
     } else if (isError) {
-      toast.error(t('toast.1'));
+      toast.dismiss();
+      toast.error(t('toast.1'), { toastId: 'fetch-error' });
     }
   }, [isSuccess, data, local, dispatch, searchParams]);
 
@@ -111,7 +112,8 @@ const Form = () => {
     setAttemptedSubmit(true);
 
     if (!categoryId || !price || !images || !name[active]) {
-      toast.error(t('toast.3'));
+      toast.dismiss();
+      toast.error(t('toast.3'), { toastId: 'form-error' });
       return;
     }
 
@@ -136,14 +138,16 @@ const Form = () => {
           .unwrap()
           .then((response) => {
             if (response.data) {
+              toast.dismiss();
+              toast.success(t('toast.4'), { toastId: 'success' });
               navigate('/admin/product/all');
               dispatch(setReset());
-              toast.success(t('toast.4'));
             }
           });
       }
     } catch (error) {
-      toast.error(t('toast.6'));
+      toast.dismiss();
+      toast.error(t('toast.6'), { toastId: 'post-error' });
     } finally {
       dispatch(setLoad(false));
     }
