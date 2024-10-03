@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useGetReviewQuery } from '../../features/statistcs/apiSlice';
 import { Star } from '../RatingStar';
-import { formatDistanceToNow, parseISO } from 'date-fns';
+import { format, formatDistanceToNow, parseISO } from 'date-fns';
 import { az, enUS, ru } from 'date-fns/locale';
 import { useTranslation } from 'react-i18next';
 
@@ -45,13 +45,10 @@ const ChatCard = () => {
       const createdAt = parseISO(chat.created_at);
       const isWithinWeek =
         today.getTime() - createdAt.getTime() <= 7 * 24 * 60 * 60 * 1000;
+
       const timeDisplay = isWithinWeek
         ? formatDistanceToNow(createdAt, { addSuffix: true, locale })
-        : createdAt.toLocaleDateString(i18n.language, {
-            day: 'numeric',
-            month: 'short',
-            year: 'numeric',
-          });
+        : format(createdAt, 'd MMM yyyy', { locale });
 
       return { ...chat, timeDisplay };
     });
