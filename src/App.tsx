@@ -46,7 +46,7 @@ function App() {
     <Loader />
   ) : (
     <>
-      <ToastContainer />
+      <ToastContainer limit={1} />
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/about" element={<About />} />

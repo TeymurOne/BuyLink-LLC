@@ -55,13 +55,16 @@ const Form: React.FC = () => {
     e.preventDefault();
     setAttemptedSubmit(true);
 
+    if (load) return;
+    toast.dismiss();
+
     if (!address || !latData || !lngData || !name.trim() || !phone.trim()) {
-      toast.error(t('toast.3'));
+      toast.error(t('toast.3'), { toastId: 'formError' });
       return;
     }
 
     if (!validatePhoneNumber(phone)) {
-      toast.error(t('toast.2'));
+      toast.error(t('toast.2'), { toastId: 'phoneError' });
       return;
     }
 
@@ -78,16 +81,17 @@ const Form: React.FC = () => {
 
       const response = await postBranches(postData).unwrap();
       if (response.success) {
-        toast.success(t('toast.4'));
+        toast.success(t('toast.4'), { toastId: 'successMessage' });
         navigate('/admin/branch/all');
         dispatch(resetState());
       }
     } catch (error) {
-      toast.error(t('toast.6'));
+      toast.error(t('toast.6'), { toastId: 'submitError' });
     } finally {
       dispatch(setLoad(false));
     }
   };
+
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     if (/^[+\d]*$/.test(value)) {
