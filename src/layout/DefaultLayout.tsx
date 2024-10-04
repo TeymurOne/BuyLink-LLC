@@ -13,13 +13,21 @@ interface DueItem {
 const DefaultLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
 
+  const truncateNumber = (value: any) => {
+    if (isNaN(value) || value === null) return '';
+    const numberStr = value.toString();
+    const dotIndex = numberStr.indexOf('.');
+    if (dotIndex === -1) return numberStr;
+    return numberStr.slice(0, dotIndex + 3);
+  };
   const { data }: { data?: { data: DueItem[] } } = useGetPenaltyQuery('');
+
   console.log(data);
   return (
     <>
       <div className="flex h-screen flex-col font-poppins dark:bg-boxdark-2 dark:text-bodydark">
         {data?.data
-          ?.filter((item: DueItem) => item.overdue_days > 0)
+          ?.filter((item: DueItem) => item.overdue_days > 0 && item.amount > 30)
           .map((item: DueItem, index: number) => (
             <div
               key={index}
@@ -48,8 +56,8 @@ const DefaultLayout = () => {
               <span className="pl-2 text-xs font-semibold text-white">
                 -{item.overdue_days} Days{' '}
                 <span className="font-normal">Overdue Payment!</span> Penalties
-                start to charge per each day (Overdue amount: {item.amount}₼,
-                Penalty Amount: {item.penalty}₼)
+                start to charge per each day (Overdue amount:
+                {truncateNumber(item.amount)}₼, Penalty Amount: {item.penalty}₼)
               </span>
             </div>
           ))}
