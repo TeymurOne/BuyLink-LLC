@@ -214,10 +214,6 @@ export default function Balance() {
                   {' '}
                   {t('balanceTable.6')}{' '}
                 </td>
-                <td className="min-w-24.5 border-b border-l border-tborder px-4 py-2 font-medium">
-                  {' '}
-                  {t('balanceTable.7')}{' '}
-                </td>
               </tr>
             </thead>
             <tbody>

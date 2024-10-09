@@ -135,10 +135,6 @@ const TbodyResponsive = ({ item }: TbodyProps) => {
                 <p>{t('balanceTable.6')}</p>
                 <p> {truncateNumber(item?.net_amount)}</p>
               </li>
-              <li className="flex justify-between">
-                <p>{t('balanceTable.7')}</p>
-                <p>{item?.user?.id}</p>
-              </li>
             </ul>
           </div>
         </div>

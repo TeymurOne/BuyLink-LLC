@@ -83,11 +83,6 @@ const Transactions = ({ item }: any) => {
             {truncateNumber(item?.net_amount)}
           </p>
         </td>
-        <td className="border-0 border-gray px-4 dark:border-strokedark">
-          <p className="inline-flex rounded-full bg-opacity-10 px-3 py-1 text-xs font-medium">
-            {item?.user?.id}
-          </p>
-        </td>
       </tr>
       <Modal isOpen={isModalOpen} imageSrc={modalImage} onClose={closeModal} />
     </>
