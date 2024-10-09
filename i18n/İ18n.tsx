@@ -69,6 +69,7 @@ const resources = {
         '10': 'Seçin',
         '11': 'Şifrəni Dəyiş',
         '12': 'Operator Detalları',
+        '13': 'Şifrə yalnız mobil proqramda dəyişəcək.',
       },
       partnerinfo: {
         '0': 'Partnyor Məlumatları ',
@@ -524,6 +525,7 @@ const resources = {
         '10': 'Select',
         '11': 'Change Password',
         '12': 'Operator Details',
+        '13': 'Password will only change on mobile application.',
       },
       partnerinfo: {
         '0': 'Partner Info',
@@ -981,6 +983,7 @@ const resources = {
         '10': 'Выбрать',
         '11': 'Изменить пароль',
         '12': 'Детали Оператора',
+        '13': 'Пароль изменится только в мобильном приложении.',
       },
       partnerinfo: {
         '0': 'Информация о партнере',
