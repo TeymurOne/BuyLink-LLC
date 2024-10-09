@@ -118,7 +118,7 @@ const Form: React.FC = () => {
               />
               {attemptedSubmit && !address && (
                 <span className="text-xs text-errorMessage">
-                  *Please fill out the form
+                  *{t('toast.12')}
                 </span>
               )}
             </div>
@@ -134,7 +134,7 @@ const Form: React.FC = () => {
               />
               {attemptedSubmit && !phone && (
                 <span className="text-xs text-errorMessage">
-                  *Please fill out the form
+                  *{t('toast.12')}
                 </span>
               )}
             </div>
@@ -151,7 +151,7 @@ const Form: React.FC = () => {
               />
               {attemptedSubmit && !name && (
                 <span className="text-xs text-errorMessage">
-                  *Please fill out the form
+                  *{t('toast.12')}
                 </span>
               )}
             </div>

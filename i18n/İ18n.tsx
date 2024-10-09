@@ -434,6 +434,9 @@ const resources = {
         '9': 'Qiymət tələb olunur!',
         '10': 'Məzmun tələb olunur',
         '11': 'Zəhmət olmasa bütün tələb olunan sahələri doldurun.',
+        '12': 'Formu doldurun',
+        '13': 'Şəkli əlavə edin',
+        '14': 'Koordinatları daxil edin',
       },
       pagination: {
         showing: 'Göstərilən {{page}} nəticə {{totalPages}} nəticədən',
@@ -902,6 +905,9 @@ const resources = {
         '9': 'Price is required!',
         '10': 'Title is required',
         '11': 'Please fill out all required fields.',
+        '12': 'Please fill out the form',
+        '13': 'Please add the image',
+        '14': 'Please enter valid coordinates',
       },
       pagination: {
         showing: 'Showing {{page}} of {{totalResults}} results',
@@ -1344,6 +1350,9 @@ const resources = {
         '9': 'Требуется цена!',
         '10': 'Требуется название',
         '11': 'Пожалуйста, заполните все обязательные поля.',
+        '12': 'Пожалуйста, заполните форму',
+        '13': 'Пожалуйста, добавьте изображение',
+        '14': 'Пожалуйста, введите действительные координаты',
       },
       pagination: {
         showing: 'Показано  {{page}}  из {{totalResults}} результатов',

@@ -144,7 +144,7 @@ const Form: React.FC = () => {
                 />
                 {attemptedSubmit && formErrors.name && (
                   <span className="text-xs text-errorMessage">
-                    *Please fill out this field
+                    *{t('toast.12')}
                   </span>
                 )}
               </div>
@@ -161,7 +161,7 @@ const Form: React.FC = () => {
                 />
                 {attemptedSubmit && formErrors.email && (
                   <span className="text-xs text-errorMessage">
-                    *Please fill out this field
+                    *{t('toast.12')}
                   </span>
                 )}
               </div>
@@ -179,7 +179,7 @@ const Form: React.FC = () => {
                 />
                 {attemptedSubmit && formErrors.password && (
                   <span className="text-xs text-errorMessage">
-                    *Please fill out this field
+                    *{t('toast.12')}
                   </span>
                 )}
               </div>
