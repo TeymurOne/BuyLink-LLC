@@ -23,7 +23,6 @@ import TableSkeleton from '../../skeleton/TableSkeleton';
 import { Title } from '../../components/ui/Title';
 import { TbCurrencyManat } from 'react-icons/tb';
 import icon_azn from '../../images/icon/azn.png';
-import icon_card from '../../images/icon/Card.png';
 import icon_money from '../../images/icon/money.png';
 import icon_wallet from '../../images/icon/kaslok.png';
 import icon_cash from '../../images/icon/money2.png';
@@ -76,8 +75,8 @@ export default function Balance() {
     <>
       {' '}
       <Title>{t('member.13')}</Title>
-      <div className="grid w-full grid-cols-2 gap-8 px-4 py-4 xl:grid-cols-4">
-        <div className="col-span-2 w-full">
+      <div className="grid w-full grid-cols-2 gap-2 px-4 py-4 sm:gap-4 xl:grid-cols-4 xl:gap-8">
+        <div className="col-span-2 mb-0 w-full">
           <CardDataStats
             title={t('balance.0')}
             apiData="all"
@@ -91,7 +90,7 @@ export default function Balance() {
             </div>
           </CardDataStats>
         </div>
-        <div className="layout1 order-4 col-span-2 w-full sm:col-span-1 xl:order-none">
+        <div className="layout1 order-4 col-span-2 w-full  sm:col-span-1 xl:order-none">
           <Link to="dueto">
             {' '}
             <CardDataStats
@@ -111,11 +110,13 @@ export default function Balance() {
           <CardDataStats
             title={t('balance.4')}
             rate={net_amount}
-            className="amount_color cursor-auto hover:scale-100"
             icon={<TbCurrencyManat />}
+            isActive={activeCard === 1}
+            showTitleTooltip={true}
+            showTooltipIcon={true}
           >
             <div className="flex h-13.5 w-13.5 items-center justify-center rounded bg-[#F4F4F4]">
-              <img src={icon_card} alt="icon" />
+              <img src={icon_money} alt="icon" />
             </div>
           </CardDataStats>
         </div>
