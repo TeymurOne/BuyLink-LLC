@@ -387,6 +387,8 @@ const resources = {
         '9': 'Məbləğ',
         '10': 'Ödəniş növü',
         '11': 'Qəbz',
+        '12': 'Müştəri',
+        '13': 'Tövsiyəçi',
       },
       settingDashboard: {
         '1': 'Parametrlər',
@@ -856,6 +858,8 @@ const resources = {
         '9': 'Amount',
         '10': 'Payment Type',
         '11': 'Bill',
+        '12': 'Client',
+        '13': 'Referrer',
       },
       settingDashboard: {
         '1': 'Settings',
@@ -1299,6 +1303,8 @@ const resources = {
         '9': 'Сумма',
         '10': 'Тип платежа',
         '11': 'Счет',
+        '12': 'Клиент',
+        '13': 'Рекомендатель',
       },
       settingDashboard: {
         '1': 'Настройки',
