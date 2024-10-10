@@ -161,7 +161,7 @@ const Form = () => {
           <InputImg required showimg={showimg} onChange={handleImg} />
           {attemptedSubmit && !images && (
             <span className="-ml-32 mb-8 text-xs text-errorMessage md:-ml-40">
-              *Please add the image
+              * {t('operator.13')}
             </span>
           )}
         </div>
@@ -206,7 +206,7 @@ const Form = () => {
                     ></input>
                     {attemptedSubmit && !name[lang] && (
                       <span className="text-xs text-errorMessage">
-                        *Please fill out the form
+                        *{t('toast.12')}
                       </span>
                     )}
                     <div className="grid-cols-1 gap-4 lg:grid-cols-3">
@@ -228,7 +228,7 @@ const Form = () => {
                         </Select>
                         {attemptedSubmit && !categoryId && (
                           <span className="text-xs text-errorMessage">
-                            *Please fill out the form
+                            *{t('toast.12')}
                           </span>
                         )}
                       </div>
@@ -250,7 +250,7 @@ const Form = () => {
                         />
                         {attemptedSubmit && !price && (
                           <span className="text-xs text-errorMessage">
-                            *Please fill out the form
+                            *{t('toast.12')}
                           </span>
                         )}
                       </div>

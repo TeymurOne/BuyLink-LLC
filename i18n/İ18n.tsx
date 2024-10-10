@@ -70,6 +70,7 @@ const resources = {
         '10': 'Seçin',
         '11': 'Şifrəni Dəyiş',
         '12': 'Operator Detalları',
+        '13': 'Şifrə yalnız mobil proqramda dəyişəcək.',
       },
       partnerinfo: {
         '0': 'Partnyor Məlumatları ',
@@ -435,6 +436,9 @@ const resources = {
         '9': 'Qiymət tələb olunur!',
         '10': 'Məzmun tələb olunur',
         '11': 'Zəhmət olmasa bütün tələb olunan sahələri doldurun.',
+        '12': 'Formu doldurun',
+        '13': 'Şəkli əlavə edin',
+        '14': 'Koordinatları daxil edin',
       },
       pagination: {
         showing: 'Göstərilən {{page}} nəticə {{totalPages}} nəticədən',
@@ -523,6 +527,7 @@ const resources = {
         '10': 'Select',
         '11': 'Change Password',
         '12': 'Operator Details',
+        '13': 'Password will only change on mobile application.',
       },
       partnerinfo: {
         '0': 'Partner Info',
@@ -904,6 +909,9 @@ const resources = {
         '9': 'Price is required!',
         '10': 'Title is required',
         '11': 'Please fill out all required fields.',
+        '12': 'Please fill out the form',
+        '13': 'Please add the image',
+        '14': 'Please enter valid coordinates',
       },
       pagination: {
         showing: 'Showing {{page}} of {{totalResults}} results',
@@ -978,6 +986,7 @@ const resources = {
         '10': 'Выбрать',
         '11': 'Изменить пароль',
         '12': 'Детали Оператора',
+        '13': 'Пароль изменится только в мобильном приложении.',
       },
       partnerinfo: {
         '0': 'Информация о партнере',
@@ -1347,6 +1356,9 @@ const resources = {
         '9': 'Требуется цена!',
         '10': 'Требуется название',
         '11': 'Пожалуйста, заполните все обязательные поля.',
+        '12': 'Пожалуйста, заполните форму',
+        '13': 'Пожалуйста, добавьте изображение',
+        '14': 'Пожалуйста, введите действительные координаты',
       },
       pagination: {
         showing: 'Показано  {{page}}  из {{totalResults}} результатов',

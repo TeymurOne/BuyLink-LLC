@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface InputProps {
   id: string;
@@ -26,6 +27,7 @@ const Input: React.FC<InputProps> = ({
   showPasswordTooltip = false,
 }) => {
   const [showTooltip, setShowTooltip] = useState(false);
+  const { t } = useTranslation();
 
   return (
     <div className="w-full">
@@ -58,7 +60,7 @@ const Input: React.FC<InputProps> = ({
             </span>
             {showTooltip && (
               <div className="absolute -top-8 right-0 z-10 w-80 rounded-xl bg-[#F7F7F7] px-3 py-2 text-xs text-black shadow-lg">
-                Password will only change on mobile application.
+                {t('operator.13')}
               </div>
             )}
           </div>

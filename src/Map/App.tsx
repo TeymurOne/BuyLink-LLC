@@ -70,7 +70,7 @@ const App = (props: any) => {
         />
         {attemptedSubmit && !isCoordinateValid(inputValue) && (
           <span style={{ color: '#F31F1F', fontSize: '10px' }}>
-            *Please enter valid coordinates
+            *{t('toast.14')}
           </span>
         )}
       </div>
