@@ -177,8 +177,7 @@ const Form = () => {
   };
 
   const validatePhone = (phone: string) => {
-    const phoneRegex = /^\+994[0-9]{9}$/;
-    return phoneRegex.test(phone);
+    return true;
   };
 
   const postSubmit = async (e: React.FormEvent<HTMLButtonElement>) => {
