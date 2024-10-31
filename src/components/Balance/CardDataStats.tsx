@@ -85,9 +85,9 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
                 </svg>
 
                 {showTitleTooltip && showTooltip && (
-                  <div className="absolute   -left-10 -top-10 z-10 w-max -translate-x-1/2 -translate-y-2 transform rounded-lg bg-[#F7F7F7] p-2 text-xs text-black shadow-xl">
+                  <div className="absolute   -left-15 -top-8 z-10 w-max -translate-x-1/2 -translate-y-2 transform rounded-xl bg-[#F7F7F7] p-2 text-xs text-black shadow-9">
                     {t('balance.2')} - {t('balance.1')} = {t('balance.4')}
-                    <div className="absolute bottom-0 right-15 h-0 w-0 -translate-x-1/2 translate-y-full transform border-x-8 border-t-8 border-x-transparent border-t-[#F7F7F7]"></div>
+                    <div className="absolute bottom-0 right-12 h-0 w-0 -translate-x-1/2 translate-y-full transform border-x-8 border-t-8 border-x-transparent border-t-[#F7F7F7]"></div>
                   </div>
                 )}
               </span>

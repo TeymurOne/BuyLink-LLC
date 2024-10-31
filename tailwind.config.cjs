@@ -292,7 +292,8 @@ module.exports = {
         5: '0px 1px 1px rgba(0, 0, 0, 0.15)',
         6: '0px 3px 15px rgba(0, 0, 0, 0.1)',
         7: '-5px 0 0 #313D4A, 5px 0 0 #313D4A',
-        8: '1px 0 0 #313D4A, -1px 0 0 #313D4A, 0 1px 0 #313D4A, 0 -1px 0 #313D4A, 0 3px 13px rgb(0 0 0 / 8%)'
+        8: '1px 0 0 #313D4A, -1px 0 0 #313D4A, 0 1px 0 #313D4A, 0 -1px 0 #313D4A, 0 3px 13px rgb(0 0 0 / 8%)',
+        9: '-1px 1px 4px 0px rgba(0, 0, 0, 0.15)'
       },
       keyframes: {
         rotating: {
