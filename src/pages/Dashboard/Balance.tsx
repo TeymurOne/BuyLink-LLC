@@ -108,6 +108,7 @@ export default function Balance() {
         </div>
         <div className="layout2 order-5 col-span-2 w-full sm:col-span-1 xl:order-none">
           <CardDataStats
+            id="netAmount"
             title={t('balance.4')}
             rate={net_amount}
             icon={<TbCurrencyManat />}
