@@ -124,7 +124,7 @@ const Select: React.FC<InputProps> = ({
                       </div>
                     ))
                   ) : (
-                    <div className="text-gray-500 p-2">No options found</div>
+                    <div className="text-gray-500 p-2">{t('toast.12')}</div>
                   )}
                 </div>
               </div>
