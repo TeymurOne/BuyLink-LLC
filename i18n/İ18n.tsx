@@ -43,7 +43,7 @@ const resources = {
         '5': 'Qiymət ',
         '6': 'Endirimli qiymət ',
         '7': 'Kateqoriya ',
-        '8': 'Redakt ',
+        '8': 'Hərəkətlər',
         '9': 'Ləgv et ',
         '10': 'Saxla',
         '11': 'Dəyiş',
