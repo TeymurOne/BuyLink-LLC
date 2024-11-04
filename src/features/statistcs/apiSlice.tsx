@@ -26,7 +26,7 @@ export const statisticSlice = apiSlice
       }),
       getTransactions: builder.query({
         query: ({ filter, operator }) => ({
-          url: `/transactions?filter=${filter || ''}&operator=${operator || ''}`,
+          url: `/dashboard-transactions?filter=${filter || ''}&operator=${operator || ''}`,
           method: 'GET',
         }),
         providesTags: ['transactions'],
