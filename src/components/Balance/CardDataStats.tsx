@@ -15,6 +15,7 @@ interface CardDataStatsProps {
   onClick: () => void;
   showTitleTooltip?: boolean;
   showTooltipIcon?: boolean;
+  id?: string; // New prop for identifying the "Net Amount" card
 }
 
 const CardDataStats: React.FC<CardDataStatsProps> = ({
@@ -28,6 +29,7 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
   onClick,
   showTitleTooltip = false,
   showTooltipIcon = false,
+  id,
 }) => {
   const dispatch = useDispatch();
   const [showTooltip, setShowTooltip] = useState(false);
@@ -49,9 +51,9 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
   return (
     <div
       onClick={handleClick}
-      className={`relative w-full cursor-pointer rounded-xl py-3 shadow transition hover:scale-95 dark:bg-boxdark ${className} ${
+      className={`relative w-full rounded-xl py-3 shadow transition ${
         isActive ? 'bg-[#4C5DF5] text-white' : 'bg-white'
-      }`}
+      } ${id !== 'netAmount' ? 'cursor-pointer hover:scale-95' : 'cursor-auto'} dark:bg-boxdark ${className}`}
       onMouseEnter={() => setShowTooltip(true)}
       onMouseLeave={() => setShowTooltip(false)}
     >
@@ -85,7 +87,7 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
                 </svg>
 
                 {showTitleTooltip && showTooltip && (
-                  <div className="absolute   -left-10 -top-10 z-10 w-max -translate-x-1/2 -translate-y-2 transform rounded-lg bg-[#F7F7F7] p-2 text-xs text-black shadow-xl">
+                  <div className="absolute -left-10 -top-10 z-10 w-max -translate-x-1/2 -translate-y-2 transform rounded-lg bg-[#F7F7F7] p-2 text-xs text-black shadow-xl">
                     {t('balance.2')} - {t('balance.1')} = {t('balance.4')}
                     <div className="absolute bottom-0 right-15 h-0 w-0 -translate-x-1/2 translate-y-full transform border-x-8 border-t-8 border-x-transparent border-t-[#F7F7F7]"></div>
                   </div>
