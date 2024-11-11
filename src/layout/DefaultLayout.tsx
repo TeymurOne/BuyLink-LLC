@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
 import { Outlet } from 'react-router-dom';
 import { useGetPenaltyQuery } from '../features/branch/apiSlice.tsx';
+import { useTranslation } from 'react-i18next';
 
 interface DueItem {
   overdue_days: number;
@@ -12,9 +13,15 @@ interface DueItem {
 
 const DefaultLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
-
+  const { t } = useTranslation();
   const { data }: { data?: { data: DueItem[] } } = useGetPenaltyQuery('');
-  console.log(data);
+  const truncateNumber = (value: any) => {
+    if (isNaN(value) || value === null) return '';
+    const numberStr = value.toString();
+    const dotIndex = numberStr.indexOf('.');
+    if (dotIndex === -1) return numberStr;
+    return numberStr.slice(0, dotIndex + 3);
+  };
   return (
     <>
       <div className="flex h-screen flex-col font-poppins dark:bg-boxdark-2 dark:text-bodydark">
@@ -46,10 +53,11 @@ const DefaultLayout = () => {
               </span>
 
               <span className="pl-2 text-xs font-semibold text-white">
-                -{item.overdue_days} Days{' '}
-                <span className="font-normal">Overdue Payment!</span> Penalties
-                start to charge per each day (Overdue amount: {item.amount}₼,
-                Penalty Amount: {item.penalty}₼)
+                {t('member.17', {
+                  days: item.overdue_days,
+                  amount: truncateNumber(item.amount),
+                  penalty: item.penalty,
+                })}
               </span>
             </div>
           ))}

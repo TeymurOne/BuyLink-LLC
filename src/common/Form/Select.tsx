@@ -131,7 +131,7 @@ const Select: React.FC<InputProps> = ({
             )}
             {attemptedSubmit && !categoryId && (
               <span className="text-xs text-errorMessage">
-                *Please fill out the form
+                *{t('toast.12')}
               </span>
             )}
           </div>

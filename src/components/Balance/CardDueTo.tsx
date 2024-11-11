@@ -24,6 +24,14 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
     if (apiData) dispatch(setFilter(apiData));
   };
 
+  const truncateNumber = (value: any) => {
+    if (isNaN(value) || value === null) return '';
+    const numberStr = value.toString();
+    const dotIndex = numberStr.indexOf('.');
+    if (dotIndex === -1) return numberStr;
+    return numberStr.slice(0, dotIndex + 3);
+  };
+
   return (
     <>
       <div
@@ -37,7 +45,7 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
               {title}
             </p>
             <span className="flex items-center text-xl font-medium dark:text-white xl:text-2xl">
-              {rate} {icon}
+              {truncateNumber(rate)} {icon}
             </span>
           </div>
         </div>
