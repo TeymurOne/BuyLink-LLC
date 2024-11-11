@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { setFilterData } from '../../features/category/categorySlice';
 import { useFetchBranchAllQuery } from '../../features/branch/apiSlice';
 import down from '../../images/icon/icon-arrow-down.svg';
+import { useTranslation } from 'react-i18next';
 
 interface InputProps {
   id?: string;
@@ -55,6 +56,7 @@ const CommonSelect: React.FC<InputProps> = ({
   };
 
   const selectedItem = filteredItems.find((item) => item.id === value);
+  const { t } = useTranslation();
 
   return (
     <>
@@ -102,7 +104,7 @@ const CommonSelect: React.FC<InputProps> = ({
                       </div>
                     ))
                   ) : (
-                    <div className="text-gray-500 p-2">No options found</div>
+                    <div className="text-gray-500 p-2">{t('toast.12')}</div>
                   )}
                 </div>
               </div>

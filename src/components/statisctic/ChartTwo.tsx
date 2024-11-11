@@ -60,6 +60,8 @@ const ChartTwo: React.FC<ChartTwoProps> = ({ transactions, referral }) => {
     },
     xaxis: {
       categories: [
+        t('months.11'),
+        t('months.12'),
         t('months.1'),
         t('months.2'),
         t('months.3'),
@@ -70,8 +72,6 @@ const ChartTwo: React.FC<ChartTwoProps> = ({ transactions, referral }) => {
         t('months.8'),
         t('months.9'),
         t('months.10'),
-        t('months.11'),
-        t('months.12'),
       ],
     },
     yaxis: {

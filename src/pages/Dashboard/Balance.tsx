@@ -108,6 +108,7 @@ export default function Balance() {
         </div>
         <div className="layout2 order-5 col-span-2 w-full sm:col-span-1 xl:order-none">
           <CardDataStats
+            id="netAmount"
             title={t('balance.4')}
             rate={net_amount}
             icon={<TbCurrencyManat />}
@@ -179,6 +180,18 @@ export default function Balance() {
                   {' '}
                   {t('balanceTable.0')}{' '}
                 </td>
+                <td className="dark:text-white5 min-w-24.5 border-b border-r border-tborder py-2 font-medium sm:pl-0 md:pl-4">
+                  {' '}
+                  {t('balanceTable.11')}{' '}
+                </td>
+                <td className="dark:text-white5 min-w-24.5 border-b border-r border-tborder py-2 font-medium sm:pl-0 md:pl-4">
+                  {' '}
+                  {t('balanceTable.12')}{' '}
+                </td>
+                <td className="dark:text-white5 min-w-24.5 border-b border-r border-tborder py-2 font-medium sm:pl-0 md:pl-4">
+                  {' '}
+                  {t('balanceTable.13')}{' '}
+                </td>
                 <td className="min-w-24.5 border-b border-r border-tborder px-2 py-2 font-medium dark:text-white">
                   {' '}
                   {t('balanceTable.1')}{' '}
@@ -202,10 +215,6 @@ export default function Balance() {
                 <td className="min-w-24.5 border-b border-r border-tborder px-4 py-2 font-medium dark:text-white">
                   {' '}
                   {t('balanceTable.6')}{' '}
-                </td>
-                <td className="min-w-24.5 border-b border-l border-tborder px-4 py-2 font-medium">
-                  {' '}
-                  {t('balanceTable.7')}{' '}
                 </td>
               </tr>
             </thead>

@@ -28,7 +28,7 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
     <>
       <div
         onClick={handleClick}
-        className={`w-full cursor-pointer rounded-xl bg-[#E9F0FF] py-3  transition dark:bg-boxdark ${className}`}
+        className={`w-full cursor-auto cursor-pointer rounded-xl bg-[#E9F0FF] py-3 transition dark:bg-boxdark ${className}`}
       >
         <div className="relative w-full space-x-4">
           <div className="pl-4">{children}</div>
