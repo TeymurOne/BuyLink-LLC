@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../app/api/store';
-import { setFilterData } from '../../features/category/categorySlice.tsx';
-import { useFetchProducttypeQuery } from '../../features/product/apiSlice.ts';
+import { useDispatch } from 'react-redux';
+import { setFilterData } from '../../features/category/categorySlice';
+import { useFetchBranchAllQuery } from '../../features/branch/apiSlice';
 import down from '../../images/icon/icon-arrow-down.svg';
 import { useTranslation } from 'react-i18next';
 
@@ -18,47 +17,30 @@ interface InputProps {
   className?: string;
   style?: React.CSSProperties;
   attemptedSubmit?: boolean;
-  categoryId?: string;
+  branchId?: string;
 }
 
-const Select: React.FC<InputProps> = ({
+const CommonSelect: React.FC<InputProps> = ({
   id,
   label,
   value,
-  style,
   option,
   onChange,
   className,
-  required,
-  attemptedSubmit,
-  categoryId,
 }) => {
   const dispatch = useDispatch();
-  const [search, setSearch] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const { language, filteredData } = useSelector(
-    (store: RootState) => store.categorySlice,
-  );
-  const { isSuccess, data } = useFetchProducttypeQuery('');
-  const { t } = useTranslation();
+  const { isSuccess, data } = useFetchBranchAllQuery(''); // Fetch branch data
 
+  // This will update the state when branch data is fetched successfully
   useEffect(() => {
     if (isSuccess && data) {
       dispatch(setFilterData(data?.data));
     }
-  }, [isSuccess, data]);
+  }, [isSuccess, data, dispatch]);
 
-  const filteredItems = filteredData
-    .filter((item) =>
-      item.name[language]
-        ?.toLocaleLowerCase()
-        .includes(search.trim().toLocaleLowerCase()),
-    )
-    .sort((a, b) =>
-      a.name[language].localeCompare(b.name[language], language, {
-        sensitivity: 'base',
-      }),
-    );
+  // Assuming data.data contains the array of branches
+  const filteredItems = data?.data || [];
 
   const handleDropdownToggle = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -71,10 +53,10 @@ const Select: React.FC<InputProps> = ({
       } as React.ChangeEvent<HTMLSelectElement>);
     }
     setIsDropdownOpen(false);
-    setSearch('');
   };
 
-  const selectedItem = filteredData.find((item) => item.id === value);
+  const selectedItem = filteredItems.find((item) => item.id === value);
+  const { t } = useTranslation();
 
   return (
     <>
@@ -84,7 +66,6 @@ const Select: React.FC<InputProps> = ({
           className="mb-2 block w-full font-works text-sm font-medium text-tdColor dark:text-white300"
         >
           {label}
-          {required && <span className="text-red-600">*</span>}
         </label>
         <div>
           <div className="relative">
@@ -95,8 +76,14 @@ const Select: React.FC<InputProps> = ({
               }
               onClick={handleDropdownToggle}
             >
-              <span className="flex-1 text-left">
-                {selectedItem ? selectedItem.name[language] : option}
+              <span
+                className={`flex-1 text-left sm:text-sm sm:leading-6 ${
+                  selectedItem ? 'text-black' : 'text-darkgray'
+                }`}
+              >
+                {selectedItem
+                  ? selectedItem.name
+                  : option || 'Baku, Azerbaijan'}
               </span>
               <span className="ml-2 flex-shrink-0">
                 <img src={down} alt="icon" />
@@ -104,14 +91,7 @@ const Select: React.FC<InputProps> = ({
             </div>
 
             {isDropdownOpen && (
-              <div className="absolute z-10 mt-1 w-full rounded-md  bg-white shadow-lg">
-                <input
-                  type="text"
-                  placeholder={t('header.7')}
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  className="mb-2 w-full  border-b border-inputColor p-2 text-sm"
-                />
+              <div className="absolute z-10 mt-1 w-full rounded-md bg-white shadow-lg">
                 <div className="max-h-60 overflow-y-auto">
                   {filteredItems.length > 0 ? (
                     filteredItems.map((item) => (
@@ -120,7 +100,7 @@ const Select: React.FC<InputProps> = ({
                         onClick={() => handleOptionClick(item.id)}
                         className="hover:bg-gray-100 cursor-pointer p-2"
                       >
-                        {item.name[language]}
+                        {item.name}
                       </div>
                     ))
                   ) : (
@@ -129,11 +109,6 @@ const Select: React.FC<InputProps> = ({
                 </div>
               </div>
             )}
-            {attemptedSubmit && !categoryId && (
-              <span className="text-xs text-errorMessage">
-                *{t('toast.12')}
-              </span>
-            )}
           </div>
         </div>
       </div>
@@ -141,4 +116,4 @@ const Select: React.FC<InputProps> = ({
   );
 };
 
-export default Select;
+export default CommonSelect;

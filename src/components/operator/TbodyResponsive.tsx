@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { useRemovebranchMutation } from '../../features/branch/apiSlice';
 import { IoIosArrowDown } from 'react-icons/io';
@@ -18,6 +18,7 @@ interface TbodyProps {
   lng: any;
   name: any;
   phone: any;
+  item: any;
 }
 
 const TbodyResponsive = ({ item }: TbodyProps) => {
@@ -66,6 +67,14 @@ const TbodyResponsive = ({ item }: TbodyProps) => {
               <li className="flex justify-between">
                 <p>{t('operator.4')}</p>
                 <p>{item.email}</p>
+              </li>
+            </ul>
+          </div>
+          <div className="flex px-2 pt-5">
+            <ul className="mx-2 w-full space-y-2 text-xs text-black dark:text-white">
+              <li className="flex justify-between">
+                <p>{t('operator.13')}</p>
+                <p>{item.branch?.name}</p>
               </li>
             </ul>
           </div>

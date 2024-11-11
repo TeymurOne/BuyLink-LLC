@@ -100,9 +100,18 @@ const TbodyResponsive = ({ item }: TbodyProps) => {
                 />
               </li>
               <li className="flex justify-between">
+                <p>{t('balanceTable.12')}</p>
+                <p> {item?.user?.name}</p>
+              </li>
+              <li className="flex justify-between">
+                <p>{t('balanceTable.13')}</p>
+                <p> {item?.referer?.name}</p>
+              </li>
+              <li className="flex justify-between">
                 <p>{t('balanceTable.1')}</p>
                 <p>{truncateNumber(item?.discounted_percent)}</p>
               </li>
+
               <li className="flex justify-between">
                 <p>{t('balanceTable.2')}</p>
                 <p>{truncateNumber(item?.discounted_amount)}</p>
@@ -125,10 +134,6 @@ const TbodyResponsive = ({ item }: TbodyProps) => {
               <li className="flex justify-between">
                 <p>{t('balanceTable.6')}</p>
                 <p> {truncateNumber(item?.net_amount)}</p>
-              </li>
-              <li className="flex justify-between">
-                <p>{t('balanceTable.7')}</p>
-                <p>{item?.user?.id}</p>
               </li>
             </ul>
           </div>

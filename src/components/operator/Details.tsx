@@ -13,7 +13,7 @@ const Details = () => {
     const items = isSuccess && Array.isArray(data?.data) ? data.data : [];
     content = items.find((item: any) => item.id == id);
   }
-  const titles = [t('operator.3'), t('operator.4')];
+  const titles = [t('operator.13'), t('operator.3'), t('operator.4')];
 
   return (
     <>
@@ -37,6 +37,9 @@ const Details = () => {
                 })}
               </ul>
               <ul className="w-full  max-w-full bg-white">
+                <li className="px-3 py-4 pl-5 text-xs  lg:text-sm">
+                  {content?.branch?.name}
+                </li>
                 <li className="bg-[#F8F8F8] px-3 py-4 pl-5 text-xs lg:text-sm">
                   {content?.name}
                 </li>

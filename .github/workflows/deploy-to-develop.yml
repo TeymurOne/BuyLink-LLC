@@ -25,6 +25,7 @@ jobs:
         if: github.ref == 'refs/heads/develop'
         run: |
           ssh -o StrictHostKeyChecking=no root@${{ secrets.SERVER_ADRESS }} << 'EOF'
-            cd /root/front/buylink_web_dev
+            cd /app/front/buylink_web_dev
             git pull
+            npm run build
           EOF

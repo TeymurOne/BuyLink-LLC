@@ -44,7 +44,12 @@ const CreateForm = () => {
     return null;
   }, [items, isSuccess]);
 
-  const titles = [t('operator.3'), t('operator.4'), t('operator.5')];
+  const titles = [
+    t('operator.3'),
+    t('operator.13'),
+    t('operator.4'),
+    t('operator.5'),
+  ];
 
   return (
     <>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import {
   useLazyUpdateOperatorGetQuery,
@@ -18,12 +18,16 @@ import {
 import CancelSaveButton from '../../data/helpers/Button';
 import { TitleArrow } from '../ui/Title';
 import { toast } from 'react-toastify';
+import CommonSelect from '../../common/Form/CommonSelect';
 
 const Form = () => {
   const { id }: any = useParams();
-  const { name, email, password, branchID } = useSelector(
+  const { name, email, password, branch_id } = useSelector(
     (store: any) => store.operator,
   );
+  const [selectedBranchId, setSelectedBranchId] = useState<string>('');
+  const [attemptedSubmit, setAttemptedSubmit] = useState(false);
+
   const [updateGet] = useLazyUpdateOperatorGetQuery();
   const [postOperator] = useUpdateOperatorMutation();
   const { t } = useTranslation();
@@ -33,15 +37,15 @@ const Form = () => {
 
   const handleEdit = async (id: number) => {
     try {
-      toast.dismiss();
       const resUpdate = await updateGet(id);
       if (resUpdate) {
         const data = resUpdate.data?.data;
         dispatch(setName(data?.name));
         dispatch(setEmail(data?.email));
+        setSelectedBranchId(data?.branch?.id);
       }
     } catch (error) {
-      toast.error(t('toast.errorFetching'));
+      console.error(error);
     }
   };
 
@@ -51,26 +55,24 @@ const Form = () => {
 
   const { isSuccess, data, isError } = useFetchBranchAllQuery('');
 
-  let content;
+  let branchOptions;
   if (isSuccess) {
-    content = data?.data.map((item: IitemBranch, index: number) => {
-      const isSelected = item.id === branchID;
+    branchOptions = data?.data.map((item: IitemBranch, index: number) => {
       return (
-        <option key={index} selected={isSelected} value={item.id}>
+        <option key={index} value={item.id}>
           {item.name}
         </option>
       );
     });
   } else if (isError) {
-    console.error('Error fetching data', 'Products Types');
+    console.error('Error fetching branch data');
   }
 
   const postSubmit = async (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    setAttemptedSubmit(true);
 
-    toast.dismiss();
-
-    if (!name || !email || !password) {
+    if (!name || !email || !password || !selectedBranchId) {
       toast.error(t('toast.11'));
       return;
     }
@@ -79,6 +81,7 @@ const Form = () => {
     postData.append('name', name);
     postData.append('email', email);
     postData.append('password', password);
+    postData.append('branch_id', selectedBranchId);
 
     try {
       if (postData) {
@@ -92,10 +95,14 @@ const Form = () => {
           });
       }
     } catch (error) {
-      toast.error(t('toast.errorSubmit'));
+      console.error(error);
     } finally {
       dispatch(setLoad(false));
     }
+  };
+
+  const handleBranchChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedBranchId(e.target.value);
   };
 
   return (
@@ -107,7 +114,7 @@ const Form = () => {
               {t('operator.0')} {t('operator.8')}
             </TitleArrow>
             <div className="mt-10 grid grid-cols-6 gap-x-6 gap-y-8 sm:grid-cols-6">
-              <div className="col-span-6 lg:col-span-3 ">
+              <div className="col-span-6 lg:col-span-3">
                 <Input
                   label={t('operator.3')}
                   value={name}
@@ -117,7 +124,7 @@ const Form = () => {
                 />
               </div>
 
-              <div className="col-span-6 lg:col-span-3 ">
+              <div className="col-span-6 lg:col-span-3">
                 <Input
                   label="E-mail"
                   value={email}
@@ -126,21 +133,37 @@ const Form = () => {
                   placeholder="Enter your Email"
                 />
               </div>
-              <div className="relative col-span-6 lg:col-span-3">
+              <div className="col-span-6 lg:col-span-3">
                 <Input
                   type="password"
                   label={t('operator.11')}
                   value={password}
-                  onChange={(e) => dispatch(setPwd(String(e.target.value)))}
+                  onChange={(e) => dispatch(setPwd(e.target.value))}
                   id="password"
                   placeholder="Enter your password"
-                  showPasswordTooltip={true}
                 />
+              </div>
+              <div className="col-span-6 lg:col-span-3">
+                <CommonSelect
+                  label={t('operator.13')}
+                  value={selectedBranchId}
+                  onChange={handleBranchChange}
+                  option={t('branch.16')}
+                  required={true}
+                  attemptedSubmit={attemptedSubmit}
+                >
+                  {branchOptions}
+                </CommonSelect>
+                {attemptedSubmit && !selectedBranchId && (
+                  <span className="text-xs text-errorMessage">
+                    *Please select a branch
+                  </span>
+                )}
               </div>
             </div>
           </div>
         </div>
-        <CancelSaveButton onCancel={() => history.back()} onSave={postSubmit} />
+        <CancelSaveButton onCancel={() => navigate(-1)} onSave={postSubmit} />
       </form>
     </>
   );

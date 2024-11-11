@@ -30,6 +30,7 @@ const Tbody: React.FC<TbodyProps> = ({ item }) => {
     <>
       <TR>
         <TD>{item.name}</TD>
+        <TD>{item.branch?.name}</TD>
         <TD>{item.email}</TD>
 
         <TD>
