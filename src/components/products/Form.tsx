@@ -161,7 +161,7 @@ const Form = () => {
           <InputImg required showimg={showimg} onChange={handleImg} />
           {attemptedSubmit && !images && (
             <span className="-ml-32 mb-8 text-xs text-errorMessage md:-ml-40">
-              * {t('operator.13')}
+              * {t('operator.14')}
             </span>
           )}
         </div>
