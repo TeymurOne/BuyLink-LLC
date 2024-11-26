@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { usePostBranchMutation } from '../../features/branch/apiSlice';
 import { useNavigate } from 'react-router-dom';
-import App from '../../Map/App';
+import App from '../../Map/App.tsx';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectLat, selectLng } from '../../features/map/MapSlice';
@@ -56,12 +56,12 @@ const Form: React.FC = () => {
     setAttemptedSubmit(true);
 
     if (!address || !latData || !lngData || !name.trim() || !phone.trim()) {
-      toast.error(t('toast.3'));
+      toast.error('Please fill out the form completely.');
       return;
     }
 
     if (!validatePhoneNumber(phone)) {
-      toast.error(t('toast.2'));
+      toast.error('The phone format is invalid.');
       return;
     }
 
@@ -78,12 +78,12 @@ const Form: React.FC = () => {
 
       const response = await postBranches(postData).unwrap();
       if (response.success) {
-        toast.success(t('toast.4'));
+        toast.success('Added successfully!');
         navigate('/admin/branch/all');
         dispatch(resetState());
       }
     } catch (error) {
-      toast.error(t('toast.6'));
+      toast.error('An error occurred. Please try again.');
     } finally {
       dispatch(setLoad(false));
     }

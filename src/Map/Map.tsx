@@ -48,7 +48,7 @@ function ResetCenterView({
       });
       setClickPosition(null);
     } else if (coordinate) {
-      map.setView([coordinate.lat, coordinate.lng], map.getZoom(), {
+      map.setView([coordinat.lat, coordinate.lng], map.getZoom(), {
         animate: true,
       });
       setClickPosition({ lat: coordinate.lat, lng: coordinate.lng });
@@ -57,7 +57,6 @@ function ResetCenterView({
 
   return null;
 }
-
 const Map = ({
   coordinate,
   setCoordinate,
@@ -82,6 +81,14 @@ const Map = ({
     }
   }, [resetCoordinates]);
 
+  // Center the map and update the marker when coordinates change
+  useEffect(() => {
+    if (coordinate?.lat && coordinate?.lng) {
+      setMarkedPosition(coordinate); // Update marker position
+      setClickPosition(coordinate); // Center the map
+    }
+  }, [coordinate]);
+
   const handleMapClick = (e: LeafletMouseEvent) => {
     const { lat, lng } = e.latlng;
     const newCoordinates = { lat, lng };
@@ -97,7 +104,10 @@ const Map = ({
 
   return (
     <MapContainer
-      center={[40.34720432727009, 49.81097458154038]}
+      center={[
+        coordinate?.lat || 40.34720432727009,
+        coordinate?.lng || 49.81097458154038,
+      ]}
       zoom={13}
       style={{ width: '100%', height: '100%' }}
       scrollWheelZoom={false}
@@ -109,13 +119,6 @@ const Map = ({
       <MapEventsHandler handleMapClick={handleMapClick} />
       {markedPosition && (
         <Marker position={markedPosition} icon={icon}></Marker>
-      )}
-      {coordinate && (
-        <ResetCenterView
-          setClickPosition={setClickPosition}
-          coordinate={coordinate}
-          resetCoordinates={resetCoordinates}
-        />
       )}
     </MapContainer>
   );
