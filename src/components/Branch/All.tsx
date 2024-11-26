@@ -17,7 +17,6 @@ const CreateForm = () => {
   const dispatch = useDispatch();
   const { page } = useSelector((store: any) => store.PaginationSlice);
   const { isSuccess, isLoading, data } = useFetchBranchAllQuery(page);
-
   if (isSuccess) {
     content = data.data?.map((item: any, index: number) => {
       allCoordinates.push({ lat: item?.lat, lng: item?.lng });
