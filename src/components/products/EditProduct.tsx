@@ -61,7 +61,7 @@ const EditProduct = () => {
   };
 
   const handleImg = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file: File | any = e.target.files[0];
+    const file: File | null = e.target.files?.[0] || null;
 
     if (file) {
       dispatch(setimgUrl(file));
@@ -93,6 +93,7 @@ const EditProduct = () => {
       toast.error(t('toast.9'));
       return;
     }
+
     for (const lang of language) {
       if (!name[lang]) {
         toast.error(t('toast.10'));
@@ -100,29 +101,32 @@ const EditProduct = () => {
       }
     }
     const postData = new FormData();
-    postData.append('image', imgurl || '');
+    if (imgurl instanceof File) {
+      postData.append('image', imgurl);
+    }
+
     postData.append('category_id', categoryId?.toString() || '');
     postData.append('price', price?.toString() || '');
     postData.append('discount_price', discount?.toString() || '');
 
-    language.forEach((key: any) => {
+    language.forEach((key) => {
       const value = desc[key] || ' ';
       postData.append(`description[${key}]`, value);
     });
-    language.forEach((key: any) => {
+
+    language.forEach((key) => {
       const value = name[key] || '';
       postData.append(`title[${key}]`, value);
     });
 
     try {
-      if (postData) {
-        await dataEdit({ postData, idUrl });
-        toast.success(t('toast.5'));
-        navigate('/admin/product/all');
-        dispatch(setReset());
-      }
+      await dataEdit({ postData, idUrl });
+      toast.success(t('toast.5'));
+      navigate('/admin/product/all');
+      dispatch(setReset());
     } catch (error) {
       toast.error(t('toast.6'));
+      console.error('Update Error:', error);
     }
   };
 
