@@ -72,7 +72,12 @@ const Form = () => {
     e.preventDefault();
     setAttemptedSubmit(true);
 
-    if (!name || !email || !password || !selectedBranchId) {
+    if (!name || !email || !password) {
+      toast.error(t('toast.11'));
+      return;
+    }
+
+    if (branchOptions && branchOptions.length > 1 && !selectedBranchId) {
       toast.error(t('toast.11'));
       return;
     }
@@ -81,7 +86,10 @@ const Form = () => {
     postData.append('name', name);
     postData.append('email', email);
     postData.append('password', password);
-    postData.append('branch_id', selectedBranchId);
+
+    if (branchOptions && branchOptions.length > 1) {
+      postData.append('branch_id', selectedBranchId);
+    }
 
     try {
       if (postData) {
@@ -143,23 +151,26 @@ const Form = () => {
                   placeholder="Enter your password"
                 />
               </div>
-              <div className="col-span-6 lg:col-span-3">
-                <CommonSelect
-                  label={t('operator.13')}
-                  value={selectedBranchId}
-                  onChange={handleBranchChange}
-                  option={t('branch.16')}
-                  required={true}
-                  attemptedSubmit={attemptedSubmit}
-                >
-                  {branchOptions}
-                </CommonSelect>
-                {attemptedSubmit && !selectedBranchId && (
-                  <span className="text-xs text-errorMessage">
-                    *Please select a branch
-                  </span>
-                )}
-              </div>
+              {branchOptions && branchOptions.length > 1 && (
+                <div className="col-span-6 lg:col-span-3">
+                  <CommonSelect
+                    label={t('operator.13')}
+                    value={selectedBranchId}
+                    onChange={handleBranchChange}
+                    option={t('branch.16')}
+                    required={true}
+                    attemptedSubmit={attemptedSubmit}
+                  >
+                    <option value="">{t('branch.select')}</option>
+                    {branchOptions}
+                  </CommonSelect>
+                  {attemptedSubmit && !selectedBranchId && (
+                    <span className="text-xs text-errorMessage">
+                      *Please select a branch
+                    </span>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         </div>
