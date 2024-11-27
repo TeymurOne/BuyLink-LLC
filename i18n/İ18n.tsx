@@ -71,6 +71,7 @@ const resources = {
         '11': 'Şifrəni Dəyiş',
         '12': 'Operator Detalları',
         '13': 'Filial',
+        '14': 'Faylı seç',
       },
       partnerinfo: {
         '0': 'Partnyor Məlumatları ',
@@ -528,6 +529,7 @@ const resources = {
         '11': 'Change Password',
         '12': 'Operator Details',
         '13': 'Branch',
+        '14': 'Select the file',
       },
       partnerinfo: {
         '0': 'Partner Info',
@@ -988,6 +990,7 @@ const resources = {
         '11': 'Изменить пароль',
         '12': 'Детали Оператора',
         '13': 'Филиал',
+        '14': 'Выберите файл',
       },
       partnerinfo: {
         '0': 'Информация о партнере',
