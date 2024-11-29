@@ -44,6 +44,7 @@ const FirstPage = () => {
       fetchProductView();
     }
   }, [id]);
+
   const handleDiscountClick = async () => {
     try {
       const response = await fetch(
@@ -71,7 +72,7 @@ const FirstPage = () => {
 
       localStorage.setItem('uuid', data.uuid);
 
-      navigate(`/partner`);
+      navigate(`/partner/qr/${id}`);
     } catch (err) {
       console.error('Error applying discount:', err.message);
       alert('Failed to apply discount.');
@@ -103,6 +104,7 @@ const FirstPage = () => {
           <img
             className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-xl font-bold text-white"
             src={productView?.data?.cover}
+            alt={productView?.data?.title}
           />
         </div>
         <div>
@@ -123,27 +125,29 @@ const FirstPage = () => {
       </p>
 
       {/* Products Section */}
-      <div className="mb-6">
-        <h3 className="mb-3 text-[21px] font-medium leading-7">
-          {productView?.data?.catalogue?.[0]?.name || 'Default Catalogue Name'}
-        </h3>
-        <Swiper
-          spaceBetween={10}
-          slidesPerView="auto"
-          className="overflow-visible"
-        >
-          {productView?.data?.catalogue?.[0]?.products?.map((product) => (
-            <SwiperSlide key={product.id} className="bg-swiper-qr !w-[132px]">
-              <ProductCard
-                title={product.title || 'No Title'}
-                price={`${product.price || 0} AZN`}
-                image={product.image || 'default-image-url'}
-                onClick={() => openBottomSheet(product)}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
+      {productView?.data?.catalogue?.map((catalogue, index) => (
+        <div key={index} className="mb-6">
+          <h3 className="mb-3 text-[21px] font-medium leading-7">
+            {catalogue.name || 'Default Catalogue Name'}
+          </h3>
+          <Swiper
+            spaceBetween={10}
+            slidesPerView="auto"
+            className="overflow-visible"
+          >
+            {catalogue.products?.map((product) => (
+              <SwiperSlide key={product.id} className="bg-swiper-qr !w-[132px]">
+                <ProductCard
+                  title={product.title || 'No Title'}
+                  price={`${product.price || 0} AZN`}
+                  image={product.image || 'default-image-url'}
+                  onClick={() => openBottomSheet(product)}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      ))}
 
       <div className="flex gap-4">
         <a
@@ -171,7 +175,7 @@ const FirstPage = () => {
         >
           <div className="mb-4 flex items-center justify-between">
             <h2 className="mb-2 mt-2 text-[21px] font-medium">
-              {selectedProduct.name}
+              {selectedProduct.title}
             </h2>
             <button onClick={closeBottomSheet} className="text-gray-500">
               <svg
