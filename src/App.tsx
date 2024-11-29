@@ -54,7 +54,7 @@ function App() {
         <Route path="/" element={<Index />} />
         <Route path="/about" element={<About />} />
         <Route path="/partner/:id" element={<FirstPage />} />
-        <Route path="/partner" element={<SecondPage />} />
+        <Route path="/partner/qr/:id" element={<SecondPage />} />
         <Route path="/partner/final" element={<ThirdPage />} />
         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
         <Route path="/*" element={<ErrorPage />} />

@@ -33,6 +33,7 @@
     "i18next-http-backend": "^2.4.2",
     "install": "^0.13.0",
     "js-cookie": "^3.0.5",
+    "laravel-echo": "^1.17.1",
     "leaflet": "^1.9.4",
     "npm": "^10.8.0",
     "pusher-js": "^8.4.0-rc2",
