@@ -15,6 +15,9 @@ import DefaultLayout from './layout/DefaultLayout';
 import About from './pages/About/About';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SecondPage from './pages/WebView/SecondPage.tsx';
+import ThirdPage from './pages/WebView/ThirdPage.tsx';
+import FirstPage from './pages/WebView/FirstPage.tsx';
 
 function App() {
   const userState = useSelector(selectCurrentUser);
@@ -50,6 +53,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/about" element={<About />} />
+        <Route path="/partner/:id" element={<FirstPage />} />
+        <Route path="/partner" element={<SecondPage />} />
+        <Route path="/partner/final" element={<ThirdPage />} />
         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
         <Route path="/*" element={<ErrorPage />} />
         <Route element={<ProtectedRoutes />}>

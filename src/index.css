@@ -58,10 +58,6 @@ input::-webkit-inner-spin-button {
     border: 1px solid #F31F1F;
 }
 
-.amount_color {
-    background-color: #EAEAEA;
-}
-
 .leaflet-control-attribution {
     display: none;
 }
@@ -79,4 +75,107 @@ input::-webkit-inner-spin-button {
     width: 8px !important;
     height: 8px !important;
     border-radius: 100% !important;
+}
+
+.filter-container {
+    display: inline-block;
+    z-index: 1111 !important;
+}
+
+.filter-icon {
+    cursor: pointer;
+}
+
+.filter-dropdown {
+    display: none;
+    position: absolute;
+    left: 18%;
+    z-index: 1 !important;
+    background-color: white;
+    border: 1px solid #ccc;
+    width: 200px;
+    padding: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.filter-container:hover .filter-dropdown {
+    display: block;
+}
+
+.filter-dropdown input[type="checkbox"] {
+    margin-right: 5px;
+    border-radius: 6px;
+}
+
+.filter-dropdown button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.filter-dropdown input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-weight: 400;
+    border: 1px solid rgba(91, 91, 91, 0.66);
+    border-radius: 6px;
+    padding-left: 1.5rem;
+}
+.index {
+    z-index: -1 !important;
+}
+.hidden-input {
+    display: none;
+}
+.rs-input-group {
+    border: none !important;
+}
+.rs-picker-popup.rs-picker-popup-daterange {
+    padding: 0;
+}
+
+ .rs-picker-popup {
+     position: absolute;
+     text-align: left;
+     z-index: 7;
+     border-radius: 6px;
+     background-color: #fff;
+     background-color: var(--rs-bg-overlay);
+     -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.12), 0 0 10px rgba(0, 0, 0, 0.06);
+     -webkit-box-shadow: var(--rs-shadow-overlay);
+     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.12), 0 0 10px rgba(0, 0, 0, 0.06);
+     box-shadow: var(--rs-shadow-overlay);
+     overflow: hidden;
+     -webkit-transition: none;
+     transition: none;
+     display: -webkit-box;
+     display: -ms-flexbox;
+     display: flex;
+     -webkit-box-orient: vertical;
+     -webkit-box-direction: normal;
+     -ms-flex-direction: column;
+     flex-direction: column;
+     padding: 6px 0;
+     left: 70% !important
+ }
+.rs-input-group.rs-input-group-inside .rs-input {
+    display: none !important;
+    width: 100%;
+    border: none;
+    outline: none;
+}
+.rs-picker-popup .rs-calendar {
+    display: hidden !important;
+}
+
+.Toastify__toast-container--top-right {
+    top: 6rem !important;
+}
+.bg-swiper-qr {
+    background-color: transparent !important;
 }
