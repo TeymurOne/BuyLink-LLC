@@ -176,18 +176,17 @@ const Form = () => {
     setFormValue({ ...formValue, [name]: value });
   };
 
-  // const validatePhone = (phone: string) => {
-  //   const phoneRegex = /^\+994[0-9]{9}$/;
-  //   return phoneRegex.test(phone);
-  // };
+  const validatePhone = (phone: string) => {
+    return true;
+  };
 
   const postSubmit = async (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    //
-    // if (!validatePhone(formValue.phone)) {
-    //   toast.error(t('toast.2'));
-    //   return;
-    // }
+
+    if (!validatePhone(formValue.phone)) {
+      toast.error(t('toast.2'));
+      return;
+    }
 
     setLoad(true);
     postData.append('image', img);
@@ -446,7 +445,7 @@ const Form = () => {
               </div>
             ))}
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-              <div className="mt-6 max-w-full">
+              <div className="max-w-full">
                 <label
                   htmlFor="email"
                   className="block text-sm font-medium leading-6"
@@ -465,7 +464,7 @@ const Form = () => {
                   />
                 </div>
               </div>
-              <div className="mt-6 w-full max-w-full">
+              <div className="w-full max-w-full">
                 <label
                   htmlFor="phone"
                   title="phone"

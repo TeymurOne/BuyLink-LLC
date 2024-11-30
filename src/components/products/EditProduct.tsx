@@ -61,7 +61,7 @@ const EditProduct = () => {
   };
 
   const handleImg = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file: File | null = e.target.files?.[0] || null;
+    const file: File | any = e.target.files[0];
 
     if (file) {
       dispatch(setimgUrl(file));
@@ -89,44 +89,53 @@ const EditProduct = () => {
   const handleUpdate = async (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
+    const toastId = 'error-toast';
+    const successToastId = 'success-toast';
+
     if (!price) {
-      toast.error(t('toast.9'));
+      if (!toast.isActive(toastId)) {
+        toast.error(t('toast.9'), { toastId });
+      }
       return;
     }
 
     for (const lang of language) {
       if (!name[lang]) {
-        toast.error(t('toast.10'));
+        if (!toast.isActive(toastId)) {
+          toast.error(t('toast.10'), { toastId });
+        }
         return;
       }
     }
-    const postData = new FormData();
-    if (imgurl instanceof File) {
-      postData.append('image', imgurl);
-    }
 
+    const postData = new FormData();
+    postData.append('image', imgurl || '');
     postData.append('category_id', categoryId?.toString() || '');
     postData.append('price', price?.toString() || '');
     postData.append('discount_price', discount?.toString() || '');
 
-    language.forEach((key) => {
+    language.forEach((key: any) => {
       const value = desc[key] || ' ';
       postData.append(`description[${key}]`, value);
     });
-
-    language.forEach((key) => {
+    language.forEach((key: any) => {
       const value = name[key] || '';
       postData.append(`title[${key}]`, value);
     });
 
     try {
-      await dataEdit({ postData, idUrl });
-      toast.success(t('toast.5'));
-      navigate('/admin/product/all');
-      dispatch(setReset());
+      if (postData) {
+        await dataEdit({ postData, idUrl });
+        if (!toast.isActive(successToastId)) {
+          toast.success(t('toast.5'), { toastId: successToastId });
+        }
+        navigate('/admin/product/all');
+        dispatch(setReset());
+      }
     } catch (error) {
-      toast.error(t('toast.6'));
-      console.error('Update Error:', error);
+      if (!toast.isActive(toastId)) {
+        toast.error(t('toast.6'), { toastId });
+      }
     }
   };
 

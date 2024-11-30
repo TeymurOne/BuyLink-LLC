@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { usePostBranchMutation } from '../../features/branch/apiSlice';
 import { useNavigate } from 'react-router-dom';
-import App from '../../Map/App.tsx';
+import App from '../../Map/App';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectLat, selectLng } from '../../features/map/MapSlice';
@@ -55,13 +55,16 @@ const Form: React.FC = () => {
     e.preventDefault();
     setAttemptedSubmit(true);
 
+    if (load) return;
+    toast.dismiss();
+
     if (!address || !latData || !lngData || !name.trim() || !phone.trim()) {
-      toast.error('Please fill out the form completely.');
+      toast.error(t('toast.3'), { toastId: 'formError' });
       return;
     }
 
     if (!validatePhoneNumber(phone)) {
-      toast.error('The phone format is invalid.');
+      toast.error(t('toast.2'), { toastId: 'phoneError' });
       return;
     }
 
@@ -78,16 +81,17 @@ const Form: React.FC = () => {
 
       const response = await postBranches(postData).unwrap();
       if (response.success) {
-        toast.success('Added successfully!');
+        toast.success(t('toast.4'), { toastId: 'successMessage' });
         navigate('/admin/branch/all');
         dispatch(resetState());
       }
     } catch (error) {
-      toast.error('An error occurred. Please try again.');
+      toast.error(t('toast.6'), { toastId: 'submitError' });
     } finally {
       dispatch(setLoad(false));
     }
   };
+
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     if (/^[+\d]*$/.test(value)) {
@@ -114,7 +118,7 @@ const Form: React.FC = () => {
               />
               {attemptedSubmit && !address && (
                 <span className="text-xs text-errorMessage">
-                  *Please fill out the form
+                  *{t('toast.12')}
                 </span>
               )}
             </div>
@@ -130,7 +134,7 @@ const Form: React.FC = () => {
               />
               {attemptedSubmit && !phone && (
                 <span className="text-xs text-errorMessage">
-                  *Please fill out the form
+                  *{t('toast.12')}
                 </span>
               )}
             </div>
@@ -147,7 +151,7 @@ const Form: React.FC = () => {
               />
               {attemptedSubmit && !name && (
                 <span className="text-xs text-errorMessage">
-                  *Please fill out the form
+                  *{t('toast.12')}
                 </span>
               )}
             </div>

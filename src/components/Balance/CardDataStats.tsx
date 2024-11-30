@@ -15,7 +15,7 @@ interface CardDataStatsProps {
   onClick: () => void;
   showTitleTooltip?: boolean;
   showTooltipIcon?: boolean;
-  id?: string; // New prop for identifying the "Net Amount" card
+  id?: string;
 }
 
 const CardDataStats: React.FC<CardDataStatsProps> = ({
@@ -54,8 +54,6 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
       className={`relative w-full rounded-xl py-3 shadow transition ${
         isActive ? 'bg-[#4C5DF5] text-white' : 'bg-white'
       } ${id !== 'netAmount' ? 'cursor-pointer hover:scale-95' : 'cursor-auto'} dark:bg-boxdark ${className}`}
-      onMouseEnter={() => setShowTooltip(true)}
-      onMouseLeave={() => setShowTooltip(false)}
     >
       <div className="flex w-full space-x-4">
         <div className="pl-4">{children}</div>
@@ -73,7 +71,11 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
             {title}
 
             {showTooltipIcon && (
-              <span className="relative ml-2 cursor-pointer">
+              <span
+                className="relative ml-2 cursor-pointer"
+                onMouseEnter={() => setShowTooltip(true)}
+                onMouseLeave={() => setShowTooltip(false)}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="15px"

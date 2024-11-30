@@ -98,6 +98,11 @@ const ChartOne: React.FC<ChartOneProps> = ({ data }) => {
     xaxis: {
       type: 'category',
       categories: [
+        t('months.12'),
+        t('months.1'),
+        t('months.2'),
+        t('months.3'),
+        t('months.4'),
         t('months.5'),
         t('months.6'),
         t('months.7'),
@@ -105,11 +110,6 @@ const ChartOne: React.FC<ChartOneProps> = ({ data }) => {
         t('months.9'),
         t('months.10'),
         t('months.11'),
-        t('months.12'),
-        t('months.1'),
-        t('months.2'),
-        t('months.3'),
-        t('months.4'),
       ],
       axisBorder: {
         show: false,

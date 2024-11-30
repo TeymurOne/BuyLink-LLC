@@ -10,9 +10,10 @@ const resources = {
       member: {
         '12': 'Statistika',
         '13': 'Balans',
-        '14': 'Due To Buylink',
+        '14': 'Buylinkə öhdəlik',
         '15': 'Çıxış Et',
         '16': 'MENYU',
+        '17': '-{{days}} Gün Gecikmiş Ödəniş! Cərimələr hər gün üçün tətbiq olunur (Gecikmiş məbləğ: {{amount}}₼, Cərimə məbləği: {{penalty}}₼)',
       },
       branch: {
         '0': 'Filiallar',
@@ -70,6 +71,7 @@ const resources = {
         '11': 'Şifrəni Dəyiş',
         '12': 'Operator Detalları',
         '13': 'Filial',
+        '14': 'Faylı seç',
       },
       partnerinfo: {
         '0': 'Partnyor Məlumatları ',
@@ -465,9 +467,10 @@ const resources = {
         '11': 'MemberType',
         '12': 'Statistics',
         '13': 'Balance',
-        '14': 'Buylinkə öhdəlik',
+        '14': 'Due To Buylink',
         '15': 'Log Out',
         '16': 'MENU',
+        '17': '-{{days}} Days Overdue Payment! Penalties start to charge per each day (Overdue amount: {{amount}}₼, Penalty Amount: {{penalty}}₼)',
       },
       branch: {
         '0': 'Branches',
@@ -526,6 +529,7 @@ const resources = {
         '11': 'Change Password',
         '12': 'Operator Details',
         '13': 'Branch',
+        '14': 'Select the file',
       },
       partnerinfo: {
         '0': 'Partner Info',
@@ -928,6 +932,7 @@ const resources = {
         '14': 'Обязательство перед Buylink',
         '15': 'Выйти',
         '16': 'МЕНЮ',
+        '17': '-{{days}} Дней Просрочено! Штрафы начинают начисляться за каждый день (Просроченная сумма: {{amount}}₼, Сумма штрафа: {{penalty}}₼)',
       },
       branch: {
         '0': 'Филиалы',
@@ -985,6 +990,7 @@ const resources = {
         '11': 'Изменить пароль',
         '12': 'Детали Оператора',
         '13': 'Филиал',
+        '14': 'Выберите файл',
       },
       partnerinfo: {
         '0': 'Информация о партнере',

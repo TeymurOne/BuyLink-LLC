@@ -76,8 +76,9 @@ const Form: React.FC = () => {
     e.preventDefault();
     setAttemptedSubmit(true);
 
+    toast.dismiss();
     if (!validateForm()) {
-      toast.error(t('toast.11'));
+      toast.error(t('toast.11'), { toastId: 'formError' });
       return;
     }
 
@@ -98,7 +99,7 @@ const Form: React.FC = () => {
 
     try {
       await postOperator(postData).unwrap();
-      toast.success(t('toast.4'));
+      toast.success(t('toast.4'), { toastId: 'successMessage' });
       navigate('/admin/operator/all');
       dispatch(resetState());
     } catch (error) {
@@ -107,7 +108,7 @@ const Form: React.FC = () => {
       if (errorResponse.data && errorResponse.data.error) {
         Object.keys(errorResponse.data.error).forEach((key) => {
           errorResponse.data.error[key].forEach((message: string) => {
-            toast.error(message);
+            toast.error(message, { toastId: `error-${key}` });
           });
         });
       }
@@ -158,7 +159,7 @@ const Form: React.FC = () => {
                 />
                 {attemptedSubmit && formErrors.name && (
                   <span className="text-xs text-errorMessage">
-                    *Please fill out this field
+                    *{t('toast.12')}
                   </span>
                 )}
               </div>
@@ -175,7 +176,7 @@ const Form: React.FC = () => {
                 />
                 {attemptedSubmit && formErrors.email && (
                   <span className="text-xs text-errorMessage">
-                    *Please fill out this field
+                    *{t('toast.12')}
                   </span>
                 )}
               </div>
@@ -193,7 +194,7 @@ const Form: React.FC = () => {
                 />
                 {attemptedSubmit && formErrors.password && (
                   <span className="text-xs text-errorMessage">
-                    *Please fill out this field
+                    *{t('toast.12')}
                   </span>
                 )}
               </div>
