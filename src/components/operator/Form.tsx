@@ -82,7 +82,7 @@ const Form: React.FC = () => {
       return;
     }
 
-    if (!selectedBranchId) {
+    if (content && content.length > 1 && !selectedBranchId) {
       toast.error(t('toast.11'));
       return;
     }
@@ -92,7 +92,10 @@ const Form: React.FC = () => {
     postData.append('name', name);
     postData.append('email', email);
     postData.append('password', password);
-    postData.append('branch_id', selectedBranchId);
+
+    if (content && content.length > 1) {
+      postData.append('branch_id', selectedBranchId);
+    }
 
     try {
       await postOperator(postData).unwrap();
@@ -195,17 +198,21 @@ const Form: React.FC = () => {
                   </span>
                 )}
               </div>
-
-              <div className="relative col-span-6 lg:col-span-3">
-                <CommonSelect
-                  label={t('operator.13')}
-                  value={selectedBranchId}
-                  onChange={handleBranchChange}
-                  option={t('branch.16')}
-                  required={true}
-                  attemptedSubmit={attemptedSubmit}
-                />
-              </div>
+              {content && content.length > 1 && (
+                <div className="relative col-span-6 lg:col-span-3">
+                  <CommonSelect
+                    label={t('operator.13')}
+                    value={selectedBranchId}
+                    onChange={handleBranchChange}
+                    option={t('branch.16')}
+                    required={true}
+                    attemptedSubmit={attemptedSubmit}
+                  >
+                    <option value="">{t('branch.select')}</option>
+                    {content}
+                  </CommonSelect>
+                </div>
+              )}
             </div>
           </div>
         </div>
