@@ -26,7 +26,7 @@ const FirstPage = () => {
             method: 'GET',
             credentials: 'include',
             headers: {
-              'Accept-Language': 'az', // Set Azerbaijani language
+              'X-localization': 'az',
             },
           }
         );
@@ -56,7 +56,7 @@ const FirstPage = () => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Accept-Language': 'az', // Set Azerbaijani language
+            'X-localization': 'az',
           },
           credentials: 'include',
           body: JSON.stringify({
