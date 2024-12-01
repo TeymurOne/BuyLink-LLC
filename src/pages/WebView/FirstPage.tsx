@@ -167,7 +167,7 @@ const FirstPage = () => {
           onClick={handleDiscountClick}
           className="flex-1 rounded-lg bg-blue-500 py-3 font-medium text-white"
         >
-          Get {productView?.data?.user_discount}% discount
+          Get {productView?.data?.user_discount}%
         </button>
       </div>
 
