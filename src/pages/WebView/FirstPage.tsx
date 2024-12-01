@@ -25,7 +25,10 @@ const FirstPage = () => {
           {
             method: 'GET',
             credentials: 'include',
-          },
+            headers: {
+              'Accept-Language': 'az', // Set Azerbaijani language
+            },
+          }
         );
         if (!response.ok) {
           throw new Error('Failed to fetch product view');
@@ -45,39 +48,41 @@ const FirstPage = () => {
     }
   }, [id]);
 
-  const handleDiscountClick = async () => {
-    try {
-      const response = await fetch(
-        `https://api.buylink.info/api/add-basket/${id}`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          credentials: 'include',
-          body: JSON.stringify({
-            productId: id,
-            discount: true,
-          }),
-        },
-      );
+    const handleDiscountClick = async () => {
+      try {
+        const response = await fetch(
+          `https://api.buylink.info/api/add-basket/${id}`,
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept-Language': 'az', // Set Azerbaijani language
+            },
+            credentials: 'include',
+            body: JSON.stringify({
+              productId: id,
+              discount: true,
+            }),
+          }
+        );
 
-      if (!response.ok) {
-        throw new Error('Failed to apply discount');
+        if (!response.ok) {
+          throw new Error('Failed to apply discount');
+        }
+
+        const data = await response.json();
+        console.log('Discount applied successfully:', data);
+        setDiscountResponse(data);
+
+        localStorage.setItem('uuid', data.uuid);
+
+        navigate(`/partner/qr/${id}`);
+      } catch (err) {
+        console.error('Error applying discount:', err.message);
+        alert('Failed to apply discount.');
       }
+    };
 
-      const data = await response.json();
-      console.log('Discount applied successfully:', data);
-      setDiscountResponse(data);
-
-      localStorage.setItem('uuid', data.uuid);
-
-      navigate(`/partner/qr/${id}`);
-    } catch (err) {
-      console.error('Error applying discount:', err.message);
-      alert('Failed to apply discount.');
-    }
-  };
 
   const openBottomSheet = (product) => {
     setSelectedProduct(product);
@@ -138,7 +143,7 @@ const FirstPage = () => {
             {catalogue.products?.map((product) => (
               <SwiperSlide key={product.id} className="bg-swiper-qr !w-[132px]">
                 <ProductCard
-                  title={product.title || 'No Title'}
+                  title={product.title || 'Başlıq yoxdur'}
                   price={`${product.price || 0} AZN`}
                   image={product.image || 'default-image-url'}
                   onClick={() => openBottomSheet(product)}
