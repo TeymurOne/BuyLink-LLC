@@ -48,40 +48,40 @@ const FirstPage = () => {
     }
   }, [id]);
 
-    const handleDiscountClick = async () => {
-      try {
-        const response = await fetch(
-          `https://api.buylink.info/api/add-basket/${id}`,
-          {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept-Language': 'az', // Set Azerbaijani language
-            },
-            credentials: 'include',
-            body: JSON.stringify({
-              productId: id,
-              discount: true,
-            }),
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error('Failed to apply discount');
+  const handleDiscountClick = async () => {
+    try {
+      const response = await fetch(
+        `https://api.buylink.info/api/add-basket/${id}`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept-Language': 'az', // Set Azerbaijani language
+          },
+          credentials: 'include',
+          body: JSON.stringify({
+            productId: id,
+            discount: true,
+          }),
         }
+      );
 
-        const data = await response.json();
-        console.log('Discount applied successfully:', data);
-        setDiscountResponse(data);
-
-        localStorage.setItem('uuid', data.uuid);
-
-        navigate(`/partner/qr/${id}`);
-      } catch (err) {
-        console.error('Error applying discount:', err.message);
-        alert('Failed to apply discount.');
+      if (!response.ok) {
+        throw new Error('Failed to apply discount');
       }
-    };
+
+      const data = await response.json();
+      console.log('Discount applied successfully:', data);
+      setDiscountResponse(data);
+
+      localStorage.setItem('uuid', data.uuid);
+
+      navigate(`/partner/qr/${id}`);
+    } catch (err) {
+      console.error('Error applying discount:', err.message);
+      alert('Failed to apply discount.');
+    }
+  };
 
 
   const openBottomSheet = (product) => {
