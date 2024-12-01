@@ -119,7 +119,7 @@ const FirstPage = () => {
           <div className="flex items-center gap-1">
             <img src={recommend} alt="Recommendations" />
             <p className="text-xs text-[#777777]">
-              {productView?.data?.recommendations_count} recommendations
+              {productView?.data?.recommendations_count} tövsiyə
             </p>
           </div>
         </div>
@@ -161,13 +161,13 @@ const FirstPage = () => {
           rel="noopener noreferrer"
           className="flex-1 rounded-xl border border-blue-500 py-3 text-center font-medium text-blue-500"
         >
-          Recommend
+          Tövsiyə et
         </a>
         <button
           onClick={handleDiscountClick}
           className="flex-1 rounded-lg bg-blue-500 py-3 font-medium text-white"
         >
-          Get {productView?.data?.user_discount}%
+           {productView?.data?.user_discount}% endirim əldə et
         </button>
       </div>
 
