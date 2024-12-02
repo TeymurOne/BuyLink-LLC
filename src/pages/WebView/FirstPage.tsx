@@ -26,7 +26,7 @@ const FirstPage = () => {
             method: 'GET',
             credentials: 'include',
             headers: {
-              'Accept-Language': 'az', // Set Azerbaijani language
+              'X-localization': 'az',
             },
           }
         );
@@ -48,40 +48,40 @@ const FirstPage = () => {
     }
   }, [id]);
 
-    const handleDiscountClick = async () => {
-      try {
-        const response = await fetch(
-          `https://api.buylink.info/api/add-basket/${id}`,
-          {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept-Language': 'az', // Set Azerbaijani language
-            },
-            credentials: 'include',
-            body: JSON.stringify({
-              productId: id,
-              discount: true,
-            }),
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error('Failed to apply discount');
+  const handleDiscountClick = async () => {
+    try {
+      const response = await fetch(
+        `https://api.buylink.info/api/add-basket/${id}`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-localization': 'az',
+          },
+          credentials: 'include',
+          body: JSON.stringify({
+            productId: id,
+            discount: true,
+          }),
         }
+      );
 
-        const data = await response.json();
-        console.log('Discount applied successfully:', data);
-        setDiscountResponse(data);
-
-        localStorage.setItem('uuid', data.uuid);
-
-        navigate(`/partner/qr/${id}`);
-      } catch (err) {
-        console.error('Error applying discount:', err.message);
-        alert('Failed to apply discount.');
+      if (!response.ok) {
+        throw new Error('Failed to apply discount');
       }
-    };
+
+      const data = await response.json();
+      console.log('Discount applied successfully:', data);
+      setDiscountResponse(data);
+
+      localStorage.setItem('uuid', data.uuid);
+
+      navigate(`/partner/qr/${id}`);
+    } catch (err) {
+      console.error('Error applying discount:', err.message);
+      alert('Failed to apply discount.');
+    }
+  };
 
 
   const openBottomSheet = (product) => {
@@ -119,7 +119,7 @@ const FirstPage = () => {
           <div className="flex items-center gap-1">
             <img src={recommend} alt="Recommendations" />
             <p className="text-xs text-[#777777]">
-              {productView?.data?.recommendations_count} recommendations
+              {productView?.data?.recommendations_count} tövsiyə
             </p>
           </div>
         </div>
@@ -161,13 +161,13 @@ const FirstPage = () => {
           rel="noopener noreferrer"
           className="flex-1 rounded-xl border border-blue-500 py-3 text-center font-medium text-blue-500"
         >
-          Recommend
+          Tövsiyə et
         </a>
         <button
           onClick={handleDiscountClick}
           className="flex-1 rounded-lg bg-blue-500 py-3 font-medium text-white"
         >
-          Get {productView?.data?.user_discount}% discount
+           {productView?.data?.user_discount}% endirim əldə et
         </button>
       </div>
 
