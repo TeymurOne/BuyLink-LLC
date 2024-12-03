@@ -3,8 +3,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import recommend from '../../images/icon/recommend.png';
 import 'swiper/css';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const FirstPage = () => {
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const { id } = useParams();
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -13,8 +15,6 @@ const FirstPage = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [discountResponse, setDiscountResponse] = useState(null);
-
-  console.log('Query ID:', id);
 
   useEffect(() => {
     const fetchProductView = async () => {
@@ -26,15 +26,14 @@ const FirstPage = () => {
             method: 'GET',
             credentials: 'include',
             headers: {
-              'X-localization': 'az',
+              'X-localization': i18n.language,
             },
-          }
+          },
         );
         if (!response.ok) {
           throw new Error('Failed to fetch product view');
         }
         const data = await response.json();
-        console.log(data);
         setProductView(data);
       } catch (err) {
         setError(err.message);
@@ -46,7 +45,7 @@ const FirstPage = () => {
     if (id) {
       fetchProductView();
     }
-  }, [id]);
+  }, [id, i18n.language]);
 
   const handleDiscountClick = async () => {
     try {
@@ -56,14 +55,14 @@ const FirstPage = () => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'X-localization': 'az',
+            'X-localization': i18n.language,
           },
           credentials: 'include',
           body: JSON.stringify({
             productId: id,
             discount: true,
           }),
-        }
+        },
       );
 
       if (!response.ok) {
@@ -71,18 +70,17 @@ const FirstPage = () => {
       }
 
       const data = await response.json();
-      console.log('Discount applied successfully:', data);
       setDiscountResponse(data);
-
       localStorage.setItem('uuid', data.uuid);
-
       navigate(`/partner/qr/${id}`);
     } catch (err) {
-      console.error('Error applying discount:', err.message);
-      alert('Failed to apply discount.');
+      alert(t('webview.7'));
     }
   };
 
+  const changeLanguage = (event) => {
+    i18n.changeLanguage(event.target.value);
+  };
 
   const openBottomSheet = (product) => {
     setSelectedProduct(product);
@@ -97,7 +95,7 @@ const FirstPage = () => {
   };
 
   return (
-    <div className="min-h-screen overflow-hidden bg-[#F2F3F5] p-4 font-poppins">
+    <div className="min-h-screen overflow-hidden bg-[#F2F3F5] p-4 pb-24 font-poppins">
       {isVisible && (
         <div
           className="fixed inset-0 z-40 bg-[#8080808c] bg-opacity-50 transition-opacity"
@@ -112,15 +110,41 @@ const FirstPage = () => {
             alt={productView?.data?.title}
           />
         </div>
+
         <div>
           <h2 className="text-[24px] font-semibold">
             {productView?.data?.title}
           </h2>
           <div className="flex items-center gap-1">
-            <img src={recommend} alt="Recommendations" />
-            <p className="text-xs text-[#777777]">
-              {productView?.data?.recommendations_count} tövsiyə
-            </p>
+            <img src={recommend} alt={t('webview.1')} />
+            <div className="flex w-[300px] items-center justify-between gap-1">
+              <p className="text-xs text-[#777777]">
+                {productView?.data?.recommendations_count} {t('webview.2')}
+              </p>
+              <div>
+                <select
+                  value={i18n.language}
+                  onChange={changeLanguage}
+                  className="rounded-md border bg-[#F2F3F5] px-2 py-1 text-xs"
+                  style={{
+                    appearance: 'none',
+                    MozAppearance: 'none',
+                    WebkitAppearance: 'none',
+                    background: 'none',
+                  }}
+                >
+                  <option value="az" className="bg-[#F2F3F5] focus:bg-blue-500">
+                    AZ
+                  </option>
+                  <option value="en" className="bg-[#F2F3F5]">
+                    EN
+                  </option>
+                  <option value="ru" className="bg-[#F2F3F5]">
+                    RU
+                  </option>
+                </select>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -129,11 +153,10 @@ const FirstPage = () => {
         {productView?.data?.description}
       </p>
 
-      {/* Products Section */}
       {productView?.data?.catalogue?.map((catalogue, index) => (
         <div key={index} className="mb-6">
           <h3 className="mb-3 text-[21px] font-medium leading-7">
-            {catalogue.name || 'Default Catalogue Name'}
+            {catalogue.name || t('webview.3')}
           </h3>
           <Swiper
             spaceBetween={10}
@@ -143,7 +166,7 @@ const FirstPage = () => {
             {catalogue.products?.map((product) => (
               <SwiperSlide key={product.id} className="bg-swiper-qr !w-[132px]">
                 <ProductCard
-                  title={product.title || 'Başlıq yoxdur'}
+                  title={product.title || t('webview.4')}
                   price={`${product.price || 0} AZN`}
                   image={product.image || 'default-image-url'}
                   onClick={() => openBottomSheet(product)}
@@ -154,24 +177,23 @@ const FirstPage = () => {
         </div>
       ))}
 
-      <div className="flex gap-4">
+      <div className="fixed bottom-0 left-0 right-0 z-50 flex gap-4 bg-[#F2F3F5] p-3 shadow-lg">
         <a
           href="https://app.buylink.info/"
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 rounded-xl border border-blue-500 py-3 text-center font-medium text-blue-500"
         >
-          Tövsiyə et
+          {t('webview.5')}
         </a>
         <button
           onClick={handleDiscountClick}
           className="flex-1 rounded-lg bg-blue-500 py-3 font-medium text-white"
         >
-           {productView?.data?.user_discount}% endirim əldə et
+          {t('webview.8')} {productView?.data?.user_discount}% {t('webview.6')}
         </button>
       </div>
 
-      {/* Bottom Sheet */}
       {selectedProduct && (
         <div
           className={`fixed inset-x-0 bottom-0 z-50 transform rounded-t-lg bg-white p-4 shadow-lg transition-transform duration-300 ${
@@ -180,7 +202,7 @@ const FirstPage = () => {
         >
           <div className="mb-4 flex items-center justify-between">
             <h2 className="mb-2 mt-2 text-[21px] font-medium">
-              {selectedProduct.title}
+              {selectedProduct.name}
             </h2>
             <button onClick={closeBottomSheet} className="text-gray-500">
               <svg

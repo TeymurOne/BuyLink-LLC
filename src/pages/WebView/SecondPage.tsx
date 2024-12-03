@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import qravatar from '../../images/icon/avatarqr.png';
+import { useTranslation } from 'react-i18next';
 
 const SecondPage = () => {
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
   const [uuid, setUuid] = useState('');
   const [productId, setProductId] = useState(null);
   const [productView, setProductView] = useState(null);
@@ -77,15 +79,12 @@ const SecondPage = () => {
         </button>
       </div>
 
-      <h1 className="mb-4 text-[24px] font-medium leading-8">
-        QR Kod</h1>
+      <h1 className="mb-4 text-[24px] font-medium leading-8">QR Kod</h1>
 
       <p className="text-gray-600 mb-4 text-[18px] font-normal">
-        QR kodu skan edərək {productView?.data?.user_discount}% endirim əldə edin
+        {t('webview.10')} {productView?.data?.user_discount}% {t('webview.11')}
       </p>
-      <p className="mb-6 text-sm text-[#777777]">
-        Əgər bu üsulu seçsəniz, onlayn alış-veriş edə bilməzsiniz. Endirimi əldə etmək üçün unikal kodunuzu yerində göstərməlisiniz.
-      </p>
+      <p className="mb-6 text-sm text-[#777777]">{t('webview.12')}</p>
 
       <div className="rounded-lg bg-white p-5 shadow">
         <div className="mb-4 flex justify-between">
@@ -94,7 +93,7 @@ const SecondPage = () => {
               {productView?.data?.title}
             </h2>
             <p className="mb-3 text-sm font-normal leading-5 text-[#0E0E0E]">
-              {productView?.data?.user_discount}% endirim
+              {productView?.data?.user_discount}% {t('webview.13')}
             </p>
             <div className="flex items-center gap-2">
               <img src={qravatar} alt="QR Avatar" />
@@ -120,7 +119,7 @@ const SecondPage = () => {
           )}
           <div className="ml-auto">
             <button className="flex items-center text-sm font-normal text-blue-500">
-              Hide QR
+              {t('webview.14')}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="ml-1 h-4 w-4"
