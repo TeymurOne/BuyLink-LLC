@@ -125,7 +125,7 @@ const FirstPage = () => {
       <div className="mb-4 flex items-center gap-3">
         <div>
           <img
-            className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-xl font-bold text-white"
+            className=" w-[54px] items-center justify-center rounded-full  text-xl font-bold text-white"
             src={productView?.data?.cover}
             alt={productView?.data?.title}
           />
@@ -137,7 +137,7 @@ const FirstPage = () => {
           </h2>
           <div className="flex items-center gap-1">
             <img src={recommend} alt={t('webview.1')} />
-            <div className="flex w-[300px] items-center justify-between gap-1">
+            <div className="flex w-[200px] items-center justify-between gap-1">
               <p className="text-xs text-[#777777]">
                 {productView?.data?.recommendations_count} {t('webview.2')}
               </p>
@@ -274,7 +274,7 @@ const FirstPage = () => {
                 className="mb-4 h-70 w-full rounded-lg"
               />
               <h3 className="text-lg font-medium">{selectedProduct.title}</h3>
-              <p className="mb-2 mt-2 text-sm text-blue-500">
+              <p className="mb-2 mt-2 text-sm font-medium text-[#777777]">
                 {selectedProduct.price} AZN
               </p>
               <p className="text-sm text-[#777777]">
