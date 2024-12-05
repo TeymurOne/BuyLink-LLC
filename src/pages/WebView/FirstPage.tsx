@@ -15,6 +15,8 @@ const FirstPage = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [discountResponse, setDiscountResponse] = useState(null);
+  const [currentCategoryIndex, setCurrentCategoryIndex] = useState(null); // Track current category index
+  const [currentProductIndex, setCurrentProductIndex] = useState(null);
 
   useEffect(() => {
     const fetchProductView = async () => {
@@ -82,15 +84,33 @@ const FirstPage = () => {
     i18n.changeLanguage(event.target.value);
   };
 
-  const openBottomSheet = (product) => {
+  const openBottomSheet = (product, productIndex, categoryIndex) => {
     setSelectedProduct(product);
+    setCurrentProductIndex(productIndex);
+    setCurrentCategoryIndex(categoryIndex);
     setIsVisible(true);
+  };
+
+  const navigateProduct = (direction) => {
+    if (currentCategoryIndex === null || currentProductIndex === null) return;
+
+    const currentCategory = productView?.data?.catalogue[currentCategoryIndex];
+    const newIndex = currentProductIndex + direction;
+
+    // Check if the new index is within bounds
+    if (newIndex >= 0 && newIndex < currentCategory?.products?.length) {
+      const nextProduct = currentCategory?.products[newIndex];
+      setSelectedProduct(nextProduct);
+      setCurrentProductIndex(newIndex);
+    }
   };
 
   const closeBottomSheet = () => {
     setIsVisible(false);
     setTimeout(() => {
       setSelectedProduct(null);
+      setCurrentProductIndex(null);
+      setCurrentCategoryIndex(null); // Reset category context
     }, 300);
   };
 
@@ -163,13 +183,16 @@ const FirstPage = () => {
             slidesPerView="auto"
             className="overflow-visible"
           >
-            {catalogue.products?.map((product) => (
-              <SwiperSlide key={product.id} className="bg-swiper-qr !w-[132px]">
+            {catalogue.products?.map((product, productIndex) => (
+              <SwiperSlide
+                key={product.id}
+                className="bg-swiper-qr !w-[132px]"
+                onClick={() => openBottomSheet(product, productIndex, index)} // Pass product and category indices
+              >
                 <ProductCard
                   title={product.title || t('webview.4')}
                   price={`${product.price || 0} AZN`}
                   image={product.image || 'default-image-url'}
-                  onClick={() => openBottomSheet(product)}
                 />
               </SwiperSlide>
             ))}
@@ -200,10 +223,7 @@ const FirstPage = () => {
             isVisible ? 'translate-y-0' : 'translate-y-full'
           }`}
         >
-          <div className="mb-4 flex items-center justify-between">
-            <h2 className="mb-2 mt-2 text-[21px] font-medium">
-              {selectedProduct.name}
-            </h2>
+          <div className="mb-4 flex items-center justify-end">
             <button onClick={closeBottomSheet} className="text-gray-500">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -221,19 +241,80 @@ const FirstPage = () => {
               </svg>
             </button>
           </div>
-          <div>
-            <img
-              src={selectedProduct.image}
-              alt={selectedProduct.title}
-              className="mb-4 h-70 w-full rounded-lg object-cover"
-            />
-            <h3 className="text-lg font-medium">{selectedProduct.title}</h3>
-            <p className="mb-2 mt-2 text-sm text-blue-500">
-              {selectedProduct.price} AZN
-            </p>
-            <p className="text-sm text-[#777777]">
-              {selectedProduct.description}
-            </p>
+          <div className="relative flex items-center">
+            {/* Previous Button */}
+            <button
+              disabled={currentProductIndex === 0}
+              onClick={() => navigateProduct(-1)}
+              className={`absolute left-[-10px] top-32 z-50 flex h-10 w-10 items-center justify-center rounded-full bg-[#95959580] shadow-lg ${
+                currentProductIndex === 0 ? 'cursor-not-allowed opacity-65' : ''
+              }`}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 text-white"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </button>
+
+            {/* Product Content */}
+            <div className="flex-1 px-4">
+              <img
+                src={selectedProduct.image}
+                alt={selectedProduct.title}
+                className="mb-4 h-70 w-full rounded-lg"
+              />
+              <h3 className="text-lg font-medium">{selectedProduct.title}</h3>
+              <p className="mb-2 mt-2 text-sm text-blue-500">
+                {selectedProduct.price} AZN
+              </p>
+              <p className="text-sm text-[#777777]">
+                {selectedProduct.description}
+              </p>
+            </div>
+
+            {/* Next Button */}
+            <button
+              disabled={
+                currentProductIndex ===
+                productView?.data?.catalogue[currentCategoryIndex]?.products
+                  ?.length -
+                  1
+              }
+              onClick={() => navigateProduct(1)}
+              className={`absolute right-[-10px] top-32 z-50 flex h-10 w-10 items-center justify-center rounded-full bg-[#95959580] shadow-lg ${
+                currentProductIndex ===
+                productView?.data?.catalogue[currentCategoryIndex]?.products
+                  ?.length -
+                  1
+                  ? 'cursor-not-allowed opacity-65'
+                  : ''
+              }`}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 text-white"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
           </div>
         </div>
       )}
