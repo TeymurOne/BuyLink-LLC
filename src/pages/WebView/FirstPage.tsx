@@ -271,7 +271,7 @@ const FirstPage = () => {
               <img
                 src={selectedProduct.image}
                 alt={selectedProduct.title}
-                className="mb-4 h-70 w-full rounded-lg"
+                className="mb-4 h-70 w-full object-cover rounded-lg"
               />
               <h3 className="text-lg font-medium">{selectedProduct.title}</h3>
               <p className="mb-2 mt-2 text-sm font-medium text-[#777777]">
