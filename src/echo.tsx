@@ -1,7 +1,6 @@
 import Echo from 'laravel-echo';
 import Pusher from 'pusher-js';
 
-// Import or define your PusherEnvConfig class in JavaScript
 const PusherEnvConfig = {
   pusherAppId: 1693159,
   pusherAppKey: 'fd684aeaa46eb6e72b86',
@@ -22,6 +21,7 @@ const echo = new Echo({
   disableStats: true,
   encrypted: PusherEnvConfig.pusherScheme === 'https',
   enabledTransports: ['ws', 'wss'],
+  authEndpoint: `https://dev.buylink.info/broadcasting/auth`,
   auth: {
     headers: {
       Accept: 'application/json',
