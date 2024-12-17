@@ -207,7 +207,8 @@ const FirstPage = () => {
           rel="noopener noreferrer"
           className="flex-1 rounded-xl border border-blue-500 py-3 text-center font-medium text-blue-500"
         >
-          {t('webview.5')}
+          {t('webview.5')} & {t('webview.15')} {productView?.data?.commission}%{' '}
+          {t('webview.16')}!
         </a>
         <button
           onClick={handleDiscountClick}
