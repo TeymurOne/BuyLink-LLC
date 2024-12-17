@@ -126,7 +126,7 @@ const FirstPage = () => {
         <div>
           <img
             className=" w-[54px] items-center justify-center rounded-full  text-xl font-bold text-white"
-            src={productView?.data?.cover}
+            src={productView?.data?.image}
             alt={productView?.data?.title}
           />
         </div>
@@ -207,7 +207,8 @@ const FirstPage = () => {
           rel="noopener noreferrer"
           className="flex-1 rounded-xl border border-blue-500 py-3 text-center font-medium text-blue-500"
         >
-          {t('webview.5')}
+          {t('webview.5')} & {t('webview.15')} {productView?.data?.commission}%{' '}
+          {t('webview.16')}!
         </a>
         <button
           onClick={handleDiscountClick}
@@ -271,7 +272,7 @@ const FirstPage = () => {
               <img
                 src={selectedProduct.image}
                 alt={selectedProduct.title}
-                className="mb-4 h-70 w-full object-cover rounded-lg"
+                className="mb-4 h-70 w-full rounded-lg object-cover"
               />
               <h3 className="text-lg font-medium">{selectedProduct.title}</h3>
               <p className="mb-2 mt-2 text-sm font-medium text-[#777777]">

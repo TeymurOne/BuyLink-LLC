@@ -456,6 +456,8 @@ const resources = {
         '12': 'Əgər bu üsulu seçsəniz, onlayn alış-veriş edə bilməzsiniz. Endirimi əldə etmək üçün unikal kodunuzu yerində göstərməlisiniz.',
         '13': 'endirim',
         '14': 'QR-ni gizlədin',
+        '15': '',
+        '16': 'Qazan',
       },
       pagination: {
         showing: 'Göstərilən {{page}} nəticə {{totalPages}} nəticədən',
@@ -947,6 +949,8 @@ const resources = {
         '12': 'If you choose this method, you cannot shop online. You must show your unique code on the spot to get the discount.',
         '13': 'discount',
         '14': 'Hide QR',
+        '15': 'Earn',
+        '16': '',
       },
       pagination: {
         showing: 'Showing {{page}} of {{totalResults}} results',
@@ -1411,6 +1415,8 @@ const resources = {
         '12': 'Если вы выберете этот метод, вы не сможете совершать покупки в Интернете. Чтобы получить скидку, вы должны предъявить свой уникальный код на месте.',
         '13': 'скидка',
         '14': 'Скрыть QR-код',
+        '15': 'Получите',
+        '16': '',
       },
       pagination: {
         showing: 'Показано  {{page}}  из {{totalResults}} результатов',
