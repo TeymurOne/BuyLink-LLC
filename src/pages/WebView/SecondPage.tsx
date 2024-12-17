@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { connectEcho } from '../../connectEcho.tsx';
+import echo from '../../echo.tsx';
 import qravatar from '../../images/icon/avatarqr.png';
 import { useTranslation } from 'react-i18next';
 
 const SecondPage = () => {
   const navigate = useNavigate();
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [uuid, setUuid] = useState('');
-  const [productId, setProductId] = useState(null);
   const [productView, setProductView] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -18,7 +19,6 @@ const SecondPage = () => {
     if (storedUuid) {
       setUuid(storedUuid);
       const extractedProductId = storedUuid.split('-')[1];
-      setProductId(extractedProductId);
     } else {
       alert('No UUID found. Returning to the previous page.');
       navigate(-1);
@@ -26,7 +26,7 @@ const SecondPage = () => {
   }, [navigate]);
 
   useEffect(() => {
-    if (productId) {
+    if (id) {
       const fetchProductView = async () => {
         setIsLoading(true);
         try {
@@ -41,7 +41,6 @@ const SecondPage = () => {
             throw new Error('Failed to fetch product details');
           }
           const data = await response.json();
-          console.log(data);
           setProductView(data);
         } catch (err) {
           setError(err.message);
@@ -52,7 +51,22 @@ const SecondPage = () => {
 
       fetchProductView();
     }
-  }, [productId]);
+  }, [id]);
+
+  useEffect(() => {
+    if (id) {
+      const channel = connectEcho(true, false, id);
+
+      channel.listen('RefererClaimProductEvent', (event) => {
+        console.log('QR scanned event received:', event);
+        navigate(`/partner/final/`);
+      });
+
+      return () => {
+        echo.leaveChannel(`referer-claim.product.${id}`);
+      };
+    }
+  }, [id, navigate]);
 
   const qrCodeUrl = uuid
     ? `https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(uuid)}&size=256x256`
@@ -104,7 +118,7 @@ const SecondPage = () => {
           </div>
           <div className="w-22 overflow-hidden rounded">
             <img
-              src={productView?.data?.cover}
+              src={productView?.data?.image}
               alt="Mokko Rooms Logo"
               className="h-full w-full object-cover"
             />
