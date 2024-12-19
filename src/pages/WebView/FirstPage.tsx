@@ -23,7 +23,7 @@ const FirstPage = () => {
       setIsLoading(true);
       try {
         const response = await fetch(
-          `https://api.buylink.info/api/partner/${id}`,
+          `https://dev.buylink.info/api/partner/${id}`,
           {
             method: 'GET',
             credentials: 'include',
@@ -52,7 +52,7 @@ const FirstPage = () => {
   const handleDiscountClick = async () => {
     try {
       const response = await fetch(
-        `https://api.buylink.info/api/add-basket/${id}`,
+        `https://dev.buylink.info/api/add-basket/${id}`,
         {
           method: 'POST',
           headers: {
@@ -207,15 +207,18 @@ const FirstPage = () => {
           rel="noopener noreferrer"
           className="flex-1 rounded-xl border border-blue-500 py-3 text-center font-medium text-blue-500"
         >
-          {t('webview.5')} & {t('webview.15')} {productView?.data?.commission}%{' '}
-          {t('webview.16')}!
+          {t('webview.5')} & <br />
+          {t('webview.15')} {productView?.data?.commission}% {t('webview.16')}!
         </a>
-        <button
-          onClick={handleDiscountClick}
-          className="flex-1 rounded-lg bg-blue-500 py-3 font-medium text-white"
-        >
-          {t('webview.8')} {productView?.data?.user_discount}% {t('webview.6')}
-        </button>
+        {productView?.data?.title !== 'Crazzy Simbioz' && (
+          <button
+            onClick={handleDiscountClick}
+            className="flex-1 rounded-lg bg-blue-500 py-3 font-medium text-white"
+          >
+            {t('webview.8')} {productView?.data?.user_discount}%{' '}
+            {t('webview.6')}
+          </button>
+        )}
       </div>
 
       {selectedProduct && (
