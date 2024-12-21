@@ -23,7 +23,7 @@ const FirstPage = () => {
       setIsLoading(true);
       try {
         const response = await fetch(
-          `https://dev.buylink.info/api/partner/${id}`,
+          `https://api.buylink.info/api/partner/${id}`,
           {
             method: 'GET',
             credentials: 'include',
@@ -52,7 +52,7 @@ const FirstPage = () => {
   const handleDiscountClick = async () => {
     try {
       const response = await fetch(
-        `https://dev.buylink.info/api/add-basket/${id}`,
+        `https://api.buylink.info/api/add-basket/${id}`,
         {
           method: 'POST',
           headers: {
