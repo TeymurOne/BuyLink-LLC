@@ -200,20 +200,20 @@ const FirstPage = () => {
         </div>
       ))}
 
-      <div className="fixed bottom-0 left-0 right-0 z-50 flex gap-4 bg-[#F2F3F5] p-3 shadow-lg">
+      <div className="fixed bottom-0 left-0 right-0 z-50 flex text-[13px] gap-2 bg-[#F2F3F5] p-4 shadow-lg">
         <a
           href="https://app.buylink.info/"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 rounded-xl border border-blue-500 py-3 text-center font-medium text-blue-500"
+          className="flex-1 rounded-xl border border-[#4C5DF5] py-3.5 text-center font-medium text-[#0820FD]"
         >
-          {t('webview.5')} & {t('webview.15')} {productView?.data?.commission}%{' '}
-          {t('webview.16')}!
+          {t('webview.5')},{t('webview.15')} {productView?.data?.commission}%{' '}
+          {t('webview.16')}
         </a>
         {productView?.data?.title !== 'Crazzy Simbioz' && (
           <button
             onClick={handleDiscountClick}
-            className="flex-1 rounded-lg bg-blue-500 py-3 font-medium text-white"
+            className="flex-1 rounded-lg bg-[#4C5DF5] py-3.5 font-medium text-white"
           >
             {t('webview.8')} {productView?.data?.user_discount}%{' '}
             {t('webview.6')}
