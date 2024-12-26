@@ -52,7 +52,7 @@ const FirstPage = () => {
   const handleDiscountClick = async () => {
     try {
       const response = await fetch(
-        `https://api.buylink.info/api/add-basket/${id}`,
+        `https://dev.buylink.info/api/add-basket/${id}`,
         {
           method: 'POST',
           headers: {
@@ -74,6 +74,8 @@ const FirstPage = () => {
       const data = await response.json();
       setDiscountResponse(data);
       localStorage.setItem('uuid', data.uuid);
+      localStorage.setItem('name', data.user.name);
+      localStorage.setItem('image', data.user.image);
       navigate(`/partner/qr/${id}`);
     } catch (err) {
       alert(t('webview.7'));

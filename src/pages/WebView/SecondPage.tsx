@@ -14,6 +14,8 @@ const SecondPage = () => {
   const [error, setError] = useState(null);
   const { id } = useParams();
 
+  const name = localStorage.getItem('name');
+  const image = localStorage.getItem('image');
   useEffect(() => {
     const storedUuid = localStorage.getItem('uuid');
     if (storedUuid) {
@@ -68,7 +70,7 @@ const SecondPage = () => {
     }
   }, [id, navigate]);
 
-  const qrCodeUrl = uuid
+   const qrCodeUrl = uuid
     ? `https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(uuid)}&size=256x256`
     : '';
 
@@ -110,9 +112,9 @@ const SecondPage = () => {
               {productView?.data?.user_discount}% {t('webview.13')}
             </p>
             <div className="flex items-center gap-2">
-              <img src={qravatar} alt="QR Avatar" />
+              <img src={image} alt="QR Avatar" className="w-8" />
               <p className="text-[16px] font-medium text-[#0E0E0E]">
-                Zarina Majidova
+                {name}
               </p>
             </div>
           </div>
