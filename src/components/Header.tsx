@@ -1,11 +1,66 @@
+import { useEffect, useState } from 'react';
 import DarkModeSwitcher from './DarkModeSwitcher';
 import Translate from './Translate';
 import DropdownUser from './DropdownUser';
+import axiosInstance from '../../src/core/lib/axios.config';
+import { useDispatch } from 'react-redux';
+import getState from '../data/helpers/cookie';
+import { setCredentials } from '../features/auth/authSlice';
 
 const Header = (props: {
   sidebarOpen: string | boolean | undefined;
   setSidebarOpen: (arg0: boolean) => void;
 }) => {
+  const [partnerIds, setPartnerIds] = useState<number[]>([]);
+  const [selectedPartner, setSelectedPartner] = useState<number | null>(null);
+  const dispatch = useDispatch();
+  const tokenget = getState();
+  const [userData, setUserData] = useState<any>(null);
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await axiosInstance.get('/auth/user');
+
+        const user = response.data?.data?.partners;
+        console.log(user)
+        setUserData(user);
+        dispatch(setCredentials({ ...user }));
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
+
+    if (tokenget) {
+      fetchUserData();
+    }
+  }, []);
+
+  useEffect(() => {
+    const storedPartnerIds = JSON.parse(localStorage.getItem('partnerIds') || '[]');
+    setPartnerIds(storedPartnerIds);
+    if (storedPartnerIds.length > 0) {
+      const savedPartnerId = localStorage.getItem('selectedPartnerId');
+      if (!savedPartnerId) {
+        localStorage.setItem('selectedPartnerId', storedPartnerIds[0].toString());
+        setSelectedPartner(storedPartnerIds[0]);
+      } else {
+        setSelectedPartner(parseInt(savedPartnerId, 10));
+      }
+    } else {
+      localStorage.removeItem('selectedPartnerId');
+      setSelectedPartner(null);
+    }
+  }, []);
+
+  const handlePartnerChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedId = parseInt(event.target.value, 10);
+
+    localStorage.setItem('selectedPartnerId', selectedId.toString());
+    setSelectedPartner(selectedId);
+
+    window.location.reload();
+  };
+
   return (
     <header className="lg:drop-shadow-1 top-0 z-9999 flex w-full dark:bg-boxdark dark:drop-shadow-none lg:sticky lg:bg-white">
       <div className="flex flex-grow items-center justify-between px-4 py-4 md:px-6 lg:shadow-2 2xl:px-11">
@@ -55,12 +110,30 @@ const Header = (props: {
         </div>
 
         <div className="hidden opacity-0 sm:block"></div>
+
         <div className="flex items-center gap-3 2xsm:gap-7">
           <ul className="flex items-center gap-2 2xsm:gap-4">
             <DarkModeSwitcher />
             <Translate />
           </ul>
           <DropdownUser />
+
+          {partnerIds.length > 1 ? (
+            <select
+              value={selectedPartner || ''}
+              onChange={handlePartnerChange}
+              className="rounded   pr-8 py-2 text-black border-blue-500 cursor-pointer"
+            >
+              {userData?.map((partner) => (
+                <option key={partner.id} value={partner.id}>
+                  {partner.title}
+                </option>
+              ))}
+            </select>
+          ) : (
+            <div className=""></div>
+          )}
+
         </div>
       </div>
     </header>

@@ -95,7 +95,7 @@ export default function Balance() {
             {' '}
             <CardDataStats
               title={t('balance.1')}
-              rate={due_to_buyLink}
+              rate={due_to_buyLink < 0 ? due_to_buyLink * -1 : due_to_buyLink}
               icon={<TbCurrencyManat />}
               isActive={activeCard === 1}
               onClick={() => handleCardClick(1, 'due_to_buylink')}
@@ -103,7 +103,8 @@ export default function Balance() {
               <div className="flex h-13.5 w-13.5 items-center justify-center rounded bg-[#F4F4F4]">
                 <img src={icon_money} alt="icon" />
               </div>
-            </CardDataStats>{' '}
+            </CardDataStats>
+
           </Link>
         </div>
         <div className="layout2 order-5 col-span-2 w-full sm:col-span-1 xl:order-none">
