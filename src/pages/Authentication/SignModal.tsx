@@ -63,8 +63,11 @@ const SignModal: React.FC<State> = ({ showModal, setShowModal }) => {
       if (userData.status === 200) {
         setEmail('');
         setPwd('');
-        navigate('/admin');
+        navigate(`/admin`);
       }
+      setTimeout(() => {
+        window.location.reload();
+      }, 400);
     } catch (err) {
       setError('Invalid email or password.');
     } finally {

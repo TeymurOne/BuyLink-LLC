@@ -14,7 +14,6 @@ axiosInstance.interceptors.request.use(
     if (token) {
       config.headers['Authorization'] = `Bearer ${token}`;
     }
-    config.params = { ...config.params, partnerId: 19 };
     return config;
   },
   (error) => {
