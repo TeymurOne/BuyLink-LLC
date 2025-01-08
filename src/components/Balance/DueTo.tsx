@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Title } from '../../components/ui/Title';
 import { useGetDueToQuery } from '../../features/statistcs/apiSlice';
+import { useGetBalanceQuery} from '../../features/statistcs/apiSlice';
 import {
   setNetDebt,
   setPayment,
@@ -24,7 +25,7 @@ export default function Balance() {
 
   const { data, isSuccess, isLoading } = useGetDueToQuery('');
   const transactions = useGetDueToQuery('');
-
+const {data: balance } = useGetBalanceQuery()
   const { t } = useTranslation();
   useEffect(() => {
     if (isSuccess) {
@@ -59,13 +60,17 @@ export default function Balance() {
         <div className="layout2 order-5 col-span-2 w-full sm:col-span-1  xl:order-none">
           <CardDueTo
             title={t('balance.12')}
-            rate={total_debts}
+            rate={
+              total_debts +
+              (balance?.balance < 0 ? balance?.balance * -1 : balance?.balance || 0)
+            }
             icon={<TbCurrencyManat />}
           >
             <div className="flex h-13.5 w-13.5 items-center justify-center rounded bg-[#F4F4F4]">
               <img src={interest_rate} alt="icon" />
             </div>
           </CardDueTo>
+
         </div>
         <div className="col-span-2 w-full">
           <CardDueTo

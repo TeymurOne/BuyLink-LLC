@@ -30,20 +30,37 @@ function App() {
       try {
         const userData = await axiosInstance.get('/auth/user', {
           headers: {
-            Authorization: `Bearer ${tokenget}  `,
+            Authorization: `Bearer ${tokenget}`,
           },
         });
+
         dispatch(setCredentials({ ...userData.data?.data }));
+        const partners = userData.data?.data?.partners || [];
+
+        localStorage.setItem('partnerIds', JSON.stringify(partners.map((partner) => partner.id)));
+        const storedPartnerId = localStorage.getItem('selectedPartnerId');
+        console.log(storedPartnerId)
+        if (partners.length > 0) {
+          const validPartner = partners.some((partner) => partner.id === Number(storedPartnerId));
+          if (!storedPartnerId || !validPartner) {
+            localStorage.setItem('selectedPartnerId', partners[0].id.toString());
+          }
+        } else {
+          localStorage.removeItem('selectedPartnerId');
+        }
       } catch (error) {
-        console.error('Error  fetching user data: error', error);
+        console.error('Error fetching user data:', error);
       }
     };
+
     if (tokenget) {
       handleSubmit();
     }
 
     setLoading(false);
   }, [userState, tokenget]);
+
+
 
   return loading ? (
     <Loader />

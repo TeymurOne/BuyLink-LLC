@@ -74,6 +74,8 @@ const FirstPage = () => {
       const data = await response.json();
       setDiscountResponse(data);
       localStorage.setItem('uuid', data.uuid);
+      localStorage.setItem('name', data.user.name);
+      localStorage.setItem('image', data.user.image);
       navigate(`/partner/qr/${id}`);
     } catch (err) {
       alert(t('webview.7'));
