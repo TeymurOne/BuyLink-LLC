@@ -6,6 +6,7 @@ const privacypolicy = lazy(
 
 const balance = lazy(() => import('../pages/Dashboard/Balance.tsx'));
 const dueTo = lazy(() => import('../components/Balance/DueTo.tsx'));
+const amount = lazy(() => import('../components/Balance/Amount.tsx'));
 
 const branchcreate = lazy(() => import('../components/Branch/All.tsx'));
 // const productform = lazy(() => import('../components/Branch/Form'));
@@ -139,6 +140,11 @@ const coreRoutes = [
     path: '/admin/balance/dueto',
     title: 'dueTo',
     component: dueTo,
+  },
+  {
+    path: '/admin/group/amount',
+    title: 'amount',
+    component: amount,
   },
 ];
 

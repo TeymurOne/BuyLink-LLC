@@ -112,7 +112,7 @@ const SecondPage = () => {
               {productView?.data?.user_discount}% {t('webview.13')}
             </p>
             <div className="flex items-center gap-2">
-              <img src={image} alt="QR Avatar" className="w-8" />
+              <img src={image} alt="QR Avatar" className="w-8 h-8 rounded-full" />
               <p className="text-[16px] font-medium text-[#0E0E0E]">
                 {name}
               </p>
@@ -133,25 +133,6 @@ const SecondPage = () => {
           ) : (
             <p>Loading QR Code...</p>
           )}
-          <div className="ml-auto">
-            <button className="flex items-center text-sm font-normal text-blue-500">
-              {t('webview.14')}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="ml-1 h-4 w-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M5 15l7-7 7 7"
-                />
-              </svg>
-            </button>
-          </div>
         </div>
       </div>
     </div>
