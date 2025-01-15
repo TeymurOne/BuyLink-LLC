@@ -14,6 +14,7 @@ const resources = {
         '15': 'Çıxış Et',
         '16': 'MENYU',
         '17': '-{{days}} Gün Gecikmiş Ödəniş! Cərimələr hər gün üçün tətbiq olunur (Gecikmiş məbləğ: {{amount}}₼, Cərimə məbləği: {{penalty}}₼)',
+      '18': 'Ümumi Balans',
       },
       branch: {
         '0': 'Filiallar',
@@ -375,6 +376,9 @@ const resources = {
         '12': 'Ümumi borc',
         '13': 'Ödənişlər',
         '14': 'Xalis borc',
+        '15': 'Ödənişlərin məbləği',
+        '16': 'Məkan adı',
+        '17': 'Satış məbləği'
       },
       balanceTable: {
         '0': 'Hesab məbləği',
@@ -457,7 +461,7 @@ const resources = {
         '13': 'endirim',
         '14': 'QR-ni gizlədin',
         '15': '',
-        '16': 'Qazan',
+        '16': 'qazan',
       },
       pagination: {
         showing: 'Göstərilən {{page}} nəticə {{totalPages}} nəticədən',
@@ -489,6 +493,8 @@ const resources = {
         '15': 'Log Out',
         '16': 'MENU',
         '17': '-{{days}} Days Overdue Payment! Penalties start to charge per each day (Overdue amount: {{amount}}₼, Penalty Amount: {{penalty}}₼)',
+        '18': 'Total Balance',
+
       },
       branch: {
         '0': 'Branches',
@@ -867,6 +873,9 @@ const resources = {
         '12': 'Total debt',
         '13': 'Payments',
         '14': 'Net debt',
+        '15': 'Payments amount',
+        '16': 'Place name',
+        '17': 'Sales Amount',
       },
       balanceTable: {
         '0': 'Bill amount',
@@ -949,7 +958,7 @@ const resources = {
         '12': 'If you choose this method, you cannot shop online. You must show your unique code on the spot to get the discount.',
         '13': 'discount',
         '14': 'Hide QR',
-        '15': 'Earn',
+        '15': 'earn',
         '16': '',
       },
       pagination: {
@@ -969,6 +978,8 @@ const resources = {
         '15': 'Выйти',
         '16': 'МЕНЮ',
         '17': '-{{days}} Дней Просрочено! Штрафы начинают начисляться за каждый день (Просроченная сумма: {{amount}}₼, Сумма штрафа: {{penalty}}₼)',
+        '18': 'Общий Баланс'
+
       },
       branch: {
         '0': 'Филиалы',
@@ -1334,6 +1345,9 @@ const resources = {
         '12': 'Общий долг',
         '13': 'Платежи',
         '14': 'Чистый долг',
+        '15': 'Сумма платежа',
+        '16': 'Название места',
+        '17': 'Сумма продажи',
       },
       balanceTable: {
         '0': 'Сумма счета',
@@ -1415,7 +1429,7 @@ const resources = {
         '12': 'Если вы выберете этот метод, вы не сможете совершать покупки в Интернете. Чтобы получить скидку, вы должны предъявить свой уникальный код на месте.',
         '13': 'скидка',
         '14': 'Скрыть QR-код',
-        '15': 'Получите',
+        '15': 'получите',
         '16': '',
       },
       pagination: {

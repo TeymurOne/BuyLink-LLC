@@ -31,10 +31,16 @@ export const statisticSlice = apiSlice
         }),
         providesTags: ['transactions'],
       }),
-
       getDueTo: builder.query({
         query: () => ({
           url: `/payment-transactions`,
+          method: 'GET',
+          invalidatesTags: ['transactions'],
+        }),
+      }),
+      getPartnerBalance: builder.query({
+        query: () => ({
+          url: `/partner-balances`,
           method: 'GET',
           invalidatesTags: ['transactions'],
         }),
@@ -47,4 +53,5 @@ export const {
   useGetReviewQuery,
   useGetTransactionsQuery,
   useGetDueToQuery,
+  useGetPartnerBalanceQuery
 } = statisticSlice;

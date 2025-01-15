@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import Logo from '../images/logo/logo-buylink.jpg';
 import SidebarLinkGroup from './SidebarLinkGroup';
 import { useTranslation } from 'react-i18next';
@@ -19,6 +19,10 @@ import staticslight from '../../src/images/icon/staticslight.png';
 import branchlight from '../../src/images/icon/branchlight.png';
 import operatorlight from '../../src/images/icon/operatorlight.png';
 import categorylight from '../../src/images/icon/categorylight.png';
+import axiosInstance from '../core/lib/axios.config.ts';
+import { setCredentials } from '../features/auth/authSlice.ts';
+import { useDispatch } from 'react-redux';
+import getState from '../data/helpers/cookie.ts';
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -32,11 +36,30 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
   const trigger = useRef<any>(null);
   const sidebar = useRef<any>(null);
-
+  const [userData, setUserData] = useState<any>(null);
+  const dispatch = useDispatch();
   const storedSidebarExpanded = localStorage.getItem('sidebar-expanded');
   const [sidebarExpanded, setSidebarExpanded] = useState(
     storedSidebarExpanded === null ? false : storedSidebarExpanded === 'true',
   );
+  const tokenget = getState();
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await axiosInstance.get('/auth/user');
+        const user = response.data?.data;
+        setUserData(user);
+        dispatch(setCredentials({ ...user }));
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
+
+    if (tokenget) {
+      fetchUserData();
+    }
+  }, []);
+
 
   useEffect(() => {
     const clickHandler = ({ target }: MouseEvent) => {
@@ -291,7 +314,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
         </nav>
       </div>
 
-      <div className="mt-auto flex items-center justify-center bg-menuBorder p-6.5 text-sm text-white text-opacity-65">
+      <div className="mt-auto flex items-center justify-between bg-menuBorder p-6.5 pb-10 text-sm text-white text-opacity-65">
+
+       <Link to="group/amount"> <button className="border rounded p-2 hover:text-white hover:border-white hover:font-medium">{userData?.name?.split(' ')[0]}   Group</button></Link>
         v {version}
       </div>
     </aside>
