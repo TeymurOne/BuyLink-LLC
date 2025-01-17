@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 import { useGetPenaltyQuery } from '../features/branch/apiSlice.tsx';
 import { useTranslation } from 'react-i18next';
 
@@ -14,7 +14,8 @@ interface DueItem {
 const DefaultLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
   const { t } = useTranslation();
-  const { data }: { data?: { data: DueItem[] } } = useGetPenaltyQuery('');
+  const { id } = useParams<{ id: string }>();
+  const { data }: { data?: { data: DueItem[] } } = useGetPenaltyQuery(id);
   const truncateNumber = (value: any) => {
     if (isNaN(value) || value === null) return '';
     const numberStr = value.toString();

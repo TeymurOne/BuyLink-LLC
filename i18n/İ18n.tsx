@@ -378,7 +378,8 @@ const resources = {
         '14': 'Xalis borc',
         '15': 'Ödənişlərin məbləği',
         '16': 'Məkan adı',
-        '17': 'Satış məbləği'
+        '17': 'Satış məbləği',
+        '18': 'Qalıq borc'
       },
       balanceTable: {
         '0': 'Hesab məbləği',
@@ -876,6 +877,7 @@ const resources = {
         '15': 'Payments amount',
         '16': 'Place name',
         '17': 'Sales Amount',
+        '18': 'Outs. debt'
       },
       balanceTable: {
         '0': 'Bill amount',
@@ -1348,6 +1350,7 @@ const resources = {
         '15': 'Сумма платежа',
         '16': 'Название места',
         '17': 'Сумма продажи',
+        '18': 'Oстаточный долг'
       },
       balanceTable: {
         '0': 'Сумма счета',

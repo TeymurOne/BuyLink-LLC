@@ -115,8 +115,8 @@ export default function Balance() {
         </div>
         <div className="layout2 order-5 col-span-2 w-full sm:col-span-1  xl:order-none">
           <CardDueTo
-            title={t('balance.14')}
-            rate={balanceData?.net_amount}
+            title={t('balance.18')}
+            rate={balanceData?.due_to_buylink + balanceData?.payments_amount}
             icon={<TbCurrencyManat />}
           >
             <div className="flex h-13.5 w-13.5 items-center justify-center rounded bg-[#F4F4F4]">
