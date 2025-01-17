@@ -314,9 +314,15 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
         </nav>
       </div>
 
-      <div className="mt-auto flex items-center justify-between bg-menuBorder p-6.5 pb-10 text-sm text-white text-opacity-65">
-
-       <Link to="group/amount"> <button className="border rounded p-2 hover:text-white hover:border-white hover:font-medium">{userData?.name?.split(' ')[0]}   Group</button></Link>
+      <div
+        className="mt-auto flex items-center justify-between bg-menuBorder p-6.5 pb-10 text-sm text-white text-opacity-65">
+        {userData?.partners?.length > 1 && (
+          <Link to="group/amount">
+            <button className="border rounded p-2 hover:text-white hover:border-white hover:font-medium">
+              {userData?.name?.split(' ')[0]} Group
+            </button>
+          </Link>
+        )}
         v {version}
       </div>
     </aside>
