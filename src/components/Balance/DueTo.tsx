@@ -62,7 +62,7 @@ const {data: balance } = useGetBalanceQuery()
             title={t('balance.12')}
             rate={
               total_debts +
-              (balance?.balance < 0 ? balance?.balance * -1 : balance?.balance || 0)
+              (balance?.balance < 0 ? balance?.balance * -1 : balance?.balance )
             }
             icon={<TbCurrencyManat />}
           >
@@ -105,7 +105,7 @@ const {data: balance } = useGetBalanceQuery()
             <thead>
               <tr className="bg-white text-left text-title-2xsm text-black dark:bg-meta-4 dark:text-white">
                 <td className="dark:text-white5 min-w-24.5 border-b border-r border-tborder py-2 font-medium sm:pl-0 md:pl-4">
-                  {t('balanceTable.5')}
+                  {t('balance.21')}
                 </td>
                 <td className="dark:text-white5 min-w-24.5 border-b border-r border-tborder py-2 font-medium sm:pl-0 md:pl-4">
                   {t('balanceTable.9')}

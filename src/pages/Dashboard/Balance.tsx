@@ -164,56 +164,56 @@ export default function Balance() {
           <TbodyResponsive item={item} key={index} />
         ))}
       </>
-      <div className="mt-4 hidden rounded-sm shadow-default dark:border-strokedark dark:bg-boxdark md:block lg:mt-10 xl:mt-8">
-        <div className="max-w-full overflow-hidden overflow-x-auto rounded-lg border border-tborder dark:border-white">
+      <div className="mt-4 hidden rounded-sm shadow-default dark:border-[#DFDFDF] dark:bg-boxdark md:block lg:mt-10 xl:mt-8">
+        <div className="max-w-full overflow-hidden overflow-x-auto rounded-lg border border-tborder dark:border-[#DFDFDF]">
           <table className="w-full table-auto bg-white">
             <thead>
-              <tr className="bg-white text-left text-title-2xsm text-black dark:bg-meta-4 dark:text-white">
-                <td className="h-10 w-14.5 border-b border-r border-tborder px-4 font-medium">
+              <tr className="bg-white text-left text-title-2xsm text-black dark:bg-meta-4 dark:text-[#ffffffbf]">
+                <td className="h-10 w-14.5 border-b border-r border-tborder px-4 font-normal">
                   {' '}
                   ID
                 </td>
-                <td className="dark:text-white5 min-w-24.5 border-b border-r border-tborder py-2 font-medium sm:pl-0 md:pl-4">
+                <td className="dark:text-[#ffffffbf] min-w-24.5 border-b border-r border-tborder py-2 font-normal sm:pl-0 md:pl-4">
                   {' '}
                   {t('balanceTable.8')}{' '}
                 </td>
-                <td className="dark:text-white5 min-w-24.5 border-b border-r border-tborder py-2 font-medium sm:pl-0 md:pl-4">
+                <td className="dark:text-[#ffffffbf] min-w-24.5 border-b border-r border-tborder py-2 font-normal sm:pl-0 md:pl-4">
                   {' '}
                   {t('balanceTable.0')}{' '}
                 </td>
-                <td className="dark:text-white5 min-w-24.5 border-b border-r border-tborder py-2 font-medium sm:pl-0 md:pl-4">
+                <td className="dark:text-[#ffffffbf] min-w-24.5 border-b border-r border-tborder py-2 font-normal sm:pl-0 md:pl-4">
                   {' '}
                   {t('balanceTable.11')}{' '}
                 </td>
-                <td className="dark:text-white5 min-w-24.5 border-b border-r border-tborder py-2 font-medium sm:pl-0 md:pl-4">
+                <td className="dark:text-[#ffffffbf] min-w-24.5 border-b border-r border-tborder py-2 font-normal sm:pl-0 md:pl-4">
                   {' '}
                   {t('balanceTable.12')}{' '}
                 </td>
-                <td className="dark:text-white5 min-w-24.5 border-b border-r border-tborder py-2 font-medium sm:pl-0 md:pl-4">
+                <td className="dark:text-[#ffffffbf] min-w-24.5 border-b border-r border-tborder py-2 font-normal sm:pl-0 md:pl-4">
                   {' '}
                   {t('balanceTable.13')}{' '}
                 </td>
-                <td className="min-w-24.5 border-b border-r border-tborder px-2 py-2 font-medium dark:text-white">
+                <td className="min-w-24.5 border-b border-r border-tborder px-2 py-2 font-normal dark:text-[#ffffffbf]">
                   {' '}
                   {t('balanceTable.1')}{' '}
                 </td>
-                <td className="min-w-25.5 border-b border-r border-tborder px-1 py-2 font-medium dark:text-white">
+                <td className="min-w-25.5 border-b border-r border-tborder px-1 py-2 font-normal dark:text-[#ffffffbf]">
                   {' '}
                   {t('balanceTable.2')}{' '}
                 </td>
-                <td className="min-w-22.5 border-b border-r border-tborder px-3 py-2 font-medium dark:text-white">
+                <td className="min-w-22.5 border-b border-r border-tborder px-3 py-2 font-normal dark:text-[#ffffffbf]">
                   {' '}
                   {t('balanceTable.3')}{' '}
                 </td>
-                <td className="min-w-20.5 border-b border-r border-tborder px-2 py-2 font-medium dark:text-white">
+                <td className="min-w-20.5 border-b border-r border-tborder px-2 py-2 font-normal dark:text-[#ffffffbf]">
                   {' '}
                   {t('balanceTable.4')}{' '}
                 </td>
-                <td className="min-w-24.5 border-b border-r border-tborder px-4 py-2 font-medium">
+                <td className="min-w-24.5 border-b border-r border-tborder px-4 py-2 font-normal">
                   {' '}
                   {t('balanceTable.5')}{' '}
                 </td>
-                <td className="min-w-24.5 border-b border-r border-tborder px-4 py-2 font-medium dark:text-white">
+                <td className="min-w-24.5 border-b border-r border-tborder px-4 py-2 font-normal dark:text-[#ffffffbf]">
                   {' '}
                   {t('balanceTable.6')}{' '}
                 </td>
