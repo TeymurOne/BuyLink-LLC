@@ -24,18 +24,18 @@ const Transactions = ({ item }: any) => {
   return (
     <>
       <tr className="border-0 bg-white hover:bg-tborderHover dark:bg-boxdark">
-        <td className="border-0 border-gray px-4 text-xs dark:border-strokedark dark:text-white">
+        <td className="border-0 border-gray px-4 text-xs dark:border-strokedark dark:text-[#ffffffbf]">
           {item?.id}
         </td>
-        <td className="border-0 border-gray px-4 text-xs dark:border-strokedark dark:text-white">
-          <p className="inline-flex rounded-full bg-opacity-10 px-3 py-1 text-sm font-medium">
+        <td className="border-0 border-gray px-4 text-xs dark:border-strokedark dark:text-[#ffffffbf]">
+          <p className="inline-flex rounded-full bg-opacity-10 px-3 py-1 text-sm font-normal">
             {item?.operator_name}
           </p>
         </td>
-        <td className="border-gray px-4 py-1 text-xs dark:border-strokedark dark:text-white xl:pl-11">
+        <td className="border-gray px-4 py-1 text-xs dark:border-strokedark dark:text-[#ffffffbf] xl:pl-11">
           {truncateNumber(item?.amount)}
         </td>
-        <td className="border-gray px-3 px-9.5 py-1 text-xs dark:border-strokedark dark:text-white">
+        <td className="border-gray px-3 px-9.5 py-1 text-xs dark:border-strokedark dark:text-[#ffffffbf]">
           <img
             src={item?.bill_image}
             className="inline-flex cursor-pointer rounded"
@@ -43,43 +43,43 @@ const Transactions = ({ item }: any) => {
             onClick={() => handleImageClick(item?.bill_image)}
           />
         </td>
-        <td className="border-0 border-gray px-4 dark:border-strokedark dark:text-white">
-          <p className="inline-flex rounded-full bg-opacity-10 px-3 py-1 text-xs font-medium">
+        <td className="border-0 border-gray px-4 dark:border-strokedark dark:text-[#ffffffbf]">
+          <p className="inline-flex rounded-full bg-opacity-10 px-3 py-1 text-xs font-normal">
             {item?.user?.name}
           </p>
         </td>
-        <td className="border-0 border-gray px-4 dark:border-strokedark dark:text-white">
-          <p className="inline-flex rounded-full bg-opacity-10 px-3 py-1 text-xs font-medium">
+        <td className="border-0 border-gray px-4 dark:border-strokedark dark:text-[#ffffffbf]">
+          <p className="inline-flex rounded-full bg-opacity-10 px-3 py-1 text-xs font-normal">
             {item?.referer?.name}
           </p>
         </td>
-        <td className="border-0 border-gray px-4 dark:border-strokedark dark:text-white">
-          <p className="inline-flex rounded-full bg-opacity-10 px-3 py-1 text-xs font-medium">
+        <td className="border-0 border-gray px-4 dark:border-strokedark dark:text-[#ffffffbf]">
+          <p className="inline-flex rounded-full bg-opacity-10 px-3 py-1 text-xs font-normal">
             {truncateNumber(item?.discounted_percent)}
           </p>
         </td>
-        <td className="border-0 border-gray px-4 dark:border-strokedark dark:text-white">
-          <p className="inline-flex rounded-full bg-opacity-10 px-3 py-1 text-xs font-medium">
+        <td className="border-0 border-gray px-4 dark:border-strokedark dark:text-[#ffffffbf]">
+          <p className="inline-flex rounded-full bg-opacity-10 px-3 py-1 text-xs font-normal">
             {truncateNumber(item?.discounted_amount)}
           </p>
         </td>
-        <td className="border-0 border-gray px-4 dark:border-strokedark dark:text-white">
-          <p className="inline-flex rounded-full bg-opacity-10 px-3 py-1 text-xs font-medium">
+        <td className="border-0 border-gray px-4 dark:border-strokedark dark:text-[#ffffffbf]">
+          <p className="inline-flex rounded-full bg-opacity-10 px-3 py-1 text-xs font-normal">
             {truncateNumber(item?.commission)}
           </p>
         </td>
-        <td className="border-0 border-gray px-4 dark:border-strokedark">
-          <p className="inline-flex rounded-full bg-opacity-10 px-3 py-1 text-xs font-medium">
+        <td className="border-0 border-gray px-4 dark:border-strokedark dark:text-[#ffffffbf]">
+          <p className="inline-flex rounded-full bg-opacity-10 px-3 py-1 text-xs font-normal">
             {truncateNumber(item?.commission_amount)}
           </p>
         </td>
-        <td className="border-0 border-gray px-4 dark:border-strokedark">
-          <p className="inline-flex rounded-full bg-opacity-10 px-3 py-1 text-xs font-medium">
+        <td className="border-0 border-gray px-4 dark:border-strokedark dark:text-[#ffffffbf]">
+          <p className="inline-flex rounded-full bg-opacity-10 px-3 py-1 text-xs font-normal">
             {item?.created_at.slice(0, 10)} / {item?.created_at.slice(11, 16)}
           </p>
         </td>
-        <td className="border-0 border-gray px-4 dark:border-strokedark">
-          <p className="inline-flex rounded-full bg-opacity-10 px-3 py-1 text-xs font-medium">
+        <td className="border-0 border-gray px-4 dark:border-strokedark dark:text-[#ffffffbf]">
+          <p className="inline-flex rounded-full bg-opacity-10 px-3 py-1 text-xs font-normal">
             {truncateNumber(item?.net_amount)}
           </p>
         </td>

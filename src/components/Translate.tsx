@@ -36,9 +36,9 @@ const Translate = () => {
       <button
         ref={trigger}
         onClick={() => setDropdownOpen(!dropdownOpen)}
-        className="relative flex h-8.5 w-8.5 items-center justify-center rounded-full border-[0.5px] border-stroke bg-gray hover:text-primary dark:border-strokedark dark:bg-meta-4 dark:text-white"
+        className="relative flex h-8.5 w-8.5 items-center justify-center rounded-full    hover:text-primary dark:border-strokedark  dark:text-white"
       >
-        <span className="relative  z-1 grid  h-2 w-4 place-items-center rounded-full">
+        <span className="relative  z-1 grid  h-2 w-5.5 place-items-center rounded-full">
           {currentLang === 'az' ? (
             <img
               className="absolute h-6 w-6 rounded-md"

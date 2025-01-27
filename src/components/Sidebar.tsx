@@ -105,13 +105,13 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   return (
     <aside
       ref={sidebar}
-      className={`absolute left-0 top-0 z-999 flex h-screen w-[260px] flex-col overflow-y-hidden bg-menuBorder duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0 ${
+      className={`absolute left-0 top-0 z-999 flex h-screen w-[260px] flex-col overflow-y-hidden bg-menuBorder duration-300 ease-linear dark:bg-[#22273A] lg:static lg:translate-x-0 ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       }`}
     >
-      <div className="flex items-center justify-center gap-2 px-6 pt-5.5 lg:pt-6.5">
+      <div className="flex items-center  gap-2 px-6 pt-5.5 lg:pt-6.5">
         <NavLink to="/">
-          <img className="h-19 w-19 " src={Logo} alt="Logo" />
+          <img className="rounded-lg w-[50px]" src={Logo} alt="Logo" />
         </NavLink>
 
         <button
@@ -135,14 +135,15 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
             />
           </svg>
         </button>
+        <span className="text-[#4C5DF5] font-bold text-lg ">BuyLink</span>
       </div>
-
+      <div className=" bg-[#969696] w-full h-[1px] mt-3"></div>
       <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
         <nav className="px-4 py-4 lg:px-6">
           <div>
-            <h3 className="py-1 text-[14px] font-normal text-titleColor">
-              {t('member.16')}
-            </h3>
+            {/*<h3 className="py-1 text-[14px] font-normal text-titleColor">*/}
+            {/*  {t('member.16')}*/}
+            {/*</h3>*/}
 
             <ul className="mb-6 flex flex-col gap-1.5">
               <SidebarLinkGroup
@@ -314,9 +315,15 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
         </nav>
       </div>
 
-      <div className="mt-auto flex items-center justify-between bg-menuBorder p-6.5 pb-10 text-sm text-white text-opacity-65">
-
-       <Link to="group/amount"> <button className="border rounded p-2 hover:text-white hover:border-white hover:font-medium">{userData?.name?.split(' ')[0]}   Group</button></Link>
+      <div
+        className="mt-auto flex items-center justify-between bg-menuBorder dark:bg-[#22273A] p-6.5 pb-10 text-sm text-white text-opacity-65">
+        {userData?.partners?.length > 1 && (
+          <Link to="group/amount">
+            <button className="border rounded p-2 hover:text-white hover:border-white hover:font-medium">
+              {userData?.name?.split(' ')[0]} Group
+            </button>
+          </Link>
+        )}
         v {version}
       </div>
     </aside>

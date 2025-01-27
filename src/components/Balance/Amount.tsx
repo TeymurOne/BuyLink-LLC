@@ -60,21 +60,33 @@ export default function Balance() {
   if (isLoading || transactions.isLoading) return <TableSkeleton count="20" />;
 
   if (!transactions.isSuccess) return;
-
+  const discount = userData?.partners?.reduce((sum, partner) => {
+    return sum + (partner?.discounted_revenue || 0);
+  }, 0);
+  console.log(discount)
   return (
     <>
       <Title>{t('member.18')}</Title>
-      <div className="grid w-full grid-cols-2 gap-8 py-4 xl:grid-cols-4">
+      <div className="grid w-full grid-cols-2 gap-4 py-4 xl:grid-cols-4">
         <div className="layout2 order-5 col-span-2 w-full sm:col-span-1  xl:order-none">
-          <CardDueTo
-            title={t('statistic.8')}
-            icon={<TbCurrencyManat />}
-            rate={balanceData?.cash_till}
-          >
-            <div className="flex h-13.5 w-13.5 items-center justify-center rounded bg-[#F4F4F4]">
-              <img src={interest_rate} alt="icon" />
-            </div>
-          </CardDueTo>
+          <div className="col-span-2 w-full sm:col-span-1">
+            <CardDueTo
+              title={t('statistic.8')}
+              title3={t('balance.19')}
+              title2={t('balance.20')}
+              rate={balanceData?.total_revenue}
+              rate2={discount}
+              icon={<TbCurrencyManat />}
+              className="flex justify-between"
+            >
+              <div className="flex w-45 justify-between">
+                <div className="flex h-13.5 w-13.5 items-center justify-center rounded bg-[#F4F4F4]">
+                  <img src={interest_rate} alt="icon" />
+                </div>
+
+              </div>
+            </CardDueTo>
+          </div>
         </div>
         <div className="col-span-1 w-full">
           <CardDueTo
@@ -115,8 +127,8 @@ export default function Balance() {
         </div>
         <div className="layout2 order-5 col-span-2 w-full sm:col-span-1  xl:order-none">
           <CardDueTo
-            title={t('balance.14')}
-            rate={balanceData?.net_amount}
+            title={t('balance.18')}
+            rate={balanceData?.due_to_buylink + balanceData?.payments_amount}
             icon={<TbCurrencyManat />}
           >
             <div className="flex h-13.5 w-13.5 items-center justify-center rounded bg-[#F4F4F4]">
@@ -132,44 +144,55 @@ export default function Balance() {
         <div className="max-w-full overflow-hidden overflow-x-auto rounded-lg border border-tborder dark:border-white">
           <table className="w-full table-auto bg-white">
             <thead>
-            <tr className="bg-white text-left text-title-2xsm text-black dark:bg-meta-4 dark:text-white">
-              <td
-                className="dark:text-white5 min-w-24.5 border-b border-r border-tborder py-2 font-medium sm:pl-0 md:pl-4">
-                {t('balance.16')}
-              </td>
-              <td
-                className="dark:text-white5 min-w-24.5 border-b border-r border-tborder py-2 font-medium sm:pl-0 md:pl-4">
-                {t('balance.17')}
-              </td>
-              <td
-                className="dark:text-white5 min-w-24.5 border-b border-r border-tborder py-2 font-medium sm:pl-0 md:pl-4">
-                {t('balance.1')}
-              </td>
-            </tr>
+              <tr className="bg-white text-left text-title-2xsm text-black dark:bg-meta-4 dark:text-white">
+                <td className="dark:text-white5 min-w-24.5 border-b border-r border-tborder py-2 font-medium sm:pl-0 md:pl-4">
+                  {t('balance.16')}
+                </td>
+                <td className="dark:text-white5 min-w-24.5 border-b border-r border-tborder py-2 font-medium sm:pl-0 md:pl-4">
+                  {t('balance.19')}
+                </td>
+                <td className="dark:text-white5 min-w-24.5 border-b border-r border-tborder py-2 font-medium sm:pl-0 md:pl-4">
+                  {t('balance.20')}
+                </td>
+                <td className="dark:text-white5 min-w-24.5 border-b border-r border-tborder py-2 font-medium sm:pl-0 md:pl-4">
+                  {t('balance.17')}
+                </td>
+                <td className="dark:text-white5 min-w-24.5 border-b border-r border-tborder py-2 font-medium sm:pl-0 md:pl-4">
+                  {t('balance.1')}
+                </td>
+              </tr>
             </thead>
             <tbody>
-            {userData?.partners.map((item) => (
-            <tr className="border-0 bg-white hover:bg-tborderHover dark:bg-boxdark">
-                    <td className="border-0 border-gray px-4 text-xs dark:border-strokedark dark:text-white">
+              {userData?.partners.map((item) => (
+                <tr className="border-0 bg-white hover:bg-tborderHover dark:bg-boxdark">
+                  <td className="border-0 border-gray px-4 text-xs dark:border-strokedark dark:text-white">
                     <p className="inline-flex rounded-full bg-opacity-10 px-3 py-1 text-sm font-medium">
                       {item.title}
                     </p>
-                    </td>
-              <td className="border-0 border-gray px-4 text-xs dark:border-strokedark dark:text-white">
-                <p className="inline-flex rounded-full bg-opacity-10 px-3 py-1 text-[#1A518E] text-xs font-medium">
-                  {item?.payments_amount || 0}
-                </p>
-              </td>
-              <td className="border-0 border-gray px-4 text-xs dark:border-strokedark dark:text-white">
-                <p className="inline-flex rounded-full bg-opacity-10 px-3 py-1 text-xs text-[#1A518E] font-medium">
-                  {item?.balance }
-                </p>
-              </td>
-            </tr>
-          ))}
-
+                  </td>
+                  <td className="border-0 border-gray px-4 text-xs dark:border-strokedark dark:text-white">
+                    <p className="inline-flex rounded-full bg-opacity-10 px-3 py-1 text-xs font-medium text-[#1A518E]">
+                      {item?.total_revenue || '-'}
+                    </p>
+                  </td>
+                  <td className="border-0 border-gray px-4 text-xs dark:border-strokedark dark:text-white">
+                    <p className="inline-flex rounded-full bg-opacity-10 px-3 py-1 text-xs font-medium text-[#1A518E]">
+                      {item?.discounted_revenue || '-'}
+                    </p>
+                  </td>
+                  <td className="border-0 border-gray px-4 text-xs dark:border-strokedark dark:text-white">
+                    <p className="inline-flex rounded-full bg-opacity-10 px-3 py-1 text-xs font-medium text-[#1A518E]">
+                      {item?.payments_amount || 0}
+                    </p>
+                  </td>
+                  <td className="border-0 border-gray px-4 text-xs dark:border-strokedark dark:text-white">
+                    <p className="inline-flex rounded-full bg-opacity-10 px-3 py-1 text-xs font-medium text-[#1A518E]">
+                      {item?.balance}
+                    </p>
+                  </td>
+                </tr>
+              ))}
             </tbody>
-
           </table>
         </div>
       </div>
