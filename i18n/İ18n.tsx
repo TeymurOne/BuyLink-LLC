@@ -380,8 +380,8 @@ const resources = {
         '16': 'Məkan adı',
         '17': 'Satış məbləği',
         '18': 'Qalıq borc',
-        '19': 'Ümumi Q.',
-        '20': 'Endirimli Q.',
+        '19': 'Ümumi',
+        '20': 'Endirimli',
         '21': 'Ödəniş tarixi'
       },
       balanceTable: {
@@ -881,8 +881,8 @@ const resources = {
         '16': 'Place name',
         '17': 'Sales Amount',
         '18': 'Outs. debt',
-        '19': 'Total R.',
-        '20': 'Discount R.',
+        '19': 'Total',
+        '20': 'Discount',
         '21': 'Payment Date'
       },
       balanceTable: {
@@ -1357,8 +1357,8 @@ const resources = {
         '16': 'Название места',
         '17': 'Сумма продажи',
         '18': 'Oстаточный долг',
-        '19': 'Общий Д.',
-        '20': 'Д. от Cкидок',
+        '19': 'Общий',
+        '20': 'Скидкой',
         '21': 'Дата платежа'
 
       },
