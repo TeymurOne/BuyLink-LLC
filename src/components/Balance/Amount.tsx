@@ -71,7 +71,8 @@ export default function Balance() {
         <div className="layout2 order-5 col-span-2 w-full sm:col-span-1  xl:order-none">
           <div className="col-span-2 w-full sm:col-span-1">
             <CardDueTo
-              title={t('balance.19')}
+              title={t('statistic.8')}
+              title3={t('balance.19')}
               title2={t('balance.20')}
               rate={balanceData?.total_revenue}
               rate2={discount}
@@ -82,13 +83,7 @@ export default function Balance() {
                 <div className="flex h-13.5 w-13.5 items-center justify-center rounded bg-[#F4F4F4]">
                   <img src={interest_rate} alt="icon" />
                 </div>
-                <img
-                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAXklEQVR4nO3RwQmAQBAEwU344PL/KIbgr0+rYAIYeoaf2Wtdz+Z025EYRWoUqVGkRpEaRWoUqVGkRpEaRWoUqVGkRpEaRWoUqVGkRpEaRWoUqVGkRpEaRWo+U4R55wZ3udI9hIEDWQAAAABJRU5ErkJggg=="
-                  alt="vertical-line"
-                />
-                <div className="flex h-13.5 w-13.5 items-center justify-center rounded bg-[#D9E6FF]">
-                  <img src={interest_rate} alt="icon" />
-                </div>
+
               </div>
             </CardDueTo>
           </div>
