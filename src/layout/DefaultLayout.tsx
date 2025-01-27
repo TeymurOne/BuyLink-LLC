@@ -67,7 +67,7 @@ const DefaultLayout = () => {
           <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
             <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
             <main className="flex-1">
-              <div className="mx-auto max-w-screen-2xl bg-whiter p-2 dark:bg-boxdark-2 md:p-8 2xl:p-10">
+              <div className="mx-auto max-w-screen-2xl bg-whiter p-2 dark:bg-[#15192A] md:p-8 2xl:p-10">
                 <Outlet />
               </div>
             </main>

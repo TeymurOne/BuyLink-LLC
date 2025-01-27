@@ -10,7 +10,7 @@ const Header = (props: {
 }) => {
 
   return (
-    <header className="lg:drop-shadow-1 top-0 z-9999 flex w-full dark:bg-boxdark dark:drop-shadow-none lg:sticky lg:bg-white">
+    <header className="lg:drop-shadow-1 top-0 z-9999 flex w-full dark:bg-[#19212E] dark:drop-shadow-none lg:sticky lg:bg-white">
       <div className="flex flex-grow items-center justify-between px-4 py-4 md:px-6 lg:shadow-2 2xl:px-11">
         <div className="flex items-center gap-2 sm:gap-4 lg:hidden">
           <button
@@ -69,23 +69,6 @@ const Header = (props: {
           <DropdownUser />
 
 
-
-
-          {/*{partnerIds.length > 1 ? (*/}
-          {/*  <select*/}
-          {/*    value={selectedPartner || ''}*/}
-          {/*    onChange={handlePartnerChange}*/}
-          {/*    className="rounded   pr-8 py-2 text-black border-blue-500 cursor-pointer"*/}
-          {/*  >*/}
-          {/*    {userData?.map((partner) => (*/}
-          {/*      <option key={partner.id} value={partner.id}>*/}
-          {/*        {partner.title}*/}
-          {/*      </option>*/}
-          {/*    ))}*/}
-          {/*  </select>*/}
-          {/*) : (*/}
-          {/*  <div className=""></div>*/}
-          {/*)}*/}
 
         </div>
       </div>

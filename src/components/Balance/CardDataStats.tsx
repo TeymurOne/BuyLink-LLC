@@ -59,7 +59,7 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
         <div className="pl-4">{children}</div>
         <div className="flex w-full flex-col">
           <span
-            className={`flex items-center text-sm font-normal text-darkgray xl:text-base ${
+            className={`flex items-center text-sm font-normal text-darkgray dark:text-[#e3e3e3cc] xl:text-base ${
               isActive ? 'text-white' : 'dark:text-white'
             }`}
           >
