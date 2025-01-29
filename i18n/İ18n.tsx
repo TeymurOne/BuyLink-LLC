@@ -56,6 +56,7 @@ const resources = {
         '16': 'Bura yaz...',
         '17': 'Kateqoriya seçin',
         '18': 'Məhsul Detalları',
+        '20': 'Məhsulun Adı',
       },
       operator: {
         '0': 'Operator ',
@@ -378,11 +379,14 @@ const resources = {
         '14': 'Xalis borc',
         '15': 'Ödənişlərin məbləği',
         '16': 'Məkan adı',
-        '17': 'Satış məbləği',
+        '17': 'Ödəniş məbləği',
         '18': 'Qalıq borc',
         '19': 'Ümumi',
         '20': 'Endirimli',
-        '21': 'Ödəniş tarixi'
+        '21': 'Ödəniş tarixi',
+        '22': 'Ümumi Satış Məbləği',
+        '23': 'Endirimli Satış Məbləği'
+
       },
       balanceTable: {
         '0': 'Hesab məbləği',
@@ -541,6 +545,7 @@ const resources = {
         '17': 'Choose сategory',
         '18': 'Product Details',
         '19': 'Product One',
+        '20': 'Name of the product',
       },
       operator: {
         '0': 'Operator ',
@@ -879,11 +884,13 @@ const resources = {
         '14': 'Net debt',
         '15': 'Payments amount',
         '16': 'Place name',
-        '17': 'Sales Amount',
+        '17': 'Payment Amount',
         '18': 'Outs. debt',
         '19': 'Total',
         '20': 'Discount',
-        '21': 'Payment Date'
+        '21': 'Payment Date',
+        '22': 'Total Sales Amount',
+        '23': 'Discount Sales Amount'
       },
       balanceTable: {
         '0': 'Bill amount',
@@ -1029,6 +1036,7 @@ const resources = {
         '16': 'Напишите здесь...',
         '17': 'Выберите категорию',
         '18': 'Детали Продуктa',
+        '20': 'Название продукта',
       },
       operator: {
         '0': 'Оператор',
@@ -1355,12 +1363,13 @@ const resources = {
         '14': 'Чистый долг',
         '15': 'Сумма платежа',
         '16': 'Название места',
-        '17': 'Сумма продажи',
+        '17': 'Сумма платежа',
         '18': 'Oстаточный долг',
         '19': 'Общий',
         '20': 'Скидкой',
-        '21': 'Дата платежа'
-
+        '21': 'Дата платежа',
+        '22': 'Общая сумма продаж',
+        '23': 'Сумма продажи со скидкой'
       },
       balanceTable: {
         '0': 'Сумма счета',

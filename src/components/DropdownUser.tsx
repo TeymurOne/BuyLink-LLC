@@ -5,12 +5,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   logOut,
   selectCurrentImage,
-  selectCurrentUser, setCredentials
+  selectCurrentUser,
+  setCredentials
 } from '../features/auth/authSlice';
 import axiosInstance from '../core/lib/axios.config.ts';
 import getState from '../data/helpers/cookie.ts';
 
-const DropdownUser =  () => {
+const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dispatch = useDispatch();
   const user = useSelector(selectCurrentUser);
@@ -27,7 +28,6 @@ const DropdownUser =  () => {
     const fetchUserData = async () => {
       try {
         const response = await axiosInstance.get('/auth/user');
-
         const user = response.data?.data?.partners;
         setUserData(user);
         dispatch(setCredentials({ ...user }));
@@ -58,15 +58,10 @@ const DropdownUser =  () => {
     }
   }, []);
 
-  const handlePartnerChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedId = parseInt(event.target.value, 10);
-    const selectedPartner = userData?.find((partner: any) => partner.id === selectedId);
-
-    if (selectedPartner) {
-      localStorage.setItem('selectedPartnerId', selectedId.toString());
-      setSelectedPartner(selectedId);
-      window.location.reload();
-    }
+  const handlePartnerChange = (partnerId: number) => {
+    localStorage.setItem('selectedPartnerId', partnerId.toString());
+    setSelectedPartner(partnerId);
+    window.location.reload();
   };
 
   const handleLogout = () => {
@@ -78,17 +73,11 @@ const DropdownUser =  () => {
       window.location.reload();
     }, 100);
   };
-  const userImage = useSelector(selectCurrentImage);
 
   useEffect(() => {
     const clickHandler = ({ target }: MouseEvent) => {
       if (!dropdown.current) return;
-      if (
-        !dropdownOpen ||
-        dropdown.current.contains(target) ||
-        trigger.current.contains(target)
-      )
-        return;
+      if (!dropdownOpen || dropdown.current.contains(target) || trigger.current.contains(target)) return;
       setDropdownOpen(false);
     };
     document.addEventListener('click', clickHandler);
@@ -122,28 +111,20 @@ const DropdownUser =  () => {
         <span className="flex items-center gap-4">
           <span className="h-10 w-10 rounded-full">
             <img
-              src={
-                userData?.find((partner: any) => partner.id === selectedPartner)
-                  ?.image
-              }
+              src={userData?.find((partner: any) => partner.id === selectedPartner)?.image}
               className="h-full w-full rounded-[80px] object-cover"
               alt="User"
             />
           </span>
           {selectedPartner && (
             <span className="text-sm font-medium text-black dark:text-white">
-              {
-                userData?.find((partner: any) => partner.id === selectedPartner)
-                  ?.title
-              }
+              {userData?.find((partner: any) => partner.id === selectedPartner)?.title}
             </span>
           )}
         </span>
 
         <svg
-          className={`hidden fill-current sm:block ${
-            dropdownOpen ? 'rotate-180' : ''
-          }`}
+          className={`hidden fill-current sm:block ${dropdownOpen ? 'rotate-180' : ''}`}
           width="12"
           height="8"
           viewBox="0 0 12 8"
@@ -159,7 +140,7 @@ const DropdownUser =  () => {
         </svg>
       </Link>
 
-      {/* Dropdown Start */}
+
       <div
         ref={dropdown}
         className={`absolute right-0 mt-4 flex w-62.5 flex-col rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark ${
@@ -167,23 +148,21 @@ const DropdownUser =  () => {
         }`}
       >
         <ul className="flex flex-col gap-5 border-b border-stroke px-6 py-7.5 dark:border-strokedark">
-          <li>
-            {partnerIds.length > 1 ? (
-              <select
-                value={selectedPartner || ''}
-                onChange={handlePartnerChange}
-                className="w-full   cursor-pointer rounded border  border-blue-500 py-2  pl-2 text-black"
+          {partnerIds.length > 1 && (
+            <li className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base">Select Partner:</li>
+          )}
+          {partnerIds.length > 1 &&
+            userData?.map((partner: any) => (
+              <li
+                key={partner.id}
+                className={`cursor-pointer px-3 py-2 rounded ${
+                  selectedPartner === partner.id ? 'bg-blue-500 text-white' : 'hover:bg-gray-100'
+                }`}
+                onClick={() => handlePartnerChange(partner.id)}
               >
-                {userData?.map((partner) => (
-                  <option key={partner.id} value={partner.id}>
-                    {partner.title}
-                  </option>
-                ))}
-              </select>
-            ) : (
-              <div className=""></div>
-            )}
-          </li>
+                {partner.title}
+              </li>
+            ))}
           <li>
             <Link
               to="/admin/settings"
@@ -200,7 +179,6 @@ const DropdownUser =  () => {
           {t('member.15')}
         </button>
       </div>
-      {/* Dropdown End */}
     </div>
   );
 };

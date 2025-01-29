@@ -149,10 +149,10 @@ export default function Balance() {
                   {t('balance.16')}
                 </td>
                 <td className="dark:text-white5 min-w-24.5 border-b border-r border-tborder py-2 font-medium sm:pl-0 md:pl-4">
-                  {t('balance.19')}
+                  {t('balance.22')}
                 </td>
                 <td className="dark:text-white5 min-w-24.5 border-b border-r border-tborder py-2 font-medium sm:pl-0 md:pl-4">
-                  {t('balance.20')}
+                  {t('balance.23')}
                 </td>
                 <td className="dark:text-white5 min-w-24.5 border-b border-r border-tborder py-2 font-medium sm:pl-0 md:pl-4">
                   {t('balance.17')}
