@@ -15,8 +15,42 @@ const FirstPage = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [discountResponse, setDiscountResponse] = useState(null);
-  const [currentCategoryIndex, setCurrentCategoryIndex] = useState(null); // Track current category index
+  const [currentCategoryIndex, setCurrentCategoryIndex] = useState(null);
   const [currentProductIndex, setCurrentProductIndex] = useState(null);
+  const [scrollDirection, setScrollDirection] = useState(null);
+  const [lastScrollTop, setLastScrollTop] = useState(0);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      if (scrollTop > lastScrollTop) {
+        setScrollDirection('down');
+      } else {
+        setScrollDirection('up');
+      }
+      setLastScrollTop(scrollTop);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollTop]);
+
+  const filteredCatalogue = productView?.data?.catalogue
+    ?.map((catalogue) => ({
+      ...catalogue,
+      products: catalogue.products.filter((product) =>
+        product.title.toLowerCase().includes(searchQuery.toLowerCase())
+      ),
+    }))
+    .filter(
+      (catalogue) =>
+        catalogue.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        catalogue.products.length > 0
+    );
+
 
   useEffect(() => {
     const fetchProductView = async () => {
@@ -93,13 +127,14 @@ const FirstPage = () => {
     setIsVisible(true);
   };
 
+
   const navigateProduct = (direction) => {
     if (currentCategoryIndex === null || currentProductIndex === null) return;
 
     const currentCategory = productView?.data?.catalogue[currentCategoryIndex];
     const newIndex = currentProductIndex + direction;
 
-    // Check if the new index is within bounds
+
     if (newIndex >= 0 && newIndex < currentCategory?.products?.length) {
       const nextProduct = currentCategory?.products[newIndex];
       setSelectedProduct(nextProduct);
@@ -117,10 +152,10 @@ const FirstPage = () => {
   };
 
   return (
-    <div className="min-h-screen overflow-hidden bg-[#F2F3F5] p-4 pb-24 font-poppins">
+    <div className="min-h-screen overflow-hidden bg-white p-4 pb-24 font-poppins">
       {isVisible && (
         <div
-          className="fixed inset-0 z-40 bg-[#8080808c] bg-opacity-50 transition-opacity"
+          className={`fixed inset-0 ${scrollDirection === 'down' ? 'h-0 opacity-0' : 'h-auto opacity-100'} z-40 bg-[#8080808c] bg-opacity-50 transition-opacity`}
           onClick={closeBottomSheet}
         />
       )}
@@ -155,13 +190,13 @@ const FirstPage = () => {
                     background: 'none',
                   }}
                 >
-                  <option value="az" className="bg-[#F2F3F5] focus:bg-blue-500">
+                  <option value="az" className="bg-[#F2F3F5] text-xs focus:bg-blue-500">
                     AZ
                   </option>
-                  <option value="en" className="bg-[#F2F3F5]">
+                  <option value="en" className=" text-xs bg-[#F2F3F5]">
                     EN
                   </option>
-                  <option value="ru" className="bg-[#F2F3F5]">
+                  <option value="ru" className="text-xs bg-[#F2F3F5]">
                     RU
                   </option>
                 </select>
@@ -170,39 +205,85 @@ const FirstPage = () => {
           </div>
         </div>
       </div>
+      <div
+        className={`fixed -top-1 left-0 right-0 z-50 bg-white p-3  transition-transform duration-300 ${scrollDirection === 'down' ? 'translate-y-0' : '-translate-y-full'}`}
+      >
+        <div className="flex items-center gap-2 rounded-lg bg-white">
+          <input
+            type="text"
+            placeholder={productView?.data?.title}
+            className="flex-1 rounded-lg border-none bg-[#F6F6F6] text-sm focus:outline-none "
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        </div>
+        <div className="mt-2 flex gap-2 overflow-x-auto">
+          {productView?.data?.catalogue?.map((catalogue, index) => (
+            <button
+              key={index}
+              className={`whitespace-nowrap rounded-2xl px-4 py-1 text-sm ${selectedCategory === catalogue.name ? 'bg-blue-500 text-white' : 'bg-[#ECEEFF]'}`}
+              onClick={() =>
+                navigate(`/category/${encodeURIComponent(catalogue.name)}`, {
+                  state: { products: catalogue.products },
+                })
+              }
+            >
+              {catalogue.name || t('webview.3')}
+            </button>
+          ))}
+        </div>
+      </div>
 
-      <p className="text-gray-600 mb-4 text-sm leading-6">
+      <p className="text-gray-600 mb-4 text-[13px] leading-6">
         {productView?.data?.description}
       </p>
 
-      {productView?.data?.catalogue?.map((catalogue, index) => (
-        <div key={index} className="mb-6">
-          <h3 className="mb-3 text-[21px] font-medium leading-7">
-            {catalogue.name || t('webview.3')}
-          </h3>
-          <Swiper
-            spaceBetween={10}
-            slidesPerView="auto"
-            className="overflow-visible"
-          >
-            {catalogue.products?.map((product, productIndex) => (
-              <SwiperSlide
-                key={product.id}
-                className="bg-swiper-qr !w-[132px]"
-                onClick={() => openBottomSheet(product, productIndex, index)} // Pass product and category indices
-              >
-                <ProductCard
-                  title={product.title || t('webview.4')}
-                  price={`${product.price || 0} AZN`}
-                  image={product.image || 'default-image-url'}
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      ))}
+      {filteredCatalogue?.map(
+        (catalogue, catalogueIndex) =>
+          (!selectedCategory || selectedCategory === catalogue.name) && (
+            <div key={catalogueIndex} className="mb-6">
 
-      <div className="fixed bottom-0 left-0 right-0 z-50 flex text-[13px] gap-2 bg-[#F2F3F5] p-4 shadow-lg">
+              <div className="mb-3 flex items-center justify-between">
+                <h3 className="text-[21px] font-medium">
+                  {catalogue.name || t('webview.3')}
+                </h3>
+                <button
+                  className="text-sm text-blue-500 underline"
+                  onClick={() =>
+                    navigate(
+                      `/category/${encodeURIComponent(catalogue.name)}`,
+                      {
+                        state: { products: catalogue.products },
+                      },
+                    )
+                  }
+                >
+                  {t('webview.17')}
+                </button>
+              </div>
+              <Swiper
+                spaceBetween={10}
+                slidesPerView="auto"
+                className="overflow-visible"
+              >
+                {catalogue.products?.map((product, productIndex) => (
+                  <SwiperSlide key={product.id} className="!w-[132px]">
+                    <ProductCard
+                      title={product.title}
+                      price={`${product.price} AZN`}
+                      image={product.image}
+                      onClick={() =>
+                        openBottomSheet(product, productIndex, catalogueIndex)
+                      } // Fix: Pass catalogueIndex
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          ),
+      )}
+
+      <div className="fixed bottom-0 left-0 right-0 z-50 flex gap-2 bg-white p-4 text-[13px] shadow-lg">
         <a
           href="https://app.buylink.info/"
           target="_blank"
@@ -212,15 +293,17 @@ const FirstPage = () => {
           {t('webview.5')},{t('webview.15')} {productView?.data?.commission}%{' '}
           {t('webview.16')}
         </a>
-        {productView?.data?.title !== 'Crazzy Simbioz' && (
-          <button
-            onClick={handleDiscountClick}
-            className="flex-1 rounded-lg bg-[#4C5DF5] py-3.5 font-medium text-white"
-          >
-            {t('webview.8')} {productView?.data?.user_discount}%{' '}
-            {t('webview.6')}
-          </button>
-        )}
+        {productView?.data?.title !== 'Crazzy Simbioz' &&
+          productView?.data?.title !== 'Frango Baku' &&
+          productView?.data?.title !== 'Megapolis Baku' && (
+            <button
+              onClick={handleDiscountClick}
+              className="flex-1 rounded-lg bg-[#4C5DF5] py-3.5 font-medium text-white"
+            >
+              {t('webview.8')} {productView?.data?.user_discount}%{' '}
+              {t('webview.6')}
+            </button>
+          )}
       </div>
 
       {selectedProduct && (
@@ -248,7 +331,6 @@ const FirstPage = () => {
             </button>
           </div>
           <div className="relative flex items-center">
-            {/* Previous Button */}
             <button
               disabled={currentProductIndex === 0}
               onClick={() => navigateProduct(-1)}
@@ -272,7 +354,6 @@ const FirstPage = () => {
               </svg>
             </button>
 
-            {/* Product Content */}
             <div className="flex-1 px-4">
               <img
                 src={selectedProduct.image}
@@ -288,7 +369,6 @@ const FirstPage = () => {
               </p>
             </div>
 
-            {/* Next Button */}
             <button
               disabled={
                 currentProductIndex ===

@@ -56,6 +56,8 @@ const resources = {
         '16': 'Bura yaz...',
         '17': 'Kateqoriya seçin',
         '18': 'Məhsul Detalları',
+        '20': 'Məhsulun Adı',
+        '21': 'Məhsul axtarın...'
       },
       operator: {
         '0': 'Operator ',
@@ -378,11 +380,14 @@ const resources = {
         '14': 'Xalis borc',
         '15': 'Ödənişlərin məbləği',
         '16': 'Məkan adı',
-        '17': 'Satış məbləği',
+        '17': 'Ödəniş məbləği',
         '18': 'Qalıq borc',
         '19': 'Ümumi',
         '20': 'Endirimli',
-        '21': 'Ödəniş tarixi'
+        '21': 'Ödəniş tarixi',
+        '22': 'Ümumi Satış Məbləği',
+        '23': 'Endirimli Satış Məbləği'
+
       },
       balanceTable: {
         '0': 'Hesab məbləği',
@@ -466,6 +471,7 @@ const resources = {
         '14': 'QR-ni gizlədin',
         '15': '',
         '16': 'qazan',
+        '17': 'Hamısına Bax'
       },
       pagination: {
         showing: 'Göstərilən {{page}} nəticə {{totalPages}} nəticədən',
@@ -541,6 +547,8 @@ const resources = {
         '17': 'Choose сategory',
         '18': 'Product Details',
         '19': 'Product One',
+        '20': 'Name of the product',
+        '21': 'Search Product...'
       },
       operator: {
         '0': 'Operator ',
@@ -879,11 +887,13 @@ const resources = {
         '14': 'Net debt',
         '15': 'Payments amount',
         '16': 'Place name',
-        '17': 'Sales Amount',
+        '17': 'Payment Amount',
         '18': 'Outs. debt',
         '19': 'Total',
         '20': 'Discount',
-        '21': 'Payment Date'
+        '21': 'Payment Date',
+        '22': 'Total Sales Amount',
+        '23': 'Discount Sales Amount'
       },
       balanceTable: {
         '0': 'Bill amount',
@@ -968,6 +978,7 @@ const resources = {
         '14': 'Hide QR',
         '15': 'earn',
         '16': '',
+        '17': 'See All'
       },
       pagination: {
         showing: 'Showing {{page}} of {{totalResults}} results',
@@ -1029,6 +1040,8 @@ const resources = {
         '16': 'Напишите здесь...',
         '17': 'Выберите категорию',
         '18': 'Детали Продуктa',
+        '20': 'Название продукта',
+        '21': 'Поиск продукта'
       },
       operator: {
         '0': 'Оператор',
@@ -1355,12 +1368,13 @@ const resources = {
         '14': 'Чистый долг',
         '15': 'Сумма платежа',
         '16': 'Название места',
-        '17': 'Сумма продажи',
+        '17': 'Сумма платежа',
         '18': 'Oстаточный долг',
         '19': 'Общий',
         '20': 'Скидкой',
-        '21': 'Дата платежа'
-
+        '21': 'Дата платежа',
+        '22': 'Общая сумма продаж',
+        '23': 'Сумма продажи со скидкой'
       },
       balanceTable: {
         '0': 'Сумма счета',
@@ -1444,6 +1458,7 @@ const resources = {
         '14': 'Скрыть QR-код',
         '15': 'получите',
         '16': '',
+        '17': 'Посмотреть все'
       },
       pagination: {
         showing: 'Показано  {{page}}  из {{totalResults}} результатов',

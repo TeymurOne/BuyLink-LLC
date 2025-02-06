@@ -201,7 +201,7 @@ const Form = () => {
                         attemptedSubmit && !name[lang],
                       )} border-1 block w-full rounded-lg border-0 bg-white px-2 py-1.5 text-base shadow-md`}
                       value={name[lang]}
-                      placeholder="Shane Academy"
+                      placeholder={t('product.20')}
                       onChange={(e) => handleTitle(e, lang)}
                     ></input>
                     {attemptedSubmit && !name[lang] && (
