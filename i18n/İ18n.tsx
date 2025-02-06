@@ -57,6 +57,7 @@ const resources = {
         '17': 'Kateqoriya seçin',
         '18': 'Məhsul Detalları',
         '20': 'Məhsulun Adı',
+        '21': 'Məhsul axtarın...'
       },
       operator: {
         '0': 'Operator ',
@@ -470,6 +471,7 @@ const resources = {
         '14': 'QR-ni gizlədin',
         '15': '',
         '16': 'qazan',
+        '17': 'Hamısına Bax'
       },
       pagination: {
         showing: 'Göstərilən {{page}} nəticə {{totalPages}} nəticədən',
@@ -546,6 +548,7 @@ const resources = {
         '18': 'Product Details',
         '19': 'Product One',
         '20': 'Name of the product',
+        '21': 'Search Product...'
       },
       operator: {
         '0': 'Operator ',
@@ -975,6 +978,7 @@ const resources = {
         '14': 'Hide QR',
         '15': 'earn',
         '16': '',
+        '17': 'See All'
       },
       pagination: {
         showing: 'Showing {{page}} of {{totalResults}} results',
@@ -1037,6 +1041,7 @@ const resources = {
         '17': 'Выберите категорию',
         '18': 'Детали Продуктa',
         '20': 'Название продукта',
+        '21': 'Поиск продукта'
       },
       operator: {
         '0': 'Оператор',
@@ -1453,6 +1458,7 @@ const resources = {
         '14': 'Скрыть QR-код',
         '15': 'получите',
         '16': '',
+        '17': 'Посмотреть все'
       },
       pagination: {
         showing: 'Показано  {{page}}  из {{totalResults}} результатов',
