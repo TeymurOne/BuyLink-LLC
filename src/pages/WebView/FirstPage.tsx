@@ -288,9 +288,9 @@ const FirstPage = () => {
           href="https://app.buylink.info/"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 rounded-xl border border-[#4C5DF5] py-3.5 text-center font-medium text-[#0820FD]"
+          className="flex-1 rounded-xl border-2 border-[#4C5DF5] py-3.5 text-center font-medium text-[#0820FD]"
         >
-          {t('webview.5')},{t('webview.15')} {productView?.data?.commission}%{' '}
+          {t('webview.5')},{t('webview.15')} {productView?.data?.referrer_commission}%{' '}
           {t('webview.16')}
         </a>
         {productView?.data?.title !== 'Crazzy Simbioz' &&
