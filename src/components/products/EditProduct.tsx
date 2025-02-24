@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import {
   useFetchProducttypeQuery,
@@ -24,7 +24,6 @@ import Input from '../../common/Form/Input';
 import Select from '../../common/Form/Select';
 import CancelSaveButton from '../../data/helpers/Button';
 import { toast } from 'react-toastify';
-import defaultImg from '../../images/action-icon/default-featured-image.png.jpg';
 
 type Data = {
   id: number;
@@ -35,6 +34,7 @@ const EditProduct = () => {
   const { id } = useParams();
   const idUrl = id;
   const [showimg, setShowimg] = useState('');
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const dispatch = useDispatch();
   const language = ['az', 'en', 'ru'];
   const [editProduct] = useLazyEditProductQuery();
@@ -53,6 +53,15 @@ const EditProduct = () => {
     dispatch(setName({ language, value }));
   };
 
+
+  const handleRemoveImage = () => {
+    dispatch(setimgUrl(''));
+    setShowimg('');
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
+  };
+
   const handleDesc = (
     e: React.ChangeEvent<HTMLTextAreaElement>,
     language: string,
@@ -62,17 +71,11 @@ const EditProduct = () => {
   };
 
   const handleImg = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file: File | any = e.target.files[0];
+    const file: File | any = e.target.files?.[0];
     if (file) {
       dispatch(setimgUrl(file));
       setShowimg(URL.createObjectURL(file));
     }
-  };
-
-  // New function to remove the selected image
-  const removeImg = () => {
-    dispatch(setimgUrl(''));
-    setShowimg('');
   };
 
   async function handleEdit(id: any) {
@@ -105,28 +108,17 @@ const EditProduct = () => {
       return;
     }
 
-    if (!name) {
-      if (!toast.isActive(toastId)) {
-        toast.error(t('toast.10'), { toastId });
+    for (const lang of language) {
+      if (!name[lang]) {
+        if (!toast.isActive(toastId)) {
+          toast.error(t('toast.10'), { toastId });
+        }
+        return;
       }
-      return;
     }
 
     const postData = new FormData();
-
-    // If the user removed the image, imgurl will be empty.
-    if (!imgurl) {
-      // Fetch the default image, convert to a blob, then create a File.
-      const response = await fetch(defaultImg);
-      const blob = await response.blob();
-      const defaultFile = new File([blob], 'defaultimg.png', { type: blob.type });
-      postData.append('image', defaultFile);
-    } else if (imgurl instanceof File) {
-      postData.append('image', imgurl);
-    } else {
-      postData.append('image', imgurl);
-    }
-
+    postData.append('image', imgurl || '');
     postData.append('category_id', categoryId?.toString() || '');
     postData.append('price', price?.toString() || '');
     postData.append('discount_price', discount?.toString() || '');
@@ -141,19 +133,20 @@ const EditProduct = () => {
     });
 
     try {
-      await dataEdit({ postData, idUrl });
-      if (!toast.isActive(successToastId)) {
-        toast.success(t('toast.5'), { toastId: successToastId });
+      if (postData) {
+        await dataEdit({ postData, idUrl });
+        if (!toast.isActive(successToastId)) {
+          toast.success(t('toast.5'), { toastId: successToastId });
+        }
+        navigate('/admin/product/all');
+        dispatch(setReset());
       }
-      navigate('/admin/product/all');
-      dispatch(setReset());
     } catch (error) {
       if (!toast.isActive(toastId)) {
         toast.error(t('toast.6'), { toastId });
       }
     }
   };
-
 
   useEffect(() => {
     if (id) handleEdit(id);
@@ -181,6 +174,7 @@ const EditProduct = () => {
       ) : (
         <form className="h-auto">
           <TitleArrow>
+            {' '}
             {t('product.0')} {t('product.11')}
           </TitleArrow>
 
@@ -191,25 +185,28 @@ const EditProduct = () => {
             >
               Photo
             </label>
+
             <div className="flex flex-wrap items-center gap-x-3 py-2">
-              {/* Wrap the image in a relative container */}
               <div className="relative inline-block">
-                <img
-                  className="mb-4 h-30 w-26 rounded-2xl object-cover py-4"
-                  src={showimg || imgurl || defaultImg}
-                  alt="Edit Product Image"
-                />
                 {(showimg || imgurl) && (
-                  <button
-                    type="button"
-                    onClick={removeImg}
-                    className="absolute top-1 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs"
-                  >
-                    &times;
-                  </button>
+                  <>
+                    <img
+                      className="mb-4 h-30 w-26 rounded-2xl object-cover py-4"
+                      src={showimg || imgurl || ''}
+                      alt="Edit Product Image"
+                    />
+                    <button
+                      type="button"
+                      onClick={handleRemoveImage}
+                      className="absolute top-0 right-0 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center"
+                    >
+                      X
+                    </button>
+                  </>
                 )}
               </div>
               <input
+                ref={fileInputRef}
                 id="file-upload"
                 name="file-upload"
                 type="file"

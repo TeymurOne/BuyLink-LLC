@@ -83,6 +83,11 @@ const FirstPage = () => {
     }
   }, [id, i18n.language]);
 
+  const isSpecialTitle =
+    productView?.data?.title === 'Crazzy Simbioz' ||
+    productView?.data?.title === 'Frango Baku' ||
+    productView?.data?.title === 'Megapolis Baku';
+
   const handleDiscountClick = async () => {
     try {
       const response = await fetch(
@@ -288,7 +293,11 @@ const FirstPage = () => {
           href="https://app.buylink.info/"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 rounded-xl border-2 border-[#4C5DF5] py-3.5 text-center font-medium text-[#0820FD]"
+          className={
+            isSpecialTitle
+              ? "flex-1 rounded-lg bg-[#4C5DF5] py-3.5 font-medium text-center text-white"
+              : "flex-1 rounded-xl border-2 border-[#4C5DF5] py-3.5  font-medium text-[#0820FD]"
+          }
         >
           {t('webview.5')},{t('webview.15')} {productView?.data?.referrer_commission}%{' '}
           {t('webview.16')}
