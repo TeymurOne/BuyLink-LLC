@@ -8,6 +8,7 @@ import {
 } from '../../data/helpers/SweatAlert';
 import { Delete, Details, Edit } from '../../data/helpers/Svg';
 import ActionLink from '../ui/ActionLink';
+import defaultImg from '../../images/action-icon/default-featured-image.png.jpg';
 
 interface IproductResponse {
   id: number;
@@ -50,7 +51,7 @@ const Tbody: React.FC<itemAllData> = ({ item }) => {
       <TR>
         <TD>
           <div className="h-10 w-10.5 font-medium  dark:text-white">
-            <img src={image} className="h-full w-full rounded-full" alt="" />
+            <img    src={image || defaultImg} className="h-full w-full rounded-full" alt="" />
           </div>
         </TD>
 
