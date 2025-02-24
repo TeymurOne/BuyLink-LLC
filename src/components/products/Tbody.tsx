@@ -51,7 +51,7 @@ const Tbody: React.FC<itemAllData> = ({ item }) => {
       <TR>
         <TD>
           <div className="h-10 w-10.5 font-medium  dark:text-white">
-            <img    src={image || defaultImg} className="h-full w-full rounded-full" alt="" />
+            <img    src={image || ''} className="h-full w-full rounded-full" alt="" />
           </div>
         </TD>
 
