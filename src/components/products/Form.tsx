@@ -111,7 +111,7 @@ const Form = () => {
     e.preventDefault();
     setAttemptedSubmit(true);
 
-    if (!categoryId || !price || !images || !name[active]) {
+    if (!categoryId || !price  || !name[active]) {
       toast.dismiss();
       toast.error(t('toast.3'), { toastId: 'form-error' });
       return;
@@ -158,12 +158,12 @@ const Form = () => {
       <form className="h-auto" onSubmit={onSubmit}>
         <TitleArrow> {t('product.1')}</TitleArrow>
         <div className="flex items-center ">
-          <InputImg required showimg={showimg} onChange={handleImg} />
-          {attemptedSubmit && !images && (
-            <span className="-ml-32 mb-8 text-xs text-errorMessage md:-ml-40">
-              * {t('operator.14')}
-            </span>
-          )}
+          <InputImg  showimg={showimg} onChange={handleImg} />
+          {/*{attemptedSubmit && !images && (*/}
+          {/*  <span className="-ml-32 mb-8 text-xs text-errorMessage md:-ml-40">*/}
+          {/*    * {t('operator.14')}*/}
+          {/*  </span>*/}
+          {/*)}*/}
         </div>
         <select
           onChange={(e: any) => dispatch(setActive(e.target.value))}
