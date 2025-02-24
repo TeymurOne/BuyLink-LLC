@@ -296,7 +296,7 @@ const FirstPage = () => {
           className={
             isSpecialTitle
               ? "flex-1 rounded-lg bg-[#4C5DF5] py-3.5 font-medium text-center text-white"
-              : "flex-1 rounded-xl border-2 border-[#4C5DF5] py-3.5  font-medium text-[#0820FD]"
+              : "flex-1 rounded-xl border-2 border-[#4C5DF5] py-3.5  text-center font-medium text-[#0820FD]"
           }
         >
           {t('webview.5')},{t('webview.15')} {productView?.data?.referrer_commission}%{' '}
