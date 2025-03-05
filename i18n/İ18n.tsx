@@ -471,7 +471,7 @@ const resources = {
         '14': 'QR-ni gizlədin',
         '15': '',
         '16': 'qazan',
-        '17': 'Hamısına Bax'
+        '17': 'Hamısı'
       },
       pagination: {
         showing: 'Göstərilən {{page}} nəticə {{totalPages}} nəticədən',
@@ -1458,7 +1458,7 @@ const resources = {
         '14': 'Скрыть QR-код',
         '15': 'получите',
         '16': '',
-        '17': 'Посмотреть все'
+        '17': 'Bсе'
       },
       pagination: {
         showing: 'Показано  {{page}}  из {{totalResults}} результатов',
