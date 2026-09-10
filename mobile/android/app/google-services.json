@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "176364684282",
+    "project_id": "buylinkflutter",
+    "storage_bucket": "buylinkflutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:176364684282:android:ed5749de44404f72be5a43",
+        "android_client_info": {
+          "package_name": "com.buylink_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWBQWyrUUQ8jXMR4DRaNcMEmetuqUL9LE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
