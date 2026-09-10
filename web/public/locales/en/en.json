@@ -1,0 +1,176 @@
+{
+  "translation":{
+    "member": {
+      "0": "Members",
+      "1": "Create Member",
+      "2": "Image",
+      "3": "Membertype",
+      "4": "Full Name",
+      "5": "Position ",
+      "6": "Actions ",
+      "7": "Change ",
+      "8": "Cancal ",
+      "9": "Save ",
+      "10": "Update"
+    },
+    "branch": {
+      "0": "Branch ",
+      "1": "Create Branch",
+      "2": "Name",
+      "3": "Lat",
+      "4": "Lng",
+      "5": "ADDRESS ",
+      "6": "Actions ",
+      "7": "Change ",
+      "8": "Cancal ",
+      "9": "Save ",
+      "10": "Update"
+    },
+    "product": {
+      "0": "Products ",
+      "1": "Create Products",
+      "2": "Image",
+      "3": "Title",
+      "4": "Description",
+      "5": "Price ",
+      "6": "Discount Price ",
+      "7": "Category ",
+      "8": "Actions ",
+      "9": "Cancel ",
+      "10": "Save",
+      "11": "Update"
+    },
+    "operator": {
+      "0": "Operator ",
+      "1": "Create Operator",
+      "2": "Branch",
+      "3": "Name",
+      "4": "Email",
+  
+      "5": "Actions ",
+      "6": "Cancel ",
+      "7": "Save",
+      "8": "Update"
+    },
+    "partnerinfo": {
+      "0": "Parner Info ",
+      "1": "Logo",
+      "3": "Cover Photo",
+      "4": "Title",
+  
+      "5": "About ",
+      "6": "Address ",
+      "7": "Description",
+      "8": "Email",
+      "9": "Phone ",
+      "10": "Facebook ",
+      "11": "Whatsapp",
+      "12": "Twitter",
+      "13": "Linkedln ",
+      "14": "YouTube ",
+      "15": "Instagram",
+      "16": "Cancel",
+      "17": "Save"
+  
+    },
+    "index-header": {
+      "0": "About",
+      "2": "How to use",
+      "3": "FAQ",
+      "4": "Contact us",
+      "5": "Login",
+      "6": "Become a partner"
+    },
+    "index-main": {
+      "0": "BuyLink  ",
+      "1": "is the world first digital referral network.",
+      "2": "Our mission is to connect people in one referral social network where they are able to get actual benefits from recommendations.",
+      "3": "Explainer Video",
+      "4": "The video shows in basic how the applications works . We cover different industries in one platform",
+      "5": "Try it now"
+    },
+    "index-wallet": {
+      "0": "BuyLink Wallet - serves as a savings for your  ",
+      "1": " bonuses and rewards.",
+      "2": "a savings for your",
+      "3": "This is the easisest way to manege your payme",
+      "4": "Cash withdrawals",
+      "5": "Saving of rewerads",
+      "6": "Payment via wallet at our partner",
+      "7": "New feature is in progress!"
+    },
+    "index-partnyor": {
+      "0": "Explore new",
+      "1": "users and ",
+      "2": "partners",
+      "3": "End-to-end payments and financial management in a single solution. Meet the right platform to help realize.",
+      "4": "Explore Our partners",
+      "5": "Meet our list of partnes at our homepage",
+      "6": "Add People to your Network",
+      "7": "Use search to find your friends and new users. Add them, and start to recommend each other",
+      "8": "Explore different categories",
+      "9": "Here you can find different industries,choose any that you areasasa interested in "
+    },
+    "index-partnyor2":{
+      "0":" in 3 steps",
+      "1":"Get cash ",
+      "2":"End-to-end payments and financial management in a single solution. Meet the right platform to help realize.",
+      "3":  "Enter to partner page",
+      "4":"Explore menu / catalogue of partner. With list of products of services, prices, discounts, and referral cashbacks",
+      "5":"Share referral link to your network",
+      "6":"In partner page you can recommend this business to your network via chat on share on post",
+      "7":"Go to wallet and check you balance",
+      "8":"After your network use your referral link , you again rewards , and can check your balance in wallet page"
+    },
+    "index-partnyor3":{
+      "0":"discount?",
+      "1":"How to get",
+      "2":"End-to-end payments and financial management in a single solution. Meet the right platform to help realize.",
+      "3":"See you network recommendations in referral page",
+      "4":"See all posts that you network share, and chooseone that interests you",
+      "5":"Add referral link to Qr Basket",
+      "6":"Here you can see all rederral links from different users for different partners",
+      "7":"Show qr code and get discount",
+      "8":"When you show you Qr code you get discount for you purchases "
+    },
+    "partner":{
+      "0":"Become a partner",
+      "1":"Risus habitant leo egestas mauris diam eget morbi tempus vulputate.",
+      "2":"Join now"
+    },
+    "letters":{
+      "0":"newsletter",
+      "1":"Join our",
+      "2":"Will send you weekly updates for your better finance management.",
+      "3":"Join  now"
+    },
+    "accordion":{
+      "0":"Frequently Asked Questions",
+      "1":"What is the BUYLINK?",
+      "2":"Lorem ipsum dolor sit amet, consectetur adipiscing elm, quis nostrud exercitation ullamco laboris nisi",
+      "3":"BWhy do we use it??",
+      "4":"How it works??",
+      "5":"How to get cash??"
+    },
+    "footer":{
+      "0":"Finance helps companies manage payments easily.",
+      "1":"Company",
+      "2":"About Us",
+      "3":"Careers",
+      "4":"Bloq",
+      "5":"Product",
+      "6":"Invoicing",
+      "7":"Contract",
+      "8":"Accounting",
+      "9":"Resources",
+      "10":"Proposal Template",
+      "11":"Invoice Template",
+      "12":"Tuturoial",
+      "13":"2023 All Rights Reserved"
+    }
+  
+
+  }
+ 
+}
+

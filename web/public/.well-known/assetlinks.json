@@ -1,0 +1,12 @@
+[
+    {
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.buylink_flutter",
+        "sha256_cert_fingerprints":
+          ["FF:A6:2D:A8:36:0D:FC:DB:A6:0A:C8:85:8B:7D:8F:47:FD:9E:54:70:B9:31:32:76:CF:AC:8A:B0:1D:D2:2E:1A”, "7A:7F:0E:6C:EF:ED:78:C6:15:4F:C5:86:F5:4F:C5:58:D2:FF:63:A4:DC:05:41:5E:9A:1C:1B:61:E8:66:02:75"
+  ]
+      }
+    }
+  ]

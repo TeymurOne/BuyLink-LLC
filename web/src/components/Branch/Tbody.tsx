@@ -1,0 +1,60 @@
+import { useRemovebranchMutation } from '../../features/branch/apiSlice';
+
+import { TD, TR } from '../../common/Table/Table';
+import {
+  showConfirmation,
+  showDeletedMessage,
+  showError,
+} from '../../data/helpers/SweatAlert';
+import ActionLink from '../ui/ActionLink';
+import { Delete, Details, Edit } from '../../data/helpers/Svg';
+
+const Tbody: React.FC<any> = ({ item }) => {
+  const [deletePost] = useRemovebranchMutation();
+
+  const handleRemove = async (id: number) => {
+    const confirmed = await showConfirmation();
+
+    if (confirmed) {
+      try {
+        await deletePost(id);
+
+        showDeletedMessage();
+      } catch (error) {
+        showError();
+      }
+    }
+  };
+
+  return (
+    <>
+      <TR>
+        <TD>{item.name}</TD>
+        <TD>{item.address}</TD>
+        <TD>{item.phone}</TD>
+
+        <TD>
+          <div className="flex items-center ">
+            <ActionLink
+              bg=""
+              icon={Details()}
+              to={`/admin/branch/details/${item.id}`}
+            />
+            <ActionLink
+              bg=""
+              icon={Delete()}
+              onClick={() => handleRemove(item?.id)}
+            />
+            <ActionLink
+              bg=""
+              icon={Edit()}
+              to={`/admin/branch/edit/${item.id}`}
+            />
+          </div>
+        </TD>
+      </TR>
+    </>
+  );
+};
+
+export default Tbody;

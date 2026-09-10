@@ -1,0 +1,22 @@
+services:
+  front:
+    container_name: front
+    build:
+      context: .docker/develop/node
+    volumes:
+      - ./:/app
+    tty: true
+    hostname: front
+    ports:
+      - "3000:3000"
+    networks:
+      - front
+      - gateway
+
+networks:
+  front:
+    name: front
+
+  gateway:
+    name: gateway
+    external: true

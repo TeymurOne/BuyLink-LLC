@@ -1,0 +1,19 @@
+services:
+  front:
+    container_name: front
+    build:
+      context: ./
+      dockerfile: .docker/production/node/Dockerfile
+    tty: true
+    hostname: front
+    networks:
+      - front
+      - gateway
+
+networks:
+  front:
+    name: front
+
+  gateway:
+    name: gateway
+    external: true
